@@ -187,8 +187,7 @@ body {
 
 /* Contenedor del menú flotante - ESTO ES LO QUE LO OCULTA INICIALMENTE */
 .dropdown-content {
-    display: none; 
-    position: absolute;
+    **display: none;** position: absolute;
     background-color: var(--color-blanco);
     min-width: 200px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -215,7 +214,7 @@ body {
 
 /* Mostrar el menú flotante SOLO al pasar el cursor sobre el li (elemento padre) */
 .dropdown:hover .dropdown-content {
-    display: block;
+    **display: block;**
 }
 
 
