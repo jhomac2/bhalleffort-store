@@ -1,0 +1,197 @@
+/* VARIABLES DE MARCA - CAMBIAR COLORES AQUÍ */
+:root {
+    --color-primario: #6A0DAD; /* Morado BHALLEFFORT */
+    --color-secundario: #4B0082; /* Morado Oscuro para TopBar */
+    --color-acento: #00BFFF; /* Azul Cian (Ballenita) */
+    --color-texto: #333;
+    --color-blanco: #fff;
+    --color-amarillo-aviso: #FFD700; /* Para detalles pequeños */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* BARRA SUPERIOR VERDE (AHORA MORADO OSCURO) */
+.top-bar {
+    background-color: var(--color-secundario);
+    color: var(--color-blanco);
+    padding: 10px 0;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.flex-space {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.socials a {
+    color: white;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+/* HEADER PRINCIPAL (AMARILLO -> AHORA MORADO CLARO O BLANCO) */
+.main-header {
+    background-color: var(--color-blanco); /* Fondo limpio */
+    padding: 20px 0;
+    border-bottom: 4px solid var(--color-primario);
+}
+
+.flex-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* LOGO */
+.logo-section {
+    display: flex;
+    align-items: center;
+    color: var(--color-primario);
+}
+
+.whale-icon {
+    width: 60px; /* Ajusta según tu imagen */
+    margin-right: 10px;
+}
+
+.brand-text h1 {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.brand-text p {
+    font-size: 10px;
+    color: var(--color-acento); /* Azul ballena */
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* BUSCADOR */
+.search-bar {
+    display: flex;
+    flex: 1;
+    margin: 0 40px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid var(--color-primario);
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    background-color: var(--color-secundario);
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* ACCIONES USUARIO */
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.whatsapp-btn {
+    display: flex;
+    align-items: center;
+    color: #25D366; /* Verde Whatsapp original */
+}
+
+.whatsapp-btn i {
+    font-size: 28px;
+    margin-right: 5px;
+}
+
+.whatsapp-btn div {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    color: var(--color-texto);
+}
+
+.cart {
+    position: relative;
+    font-size: 24px;
+    color: var(--color-primario);
+}
+
+.badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 10px;
+}
+
+/* MENÚ DE NAVEGACIÓN */
+.main-nav {
+    background-color: var(--color-blanco);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Centrado como en la imagen */
+}
+
+.main-nav ul li {
+    position: relative;
+}
+
+.main-nav ul li a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: var(--color-texto);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.main-nav ul li a:hover, .main-nav ul li a.active {
+    color: var(--color-primario);
+    border-bottom: 3px solid var(--color-primario);
+}
+
+/* BANNER EJEMPLO */
+.hero-banner {
+    background-color: var(--color-primario); /* Fondo Morado BHALLEFFORT */
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    background-image: linear-gradient(45deg, #6A0DAD, #9370DB);
+}
