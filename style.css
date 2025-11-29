@@ -183,6 +183,43 @@ body {
     border-bottom: 3px solid var(--color-primario);
 }
 
+/* ESTILOS DEL DESPLEGABLE (DROPDOWN) */
+
+/* Contenedor del menú flotante */
+.dropdown-content {
+    /* Estado inicial: OCULTO */
+    display: none; 
+    position: absolute;
+    background-color: var(--color-blanco);
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1; /* Asegura que esté encima de otros elementos */
+    padding: 10px 0;
+    border-top: 3px solid var(--color-primario);
+}
+
+.dropdown-content a {
+    color: var(--color-texto) !important; /* !important para asegurar que el color sea el correcto */
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    text-transform: none;
+    border-bottom: none !important; /* Elimina la línea de borde de abajo */
+    font-weight: normal;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color: var(--color-secundario) !important;
+}
+
+/* Mostrar el menú flotante al pasar el cursor sobre el li (elemento padre) */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
 /* BANNER EJEMPLO */
 .hero-banner {
     background-color: var(--color-primario); /* Fondo Morado BHALLEFFORT */
