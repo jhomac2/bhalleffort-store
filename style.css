@@ -25,7 +25,7 @@ body {
     margin: 0 auto;
 }
 
-/* BARRA SUPERIOR VERDE (AHORA MORADO OSCURO) */
+/* BARRA SUPERIOR */
 .top-bar {
     background-color: var(--color-secundario);
     color: var(--color-blanco);
@@ -46,9 +46,9 @@ body {
     text-decoration: none;
 }
 
-/* HEADER PRINCIPAL (AMARILLO -> AHORA MORADO CLARO O BLANCO) */
+/* HEADER PRINCIPAL (Logo, Buscador, Carrito) */
 .main-header {
-    background-color: var(--color-blanco); /* Fondo limpio */
+    background-color: var(--color-blanco);
     padding: 20px 0;
     border-bottom: 4px solid var(--color-primario);
 }
@@ -68,7 +68,7 @@ body {
 }
 
 .whale-icon {
-    width: 60px; /* Ajusta según tu imagen */
+    width: 60px;
     margin-right: 10px;
 }
 
@@ -80,7 +80,7 @@ body {
 
 .brand-text p {
     font-size: 10px;
-    color: var(--color-acento); /* Azul ballena */
+    color: var(--color-acento);
     font-weight: bold;
     letter-spacing: 2px;
 }
@@ -120,7 +120,7 @@ body {
 .whatsapp-btn {
     display: flex;
     align-items: center;
-    color: #25D366; /* Verde Whatsapp original */
+    color: #25D366;
 }
 
 .whatsapp-btn i {
@@ -161,7 +161,7 @@ body {
 .main-nav ul {
     list-style: none;
     display: flex;
-    justify-content: center; /* Centrado como en la imagen */
+    justify-content: center;
 }
 
 .main-nav ul li {
@@ -184,14 +184,13 @@ body {
 }
 
 /* ESTILOS DEL DESPLEGABLE (DROPDOWN) */
-
-/* Contenedor del menú flotante - ESTO ES LO QUE LO OCULTA INICIALMENTE */
 .dropdown-content {
-    **display: none;** position: absolute;
+    display: none; 
+    position: absolute;
     background-color: var(--color-blanco);
     min-width: 200px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 10; /* Z-index alto para asegurar que esté encima */
+    z-index: 10;
     padding: 10px 0;
     border-top: 3px solid var(--color-primario);
 }
@@ -212,15 +211,14 @@ body {
     color: var(--color-secundario) !important;
 }
 
-/* Mostrar el menú flotante SOLO al pasar el cursor sobre el li (elemento padre) */
 .dropdown:hover .dropdown-content {
-    **display: block;**
+    display: block;
 }
 
 
 /* BANNER EJEMPLO */
 .hero-banner {
-    background-color: var(--color-primario); /* Fondo Morado BHALLEFFORT */
+    background-color: var(--color-primario);
     height: 300px;
     display: flex;
     justify-content: center;
@@ -229,6 +227,7 @@ body {
     font-size: 30px;
     font-weight: bold;
     background-image: linear-gradient(45deg, #6A0DAD, #9370DB);
+    text-align: center; /* Centrado en caso de texto largo en móvil */
 }
 
 /* --- SECCIÓN DE PRODUCTOS Y CATEGORÍAS --- */
@@ -254,12 +253,12 @@ body {
     border-radius: 8px;
     transition: transform 0.3s;
     cursor: pointer;
-    background-color: var(--color-secundario); /* Morado oscuro */
+    background-color: var(--color-secundario);
 }
 
 .category-box:hover {
     transform: translateY(-5px);
-    background-color: var(--color-acento); /* Azul Cian al pasar el mouse */
+    background-color: var(--color-acento);
     color: var(--color-texto);
 }
 
@@ -286,7 +285,7 @@ body {
 
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 productos por fila */
+    grid-template-columns: repeat(4, 1fr); /* PC: 4 columnas */
     gap: 30px;
 }
 
@@ -306,7 +305,7 @@ body {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    background-color: #eee; /* Fondo temporal para la imagen */
+    background-color: #eee;
 }
 
 .product-info {
@@ -341,7 +340,7 @@ body {
 .current-price {
     font-size: 18px;
     font-weight: bold;
-    color: red; /* Rojo para destacar la oferta */
+    color: red;
 }
 
 .btn-buy {
@@ -361,7 +360,7 @@ body {
 }
 
 
-/* SECCIÓN DE GARANTÍAS (ÍCONOS AMARILLOS -> MORADO/NARANJA) */
+/* SECCIÓN DE GARANTÍAS */
 .guarantees {
     padding: 30px 0;
     background-color: var(--color-blanco);
@@ -375,7 +374,7 @@ body {
 }
 
 .guarantee-item {
-    background-color: var(--color-amarillo-aviso); /* Amarillo claro para mantener el contraste */
+    background-color: var(--color-amarillo-aviso);
     padding: 15px;
     border-radius: 8px;
     display: flex;
@@ -386,7 +385,7 @@ body {
 
 .guarantee-item i {
     font-size: 30px;
-    color: var(--color-primario); /* Iconos Morados */
+    color: var(--color-primario);
     margin-right: 10px;
 }
 
@@ -400,12 +399,12 @@ body {
 }
 
 .promo-item {
-    background-color: #f7a300; /* Color Naranja más llamativo para promociones */
+    background-color: #f7a300;
 }
 
 /* FOOTER */
 footer {
-    background-color: #333; /* Fondo Gris Oscuro */
+    background-color: #333;
     color: #f4f4f4;
     padding: 40px 0 10px;
 }
@@ -420,7 +419,7 @@ footer {
 
 .footer-brand .whale-icon-footer {
     width: 80px;
-    filter: invert(1); /* Para que el logo se vea blanco o claro */
+    filter: invert(1);
 }
 
 .footer-brand p {
@@ -430,7 +429,7 @@ footer {
 }
 
 .footer-contact h3, .footer-policies h3 {
-    color: var(--color-primario); /* Títulos Morados */
+    color: var(--color-primario);
     margin-bottom: 15px;
 }
 
@@ -462,4 +461,164 @@ footer {
     padding-top: 15px;
     font-size: 11px;
     color: #aaa;
+}
+
+
+/* ================================================= */
+/* MEDIA QUERIES (COMPATIBILIDAD MÓVIL)     */
+/* ================================================= */
+
+/* Para Tabletas y pantallas medianas (máx. 992px) */
+@media (max-width: 992px) {
+    /* HEADER: Reajuste general */
+    .flex-center {
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    /* LOGO: Más pequeño */
+    .whale-icon {
+        width: 50px;
+    }
+    .brand-text h1 {
+        font-size: 20px;
+    }
+
+    /* BUSCADOR: Toma todo el ancho y se centra */
+    .search-bar {
+        margin: 0;
+        width: 100%;
+        order: 3; /* Mover el buscador abajo en la columna */
+    }
+
+    /* ACCIONES: Se alinean al final */
+    .user-actions {
+        order: 2; /* Mantener acciones cerca del logo */
+        width: 100%;
+        justify-content: space-around;
+    }
+    .whatsapp-btn {
+        /* Ocultar el texto de Whatsapp para ahorrar espacio */
+        display: none; 
+    }
+    .account, .cart {
+        font-size: 18px;
+    }
+
+    /* MENÚ PRINCIPAL: Más compacto */
+    .main-nav ul {
+        justify-content: space-around;
+    }
+    .main-nav ul li a {
+        padding: 12px 10px;
+        font-size: 12px;
+    }
+    /* El dropdown flotante se mantiene, pero será incómodo en móvil (luego lo arreglaremos con JS si es necesario) */
+
+    /* PRODUCTOS: De 4 a 2 columnas */
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    /* GARANTÍAS: Se envuelven si no caben */
+    .flex-guarantees {
+        flex-wrap: wrap;
+    }
+    .guarantee-item {
+        flex-basis: calc(50% - 10px); /* Dos por fila */
+    }
+
+    /* FOOTER: De 3 columnas a 1 columna */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+/* Para Teléfonos Móviles (máx. 600px) */
+@media (max-width: 600px) {
+    .container {
+        width: 95%; /* Usar más ancho de pantalla */
+    }
+    
+    /* TOP BAR: Se oculta para ahorrar espacio en móvil */
+    .top-bar {
+        display: none;
+    }
+
+    /* HEADER: Se reajusta */
+    .flex-center {
+        gap: 15px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    .logo-section {
+        order: 1;
+    }
+    
+    .user-actions {
+        order: 2;
+        gap: 10px;
+        width: auto;
+    }
+    .account {
+        /* Ocultar texto "Acceso | Registro" */
+        display: none;
+    }
+    .cart {
+        margin-right: 10px;
+    }
+
+    /* BUSCADOR: Se mueve al final y ocupa todo el ancho */
+    .search-bar {
+        order: 3;
+        width: 100%;
+    }
+
+    /* MENÚ DE NAVEGACIÓN: Se apila o se oculta (simulación de menú hamburguesa sin JS) */
+    .main-nav {
+        /* Ocultar el menú principal horizontal para forzar el menú hamburguesa (que implementaremos luego con JS) */
+        display: none; 
+    }
+    
+    /* BANNER: Menos alto y letra más pequeña */
+    .hero-banner {
+        height: 150px;
+        font-size: 18px;
+    }
+
+    /* CATEGORÍAS RÁPIDAS: Se apilan verticalmente */
+    .flex-quick-categories {
+        flex-direction: column;
+    }
+    .category-box {
+        margin-bottom: 10px;
+    }
+    
+    /* PRODUCTOS: De 2 columnas a 1 columna */
+    .section-title {
+        font-size: 24px;
+    }
+    .products-grid {
+        grid-template-columns: 1fr; /* Una columna para móvil */
+    }
+
+    /* GARANTÍAS: Una por fila */
+    .flex-guarantees {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .guarantee-item {
+        flex-basis: 100%;
+    }
+
+    /* FOOTER: Ajuste de títulos */
+    .footer-contact h3, .footer-policies h3 {
+        margin-top: 20px;
+        font-size: 18px;
+    }
 }
