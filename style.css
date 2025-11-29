@@ -185,27 +185,26 @@ body {
 
 /* ESTILOS DEL DESPLEGABLE (DROPDOWN) */
 
-/* Contenedor del menú flotante */
+/* Contenedor del menú flotante - ESTO ES LO QUE LO OCULTA INICIALMENTE */
 .dropdown-content {
-    /* Estado inicial: OCULTO */
     display: none; 
     position: absolute;
     background-color: var(--color-blanco);
     min-width: 200px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1; /* Asegura que esté encima de otros elementos */
+    z-index: 10; /* Z-index alto para asegurar que esté encima */
     padding: 10px 0;
     border-top: 3px solid var(--color-primario);
 }
 
 .dropdown-content a {
-    color: var(--color-texto) !important; /* !important para asegurar que el color sea el correcto */
+    color: var(--color-texto) !important;
     padding: 10px 15px;
     text-decoration: none;
     display: block;
     text-align: left;
     text-transform: none;
-    border-bottom: none !important; /* Elimina la línea de borde de abajo */
+    border-bottom: none !important;
     font-weight: normal;
 }
 
@@ -214,7 +213,7 @@ body {
     color: var(--color-secundario) !important;
 }
 
-/* Mostrar el menú flotante al pasar el cursor sobre el li (elemento padre) */
+/* Mostrar el menú flotante SOLO al pasar el cursor sobre el li (elemento padre) */
 .dropdown:hover .dropdown-content {
     display: block;
 }
