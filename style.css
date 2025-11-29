@@ -195,3 +195,106 @@ body {
     font-weight: bold;
     background-image: linear-gradient(45deg, #6A0DAD, #9370DB);
 }
+
+/* SECCIÓN DE GARANTÍAS (ÍCONOS AMARILLOS -> MORADO/NARANJA) */
+.guarantees {
+    padding: 30px 0;
+    background-color: var(--color-blanco);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.flex-guarantees {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.guarantee-item {
+    background-color: var(--color-amarillo-aviso); /* Amarillo claro para mantener el contraste */
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 200px;
+}
+
+.guarantee-item i {
+    font-size: 30px;
+    color: var(--color-primario); /* Iconos Morados */
+    margin-right: 10px;
+}
+
+.guarantee-item strong {
+    font-size: 14px;
+    color: var(--color-texto);
+}
+
+.guarantee-item p {
+    font-size: 12px;
+}
+
+.promo-item {
+    background-color: #f7a300; /* Color Naranja más llamativo para promociones */
+}
+
+/* FOOTER */
+footer {
+    background-color: #333; /* Fondo Gris Oscuro */
+    color: #f4f4f4;
+    padding: 40px 0 10px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #555;
+}
+
+.footer-brand .whale-icon-footer {
+    width: 80px;
+    filter: invert(1); /* Para que el logo se vea blanco o claro */
+}
+
+.footer-brand p {
+    font-size: 12px;
+    margin-top: 5px;
+    color: var(--color-acento);
+}
+
+.footer-contact h3, .footer-policies h3 {
+    color: var(--color-primario); /* Títulos Morados */
+    margin-bottom: 15px;
+}
+
+.footer-contact p, .footer-policies ul {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-contact i {
+    margin-right: 8px;
+    color: var(--color-primario);
+}
+
+.footer-policies ul {
+    list-style: none;
+}
+
+.footer-policies li {
+    margin-bottom: 8px;
+}
+
+.footer-policies i {
+    color: var(--color-primario);
+    margin-right: 5px;
+}
+
+.footer-copyright {
+    text-align: center;
+    padding-top: 15px;
+    font-size: 11px;
+    color: #aaa;
+}
