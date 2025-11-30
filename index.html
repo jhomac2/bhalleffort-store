@@ -17,111 +17,99 @@
         <div class="slogan">Tu lugar de confianza</div>
       </div>
     </div>
-    <div class="cart-icon">🛒 <span>0</span></div>
+    <a href="https://wa.me/510963923399" target="_blank" class="cart-icon">🛒</a>
   </header>
 
-  <!-- Menú Horizontal con Hover Panels -->
+  <!-- Menú Horizontal -->
   <nav class="menu">
     <ul>
-      <li><a href="#" class="menu-item" data-panel="home">Inicio</a></li>
-      <li><a href="#" class="menu-item" data-panel="categories">Categorías</a></li>
-      <li><a href="#" class="menu-item" data-panel="about">Quiénes somos</a></li>
-      <li><a href="#" class="menu-item" data-panel="shipping">Políticas de envío</a></li>
-      <li><a href="#" class="menu-item" data-panel="contact">Contáctanos</a></li>
+      <li><a href="index.html">Inicio</a></li>
+      <li class="dropdown">
+        <a href="#">Categorías ▼</a>
+        <div class="dropdown-content">
+          <a href="ropa-y-zapatos.html">Ropa y zapatos</a>
+          <a href="juguetes.html">Juguetes</a>
+          <a href="hogar.html">Varios para el hogar</a>
+        </div>
+      </li>
+      <li><a href="#about">Quiénes somos</a></li>
+      <li><a href="#shipping">Políticas de envío</a></li>
+      <li><a href="#contact">Contáctanos</a></li>
     </ul>
   </nav>
 
-  <!-- Panel de Inicio (por defecto visible) -->
-  <section id="homePanel" class="panel active">
-    <h2 class="section-title">Productos con alma, tecnología con estilo</h2>
-    <div class="product-carousel">
-      <button class="carousel-btn left">‹</button>
-      <div class="carousel-container">
-        <div class="carousel-track">
-          <div class="product-card">
-            <img src="img/prod-chompa.jpg" alt="Chompa" />
-            <div class="category">Ropa</div>
-            <h3>Chompa de tela pana (Gris)</h3>
-            <p class="price">$5.00</p>
-          </div>
-          <div class="product-card">
-            <img src="img/prod-ballena.jpg" alt="Ballena" />
-            <div class="category">Juguetes</div>
-            <h3>Peluche de ballena de felpa</h3>
-            <p class="price">$12.00</p>
-          </div>
-          <div class="product-card">
-            <img src="img/prod-reloj.jpg" alt="Reloj" />
-            <div class="category">Promoción</div>
-            <h3>Reloj inteligente modelo A3</h3>
-            <p class="price original">$60.00</p>
-            <p class="price special">$40.00</p>
-          </div>
-          <div class="product-card">
-            <img src="img/prod-taza.jpg" alt="Taza" />
-            <div class="category">Hogar</div>
-            <h3>Taza de cerámica con asa</h3>
-            <p class="price">$3.50</p>
-          </div>
-          <!-- Añade más productos si quieres -->
-        </div>
+  <!-- SUPER PROMOCIONES -->
+  <section class="category-section" id="promos">
+    <h2 class="section-title">🔥 SUPER PROMOCIONES</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="img/prod-reloj.jpg" alt="Reloj inteligente" />
+        <div class="category">Promoción</div>
+        <h3>Reloj inteligente modelo A3</h3>
+        <p class="price original">$60.00</p>
+        <p class="price special">$40.00</p>
+        <a href="https://wa.me/510963923399?text=Hola,%20quiero%20el%20Reloj%20inteligente%20modelo%20A3" class="select-btn" target="_blank">Seleccionar opciones</a>
       </div>
-      <button class="carousel-btn right">›</button>
+      <!-- Añade más promociones si quieres -->
     </div>
   </section>
 
-  <!-- Panel de Categorías (hover) -->
-  <section id="categoriesPanel" class="panel">
-    <h2>Categorías</h2>
-    <div class="category-grid">
-      <a href="ropa.html" class="category-box">
-        <img src="img/prod-chompa.jpg" alt="Ropa" />
-        <h3>Ropa</h3>
-      </a>
-      <a href="zapatos.html" class="category-box">
-        <img src="img/prod-zapato.jpg" alt="Zapatos" />
-        <h3>Zapatos</h3>
-      </a>
-      <a href="juguetes.html" class="category-box">
-        <img src="img/prod-ballena.jpg" alt="Juguetes" />
-        <h3>Juguetes</h3>
-      </a>
-      <a href="hogar.html" class="category-box">
-        <img src="img/prod-taza.jpg" alt="Hogar" />
-        <h3>Varios para el hogar</h3>
-      </a>
+  <!-- ROPA Y ZAPATOS -->
+  <section class="category-section">
+    <h2 class="section-title">👕 ROPA Y ZAPATOS</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="img/prod-chompa.jpg" alt="Chompa de tela pana" />
+        <div class="category">Ropa</div>
+        <h3>Chompa de tela pana (Gris)</h3>
+        <p class="price">$5.00</p>
+        <a href="https://wa.me/510963923399?text=Hola,%20quiero%20la%20Chompa%20de%20tela%20pana%20(Gris)" class="select-btn" target="_blank">Seleccionar opciones</a>
+      </div>
+      <!-- Más productos aquí -->
     </div>
   </section>
 
-  <!-- Panel de Quiénes somos -->
-  <section id="aboutPanel" class="panel">
-    <h2>Quiénes somos</h2>
-    <p>Somos BHALLEFFORT, tu tienda de confianza para productos de calidad con estilo y alma. Desde 2025, nos dedicamos a ofrecerte lo mejor en ropa, juguetes y artículos para el hogar.</p>
+  <!-- JUGUETES -->
+  <section class="category-section">
+    <h2 class="section-title">🧸 JUGUETES</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="img/prod-ballena.jpg" alt="Peluche de ballena" />
+        <div class="category">Juguetes</div>
+        <h3>Peluche de ballena de felpa</h3>
+        <p class="price">$12.00</p>
+        <a href="https://wa.me/510963923399?text=Hola,%20quiero%20el%20Peluche%20de%20ballena%20de%20felpa" class="select-btn" target="_blank">Seleccionar opciones</a>
+      </div>
+    </div>
   </section>
 
-  <!-- Panel de Políticas de envío -->
-  <section id="shippingPanel" class="panel">
-    <h2>Políticas de envío</h2>
-    <ul>
-      <li>Envíos en 24-48 horas dentro de Lima.</li>
-      <li>Envíos nacionales en 3-5 días hábiles.</li>
-      <li>Devoluciones gratuitas en 30 días.</li>
-      <li>Soporte 24/7 por WhatsApp.</li>
-    </ul>
-  </section>
-
-  <!-- Panel de Contáctanos -->
-  <section id="contactPanel" class="panel">
-    <h2>Contáctanos</h2>
-    <p>¿Tienes dudas? Escríbenos por WhatsApp al <strong>0963923399</strong> o por email a cabascangoroman123@gmail.com.</p>
+  <!-- VARIOS PARA EL HOGAR -->
+  <section class="category-section">
+    <h2 class="section-title">🏠 VARIOS PARA EL HOGAR</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="img/prod-taza.jpg" alt="Taza de cerámica" />
+        <div class="category">Hogar</div>
+        <h3>Taza de cerámica con asa</h3>
+        <p class="price">$3.50</p>
+        <a href="https://wa.me/510963923399?text=Hola,%20quiero%20la%20Taza%20de%20cerámica%20con%20asa" class="select-btn" target="_blank">Seleccionar opciones</a>
+      </div>
+    </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <p>📧 cabascangoroman123@gmail.com</p>
-    <p>© BHALLEFFORT — Hecho con 💙</p>
+    <div class="footer-info">
+      <p>📧 <a href="mailto:cabascangoroman123@gmail.com">cabascangoroman123@gmail.com</a></p>
+      <p>📱 WhatsApp: <a href="https://wa.me/510963923399" target="_blank">0963923399</a></p>
+      <p>© BHALLEFFORT — Hecho con 💙</p>
+    </div>
+    <div class="footer-policy">
+      <p><strong>Envío Rápido</strong> — Entregas en 24-48 hrs.</p>
+      <p><strong>Pago Seguro</strong> — Por WhatsApp, sin riesgos.</p>
+      <p><strong>Devoluciones Fáciles</strong> — 30 días de garantía.</p>
+      <p><strong>Soporte 24/7</strong> — Escríbenos cuando quieras.</p>
+    </div>
   </footer>
-
-  <script src="js/script.js"></script>
 </body>
 </html>
