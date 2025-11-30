@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // ---------- 1. INDEX.HTML (Destacados) - ¡CORREGIDOS! ----------
         { id: 'P001', name: 'Chompa tela pana', price: 5.00, category: 'Ropa' },
         { id: 'P002', name: 'Construcción set de camiones', price: 8.00, category: 'Juguetes' },
-        { id: 'P003', name: 'Mesa de dibugo hogareño para niñ@', price: 8.00, category: 'Hogar' },
+        { id: 'P003', name: 'Mesa de dibujo hogareño para niñ@', price: 8.00, category: 'Hogar' },
         { id: 'P004', name: 'Buzo tela pana', price: 5.00, category: 'Promociones' },
 
         // ---------- 2. ROPA.HTML ----------
@@ -289,4 +289,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. INICIALIZACIÓN
     updateCartBadge(); // Asegura que el contador se muestre al cargar la página
 });
+
 
