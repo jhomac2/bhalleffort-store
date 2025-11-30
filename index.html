@@ -5,106 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BHALLEFFORT</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
-    body {
-      background: white;
-      color: #000;
-      line-height: 1.4;
-    }
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 20px;
-      background: white;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .logo img {
-      height: 36px;
-    }
-    .brand {
-      font-weight: bold;
-      font-size: 18px;
-      color: #6a0dad; /* morado */
-      text-transform: uppercase;
-    }
-    .cart {
-      font-size: 28px;
-      text-decoration: none;
-      color: #6a0dad;
-    }
-    .main-title {
-      text-align: center;
-      font-size: 22px;
-      font-weight: bold;
-      margin: 20px 0 10px;
-      color: #e91e63;
-    }
-    .subtitle {
-      text-align: center;
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 25px;
-    }
-    .category {
-      text-align: center;
-      margin-bottom: 30px;
-      padding: 0 15px;
-    }
-    .icon {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 10px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 40px;
-    }
-    .category-title {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-      color: #6a0dad;
-    }
-    .product {
-      margin: 12px 0;
-      padding: 8px 0;
-    }
-    .product-name {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 4px;
-    }
-    .product-price {
-      display: block;
-      color: #d32f2f;
-      font-weight: bold;
-      margin-bottom: 6px;
-    }
-    .select-btn {
-      background: #6a0dad;
-      color: white;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 4px;
-      font-size: 14px;
-      cursor: pointer;
-      font-weight: bold;
-      width: 140px;
-      margin: 0 auto;
-      display: block;
-    }
+    body { background: white; font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+    .header { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; }
+    .logo { display: flex; align-items: center; gap: 10px; }
+    .logo img { height: 36px; }
+    .brand { font-weight: bold; color: #6a0dad; text-transform: uppercase; }
+    .cart { font-size: 24px; color: #6a0dad; text-decoration: none; }
+    h1 { color: #e91e63; margin: 20px 0 5px; font-size: 22px; }
+    h2 { color: black; margin-bottom: 25px; font-size: 18px; font-weight: bold; }
+    .category { margin: 30px auto; max-width: 300px; }
+    .icon { width: 80px; height: 80px; margin: 0 auto 10px; border-radius: 12px; }
+    .category-title { font-size: 18px; font-weight: bold; margin-bottom: 12px; color: #6a0dad; text-transform: uppercase; }
+    .product { margin: 15px 0; }
+    .product-name { font-weight: bold; margin-bottom: 5px; }
+    .product-price { color: #d32f2f; font-weight: bold; margin-bottom: 8px; }
+    .select-btn { background: #6a0dad; color: white; border: none; padding: 8px 20px; border-radius: 4px; font-size: 14px; cursor: pointer; font-weight: bold; width: 160px; margin: 0 auto; display: block; }
   </style>
 </head>
 <body>
@@ -117,51 +32,114 @@
   <a href="https://wa.me/0963923399?text=Hola,%20quiero%20hacer%20un%20pedido." class="cart">🛒</a>
 </div>
 
-<h1 class="main-title">Nuestras categorías</h1>
-<h2 class="subtitle">¡LLÉVALOS ANTES QUE SE ACABEN!</h2>
+<h1>Nuestras categorías</h1>
+<h2>¡LLÉVALOS ANTES QUE SE ACABEN!</h2>
 
 <!-- Categoría 1 -->
 <div class="category">
-  <div class="icon" style="background:#ffe0f0">👕</div>
+  <img class="icon" src="https://www.debaratitoproductos.com/wp-content/uploads/2025/07/icono-cocina.png" alt="Ropa y Zapatos">
   <div class="category-title">ROPA Y ZAPATOS</div>
-  <div class="product"><span class="product-name">Chompa tela pana</span><span class="product-price">$5</span><button class="select-btn">Seleccionar opciones</button></div>
-  <div class="product"><span class="product-name">Buzo tela pana</span><span class="product-price">$5</span><button class="select-btn">Seleccionar opciones</button></div>
-  <div class="product"><span class="product-name">Camiseta de hombre</span><span class="product-price">$5</span><button class="select-btn">Seleccionar opciones</button></div>
-  <div class="product"><span class="product-name">Zapatos</span><span class="product-price">$15</span><button class="select-btn">Seleccionar opciones</button></div>
+  <div class="product">
+    <div class="product-name">Chompa tela pana</div>
+    <div class="product-price">$5</div>
+    <button class="select-btn">Seleccionar opciones</button>
+  </div>
+  <div class="product">
+    <div class="product-name">Buzo tela pana</div>
+    <div class="product-price">$5</div>
+    <button class="select-btn">Seleccionar opciones</button>
+  </div>
+  <div class="product">
+    <div class="product-name">Camiseta de hombre</div>
+    <div class="product-price">$5</div>
+    <button class="select-btn">Seleccionar opciones</button>
+  </div>
+  <div class="product">
+    <div class="product-name">Zapatos</div>
+    <div class="product-price">$15</div>
+    <button class="select-btn">Seleccionar opciones</button>
+  </div>
 </div>
 
 <!-- Categoría 2 -->
 <div class="category">
-  <div class="icon" style="background:#e3f2fd">🧸</div>
+  <img class="icon" src="https://www.debaratitoproductos.com/wp-content/uploads/2025/07/icono-TZA.png" alt="Juguetes">
   <div class="category-title">JUGUETES</div>
-  <div class="product"><span class="product-name">Set de construcción</span><span class="product-price">$8</span><button class="select-btn">Seleccionar opciones</button></div>
-  <div class="product"><span class="product-name">Boliches</span><span class="product-price">$0.20</span><button class="select-btn">Seleccionar opciones</button></div>
-  <div class="product"><span class="product-name">Pelota</span><span class="product-price">$5</span><button class="select-btn">Seleccionar opciones</button></div>
-  <div class="product"><span class="product-name">Tarjetas</span><span class="product-price">$4</span><button class="select-btn">Seleccionar opciones</button></div>
+  <div class="product">
+    <div class="product-name">Set de construcción</div>
+    <div class="product-price">$8</div>
+    <button class="select-btn">Seleccionar opciones</button>
+  </div>
+  <div class="product">
+    <div class="product-name">Boliches</div>
+    <div class="product-price">$0.20</div>
+    <button class="select-btn">Seleccionar opciones</button>
+  </div>
+  <div class="product">
+    <div class="product-name">Pelota</div>
+    <div class="product-price">$5</div>
+    <button class="select-btn">Seleccionar opciones</button>
+  </div>
+  <div class="product">
+    <div class="product-name">Tarjetas</div>
+    <div class="product-price">$4</div>
+    <button class="select-btn">Seleccionar opciones</button>
+  </div>
 </div>
 
 <!-- Categoría 3 -->
 <div class="category">
-  <div class="icon" style="background:#f1f8e9">🏠</div>
+  <img class="icon" src="https://www.debaratitoproductos.com/wp-content/uploads/2025/07/icono-MICE.png" alt="Varios del Hogar">
   <div class="category-title">VARIOS DEL HOGAR</div>
-  <div class="product"><span class="product-name">Fomix</span><span class="product-price">$0.80</span><button class="select-btn">Seleccionar opciones</button></div>
-  <div class="product"><span class="product-name">Almohada</span><span class="product-price">$5</span><button class="select-btn">Seleccionar opciones</button></div>
-  <div class="product"><span class="product-name">Cobija</span><span class="product-price">$10</span><button class="select-btn">Seleccionar opciones</button></div>
-  <div class="product"><span class="product-name">Edredón</span><span class="product-price">$12</span><button class="select-btn">Seleccionar opciones</button></div>
+  <div class="product">
+    <div class="product-name">Fomix</div>
+    <div class="product-price">$0.80</div>
+    <button class="select-btn">Seleccionar opciones</button>
+  </div>
+  <div class="product">
+    <div class="product-name">Almohada</div>
+    <div class="product-price">$5</div>
+    <button class="select-btn">Seleccionar opciones</button>
+  </div>
+  <div class="product">
+    <div class="product-name">Cobija</div>
+    <div class="product-price">$10</div>
+    <button class="select-btn">Seleccionar opciones</button>
+  </div>
+  <div class="product">
+    <div class="product-name">Edredón</div>
+    <div class="product-price">$12</div>
+    <button class="select-btn">Seleccionar opciones</button>
+  </div>
 </div>
 
 <!-- Categoría 4 -->
 <div class="category">
-  <div class="icon" style="background:#fff8e1">⭐</div>
+  <img class="icon" src="https://www.debaratitoproductos.com/wp-content/uploads/2025/07/icono-CONTE.png" alt="Productos Destacados">
   <div class="category-title">PRODUCTOS DESTACADOS</div>
-  <div class="product"><span class="product-name">Gorra militar</span><span class="product-price">$4</span><button class="select-btn">Seleccionar opciones</button></div>
-  <div class="product"><span class="product-name">Botas verdes</span><span class="product-price">$6</span><button class="select-btn">Seleccionar opciones</button></div>
-  <div class="product"><span class="product-name">Paraguas</span><span class="product-price">$2</span><button class="select-btn">Seleccionar opciones</button></div>
-  <div class="product"><span class="product-name">Libro anime</span><span class="product-price">$10</span><button class="select-btn">Seleccionar opciones</button></div>
+  <div class="product">
+    <div class="product-name">Gorra militar</div>
+    <div class="product-price">$4</div>
+    <button class="select-btn">Seleccionar opciones</button>
+  </div>
+  <div class="product">
+    <div class="product-name">Botas verdes</div>
+    <div class="product-price">$6</div>
+    <button class="select-btn">Seleccionar opciones</button>
+  </div>
+  <div class="product">
+    <div class="product-name">Paraguas</div>
+    <div class="product-price">$2</div>
+    <button class="select-btn">Seleccionar opciones</button>
+  </div>
+  <div class="product">
+    <div class="product-name">Libro anime</div>
+    <div class="product-price">$10</div>
+    <button class="select-btn">Seleccionar opciones</button>
+  </div>
 </div>
 
 <script>
-  // Al hacer clic en "Seleccionar opciones", solo se indica que se agregó (opcional)
   document.querySelectorAll('.select-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       alert('✅ ¡Producto seleccionado!\nPresiona el carrito 🛒 arriba para enviar tu pedido por WhatsApp.');
