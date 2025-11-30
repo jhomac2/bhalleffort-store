@@ -1,37 +1,260 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>Ropa - BHALLEFFORT</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ropa - BHALLEFFORT</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  <header class="header">
-    <div class="logo">
-      <img src="img/prod-ballena.jpg" alt="Ballenita" class="whale-logo" />
-      <div>
-        <div class="brand">BHALLEFFORT</div>
-        <div class="slogan">Tu lugar de confianza</div>
-      </div>
-    </div>
-    <div class="cart-icon">🛒 <span>0</span></div>
-  </header>
 
-  <main class="products">
-    <h2 class="section-title">Ropa</h2>
-    <div class="product-card">
-      <img src="img/prod-chompa.jpg" alt="Chompa" />
-      <div class="category">Ropa</div>
-      <h3>Chompa de tela pana (Gris)</h3>
-      <p class="price">$5.00</p>
+    <!-- Ícono del carrito flotante -->
+    <div id="cart-icon" style="position: fixed; top: 20px; right: 20px; cursor: pointer; z-index: 1000;">
+        <i class="fas fa-shopping-cart" style="font-size: 24px; color: #6a0dad;"></i>
+        <span id="cart-badge" style="background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 12px; margin-left: -8px; position: relative; top: -8px;">0</span>
     </div>
-    <!-- Añade más productos de ropa aquí -->
-  </main>
 
-  <footer class="footer">
-    <p>📧 cabascangoroman123@gmail.com</p>
-    <p>© BHALLEFFORT — Hecho con 💙</p>
-  </footer>
+    <div class="top-bar">
+        <div class="container flex-space">
+            <div class="location">
+                <i class="fas fa-map-marker-alt"></i> ENVIOS A TODO EL PAÍS
+            </div>
+            <div class="socials">
+                <span><i class="fas fa-truck"></i> ENVÍOS 100% SEGUROS</span>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="container flex-center">
+            <div class="logo-section">
+                <img src="img/logo-ballena.png" alt="Ballenita Azul" class="whale-icon"> 
+                <div class="brand-text">
+                    <h1>BHALLEFFORT</h1>
+                    <p>LO MEJOR Y AL MEJOR PRECIO</p>
+                </div>
+            </div>
+
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar en Ropa...">
+                <button>BÚSQUEDA</button>
+            </div>
+
+            <div class="user-actions">
+                <div class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    <div>
+                        <span>PEDIDOS WHATSAPP</span>
+                        <strong>+593 960503674</strong>
+                    </div>
+                </div>
+                <div class="account">
+                    <i class="far fa-user"></i> Acceso | Registro
+                </div>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">INICIO</a></li>
+                <li class="dropdown">
+                    <a href="#">QUIÉNES SOMOS ▾</a>
+                    <div class="dropdown-content">
+                        <a href="quienes-somos.html">Nuestra Historia</a>
+                        <a href="quienes-somos.html#valores">Valores y Misión</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">CATEGORIAS ▾</a>
+                    <div class="dropdown-content">
+                        <a href="ropa.html">Ropa</a> 
+                        <a href="juguetes.html">Juguetes</a>
+                        <a href="hogar.html">Suministros Hogar</a>
+                    </div>
+                </li>
+                <li><a href="promociones.html">SUPER PROMOCIONES</a></li>
+                <li class="dropdown">
+                    <a href="#">POLÍTICAS ▾</a>
+                    <div class="dropdown-content">
+                        <a href="politicas.html#terminos">Términos y Condiciones</a>
+                        <a href="politicas.html#envios">Política de Envíos</a>
+                        <a href="politicas.html#devoluciones">Cambios y Devoluciones</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">CONTÁCTENOS ▾</a>
+                    <div class="dropdown-content">
+                        <a href="contacto.html">Ubicación y Email</a>
+                        <a href="https://wa.me/593960503674" target="_blank">WhatsApp Directo</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Sección de título simple (sin imagen de fondo) -->
+    <section class="hero-banner" style="background-color: #6a0dad; padding: 40px 20px; text-align: center; color: white;">
+        <h2>MODA AL MEJOR PRECIO</h2>
+        <p style="font-size: 16px; margin-top: 10px;">¡Ropa cómoda, moderna y económica!</p>
+    </section>
+
+    <section class="featured-products">
+        <div class="container">
+            <h2 class="section-title">👗 PRODUCTOS DE ROPA</h2>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="img/prod-jeans.jpg" alt="Jeans clásicos" class="product-image">
+                    <div class="product-info">
+                        <span class="product-category">Ropa</span>
+                        <h4 class="product-name">Jeans clásicos elasticados</h4>
+                        <div class="price">
+                            <span class="current-price">$15.00</span>
+                        </div>
+                        <button class="btn-buy" data-id="R001">Añadir al Carrito</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="img/prod-blusa.jpg" alt="Blusa de seda" class="product-image">
+                    <div class="product-info">
+                        <span class="product-category">Ropa</span>
+                        <h4 class="product-name">Blusa de seda sin mangas, elegante</h4>
+                        <div class="price">
+                            <span class="current-price">$8.00</span>
+                        </div>
+                        <button class="btn-buy" data-id="R002">Añadir al Carrito</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="img/prod-falda.jpg" alt="Falda de verano" class="product-image">
+                    <div class="product-info">
+                        <span class="product-category">Ropa</span>
+                        <h4 class="product-name">Falda de verano con estampado</h4>
+                        <div class="price">
+                            <span class="current-price">$10.00</span>
+                        </div>
+                        <button class="btn-buy" data-id="R003">Añadir al Carrito</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="img/prod-vestido.jpg" alt="Vestido de cóctel" class="product-image">
+                    <div class="product-info">
+                        <span class="product-category">Ropa</span>
+                        <h4 class="product-name">Vestido de cóctel ajustado negro</h4>
+                        <div class="price">
+                            <span class="current-price">$18.00</span>
+                        </div>
+                        <button class="btn-buy" data-id="R004">Añadir al Carrito</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="img/prod-camiseta.jpg" alt="Camiseta deportiva" class="product-image">
+                    <div class="product-info">
+                        <span class="product-category">Ropa</span>
+                        <h4 class="product-name">Camiseta deportiva Dry-Fit</h4>
+                        <div class="price">
+                            <span class="current-price">$7.00</span>
+                        </div>
+                        <button class="btn-buy" data-id="R005">Añadir al Carrito</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="img/prod-chaqueta.jpg" alt="Chaqueta aviador" class="product-image">
+                    <div class="product-info">
+                        <span class="product-category">Ropa</span>
+                        <h4 class="product-name">Chaqueta estilo aviador</h4>
+                        <div class="price">
+                            <span class="current-price">$25.00</span>
+                        </div>
+                        <button class="btn-buy" data-id="R006">Añadir al Carrito</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="img/prod-calcetines.jpg" alt="Pack de calcetines" class="product-image">
+                    <div class="product-info">
+                        <span class="product-category">Ropa</span>
+                        <h4 class="product-name">Pack de 3 pares de calcetines</h4>
+                        <div class="price">
+                            <span class="current-price">$4.50</span>
+                        </div>
+                        <button class="btn-buy" data-id="R007">Añadir al Carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <img src="img/logo-ballena.png" alt="BHALLEFFORT Logo" class="whale-icon-footer">
+                <p>LO MEJOR Y AL MEJOR PRECIO</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                </div>
+            </div>
+
+            <div class="footer-contact">
+                <h3>CONTÁCTANOS</h3>
+                <p><i class="fas fa-phone-alt"></i> <strong>+593 960503674</strong> (Whatsapp)</p>
+                <p><i class="fas fa-envelope"></i> cabascangoroman123@gmail.com</p>
+                <p><i class="far fa-clock"></i> Horario: 24 horas (compras en línea)</p>
+                <p><i class="fas fa-map-marker-alt"></i> La Y de Tabacundo - Pichincha - Ecuador</p>
+            </div>
+
+            <div class="footer-policies">
+                <h3>POLÍTICAS</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Términos y Condiciones</li>
+                    <li><i class="fas fa-check-circle"></i> Política de Envíos</li>
+                    <li><i class="fas fa-check-circle"></i> Cambios y Devoluciones</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-copyright">
+            <p>&copy; 2025 BHALLEFFORT. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- MODAL DEL CARRITO -->
+    <div id="cart-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2000;">
+        <div style="background: white; width: 90%; max-width: 500px; margin: 50px auto; padding: 20px; border-radius: 10px; position: relative;">
+            <button id="btn-cancel-modal" style="position: absolute; top: 10px; right: 15px; background: none; border: none; font-size: 20px; cursor: pointer;">&times;</button>
+            <h3 style="margin-top: 0; color: #6a0dad;">🛒 Tu carrito</h3>
+            <div id="cart-items" style="max-height: 300px; overflow-y: auto; margin-bottom: 15px;">
+                <!-- Se llena automáticamente -->
+            </div>
+            <div style="display: flex; justify-content: space-between; font-weight: bold; margin: 10px 0;">
+                <span>Total:</span>
+                <span id="cart-total">$0.00</span>
+            </div>
+            <div style="text-align: center; margin-top: 15px;">
+                <button id="btn-checkout-whatsapp" style="background: #25D366; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer; margin-right: 10px;">
+                    ✅ Confirmar compra
+                </button>
+                <button id="btn-cancel-cart" style="background: #ccc; color: #333; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+                    ❌ Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
