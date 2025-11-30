@@ -698,3 +698,60 @@ footer {
         order: 3; 
     }
 }
+/* -------------------------------------- */
+/* 14. ESTILOS DE PÁGINA QUIÉNES SOMOS */
+/* -------------------------------------- */
+.page-header {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    padding: 30px 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    text-align: center;
+}
+.page-header h1 {
+    color: var(--color-light);
+    font-size: 36px;
+}
+.page-header p {
+    font-size: 18px;
+}
+.about-section {
+    padding: 20px 0;
+    margin-bottom: 40px;
+}
+.about-section h2 {
+    font-size: 28px;
+    color: var(--color-secondary);
+    border-bottom: 3px solid var(--color-border);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+.about-section p {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+/* Diseño de la cuadrícula de Valores */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+.value-item {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-left: 5px solid var(--color-primary);
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.value-item h3 {
+    font-size: 18px;
+    color: var(--color-primary);
+    margin-bottom: 5px;
+}
+.mission-image {
+    text-align: center;
+    margin-top: 25px;
+}
