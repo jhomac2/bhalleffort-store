@@ -1145,3 +1145,39 @@ footer {
 
     updateCartBadge(); // Esta línea debe quedar debajo del código que acabas de pegar.
 }); // Y esta línea es el cierre final del archivo.
+/* ==================================== */
+/* 11. ESTILO DE BOTÓN WHATSAPP FLOTANTE */
+/* ==================================== */
+.floating-whatsapp {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: var(--color-whatsapp); 
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+    z-index: 1000; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.floating-whatsapp:hover {
+    background-color: #128C7E;
+}
+
+/* Ajuste para móviles */
+@media (max-width: 576px) {
+    .floating-whatsapp {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 25px;
+    }
+}
