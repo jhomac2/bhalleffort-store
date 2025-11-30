@@ -9,212 +9,162 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-family: Arial, sans-serif;
     }
-
-    :root {
-      --main-purple: #6a0dad;
-      --light-purple: #e6ccff;
-      --bg-light: #fdfdfd;
-      --text-dark: #333;
-    }
-
     body {
-      background-color: var(--bg-light);
-      color: var(--text-dark);
-      padding: 0;
+      background: white;
+      color: #000;
+      line-height: 1.4;
     }
-
-    header {
+    .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
+      padding: 15px 20px;
       background: white;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      position: sticky;
-      top: 0;
-      z-index: 100;
     }
-
     .logo {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
-
     .logo img {
-      height: 40px;
-      width: auto;
+      height: 36px;
     }
-
     .brand {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--main-purple);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .cart {
-      background: var(--main-purple);
-      color: white;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       font-weight: bold;
-      cursor: pointer;
-      text-decoration: none;
-      font-size: 1.1rem;
-    }
-
-    main {
-      max-width: 1200px;
-      margin: 2rem auto;
-      padding: 0 1.5rem;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 1.8rem;
-      margin: 2rem 0 1.5rem;
-      color: var(--main-purple);
-      font-weight: 700;
-    }
-
-    .categories {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-    }
-
-    .category-card {
-      background: white;
-      border-radius: 12px;
-      padding: 1.2rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-      text-align: center;
-    }
-
-    .category-title {
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin: 1rem 0;
-      color: var(--main-purple);
+      font-size: 18px;
+      color: #6a0dad; /* morado */
       text-transform: uppercase;
     }
-
+    .cart {
+      font-size: 28px;
+      text-decoration: none;
+      color: #6a0dad;
+    }
+    .main-title {
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      margin: 20px 0 10px;
+      color: #e91e63;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 25px;
+    }
+    .category {
+      text-align: center;
+      margin-bottom: 30px;
+      padding: 0 15px;
+    }
+    .icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 10px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+    }
+    .category-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      color: #6a0dad;
+    }
     .product {
-      margin: 1rem 0;
-      padding: 0.8rem;
-      background: #f9f9f9;
-      border-radius: 8px;
-      text-align: left;
+      margin: 12px 0;
+      padding: 8px 0;
     }
-
     .product-name {
-      font-weight: 600;
-      font-size: 0.95rem;
+      display: block;
+      font-weight: bold;
+      margin-bottom: 4px;
     }
-
     .product-price {
-      font-size: 0.9rem;
+      display: block;
       color: #d32f2f;
-      margin: 0.3rem 0;
+      font-weight: bold;
+      margin-bottom: 6px;
     }
-
-    .add-to-cart {
-      background: var(--main-purple);
+    .select-btn {
+      background: #6a0dad;
       color: white;
       border: none;
-      padding: 0.3rem 0.6rem;
+      padding: 6px 12px;
       border-radius: 4px;
-      font-size: 0.85rem;
+      font-size: 14px;
       cursor: pointer;
-      margin-top: 0.4rem;
-      width: 100%;
-    }
-
-    .add-to-cart:hover {
-      background: #5a0c9d;
-    }
-
-    .highlight {
-      background: linear-gradient(135deg, #f5f0ff, #e6ccff);
-      border-left: 4px solid var(--main-purple);
-    }
-
-    @media (max-width: 600px) {
-      header {
-        padding: 1rem;
-      }
-      .brand {
-        font-size: 1.2rem;
-      }
+      font-weight: bold;
+      width: 140px;
+      margin: 0 auto;
+      display: block;
     }
   </style>
 </head>
 <body>
 
-<header>
+<div class="header">
   <div class="logo">
     <img src="logo.png" alt="BHALLEFFORT">
     <div class="brand">BHALLEFFORT</div>
   </div>
-  <a href="https://wa.me/0963923399?text=Hola,%20quiero%20hacer%20un%20pedido%20de%20los%20productos%20del%20carrito." class="cart">🛒</a>
-</header>
+  <a href="https://wa.me/0963923399?text=Hola,%20quiero%20hacer%20un%20pedido." class="cart">🛒</a>
+</div>
 
-<main>
-  <h1 class="section-title">Nuestras categorías</h1>
-  <h2 class="section-title">¡LLÉVALOS ANTES QUE SE ACABEN!</h2>
+<h1 class="main-title">Nuestras categorías</h1>
+<h2 class="subtitle">¡LLÉVALOS ANTES QUE SE ACABEN!</h2>
 
-  <div class="categories">
-    <!-- Categoría 1 -->
-    <div class="category-card">
-      <div class="category-title">ROPA Y ZAPATOS</div>
-      <div class="product"><div class="product-name">Chompa tela pana</div><div class="product-price">$5</div><button class="add-to-cart">Agregar al carrito</button></div>
-      <div class="product"><div class="product-name">Buzo tela pana</div><div class="product-price">$5</div><button class="add-to-cart">Agregar al carrito</button></div>
-      <div class="product"><div class="product-name">Camiseta de hombre</div><div class="product-price">$5</div><button class="add-to-cart">Agregar al carrito</button></div>
-      <div class="product"><div class="product-name">Zapatos</div><div class="product-price">$15</div><button class="add-to-cart">Agregar al carrito</button></div>
-    </div>
+<!-- Categoría 1 -->
+<div class="category">
+  <div class="icon" style="background:#ffe0f0">👕</div>
+  <div class="category-title">ROPA Y ZAPATOS</div>
+  <div class="product"><span class="product-name">Chompa tela pana</span><span class="product-price">$5</span><button class="select-btn">Seleccionar opciones</button></div>
+  <div class="product"><span class="product-name">Buzo tela pana</span><span class="product-price">$5</span><button class="select-btn">Seleccionar opciones</button></div>
+  <div class="product"><span class="product-name">Camiseta de hombre</span><span class="product-price">$5</span><button class="select-btn">Seleccionar opciones</button></div>
+  <div class="product"><span class="product-name">Zapatos</span><span class="product-price">$15</span><button class="select-btn">Seleccionar opciones</button></div>
+</div>
 
-    <!-- Categoría 2 -->
-    <div class="category-card">
-      <div class="category-title">JUGUETES</div>
-      <div class="product"><div class="product-name">Set de construcción</div><div class="product-price">$8</div><button class="add-to-cart">Agregar al carrito</button></div>
-      <div class="product"><div class="product-name">Boliches</div><div class="product-price">$0.20</div><button class="add-to-cart">Agregar al carrito</button></div>
-      <div class="product"><div class="product-name">Pelota</div><div class="product-price">$5</div><button class="add-to-cart">Agregar al carrito</button></div>
-      <div class="product"><div class="product-name">Tarjetas</div><div class="product-price">$4</div><button class="add-to-cart">Agregar al carrito</button></div>
-    </div>
+<!-- Categoría 2 -->
+<div class="category">
+  <div class="icon" style="background:#e3f2fd">🧸</div>
+  <div class="category-title">JUGUETES</div>
+  <div class="product"><span class="product-name">Set de construcción</span><span class="product-price">$8</span><button class="select-btn">Seleccionar opciones</button></div>
+  <div class="product"><span class="product-name">Boliches</span><span class="product-price">$0.20</span><button class="select-btn">Seleccionar opciones</button></div>
+  <div class="product"><span class="product-name">Pelota</span><span class="product-price">$5</span><button class="select-btn">Seleccionar opciones</button></div>
+  <div class="product"><span class="product-name">Tarjetas</span><span class="product-price">$4</span><button class="select-btn">Seleccionar opciones</button></div>
+</div>
 
-    <!-- Categoría 3 -->
-    <div class="category-card">
-      <div class="category-title">VARIOS DEL HOGAR</div>
-      <div class="product"><div class="product-name">Fomix</div><div class="product-price">$0.80</div><button class="add-to-cart">Agregar al carrito</button></div>
-      <div class="product"><div class="product-name">Almohada</div><div class="product-price">$5</div><button class="add-to-cart">Agregar al carrito</button></div>
-      <div class="product"><div class="product-name">Cobija</div><div class="product-price">$10</div><button class="add-to-cart">Agregar al carrito</button></div>
-      <div class="product"><div class="product-name">Edredón</div><div class="product-price">$12</div><button class="add-to-cart">Agregar al carrito</button></div>
-    </div>
+<!-- Categoría 3 -->
+<div class="category">
+  <div class="icon" style="background:#f1f8e9">🏠</div>
+  <div class="category-title">VARIOS DEL HOGAR</div>
+  <div class="product"><span class="product-name">Fomix</span><span class="product-price">$0.80</span><button class="select-btn">Seleccionar opciones</button></div>
+  <div class="product"><span class="product-name">Almohada</span><span class="product-price">$5</span><button class="select-btn">Seleccionar opciones</button></div>
+  <div class="product"><span class="product-name">Cobija</span><span class="product-price">$10</span><button class="select-btn">Seleccionar opciones</button></div>
+  <div class="product"><span class="product-name">Edredón</span><span class="product-price">$12</span><button class="select-btn">Seleccionar opciones</button></div>
+</div>
 
-    <!-- Categoría 4 -->
-    <div class="category-card highlight">
-      <div class="category-title">PRODUCTOS DESTACADOS</div>
-      <div class="product"><div class="product-name">Gorra militar</div><div class="product-price">$4</div><button class="add-to-cart">Agregar al carrito</button></div>
-      <div class="product"><div class="product-name">Botas verdes</div><div class="product-price">$6</div><button class="add-to-cart">Agregar al carrito</button></div>
-      <div class="product"><div class="product-name">Paraguas</div><div class="product-price">$2</div><button class="add-to-cart">Agregar al carrito</button></div>
-      <div class="product"><div class="product-name">Libro anime</div><div class="product-price">$10</div><button class="add-to-cart">Agregar al carrito</button></div>
-    </div>
-  </div>
-</main>
+<!-- Categoría 4 -->
+<div class="category">
+  <div class="icon" style="background:#fff8e1">⭐</div>
+  <div class="category-title">PRODUCTOS DESTACADOS</div>
+  <div class="product"><span class="product-name">Gorra militar</span><span class="product-price">$4</span><button class="select-btn">Seleccionar opciones</button></div>
+  <div class="product"><span class="product-name">Botas verdes</span><span class="product-price">$6</span><button class="select-btn">Seleccionar opciones</button></div>
+  <div class="product"><span class="product-name">Paraguas</span><span class="product-price">$2</span><button class="select-btn">Seleccionar opciones</button></div>
+  <div class="product"><span class="product-name">Libro anime</span><span class="product-price">$10</span><button class="select-btn">Seleccionar opciones</button></div>
+</div>
 
 <script>
-  // Simula el carrito (en futuro podrías extenderlo)
-  document.querySelectorAll('.add-to-cart').forEach(btn => {
+  // Al hacer clic en "Seleccionar opciones", solo se indica que se agregó (opcional)
+  document.querySelectorAll('.select-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      alert('✅ ¡Agregado al carrito!\nPresiona el carrito 🛒 arriba para enviar tu pedido por WhatsApp.');
+      alert('✅ ¡Producto seleccionado!\nPresiona el carrito 🛒 arriba para enviar tu pedido por WhatsApp.');
     });
   });
 </script>
