@@ -3,71 +3,114 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SUPER PROMOCIONES - BHALLEFFORT</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <title>BHALLEFFORT – Lo mejor y al mejor precio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Header con logo y carrito -->
+  <!-- Barra superior morada -->
+  <div class="top-bar">
+    <div class="top-bar-left">📍 ENVIOS A TODO EL PAIS</div>
+    <div class="top-bar-right">
+      <span>📦 ENVÍOS 100% SEGUROS</span>
+      <a href="#" class="social-icon">f</a>
+      <a href="#" class="social-icon">ig</a>
+    </div>
+  </div>
+
+  <!-- Header -->
   <header class="header">
     <div class="logo">
-      <img src="img/prod-ballena.jpg" alt="Ballenita" class="whale-logo" />
+      <img src="img/prod-ballena.jpg" alt="Ballenita BHALLEFFORT" class="whale-logo" />
       <div>
         <div class="brand">BHALLEFFORT</div>
-        <div class="slogan">Tu lugar de confianza</div>
+        <div class="slogan">LO MEJOR Y AL MEJOR PRECIO</div>
       </div>
     </div>
-    <a href="https://wa.me/510963923399" target="_blank" class="cart-icon">🛒</a>
+
+    <!-- Buscador -->
+    <div class="search-box">
+      <input type="text" placeholder="Buscar productos (Ropa, Juguetes...)" />
+      <button class="search-btn">BÚSQUEDA</button>
+    </div>
+
+    <!-- Contacto y carrito -->
+    <div class="contact-cart">
+      <div class="whatsapp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon" />
+        <span>PEDIDOS WHATSAPP</span>
+        <span>+593 960503674</span>
+      </div>
+      <div class="account">
+        <span>👤 Acceso | Registro</span>
+      </div>
+      <div class="cart">
+        <img src="https://cdn-icons-png.flaticon.com/512/263/263142.png" alt="Carrito" class="cart-icon" />
+        <span class="cart-count">0</span>
+      </div>
+    </div>
   </header>
 
-  <!-- Sección SUPER PROMOCIONES (centrada) -->
-  <section class="super-promos">
-    <h1 class="promo-title">🔥 SUPER PROMOCIONES</h1>
-    <div class="promo-grid">
+  <!-- Menú Principal -->
+  <nav class="main-menu">
+    <ul>
+      <li><a href="#" class="active">INICIO</a></li>
+      <li><a href="#">QUIÉNES SOMOS</a></li>
+      <li class="dropdown">
+        <a href="#">CATÁLOGO DE PRODUCTOS ▼</a>
+        <div class="dropdown-content">
+          <a href="#">ROPA</a>
+          <a href="#">JUGUETES</a>
+          <a href="#">SUMINISTROS HOGAR</a>
+        </div>
+      </li>
+      <li><a href="#">SUPER PROMOCIONES</a></li>
+      <li><a href="#">POLÍTICAS</a></li>
+      <li><a href="#">CONTÁCTENOS</a></li>
+    </ul>
+  </nav>
+
+  <!-- Sección Principal Morada -->
+  <section class="hero-section">
+    <h1>SUPER PROMOCIONES</h1>
+  </section>
+
+  <!-- Productos Destacados -->
+  <section class="products-section">
+    <h2 class="section-title">✨ Productos Destacados</h2>
+    <div class="products-grid">
       <!-- Producto 1 -->
-      <div class="promo-card">
-        <img src="img/prod-reloj.jpg" alt="Reloj inteligente" class="promo-img" />
-        <div class="category">Promoción</div>
-        <h3>Reloj inteligente modelo A3</h3>
-        <p class="price original">$60.00</p>
-        <p class="price special">$40.00</p>
-        <a href="https://wa.me/510963923399?text=Hola,%20quiero%20el%20Reloj%20inteligente%20modelo%20A3" class="select-btn" target="_blank">Seleccionar opciones</a>
+      <div class="product-card">
+        <img src="img/prod-chompa.jpg" alt="Chompa de tela pana" />
+        <div class="category-tag">Ropa</div>
+        <h3>Chompa de tela pana (Gris)</h3>
+        <p class="price original">$6.00</p>
+        <p class="price special">$5.00</p>
+        <button class="add-to-cart">Añadir al Carrito</button>
       </div>
 
       <!-- Producto 2 -->
-      <div class="promo-card">
-        <img src="img/prod-chompa.jpg" alt="Chompa de tela pana" class="promo-img" />
-        <div class="category">Ropa</div>
-        <h3>Chompa de tela pana (Gris)</h3>
-        <p class="price">$5.00</p>
-        <a href="https://wa.me/510963923399?text=Hola,%20quiero%20la%20Chompa%20de%20tela%20pana%20(Gris)" class="select-btn" target="_blank">Seleccionar opciones</a>
+      <div class="product-card">
+        <img src="img/prod-ballena.jpg" alt="Peluche de ballena" />
+        <div class="category-tag">Juguetes</div>
+        <h3>Peluche de ballena de felpa</h3>
+        <p class="price">$12.00</p>
+        <button class="add-to-cart">Añadir al Carrito</button>
       </div>
 
       <!-- Producto 3 -->
-      <div class="promo-card">
-        <img src="img/prod-ballena.jpg" alt="Peluche de ballena" class="promo-img" />
-        <div class="category">Juguetes</div>
-        <h3>Peluche de ballena de felpa</h3>
-        <p class="price">$12.00</p>
-        <a href="https://wa.me/510963923399?text=Hola,%20quiero%20el%20Peluche%20de%20ballena%20de%20felpa" class="select-btn" target="_blank">Seleccionar opciones</a>
+      <div class="product-card">
+        <img src="img/prod-reloj.jpg" alt="Reloj inteligente" />
+        <div class="category-tag">Promociones</div>
+        <h3>Reloj inteligente modelo A3</h3>
+        <p class="price original">$60.00</p>
+        <p class="price special">$40.00</p>
+        <button class="add-to-cart">Añadir al Carrito</button>
       </div>
 
       <!-- Producto 4 -->
-      <div class="promo-card">
-        <img src="img/prod-taza.jpg" alt="Taza de cerámica" class="promo-img" />
-        <div class="category">Hogar</div>
+      <div class="product-card">
+        <img src="img/prod-taza.jpg" alt="Taza de cerámica" />
+        <div class="category-tag">Hogar</div>
         <h3>Taza de cerámica con asa</h3>
-        <p class="price">$3.50</p>
-        <a href="https://wa.me/510963923399?text=Hola,%20quiero%20la%20Taza%20de%20cerámica%20con%20asa" class="select-btn" target="_blank">Seleccionar opciones</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer minimalista -->
-  <footer class="footer">
-    <p>📧 cabascangoroman123@gmail.com</p>
-    <p>📞 WhatsApp: <a href="https://wa.me/510963923399">0963923399</a></p>
-    <p>© BHALLEFFORT — Hecho con 💙</p>
-  </footer>
-</body>
-</html>
+        <p class="price">$
