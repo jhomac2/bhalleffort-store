@@ -15,9 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Estado del carrito (se carga desde localStorage si existe)
     let cart = JSON.parse(localStorage.getItem('bhalleffortCart')) || [];
 
-    // Lista de productos de ejemplo (debería cargarse de una base de datos real)
+   // Lista de productos de ejemplo (debería cargarse de una base de datos real)
     const PRODUCTS = [
-        // ---------- 1. INDEX.HTML (Destacados) - ¡CORREGIDOS! ----------
+        // ---------- 1. INDEX.HTML (Destacados) - ¡Ortografía Corregida! ----------
         { id: 'P001', name: 'Chompa tela pana', price: 5.00, category: 'Ropa' },
         { id: 'P002', name: 'Construcción set de camiones', price: 8.00, category: 'Juguetes' },
         { id: 'P003', name: 'Mesa de dibujo hogareño para niñ@', price: 8.00, category: 'Hogar' },
@@ -289,5 +289,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. INICIALIZACIÓN
     updateCartBadge(); // Asegura que el contador se muestre al cargar la página
 });
+
 
 
