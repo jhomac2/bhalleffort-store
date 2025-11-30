@@ -1115,3 +1115,33 @@ footer {
         grid-template-columns: 1fr; 
     }
 }
+// --- 5. FUNCIONALIDAD ZOOM DE IMAGEN (MODAL) ---
+
+    // Variables del modal de imagen
+    const imageModal = document.getElementById('image-modal');
+    const modalImage = document.getElementById('modal-image');
+    const imageClose = document.querySelector('.image-close');
+    const productImages = document.querySelectorAll('.product-image');
+
+    // Abre el modal al hacer clic en cualquier imagen de producto
+    productImages.forEach(image => {
+        image.addEventListener('click', () => {
+            imageModal.style.display = 'block';
+            modalImage.src = image.src;
+        });
+    });
+
+    // Cierra el modal al hacer clic en la 'X'
+    imageClose.addEventListener('click', () => {
+        imageModal.style.display = 'none';
+    });
+
+    // Cierra el modal si se hace clic fuera de la imagen
+    imageModal.addEventListener('click', (e) => {
+        if (e.target === imageModal) {
+            imageModal.style.display = 'none';
+        }
+    });
+
+    updateCartBadge(); // Esta línea debe quedar debajo del código que acabas de pegar.
+}); // Y esta línea es el cierre final del archivo.
