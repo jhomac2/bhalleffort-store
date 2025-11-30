@@ -1,303 +1,283 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- 1. VARIABLES Y SELECTORES ---
-    const cartIcon = document.getElementById('cart-icon');
-    const cartModal = document.getElementById('cart-modal');
-    const closeModal = document.querySelector('.close-button');
-    const cartItemsContainer = document.getElementById('cart-items');
-    const cartTotalElement = document.getElementById('cart-total');
-    const cartBadge = document.getElementById('cart-badge');
-    const buyButtons = document.querySelectorAll('.btn-buy');
-    const btnCancel = document.getElementById('btn-cancel');
-    const btnCheckoutWhatsapp = document.getElementById('btn-checkout-whatsapp');
-    const menuToggle = document.querySelector('.menu-toggle');
-    const mainNav = document.querySelector('.main-nav');
 
-    // Estado del carrito (se carga desde localStorage si existe)
-    let cart = JSON.parse(localStorage.getItem('bhalleffortCart')) || [];
-
-   // Lista de productos de ejemplo (debería cargarse de una base de datos real)
+    // Lista de Productos (Asegúrese de que los precios y nombres sean los correctos)
     const PRODUCTS = [
-        // ---------- 1. INDEX.HTML (Destacados) - ¡Ortografía Corregida! ----------
-        { id: 'P001', name: 'Chompa tela pana', price: 5.00, category: 'Ropa' },
-        { id: 'P002', name: 'Construcción set de camiones', price: 8.00, category: 'Juguetes' },
-        { id: 'P003', name: 'Mesa de dibujo hogareño para niñ@', price: 8.00, category: 'Hogar' },
-        { id: 'P004', name: 'Buzo tela pana', price: 5.00, category: 'Promociones' },
-
-        // ---------- 2. ROPA.HTML ----------
-        { id: 'R001', name: 'Vestido Casual de Lino', price: 32.00, category: 'Ropa' },
-        { id: 'R002', name: 'Camisa Algodón Slim Fit', price: 19.99, category: 'Ropa' },
-        { id: 'R003', name: 'Conjunto Deportivo Infantil', price: 15.50, category: 'Ropa' },
-
-        // ---------- 3. JUGUETES.HTML ----------
-        { id: 'J001', name: 'Pista de Carreras Flexible', price: 25.99, category: 'Juguetes' },
-        { id: 'J002', name: 'Muñeca Interactiva con Sonido', price: 39.99, category: 'Juguetes' },
-        { id: 'J003', name: 'Mesa de Actividades Didácticas', price: 55.00, category: 'Juguetes' },
-
-        // ---------- 4. HOGAR.HTML ----------
-        { id: 'H001', name: 'Organizador de Especieros Tres Niveles', price: 18.99, category: 'Hogar' },
-        { id: 'H002', name: 'Set de 6 Toallas Algodón Egipcio', price: 42.50, category: 'Hogar' },
-        { id: 'H003', name: 'Manta Decorativa Lana Tejida', price: 29.99, category: 'Hogar' },
-
-        // ---------- 5. PROMOCIONES.HTML ----------
-        { id: 'O001', name: 'Reloj Inteligente Deportivo 40% OFF', price: 29.99, category: 'Promociones' },
-        { id: 'O002', name: 'Zapatos Deportivos Infantiles', price: 17.99, category: 'Promociones' },
-        { id: 'O003', name: 'Set 2 Cortinas Opacas Térmicas', price: 29.99, category: 'Promociones' },
+        { id: 'P001', name: 'Chompa tela pana', price: 5.00, category: 'Ropa', keywords: ['chompa', 'pana', 'abrigo'] },
+        { id: 'P002', name: 'Peluche de ballena', price: 12.00, category: 'Juguetes', keywords: ['peluche', 'ballena', 'suave'] },
+        { id: 'P003', name: 'Taza de diseño', price: 3.50, category: 'Hogar', keywords: ['taza', 'cafe', 'diseño'] },
+        { id: 'R001', name: 'Jeans elasticados', price: 15.00, category: 'Ropa', keywords: ['jeans', 'pantalón', 'elástico'] },
+        { id: 'R002', name: 'Blusa de seda', price: 8.00, category: 'Ropa', keywords: ['blusa', 'seda', 'elegante'] },
+        { id: 'J001', name: 'Set de bloques de madera', price: 20.00, category: 'Juguetes', keywords: ['bloques', 'madera', 'construcción'] },
+        { id: 'J002', name: 'Muñeca articulada', price: 10.00, category: 'Juguetes', keywords: ['muñeca', 'articulada', 'niña'] },
+        { id: 'H001', name: 'Toalla de algodón XL', price: 7.50, category: 'Hogar', keywords: ['toalla', 'algodón', 'baño'] },
+        { id: 'H002', name: 'Juego de sábanas', price: 25.00, category: 'Hogar', keywords: ['sábanas', 'cama', 'dormitorio'] },
+        { id: 'O001', name: 'Reloj inteligente (Oferta)', price: 40.00, oldPrice: 60.00, category: 'Promociones', keywords: ['reloj', 'smartwatch', 'oferta', 'promoción'] },
+        // Agregue más productos si los tiene...
     ];
-    // --- 2. FUNCIONES DEL CARRITO ---
 
-    // Función para guardar el carrito en localStorage
-    const saveCart = () => {
-        localStorage.setItem('bhalleffortCart', JSON.stringify(cart));
-        updateCartBadge();
-    };
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    // Función para actualizar el contador de items en el ícono del carrito
-    const updateCartBadge = () => {
-        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-        cartBadge.textContent = totalItems;
-        // Ocultar el badge si no hay items
-        cartBadge.style.display = totalItems > 0 ? 'flex' : 'none';
-    };
+    // --- 1. FUNCIONES PRINCIPALES DEL CARRITO ---
 
-    // Función para calcular y mostrar el total del carrito
-    const calculateTotal = () => {
-        const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-        cartTotalElement.textContent = `Total: $${total.toFixed(2)}`;
-        return total;
-    };
-
-    // Función para dibujar los items del carrito en el modal
-    const renderCart = () => {
-        cartItemsContainer.innerHTML = '';
-        if (cart.length === 0) {
-            cartItemsContainer.innerHTML = '<p class="empty-cart-message">El carrito está vacío.</p>';
-            cartTotalElement.textContent = 'Total: $0.00';
-            btnCheckoutWhatsapp.disabled = true;
-            btnCancel.disabled = true;
-            return;
-        }
-
-        cart.forEach(item => {
-            const itemElement = document.createElement('div');
-            itemElement.classList.add('cart-item');
-            itemElement.innerHTML = `
-                <div class="cart-item-info">
-                    <p class="cart-item-name">${item.name}</p>
-                    <p class="cart-item-price">$${item.price.toFixed(2)} x ${item.quantity}</p>
-                </div>
-                <div class="cart-item-controls">
-                    <button class="btn-quantity decrease-btn" data-id="${item.id}">-</button>
-                    <span class="quantity-display">${item.quantity}</span>
-                    <button class="btn-quantity increase-btn" data-id="${item.id}">+</button>
-                    <button class="btn-remove" data-id="${item.id}">X</button>
-                </div>
-            `;
-            cartItemsContainer.appendChild(itemElement);
-        });
-
-        calculateTotal();
-        btnCheckoutWhatsapp.disabled = false;
-        btnCancel.disabled = false;
-    };
-
-    // Función para añadir un producto al carrito
-    const addToCart = (productId) => {
+    // Función para añadir al carrito
+    function addToCart(productId) {
         const product = PRODUCTS.find(p => p.id === productId);
-        if (!product) return;
-
-        const existingItem = cart.find(item => item.id === productId);
-
-        if (existingItem) {
-            existingItem.quantity += 1;
-        } else {
-            cart.push({
-                id: product.id,
-                name: product.name,
-                price: product.price,
-                quantity: 1
-            });
-        }
-        saveCart();
-        alert(`${product.name} añadido al carrito.`);
-    };
-
-    // Manejar clics dentro del modal (aumentar, disminuir, remover)
-    cartItemsContainer.addEventListener('click', (e) => {
-        const target = e.target;
-        const productId = target.dataset.id;
-
-        if (!productId) return;
-
-        const itemIndex = cart.findIndex(item => item.id === productId);
-        if (itemIndex === -1) return;
-
-        if (target.classList.contains('increase-btn')) {
-            cart[itemIndex].quantity += 1;
-        } else if (target.classList.contains('decrease-btn')) {
-            cart[itemIndex].quantity -= 1;
-            if (cart[itemIndex].quantity <= 0) {
-                cart.splice(itemIndex, 1); // Remover si la cantidad llega a cero
-            }
-        } else if (target.classList.contains('btn-remove')) {
-            cart.splice(itemIndex, 1); // Remover item
-        }
-
-        saveCart();
-        renderCart();
-    });
-
-    // --- 3. EVENT LISTENERS ---
-
-    // 3.1. Abrir modal del carrito
-    cartIcon.addEventListener('click', (e) => {
-        e.preventDefault(); // Evita que el enlace de carrito navegue si es un <a>
-        renderCart();
-        cartModal.style.display = 'flex';
-    });
-
-    // 3.2. Cerrar modal
-    closeModal.addEventListener('click', () => {
-        cartModal.style.display = 'none';
-    });
-
-    // Cerrar si se hace clic fuera del modal
-    window.addEventListener('click', (e) => {
-        if (e.target === cartModal) {
-            cartModal.style.display = 'none';
-        }
-    });
-
-    // 3.3. Botones "Añadir al Carrito"
-    buyButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            const card = e.target.closest('.product-card');
-            if (card) {
-                const productId = card.dataset.id;
-                addToCart(productId);
-            }
-        });
-    });
-
-    // 3.4. Vaciar Carrito
-    btnCancel.addEventListener('click', () => {
-        if (confirm('¿Está seguro de que desea vaciar el carrito?')) {
-            cart = [];
-            saveCart();
-            renderCart();
-        }
-    });
-
-    // 3.5. Botón de Checkout por WhatsApp
-    btnCheckoutWhatsapp.addEventListener('click', () => {
-        if (cart.length === 0) {
-            alert('El carrito está vacío. Agregue productos para hacer un pedido.');
-            return;
-        }
-
-        let message = "¡Hola! Quisiera realizar el siguiente pedido:\n\n";
-        let total = 0;
-
-        cart.forEach((item, index) => {
-            const itemTotal = item.price * item.quantity;
-            total += itemTotal;
-            message += `${index + 1}. ${item.name} | Cantidad: ${item.quantity} | Subtotal: $${itemTotal.toFixed(2)}\n`;
-        });
-
-        message += `\n*TOTAL FINAL: $${total.toFixed(2)}*\n\n`;
-        message += "Por favor, confírmenme el total incluyendo el costo de envío. ¡Gracias!";
-
-        // El número de WhatsApp del negocio de BHALLEFFORT
-        const whatsappNumber = '593960503674'; 
-        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-
-        window.open(whatsappUrl, '_blank');
-        cartModal.style.display = 'none'; // Cerrar modal después de enviar
-    });
-
-    // 3.6. Menú móvil (Toggle)
-    menuToggle.addEventListener('click', () => {
-        mainNav.classList.toggle('active');
-    });
-
-    // 3.7. Funcionalidad del Buscador con Autocompletado (SOLO en index.html)
-    const searchInput = document.getElementById('search-input');
-    const autocompleteResults = document.getElementById('autocomplete-results');
-
-    if (searchInput) {
-        searchInput.addEventListener('input', () => {
-            const query = searchInput.value.toLowerCase();
-            autocompleteResults.innerHTML = '';
-
-            if (query.length < 2) {
-                autocompleteResults.style.display = 'none';
-                return;
-            }
-
-            const filteredProducts = PRODUCTS.filter(p => 
-                p.name.toLowerCase().includes(query) || p.category.toLowerCase().includes(query)
-            ).slice(0, 5); // Mostrar máximo 5 resultados
-
-            if (filteredProducts.length > 0) {
-                filteredProducts.forEach(product => {
-                    const resultItem = document.createElement('div');
-                    resultItem.classList.add('autocomplete-item');
-                    resultItem.innerHTML = `<i class="fas fa-search"></i> ${product.name} <span class="category-hint">(${product.category})</span>`;
-                    
-                    // Al hacer clic, se podría redirigir a una página de detalle o la categoría
-                    resultItem.addEventListener('click', () => {
-                        searchInput.value = product.name;
-                        autocompleteResults.style.display = 'none';
-                        // Simular búsqueda o redirección (Ejemplo: ir a la categoría)
-                        const categoryFile = product.category.toLowerCase().replace(/ /g, '-');
-                        if (categoryFile.includes('ropa')) window.location.href = 'ropa.html';
-                        else if (categoryFile.includes('juguetes')) window.location.href = 'juguetes.html';
-                        else if (categoryFile.includes('hogar')) window.location.href = 'hogar.html';
-                        else if (categoryFile.includes('promociones')) window.location.href = 'promociones.html';
-                        else window.location.href = 'index.html';
-                    });
-                    autocompleteResults.appendChild(resultItem);
-                });
-                autocompleteResults.style.display = 'block';
+        if (product) {
+            const existingItem = cart.find(item => item.id === productId);
+            if (existingItem) {
+                existingItem.quantity += 1;
             } else {
-                autocompleteResults.style.display = 'none';
+                cart.push({ ...product, quantity: 1 });
             }
-        });
-
-        // Ocultar resultados al hacer clic fuera
-        document.addEventListener('click', (e) => {
-            if (e.target !== searchInput && e.target !== autocompleteResults) {
-                autocompleteResults.style.display = 'none';
-            }
-        });
-        
-        // Manejar el botón de búsqueda
-        const searchButton = document.getElementById('search-button');
-        if(searchButton) {
-             searchButton.addEventListener('click', () => {
-                const query = searchInput.value.toLowerCase();
-                // Redireccionar a la categoría o a una página de resultados
-                if (query.includes('ropa')) window.location.href = 'ropa.html';
-                else if (query.includes('juguetes')) window.location.href = 'juguetes.html';
-                else if (query.includes('hogar')) window.location.href = 'hogar.html';
-                else if (query.includes('promociones')) window.location.href = 'promociones.html';
-                else alert(`Realizando búsqueda de: "${query}". (En una tienda real, esto lo llevaría a una página de resultados)`);
-            });
+            saveCart();
+            updateCartBadge();
+            // Opcional: mostrar un mensaje de confirmación
         }
     }
 
+    // Función para guardar el carrito en Local Storage
+    function saveCart() {
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
 
-    // 4. INICIALIZACIÓN
-    updateCartBadge(); // Asegura que el contador se muestre al cargar la página
-});
-// --- 5. FUNCIONALIDAD ZOOM DE IMAGEN (MODAL) ---
+    // Función para actualizar el contador del carrito
+    function updateCartBadge() {
+        const badge = document.getElementById('cart-badge');
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        badge.textContent = totalItems;
+        badge.style.display = totalItems > 0 ? 'block' : 'none';
+    }
 
-    // Variables del modal de imagen
+    // Función para renderizar el contenido del modal del carrito
+    function renderCartModal() {
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartTotalElement = document.getElementById('cart-total');
+        const modalActions = document.getElementById('modal-actions');
+        
+        cartItemsContainer.innerHTML = '';
+        let total = 0;
+
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = '<p class="empty-cart-message">El carrito está vacío.</p>';
+            modalActions.style.display = 'none';
+        } else {
+            modalActions.style.display = 'flex';
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                const itemElement = document.createElement('div');
+                itemElement.classList.add('cart-item');
+                itemElement.innerHTML = `
+                    <div class="item-name">${item.name}</div>
+                    <div class="item-quantity-control">
+                        <button class="btn-quantity" data-id="${item.id}" data-action="decrease">-</button>
+                        <span class="quantity-display">${item.quantity}</span>
+                        <button class="btn-quantity" data-id="${item.id}" data-action="increase">+</button>
+                    </div>
+                    <div class="item-price-total">$${itemTotal.toFixed(2)}</div>
+                    <button class="btn-remove" data-id="${item.id}">X</button>
+                `;
+                cartItemsContainer.appendChild(itemElement);
+            });
+        }
+
+        cartTotalElement.textContent = `$${total.toFixed(2)}`;
+        
+        // Adjuntar eventos a los botones del modal (quitar, aumentar, disminuir)
+        attachCartItemEventListeners();
+        // Adjuntar evento al botón de WhatsApp
+        attachWhatsappButtonEvent(total);
+    }
+    
+    // Función para adjuntar eventos (aumentar/disminuir/remover)
+    function attachCartItemEventListeners() {
+        document.querySelectorAll('.btn-quantity').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const productId = e.currentTarget.getAttribute('data-id');
+                const action = e.currentTarget.getAttribute('data-action');
+                updateQuantity(productId, action);
+            });
+        });
+
+        document.querySelectorAll('.btn-remove').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const productId = e.currentTarget.getAttribute('data-id');
+                removeFromCart(productId);
+            });
+        });
+    }
+
+    // Función para generar el mensaje de WhatsApp
+    function generateWhatsappMessage(total) {
+        let message = "¡Hola! Quisiera hacer un pedido con los siguientes artículos:\n\n";
+        cart.forEach(item => {
+            message += `- ${item.name} (${item.quantity} x $${item.price.toFixed(2)}) = $${(item.price * item.quantity).toFixed(2)}\n`;
+        });
+        message += `\n*TOTAL ESTIMADO: $${total.toFixed(2)}*\n\n`;
+        message += "Por favor, confírmenme el stock y los detalles del envío.";
+        
+        // Codificar el mensaje para la URL
+        return encodeURIComponent(message);
+    }
+
+    // Función para adjuntar evento al botón de WhatsApp en el modal
+    function attachWhatsappButtonEvent(total) {
+        const whatsappButton = document.getElementById('btn-checkout-whatsapp');
+        if (whatsappButton) {
+            whatsappButton.onclick = () => {
+                const phoneNumber = '593960503674'; // Su número de WhatsApp
+                const message = generateWhatsappMessage(total);
+                window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+            };
+        }
+    }
+
+    // Función para actualizar cantidad (aumentar/disminuir)
+    function updateQuantity(productId, action) {
+        const item = cart.find(item => item.id === productId);
+        if (item) {
+            if (action === 'increase') {
+                item.quantity += 1;
+            } else if (action === 'decrease') {
+                item.quantity -= 1;
+            }
+            
+            if (item.quantity <= 0) {
+                removeFromCart(productId);
+            } else {
+                saveCart();
+                renderCartModal();
+                updateCartBadge();
+            }
+        }
+    }
+
+    // Función para remover del carrito
+    function removeFromCart(productId) {
+        cart = cart.filter(item => item.id !== productId);
+        saveCart();
+        renderCartModal();
+        updateCartBadge();
+    }
+
+
+    // --- 2. GESTIÓN DEL MODAL (VENTANA EMERGENTE) ---
+
+    const modal = document.getElementById('cart-modal');
+    const cartIcon = document.getElementById('cart-icon');
+    const closeButton = document.querySelector('.close-button');
+    const cancelButton = document.getElementById('btn-cancel-modal');
+
+    // Abre el modal
+    cartIcon.addEventListener('click', () => {
+        renderCartModal();
+        modal.style.display = 'flex';
+    });
+
+    // Cierra el modal con la 'X'
+    closeButton.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    // Cierra el modal con el botón 'Cancelar'
+    if (cancelButton) {
+        cancelButton.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+    }
+
+    // Cierra el modal al hacer clic fuera
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+
+
+    // --- 3. MANEJADOR DE CLICS (CARRITO RÁPIDO) ---
+    // ESTO REEMPLAZA EL CÓDIGO VIEJO DE .btn-buy
+    document.querySelectorAll('.btn-quick-add').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const productId = e.currentTarget.getAttribute('data-id');
+            addToCart(productId);
+            // Si desea, puede añadir aquí una pequeña notificación de "Añadido"
+        });
+    });
+
+
+    // --- 4. FUNCIONALIDAD DEL BUSCADOR ---
+
+    const searchInput = document.getElementById('search-input');
+    const resultsContainer = document.getElementById('autocomplete-results');
+
+    // Muestra sugerencias
+    searchInput.addEventListener('input', () => {
+        const query = searchInput.value.toLowerCase();
+        if (query.length < 2) {
+            resultsContainer.style.display = 'none';
+            return;
+        }
+
+        const filteredProducts = PRODUCTS.filter(product => 
+            product.name.toLowerCase().includes(query) || 
+            product.keywords.some(k => k.includes(query))
+        ).slice(0, 5); // Limitar a 5 resultados
+
+        renderAutocompleteResults(filteredProducts, query);
+    });
+
+    // Renderiza los resultados de la búsqueda
+    function renderAutocompleteResults(products, query) {
+        resultsContainer.innerHTML = '';
+
+        if (products.length === 0) {
+            resultsContainer.style.display = 'none';
+            return;
+        }
+
+        products.forEach(product => {
+            const resultItem = document.createElement('div');
+            resultItem.classList.add('autocomplete-item');
+            
+            // Reemplazar la consulta con un resalte visual
+            const nameHtml = product.name.replace(new RegExp(query, 'gi'), match => `<span class="highlight">${match}</span>`);
+
+            resultItem.innerHTML = `${nameHtml} <span class="category-hint">(${product.category})</span>`;
+            
+            resultItem.addEventListener('click', () => {
+                // Redirigir a la página de la categoría o un enlace de producto si existiera
+                const pageMap = {
+                    'Ropa': 'ropa.html',
+                    'Juguetes': 'juguetes.html',
+                    'Hogar': 'hogar.html',
+                    'Promociones': 'promociones.html'
+                };
+                const url = pageMap[product.category] || 'index.html';
+                window.location.href = url + '#product-' + product.id; // Podría llevar a una ancla
+            });
+            
+            resultsContainer.appendChild(resultItem);
+        });
+
+        resultsContainer.style.display = 'block';
+    }
+
+    // Ocultar resultados al hacer clic fuera
+    document.addEventListener('click', (e) => {
+        if (!searchInput.contains(e.target) && !resultsContainer.contains(e.target)) {
+            resultsContainer.style.display = 'none';
+        }
+    });
+
+
+    // --- 5. FUNCIONALIDAD ZOOM DE IMAGEN (MODAL) ---
+
     const imageModal = document.getElementById('image-modal');
     const modalImage = document.getElementById('modal-image');
     const imageClose = document.querySelector('.image-close');
     const productImages = document.querySelectorAll('.product-image');
 
-    // Abre el modal al hacer clic en cualquier imagen de producto
     productImages.forEach(image => {
         image.addEventListener('click', () => {
             imageModal.style.display = 'block';
@@ -305,20 +285,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Cierra el modal al hacer clic en la 'X'
     imageClose.addEventListener('click', () => {
         imageModal.style.display = 'none';
     });
 
-    // Cierra el modal si se hace clic fuera de la imagen
     imageModal.addEventListener('click', (e) => {
         if (e.target === imageModal) {
             imageModal.style.display = 'none';
         }
     });
 
-    updateCartBadge(); // Esta línea debe quedar debajo del código que acabas de pegar.
-}); // Y esta línea es el cierre final del archivo.
-
-
-
+    // Inicialización del badge
+    updateCartBadge();
+});
