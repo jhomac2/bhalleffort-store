@@ -1,280 +1,55 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BhalEffort - Tienda Online</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BHALLEFFORT – Tu lugar de confianza</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-
-    <div class="top-bar">
-        <div class="container flex-space">
-            <div>¡Envío gratis en pedidos mayores a $50!</div>
-            <div class="socials">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <img src="img/prod-ballena.jpg" alt="Ballenita BHALLEFFORT" class="whale-logo" />
+      <div>
+        <div class="brand">BHALLEFFORT</div>
+        <div class="slogan">Tu lugar de confianza</div>
+      </div>
     </div>
-
-    <header class="main-header">
-        <div class="container flex-center">
-            
-            <a href="index.html" class="logo-link">
-                <div class="logo-section">
-                    <img src="img/whale.png" alt="Icono de Ballena" class="whale-icon">
-                    <div class="brand-text">
-                        <h1>BhalEffort</h1>
-                        <p>Tu tienda de confianza</p>
-                    </div>
-                </div>
-            </a>
-            
-            <div class="search-bar">
-                <div class="autocomplete-container">
-                    <input type="text" id="search-input" placeholder="Buscar productos, categorías...">
-                    <div id="autocomplete-results" class="autocomplete-results">
-                        </div>
-                </div>
-                <button id="search-button"><i class="fas fa-search"></i></button>
-            </div>
-
-            <div class="user-actions">
-                <a href="contactos.html" class="whatsapp-btn">
-                    <i class="fab fa-whatsapp"></i>
-                    <div>
-                        Llámanos
-                        <strong>096 050 3674</strong>
-                    </div>
-                </a>
-                <div class="cart" id="cart-icon">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="badge" id="cart-badge">0</span>
-                </div>
-                <div class="menu-toggle"><i class="fas fa-bars"></i></div>
-            </div>
-        </div>
-    </header>
-
-    <nav class="main-nav">
-        <div class="container">
-            <ul>
-                <li><a href="index.html" class="active">Inicio</a></li>
-                <li class="dropdown">
-                    <a href="ropa.html">Ropa <i class="fas fa-caret-down"></i></a>
-                    <div class="dropdown-content">
-                        <a href="ropa.html#mujer">Mujer</a>
-                        <a href="ropa.html#hombre">Hombre</a>
-                    </div>
-                </li>
-                <li><a href="juguetes.html">Juguetes</a></li>
-                <li><a href="hogar.html">Hogar</a></li>
-                <li><a href="promociones.html">🔥 Promociones</a></li>
-                <li><a href="quienes-somos.html">Quiénes Somos</a></li>
-                <li><a href="contactos.html">Contacto</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <main>
-        <section class="hero-banner">
-            <div class="container">
-                <h2>Lo mejor de BhalEffort para ti y tu familia.</h2>
-                <p>Nuevos productos cada semana con precios increíbles.</p>
-            </div>
-        </section>
-
-        <section class="container">
-            <h2 class="section-title">Nuestras Categorías</h2>
-            <div class="flex-quick-categories">
-                <a href="ropa.html" class="category-box">
-                    <i class="fas fa-tshirt"></i>
-                    <h3>Ropa y Moda</h3>
-                    <p>Las últimas tendencias.</p>
-                </a>
-                <a href="juguetes.html" class="category-box">
-                    <i class="fas fa-puzzle-piece"></i>
-                    <h3>Juguetes</h3>
-                    <p>Diversión para todas las edades.</p>
-                </a>
-                <a href="hogar.html" class="category-box">
-                    <i class="fas fa-couch"></i>
-                    <h3>Hogar</h3>
-                    <p>Artículos que hacen la vida más fácil.</p>
-                </a>
-            </div>
-        </section>
-
-        <section class="container">
-            <h2 class="section-title">Productos Destacados</h2>
-            <div class="products-grid">
-                
-                <div class="product-card" data-id="P001">
-                    <div class="product-image-container">
-                        <img src="img/prod-chompa.jpg" alt="Chompa tela pana" class="product-image">
-                        <button class="btn-quick-add" data-id="P001" aria-label="Añadir a carrito"><i class="fas fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Ropa</span>
-                        <h3 class="product-name">Chompa de tela pana (Gris)</h3>
-                        <div class="price">
-                            <span class="current-price">$5.00</span>
-                        </div>
-                        <button class="btn-buy" data-id="P001">Comprar Ahora</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-id="P002">
-                    <div class="product-image-container">
-                        <img src="img/prod-ballena.jpg" alt="Peluche de ballena" class="product-image">
-                        <button class="btn-quick-add" data-id="P002" aria-label="Añadir a carrito"><i class="fas fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Juguetes</span>
-                        <h3 class="product-name">Peluche de ballena de felpa</h3>
-                        <div class="price">
-                            <span class="current-price">$12.00</span>
-                        </div>
-                        <button class="btn-buy" data-id="P002">Comprar Ahora</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-id="O001">
-                    <div class="product-image-container">
-                        <img src="img/prod-reloj.jpg" alt="Reloj inteligente" class="product-image">
-                        <button class="btn-quick-add" data-id="O001" aria-label="Añadir a carrito"><i class="fas fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Promoción</span>
-                        <h3 class="product-name">Reloj inteligente modelo A3</h3>
-                        <div class="price">
-                            <span class="old-price">$60.00</span>
-                            <span class="current-price">$40.00</span>
-                        </div>
-                        <button class="btn-buy" data-id="O001">Comprar Ahora</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-id="P003">
-                    <div class="product-image-container">
-                        <img src="img/prod-taza.jpg" alt="Taza de diseño" class="product-image">
-                        <button class="btn-quick-add" data-id="P003" aria-label="Añadir a carrito"><i class="fas fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Hogar</span>
-                        <h3 class="product-name">Taza de cerámica con asa</h3>
-                        <div class="price">
-                            <span class="current-price">$3.50</span>
-                        </div>
-                        <button class="btn-buy" data-id="P003">Comprar Ahora</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="guarantees">
-            <div class="container flex-guarantees">
-                <div class="guarantee-item">
-                    <i class="fas fa-truck"></i>
-                    <div>
-                        <strong>Envío Rápido</strong>
-                        <p>Entregas en 24-48 horas.</p>
-                    </div>
-                </div>
-                <div class="guarantee-item">
-                    <i class="fas fa-money-check-alt"></i>
-                    <div>
-                        <strong>Pago Seguro</strong>
-                        <p>Datos protegidos y cifrados.</p>
-                    </div>
-                </div>
-                <div class="guarantee-item">
-                    <i class="fas fa-undo"></i>
-                    <div>
-                        <strong>Devoluciones Fáciles</strong>
-                        <p>Cambio o reembolso en 30 días.</p>
-                    </div>
-                </div>
-                <div class="guarantee-item">
-                    <i class="fas fa-headset"></i>
-                    <div>
-                        <strong>Soporte 24/7</strong>
-                        <p>Asistencia inmediata por WhatsApp.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container footer-grid">
-            <div class="footer-brand">
-                <img src="img/whale.png" alt="BhalEffort Logo" class="whale-icon-footer">
-                <h3>BhalEffort</h3>
-                <p>Ofreciendo productos de calidad a precios que te encantarán.</p>
-                <div class="socials">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-            <div class="footer-policies">
-                <h3>Información</h3>
-                <ul>
-                    <li><a href="quienes-somos.html">Quiénes Somos</a></li>
-                    <li><a href="politicas.html">Políticas de Devolución</a></li>
-                    <li><a href="politicas.html#envio">Términos de Envío</a></li>
-                    <li><a href="contactos.html">Preguntas Frecuentes</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <h3>Contáctanos</h3>
-                <ul>
-                    <li><i class="fas fa-map-marker-alt"></i> Quito, Ecuador</li>
-                    <li><i class="fas fa-phone"></i> 096 050 3674</li>
-                    <li><i class="fas fa-envelope"></i> ventas@bhalleffort.com</li>
-                    <li class="payment-methods">
-                        <i class="fab fa-cc-visa"></i>
-                        <i class="fab fa-cc-mastercard"></i>
-                        <i class="fas fa-money-bill-wave"></i>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-copyright">
-            <p>&copy; 2025 BhalEffort. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-
-
-    <div id="cart-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h2>🛒 Carrito de Compras</h2>
-            <div id="cart-items">
-                </div>
-            <div class="cart-summary">
-                Subtotal: <span id="cart-total">$0.00</span>
-            </div>
-            <div class="modal-actions" id="modal-actions">
-                <button class="btn-cancel" id="btn-cancel-modal">Cerrar</button>
-                <button class="btn-buy btn-whatsapp" id="btn-checkout-whatsapp">
-                    <i class="fab fa-whatsapp"></i> Finalizar Pedido
-                </button>
-            </div>
-        </div>
+    <div class="cart-icon" id="cartIcon">
+      🛒 <span id="cartCount">0</span>
     </div>
-    
-    <div id="image-modal" class="image-modal">
-        <span class="image-close">&times;</span>
-        <img class="modal-content-image" id="modal-image">
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero">
+    <h1>Productos con alma, tecnología con estilo</h1>
+  </section>
+
+  <!-- Productos -->
+  <main class="products" id="productList">
+    <!-- Los productos se cargarán aquí dinámicamente -->
+  </main>
+
+  <!-- Modal de detalles -->
+  <div class="modal" id="detailModal" style="display: none;">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img id="modalImage" src="" alt="Producto" />
+      <h3 id="modalTitle"></h3>
+      <p id="modalSpecs"></p>
+      <p class="price" id="modalPrice"></p>
     </div>
+  </div>
 
-    <a href="https://wa.me/593960503674" target="_blank" class="floating-whatsapp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Compra segura • Entrega rápida</p>
+    <p>📧 cabascangoroman123@gmail.com</p>
+    <p>© BHALLEFFORT — Hecho con 💙</p>
+  </footer>
 
-    <script src="script.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
