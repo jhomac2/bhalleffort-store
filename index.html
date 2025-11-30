@@ -5,51 +5,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BHALLEFFORT – Tu lugar de confianza</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <!-- Header -->
   <header class="header">
     <div class="logo">
-      <img src="img/prod-ballena.jpg" alt="Ballenita BHALLEFFORT" class="whale-logo" />
+      <img src="img/prod-ballena.jpg" alt="Ballenita" class="whale-logo" />
       <div>
         <div class="brand">BHALLEFFORT</div>
         <div class="slogan">Tu lugar de confianza</div>
       </div>
     </div>
-    <div class="cart-icon" id="cartIcon">
-      🛒 <span id="cartCount">0</span>
-    </div>
+    <div class="cart-icon">🛒 <span>0</span></div>
   </header>
 
-  <!-- Hero Banner -->
+  <!-- Hero -->
   <section class="hero">
     <h1>Productos con alma, tecnología con estilo</h1>
   </section>
 
   <!-- Productos -->
-  <main class="products" id="productList">
-    <!-- Los productos se cargarán aquí dinámicamente -->
-  </main>
-
-  <!-- Modal de detalles -->
-  <div class="modal" id="detailModal" style="display: none;">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <img id="modalImage" src="" alt="Producto" />
-      <h3 id="modalTitle"></h3>
-      <p id="modalSpecs"></p>
-      <p class="price" id="modalPrice"></p>
+  <main class="products">
+    <div class="product-card">
+      <img src="img/prod-chompa.jpg" alt="Chompa" />
+      <div class="category">Ropa</div>
+      <h3>Chompa de tela pana (Gris)</h3>
+      <p class="price">$5.00</p>
     </div>
-  </div>
+    <div class="product-card">
+      <img src="img/prod-ballena.jpg" alt="Ballena" />
+      <div class="category">Juguetes</div>
+      <h3>Peluche de ballena de felpa</h3>
+      <p class="price">$12.00</p>
+    </div>
+    <div class="product-card">
+      <img src="img/prod-reloj.jpg" alt="Reloj" />
+      <div class="category">Promoción</div>
+      <h3>Reloj inteligente modelo A3</h3>
+      <p class="price original">$60.00</p>
+      <p class="price special">$40.00</p>
+    </div>
+    <div class="product-card">
+      <img src="img/prod-taza.jpg" alt="Taza" />
+      <div class="category">Hogar</div>
+      <h3>Taza de cerámica con asa</h3>
+      <p class="price">$3.50</p>
+    </div>
+  </main>
 
   <!-- Footer -->
   <footer class="footer">
-    <p>Compra segura • Entrega rápida</p>
     <p>📧 cabascangoroman123@gmail.com</p>
     <p>© BHALLEFFORT — Hecho con 💙</p>
   </footer>
-
-  <script src="js/script.js"></script>
 </body>
 </html>
