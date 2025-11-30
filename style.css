@@ -1,12 +1,9 @@
-/* Futurista, oscuro, neón suave */
 :root {
   --bg-dark: #0A0F2C;
   --bg-card: #0D1117;
   --text-light: #E6E6E6;
   --neon-cyan: #00F0FF;
   --neon-pink: #FF2A6D;
-  --border-radius: 12px;
-  --shadow: 0 8px 24px rgba(0, 240, 255, 0.15);
 }
 
 * {
@@ -19,7 +16,7 @@ body {
   background: var(--bg-dark);
   color: var(--text-light);
   font-family: 'Inter', sans-serif;
-  padding-bottom: 80px;
+  padding-bottom: 60px;
 }
 
 /* Header */
@@ -28,8 +25,8 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1.2rem 2rem;
-  background: rgba(10, 15, 44, 0.7);
-  backdrop-filter: blur(10px);
+  background: rgba(10, 15, 44, 0.8);
+  backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(0, 240, 255, 0.2);
 }
 
@@ -40,8 +37,8 @@ body {
 }
 
 .whale-logo {
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid var(--neon-cyan);
@@ -49,30 +46,18 @@ body {
 
 .brand {
   font-family: 'Orbitron', sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   color: var(--neon-cyan);
-  letter-spacing: 1px;
 }
 
 .slogan {
   font-size: 0.85rem;
   color: var(--neon-cyan);
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .cart-icon {
-  font-size: 1.8rem;
-  cursor: pointer;
-  position: relative;
-}
-
-.cart-icon span {
-  background: var(--neon-pink);
-  color: black;
-  border-radius: 50%;
-  padding: 0 6px;
-  font-size: 0.8rem;
-  margin-left: 4px;
+  font-size: 1.6rem;
 }
 
 /* Hero */
@@ -81,14 +66,14 @@ body {
   padding: 2rem;
   color: var(--neon-cyan);
   font-family: 'Orbitron', sans-serif;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   letter-spacing: 1px;
 }
 
 /* Productos */
 .products {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
   padding: 0 2rem;
   margin-top: 2rem;
@@ -96,116 +81,53 @@ body {
 
 .product-card {
   background: var(--bg-card);
-  border-radius: var(--border-radius);
+  border-radius: 12px;
   padding: 1.2rem;
   text-align: center;
-  box-shadow: var(--shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0, 240, 255, 0.1);
+  transition: transform 0.3s ease;
 }
 
 .product-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(255, 42, 109, 0.25);
+  transform: translateY(-5px);
 }
 
-.product-img {
+.product-card img {
   width: 100%;
   height: 180px;
   object-fit: cover;
   border-radius: 8px;
-  cursor: pointer;
+  margin-bottom: 1rem;
 }
 
 .category {
   color: var(--neon-cyan);
-  font-size: 0.85rem;
-  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
 }
 
-.title {
-  font-weight: 600;
+h3 {
+  font-size: 1.1rem;
   margin: 0.5rem 0;
 }
 
 .price {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: var(--neon-pink);
-  margin: 0.6rem 0;
+  margin: 0.5rem 0;
 }
 
-.buttons {
-  display: flex;
-  gap: 0.7rem;
-  margin-top: 1rem;
+.original {
+  text-decoration: line-through;
+  color: #aaa;
+  font-size: 1rem;
+  margin-top: 0.3rem;
 }
 
-.btn {
-  flex: 1;
-  padding: 0.6rem;
-  border: none;
-  border-radius: 6px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.btn-zoom {
-  background: transparent;
-  border: 1px solid var(--neon-cyan);
-  color: var(--neon-cyan);
-}
-
-.btn-zoom:hover {
-  background: rgba(0, 240, 255, 0.1);
-}
-
-.btn-cart {
-  background: var(--neon-pink);
-  color: black;
-}
-
-.btn-cart:hover {
-  background: #ff5288;
-}
-
-/* Modal */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.85);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.modal-content {
-  background: var(--bg-card);
-  padding: 2rem;
-  border-radius: var(--border-radius);
-  max-width: 500px;
-  width: 90%;
-  text-align: center;
-  border: 1px solid var(--neon-cyan);
-}
-
-.modal-content img {
-  width: 100%;
-  max-height: 300px;
-  object-fit: contain;
-  margin-bottom: 1rem;
-}
-
-.close {
-  color: var(--neon-cyan);
-  font-size: 1.8rem;
-  cursor: pointer;
-  position: absolute;
-  top: 1rem;
-  right: 1.5rem;
+.special {
+  color: var(--neon-pink);
+  font-size: 1.3rem;
+  margin-top: 0.2rem;
 }
 
 /* Footer */
@@ -219,9 +141,7 @@ body {
 
 /* Responsive */
 @media (max-width: 600px) {
-  .header {
-    padding: 1rem;
-  }
-  .brand { font-size: 1.3rem; }
+  .header { padding: 1rem; }
+  .brand { font-size: 1.2rem; }
   .hero { padding: 1.2rem; font-size: 1.1rem; }
 }
