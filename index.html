@@ -63,7 +63,7 @@
                 <li><a href="#" class="active">INICIO</a></li>
                 <li><a href="#">QUIÉNES SOMOS</a></li>
                 <li class="dropdown">
-                    <a href="#">CATÁLOGO DE PRODUCTOS ▾</a>
+                    <a href="#">CATEGORIAS ▾</a>
                     <div class="dropdown-content">
                         <a href="#">Ropa</a>
                         <a href="#">Juguetes</a>
@@ -233,3 +233,472 @@
     
 </body>
 </html>
+2. 🛠️ Archivo: tienda-bhalleffort/style.css (CÓDIGO COMPLETO)
+El código para el menú flotante es correcto, pero se lo envío completo de nuevo para asegurar que se aplique la regla display: none correctamente. Reemplace TODO el contenido de su archivo style.css:
+
+/* VARIABLES DE MARCA - CAMBIAR COLORES AQUÍ */
+:root {
+    --color-primario: #6A0DAD; /* Morado BHALLEFFORT */
+    --color-secundario: #4B0082; /* Morado Oscuro para TopBar */
+    --color-acento: #00BFFF; /* Azul Cian (Ballenita) */
+    --color-texto: #333;
+    --color-blanco: #fff;
+    --color-amarillo-aviso: #FFD700; /* Para detalles pequeños */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* BARRA SUPERIOR VERDE (AHORA MORADO OSCURO) */
+.top-bar {
+    background-color: var(--color-secundario);
+    color: var(--color-blanco);
+    padding: 10px 0;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.flex-space {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.socials a {
+    color: white;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+/* HEADER PRINCIPAL (AMARILLO -> AHORA MORADO CLARO O BLANCO) */
+.main-header {
+    background-color: var(--color-blanco); /* Fondo limpio */
+    padding: 20px 0;
+    border-bottom: 4px solid var(--color-primario);
+}
+
+.flex-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* LOGO */
+.logo-section {
+    display: flex;
+    align-items: center;
+    color: var(--color-primario);
+}
+
+.whale-icon {
+    width: 60px; /* Ajusta según tu imagen */
+    margin-right: 10px;
+}
+
+.brand-text h1 {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.brand-text p {
+    font-size: 10px;
+    color: var(--color-acento); /* Azul ballena */
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* BUSCADOR */
+.search-bar {
+    display: flex;
+    flex: 1;
+    margin: 0 40px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid var(--color-primario);
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    background-color: var(--color-secundario);
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* ACCIONES USUARIO */
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.whatsapp-btn {
+    display: flex;
+    align-items: center;
+    color: #25D366; /* Verde Whatsapp original */
+}
+
+.whatsapp-btn i {
+    font-size: 28px;
+    margin-right: 5px;
+}
+
+.whatsapp-btn div {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    color: var(--color-texto);
+}
+
+.cart {
+    position: relative;
+    font-size: 24px;
+    color: var(--color-primario);
+}
+
+.badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 10px;
+}
+
+/* MENÚ DE NAVEGACIÓN */
+.main-nav {
+    background-color: var(--color-blanco);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Centrado como en la imagen */
+}
+
+.main-nav ul li {
+    position: relative;
+}
+
+.main-nav ul li a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: var(--color-texto);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.main-nav ul li a:hover, .main-nav ul li a.active {
+    color: var(--color-primario);
+    border-bottom: 3px solid var(--color-primario);
+}
+
+/* ESTILOS DEL DESPLEGABLE (DROPDOWN) */
+
+/* Contenedor del menú flotante - ESTO ES LO QUE LO OCULTA INICIALMENTE */
+.dropdown-content {
+    display: none; 
+    position: absolute;
+    background-color: var(--color-blanco);
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 10; /* Z-index alto para asegurar que esté encima */
+    padding: 10px 0;
+    border-top: 3px solid var(--color-primario);
+}
+
+.dropdown-content a {
+    color: var(--color-texto) !important;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    text-transform: none;
+    border-bottom: none !important;
+    font-weight: normal;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color: var(--color-secundario) !important;
+}
+
+/* Mostrar el menú flotante SOLO al pasar el cursor sobre el li (elemento padre) */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/* BANNER EJEMPLO */
+.hero-banner {
+    background-color: var(--color-primario); /* Fondo Morado BHALLEFFORT */
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    background-image: linear-gradient(45deg, #6A0DAD, #9370DB);
+}
+
+/* --- SECCIÓN DE PRODUCTOS Y CATEGORÍAS --- */
+
+/* Categorías Rápidas */
+.quick-categories {
+    padding: 30px 0;
+    background-color: var(--color-primario);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+}
+
+.flex-quick-categories {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    color: var(--color-blanco);
+}
+
+.category-box {
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s;
+    cursor: pointer;
+    background-color: var(--color-secundario); /* Morado oscuro */
+}
+
+.category-box:hover {
+    transform: translateY(-5px);
+    background-color: var(--color-acento); /* Azul Cian al pasar el mouse */
+    color: var(--color-texto);
+}
+
+.category-box i {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.category-box p {
+    font-size: 12px;
+}
+
+/* Productos Destacados */
+.featured-products {
+    padding: 20px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 30px;
+    color: var(--color-secundario);
+    margin-bottom: 30px;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 productos por fila */
+    gap: 30px;
+}
+
+.product-card {
+    background-color: var(--color-blanco);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+
+.product-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background-color: #eee; /* Fondo temporal para la imagen */
+}
+
+.product-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.product-category {
+    display: block;
+    font-size: 12px;
+    color: gray;
+    margin-bottom: 5px;
+}
+
+.product-name {
+    font-size: 16px;
+    margin-bottom: 10px;
+    height: 40px;
+}
+
+.price {
+    margin-bottom: 15px;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.current-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: red; /* Rojo para destacar la oferta */
+}
+
+.btn-buy {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--color-primario);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-buy:hover {
+    background-color: var(--color-secundario);
+}
+
+
+/* SECCIÓN DE GARANTÍAS (ÍCONOS AMARILLOS -> MORADO/NARANJA) */
+.guarantees {
+    padding: 30px 0;
+    background-color: var(--color-blanco);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.flex-guarantees {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.guarantee-item {
+    background-color: var(--color-amarillo-aviso); /* Amarillo claro para mantener el contraste */
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 200px;
+}
+
+.guarantee-item i {
+    font-size: 30px;
+    color: var(--color-primario); /* Iconos Morados */
+    margin-right: 10px;
+}
+
+.guarantee-item strong {
+    font-size: 14px;
+    color: var(--color-texto);
+}
+
+.guarantee-item p {
+    font-size: 12px;
+}
+
+.promo-item {
+    background-color: #f7a300; /* Color Naranja más llamativo para promociones */
+}
+
+/* FOOTER */
+footer {
+    background-color: #333; /* Fondo Gris Oscuro */
+    color: #f4f4f4;
+    padding: 40px 0 10px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #555;
+}
+
+.footer-brand .whale-icon-footer {
+    width: 80px;
+    filter: invert(1); /* Para que el logo se vea blanco o claro */
+}
+
+.footer-brand p {
+    font-size: 12px;
+    margin-top: 5px;
+    color: var(--color-acento);
+}
+
+.footer-contact h3, .footer-policies h3 {
+    color: var(--color-primario); /* Títulos Morados */
+    margin-bottom: 15px;
+}
+
+.footer-contact p, .footer-policies ul {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-contact i {
+    margin-right: 8px;
+    color: var(--color-primario);
+}
+
+.footer-policies ul {
+    list-style: none;
+}
+
+.footer-policies li {
+    margin-bottom: 8px;
+}
+
+.footer-policies i {
+    color: var(--color-primario);
+    margin-right: 5px;
+}
+
+.footer-copyright {
+    text-align: center;
+    padding-top: 15px;
+    font-size: 11px;
+    color: #aaa;
+}
