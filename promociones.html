@@ -3,260 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Promociones 🔥 - BhalEffort</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Super Promociones ✨ | BHALLEFFORT</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .page-content { padding: 40px 0; min-height: 50vh; }
+        /* Estilos específicos si necesitas banners de promociones aquí */
+    </style>
 </head>
 <body>
 
-    <div class="top-bar">
-        <div class="container flex-space">
-            <div>¡Envío gratis en pedidos mayores a $50!</div>
-            <div class="socials">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-    </div>
-
-    <header class="main-header">
-        <div class="container flex-center">
-            
-            <a href="index.html" class="logo-link">
-                <div class="logo-section">
-                    <img src="img/whale.png" alt="Icono de Ballena" class="whale-icon">
-                    <div class="brand-text">
-                        <h1>BhalEffort</h1>
-                        <p>Tu tienda de confianza</p>
-                    </div>
-                </div>
-            </a>
-            
-            <div class="search-bar">
-                <div class="autocomplete-container">
-                    <input type="text" id="search-input" placeholder="Buscar productos, categorías...">
-                    <div id="autocomplete-results" class="autocomplete-results">
-                        </div>
-                </div>
-                <button id="search-button"><i class="fas fa-search"></i></button>
-            </div>
-
-            <div class="user-actions">
-                <a href="contactos.html" class="whatsapp-btn">
-                    <i class="fab fa-whatsapp"></i>
-                    <div>
-                        Llámanos
-                        <strong>096 050 3674</strong>
-                    </div>
-                </a>
-                <div class="cart" id="cart-icon">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="badge" id="cart-badge">0</span>
-                </div>
-                <div class="menu-toggle"><i class="fas fa-bars"></i></div>
-            </div>
-        </div>
-    </header>
-
-    <nav class="main-nav">
+    <main class="page-content">
         <div class="container">
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li class="dropdown">
-                    <a href="ropa.html">Ropa <i class="fas fa-caret-down"></i></a>
-                    <div class="dropdown-content">
-                        <a href="ropa.html#mujer">Mujer</a>
-                        <a href="ropa.html#hombre">Hombre</a>
+            <h1>🔥 ¡Súper Promociones Exclusivas! 🔥</h1>
+            <p>Aprovecha estas ofertas de tiempo limitado. Los precios marcados son válidos hasta agotar stock.</p>
+            <hr>
+            
+            <section class="featured-products">
+                <div class="products-grid">
+                    
+                    <div class="product-card" data-category="Ropa">
+                        <img src="prod-ropa.jpg" alt="Camiseta BHALLEFFORT" class="product-image">
+                        <div class="product-info">
+                            <span class="product-category" style="background-color: #ff5722;">OFERTA FLASH</span>
+                            <h4 class="product-name">Camiseta BHALLEFFORT Edición Limitada</h4>
+                            <div class="price">
+                                <span class="old-price">$30.00</span>
+                                <span class="current-price" style="color: #ff5722;">$19.99</span>
+                            </div>
+                            <button class="btn-buy add-to-cart" 
+                                data-id="101" 
+                                data-name="Camiseta Limitada (Promo)" 
+                                data-price="19.99">Añadir al Carrito</button>
+                        </div>
                     </div>
-                </li>
-                <li><a href="juguetes.html">Juguetes</a></li>
-                <li><a href="hogar.html">Hogar</a></li>
-                <li><a href="promociones.html" class="active">🔥 Promociones</a></li>
-                <li><a href="quienes-somos.html">Quiénes Somos</a></li>
-                <li><a href="contactos.html">Contacto</a></li>
-            </ul>
+
+                    <div class="product-card" data-category="Juguetes">
+                        <img src="prod-juguetes.jpg" alt="Bloques Juguete" class="product-image">
+                        <div class="product-info">
+                            <span class="product-category" style="background-color: #ff5722;">25% DCTO.</span>
+                            <h4 class="product-name">Bloques de Construcción Gigantes (500 pzs)</h4>
+                            <div class="price">
+                                <span class="old-price">$40.00</span>
+                                <span class="current-price" style="color: #ff5722;">$29.99</span>
+                            </div>
+                            <button class="btn-buy add-to-cart" 
+                                data-id="103" 
+                                data-name="Bloques Gigantes (Promo)" 
+                                data-price="29.99">Añadir al Carrito</button>
+                        </div>
+                    </div>
+                    
+                    </div>
+            </section>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <p>¿Tienes dudas sobre una promoción? Contáctanos:</p>
+                <a href="https://wa.me/593960503674" target="_blank" class="btn-whatsapp" style="display: inline-block; padding: 10px 25px; text-decoration: none;">
+                    <i class="fab fa-whatsapp"></i> Hablar con un Asesor
+                </a>
+            </div>
+            
         </div>
-    </nav>
-
-    <main>
-        <section class="page-header">
-            <div class="container">
-                <h1>🔥 Ofertas y Descuentos Especiales</h1>
-                <p>¡Aprovecha por tiempo limitado! Precios rebajados en los mejores productos.</p>
-            </div>
-        </section>
-
-        <section class="about-section container">
-            <h2>Nuestras Ofertas Imperdibles</h2>
-            <div class="products-grid">
-                
-                <div class="product-card" data-id="O001">
-                    <div class="product-image-container">
-                        <img src="img/prod-reloj.jpg" alt="Reloj inteligente" class="product-image">
-                        <button class="btn-quick-add" data-id="O001" aria-label="Añadir a carrito"><i class="fas fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Tecnología</span>
-                        <h3 class="product-name">Reloj inteligente modelo A3</h3>
-                        <div class="price">
-                            <span class="old-price">$60.00</span>
-                            <span class="current-price">$40.00</span>
-                        </div>
-                        <button class="btn-buy" data-id="O001">Comprar Ahora</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-id="O002">
-                    <div class="product-image-container">
-                        <img src="img/prod-audifonos.jpg" alt="Audífonos inalámbricos" class="product-image">
-                        <button class="btn-quick-add" data-id="O002" aria-label="Añadir a carrito"><i class="fas fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Audio</span>
-                        <h3 class="product-name">Audífonos inalámbricos de alta fidelidad</h3>
-                        <div class="price">
-                            <span class="old-price">$35.00</span>
-                            <span class="current-price">$19.99</span>
-                        </div>
-                        <button class="btn-buy" data-id="O002">Comprar Ahora</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-id="O003">
-                    <div class="product-image-container">
-                        <img src="img/prod-lampara.jpg" alt="Lámparas LED" class="product-image">
-                        <button class="btn-quick-add" data-id="O003" aria-label="Añadir a carrito"><i class="fas fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Hogar</span>
-                        <h3 class="product-name">Set de 2 lámparas LED para escritorio</h3>
-                        <div class="price">
-                            <span class="old-price">$18.00</span>
-                            <span class="current-price">$12.00</span>
-                        </div>
-                        <button class="btn-buy" data-id="O003">Comprar Ahora</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-id="O004">
-                    <div class="product-image-container">
-                        <img src="img/prod-mochila.jpg" alt="Mochila antirrobo" class="product-image">
-                        <button class="btn-quick-add" data-id="O004" aria-label="Añadir a carrito"><i class="fas fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Accesorios</span>
-                        <h3 class="product-name">Mochila ejecutiva impermeable (Antirrobo)</h3>
-                        <div class="price">
-                            <span class="old-price">$45.00</span>
-                            <span class="current-price">$30.00</span>
-                        </div>
-                        <button class="btn-buy" data-id="O004">Comprar Ahora</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="guarantees">
-            <div class="container flex-guarantees">
-                <div class="guarantee-item">
-                    <i class="fas fa-truck"></i>
-                    <div>
-                        <strong>Envío Rápido</strong>
-                        <p>Entregas en 24-48 horas.</p>
-                    </div>
-                </div>
-                <div class="guarantee-item">
-                    <i class="fas fa-money-check-alt"></i>
-                    <div>
-                        <strong>Pago Seguro</strong>
-                        <p>Datos protegidos y cifrados.</p>
-                    </div>
-                </div>
-                <div class="guarantee-item">
-                    <i class="fas fa-undo"></i>
-                    <div>
-                        <strong>Devoluciones Fáciles</strong>
-                        <p>Cambio o reembolso en 30 días.</p>
-                    </div>
-                </div>
-                <div class="guarantee-item">
-                    <i class="fas fa-headset"></i>
-                    <div>
-                        <strong>Soporte 24/7</strong>
-                        <p>Asistencia inmediata por WhatsApp.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
-    <footer>
-        <div class="container footer-grid">
-            <div class="footer-brand">
-                <img src="img/whale.png" alt="BhalEffort Logo" class="whale-icon-footer">
-                <h3>BhalEffort</h3>
-                <p>Ofreciendo productos de calidad a precios que te encantarán.</p>
-                <div class="socials">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-            <div class="footer-policies">
-                <h3>Información</h3>
-                <ul>
-                    <li><a href="quienes-somos.html">Quiénes Somos</a></li>
-                    <li><a href="politicas.html">Políticas de Devolución</a></li>
-                    <li><a href="politicas.html#envio">Términos de Envío</a></li>
-                    <li><a href="contactos.html">Preguntas Frecuentes</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <h3>Contáctanos</h3>
-                <ul>
-                    <li><i class="fas fa-map-marker-alt"></i> Quito, Ecuador</li>
-                    <li><i class="fas fa-phone"></i> 096 050 3674</li>
-                    <li><i class="fas fa-envelope"></i> ventas@bhalleffort.com</li>
-                    <li class="payment-methods">
-                        <i class="fab fa-cc-visa"></i>
-                        <i class="fab fa-cc-mastercard"></i>
-                        <i class="fas fa-money-bill-wave"></i>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-copyright">
-            <p>&copy; 2025 BhalEffort. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-
-
     <div id="cart-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h2>🛒 Carrito de Compras</h2>
-            <div id="cart-items">
-                </div>
-            <div class="cart-summary">
-                Subtotal: <span id="cart-total">$0.00</span>
-            </div>
-            <div class="modal-actions" id="modal-actions">
-                <button class="btn-cancel" id="btn-cancel-modal">Cerrar</button>
-                <button class="btn-buy btn-whatsapp" id="btn-checkout-whatsapp">
-                    <i class="fab fa-whatsapp"></i> Finalizar Pedido
-                </button>
-            </div>
         </div>
-    </div>
-    
-    <div id="image-modal" class="image-modal">
-        <span class="image-close">&times;</span>
-        <img class="modal-content-image" id="modal-image">
-    </div>
-
-    <a href="https://wa.me/593960503674" target="_blank" class="floating-whatsapp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
     <script src="script.js"></script>
 </body>
 </html>
