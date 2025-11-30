@@ -25,17 +25,19 @@
     <header class="main-header">
         <div class="container flex-center">
             
-            <div class="logo-section">
-                <img src="logo-ballena.png" alt="Ballenita Azul" class="whale-icon"> 
-                <div class="brand-text">
-                    <h1>BHALLEFFORT</h1>
-                    <p>LO MEJOR Y AL MEJOR PRECIO</p>
+            <a href="index.html" class="logo-link">
+                <div class="logo-section">
+                    <img src="logo-ballena.png" alt="Ballenita Azul" class="whale-icon"> 
+                    <div class="brand-text">
+                        <h1>BHALLEFFORT</h1>
+                        <p>LO MEJOR Y AL MEJOR PRECIO</p>
+                    </div>
                 </div>
-            </div>
+            </a>
 
             <div class="search-bar">
-                <input type="text" placeholder="Buscar productos (Ropa, Juguetes...)...">
-                <button>BÚSQUEDA</button>
+                <input type="text" id="search-input" placeholder="Buscar productos (Ropa, Juguetes...)...">
+                <button id="search-button">BÚSQUEDA</button>
             </div>
 
             <div class="user-actions">
@@ -46,12 +48,9 @@
                         <strong>+593 960503674</strong>
                     </div>
                 </div>
-                <div class="account">
-                    <i class="far fa-user"></i> Acceso | Registro
-                </div>
-                <div class="cart">
+                <div class="cart" id="cart-icon">
                     <i class="fas fa-shopping-basket"></i>
-                    <span class="badge">0</span>
+                    <span class="badge" id="cart-badge">0</span>
                 </div>
                 <div class="menu-toggle">
                     <i class="fas fa-bars"></i>
@@ -63,19 +62,19 @@
     <nav class="main-nav">
         <div class="container">
             <ul>
-                <li><a href="#" class="active">INICIO</a></li>
-                <li><a href="#">QUIÉNES SOMOS</a></li>
+                <li><a href="index.html" class="active">INICIO</a></li>
+                <li><a href="quienes-somos.html">QUIÉNES SOMOS</a></li> 
                 <li class="dropdown">
                     <a href="#">CATEGORIAS ▾</a>
                     <div class="dropdown-content">
-                        <a href="#">Ropa</a>
-                        <a href="#">Juguetes</a>
-                        <a href="#">Suministros Hogar</a>
+                        <a href="ropa.html">Ropa</a> 
+                        <a href="juguetes.html">Juguetes</a>
+                        <a href="hogar.html">Suministros Hogar</a>
                     </div>
                 </li>
-                <li><a href="#">SUPER PROMOCIONES</a></li>
-                <li><a href="#">POLÍTICAS</a></li>
-                <li><a href="#">CONTÁCTENOS</a></li>
+                 <li><a href="promociones.html">SUPER PROMOCIONES</a></li> 
+                <li><a href="politicas.html">POLÍTICAS</a></li> 
+                <li><a href="contacto.html">CONTÁCTENOS</a></li> 
             </ul>
         </div>
     </nav>
@@ -89,21 +88,21 @@
 
     <section class="quick-categories">
         <div class="container flex-quick-categories">
-            <div class="category-box">
+            <a href="ropa.html" class="category-box">
                 <i class="fas fa-tshirt"></i>
                 <h3>ROPA</h3>
                 <p>Moda al mejor precio</p>
-            </div>
-            <div class="category-box">
+            </a>
+            <a href="juguetes.html" class="category-box">
                 <i class="fas fa-toys"></i>
                 <h3>JUGUETES</h3>
                 <p>Diversión garantizada</p>
-            </div>
-            <div class="category-box">
+            </a>
+            <a href="hogar.html" class="category-box">
                 <i class="fas fa-couch"></i>
                 <h3>SUMINISTROS HOGAR</h3>
                 <p>Todo para tu casa</p>
-            </div>
+            </a>
         </div>
     </section>
 
@@ -111,56 +110,64 @@
         <div class="container">
             <h2 class="section-title">✨ SÚPER PROMOCIONES DE LA SEMANA ✨</h2>
             
-            <div class="products-grid">
-                <div class="product-card">
+            <div class="products-grid" id="products-grid">
+                <div class="product-card" data-category="Ropa">
                     <img src="prod-ropa.jpg" alt="Camiseta BHALLEFFORT" class="product-image">
                     <div class="product-info">
                         <span class="product-category">Ropa</span>
                         <h4 class="product-name">Camiseta BHALLEFFORT Edición Limitada</h4>
                         <div class="price">
-                            <span class="old-price">$25.00</span>
-                            <span class="current-price">$14.99</span>
-                        </div>
-                        <button class="btn-buy">Añadir al Carrito</button>
+                            <span class="old-price">$30.00</span>
+                            <span class="current-price">$19.99</span> </div>
+                        <button class="btn-buy add-to-cart" 
+                            data-id="101" 
+                            data-name="Camiseta Limitada" 
+                            data-price="19.99">Añadir al Carrito</button>
                     </div>
                 </div>
 
-                <div class="product-card">
+                <div class="product-card" data-category="Hogar">
                     <img src="prod-hogar.jpg" alt="Utensilios Cocina" class="product-image">
                     <div class="product-info">
                         <span class="product-category">Hogar</span>
                         <h4 class="product-name">Set de Utensilios de Cocina Deluxe</h4>
                         <div class="price">
-                            <span class="old-price">$45.00</span>
-                            <span class="current-price">$39.99</span>
-                        </div>
-                        <button class="btn-buy">Añadir al Carrito</button>
+                            <span class="old-price">$55.00</span>
+                            <span class="current-price">$45.50</span> </div>
+                        <button class="btn-buy add-to-cart" 
+                            data-id="102" 
+                            data-name="Set Utensilios Cocina" 
+                            data-price="45.50">Añadir al Carrito</button>
                     </div>
                 </div>
 
-                <div class="product-card">
+                <div class="product-card" data-category="Juguetes">
                     <img src="prod-juguetes.jpg" alt="Bloques Juguete" class="product-image">
                     <div class="product-info">
                         <span class="product-category">Juguetes</span>
                         <h4 class="product-name">Bloques de Construcción Gigantes (500 pzs)</h4>
                         <div class="price">
-                            <span class="old-price">$30.00</span>
-                            <span class="current-price">$22.50</span>
-                        </div>
-                        <button class="btn-buy">Añadir al Carrito</button>
+                            <span class="old-price">$40.00</span>
+                            <span class="current-price">$29.99</span> </div>
+                        <button class="btn-buy add-to-cart" 
+                            data-id="103" 
+                            data-name="Bloques Gigantes" 
+                            data-price="29.99">Añadir al Carrito</button>
                     </div>
                 </div>
 
-                <div class="product-card">
+                <div class="product-card" data-category="Ropa">
                     <img src="prod-oferta.jpg" alt="Pantalón Deportivo" class="product-image">
                     <div class="product-info">
                         <span class="product-category">Ropa</span>
                         <h4 class="product-name">Pantalón Deportivo Morado BHALLEFFORT</h4>
                         <div class="price">
-                            <span class="old-price">$35.00</span>
-                            <span class="current-price">$19.99</span>
-                        </div>
-                        <button class="btn-buy">Añadir al Carrito</button>
+                            <span class="old-price">$40.00</span>
+                            <span class="current-price">$24.99</span> </div>
+                        <button class="btn-buy add-to-cart" 
+                            data-id="104" 
+                            data-name="Pantalón Deportivo" 
+                            data-price="24.99">Añadir al Carrito</button>
                     </div>
                 </div>
                 
@@ -215,8 +222,8 @@
 
             <div class="footer-contact">
                 <h3>CONTÁCTANOS</h3>
-                <p><i class="fas fa-phone-alt"></i> **+593 960503674** (Whatsapp)</p>
-                <p><i class="fas fa-envelope"></i> cabascangoroman123@gmail.com</p>
+                <p><i class="fas fa-phone-alt"></i> <a href="contacto.html">**+593 960503674** (Whatsapp)</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="contacto.html">cabascangoroman123@gmail.com</a></p>
                 <p><i class="far fa-clock"></i> Horario de atención: 24 horas (compras On Line)</p>
                 <p><i class="fas fa-map-marker-alt"></i> La Y de Tabacundo - Pichincha - Ecuador</p>
             </div>
@@ -224,10 +231,10 @@
             <div class="footer-policies">
                 <h3>POLÍTICAS Y CONDICIONES</h3>
                 <ul>
-                    <li><i class="fas fa-check-circle"></i> Términos y Condiciones</li>
-                    <li><i class="fas fa-check-circle"></i> Políticas de Cambio</li>
-                    <li><i class="fas fa-check-circle"></i> Política de Envíos</li>
-                    <li><i class="fas fa-check-circle"></i> Quiénes somos</li>
+                    <li><i class="fas fa-check-circle"></i> <a href="politicas.html">Términos y Condiciones</a></li>
+                    <li><i class="fas fa-check-circle"></i> <a href="politicas.html">Políticas de Cambio</a></li>
+                    <li><i class="fas fa-check-circle"></i> <a href="politicas.html">Política de Envíos</a></li>
+                    <li><i class="fas fa-check-circle"></i> <a href="quienes-somos.html">Quiénes somos</a></li>
                 </ul>
             </div>
         </div>
@@ -237,5 +244,27 @@
         </div>
     </footer>
     
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>🛒 Tu Lista de Compras</h2>
+            
+            <div id="cart-items">
+                </div>
+
+            <div class="cart-summary">
+                <p>Total a Cotizar: <strong id="cart-total">$0.00</strong></p>
+            </div>
+
+            <div class="modal-actions">
+                <button id="send-whatsapp-btn" class="btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Enviar Pedido por WhatsApp
+                </button>
+                <button id="close-modal-btn" class="btn-cancel">Seguir Comprando</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script> 
 </body>
 </html>
