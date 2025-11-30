@@ -17,33 +17,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Lista de productos de ejemplo (debería cargarse de una base de datos real)
     const PRODUCTS = [
-        // Índice (index.html)
-        { id: 'P001', name: 'Jeans Clásicos Mezclilla', price: 24.99, category: 'Ropa' },
-        { id: 'P002', name: 'Set 100 Bloques de Construcción', price: 19.50, category: 'Juguetes' },
-        { id: 'P003', name: 'Aspiradora Robótica Inteligente', price: 199.99, category: 'Hogar' },
-        { id: 'P004', name: 'Set de 3 Sartenes Antiadherentes', price: 39.99, category: 'Promociones' },
+        // ---------- 1. INDEX.HTML (Destacados) - ¡CORREGIDOS! ----------
+        { id: 'P001', name: 'Chompa tela pana', price: 5.00, category: 'Ropa' },
+        { id: 'P002', name: 'Construcción set de camiones', price: 8.00, category: 'Juguetes' },
+        { id: 'P003', name: 'Mesa de dibugo hogareño para niñ@', price: 8.00, category: 'Hogar' },
+        { id: 'P004', name: 'Buzo tela pana', price: 5.00, category: 'Promociones' },
 
-        // Ropa (ropa.html)
+        // ---------- 2. ROPA.HTML ----------
         { id: 'R001', name: 'Vestido Casual de Lino', price: 32.00, category: 'Ropa' },
         { id: 'R002', name: 'Camisa Algodón Slim Fit', price: 19.99, category: 'Ropa' },
         { id: 'R003', name: 'Conjunto Deportivo Infantil', price: 15.50, category: 'Ropa' },
 
-        // Juguetes (juguetes.html)
+        // ---------- 3. JUGUETES.HTML ----------
         { id: 'J001', name: 'Pista de Carreras Flexible', price: 25.99, category: 'Juguetes' },
         { id: 'J002', name: 'Muñeca Interactiva con Sonido', price: 39.99, category: 'Juguetes' },
         { id: 'J003', name: 'Mesa de Actividades Didácticas', price: 55.00, category: 'Juguetes' },
 
-        // Hogar (hogar.html)
+        // ---------- 4. HOGAR.HTML ----------
         { id: 'H001', name: 'Organizador de Especieros Tres Niveles', price: 18.99, category: 'Hogar' },
         { id: 'H002', name: 'Set de 6 Toallas Algodón Egipcio', price: 42.50, category: 'Hogar' },
         { id: 'H003', name: 'Manta Decorativa Lana Tejida', price: 29.99, category: 'Hogar' },
 
-        // Promociones (promociones.html)
+        // ---------- 5. PROMOCIONES.HTML ----------
         { id: 'O001', name: 'Reloj Inteligente Deportivo 40% OFF', price: 29.99, category: 'Promociones' },
         { id: 'O002', name: 'Zapatos Deportivos Infantiles', price: 17.99, category: 'Promociones' },
         { id: 'O003', name: 'Set 2 Cortinas Opacas Térmicas', price: 29.99, category: 'Promociones' },
     ];
-
     // --- 2. FUNCIONES DEL CARRITO ---
 
     // Función para guardar el carrito en localStorage
@@ -290,3 +289,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. INICIALIZACIÓN
     updateCartBadge(); // Asegura que el contador se muestre al cargar la página
 });
+
