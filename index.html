@@ -1,270 +1,43 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BHALLEFFORT | Lo mejor y al mejor precio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
-
-    <div class="top-bar">
-        <div class="container flex-space">
-            <div class="location">
-                <i class="fas fa-map-marker-alt"></i> ENVIOS A TODO EL PAÍS
-            </div>
-            <div class="socials">
-                <span><i class="fas fa-truck"></i> ENVÍOS 100% SEGUROS</span>
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
+<nav class="main-nav">
+    <div class="container">
+        <ul>
+            <li><a href="index.html">INICIO</a></li>
+            
+            <li class="dropdown">
+                <a href="#">QUIÉNES SOMOS ▾</a>
+                <div class="dropdown-content">
+                    <a href="quienes-somos.html">Nuestra Historia</a>
+                    <a href="quienes-somos.html#valores">Valores y Misión</a>
+                </div>
+            </li>
+            
+            <li class="dropdown">
+                <a href="#">CATEGORIAS ▾</a>
+                <div class="dropdown-content">
+                    <a href="ropa.html">Ropa</a> 
+                    <a href="juguetes.html">Juguetes</a>
+                    <a href="hogar.html">Suministros Hogar</a>
+                </div>
+            </li>
+            
+            <li><a href="promociones.html">SUPER PROMOCIONES</a></li>
+            
+            <li class="dropdown">
+                <a href="#">POLÍTICAS ▾</a>
+                <div class="dropdown-content">
+                    <a href="politicas.html#terminos">Términos y Condiciones</a>
+                    <a href="politicas.html#envios">Política de Envíos</a>
+                    <a href="politicas.html#devoluciones">Cambios y Devoluciones</a>
+                </div>
+            </li>
+            
+            <li class="dropdown">
+                <a href="#">CONTÁCTENOS ▾</a>
+                <div class="dropdown-content">
+                    <a href="contacto.html">Ubicación y Email</a>
+                    <a href="https://wa.me/593960503674" target="_blank">WhatsApp Directo</a>
+                </div>
+            </li>
+        </ul>
     </div>
-
-    <header class="main-header">
-        <div class="container flex-center">
-            
-            <a href="index.html" class="logo-link">
-                <div class="logo-section">
-                    <img src="logo-ballena.png" alt="Ballenita Azul" class="whale-icon"> 
-                    <div class="brand-text">
-                        <h1>BHALLEFFORT</h1>
-                        <p>LO MEJOR Y AL MEJOR PRECIO</p>
-                    </div>
-                </div>
-            </a>
-
-            <div class="search-bar">
-                <input type="text" id="search-input" placeholder="Buscar productos (Ropa, Juguetes...)...">
-                <button id="search-button">BÚSQUEDA</button>
-            </div>
-
-            <div class="user-actions">
-                <div class="whatsapp-btn">
-                    <i class="fab fa-whatsapp"></i>
-                    <div>
-                        <span>PEDIDOS WHATSAPP</span>
-                        <strong>+593 960503674</strong>
-                    </div>
-                </div>
-                <div class="cart" id="cart-icon">
-                    <i class="fas fa-shopping-basket"></i>
-                    <span class="badge" id="cart-badge">0</span>
-                </div>
-                <div class="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <nav class="main-nav">
-        <div class="container">
-            <ul>
-                <li><a href="index.html" class="active">INICIO</a></li>
-                <li><a href="quienes-somos.html">QUIÉNES SOMOS</a></li> 
-                <li class="dropdown">
-                    <a href="#">CATEGORIAS ▾</a>
-                    <div class="dropdown-content">
-                        <a href="ropa.html">Ropa</a> 
-                        <a href="juguetes.html">Juguetes</a>
-                        <a href="hogar.html">Suministros Hogar</a>
-                    </div>
-                </li>
-                 <li><a href="promociones.html">SUPER PROMOCIONES</a></li> 
-                <li><a href="politicas.html">POLÍTICAS</a></li> 
-                <li><a href="contacto.html">CONTÁCTENOS</a></li> 
-            </ul>
-        </div>
-    </nav>
-
-    <section class="hero-banner" style="background-image: url('banner.jpg'); background-size: cover; background-position: center;">
-        <div style="background-color: rgba(0,0,0,0.5); padding: 20px; border-radius: 10px;">
-            <h2 style="color: white; text-shadow: 2px 2px 4px #000;">TODO PARA TU HOGAR</h2>
-            <p style="color: white; text-align: center; font-size: 16px; margin-top: 10px;">DESCUBRE TODO LO QUE NECESITAS</p>
-        </div>
-    </section>
-
-    <section class="quick-categories">
-        <div class="container flex-quick-categories">
-            <a href="ropa.html" class="category-box">
-                <i class="fas fa-tshirt"></i>
-                <h3>ROPA</h3>
-                <p>Moda al mejor precio</p>
-            </a>
-            <a href="juguetes.html" class="category-box">
-                <i class="fas fa-toys"></i>
-                <h3>JUGUETES</h3>
-                <p>Diversión garantizada</p>
-            </a>
-            <a href="hogar.html" class="category-box">
-                <i class="fas fa-couch"></i>
-                <h3>SUMINISTROS HOGAR</h3>
-                <p>Todo para tu casa</p>
-            </a>
-        </div>
-    </section>
-
-    <section class="featured-products">
-        <div class="container">
-            <h2 class="section-title">✨ SÚPER PROMOCIONES DE LA SEMANA ✨</h2>
-            
-            <div class="products-grid" id="products-grid">
-                <div class="product-card" data-category="Ropa">
-                    <img src="prod-ropa.jpg" alt="Camiseta BHALLEFFORT" class="product-image">
-                    <div class="product-info">
-                        <span class="product-category">Ropa</span>
-                        <h4 class="product-name">Camiseta BHALLEFFORT Edición Limitada</h4>
-                        <div class="price">
-                            <span class="old-price">$30.00</span>
-                            <span class="current-price">$19.99</span> </div>
-                        <button class="btn-buy add-to-cart" 
-                            data-id="101" 
-                            data-name="Camiseta Limitada" 
-                            data-price="19.99">Añadir al Carrito</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="Hogar">
-                    <img src="prod-hogar.jpg" alt="Utensilios Cocina" class="product-image">
-                    <div class="product-info">
-                        <span class="product-category">Hogar</span>
-                        <h4 class="product-name">Set de Utensilios de Cocina Deluxe</h4>
-                        <div class="price">
-                            <span class="old-price">$55.00</span>
-                            <span class="current-price">$45.50</span> </div>
-                        <button class="btn-buy add-to-cart" 
-                            data-id="102" 
-                            data-name="Set Utensilios Cocina" 
-                            data-price="45.50">Añadir al Carrito</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="Juguetes">
-                    <img src="prod-juguetes.jpg" alt="Bloques Juguete" class="product-image">
-                    <div class="product-info">
-                        <span class="product-category">Juguetes</span>
-                        <h4 class="product-name">Bloques de Construcción Gigantes (500 pzs)</h4>
-                        <div class="price">
-                            <span class="old-price">$40.00</span>
-                            <span class="current-price">$29.99</span> </div>
-                        <button class="btn-buy add-to-cart" 
-                            data-id="103" 
-                            data-name="Bloques Gigantes" 
-                            data-price="29.99">Añadir al Carrito</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="Ropa">
-                    <img src="prod-oferta.jpg" alt="Pantalón Deportivo" class="product-image">
-                    <div class="product-info">
-                        <span class="product-category">Ropa</span>
-                        <h4 class="product-name">Pantalón Deportivo Morado BHALLEFFORT</h4>
-                        <div class="price">
-                            <span class="old-price">$40.00</span>
-                            <span class="current-price">$24.99</span> </div>
-                        <button class="btn-buy add-to-cart" 
-                            data-id="104" 
-                            data-name="Pantalón Deportivo" 
-                            data-price="24.99">Añadir al Carrito</button>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </section>
-
-    <section class="guarantees">
-        <div class="container flex-guarantees">
-            <div class="guarantee-item">
-                <i class="fas fa-truck"></i>
-                <div>
-                    <strong>DESPACHO A DOMICILIO:</strong>
-                    <p>Para todo el país</p>
-                </div>
-            </div>
-            <div class="guarantee-item">
-                <i class="fas fa-lock"></i>
-                <div>
-                    <strong>COMPRA SEGURA:</strong>
-                    <p>Usa tus tarjetas de crédito o débito</p>
-                </div>
-            </div>
-            <div class="guarantee-item">
-                <i class="fas fa-store"></i>
-                <div>
-                    <strong>RETIRO EN TIENDA:</strong>
-                    <p>GRATIS a nivel nacional</p>
-                </div>
-            </div>
-            <div class="guarantee-item promo-item">
-                <i class="fas fa-percent"></i>
-                <div>
-                    <strong>DESCUENTOS Y PROMOCIONES:</strong>
-                    <p>Los mejores ¡Precios para ti!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container footer-grid">
-            
-            <div class="footer-brand">
-                <img src="logo-ballena.png" alt="BHALLEFFORT Logo" class="whale-icon-footer">
-                <p>LO MEJOR Y AL MEJOR PRECIO</p>
-                <div class="payment-methods">
-                    <i class="fab fa-cc-visa"></i>
-                    <i class="fab fa-cc-mastercard"></i>
-                    </div>
-            </div>
-
-            <div class="footer-contact">
-                <h3>CONTÁCTANOS</h3>
-                <p><i class="fas fa-phone-alt"></i> <a href="contacto.html">**+593 960503674** (Whatsapp)</a></p>
-                <p><i class="fas fa-envelope"></i> <a href="contacto.html">cabascangoroman123@gmail.com</a></p>
-                <p><i class="far fa-clock"></i> Horario de atención: 24 horas (compras On Line)</p>
-                <p><i class="fas fa-map-marker-alt"></i> La Y de Tabacundo - Pichincha - Ecuador</p>
-            </div>
-
-            <div class="footer-policies">
-                <h3>POLÍTICAS Y CONDICIONES</h3>
-                <ul>
-                    <li><i class="fas fa-check-circle"></i> <a href="politicas.html">Términos y Condiciones</a></li>
-                    <li><i class="fas fa-check-circle"></i> <a href="politicas.html">Políticas de Cambio</a></li>
-                    <li><i class="fas fa-check-circle"></i> <a href="politicas.html">Política de Envíos</a></li>
-                    <li><i class="fas fa-check-circle"></i> <a href="quienes-somos.html">Quiénes somos</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="footer-copyright">
-            <p>&copy; 2025 BHALLEFFORT. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-    
-    <div id="cart-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h2>🛒 Tu Lista de Compras</h2>
-            
-            <div id="cart-items">
-                </div>
-
-            <div class="cart-summary">
-                <p>Total a Cotizar: <strong id="cart-total">$0.00</strong></p>
-            </div>
-
-            <div class="modal-actions">
-                <button id="send-whatsapp-btn" class="btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> Enviar Pedido por WhatsApp
-                </button>
-                <button id="close-modal-btn" class="btn-cancel">Seguir Comprando</button>
-            </div>
-        </div>
-    </div>
-    
-    <script src="script.js"></script> 
-</body>
-</html>
+</nav>
