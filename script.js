@@ -8,7 +8,7 @@ const PRODUCTS_DATA = [
     // PRODUCTOS DE INDEX.HTML
     { id: "P001", name: "Chompa de tela pana (Gris)", price: 5.00, category: "Ropa", image: "img/prod-chompa.jpg" },
     { id: "P002", name: "Peluche de ballena de felpa", price: 12.00, category: "Juguetes", image: "img/prod-ballena.jpg" },
-    { id: "O001", name: "Reloj inteligente modelo A3 (OFERTA)", price: 40.00, category: "Promoción", image: "img/prod-reloj.jpg" }, // Precio de oferta
+    { id: "O001", name: "Reloj inteligente modelo A3 (OFERTA)", price: 40.00, category: "Promoción", image: "img/prod-reloj.jpg" },
     { id: "P003", name: "Taza de cerámica con asa", price: 3.50, category: "Hogar", image: "img/prod-taza.jpg" },
     
     // PRODUCTOS DE ROPA.HTML
@@ -141,7 +141,7 @@ function addToCart(id, quantity = 1) {
     }
     renderCart();
     alert(`"${getProductData(id).name}" añadido al carrito.`);
-    cartModal.style.display = 'block'; // Mostrar modal al añadir
+    cartModal.style.display = 'block';
 }
 
 /**
@@ -193,19 +193,50 @@ function generateWhatsappMessage() {
     window.open(whatsappURL, '_blank');
 }
 
+// ==========================================================
+// 5. Carga Dinámica de Componentes (Header y Footer)
+// ==========================================================
+
+function loadComponent(filename, elementId) {
+    fetch(`components/${filename}.html`)
+        .then(response => {
+            if (!response.ok) {
+                console.warn(`⚠️ Componente no encontrado: components/${filename}.html`);
+                return '';
+            }
+            return response.text();
+        })
+        .then(data => {
+            if (document.getElementById(elementId)) {
+                document.getElementById(elementId).innerHTML = data;
+                // Reiniciar menú móvil si existe
+                const menuToggle = document.querySelector('.menu-toggle');
+                const mainNav = document.querySelector('.main-nav');
+                if (menuToggle && mainNav) {
+                    menuToggle.onclick = () => mainNav.classList.toggle('active');
+                }
+            }
+        })
+        .catch(err => console.error(`Error al cargar ${filename}:`, err));
+}
 
 // ==========================================================
-// 5. Gestión de Eventos (Event Listeners)
+// 6. Gestión de Eventos (Event Listeners)
 // ==========================================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    renderCart(); // Cargar carrito al iniciar
+    // Cargar componentes comunes
+    loadComponent('header', 'header-placeholder');
+    loadComponent('footer', 'footer-placeholder');
+
+    // Renderizar carrito al iniciar
+    renderCart();
 
     // --------------------------------------------------
     // A. Gestión de Eventos del Carrito (Delegación de eventos)
     // --------------------------------------------------
     document.body.addEventListener('click', (event) => {
-        // 1. AÑADIR AL CARRITO (Botones de producto)
+        // 1. AÑADIR AL CARRITO
         const quickAddButton = event.target.closest('.btn-quick-add');
         const buyNowButton = event.target.closest('.btn-buy');
 
@@ -217,10 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (buyNowButton) {
             const id = buyNowButton.getAttribute('data-id');
-            // Simular añadir y abrir modal para ir directo al checkout
-            addToCart(id, 1); 
-            // Esto es opcional, si quieres ir directo al checkout de WA:
-            // generateWhatsappMessage(); 
+            addToCart(id, 1);
             return;
         }
 
@@ -230,13 +258,13 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
         
-        // 3. CERRAR MODAL DEL CARRITO
+        // 3. CERRAR MODAL
         if (event.target.closest('.close-button') || event.target.closest('#btn-cancel-modal')) {
             cartModal.style.display = 'none';
             return;
         }
 
-        // 4. ELIMINAR DEL CARRITO (Dentro del modal)
+        // 4. ELIMINAR DEL CARRITO
         const removeButton = event.target.closest('.btn-remove');
         if (removeButton) {
             const id = removeButton.getAttribute('data-id');
@@ -244,13 +272,13 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
         
-        // 5. VACIAR CARRITO (Botón 'Vaciar Carrito' en el HTML del modal)
+        // 5. VACIAR CARRITO
         if (event.target.closest('#btn-clear-cart')) {
             clearCart();
             return;
         }
         
-        // 6. FINALIZAR PEDIDO (WhatsApp)
+        // 6. FINALIZAR PEDIDO
         if (event.target.closest('#btn-checkout-whatsapp')) {
             if (cart.length > 0) {
                 generateWhatsappMessage();
@@ -261,7 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Cierre del modal del carrito al hacer clic fuera de él
+    // Cerrar modal del carrito al hacer clic fuera
     window.addEventListener('click', (event) => {
         if (event.target === cartModal) {
             cartModal.style.display = 'none';
@@ -269,9 +297,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     // --------------------------------------------------
-    // B. Gestión de Eventos del Zoom de Imagen
+    // B. Zoom de Imagen
     // --------------------------------------------------
-    
     document.body.addEventListener('click', (event) => {
         const image = event.target.closest('.product-image');
         if (image) {
@@ -279,8 +306,6 @@ document.addEventListener('DOMContentLoaded', () => {
             imageModal.style.display = 'block';
             return;
         }
-        
-        // CERRAR MODAL DE ZOOM
         if (event.target.closest('.image-close') || event.target === imageModal) {
             imageModal.style.display = 'none';
             return;
@@ -288,19 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     // --------------------------------------------------
-    // C. Gestión del Menú Móvil
-    // --------------------------------------------------
-    const menuToggle = document.querySelector('.menu-toggle');
-    const mainNav = document.querySelector('.main-nav');
-
-    if (menuToggle && mainNav) {
-        menuToggle.addEventListener('click', () => {
-            mainNav.classList.toggle('active');
-        });
-    }
-
-    // --------------------------------------------------
-    // D. Búsqueda y Filtro (Autocompletado básico)
+    // C. Búsqueda con Autocompletado
     // --------------------------------------------------
     const searchInput = document.getElementById('search-input');
     const autocompleteResults = document.getElementById('autocomplete-results');
@@ -310,30 +323,23 @@ document.addEventListener('DOMContentLoaded', () => {
             const query = searchInput.value.toLowerCase().trim();
             autocompleteResults.innerHTML = '';
 
-            if (query.length < 2) {
-                return;
-            }
+            if (query.length < 2) return;
 
             const filteredProducts = PRODUCTS_DATA.filter(p => 
                 p.name.toLowerCase().includes(query) || 
                 p.category.toLowerCase().includes(query)
-            ).slice(0, 5); // Mostrar solo los primeros 5
+            ).slice(0, 5);
 
             if (filteredProducts.length > 0) {
                 filteredProducts.forEach(product => {
                     const resultItem = document.createElement('div');
                     resultItem.className = 'autocomplete-item';
                     resultItem.textContent = `${product.name} (${product.category})`;
-                    
-                    // Al hacer clic, simular una acción (ej: navegar o añadir al carrito)
                     resultItem.addEventListener('click', () => {
-                        alert(`Buscaste: ${product.name}. Redirigiendo a la categoría...`);
                         searchInput.value = '';
                         autocompleteResults.innerHTML = '';
-                        // Aquí podrías redirigir a la página de la categoría
-                        // window.location.href = `/${product.category.toLowerCase()}.html`; 
+                        alert(`Buscaste: ${product.name}`);
                     });
-                    
                     autocompleteResults.appendChild(resultItem);
                 });
             } else {
@@ -341,11 +347,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         
-        // Cierra el autocompletado al perder el foco
         searchInput.addEventListener('blur', () => {
-             setTimeout(() => {
+            setTimeout(() => {
                 autocompleteResults.innerHTML = '';
-             }, 200);
+            }, 200);
         });
     }
 });
