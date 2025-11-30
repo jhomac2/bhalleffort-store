@@ -152,6 +152,12 @@ body {
     font-size: 10px;
 }
 
+/* Botón de menú: Oculto por defecto en PC */
+.menu-toggle {
+    display: none;
+}
+
+
 /* MENÚ DE NAVEGACIÓN */
 .main-nav {
     background-color: var(--color-blanco);
@@ -227,7 +233,7 @@ body {
     font-size: 30px;
     font-weight: bold;
     background-image: linear-gradient(45deg, #6A0DAD, #9370DB);
-    text-align: center; /* Centrado en caso de texto largo en móvil */
+    text-align: center;
 }
 
 /* --- SECCIÓN DE PRODUCTOS Y CATEGORÍAS --- */
@@ -285,7 +291,7 @@ body {
 
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* PC: 4 columnas */
+    grid-template-columns: repeat(4, 1fr);
     gap: 30px;
 }
 
@@ -489,17 +495,17 @@ footer {
     .search-bar {
         margin: 0;
         width: 100%;
-        order: 3; /* Mover el buscador abajo en la columna */
+        order: 3;
     }
 
     /* ACCIONES: Se alinean al final */
     .user-actions {
-        order: 2; /* Mantener acciones cerca del logo */
+        order: 2;
         width: 100%;
         justify-content: space-around;
+        padding-top: 10px; /* Separación de la línea del logo */
     }
     .whatsapp-btn {
-        /* Ocultar el texto de Whatsapp para ahorrar espacio */
         display: none; 
     }
     .account, .cart {
@@ -514,7 +520,6 @@ footer {
         padding: 12px 10px;
         font-size: 12px;
     }
-    /* El dropdown flotante se mantiene, pero será incómodo en móvil (luego lo arreglaremos con JS si es necesario) */
 
     /* PRODUCTOS: De 4 a 2 columnas */
     .products-grid {
@@ -527,7 +532,7 @@ footer {
         flex-wrap: wrap;
     }
     .guarantee-item {
-        flex-basis: calc(50% - 10px); /* Dos por fila */
+        flex-basis: calc(50% - 10px);
     }
 
     /* FOOTER: De 3 columnas a 1 columna */
@@ -537,52 +542,74 @@ footer {
     }
 }
 
-/* Para Teléfonos Móviles (máx. 600px) */
+/* Para Teléfonos Móviles (máx. 600px) - MEJORAS AQUÍ */
 @media (max-width: 600px) {
     .container {
-        width: 95%; /* Usar más ancho de pantalla */
+        width: 95%;
     }
     
-    /* TOP BAR: Se oculta para ahorrar espacio en móvil */
+    /* TOP BAR: Se oculta */
     .top-bar {
         display: none;
     }
 
-    /* HEADER: Se reajusta */
+    /* HEADER: Organiza Logo y Acciones en una sola fila, Buscador abajo */
+    .main-header {
+        padding: 10px 0; /* Menos padding */
+    }
     .flex-center {
-        gap: 15px;
-        flex-direction: row;
+        gap: 10px; /* Menos espacio entre elementos */
+        flex-direction: row; /* Vuelve a fila, pero con wrap */
         flex-wrap: wrap;
         justify-content: space-between;
     }
     
+    /* LOGO SECTION - Más compacto */
     .logo-section {
         order: 1;
-    }
-    
-    .user-actions {
-        order: 2;
-        gap: 10px;
         width: auto;
     }
-    .account {
-        /* Ocultar texto "Acceso | Registro" */
-        display: none;
+    .whale-icon {
+        width: 40px; /* Logo más pequeño */
+    }
+    .brand-text h1 {
+        font-size: 18px; /* Texto más pequeño */
+    }
+    .brand-text p {
+        display: none; /* Ocultar eslogan */
+    }
+    
+    /* USER ACTIONS - Se alinean a la derecha */
+    .user-actions {
+        order: 2;
+        gap: 15px;
+        width: auto;
+        padding-top: 0;
+    }
+    .account, .whatsapp-btn {
+        display: none; /* Solo queda Carrito y Botón de Menú */
     }
     .cart {
-        margin-right: 10px;
+        margin-right: 0;
     }
 
-    /* BUSCADOR: Se mueve al final y ocupa todo el ancho */
+    /* BOTÓN DE MENÚ (Hamburguesa): Ahora visible */
+    .menu-toggle {
+        display: block;
+        font-size: 24px;
+        color: var(--color-primario);
+        cursor: pointer;
+    }
+
+    /* BUSCADOR: Ocupa todo el ancho, debajo de Logo/Acciones */
     .search-bar {
         order: 3;
         width: 100%;
     }
 
-    /* MENÚ DE NAVEGACIÓN: Se apila o se oculta (simulación de menú hamburguesa sin JS) */
+    /* MENÚ DE NAVEGACIÓN: Se oculta (se mostrará al presionar el botón con JS) */
     .main-nav {
-        /* Ocultar el menú principal horizontal para forzar el menú hamburguesa (que implementaremos luego con JS) */
-        display: none; 
+        display: none;
     }
     
     /* BANNER: Menos alto y letra más pequeña */
@@ -596,15 +623,16 @@ footer {
         flex-direction: column;
     }
     .category-box {
+        flex-basis: 100%; /* Ocupan todo el ancho */
         margin-bottom: 10px;
     }
     
-    /* PRODUCTOS: De 2 columnas a 1 columna */
+    /* PRODUCTOS: Una columna */
     .section-title {
         font-size: 24px;
     }
     .products-grid {
-        grid-template-columns: 1fr; /* Una columna para móvil */
+        grid-template-columns: 1fr;
     }
 
     /* GARANTÍAS: Una por fila */
