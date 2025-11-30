@@ -1,9 +1,12 @@
 :root {
-  --bg-dark: #0A0F2C;
-  --bg-card: #0D1117;
+  --bg-dark: #1A0B33;
+  --bg-card: #2E0F56;
   --text-light: #E6E6E6;
+  --neon-purple: #B800FF;
   --neon-cyan: #00F0FF;
   --neon-pink: #FF2A6D;
+  --border-radius: 12px;
+  --shadow: 0 6px 20px rgba(184, 0, 255, 0.1);
 }
 
 * {
@@ -25,9 +28,9 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1.2rem 2rem;
-  background: rgba(10, 15, 44, 0.8);
+  background: rgba(26, 11, 51, 0.8);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+  border-bottom: 1px solid rgba(184, 0, 255, 0.2);
 }
 
 .logo {
@@ -41,18 +44,18 @@ body {
   height: 44px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid var(--neon-cyan);
+  border: 2px solid var(--neon-purple);
 }
 
 .brand {
   font-family: 'Orbitron', sans-serif;
   font-size: 1.5rem;
-  color: var(--neon-cyan);
+  color: var(--neon-purple);
 }
 
 .slogan {
   font-size: 0.85rem;
-  color: var(--neon-cyan);
+  color: var(--neon-purple);
   opacity: 0.9;
 }
 
@@ -60,36 +63,95 @@ body {
   font-size: 1.6rem;
 }
 
-/* Hero */
-.hero {
-  text-align: center;
-  padding: 2rem;
-  color: var(--neon-cyan);
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1.3rem;
-  letter-spacing: 1px;
+/* Menú */
+.menu {
+  background: rgba(26, 11, 51, 0.6);
+  padding: 0.8rem 2rem;
+  border-top: 1px solid rgba(184, 0, 255, 0.2);
 }
 
-/* Productos */
-.products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  padding: 0 2rem;
-  margin-top: 2rem;
+.menu ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.menu-item {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.menu-item:hover {
+  background: rgba(184, 0, 255, 0.1);
+  color: var(--neon-purple);
+}
+
+/* Paneles */
+.panel {
+  display: none;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.panel.active {
+  display: block;
+}
+
+.section-title {
+  color: var(--neon-cyan);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Carousel */
+.product-carousel {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.carousel-btn {
+  background: rgba(184, 0, 255, 0.1);
+  color: var(--neon-purple);
+  border: none;
+  font-size: 1.5rem;
+  padding: 0.8rem 1.2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.carousel-btn:hover {
+  background: rgba(184, 0, 255, 0.2);
+}
+
+.carousel-container {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  transition: transform 0.5s ease;
 }
 
 .product-card {
   background: var(--bg-card);
-  border-radius: 12px;
+  border-radius: var(--border-radius);
   padding: 1.2rem;
   text-align: center;
-  box-shadow: 0 6px 20px rgba(0, 240, 255, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.product-card:hover {
-  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+  min-width: 250px;
 }
 
 .product-card img {
@@ -121,13 +183,43 @@ h3 {
   text-decoration: line-through;
   color: #aaa;
   font-size: 1rem;
-  margin-top: 0.3rem;
 }
 
 .special {
   color: var(--neon-pink);
   font-size: 1.3rem;
-  margin-top: 0.2rem;
+}
+
+/* Categorías Grid */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.category-box {
+  display: block;
+  background: var(--bg-card);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text-light);
+  transition: transform 0.2s;
+}
+
+.category-box:hover {
+  transform: translateY(-5px);
+  background: rgba(184, 0, 255, 0.1);
+}
+
+.category-box img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
 }
 
 /* Footer */
@@ -140,8 +232,9 @@ h3 {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .header { padding: 1rem; }
   .brand { font-size: 1.2rem; }
-  .hero { padding: 1.2rem; font-size: 1.1rem; }
+  .menu ul { gap: 0.8rem; flex-wrap: wrap; }
+  .carousel-btn { font-size: 1.2rem; padding: 0.6rem; }
 }
