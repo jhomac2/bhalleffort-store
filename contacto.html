@@ -3,44 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BHALLEFFORT | Contáctenos</title>
-    <link rel="stylesheet" href="style.css"> 
+    <title>Contacto - BhalEffort</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <div class="top-bar">
         <div class="container flex-space">
-            <span>¡Envíos a todo Ecuador!</span>
+            <div>¡Envío gratis en pedidos mayores a $50!</div>
             <div class="socials">
-                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://wa.me/593960503674" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
     </div>
 
     <header class="main-header">
         <div class="container flex-center">
-            <div class="logo-section">
-                <a href="index.html" class="logo-link">
-                    <img src="logo-ballena.png" alt="Logo Ballena BHALLEFFORT" class="whale-icon">
+            
+            <a href="index.html" class="logo-link">
+                <div class="logo-section">
+                    <img src="img/whale.png" alt="Icono de Ballena" class="whale-icon">
                     <div class="brand-text">
-                        <h1>BHALLEFFORT</h1>
-                        <p>LO MEJOR Y AL MEJOR PRECIO</p>
+                        <h1>BhalEffort</h1>
+                        <p>Tu tienda de confianza</p>
+                    </div>
+                </div>
+            </a>
+            
+            <div class="search-bar">
+                <div class="autocomplete-container">
+                    <input type="text" id="search-input" placeholder="Buscar productos, categorías...">
+                    <div id="autocomplete-results" class="autocomplete-results">
+                        </div>
+                </div>
+                <button id="search-button"><i class="fas fa-search"></i></button>
+            </div>
+
+            <div class="user-actions">
+                <a href="contactos.html" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    <div>
+                        Llámanos
+                        <strong>096 050 3674</strong>
                     </div>
                 </a>
-            </div>
-            
-            <div class="user-actions">
-                <a href="#" class="whatsapp-btn">
-                    <i class="fab fa-whatsapp"></i>
-                    PEDIDOS WHATSAPP <strong>+593 960503674</strong>
-                </a>
-                <a href="#" class="cart" id="cart-icon">
+                <div class="cart" id="cart-icon">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="badge" id="cart-badge">0</span>
-                </a>
-                <i class="fas fa-bars menu-toggle"></i>
+                </div>
+                <div class="menu-toggle"><i class="fas fa-bars"></i></div>
             </div>
         </div>
     </header>
@@ -48,181 +61,183 @@
     <nav class="main-nav">
         <div class="container">
             <ul>
-                <li><a href="index.html">INICIO</a></li>
-                
+                <li><a href="index.html">Inicio</a></li>
                 <li class="dropdown">
-                    <a href="#">QUIÉNES SOMOS ▾</a>
+                    <a href="ropa.html">Ropa <i class="fas fa-caret-down"></i></a>
                     <div class="dropdown-content">
-                        <a href="quienes-somos.html">Nuestra Historia</a>
-                        <a href="quienes-somos.html#valores">Valores y Misión</a>
+                        <a href="ropa.html#mujer">Mujer</a>
+                        <a href="ropa.html#hombre">Hombre</a>
                     </div>
                 </li>
-                
-                <li class="dropdown">
-                    <a href="#">CATEGORIAS ▾</a>
-                    <div class="dropdown-content">
-                        <a href="ropa.html">Ropa</a> 
-                        <a href="juguetes.html">Juguetes</a>
-                        <a href="hogar.html">Suministros Hogar</a>
-                    </div>
-                </li>
-                
-                <li><a href="promociones.html">SUPER PROMOCIONES</a></li>
-                
-                <li class="dropdown">
-                    <a href="#">POLÍTICAS ▾</a>
-                    <div class="dropdown-content">
-                        <a href="politicas.html#terminos">Términos y Condiciones</a>
-                        <a href="politicas.html#envios">Política de Envíos</a>
-                        <a href="politicas.html#devoluciones">Cambios y Devoluciones</a>
-                    </div>
-                </li>
-                
-                <li class="dropdown">
-                    <a href="#">CONTÁCTENOS ▾</a>
-                    <div class="dropdown-content">
-                        <a href="contacto.html">Ubicación y Email</a>
-                        <a href="https://wa.me/593960503674" target="_blank">WhatsApp Directo</a>
-                    </div>
-                </li>
+                <li><a href="juguetes.html">Juguetes</a></li>
+                <li><a href="hogar.html">Hogar</a></li>
+                <li><a href="promociones.html">🔥 Promociones</a></li>
+                <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+                <li><a href="contactos.html" class="active">Contacto</a></li>
             </ul>
         </div>
     </nav>
-    
-    <main class="container">
-        
-        <section class="page-header">
-            <h1>Contáctenos y Ubicación</h1>
-            <p>Estamos siempre listos para atender sus consultas y pedidos en BHALLEFFORT.</p>
+
+    <main>
+        <section class="page-header container">
+            <h1>💬 Contáctanos</h1>
+            <p>Estamos aquí para ayudarte. Elige el medio que mejor se adapte a tus necesidades.</p>
         </section>
 
-        <div class="contact-grid">
+        <section class="about-section container">
             
-            <section class="contact-info-block">
-                <h2>Líneas de Atención al Cliente</h2>
-                <div class="contact-detail">
-                    <i class="fab fa-whatsapp"></i>
-                    <div>
-                        <h3>WhatsApp Directo</h3>
-                        <p>La forma más rápida para pedidos y consultas.</p>
-                        <a href="https://wa.me/593960503674" target="_blank" class="btn-whatsapp-large">
-                            Enviar Mensaje (+593 960503674)
-                        </a>
-                    </div>
-                </div>
+            <div class="contact-grid">
                 
-                <div class="contact-detail">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <h3>Correo Electrónico</h3>
-                        <p>Para preguntas generales, quejas o sugerencias.</p>
-                        <p class="email-address">pedidos@bhalleffort.com</p>
-                    </div>
+                <div class="contact-form-box">
+                    <h2>Envíanos un Mensaje</h2>
+                    <p>Aunque nuestro principal canal es WhatsApp, puedes dejarnos un mensaje por aquí y te responderemos al email.</p>
+                    <form action="#" method="POST" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nombre Completo:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Asunto:</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje:</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-buy">Enviar Mensaje</button>
+                    </form>
                 </div>
-                
-                <div class="contact-detail">
-                    <i class="fas fa-clock"></i>
-                    <div>
-                        <h3>Horario de Atención</h3>
-                        <p>Lunes a Viernes: 9:00 AM - 6:00 PM</p>
-                        <p>Sábados: 9:00 AM - 1:00 PM</p>
-                    </div>
-                </div>
-            </section>
 
-            <section class="location-block">
-                <h2>Nuestra Ubicación (Oficina Central)</h2>
-                <p>Aunque somos una tienda online, puede visitarnos con previa cita.</p>
-                
-                <div class="map-container">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7909377468167!2d-78.49000000000001!3d-0.28500000000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMMKwMTcnMDYuMCJTIDc4wrAyOSc2NC4wIlc!5e0!3m2!1ses!2sec!4v1633000000000!5m2!1ses!2sec" 
-                        width="100%" 
-                        height="350" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy">
-                    </iframe>
-                </div>
-                <p style="margin-top: 10px;">Dirección aproximada: Av. Eloy Alfaro y Catalina Aldaz, Quito, Ecuador.</p>
-            </section>
-        </div>
+                <div class="contact-info-box">
+                    <h2>Información de Contacto</h2>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <strong>Teléfono / WhatsApp</strong>
+                            <p>096 050 3674 (Atención Inmediata)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Correo Electrónico</strong>
+                            <p>ventas@bhalleffort.com</p>
+                        </div>
+                    </div>
 
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Horario de Atención</strong>
+                            <p>Lunes a Viernes: 9:00 AM - 6:00 PM</p>
+                            <p>Sábados: 10:00 AM - 2:00 PM</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Dirección (Solo Oficinas)</strong>
+                            <p>Av. 10 de Agosto, Quito, Ecuador</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h2 style="margin-top: 40px;">Nuestra Ubicación (Oficina Central)</h2>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15959.049449080765!2d-78.51351585!3d-0.2119932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d59a8508e33f39%3A0xc6e2469c4f141873!2sQuito%2C%20Ecuador!5e0!3m2!1ses!2s!4v1700000000000!5m2!1ses!2s" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+        </section>
+        
+        <section class="guarantees">
+            <div class="container flex-guarantees">
+                <div class="guarantee-item">
+                    <i class="fas fa-truck"></i>
+                    <div>
+                        <strong>Envío Rápido</strong>
+                        <p>Entregas en 24-48 horas.</p>
+                    </div>
+                </div>
+                <div class="guarantee-item">
+                    <i class="fas fa-money-check-alt"></i>
+                    <div>
+                        <strong>Pago Seguro</strong>
+                        <p>Datos protegidos y cifrados.</p>
+                    </div>
+                </div>
+                <div class="guarantee-item">
+                    <i class="fas fa-undo"></i>
+                    <div>
+                        <strong>Devoluciones Fáciles</strong>
+                        <p>Cambio o reembolso en 30 días.</p>
+                    </div>
+                </div>
+                <div class="guarantee-item">
+                    <i class="fas fa-headset"></i>
+                    <div>
+                        <strong>Soporte 24/7</strong>
+                        <p>Asistencia inmediata por WhatsApp.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-
-    <section class="guarantees">
-        <div class="container flex-guarantees">
-            <div class="guarantee-item">
-                <i class="fas fa-truck"></i>
-                <div>
-                    <strong>Envío Rápido</strong>
-                    <p>Entregas en 24-72 horas a nivel nacional.</p>
-                </div>
-            </div>
-            <div class="guarantee-item">
-                <i class="fas fa-shield-alt"></i>
-                <div>
-                    <strong>Compra Segura</strong>
-                    <p>Transacciones protegidas y certificadas.</p>
-                </div>
-            </div>
-            <div class="guarantee-item">
-                <i class="fas fa-undo-alt"></i>
-                <div>
-                    <strong>Cambios Fáciles</strong>
-                    <p>Garantía de 5 días por defectos de fábrica.</p>
-                </div>
-            </div>
-            <div class="guarantee-item">
-                <i class="fab fa-whatsapp"></i>
-                <div>
-                    <strong>Soporte Directo</strong>
-                    <p>Atención personalizada vía WhatsApp.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <footer>
         <div class="container footer-grid">
             <div class="footer-brand">
-                <img src="logo-ballena.png" alt="Logo Ballena BHALLEFFORT" class="whale-icon-footer">
-                <p>BHALLEFFORT es su tienda online de confianza en Ecuador, ofreciendo una amplia gama de productos para toda la familia.</p>
+                <img src="img/whale.png" alt="BhalEffort Logo" class="whale-icon-footer">
+                <h3>BhalEffort</h3>
+                <p>Ofreciendo productos de calidad a precios que te encantarán.</p>
                 <div class="socials">
-                    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/593960503674" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
-
             <div class="footer-policies">
-                <h3>Políticas y Ayuda</h3>
+                <h3>Información</h3>
                 <ul>
-                    <li><a href="politicas.html#terminos"><i class="fas fa-angle-right"></i> Términos y Condiciones</a></li>
-                    <li><a href="politicas.html#envios"><i class="fas fa-angle-right"></i> Política de Envíos</a></li>
-                    <li><a href="politicas.html#devoluciones"><i class="fas fa-angle-right"></i> Cambios y Devoluciones</a></li>
-                    <li><a href="contacto.html"><i class="fas fa-angle-right"></i> Contáctenos</a></li>
+                    <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+                    <li><a href="politicas.html">Políticas de Devolución</a></li>
+                    <li><a href="politicas.html#envio">Términos de Envío</a></li>
+                    <li><a href="contactos.html">Preguntas Frecuentes</a></li>
                 </ul>
             </div>
-
             <div class="footer-contact">
-                <h3>Métodos de Pago</h3>
-                <p>Aceptamos transferencias y depósitos bancarios:</p>
-                <div class="payment-methods">
-                    <i class="far fa-credit-card"></i>
-                    <i class="fas fa-money-check-alt"></i>
-                    <i class="fas fa-university"></i>
-                </div>
-                <h3 style="margin-top: 20px;">Contacto Rápido</h3>
-                <p><i class="fas fa-phone"></i> +593 960503674</p>
-                <p><i class="fas fa-envelope"></i> pedidos@bhalleffort.com</p>
+                <h3>Contáctanos</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Quito, Ecuador</li>
+                    <li><i class="fas fa-phone"></i> 096 050 3674</li>
+                    <li><i class="fas fa-envelope"></i> ventas@bhalleffort.com</li>
+                    <li class="payment-methods">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fas fa-money-bill-wave"></i>
+                    </li>
+                </ul>
             </div>
         </div>
-        
         <div class="footer-copyright">
-            <p>&copy; 2024 BHALLEFFORT. Todos los derechos reservados.</p>
+            <p>&copy; 2025 BhalEffort. Todos los derechos reservados.</p>
         </div>
     </footer>
+
 
     <div id="cart-modal" class="modal">
         <div class="modal-content">
@@ -230,16 +245,27 @@
             <h2>🛒 Carrito de Compras</h2>
             <div id="cart-items">
                 </div>
-            <p id="cart-total" class="cart-summary">Total: $0.00</p>
-            <div class="modal-actions">
-                <button id="btn-cancel" class="btn-cancel">Vaciar Carrito</button>
-                <button id="btn-checkout-whatsapp" class="btn-buy btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> Procesar Pedido
+            <div class="cart-summary">
+                Subtotal: <span id="cart-total">$0.00</span>
+            </div>
+            <div class="modal-actions" id="modal-actions">
+                <button class="btn-cancel" id="btn-cancel-modal">Cerrar</button>
+                <button class="btn-buy btn-whatsapp" id="btn-checkout-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Finalizar Pedido
                 </button>
             </div>
         </div>
     </div>
     
+    <div id="image-modal" class="image-modal">
+        <span class="image-close">&times;</span>
+        <img class="modal-content-image" id="modal-image">
+    </div>
+
+    <a href="https://wa.me/593960503674" target="_blank" class="floating-whatsapp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <script src="script.js"></script>
 </body>
 </html>
