@@ -1,220 +1,292 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // ------------------------------------------------------------------
-    // 1. LÓGICA DEL CARRITO DE COMPRAS
-    // ------------------------------------------------------------------
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    // --- 1. VARIABLES Y SELECTORES ---
     const cartIcon = document.getElementById('cart-icon');
     const cartModal = document.getElementById('cart-modal');
     const closeModal = document.querySelector('.close-button');
     const cartItemsContainer = document.getElementById('cart-items');
     const cartTotalElement = document.getElementById('cart-total');
     const cartBadge = document.getElementById('cart-badge');
-    const whatsappBtn = document.getElementById('btn-checkout-whatsapp');
-    
-    // Función para actualizar el contador del carrito (badge)
-    function updateCartBadge() {
+    const buyButtons = document.querySelectorAll('.btn-buy');
+    const btnCancel = document.getElementById('btn-cancel');
+    const btnCheckoutWhatsapp = document.getElementById('btn-checkout-whatsapp');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+
+    // Estado del carrito (se carga desde localStorage si existe)
+    let cart = JSON.parse(localStorage.getItem('bhalleffortCart')) || [];
+
+    // Lista de productos de ejemplo (debería cargarse de una base de datos real)
+    const PRODUCTS = [
+        // Índice (index.html)
+        { id: 'P001', name: 'Jeans Clásicos Mezclilla', price: 24.99, category: 'Ropa' },
+        { id: 'P002', name: 'Set 100 Bloques de Construcción', price: 19.50, category: 'Juguetes' },
+        { id: 'P003', name: 'Aspiradora Robótica Inteligente', price: 199.99, category: 'Hogar' },
+        { id: 'P004', name: 'Set de 3 Sartenes Antiadherentes', price: 39.99, category: 'Promociones' },
+
+        // Ropa (ropa.html)
+        { id: 'R001', name: 'Vestido Casual de Lino', price: 32.00, category: 'Ropa' },
+        { id: 'R002', name: 'Camisa Algodón Slim Fit', price: 19.99, category: 'Ropa' },
+        { id: 'R003', name: 'Conjunto Deportivo Infantil', price: 15.50, category: 'Ropa' },
+
+        // Juguetes (juguetes.html)
+        { id: 'J001', name: 'Pista de Carreras Flexible', price: 25.99, category: 'Juguetes' },
+        { id: 'J002', name: 'Muñeca Interactiva con Sonido', price: 39.99, category: 'Juguetes' },
+        { id: 'J003', name: 'Mesa de Actividades Didácticas', price: 55.00, category: 'Juguetes' },
+
+        // Hogar (hogar.html)
+        { id: 'H001', name: 'Organizador de Especieros Tres Niveles', price: 18.99, category: 'Hogar' },
+        { id: 'H002', name: 'Set de 6 Toallas Algodón Egipcio', price: 42.50, category: 'Hogar' },
+        { id: 'H003', name: 'Manta Decorativa Lana Tejida', price: 29.99, category: 'Hogar' },
+
+        // Promociones (promociones.html)
+        { id: 'O001', name: 'Reloj Inteligente Deportivo 40% OFF', price: 29.99, category: 'Promociones' },
+        { id: 'O002', name: 'Zapatos Deportivos Infantiles', price: 17.99, category: 'Promociones' },
+        { id: 'O003', name: 'Set 2 Cortinas Opacas Térmicas', price: 29.99, category: 'Promociones' },
+    ];
+
+    // --- 2. FUNCIONES DEL CARRITO ---
+
+    // Función para guardar el carrito en localStorage
+    const saveCart = () => {
+        localStorage.setItem('bhalleffortCart', JSON.stringify(cart));
+        updateCartBadge();
+    };
+
+    // Función para actualizar el contador de items en el ícono del carrito
+    const updateCartBadge = () => {
         const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
         cartBadge.textContent = totalItems;
-    }
+        // Ocultar el badge si no hay items
+        cartBadge.style.display = totalItems > 0 ? 'flex' : 'none';
+    };
 
-    // Función para renderizar los productos en el modal del carrito
-    function renderCart() {
+    // Función para calcular y mostrar el total del carrito
+    const calculateTotal = () => {
+        const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        cartTotalElement.textContent = `Total: $${total.toFixed(2)}`;
+        return total;
+    };
+
+    // Función para dibujar los items del carrito en el modal
+    const renderCart = () => {
         cartItemsContainer.innerHTML = '';
-        let total = 0;
-
         if (cart.length === 0) {
-            cartItemsContainer.innerHTML = '<p style="text-align: center; padding: 20px;">El carrito está vacío.</p>';
-        } else {
-            cart.forEach(item => {
-                const itemTotal = item.price * item.quantity;
-                total += itemTotal;
+            cartItemsContainer.innerHTML = '<p class="empty-cart-message">El carrito está vacío.</p>';
+            cartTotalElement.textContent = 'Total: $0.00';
+            btnCheckoutWhatsapp.disabled = true;
+            btnCancel.disabled = true;
+            return;
+        }
 
-                const itemElement = document.createElement('div');
-                itemElement.className = 'cart-item';
-                itemElement.innerHTML = `
-                    <span class="item-name">${item.name}</span>
-                    <div class="item-quantity-control">
-                        <button class="remove-one" data-id="${item.id}">-</button>
-                        <span>${item.quantity}</span>
-                        <button class="add-one" data-id="${item.id}">+</button>
-                    </div>
-                    <span class="item-price-total">$${itemTotal.toFixed(2)}</span>
-                `;
-                cartItemsContainer.appendChild(itemElement);
+        cart.forEach(item => {
+            const itemElement = document.createElement('div');
+            itemElement.classList.add('cart-item');
+            itemElement.innerHTML = `
+                <div class="cart-item-info">
+                    <p class="cart-item-name">${item.name}</p>
+                    <p class="cart-item-price">$${item.price.toFixed(2)} x ${item.quantity}</p>
+                </div>
+                <div class="cart-item-controls">
+                    <button class="btn-quantity decrease-btn" data-id="${item.id}">-</button>
+                    <span class="quantity-display">${item.quantity}</span>
+                    <button class="btn-quantity increase-btn" data-id="${item.id}">+</button>
+                    <button class="btn-remove" data-id="${item.id}">X</button>
+                </div>
+            `;
+            cartItemsContainer.appendChild(itemElement);
+        });
+
+        calculateTotal();
+        btnCheckoutWhatsapp.disabled = false;
+        btnCancel.disabled = false;
+    };
+
+    // Función para añadir un producto al carrito
+    const addToCart = (productId) => {
+        const product = PRODUCTS.find(p => p.id === productId);
+        if (!product) return;
+
+        const existingItem = cart.find(item => item.id === productId);
+
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({
+                id: product.id,
+                name: product.name,
+                price: product.price,
+                quantity: 1
             });
         }
+        saveCart();
+        alert(`${product.name} añadido al carrito.`);
+    };
 
-        cartTotalElement.textContent = `Total: $${total.toFixed(2)}`;
-        updateCartBadge();
-        localStorage.setItem('cart', JSON.stringify(cart));
-    }
-
-    // Manejar eventos de añadir/quitar en el carrito
+    // Manejar clics dentro del modal (aumentar, disminuir, remover)
     cartItemsContainer.addEventListener('click', (e) => {
-        const id = e.target.dataset.id;
-        if (e.target.classList.contains('add-one')) {
-            const item = cart.find(i => i.id === id);
-            item.quantity++;
-        } else if (e.target.classList.contains('remove-one')) {
-            const itemIndex = cart.findIndex(i => i.id === id);
-            if (itemIndex > -1) {
-                cart[itemIndex].quantity--;
-                if (cart[itemIndex].quantity <= 0) {
-                    cart.splice(itemIndex, 1); // Eliminar si la cantidad llega a cero
-                }
+        const target = e.target;
+        const productId = target.dataset.id;
+
+        if (!productId) return;
+
+        const itemIndex = cart.findIndex(item => item.id === productId);
+        if (itemIndex === -1) return;
+
+        if (target.classList.contains('increase-btn')) {
+            cart[itemIndex].quantity += 1;
+        } else if (target.classList.contains('decrease-btn')) {
+            cart[itemIndex].quantity -= 1;
+            if (cart[itemIndex].quantity <= 0) {
+                cart.splice(itemIndex, 1); // Remover si la cantidad llega a cero
             }
+        } else if (target.classList.contains('btn-remove')) {
+            cart.splice(itemIndex, 1); // Remover item
         }
+
+        saveCart();
         renderCart();
     });
 
-    // Abrir el modal
-    if (cartIcon) {
-        cartIcon.onclick = () => {
-            renderCart();
-            cartModal.style.display = 'block';
-        };
-    }
-    
-    // Cerrar el modal
-    if (closeModal) {
-        closeModal.onclick = () => {
-            cartModal.style.display = 'none';
-        };
-    }
+    // --- 3. EVENT LISTENERS ---
 
-    // Cerrar si se hace click fuera
-    window.onclick = (event) => {
-        if (event.target === cartModal) {
+    // 3.1. Abrir modal del carrito
+    cartIcon.addEventListener('click', (e) => {
+        e.preventDefault(); // Evita que el enlace de carrito navegue si es un <a>
+        renderCart();
+        cartModal.style.display = 'flex';
+    });
+
+    // 3.2. Cerrar modal
+    closeModal.addEventListener('click', () => {
+        cartModal.style.display = 'none';
+    });
+
+    // Cerrar si se hace clic fuera del modal
+    window.addEventListener('click', (e) => {
+        if (e.target === cartModal) {
             cartModal.style.display = 'none';
         }
-    };
+    });
 
-    // Lógica para añadir producto desde la página (simulación)
-    document.querySelectorAll('.btn-buy').forEach(button => {
+    // 3.3. Botones "Añadir al Carrito"
+    buyButtons.forEach(button => {
         button.addEventListener('click', (e) => {
-            e.preventDefault();
-            const productElement = e.target.closest('.product-card');
-            if (!productElement) return;
-
-            const id = productElement.dataset.id || Date.now().toString(); 
-            const name = productElement.querySelector('.product-name').textContent;
-            const priceText = productElement.querySelector('.current-price').textContent.replace('$', '');
-            const price = parseFloat(priceText);
-
-            const existingItem = cart.find(item => item.id === id);
-
-            if (existingItem) {
-                existingItem.quantity++;
-            } else {
-                cart.push({ id, name, price, quantity: 1 });
+            const card = e.target.closest('.product-card');
+            if (card) {
+                const productId = card.dataset.id;
+                addToCart(productId);
             }
-
-            updateCartBadge();
-            localStorage.setItem('cart', JSON.stringify(cart));
-            // Opcional: mostrar un mensaje de éxito o abrir el carrito
         });
     });
 
-    // Generar mensaje de WhatsApp
-    if (whatsappBtn) {
-        whatsappBtn.addEventListener('click', () => {
-            if (cart.length === 0) {
-                alert('El carrito está vacío. Añade productos primero.');
-                return;
-            }
+    // 3.4. Vaciar Carrito
+    btnCancel.addEventListener('click', () => {
+        if (confirm('¿Está seguro de que desea vaciar el carrito?')) {
+            cart = [];
+            saveCart();
+            renderCart();
+        }
+    });
 
-            let message = "¡Hola! Me gustaría hacer un pedido con los siguientes artículos:\n\n";
-            let total = 0;
+    // 3.5. Botón de Checkout por WhatsApp
+    btnCheckoutWhatsapp.addEventListener('click', () => {
+        if (cart.length === 0) {
+            alert('El carrito está vacío. Agregue productos para hacer un pedido.');
+            return;
+        }
 
-            cart.forEach((item, index) => {
-                const itemTotal = item.price * item.quantity;
-                total += itemTotal;
-                message += `${index + 1}. ${item.name} - Cantidad: ${item.quantity} - Total: $${itemTotal.toFixed(2)}\n`;
-            });
+        let message = "¡Hola! Quisiera realizar el siguiente pedido:\n\n";
+        let total = 0;
 
-            message += `\n*TOTAL ESTIMADO: $${total.toFixed(2)}*`;
-            message += "\n\nPor favor, confírmenme el stock y el costo de envío a mi ubicación.";
-
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappUrl = `https://wa.me/593960503674?text=${encodedMessage}`;
-            window.open(whatsappUrl, '_blank');
+        cart.forEach((item, index) => {
+            const itemTotal = item.price * item.quantity;
+            total += itemTotal;
+            message += `${index + 1}. ${item.name} | Cantidad: ${item.quantity} | Subtotal: $${itemTotal.toFixed(2)}\n`;
         });
-    }
 
-    // Inicializar el badge al cargar la página
-    updateCartBadge();
+        message += `\n*TOTAL FINAL: $${total.toFixed(2)}*\n\n`;
+        message += "Por favor, confírmenme el total incluyendo el costo de envío. ¡Gracias!";
 
+        // El número de WhatsApp del negocio de BHALLEFFORT
+        const whatsappNumber = '593960503674'; 
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
-    // ------------------------------------------------------------------
-    // 2. LÓGICA DEL MENÚ MÓVIL
-    // ------------------------------------------------------------------
-    const menuToggle = document.querySelector('.menu-toggle');
-    const mainNav = document.querySelector('.main-nav');
-    const header = document.querySelector('.main-header');
+        window.open(whatsappUrl, '_blank');
+        cartModal.style.display = 'none'; // Cerrar modal después de enviar
+    });
 
-    if (menuToggle) {
-        menuToggle.addEventListener('click', () => {
-            // Alternar la clase 'menu-active' en el cuerpo del documento o en un contenedor superior
-            document.body.classList.toggle('menu-active');
-        });
-    }
-    
-    // ------------------------------------------------------------------
-    // 3. LÓGICA DEL BUSCADOR CON AUTOCOMPLETAR (Solo en index.html)
-    // ------------------------------------------------------------------
+    // 3.6. Menú móvil (Toggle)
+    menuToggle.addEventListener('click', () => {
+        mainNav.classList.toggle('active');
+    });
+
+    // 3.7. Funcionalidad del Buscador con Autocompletado (SOLO en index.html)
     const searchInput = document.getElementById('search-input');
-    const resultsContainer = document.getElementById('autocomplete-results');
-
-    // Lista simplificada de productos para simular la búsqueda
-    const productList = [
-        { id: '1', name: 'Jeans Clásicos Hombre', category: 'Ropa', url: 'ropa.html#jeans' },
-        { id: '2', name: 'Vestido de Verano Floral Mujer', category: 'Ropa', url: 'ropa.html#vestido' },
-        { id: '3', name: 'Coche Eléctrico Infantil', category: 'Juguetes', url: 'juguetes.html#coche' },
-        { id: '4', name: 'Bloques de Construcción Grande', category: 'Juguetes', url: 'juguetes.html#bloques' },
-        { id: '5', name: 'Juego de Sábanas King Size', category: 'Hogar', url: 'hogar.html#sabanas' },
-        { id: '6', name: 'Aspiradora Robótica', category: 'Hogar', url: 'hogar.html#aspiradora' },
-        { id: '7', name: 'Oferta Sandalias de Playa', category: 'Promociones', url: 'promociones.html#sandalias' },
-        { id: '8', name: 'Set de Ollas Antiadherentes', category: 'Hogar', url: 'hogar.html#ollas' },
-    ];
+    const autocompleteResults = document.getElementById('autocomplete-results');
 
     if (searchInput) {
         searchInput.addEventListener('input', () => {
-            const query = searchInput.value.toLowerCase().trim();
-            resultsContainer.innerHTML = '';
+            const query = searchInput.value.toLowerCase();
+            autocompleteResults.innerHTML = '';
 
             if (query.length < 2) {
-                resultsContainer.style.display = 'none';
+                autocompleteResults.style.display = 'none';
                 return;
             }
 
-            const filteredResults = productList.filter(product => 
-                product.name.toLowerCase().includes(query) || 
-                product.category.toLowerCase().includes(query)
-            ).slice(0, 5); // Limitar a 5 resultados
+            const filteredProducts = PRODUCTS.filter(p => 
+                p.name.toLowerCase().includes(query) || p.category.toLowerCase().includes(query)
+            ).slice(0, 5); // Mostrar máximo 5 resultados
 
-            if (filteredResults.length > 0) {
-                filteredResults.forEach(product => {
-                    const resultLink = document.createElement('a');
-                    resultLink.href = product.url;
+            if (filteredProducts.length > 0) {
+                filteredProducts.forEach(product => {
+                    const resultItem = document.createElement('div');
+                    resultItem.classList.add('autocomplete-item');
+                    resultItem.innerHTML = `<i class="fas fa-search"></i> ${product.name} <span class="category-hint">(${product.category})</span>`;
                     
-                    // Función simple para resaltar la palabra clave
-                    const highlightedName = product.name.replace(new RegExp(`(${query})`, 'gi'), '<span class="highlight">$1</span>');
-
-                    resultLink.innerHTML = `${highlightedName} <small>(${product.category})</small>`;
-                    resultsContainer.appendChild(resultLink);
+                    // Al hacer clic, se podría redirigir a una página de detalle o la categoría
+                    resultItem.addEventListener('click', () => {
+                        searchInput.value = product.name;
+                        autocompleteResults.style.display = 'none';
+                        // Simular búsqueda o redirección (Ejemplo: ir a la categoría)
+                        const categoryFile = product.category.toLowerCase().replace(/ /g, '-');
+                        if (categoryFile.includes('ropa')) window.location.href = 'ropa.html';
+                        else if (categoryFile.includes('juguetes')) window.location.href = 'juguetes.html';
+                        else if (categoryFile.includes('hogar')) window.location.href = 'hogar.html';
+                        else if (categoryFile.includes('promociones')) window.location.href = 'promociones.html';
+                        else window.location.href = 'index.html';
+                    });
+                    autocompleteResults.appendChild(resultItem);
                 });
-                resultsContainer.style.display = 'block';
+                autocompleteResults.style.display = 'block';
             } else {
-                resultsContainer.innerHTML = '<a href="#">No se encontraron resultados...</a>';
-                resultsContainer.style.display = 'block';
+                autocompleteResults.style.display = 'none';
+            }
+        });
+
+        // Ocultar resultados al hacer clic fuera
+        document.addEventListener('click', (e) => {
+            if (e.target !== searchInput && e.target !== autocompleteResults) {
+                autocompleteResults.style.display = 'none';
             }
         });
         
-        // Ocultar resultados si se hace clic fuera del input
-        document.addEventListener('click', (e) => {
-            if (e.target !== searchInput && e.target !== resultsContainer && !resultsContainer.contains(e.target)) {
-                resultsContainer.style.display = 'none';
-            }
-        });
+        // Manejar el botón de búsqueda
+        const searchButton = document.getElementById('search-button');
+        if(searchButton) {
+             searchButton.addEventListener('click', () => {
+                const query = searchInput.value.toLowerCase();
+                // Redireccionar a la categoría o a una página de resultados
+                if (query.includes('ropa')) window.location.href = 'ropa.html';
+                else if (query.includes('juguetes')) window.location.href = 'juguetes.html';
+                else if (query.includes('hogar')) window.location.href = 'hogar.html';
+                else if (query.includes('promociones')) window.location.href = 'promociones.html';
+                else alert(`Realizando búsqueda de: "${query}". (En una tienda real, esto lo llevaría a una página de resultados)`);
+            });
+        }
     }
+
+
+    // 4. INICIALIZACIÓN
+    updateCartBadge(); // Asegura que el contador se muestre al cargar la página
 });
