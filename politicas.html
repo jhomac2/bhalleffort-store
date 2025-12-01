@@ -1,1 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Políticas - BHALLEFFORT</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
 
+    <!-- Ícono del carrito flotante -->
+    <div id="cart-icon" style="position: fixed; top: 20px; right: 20px; cursor: pointer; z-index: 1000;">
+        <i class="fas fa-shopping-cart" style="font-size: 24px; color: #6a0dad;"></i>
+        <span id="cart-badge" style="background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 12px; margin-left: -8px; position: relative; top: -8px;">0</span>
+    </div>
+
+    <div class="top-bar">
+        <div class="container flex-space">
+            <div class="location">
+                <i class="fas fa-map-marker-alt"></i> ENVIOS A TODO EL PAÍS
+            </div>
+            <div class="socials">
+                <span><i class="fas fa-truck"></i> ENVÍOS 100% SEGUROS</span>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="container flex-center">
+            <div class="logo-section">
+                <img src="logo-ballena.png" alt="Ballenita Azul" class="whale-icon"> 
+                <div class="brand-text">
+                    <h1>BHALLEFFORT</h1>
+                    <p>LO MEJOR Y AL MEJOR PRECIO</p>
+                </div>
+            </div>
+
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Buscar políticas..." autocomplete="off">
+                <div id="autocomplete-results" style="position: absolute; background: white; border: 1px solid #ddd; max-height: 200px; overflow-y: auto; width: 100%; z-index: 1000; display: none; box-shadow: 0 2px 5px rgba(0,0,0,0.1);"></div>
+                <button>BÚSQUEDA</button>
+            </div>
+
+            <div class="user-actions">
+                <div class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    <div>
+                        <span>PEDIDOS WHATSAPP</span>
+                        <strong>+593 963923399</strong>
+                    </div>
+                </div>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">INICIO</a></li>
+                <li class="dropdown">
+                    <a href="#">QUIÉNES SOMOS ▾</a>
+                    <div class="dropdown-content">
+                        <a href="quienes-somos.html">Nuestra Historia</a>
+                        <a href="quienes-somos.html#valores">Valores y Misión</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">CATEGORIAS ▾</a>
+                    <div class="dropdown-content">
+                        <a href="ropa.html">Ropa</a> 
+                        <a href="juguetes.html">Juguetes</a>
+                        <a href="hogar.html">Suministros Hogar</a>
+                    </div>
+                </li>
+                <li><a href="promociones.html">SUPER PROMOCIONES</a></li>
+                <li class="dropdown">
+                    <a href="#">POLÍTICAS ▾</a>
+                    <div class="dropdown-content">
+                        <a href="politicas.html#terminos">Términos y Condiciones</a>
+                        <a href="politicas.html#envios">Política de Envíos</a>
+                        <a href="politicas.html#devoluciones">Cambios y Devoluciones</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">CONTÁCTENOS ▾</a>
+                    <div class="dropdown-content">
+                        <a href="contacto.html">Ubicación y Email</a>
+                        <a href="https://wa.me/593963923399" target="_blank">WhatsApp Directo</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero-banner" style="background-color: #2c3e50; padding: 40px 20px; text-align: center; color: white;">
+        <h2>📜 NUESTRAS POLÍTICAS</h2>
+        <p style="font-size: 16px; margin-top: 10px;">Claridad, transparencia y buen trato: así trabajamos.</p>
+    </section>
+
+    <section style="padding: 40px 20px; background: #f9f9f9;">
+        <div class="container" style="max-width: 800px; margin: 0 auto;">
+
+            <div id="terminos">
+                <h2 class="section-title" style="color: #6a0dad;">Términos y Condiciones</h2>
+                <p style="line-height: 1.6;">
+                    Al usar nuestra tienda, aceptas que todos los pedidos se gestionan vía WhatsApp. 
+                    Los precios pueden variar sin previo aviso, pero el valor acordado al momento de tu confirmación es el válido.
+                    Nos reservamos el derecho de cancelar pedidos si hay errores tipográficos evidentes en precios.
+                </p>
+            </div>
+
+            <div id="envios" style="margin-top: 40px;">
+                <h2 class="section-title" style="color: #6a0dad;">Política de Envíos</h2>
+                <p style="line-height: 1.6;">
+                    ✅ <strong>Envíos a todo Ecuador.</strong><br>
+                    📦 <strong>Costo de envío:</strong> $3.50 (gratis en compras de $50 o más).<br>
+                    🕒 <strong>Tiempos:</strong> 2 a 5 días hábiles (dependiendo de la ubicación).<br>
+                    📍 El cliente debe entregar datos correctos de envío. No nos hacemos responsables por errores en dirección.
+                </p>
+            </div>
+
+            <div id="devoluciones" style="margin-top: 40px;">
+                <h2 class="section-title" style="color: #6a0dad;">Cambios y Devoluciones</h2>
+                <p style="line-height: 1.6;">
+                    💬 Antes de comprar, charlemos por WhatsApp para asegurarnos de que el producto es lo que buscas.<br>
+                    🔍 Si recibes un producto <strong>dañado o diferente al solicitado</strong>, avísanos en menos de 24 horas.<br>
+                    🔄 No aceptamos devoluciones por cambio de opinión, pero sí ayudamos a encontrar soluciones justas.
+                </p>
+                <p style="margin-top: 15px; font-weight: bold; color: #6a0dad;">
+                    ¡Tu satisfacción es nuestra prioridad! Por eso apostamos por la comunicación antes, durante y después de tu compra.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <img src="logo-ballena.png" alt="BHALLEFFORT Logo" class="whale-icon-footer">
+                <p>LO MEJOR Y AL MEJOR PRECIO</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                </div>
+            </div>
+
+            <div class="footer-contact">
+                <h3>CONTÁCTANOS</h3>
+                <p><i class="fas fa-phone-alt"></i> <strong>+593 963923399</strong> (Whatsapp)</p>
+                <p><i class="fas fa-envelope"></i> agromhasvida5@gmail.com</p>
+                <p><i class="far fa-clock"></i> Horario: 24 horas (compras en línea)</p>
+                <p><i class="fas fa-map-marker-alt"></i> La Y de Tabacundo - Pichincha - Ecuador</p>
+            </div>
+
+            <div class="footer-policies">
+                <h3>POLÍTICAS</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Términos y Condiciones</li>
+                    <li><i class="fas fa-check-circle"></i> Política de Envíos</li>
+                    <li><i class="fas fa-check-circle"></i> Cambios y Devoluciones</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; 2025 BHALLEFFORT. Todos los derechos reservados. Autoridad de Jhomac² 🎯</p>
+        </div>
+    </footer>
+
+    <!-- MODAL DEL CARRITO -->
+    <div id="cart-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2000;">
+        <div style="background: white; width: 90%; max-width: 500px; margin: 50px auto; padding: 20px; border-radius: 10px; position: relative; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+            <button id="btn-cancel-modal" style="position: absolute; top: 10px; right: 15px; background: none; border: none; font-size: 20px; cursor: pointer;">&times;</button>
+            <h3 style="margin-top: 0; color: #6a0dad; display: flex; align-items: center; gap: 10px;">
+                <i class="fas fa-shopping-cart"></i> Tu carrito
+            </h3>
+            <div id="cart-items" style="max-height: 300px; overflow-y: auto; margin-bottom: 15px; border: 1px solid #eee; border-radius: 5px; padding: 10px;">
+                <!-- Se llena automáticamente -->
+            </div>
+            <div style="display: flex; justify-content: space-between; font-weight: bold; margin: 10px 0;">
+                <span>Total:</span>
+                <span id="cart-total">$0.00</span>
+            </div>
+            <div style="text-align: center; margin-top: 15px;">
+                <button id="btn-checkout-whatsapp" style="background: #25D366; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer; margin-right: 10px;">
+                    ✅ Confirmar compra
+                </button>
+                <button id="btn-cancel-cart" style="background: #ccc; color: #333; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+                    ❌ Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
