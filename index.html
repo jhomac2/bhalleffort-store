@@ -30,21 +30,20 @@
   }
   </script>
 
-  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    :root{--rojo:#e2001a;--amarillo:#ffcc00;--morado:#6a0dad;--texto:#222}
+    :root{--morado:#4c0d8c;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;--fondo:#f5f7fa}
     *{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,Arial}
-    body{background:#fafafa;color:var(--texto)}
+    body{background:var(--fondo);color:var(--texto)}
     img{max-width:100%;display:block}
     .container{width:90%;max-width:1200px;margin:auto}
     .flex-space,.flex-center{display:flex;align-items:center;justify-content:space-between}
-    .top-bar{background:#eee;font-size:13px;padding:4px 0}
-    .main-header{padding:10px 0;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.05)}
+    .top-bar{background:var(--turquesa);color:#fff;font-size:13px;padding:4px 0}
+    .main-header{padding:10px 0;background:var(--morado);color:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
     .logo-section{display:flex;align-items:center;gap:10px}
     .whale-icon{width:40px}
-    .brand-text h1{font-size:20px;color:var(--morado)}
-    .brand-text p{font-size:12px;color:#555}
+    .brand-text h1{font-size:20px}
+    .brand-text p{font-size:12px;opacity:.9}
     .whatsapp-btn{display:flex;align-items:center;gap:6px;background:#25D366;color:#fff;padding:6px 10px;border-radius:4px;font-size:12px;cursor:pointer}
     .main-nav{background:var(--morado)}
     .main-nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center}
@@ -54,7 +53,7 @@
     .quick-categories{padding:20px 0}
     .flex-quick-categories{display:flex;gap:15px;justify-content:center;flex-wrap:wrap}
     .category-box{background:#fff;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,.1);padding:15px 20px;text-align:center;flex:1 1 160px;max-width:200px;text-decoration:none;color:inherit}
-    .category-box i{font-size:28px;color:var(--morado);margin-bottom:6px}
+    .category-box i{font-size:28px;color:var(--turquesa);margin-bottom:6px}
     .featured-products{padding:20px 0}
     .section-title{text-align:center;margin-bottom:15px;font-size:22px;color:var(--morado)}
     .products-grid{display:grid;gap:15px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
@@ -63,27 +62,55 @@
     .product-info{padding:10px;display:flex;flex-direction:column;flex:1}
     .product-category{font-size:11px;color:#777}
     .product-name{font-size:15px;margin:4px 0}
-    .current-price{font-weight:700;color:var(--rojo);font-size:17px}
-    .btn-buy{background:var(--amarillo);border:none;padding:8px;border-radius:4px;cursor:pointer;margin-top:auto;font-weight:700}
+    .current-price{font-weight:700;color:var(--turquesa);font-size:17px}
+    .btn-buy{background:var(--turquesa);color:#fff;border:none;padding:8px;border-radius:4px;cursor:pointer;margin-top:auto;font-weight:700}
+    .btn-buy:hover{background:var(--turquesaOsc)}
     .guarantees{background:#fff;padding:20px 0;margin-top:20px}
     .flex-guarantees{display:flex;gap:15px;flex-wrap:wrap;justify-content:center;text-align:center}
     .guarantee-item{flex:1 1 200px}
-    footer{background:#222;color:#fff;font-size:13px;padding:20px 0}
+    footer{background:var(--morado);color:#fff;font-size:13px;padding:20px 0}
     .footer-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
     .footer-contact a{color:#fff;text-decoration:none}
-    .god-message{font-size:11px;color:#555;margin-top:4px}
+    .god-message{font-size:11px;color:#ddd;margin-top:4px}
     #cart-icon{position:fixed;top:15px;right:15px;background:#fff;border-radius:50%;padding:8px;box-shadow:0 2px 5px rgba(0,0,0,.15);cursor:pointer;z-index:1000}
-    #cart-badge{background:var(--rojo);color:#fff;border-radius:50%;padding:2px 6px;font-size:11px;position:absolute;top:-4px;right:-4px}
+    #cart-badge{background:var(--turquesa);color:#fff;border-radius:50%;padding:2px 6px;font-size:11px;position:absolute;top:-4px;right:-4px}
     .cart-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000}
     .cart-modal>div{background:#fff;width:90%;max-width:480px;margin:60px auto;padding:15px;border-radius:8px;position:relative}
     .cart-modal header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
     .cart-modal footer{text-align:right}
+    /* banner sticky envío */
+    #banner-envio{position:fixed;bottom:0;left:0;right:0;background:var(--turquesa);color:#fff;text-align:center;padding:8px;font-size:14px;z-index:999}
+    /* lupa flotante */
+    #btn-lupa{position:fixed;bottom:80px;right:15px;background:var(--turquesa);color:#fff;border:none;border-radius:50%;width:50px;height:50px;font-size:20px;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.25)}
+    /* modal búsqueda */
+    #search-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:3000}
+    #search-modal>div{background:#fff;width:90%;max-width:400px;margin:80px auto;padding:15px;border-radius:8px;position:relative}
+    #search-modal input{width:100%;padding:8px;border:1px solid #ccc;border-radius:4px;margin-bottom:10px}
+    #search-results{max-height:200px;overflow-y:auto}
+    .result-item{padding:6px 0;cursor:pointer;border-bottom:1px solid #eee}
+    .result-item:hover{background:#f0f0f0}
+    #close-search{position:absolute;top:8px;right:12px;background:none;border:none;font-size:20px;cursor:pointer}
     @media(max-width:500px){.main-nav ul{flex-direction:column}.hero-banner h2{font-size:20px}}
   </style>
 </head>
 <body>
   <!-- carrito flotante -->
   <div id="cart-icon"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
+
+  <!-- lupa flotante -->
+  <button id="btn-lupa" title="Buscar producto"><i class="fas fa-search"></i></button>
+
+  <!-- modal búsqueda -->
+  <div id="search-modal">
+    <div>
+      <button id="close-search">&times;</button>
+      <input type="text" id="search-input" placeholder="Escribe el nombre del producto...">
+      <div id="search-results"></div>
+    </div>
+  </div>
+
+  <!-- banner sticky envío -->
+  <div id="banner-envio">🚚 ¡Envío gratis desde $50!</div>
 
   <!-- top-bar -->
   <div class="top-bar">
@@ -209,7 +236,7 @@
           <span>Total:</span><span id="cart-total">$0.00</span>
         </div>
         <button id="btn-wa" style="background:#25D366;color:#fff;border:none;padding:8px 14px;border-radius:4px;cursor:pointer;margin-top:10px">
-          Enviar pedido por WhatsApp
+          Enviar pedido por WhatsApp 🐋💜
         </button>
       </footer>
     </div>
@@ -217,15 +244,31 @@
 
   <!-- lógica -->
   <script>
-    // productos desde tu Excel (puedes cambiar aquí o generar desde CSV)
+    // productos
     const productos = [
-      {id:"P001",cat:"Ropa",nombre:"Camiseta BHALLEFFORT Edición Limitada",precio:14.99,img:"prod-ropa.jpg"},
-      {id:"P002",cat:"Juguetes",nombre:"Bloques de Construcción 500 pzs",precio:22.50,img:"prod-juguetes.jpg"},
-      {id:"P003",cat:"Hogar",nombre:"Set Utensilios Cocina Deluxe",precio:39.99,img:"prod-hogar.jpg"},
-      {id:"O001",cat:"Ropa",nombre:"Pantalón Deportivo Morado",precio:19.99,img:"prod-oferta.jpg"}
+      {id:"P001",cat:"Ropa",nombre:"Camiseta BHALLEFFORT Edición Limitada",precio:14.99,img:"prod-ropa.jpg",url:"ropa.html"},
+      {id:"P002",cat:"Juguetes",nombre:"Bloques de Construcción 500 pzs",precio:22.50,img:"prod-juguetes.jpg",url:"juguetes.html"},
+      {id:"P003",cat:"Hogar",nombre:"Set Utensilios Cocina Deluxe",precio:39.99,img:"prod-hogar.jpg",url:"hogar.html"},
+      {id:"O001",cat:"Ropa",nombre:"Pantalón Deportivo Morado",precio:19.99,img:"prod-oferta.jpg",url:"ropa.html"}
     ];
 
     let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
+
+    // contador sorteo (empieza 20 cada 1.º mes)
+    function getSorteoCount() {
+      const ahora = new Date();
+      const key = `sorteo-${ahora.getFullYear()}-${ahora.getMonth()}`;
+      let count = parseInt(localStorage.getItem(key) || '20');
+      return count;
+    }
+    function incrementSorteo() {
+      const ahora = new Date();
+      const key = `sorteo-${ahora.getFullYear()}-${ahora.getMonth()}`;
+      let count = parseInt(localStorage.getItem(key) || '20');
+      count++;
+      localStorage.setItem(key, count);
+      return count;
+    }
 
     function dibujarProductos() {
       const grid = document.getElementById('products-grid');
@@ -240,15 +283,29 @@
           </div>
         </div>`).join('');
     }
+
     function addCart(id,nombre,precio) {
       carrito.push({id,nombre,precio});
       localStorage.setItem('bh-cart',JSON.stringify(carrito));
       actualizarBadge();
       mostrarModal();
+      actualizarBannerEnvio();
     }
+
     function actualizarBadge() {
       document.getElementById('cart-badge').textContent = carrito.length;
     }
+
+    function actualizarBannerEnvio() {
+      const total = carrito.reduce((t,p)=>t+p.precio,0);
+      const banner = document.getElementById('banner-envio');
+      if (total >= 50) {
+        banner.innerHTML = '✅ ¡Tu envío es gratis!';
+      } else {
+        banner.innerHTML = '🚚 ¡Envío gratis desde $50!';
+      }
+    }
+
     function mostrarModal() {
       const modal = document.getElementById('cart-modal');
       const items = document.getElementById('cart-items');
@@ -261,20 +318,56 @@
       document.getElementById('cart-total').textContent = '$'+total.toFixed(2);
       modal.style.display = 'block';
     }
+
     function removeItem(i) {
       carrito.splice(i,1);
       localStorage.setItem('bh-cart',JSON.stringify(carrito));
       actualizarBadge();
+      actualizarBannerEnvio();
       mostrarModal();
     }
+
+    // WhatsApp con envío y sorteo
+    document.getElementById('btn-wa').onclick = () => {
+      const subtotal = carrito.reduce((t,p)=>t+p.precio,0);
+      const envio = subtotal >= 50 ? 0 : 3.50;
+      const total = subtotal + envio;
+      let texto = `🐋 Hola, quiero:\n`;
+      texto += carrito.map(p => `• ${p.nombre}  $${p.precio.toFixed(2)}`).join('\n');
+      texto += `\nTotal productos: $${subtotal.toFixed(2)}`;
+      if (envio > 0) texto += `\nEnvío: $${envio.toFixed(2)}`;
+      else texto += '\nEnvío: ¡Gratis!';
+      texto += `\nTOTAL A PAGAR: $${total.toFixed(2)}`;
+      if (subtotal >= 20) {
+        const count = incrementSorteo();
+        texto += `\n\n🎉 ¡Felicidades! Estás participando en el sorteo mensual 💜😃\nTu código de participación te lo dará el vendedor.`;
+      }
+      window.open(`https://wa.me/593963923399?text=${encodeURIComponent(texto)}`, '_blank');
+    };
+
+    // búsqueda
+    const searchModal = document.getElementById('search-modal');
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+    document.getElementById('btn-lupa').onclick = () => searchModal.style.display = 'block';
+    document.getElementById('close-search').onclick = () => searchModal.style.display = 'none';
+    searchInput.oninput = () => {
+      const q = searchInput.value.toLowerCase();
+      const filtrados = productos.filter(p => p.nombre.toLowerCase().includes(q));
+      searchResults.innerHTML = filtrados.map(p => `
+        <div class="result-item" onclick="window.open('${p.url}','_self')">
+          <strong>${p.nombre}</strong> - $${p.precio.toFixed(2)}
+        </div>`).join('');
+    };
+
+    // cierre modales
     document.getElementById('close-cart').onclick = () => document.getElementById('cart-modal').style.display = 'none';
     document.getElementById('cart-icon').onclick = mostrarModal;
-    document.getElementById('btn-wa').onclick = () => {
-      const texto = carrito.map(p => `• ${p.nombre}  $${p.precio.toFixed(2)}`).join('%0A') + '%0A*Total:* $' + carrito.reduce((t,p)=>t+p.precio,0).toFixed(2);
-      window.open(`https://wa.me/593963923399?text=Hola,%20quiero:%0A${texto}`, '_blank');
-    };
+
+    // init
     dibujarProductos();
     actualizarBadge();
+    actualizarBannerEnvio();
   </script>
 </body>
 </html>
