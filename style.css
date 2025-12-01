@@ -123,6 +123,7 @@ h1, h2, h3, h4 {
 
 /* BUSCADOR */
 .search-bar {
+    position: relative; /* ✅ Añadido para autocompletado */
     display: flex;
     flex-grow: 1;
     max-width: 600px;
@@ -163,6 +164,7 @@ h1, h2, h3, h4 {
     gap: 8px;
     font-size: 14px;
     color: var(--color-text);
+    cursor: pointer; /* ✅ Hace clickeable */
 }
 .whatsapp-btn i {
     font-size: 24px;
@@ -483,10 +485,10 @@ footer {
 /* -------------------------------------- */
 /* 11. CARRITO MODAL */
 /* -------------------------------------- */
-.modal {
+#cart-modal {
     display: none;
     position: fixed;
-    z-index: 1000;
+    z-index: 10000;
     left: 0;
     top: 0;
     width: 100%;
@@ -494,26 +496,25 @@ footer {
     overflow: auto;
     background-color: rgba(0,0,0,0.5);
 }
-.modal-content {
+#cart-modal .modal-content {
     background-color: #fefefe;
     margin: 10% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 90%;
-    max-width: 600px;
+    max-width: 500px;
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     position: relative;
 }
-.close-button {
+#cart-modal .close-button {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
 }
-.close-button:hover,
-.close-button:focus {
+#cart-modal .close-button:hover {
     color: #000;
 }
 #cart-items {
@@ -524,69 +525,132 @@ footer {
     border-bottom: 1px solid var(--color-border);
     margin: 15px 0;
 }
+#cart-items p {
+    text-align: center;
+    color: #666;
+    padding: 20px;
+}
 .cart-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 0;
-    border-bottom: 1px dotted #ccc;
+}
+.cart-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+.item-info {
+    flex: 1;
 }
 .item-name {
-    flex-grow: 1;
     font-weight: 600;
+    font-size: 14px;
 }
-.item-quantity-control {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin: 0 10px;
+.item-details {
+    font-size: 12px;
+    color: #888;
 }
-.item-quantity-control button {
-    background: var(--color-primary);
-    color: white;
-    border: none;
-    padding: 2px 8px;
-    cursor: pointer;
-    border-radius: 3px;
+.item-actions {
+    text-align: right;
+    min-width: 80px;
 }
-.item-price-total {
-    font-weight: 700;
+.item-total {
+    display: block;
+    font-weight: bold;
     color: var(--color-primary);
 }
+.btn-remove {
+    background: none;
+    border: none;
+    color: #e74c3c;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 5px;
+}
 .cart-summary {
-    text-align: right;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
     font-size: 18px;
-    margin-top: 15px;
+    margin: 15px 0;
 }
 .modal-actions {
     display: flex;
-    justify-content: flex-end;
-    gap: 10px;
+    justify-content: center;
+    gap: 15px;
     margin-top: 20px;
 }
-.btn-whatsapp {
-    background-color: var(--color-whatsapp) !important;
+#btn-checkout-whatsapp {
+    background-color: var(--color-whatsapp);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
-.btn-whatsapp i {
-    margin-right: 5px;
-}
-.btn-cancel {
+#btn-cancel-cart {
     background-color: #999;
     color: white;
     border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-weight: 600;
+    padding: 10px 20px;
     border-radius: 5px;
-    transition: background-color 0.3s;
+    cursor: pointer;
 }
-.btn-cancel:hover {
+#btn-cancel-cart:hover {
     background-color: #777;
 }
 
 
 /* -------------------------------------- */
-/* 12. RESPONSIVE (Móviles) */
+/* 12. AUTOCOMPLETAR BÚSQUEDA */
+/* -------------------------------------- */
+#autocomplete-results {
+    position: absolute;
+    z-index: 9999;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: none;
+}
+#autocomplete-results div {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+#autocomplete-results div:hover {
+    background-color: #f0f0f0;
+}
+
+
+/* -------------------------------------- */
+/* 13. CORRECCIÓN PARA CARRITO EN PC */
+/* -------------------------------------- */
+#cart-icon {
+    pointer-events: auto !important;
+    z-index: 9999 !important;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+
+/* -------------------------------------- */
+/* 14. RESPONSIVE (Móviles) */
 /* -------------------------------------- */
 @media (max-width: 768px) {
     .flex-center, .flex-space, .flex-guarantees {
@@ -655,51 +719,7 @@ footer {
 
 
 /* -------------------------------------- */
-/* 13. AUTOCOMPLETAR Y SUGERENCIAS (Estilos añadidos para el buscador) */
-/* -------------------------------------- */
-.autocomplete-container {
-    position: relative;
-    flex-grow: 1;
-    max-width: 600px; 
-}
-.autocomplete-results {
-    position: absolute;
-    z-index: 999; 
-    top: 100%; 
-    left: 0;
-    right: 0;
-    border: 1px solid var(--color-border);
-    border-top: none;
-    background-color: var(--color-light);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    max-height: 200px;
-    overflow-y: auto;
-}
-.autocomplete-results a {
-    display: block;
-    padding: 10px 15px;
-    color: var(--color-text);
-    text-decoration: none;
-    font-size: 14px;
-    border-bottom: 1px solid #f1f1f1;
-}
-.autocomplete-results a:hover {
-    background-color: var(--color-secondary);
-    color: var(--color-light);
-}
-.highlight {
-    font-weight: bold;
-    color: var(--color-primary); 
-}
-
-@media (max-width: 768px) {
-    .autocomplete-container {
-        width: 100%;
-        order: 3; 
-    }
-}
-/* -------------------------------------- */
-/* 14. ESTILOS DE PÁGINA QUIÉNES SOMOS */
+/* 15. ESTILOS DE PÁGINA QUIÉNES SOMOS */
 /* -------------------------------------- */
 .page-header {
     background-color: var(--color-primary);
