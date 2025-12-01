@@ -4,38 +4,38 @@
 
 const PRODUCTS_DATA = [
     // PRODUCTOS DE INDEX.HTML
-    { id: "P001", name: "Chompa de tela pana (Gris)", price: 5.00, category: "Ropa", image: "img/prod-chompa.jpg" },
-    { id: "P002", name: "Peluche de ballena de felpa", price: 12.00, category: "Juguetes", image: "img/prod-ballena.jpg" },
-    { id: "O001", name: "Reloj inteligente modelo A3 (OFERTA)", price: 40.00, category: "Promoción", image: "img/prod-reloj.jpg" },
-    { id: "P003", name: "Taza de cerámica con asa", price: 3.50, category: "Hogar", image: "img/prod-taza.jpg" },
+    { id: "P001", name: "Chompa de tela pana (Gris)", price: 5.00, category: "Ropa", image: "prod-chompa.jpg" },
+    { id: "P002", name: "Peluche de ballena de felpa", price: 12.00, category: "Juguetes", image: "prod-ballena.jpg" },
+    { id: "O001", name: "Reloj inteligente modelo A3 (OFERTA)", price: 40.00, category: "Promoción", image: "prod-reloj.jpg" },
+    { id: "P003", name: "Taza de cerámica con asa", price: 3.50, category: "Hogar", image: "prod-taza.jpg" },
     
     // PRODUCTOS DE ROPA.HTML
-    { id: "R001", name: "Jeans clásicos elasticados", price: 15.00, category: "Ropa", image: "img/prod-jeans.jpg" },
-    { id: "R002", name: "Blusa de seda sin mangas, elegante", price: 8.00, category: "Ropa", image: "img/prod-blusa.jpg" },
-    { id: "R003", name: "Falda de verano con estampado", price: 10.00, category: "Ropa", image: "img/prod-falda.jpg" },
-    { id: "R004", name: "Vestido de cóctel ajustado negro", price: 18.00, category: "Ropa", image: "img/prod-vestido.jpg" },
-    { id: "R005", name: "Camiseta deportiva Dry-Fit", price: 7.00, category: "Ropa", image: "img/prod-camiseta.jpg" },
-    { id: "R006", name: "Chaqueta estilo aviador", price: 25.00, category: "Ropa", image: "img/prod-chaqueta.jpg" },
-    { id: "R007", name: "Pack de 3 pares de calcetines", price: 4.50, category: "Ropa", image: "img/prod-calcetines.jpg" },
+    { id: "R001", name: "Jeans clásicos elasticados", price: 15.00, category: "Ropa", image: "prod-jeans.jpg" },
+    { id: "R002", name: "Blusa de seda sin mangas, elegante", price: 8.00, category: "Ropa", image: "prod-blusa.jpg" },
+    { id: "R003", name: "Falda de verano con estampado", price: 10.00, category: "Ropa", image: "prod-falda.jpg" },
+    { id: "R004", name: "Vestido de cóctel ajustado negro", price: 18.00, category: "Ropa", image: "prod-vestido.jpg" },
+    { id: "R005", name: "Camiseta deportiva Dry-Fit", price: 7.00, category: "Ropa", image: "prod-camiseta.jpg" },
+    { id: "R006", name: "Chaqueta estilo aviador", price: 25.00, category: "Ropa", image: "prod-chaqueta.jpg" },
+    { id: "R007", name: "Pack de 3 pares de calcetines", price: 4.50, category: "Ropa", image: "prod-calcetines.jpg" },
 
     // PRODUCTOS DE JUGUETES.HTML
-    { id: "J001", name: "Set de 50 bloques de madera de colores", price: 20.00, category: "Juguetes", image: "img/prod-bloques.jpg" },
-    { id: "J002", name: "Muñeca articulada con set de accesorios", price: 10.00, category: "Juguetes", image: "img/prod-muñeca.jpg" },
-    { id: "J003", name: "Auto deportivo a control remoto", price: 18.50, category: "Juguetes", image: "img/prod-rc.jpg" },
-    { id: "J004", name: "Pizarra mágica LCD para dibujar", price: 6.00, category: "Juguetes", image: "img/prod-pizarra.jpg" },
-    { id: "J005", name: "Juego de mesa 'Aventura Pirata'", price: 14.00, category: "Juguetes", image: "img/prod-juego.jpg" },
+    { id: "J001", name: "Set de 50 bloques de madera de colores", price: 20.00, category: "Juguetes", image: "prod-bloques.jpg" },
+    { id: "J002", name: "Muñeca articulada con set de accesorios", price: 10.00, category: "Juguetes", image: "prod-muñeca.jpg" },
+    { id: "J003", name: "Auto deportivo a control remoto", price: 18.50, category: "Juguetes", image: "prod-rc.jpg" },
+    { id: "J004", name: "Pizarra mágica LCD para dibujar", price: 6.00, category: "Juguetes", image: "prod-pizarra.jpg" },
+    { id: "J005", name: "Juego de mesa 'Aventura Pirata'", price: 14.00, category: "Juguetes", image: "prod-juego.jpg" },
 
     // PRODUCTOS DE HOGAR.HTML
-    { id: "H001", name: "Toalla de algodón XL de alta absorción", price: 7.50, category: "Hogar", image: "img/prod-toalla.jpg" },
-    { id: "H002", name: "Juego de sábanas King size", price: 25.00, category: "Hogar", image: "img/prod-sábanas.jpg" },
-    { id: "H003", name: "Organizador modular de cocina 3 niveles", price: 11.00, category: "Hogar", image: "img/prod-organizador.jpg" },
-    { id: "H004", name: "Difusor de aromas ultrasónico", price: 16.00, category: "Hogar", image: "img/prod-difusor.jpg" },
-    { id: "H005", name: "Juego de 24 cubiertos de acero inoxidable", price: 22.00, category: "Hogar", image: "img/prod-cubiertos.jpg" },
+    { id: "H001", name: "Toalla de algodón XL de alta absorción", price: 7.50, category: "Hogar", image: "prod-toalla.jpg" },
+    { id: "H002", name: "Juego de sábanas King size", price: 25.00, category: "Hogar", image: "prod-sábanas.jpg" },
+    { id: "H003", name: "Organizador modular de cocina 3 niveles", price: 11.00, category: "Hogar", image: "prod-organizador.jpg" },
+    { id: "H004", name: "Difusor de aromas ultrasónico", price: 16.00, category: "Hogar", image: "prod-difusor.jpg" },
+    { id: "H005", name: "Juego de 24 cubiertos de acero inoxidable", price: 22.00, category: "Hogar", image: "prod-cubiertos.jpg" },
 
     // PRODUCTOS DE PROMOCIONES.HTML (OFERTAS ADICIONALES)
-    { id: "O002", name: "Audífonos inalámbricos (OFERTA)", price: 19.99, category: "Promoción", image: "img/prod-audifonos.jpg" },
-    { id: "O003", name: "Set de 2 lámparas LED (OFERTA)", price: 12.00, category: "Promoción", image: "img/prod-lampara.jpg" },
-    { id: "O004", name: "Mochila ejecutiva Antirrobo (OFERTA)", price: 30.00, category: "Promoción", image: "img/prod-mochila.jpg" },
+    { id: "O002", name: "Audífonos inalámbricos (OFERTA)", price: 19.99, category: "Promoción", image: "prod-audifonos.jpg" },
+    { id: "O003", name: "Set de 2 lámparas LED (OFERTA)", price: 12.00, category: "Promoción", image: "prod-lampara.jpg" },
+    { id: "O004", name: "Mochila ejecutiva Antirrobo (OFERTA)", price: 30.00, category: "Promoción", image: "prod-mochila.jpg" },
 ];
 
 // ==========================================================
@@ -43,11 +43,12 @@ const PRODUCTS_DATA = [
 // ==========================================================
 
 let cart = JSON.parse(localStorage.getItem('bhalEffortCart')) || [];
-const cartBadge = document.querySelector('.cart .badge'); // ✅ Usamos tu estructura HTML real
+const cartBadge = document.querySelector('.cart .badge') || document.getElementById('cart-badge');
 const cartModal = document.getElementById('cart-modal');
 const cartItemsContainer = document.getElementById('cart-items');
 const cartTotalElement = document.getElementById('cart-total');
-const WHATSAPP_NUMBER = '593960503674';
+const WHATSAPP_NUMBER = '593963923399'; // ✅ Nuevo número
+const SEARCH_INPUT = document.getElementById('search-input');
 
 // ==========================================================
 // 3. Funciones del Carrito
@@ -92,7 +93,9 @@ function renderCart() {
         });
     }
     cartTotalElement.textContent = '$' + calculateTotal().toFixed(2);
-    cartBadge.textContent = cart.reduce((sum, item) => sum + item.quantity, 0) || 0;
+    if (cartBadge) {
+        cartBadge.textContent = cart.reduce((sum, item) => sum + item.quantity, 0) || 0;
+    }
     saveCart();
 }
 
@@ -138,17 +141,72 @@ function generateWhatsappMessage() {
     message += `📌 Por favor, confírmenme disponibilidad y pasos para pago.\n¡Gracias por su atención! 🙏`;
 
     const encodedMessage = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`; // ✅ SIN ESPACIOS
+    const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`; // ✅ Sin espacios
     window.open(whatsappURL, '_blank');
 }
 
 // ==========================================================
-// 5. Eventos
+// 5. Búsqueda de Productos
+// ==========================================================
+
+function searchProducts(query) {
+    if (!query.trim()) {
+        alert('Por favor, escribe algo para buscar.');
+        return;
+    }
+
+    const results = PRODUCTS_DATA.filter(p =>
+        p.name.toLowerCase().includes(query.toLowerCase()) ||
+        p.category.toLowerCase().includes(query.toLowerCase())
+    );
+
+    if (results.length === 0) {
+        alert(`No encontramos productos con "${query}".`);
+        return;
+    }
+
+    // Redirigir a la primera categoría encontrada
+    const firstProduct = results[0];
+    let page = '';
+    switch (firstProduct.category) {
+        case 'Ropa':
+            page = 'ropa.html';
+            break;
+        case 'Juguetes':
+            page = 'juguetes.html';
+            break;
+        case 'Hogar':
+            page = 'hogar.html';
+            break;
+        case 'Promoción':
+            page = 'promociones.html';
+            break;
+        default:
+            page = 'index.html';
+    }
+
+    // Opcional: puedes mostrar una lista en vez de redirigir
+    // Pero por ahora, redirigimos directamente
+    window.location.href = page;
+}
+
+// ==========================================================
+// 6. Eventos
 // ==========================================================
 
 document.addEventListener('DOMContentLoaded', () => {
     renderCart();
 
+    // Evento de búsqueda
+    if (SEARCH_INPUT) {
+        SEARCH_INPUT.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                searchProducts(SEARCH_INPUT.value);
+            }
+        });
+    }
+
+    // Eventos del carrito
     document.body.addEventListener('click', (e) => {
         // Añadir al carrito
         const btnAdd = e.target.closest('.btn-buy');
