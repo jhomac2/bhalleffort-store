@@ -52,6 +52,8 @@
     .container{width:90%;max-width:1200px;margin:auto}
     .flex-space,.flex-center{display:flex;align-items:center;justify-content:space-between}
     .top-bar{background:var(--morado);color:#fff;font-size:13px;padding:4px 0}
+    .top-bar .social-icons{display:flex;gap:8px;font-size:16px}
+    .top-bar .social-icons a{color:#fff}
     .main-header{padding:10px 0;background:#fff;color:var(--texto);box-shadow:0 2px 4px rgba(0,0,0,.1)}
     .logo-section{display:flex;align-items:center;gap:10px}
     .whale-icon{width:46px;border:2px solid var(--morado);border-radius:50%}
@@ -63,7 +65,7 @@
     .main-nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center}
     .main-nav a{color:var(--morado);padding:10px 12px;display:block;font-size:14px;text-decoration:none;font-weight:600}
     .hero-banner{background:url('prod-oferta.jpg') center/cover no-repeat;height:220px;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;text-shadow:1px 1px 3px #000}
-    .hero-banner h1{font-size:26px} /* <-- ahora es H1 único */
+    .hero-banner h1{font-size:26px}
     .quick-categories{padding:20px 0}
     .flex-quick-categories{display:flex;gap:15px;justify-content:center;flex-wrap:wrap}
     .category-box{background:#fff;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,.1);padding:15px 20px;text-align:center;flex:1 1 160px;max-width:200px;text-decoration:none;color:inherit}
@@ -139,9 +141,14 @@
   <!-- noti pequeña abajo -->
   <div id="noti-add"></div>
 
-  <!-- top-bar -->
+  <!-- top-bar con redes -->
   <div class="top-bar">
     <div class="container flex-space">
+      <div class="social-icons">
+        <a href="https://wa.me/593963923399" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://facebook.com/bhalleffort" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://instagram.com/bhalleffort" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
       <div><i class="fas fa-map-marker-alt"></i> ENVÍOS POR SERVIENTREGA A TODO EL ECUADOR</div>
       <div><i class="fas fa-truck"></i> ENVÍOS 100% SEGUROS</div>
     </div>
@@ -189,7 +196,7 @@
   <!-- hero -->
   <section class="hero-banner">
     <div>
-      <h1>BHALLEFFORT – Tienda Online Ecuador</h1> <!-- H1 único -->
+      <h1>BHALLEFFORT – Tienda Online Ecuador</h1>
       <p>DESCUBRE LO QUE NECESITAS</p>
     </div>
   </section>
