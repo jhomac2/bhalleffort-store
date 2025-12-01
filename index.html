@@ -31,23 +31,24 @@
   </script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root{--celeste:#87ceeb;--morado:#4c0d8c;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;--fondo:#f5f7fa}
-    *{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,Arial}
+    *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',system-ui,Arial}
     body{background:var(--fondo);color:var(--texto)}
     img{max-width:100%;display:block}
     .container{width:90%;max-width:1200px;margin:auto}
     .flex-space,.flex-center{display:flex;align-items:center;justify-content:space-between}
-    .top-bar{background:var(--celeste);color:var(--texto);font-size:13px;padding:4px 0}
-    .main-header{padding:10px 0;background:var(--celeste);color:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
+    .top-bar{background:var(--morado);color:#fff;font-size:13px;padding:4px 0}
+    .main-header{padding:10px 0;background:#fff;color:var(--texto);box-shadow:0 2px 4px rgba(0,0,0,.1)}
     .logo-section{display:flex;align-items:center;gap:10px}
     .whale-icon{width:46px;border:2px solid var(--morado);border-radius:50%}
     .brand-text h1{font-size:20px;color:var(--morado)}
     .brand-text p{font-size:12px;color:var(--morado);opacity:.9}
     .whatsapp-btn{display:flex;align-items:center;gap:6px;background:#25D366;color:#fff;padding:6px 10px;border-radius:4px;font-size:12px;cursor:pointer}
-    .main-nav{background:var(--celeste)}
+    .main-nav{background:#fff}
     .main-nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center}
-    .main-nav a{color:#fff;padding:10px 12px;display:block;font-size:14px;text-decoration:none}
+    .main-nav a{color:var(--morado);padding:10px 12px;display:block;font-size:14px;text-decoration:none;font-weight:600}
     .hero-banner{background:url('prod-oferta.jpg') center/cover no-repeat;height:220px;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;text-shadow:1px 1px 3px #000}
     .hero-banner h2{font-size:26px}
     .quick-categories{padding:20px 0}
@@ -63,7 +64,7 @@
     .product-category{font-size:11px;color:#777}
     .product-name{font-size:15px;margin:4px 0}
     .current-price{font-weight:700;color:var(--turquesa);font-size:17px}
-    .btn-buy{background:var(--turquesa);color:#fff;border:none;padding:8px;border-radius:4px;cursor:pointer;margin-top:auto;font-weight:700}
+    .btn-buy{background:var(--turquesa);color:#fff;border:none;padding:8px;border-radius:4px;cursor:pointer;margin-top:auto;font-weight:600}
     .btn-buy:hover{background:var(--turquesaOsc)}
     .guarantees{background:#fff;padding:20px 0;margin-top:20px}
     .flex-guarantees{display:flex;gap:15px;flex-wrap:wrap;justify-content:center;text-align:center}
@@ -75,9 +76,10 @@
     #cart-icon{position:fixed;top:15px;right:15px;background:#fff;border-radius:50%;padding:8px;box-shadow:0 2px 5px rgba(0,0,0,.15);cursor:pointer;z-index:1000}
     #cart-badge{background:var(--turquesa);color:#fff;border-radius:50%;padding:2px 6px;font-size:11px;position:absolute;top:-4px;right:-4px}
     .cart-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000}
-    .cart-modal>div{background:#fff;width:90%;max-width:480px;margin:60px auto;padding:15px;border-radius:8px;position:relative}
-    .cart-modal header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
-    .cart-modal footer{text-align:right}
+    .cart-modal>div{background:#fff;width:90%;max-width:480px;margin:60px auto;padding:15px;border-radius:8px;position:relative;display:flex;flex-direction:column;max-height:80vh}
+    .cart-modal header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-shrink:0}
+    #cart-items{flex:1 1 auto;overflow-y:auto;margin-bottom:10px;border:1px solid #eee;border-radius:4px;padding:8px}
+    .cart-modal footer{flex-shrink:0;text-align:right}
     /* banner sticky envío */
     #banner-envio{position:fixed;bottom:0;left:0;right:0;background:var(--turquesa);color:#fff;text-align:center;padding:8px;font-size:14px;z-index:999}
     /* lupa flotante */
@@ -93,10 +95,10 @@
     /* noti pequeña abajo */
     #noti-add{position:fixed;bottom:40px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:8px 14px;border-radius:4px;font-size:13px;z-index:9999;display:none}
     /* hamburguesa solo móvil */
-    #menu-toggle{display:none;background:none;border:none;color:#fff;font-size:22px;margin-left:10px;cursor:pointer}
+    #menu-toggle{display:none;background:none;border:none;color:var(--morado);font-size:22px;margin-left:10px;cursor:pointer}
     @media(max-width:768px){
       #menu-toggle{display:block}
-      .main-nav ul{display:none;flex-direction:column;background:var(--celeste);width:100%}
+      .main-nav ul{display:none;flex-direction:column;background:#fff;width:100%}
       .main-nav ul.show{display:flex}
     }
   </style>
@@ -332,7 +334,7 @@
       setTimeout(() => noti.style.display = 'none', tiempo);
     }
 
-    // modal carrito
+    // modal carrito con scroll interno y botón fijo
     function mostrarModal() {
       const modal = document.getElementById('cart-modal');
       const items = document.getElementById('cart-items');
