@@ -46,7 +46,14 @@
     .brand-text h1{font-size:20px;color:var(--morado)}
     .brand-text p{font-size:12px;color:var(--morado);opacity:.9}
     .whatsapp-btn{display:flex;align-items:center;gap:6px;background:#25D366;color:#fff;padding:6px 10px;border-radius:4px;font-size:12px;cursor:pointer}
-    .main-nav{background:#fff}
+    /* ---------- MENÚ STICKY ---------- */
+    .main-nav{
+      position:sticky;
+      top:0;
+      z-index:999;
+      background:#fff;
+      box-shadow:0 2px 4px rgba(0,0,0,.1);
+    }
     .main-nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center}
     .main-nav a{color:var(--morado);padding:10px 12px;display:block;font-size:14px;text-decoration:none;font-weight:600}
     .hero-banner{background:url('prod-oferta.jpg') center/cover no-repeat;height:220px;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;text-shadow:1px 1px 3px #000}
@@ -73,7 +80,6 @@
     .footer-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
     .footer-contact a{color:#000;text-decoration:none}
     .god-message{font-size:11px;color:#000;margin-top:4px}
-    /* NUEVO: frase agregada debajo */
     .designer-line{font-size:12px;color:#000;margin-top:4px}
     #cart-icon{position:fixed;top:15px;right:15px;background:#fff;border-radius:50%;padding:8px;box-shadow:0 2px 5px rgba(0,0,0,.15);cursor:pointer;z-index:1000}
     #cart-badge{background:var(--turquesa);color:#fff;border-radius:50%;padding:2px 6px;font-size:11px;position:absolute;top:-4px;right:-4px}
@@ -82,13 +88,10 @@
     .cart-modal header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-shrink:0}
     #cart-items{flex:1 1 auto;overflow-y:auto;margin-bottom:10px;border:1px solid #eee;border-radius:4px;padding:8px}
     .cart-modal footer{flex-shrink:0;text-align:right}
-    /* banner dividido */
     #banner-div{position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;box-shadow:0 -2px 5px rgba(0,0,0,.1);z-index:999}
     #banner-envio{flex:1;background:#25D366;color:#fff;text-align:center;padding:8px;font-size:14px}
     #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:8px;font-size:14px}
-    /* lupa flotante */
     #btn-lupa{position:fixed;bottom:80px;right:15px;background:var(--turquesa);color:#fff;border:none;border-radius:50%;width:50px;height:50px;font-size:20px;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.25)}
-    /* modal búsqueda */
     #search-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:3000}
     #search-modal>div{background:#fff;width:90%;max-width:400px;margin:80px auto;padding:15px;border-radius:8px;position:relative}
     #search-modal input{width:100%;padding:8px;border:1px solid #ccc;border-radius:4px;margin-bottom:10px}
@@ -96,9 +99,7 @@
     .result-item{padding:6px 0;cursor:pointer;border-bottom:1px solid #eee}
     .result-item:hover{background:#f0f0f0}
     #close-search{position:absolute;top:8px;right:12px;background:none;border:none;font-size:20px;cursor:pointer}
-    /* noti pequeña abajo */
     #noti-add{position:fixed;bottom:40px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:8px 14px;border-radius:4px;font-size:13px;z-index:9999;display:none}
-    /* hamburguesa solo móvil */
     #menu-toggle{display:none;background:none;border:none;color:var(--morado);font-size:22px;margin-left:10px;cursor:pointer}
     @media(max-width:768px){
       #menu-toggle{display:block}
@@ -225,7 +226,6 @@
         <img src="logo-ballena.png" alt="Ballena" width="40">
         <p>LO MEJOR Y AL MEJOR PRECIO</p>
         <div class="god-message" style="color:#000">Dios te da más de lo que pides.</div>
-        <!-- NUEVA LÍNEA AGREGADA DEBAJO -->
         <div class="designer-line">Diseñado por Jhomac² <i class="fab fa-tiktok"></i></div>
       </div>
       <div class="footer-contact">
@@ -245,7 +245,6 @@
         </ul>
       </div>
     </div>
-    <!-- Copyright y diseñador -->
     <div style="text-align:center;margin-top:15px;font-size:12px;color:#000">
       © 2025 @BHALLEFFORT. Todos los derechos reservados.<br>
       Diseñado por Jhomac² <i class="fab fa-tiktok"></i>
@@ -273,7 +272,6 @@
 
   <!-- lógica -->
   <script>
-    // productos (8 para que se vean 8)
     const productos = [
       {id:"P001",cat:"Ropa",nombre:"Camiseta BHALLEFFORT Edición Limitada",precio:14.99,img:"prod-ropa.jpg",url:"ropa.html"},
       {id:"P002",cat:"Juguetes",nombre:"Bloques de Construcción 500 pzs",precio:22.50,img:"prod-juguetes.jpg",url:"juguetes.html"},
@@ -287,7 +285,6 @@
 
     let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
 
-    // contador sorteo (empieza 20 cada 1.º mes)
     function getSorteoCount() {
       const ahora = new Date();
       const key = `sorteo-${ahora.getFullYear()}-${ahora.getMonth()}`;
@@ -322,7 +319,6 @@
       actualizarBadge();
       mostrarNoti(`✅ ${nombre} añadido al carrito`);
       actualizarBannerEnvio();
-      // primera vez que añaden → aviso envío gratis
       if (carrito.length === 1) mostrarNoti('🚚 Por compras mayores a $50 tu envío es gratuito', 10000);
     }
 
@@ -357,7 +353,6 @@
       setTimeout(() => noti.style.display = 'none', tiempo);
     }
 
-    // modal carrito con scroll interno y botón fijo
     function mostrarModal() {
       const modal = document.getElementById('cart-modal');
       const items = document.getElementById('cart-items');
@@ -380,7 +375,6 @@
     document.getElementById('close-cart').onclick = () => document.getElementById('cart-modal').style.display = 'none';
     document.getElementById('cart-icon').onclick = mostrarModal;
 
-    // WhatsApp con envío y sorteo
     document.getElementById('btn-wa').onclick = () => {
       const subtotal = carrito.reduce((t,p)=>t+p.precio,0);
       const envio = subtotal >= 50 ? 0 : 3.50;
@@ -398,7 +392,6 @@
       window.open(`https://wa.me/593963923399?text=${encodeURIComponent(texto)}`, '_blank');
     };
 
-    // búsqueda
     const searchModal = document.getElementById('search-modal');
     const searchInput = document.getElementById('search-input');
     const searchResults = document.getElementById('search-results');
@@ -413,12 +406,10 @@
         </div>`).join('');
     };
 
-    // menú móvil
     document.getElementById('menu-toggle').onclick = () => {
       document.getElementById('nav-menu').classList.toggle('show');
     };
 
-    // init
     dibujarProductos();
     actualizarBadge();
     actualizarBannerEnvio();
