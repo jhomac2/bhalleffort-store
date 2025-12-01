@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <!-- Ícono del carrito flotante (siempre visible) -->
+    <!-- Ícono del carrito flotante (usado por el script) -->
     <div id="cart-icon" style="position: fixed; top: 20px; right: 20px; cursor: pointer; z-index: 1000;">
         <i class="fas fa-shopping-cart" style="font-size: 24px; color: #6a0dad;"></i>
         <span id="cart-badge" style="background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 12px; margin-left: -8px; position: relative; top: -8px;">0</span>
@@ -51,14 +51,7 @@
                         <strong>+593 960503674</strong>
                     </div>
                 </div>
-                <div class="account">
-                    <i class="far fa-user"></i> Acceso | Registro
-                </div>
-                <!-- Ya no usamos este carrito antiguo -->
-                <!-- <div class="cart">
-                    <i class="fas fa-shopping-basket"></i>
-                    <span class="badge">0</span>
-                </div> -->
+                <!-- ✅ ELIMINADO: "Acceso | Registro" -->
                 <div class="menu-toggle">
                     <i class="fas fa-bars"></i>
                 </div>
@@ -260,7 +253,7 @@
         </div>
     </footer>
 
-    <!-- MODAL DEL CARRITO (ventana emergente) -->
+    <!-- MODAL DEL CARRITO -->
     <div id="cart-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2000;">
         <div style="background: white; width: 90%; max-width: 500px; margin: 50px auto; padding: 20px; border-radius: 10px; position: relative;">
             <button id="btn-cancel-modal" style="position: absolute; top: 10px; right: 15px; background: none; border: none; font-size: 20px; cursor: pointer;">&times;</button>
@@ -283,8 +276,6 @@
         </div>
     </div>
 
-    <!-- IMPORTANTE: Asegúrate de tener esta línea -->
     <script src="js/script.js"></script>
-
 </body>
 </html>
