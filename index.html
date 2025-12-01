@@ -69,10 +69,10 @@
     .guarantees{background:#fff;padding:20px 0;margin-top:20px}
     .flex-guarantees{display:flex;gap:15px;flex-wrap:wrap;justify-content:center;text-align:center}
     .guarantee-item{flex:1 1 200px}
-    footer{background:var(--celeste);color:#fff;font-size:13px;padding:20px 0}
+    footer{background:var(--celeste);color:#000;font-size:13px;padding:20px 0}
     .footer-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
-    .footer-contact a{color:#fff;text-decoration:none}
-    .god-message{font-size:11px;color:#ddd;margin-top:4px}
+    .footer-contact a{color:#000;text-decoration:none}
+    .god-message{font-size:11px;color:#000;margin-top:4px}
     #cart-icon{position:fixed;top:15px;right:15px;background:#fff;border-radius:50%;padding:8px;box-shadow:0 2px 5px rgba(0,0,0,.15);cursor:pointer;z-index:1000}
     #cart-badge{background:var(--turquesa);color:#fff;border-radius:50%;padding:2px 6px;font-size:11px;position:absolute;top:-4px;right:-4px}
     .cart-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000}
@@ -80,8 +80,10 @@
     .cart-modal header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-shrink:0}
     #cart-items{flex:1 1 auto;overflow-y:auto;margin-bottom:10px;border:1px solid #eee;border-radius:4px;padding:8px}
     .cart-modal footer{flex-shrink:0;text-align:right}
-    /* banner sticky envío */
-    #banner-envio{position:fixed;bottom:0;left:0;right:0;background:var(--turquesa);color:#fff;text-align:center;padding:8px;font-size:14px;z-index:999}
+    /* banner dividido */
+    #banner-div{position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;box-shadow:0 -2px 5px rgba(0,0,0,.1);z-index:999}
+    #banner-envio{flex:1;background:#25D366;color:#fff;text-align:center;padding:8px;font-size:14px}
+    #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:8px;font-size:14px}
     /* lupa flotante */
     #btn-lupa{position:fixed;bottom:80px;right:15px;background:var(--turquesa);color:#fff;border:none;border-radius:50%;width:50px;height:50px;font-size:20px;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.25)}
     /* modal búsqueda */
@@ -119,8 +121,11 @@
     </div>
   </div>
 
-  <!-- banner sticky envío -->
-  <div id="banner-envio">🚚 ¡Envío gratis desde $50!</div>
+  <!-- banner dividido -->
+  <div id="banner-div">
+    <div id="banner-envio">🚚 ¡Envío gratis desde $50!</div>
+    <div id="banner-sorteo">🎉 Por compras superiores a $20 participas en el sorteo mensual</div>
+  </div>
 
   <!-- noti pequeña abajo -->
   <div id="noti-add"></div>
@@ -217,7 +222,7 @@
       <div>
         <img src="logo-ballena.png" alt="Ballena" width="40">
         <p>LO MEJOR Y AL MEJOR PRECIO</p>
-        <div class="god-message">Dios te da más de lo que pides.</div>
+        <div class="god-message" style="color:#000">Dios te da más de lo que pides.</div>
       </div>
       <div class="footer-contact">
         <h3>CONTÁCTANOS</h3>
@@ -229,14 +234,18 @@
       <div>
         <h3>POLÍTICAS</h3>
         <ul style="list-style:none;padding:0">
-          <li><a href="politicas.html#terminos" style="color:#fff">Términos y condiciones</a></li>
-          <li><a href="politicas.html#envios" style="color:#fff">Política de envíos</a></li>
-          <li><a href="politicas.html#devoluciones" style="color:#fff">Cambios y devoluciones</a></li>
-          <li><a href="cookies.html" style="color:#fff">Política de cookies</a></li>
+          <li><a href="politicas.html#terminos" style="color:#000">Términos y condiciones</a></li>
+          <li><a href="politicas.html#envios" style="color:#000">Política de envíos</a></li>
+          <li><a href="politicas.html#devoluciones" style="color:#000">Cambios y devoluciones</a></li>
+          <li><a href="cookies.html" style="color:#000">Política de cookies</a></li>
         </ul>
       </div>
     </div>
-    <div style="text-align:center;margin-top:15px;font-size:12px">© 2025 BHALLEFFORT - Diseñado por Jhomac²</div>
+    <!-- Copyright y diseñador -->
+    <div style="text-align:center;margin-top:15px;font-size:12px;color:#000">
+      © 2025 @BHALLEFFORT. Todos los derechos reservados.<br>
+      Diseñado por Jhomac² <i class="fab fa-tiktok"></i>
+    </div>
   </footer>
 
   <!-- modal carrito -->
@@ -319,11 +328,21 @@
 
     function actualizarBannerEnvio() {
       const total = carrito.reduce((t,p)=>t+p.precio,0);
-      const banner = document.getElementById('banner-envio');
+      const bannerEnvio = document.getElementById('banner-envio');
+      const bannerSorteo = document.getElementById('banner-sorteo');
       if (total >= 50) {
-        banner.innerHTML = '✅ ¡Tu envío es gratis!';
+        bannerEnvio.innerHTML = '✅ ¡Tu envío es gratis!';
+        bannerEnvio.style.background = '#25D366';
       } else {
-        banner.innerHTML = '🚚 ¡Envío gratis desde $50!';
+        bannerEnvio.innerHTML = '🚚 ¡Envío gratis desde $50!';
+        bannerEnvio.style.background = '#ff9800';
+      }
+      if (total >= 20) {
+        bannerSorteo.innerHTML = '🎉 ¡YA ESTÁS PARTICIPANDO EN EL SORTEO MENSUAL!';
+        bannerSorteo.style.background = 'var(--morado)';
+      } else {
+        bannerSorteo.innerHTML = '🎉 Por compras superiores a $20 participas en el sorteo mensual';
+        bannerSorteo.style.background = 'var(--morado)';
       }
     }
 
