@@ -32,7 +32,7 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    :root{--morado:#4c0d8c;--amarillo:#ffd54f;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;--fondo:#f5f7fa}
+    :root{--morado:#4c0d8c;--amarillo:#ffe082;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;--fondo:#f5f7fa}
     *{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,Arial}
     body{background:var(--fondo);color:var(--texto)}
     img{max-width:100%;display:block}
@@ -41,9 +41,9 @@
     .top-bar{background:var(--amarillo);color:var(--texto);font-size:13px;padding:4px 0}
     .main-header{padding:10px 0;background:var(--morado);color:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
     .logo-section{display:flex;align-items:center;gap:10px}
-    .whale-icon{width:40px}
-    .brand-text h1{font-size:20px}
-    .brand-text p{font-size:12px;opacity:.9}
+    .whale-icon{width:46px;border:2px solid #fff;border-radius:50%}
+    .brand-text h1{font-size:20px;color:#fff}
+    .brand-text p{font-size:12px;color:#fff;opacity:.9}
     .whatsapp-btn{display:flex;align-items:center;gap:6px;background:#25D366;color:#fff;padding:6px 10px;border-radius:4px;font-size:12px;cursor:pointer}
     .main-nav{background:var(--morado)}
     .main-nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center}
@@ -54,7 +54,7 @@
     .flex-quick-categories{display:flex;gap:15px;justify-content:center;flex-wrap:wrap}
     .category-box{background:#fff;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,.1);padding:15px 20px;text-align:center;flex:1 1 160px;max-width:200px;text-decoration:none;color:inherit}
     .category-box i{font-size:28px;color:var(--turquesa);margin-bottom:6px}
-    .featured-products{padding:20px 0;position:relative}
+    .featured-products{padding:20px 0}
     .section-title{text-align:center;margin-bottom:15px;font-size:22px;color:var(--morado)}
     .products-grid{display:grid;gap:15px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
     .product-card{background:#fff;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,.1);display:flex;flex-direction:column}
@@ -90,10 +90,6 @@
     .result-item{padding:6px 0;cursor:pointer;border-bottom:1px solid #eee}
     .result-item:hover{background:#f0f0f0}
     #close-search{position:absolute;top:8px;right:12px;background:none;border:none;font-size:20px;cursor:pointer}
-    /* flechas ver-más */
-    .arrow-more{position:absolute;top:50%;transform:translateY(-50%);background:var(--turquesa);color:#fff;border:none;border-radius:50%;width:36px;height:36px;font-size:18px;cursor:pointer;box-shadow:0 2px 4px rgba(0,0,0,.2)}
-    #arrow-left{left:-18px}
-    #arrow-right{right:-18px}
     /* noti pequeña abajo */
     #noti-add{position:fixed;bottom:40px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:8px 14px;border-radius:4px;font-size:13px;z-index:9999;display:none}
     /* hamburguesa solo móvil */
@@ -102,12 +98,6 @@
       #menu-toggle{display:block}
       .main-nav ul{display:none;flex-direction:column;background:var(--morado);width:100%}
       .main-nav ul.show{display:flex}
-      .arrow-more{display:none} /* en móvil scroll horizontal sin flechas */
-      .products-grid{grid-template-columns:repeat(2,1fr)} /* 2 columnas móvil */
-    }
-    @media(min-width:769px){
-      .arrow-more{display:block}
-      .products-grid{grid-template-columns:repeat(4,1fr)} /* 4 columnas pc */
     }
   </style>
 </head>
@@ -203,8 +193,6 @@
   <section class="featured-products">
     <div class="container">
       <h2 class="section-title">✨ SÚPER PROMOCIONES DE LA SEMANA ✨</h2>
-      <button id="arrow-left" class="arrow-more"><i class="fas fa-chevron-left"></i></button>
-      <button id="arrow-right" class="arrow-more"><i class="fas fa-chevron-right"></i></button>
       <div class="products-grid" id="products-grid">
         <!-- se llena con JS -->
       </div>
@@ -275,16 +263,10 @@
       {id:"P001",cat:"Ropa",nombre:"Camiseta BHALLEFFORT Edición Limitada",precio:14.99,img:"prod-ropa.jpg",url:"ropa.html"},
       {id:"P002",cat:"Juguetes",nombre:"Bloques de Construcción 500 pzs",precio:22.50,img:"prod-juguetes.jpg",url:"juguetes.html"},
       {id:"P003",cat:"Hogar",nombre:"Set Utensilios Cocina Deluxe",precio:39.99,img:"prod-hogar.jpg",url:"hogar.html"},
-      {id:"O001",cat:"Ropa",nombre:"Pantalón Deportivo Morado",precio:19.99,img:"prod-oferta.jpg",url:"ropa.html"},
-      {id:"P005",cat:"Juguetes",nombre:"Peluche Ballena 30 cm",precio:12.50,img:"prod-juguetes.jpg",url:"juguetes.html"},
-      {id:"P006",cat:"Ropa",nombre:"Sudadera BHALLEFFORT",precio:29.99,img:"prod-ropa.jpg",url:"ropa.html"},
-      {id:"P007",cat:"Hogar",nombre:"Juego de Toallas 3 pzs",precio:15.99,img:"prod-hogar.jpg",url:"hogar.html"},
-      {id:"P008",cat:"Juguetes",nombre:"Auto de Control Remoto",precio:24.99,img:"prod-juguetes.jpg",url:"juguetes.html"}
+      {id:"O001",cat:"Ropa",nombre:"Pantalón Deportivo Morado",precio:19.99,img:"prod-oferta.jpg",url:"ropa.html"}
     ];
 
     let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
-    let paginaActual = 0;
-    const productosPorPagina = 8;
 
     // contador sorteo (empieza 20 cada 1.º mes)
     function getSorteoCount() {
@@ -303,9 +285,7 @@
 
     function dibujarProductos() {
       const grid = document.getElementById('products-grid');
-      const inicio = paginaActual * productosPorPagina;
-      const seleccion = productos.slice(inicio, inicio + productosPorPagina);
-      grid.innerHTML = seleccion.map(p => `
+      grid.innerHTML = productos.map(p => `
         <div class="product-card">
           <img src="${p.img}" alt="${p.nombre}" class="product-image">
           <div class="product-info">
@@ -348,14 +328,6 @@
       setTimeout(() => noti.style.display = 'none', tiempo);
     }
 
-    // flechas ver-más
-    document.getElementById('arrow-left').onclick = () => {
-      if (paginaActual > 0) { paginaActual--; dibujarProductos(); }
-    };
-    document.getElementById('arrow-right').onclick = () => {
-      if ((paginaActual + 1) * productosPorPagina < productos.length) { paginaActual++; dibujarProductos(); }
-    };
-
     // modal carrito
     function mostrarModal() {
       const modal = document.getElementById('cart-modal');
@@ -376,8 +348,6 @@
       actualizarBannerEnvio();
       mostrarModal();
     }
-    document.getElementById('close-cart').onclick = () => document.getElementById('cart-modal').style.display = 'none';
-    document.getElementById('cart-icon').onclick = mostrarModal;
 
     // WhatsApp con envío y sorteo
     document.getElementById('btn-wa').onclick = () => {
