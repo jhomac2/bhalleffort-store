@@ -47,8 +47,7 @@
     .footer-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
     .footer-contact a{color:#000;text-decoration:none}
     .god-message{font-size:11px;color:#000;margin-top:4px}
-    /* NUEVA LÍNEA AGREGADA */
-    .designer-line{font-size:12px;color:#000;margin-top:4px}
+    /* LUPA Y BÚSQUEDA (igual que index) */
     #cart-icon{position:fixed;top:15px;right:15px;background:#fff;border-radius:50%;padding:8px;box-shadow:0 2px 5px rgba(0,0,0,.15);cursor:pointer;z-index:1000}
     #cart-badge{background:var(--turquesa);color:#fff;border-radius:50%;padding:2px 6px;font-size:11px;position:absolute;top:-4px;right:-4px}
     .cart-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000}
@@ -59,6 +58,14 @@
     #banner-div{position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;box-shadow:0 -2px 5px rgba(0,0,0,.1);z-index:999}
     #banner-envio{flex:1;background:#25D366;color:#fff;text-align:center;padding:8px;font-size:14px}
     #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:8px;font-size:14px}
+    #btn-lupa{position:fixed;bottom:80px;right:15px;background:var(--turquesa);color:#fff;border:none;border-radius:50%;width:50px;height:50px;font-size:20px;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.25)}
+    #search-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:3000}
+    #search-modal>div{background:#fff;width:90%;max-width:400px;margin:80px auto;padding:15px;border-radius:8px;position:relative}
+    #search-input{width:100%;padding:8px;border:1px solid #ccc;border-radius:4px;margin-bottom:10px}
+    #search-results{max-height:200px;overflow-y:auto}
+    .result-item{padding:6px 0;cursor:pointer;border-bottom:1px solid #eee}
+    .result-item:hover{background:#f0f0f0}
+    #close-search{position:absolute;top:8px;right:12px;background:none;border:none;font-size:20px;cursor:pointer}
     #noti-add{position:fixed;bottom:40px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:8px 14px;border-radius:4px;font-size:13px;z-index:9999;display:none}
     #menu-toggle{display:none;background:none;border:none;color:var(--morado);font-size:22px;margin-left:10px;cursor:pointer}
     @media(max-width:768px){
@@ -77,13 +84,13 @@
   <div id="notification" style="display:none;position:fixed;top:70px;left:50%;transform:translateX(-50%);background:#25D366;color:#fff;padding:10px 20px;border-radius:5px;z-index:9999">Producto añadido al carrito</div>
   <div id="sorteo-notification" style="display:none;position:fixed;top:110px;left:50%;transform:translateX(-50%);background:transparent;color:#333;font-weight:600;z-index:9999"></div>
 
-  <!-- lupa y búsqueda -->
-  <div id="search-floating" class="search-floating"><i class="fas fa-search"></i></div>
-  <div id="search-modal" class="search-modal">
-    <div class="search-modal-content">
-      <button class="close-search" id="close-search">&times;</button>
-      <input type="text" id="search-input-modal" placeholder="Buscar productos..." autocomplete="off">
-      <div id="search-results" class="search-results"></div>
+  <!-- lupa y búsqueda (igual que index) -->
+  <button id="btn-lupa" title="Buscar producto"><i class="fas fa-search"></i></button>
+  <div id="search-modal">
+    <div>
+      <button id="close-search">&times;</button>
+      <input type="text" id="search-input" placeholder="Escribe el nombre del producto...">
+      <div id="search-results"></div>
     </div>
   </div>
 
@@ -141,28 +148,28 @@
   </section>
 
   <!-- contenido -->
-  <section class="content-section">
+  <section style="padding:40px 20px;background:var(--fondo)">
     <div class="container">
       <h2 class="section-title">Nuestra Historia</h2>
-      <div class="text-block">
+      <div style="max-width:800px;margin:0 auto;text-align:justify;line-height:1.6">
         <p>
           Todo empezó con un sueño sencillo: ofrecer productos de calidad a precios justos, sin complicaciones.
           Desde nuestro rincón en <strong>La Y de Tabacundo, Pichincha</strong>, empezamos a buscar lo mejor para tu hogar,
           tu ropa y tus momentos de juego.
         </p>
-        <p>
+        <p style="margin-top:15px">
           Hoy, BHalleffort es más que un nombre: es un compromiso. Cada producto que seleccionamos pasa por un filtro:
           ¿es útil? ¿es duradero? ¿vale la pena? Si la respuesta es “sí”, lo traemos para ti.
         </p>
       </div>
 
-      <div id="valores">
+      <div style="margin-top:40px">
         <h2 class="section-title">Valores y Misión</h2>
-        <ul class="values-list">
-          <li><i class="fas fa-heart"></i><div><strong>Confianza:</strong> Tratamos a cada cliente como a un vecino.</div></li>
-          <li><i class="fas fa-tags"></i><div><strong>Precios justos:</strong> Sin letras chiquitas, sin sorpresas.</div></li>
-          <li><i class="fas fa-truck"></i><div><strong>Entrega segura:</strong> Tu pedido llega como lo esperas.</div></li>
-          <li><i class="fas fa-smile"></i><div><strong>Buen trato:</strong> Porque comprar debe ser una experiencia agradable.</div></li>
+        <ul style="list-style:none;padding:0;margin-top:20px">
+          <li style="display:flex;align-items:flex-start;margin:15px 0"><i class="fas fa-heart" style="color:var(--morado);margin-right:10px;font-size:18px;margin-top:4px"></i><div><strong>Confianza:</strong> Tratamos a cada cliente como a un vecino.</div></li>
+          <li style="display:flex;align-items:flex-start;margin:15px 0"><i class="fas fa-tags" style="color:var(--morado);margin-right:10px;font-size:18px;margin-top:4px"></i><div><strong>Precios justos:</strong> Sin letras chiquitas, sin sorpresas.</div></li>
+          <li style="display:flex;align-items:flex-start;margin:15px 0"><i class="fas fa-truck" style="color:var(--morado);margin-right:10px;font-size:18px;margin-top:4px"></i><div><strong>Entrega segura:</strong> Tu pedido llega como lo esperas.</div></li>
+          <li style="display:flex;align-items:flex-start;margin:15px 0"><i class="fas fa-smile" style="color:var(--morado);margin-right:10px;font-size:18px;margin-top:4px"></i><div><strong>Buen trato:</strong> Porque comprar debe ser una experiencia agradable.</div></li>
         </ul>
       </div>
 
@@ -352,11 +359,11 @@
       window.open(`https://wa.me/593963923399?text=${encodeURIComponent(texto)}`, '_blank');
     };
 
-    // búsqueda
+    // búsqueda (igual que index)
     const searchModal = document.getElementById('search-modal');
-    const searchInput = document.getElementById('search-input-modal');
+    const searchInput = document.getElementById('search-input');
     const searchResults = document.getElementById('search-results');
-    document.getElementById('search-floating').onclick = () => searchModal.style.display = 'block';
+    document.getElementById('btn-lupa').onclick = () => searchModal.style.display = 'block';
     document.getElementById('close-search').onclick = () => searchModal.style.display = 'none';
     searchInput.oninput = () => {
       const q = searchInput.value.toLowerCase();
@@ -369,7 +376,7 @@
 
     // menú móvil
     document.getElementById('menu-toggle').onclick = () => {
-      document.getElementById('mobile-menu').classList.toggle('show');
+      document.getElementById('nav-menu').classList.toggle('show');
     };
 
     // init
