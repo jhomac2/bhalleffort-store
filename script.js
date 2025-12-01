@@ -1,7 +1,5 @@
 // ==========================================================
 // 1. Catálogo Centralizado de Productos (DATA STORE)
-// Estos datos son usados por el JS para gestionar el carrito.
-// Asegúrate de que los data-id del HTML coincidan con estos IDs.
 // ==========================================================
 
 const PRODUCTS_DATA = [
@@ -41,134 +39,85 @@ const PRODUCTS_DATA = [
 ];
 
 // ==========================================================
-// 2. Variables Globales y Estado del Carrito
+// 2. Variables Globales
 // ==========================================================
 
 let cart = JSON.parse(localStorage.getItem('bhalEffortCart')) || [];
+const cartBadge = document.querySelector('.cart .badge'); // ✅ Usamos tu estructura HTML real
 const cartModal = document.getElementById('cart-modal');
-const cartBadge = document.getElementById('cart-badge');
 const cartItemsContainer = document.getElementById('cart-items');
 const cartTotalElement = document.getElementById('cart-total');
-const imageModal = document.getElementById('image-modal');
-const modalImage = document.getElementById('modal-image');
-const WHATSAPP_NUMBER = '593960503674'; // Tu número de WhatsApp
+const WHATSAPP_NUMBER = '593960503674';
 
 // ==========================================================
 // 3. Funciones del Carrito
 // ==========================================================
 
-/**
- * Guarda el carrito en el almacenamiento local.
- */
 function saveCart() {
     localStorage.setItem('bhalEffortCart', JSON.stringify(cart));
 }
 
-/**
- * Busca un producto por ID en el catálogo.
- * @param {string} id - El ID del producto.
- * @returns {object} El objeto producto.
- */
 function getProductData(id) {
     return PRODUCTS_DATA.find(p => p.id === id);
 }
 
-/**
- * Calcula el total del carrito.
- * @returns {number} El total.
- */
 function calculateTotal() {
-    let total = 0;
-    cart.forEach(item => {
+    return cart.reduce((total, item) => {
         const product = getProductData(item.id);
-        if (product) {
-            total += product.price * item.quantity;
-        }
-    });
-    return total;
+        return product ? total + product.price * item.quantity : total;
+    }, 0);
 }
 
-/**
- * Renderiza el contenido del carrito en el modal.
- */
 function renderCart() {
     cartItemsContainer.innerHTML = '';
-    let total = 0;
-
     if (cart.length === 0) {
-        cartItemsContainer.innerHTML = '<p class="empty-cart-message">El carrito está vacío. ¡Añade productos!</p>';
+        cartItemsContainer.innerHTML = '<p style="text-align:center; color:#666;">Tu carrito está vacío</p>';
     } else {
         cart.forEach(item => {
             const product = getProductData(item.id);
             if (product) {
                 const subtotal = product.price * item.quantity;
-                total += subtotal;
-
-                const cartItemHTML = `
-                    <div class="cart-item">
-                        <img src="${product.image}" alt="${product.name}" class="cart-item-image">
-                        <div class="cart-item-info">
-                            <h4>${product.name}</h4>
-                            <p>$${product.price.toFixed(2)} x ${item.quantity}</p>
+                const itemHTML = `
+                    <div style="display: flex; align-items: center; border-bottom: 1px solid #eee; padding: 10px 0;">
+                        <img src="${product.image}" alt="${product.name}" style="width: 50px; height: 50px; object-fit: cover; margin-right: 10px;">
+                        <div style="flex: 1;">
+                            <strong>${product.name}</strong><br>
+                            <small>$${product.price} x ${item.quantity}</small>
                         </div>
-                        <div class="cart-item-actions">
-                            <span class="cart-item-subtotal">$${subtotal.toFixed(2)}</span>
-                            <button class="btn-remove" data-id="${item.id}" aria-label="Eliminar producto"><i class="fas fa-trash-alt"></i></button>
-                        </div>
+                        <div>$${subtotal.toFixed(2)}</div>
                     </div>
                 `;
-                cartItemsContainer.innerHTML += cartItemHTML;
+                cartItemsContainer.innerHTML += itemHTML;
             }
         });
     }
-
-    cartTotalElement.textContent = `$${calculateTotal().toFixed(2)}`;
-    cartBadge.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+    cartTotalElement.textContent = '$' + calculateTotal().toFixed(2);
+    cartBadge.textContent = cart.reduce((sum, item) => sum + item.quantity, 0) || 0;
     saveCart();
 }
 
-/**
- * Añade un producto al carrito.
- * @param {string} id - ID del producto.
- * @param {number} quantity - Cantidad a añadir.
- */
 function addToCart(id, quantity = 1) {
-    const existingItemIndex = cart.findIndex(item => item.id === id);
-    if (existingItemIndex > -1) {
-        cart[existingItemIndex].quantity += quantity;
+    const existing = cart.find(item => item.id === id);
+    if (existing) {
+        existing.quantity += quantity;
     } else {
-        cart.push({ id: id, quantity: quantity });
+        cart.push({ id, quantity });
     }
     renderCart();
-    alert(`"${getProductData(id).name}" añadido al carrito.`);
     cartModal.style.display = 'block';
 }
 
-/**
- * Elimina un producto del carrito.
- * @param {string} id - ID del producto.
- */
 function removeFromCart(id) {
     cart = cart.filter(item => item.id !== id);
     renderCart();
 }
 
-/**
- * Vacía completamente el carrito.
- */
-function clearCart() {
-    if (confirm('¿Estás seguro de que quieres vaciar el carrito?')) {
-        cart = [];
-        renderCart();
-    }
-}
-
 // ==========================================================
-// 4. Generación del Mensaje de WhatsApp
+// 4. Mensaje de WhatsApp PERSONALIZADO
 // ==========================================================
 
 function generateWhatsappMessage() {
-    let message = `¡Hola BhalEffort! Quisiera realizar el siguiente pedido:\n\n`;
+    let message = `¡Hola BHalleffort! 💙\n\nQuisiera realizar un pedido con los siguientes productos:\n\n`;
     let subtotal = 0;
 
     cart.forEach(item => {
@@ -176,181 +125,71 @@ function generateWhatsappMessage() {
         if (product) {
             const itemTotal = product.price * item.quantity;
             subtotal += itemTotal;
-            message += `- ${item.quantity} x ${product.name} ($${product.price.toFixed(2)} c/u)\n`;
+            message += `• ${item.quantity} x ${product.name} → $${product.price.toFixed(2)}\n`;
         }
     });
 
     const shippingCost = subtotal >= 50 ? 0.00 : 3.50;
     const finalTotal = subtotal + shippingCost;
 
-    message += `\nSubtotal: $${subtotal.toFixed(2)}`;
-    message += `\nCosto de Envío: $${shippingCost.toFixed(2)} (${shippingCost === 0 ? '¡GRATIS!' : 'Regular'})`;
-    message += `\n*TOTAL FINAL: $${finalTotal.toFixed(2)}*`;
-    message += `\n\nPor favor, confírmenme la disponibilidad y los pasos para el pago. ¡Gracias!`;
+    message += `\n📦 Subtotal: $${subtotal.toFixed(2)}`;
+    message += `\n🚚 Envío: $${shippingCost.toFixed(2)} ${shippingCost === 0 ? "(¡GRATIS por compras +$50!)" : ""}`;
+    message += `\n💰 TOTAL FINAL: $${finalTotal.toFixed(2)}\n\n`;
+    message += `📌 Por favor, confírmenme disponibilidad y pasos para pago.\n¡Gracias por su atención! 🙏`;
 
     const encodedMessage = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+    const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`; // ✅ SIN ESPACIOS
     window.open(whatsappURL, '_blank');
 }
 
 // ==========================================================
-// 5. Carga Dinámica de Componentes (Header y Footer)
-// ==========================================================
-
-function loadComponent(filename, elementId) {
-    fetch(`components/${filename}.html`)
-        .then(response => {
-            if (!response.ok) {
-                console.warn(`⚠️ Componente no encontrado: components/${filename}.html`);
-                return '';
-            }
-            return response.text();
-        })
-        .then(data => {
-            if (document.getElementById(elementId)) {
-                document.getElementById(elementId).innerHTML = data;
-                // Reiniciar menú móvil si existe
-                const menuToggle = document.querySelector('.menu-toggle');
-                const mainNav = document.querySelector('.main-nav');
-                if (menuToggle && mainNav) {
-                    menuToggle.onclick = () => mainNav.classList.toggle('active');
-                }
-            }
-        })
-        .catch(err => console.error(`Error al cargar ${filename}:`, err));
-}
-
-// ==========================================================
-// 6. Gestión de Eventos (Event Listeners)
+// 5. Eventos
 // ==========================================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Cargar componentes comunes
-    loadComponent('header', 'header-placeholder');
-    loadComponent('footer', 'footer-placeholder');
-
-    // Renderizar carrito al iniciar
     renderCart();
 
-    // --------------------------------------------------
-    // A. Gestión de Eventos del Carrito (Delegación de eventos)
-    // --------------------------------------------------
-    document.body.addEventListener('click', (event) => {
-        // 1. AÑADIR AL CARRITO
-        const quickAddButton = event.target.closest('.btn-quick-add');
-        const buyNowButton = event.target.closest('.btn-buy');
-
-        if (quickAddButton) {
-            const id = quickAddButton.getAttribute('data-id');
+    document.body.addEventListener('click', (e) => {
+        // Añadir al carrito
+        const btnAdd = e.target.closest('.btn-buy');
+        if (btnAdd && btnAdd.hasAttribute('data-id')) {
+            const id = btnAdd.getAttribute('data-id');
             addToCart(id, 1);
             return;
         }
 
-        if (buyNowButton) {
-            const id = buyNowButton.getAttribute('data-id');
-            addToCart(id, 1);
-            return;
-        }
-
-        // 2. ABRIR MODAL DEL CARRITO
-        if (event.target.closest('#cart-icon')) {
+        // Abrir carrito (tu HTML usa .cart como contenedor)
+        if (e.target.closest('.cart')) {
             cartModal.style.display = 'block';
             return;
         }
-        
-        // 3. CERRAR MODAL
-        if (event.target.closest('.close-button') || event.target.closest('#btn-cancel-modal')) {
+
+        // Cerrar modal
+        if (
+            e.target.closest('#btn-cancel-modal') ||
+            e.target.closest('#btn-cancel-cart') ||
+            e.target === cartModal
+        ) {
             cartModal.style.display = 'none';
             return;
         }
 
-        // 4. ELIMINAR DEL CARRITO
-        const removeButton = event.target.closest('.btn-remove');
-        if (removeButton) {
-            const id = removeButton.getAttribute('data-id');
+        // Confirmar compra
+        if (e.target.closest('#btn-checkout-whatsapp')) {
+            if (cart.length === 0) {
+                alert('El carrito está vacío.');
+                return;
+            }
+            generateWhatsappMessage();
+            return;
+        }
+
+        // Eliminar producto
+        const removeBtn = e.target.closest('.btn-remove');
+        if (removeBtn && removeBtn.hasAttribute('data-id')) {
+            const id = removeBtn.getAttribute('data-id');
             removeFromCart(id);
             return;
         }
-        
-        // 5. VACIAR CARRITO
-        if (event.target.closest('#btn-clear-cart')) {
-            clearCart();
-            return;
-        }
-        
-        // 6. FINALIZAR PEDIDO
-        if (event.target.closest('#btn-checkout-whatsapp')) {
-            if (cart.length > 0) {
-                generateWhatsappMessage();
-            } else {
-                alert('Tu carrito está vacío. Añade productos para finalizar el pedido.');
-            }
-            return;
-        }
     });
-
-    // Cerrar modal del carrito al hacer clic fuera
-    window.addEventListener('click', (event) => {
-        if (event.target === cartModal) {
-            cartModal.style.display = 'none';
-        }
-    });
-    
-    // --------------------------------------------------
-    // B. Zoom de Imagen
-    // --------------------------------------------------
-    document.body.addEventListener('click', (event) => {
-        const image = event.target.closest('.product-image');
-        if (image) {
-            modalImage.src = image.src;
-            imageModal.style.display = 'block';
-            return;
-        }
-        if (event.target.closest('.image-close') || event.target === imageModal) {
-            imageModal.style.display = 'none';
-            return;
-        }
-    });
-    
-    // --------------------------------------------------
-    // C. Búsqueda con Autocompletado
-    // --------------------------------------------------
-    const searchInput = document.getElementById('search-input');
-    const autocompleteResults = document.getElementById('autocomplete-results');
-
-    if (searchInput && autocompleteResults) {
-        searchInput.addEventListener('input', () => {
-            const query = searchInput.value.toLowerCase().trim();
-            autocompleteResults.innerHTML = '';
-
-            if (query.length < 2) return;
-
-            const filteredProducts = PRODUCTS_DATA.filter(p => 
-                p.name.toLowerCase().includes(query) || 
-                p.category.toLowerCase().includes(query)
-            ).slice(0, 5);
-
-            if (filteredProducts.length > 0) {
-                filteredProducts.forEach(product => {
-                    const resultItem = document.createElement('div');
-                    resultItem.className = 'autocomplete-item';
-                    resultItem.textContent = `${product.name} (${product.category})`;
-                    resultItem.addEventListener('click', () => {
-                        searchInput.value = '';
-                        autocompleteResults.innerHTML = '';
-                        alert(`Buscaste: ${product.name}`);
-                    });
-                    autocompleteResults.appendChild(resultItem);
-                });
-            } else {
-                autocompleteResults.innerHTML = '<div class="autocomplete-item no-results">No se encontraron resultados</div>';
-            }
-        });
-        
-        searchInput.addEventListener('blur', () => {
-            setTimeout(() => {
-                autocompleteResults.innerHTML = '';
-            }, 200);
-        });
-    }
 });
