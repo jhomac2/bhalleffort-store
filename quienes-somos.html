@@ -15,6 +15,9 @@
         <span id="cart-badge" style="background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 12px; margin-left: -8px; position: relative; top: -8px;">0</span>
     </div>
 
+    <!-- Notificación temporal -->
+    <div id="notification" style="display: none; position: fixed; top: 70px; left: 50%; transform: translateX(-50%); background: #25D366; color: white; padding: 10px 20px; border-radius: 5px; z-index: 9999; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">Producto añadido al carrito</div>
+
     <div class="top-bar">
         <div class="container flex-space">
             <div class="location">
@@ -31,18 +34,20 @@
 
     <header class="main-header">
         <div class="container flex-center">
-            <div class="logo-section">
-                <img src="logo-ballena.png" alt="Ballenita Azul" class="whale-icon"> 
-                <div class="brand-text">
-                    <h1>BHALLEFFORT</h1>
-                    <p>LO MEJOR Y AL MEJOR PRECIO</p>
+            <a href="index.html" class="logo-link">
+                <div class="logo-section">
+                    <img src="logo-ballena.png" alt="Ballenita Azul" class="whale-icon"> 
+                    <div class="brand-text">
+                        <h1>BHALLEFFORT</h1>
+                        <p>LO MEJOR Y AL MEJOR PRECIO</p>
+                    </div>
                 </div>
-            </div>
+            </a>
 
             <div class="search-bar">
                 <input type="text" id="search-input" placeholder="Buscar..." autocomplete="off">
                 <div id="autocomplete-results" style="position: absolute; background: white; border: 1px solid #ddd; max-height: 200px; overflow-y: auto; width: 100%; z-index: 1000; display: none; box-shadow: 0 2px 5px rgba(0,0,0,0.1);"></div>
-                <button>BÚSQUEDA</button>
+                <button id="search-button">BÚSQUEDA</button>
             </div>
 
             <div class="user-actions">
