@@ -43,7 +43,7 @@ const PRODUCTS_DATA = [
 // ==========================================================
 
 let cart = JSON.parse(localStorage.getItem('bhalEffortCart')) || [];
-const cartBadge = document.querySelector('.cart .badge') || document.getElementById('cart-badge');
+const cartBadge = document.getElementById('cart-badge'); // ✅ Usamos este ID
 const cartModal = document.getElementById('cart-modal');
 const cartItemsContainer = document.getElementById('cart-items');
 const cartTotalElement = document.getElementById('cart-total');
@@ -242,7 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Abrir carrito (tu HTML usa .cart como contenedor)
-        if (e.target.closest('.cart')) {
+        if (e.target.closest('#cart-icon')) {
             cartModal.style.display = 'block';
             return;
         }
@@ -275,4 +275,13 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
     });
+
+    // Evento del botón de WhatsApp (en el header)
+    const whatsappBtn = document.querySelector('.whatsapp-btn');
+    if (whatsappBtn) {
+        whatsappBtn.addEventListener('click', () => {
+            const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}`;
+            window.open(whatsappURL, '_blank');
+        });
+    }
 });
