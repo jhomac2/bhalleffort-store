@@ -50,6 +50,7 @@ const cartTotalElement = document.getElementById('cart-total');
 const WHATSAPP_NUMBER = '593963923399';
 const SEARCH_INPUT = document.getElementById('search-input');
 const AUTOCOMPLETE_RESULTS = document.getElementById('autocomplete-results');
+const NOTIFICATION = document.getElementById('notification');
 
 // ==========================================================
 // 3. Funciones del Carrito
@@ -113,7 +114,9 @@ function addToCart(id, quantity = 1) {
         cart.push({ id, quantity });
     }
     renderCart();
-    cartModal.style.display = 'block';
+
+    // ✅ Mostrar notificación temporal
+    showNotification(`✅ ${getProductData(id).name} añadido al carrito`);
 }
 
 function removeFromCart(id) {
@@ -122,7 +125,21 @@ function removeFromCart(id) {
 }
 
 // ==========================================================
-// 4. WhatsApp
+// 4. Notificación temporal
+// ==========================================================
+
+function showNotification(message) {
+    if (NOTIFICATION) {
+        NOTIFICATION.textContent = message;
+        NOTIFICATION.style.display = 'block';
+        setTimeout(() => {
+            NOTIFICATION.style.display = 'none';
+        }, 2000);
+    }
+}
+
+// ==========================================================
+// 5. WhatsApp
 // ==========================================================
 
 function generateWhatsappMessage() {
@@ -152,7 +169,7 @@ function generateWhatsappMessage() {
 }
 
 // ==========================================================
-// 5. Búsqueda
+// 6. Búsqueda
 // ==========================================================
 
 function searchProducts(query) {
@@ -200,7 +217,7 @@ function searchProducts(query) {
 }
 
 // ==========================================================
-// 6. Eventos
+// 7. Eventos
 // ==========================================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -227,11 +244,13 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        // Abrir carrito (solo al hacer clic en el ícono)
         if (e.target.closest('#cart-icon')) {
             cartModal.style.display = 'block';
             return;
         }
 
+        // Cerrar modal
         if (
             e.target.closest('#btn-cancel-modal') ||
             e.target.closest('#btn-cancel-cart') ||
@@ -241,6 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        // Confirmar compra
         if (e.target.closest('#btn-checkout-whatsapp')) {
             if (cart.length === 0) {
                 alert('El carrito está vacío.');
@@ -250,6 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        // Eliminar producto
         const removeBtn = e.target.closest('.btn-remove');
         if (removeBtn && removeBtn.hasAttribute('data-id')) {
             const id = removeBtn.getAttribute('data-id');
@@ -266,7 +287,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // WhatsApp header
+    // Botón de WhatsApp en header
     const whatsappBtn = document.querySelector('.whatsapp-btn');
     if (whatsappBtn) {
         whatsappBtn.addEventListener('click', () => {
