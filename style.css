@@ -82,6 +82,13 @@ h1, h2, h3, h4 {
     margin-left: 10px;
 }
 
+/* Texto "DIOS TE DA MAS DE LO QUE PIDES." */
+.top-bar .god-message {
+    font-weight: bold;
+    color: var(--color-light);
+    margin-right: 10px;
+}
+
 
 /* -------------------------------------- */
 /* 4. CABECERA PRINCIPAL (HEADER) */
@@ -121,34 +128,85 @@ h1, h2, h3, h4 {
     margin-top: 2px;
 }
 
-/* BUSCADOR */
-.search-bar {
-    position: relative;
-    display: flex;
-    flex-grow: 1;
-    max-width: 600px;
-    border: 2px solid var(--color-primary);
-    border-radius: 5px;
-    overflow: hidden;
-}
-.search-bar input {
-    flex-grow: 1;
-    padding: 10px 15px;
-    border: none;
-    outline: none;
-    font-size: 16px;
-}
-#search-button {
-    background-color: var(--color-primary);
+/* BUSCADOR FLOTANTE */
+.search-floating {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: var(--color-primary);
     color: var(--color-light);
-    border: none;
-    padding: 10px 15px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     transition: background-color 0.3s;
 }
-#search-button:hover {
+.search-floating:hover {
     background-color: var(--color-secondary);
+}
+.search-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 9999;
+}
+.search-modal-content {
+    background: white;
+    width: 90%;
+    max-width: 500px;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+}
+.search-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+.search-results {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+}
+.search-results div {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+.search-results div:hover {
+    background-color: #f0f0f0;
+}
+.search-no-results {
+    text-align: center;
+    color: #666;
+    padding: 20px;
+}
+.close-search {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
 }
 
 
@@ -360,12 +418,6 @@ h1, h2, h3, h4 {
 .price {
     margin-bottom: 10px;
 }
-.old-price {
-    color: #999;
-    text-decoration: line-through;
-    margin-right: 10px;
-    font-size: 14px;
-}
 .current-price {
     color: var(--color-accent-offer); 
     font-weight: 700;
@@ -559,8 +611,7 @@ footer {
     min-width: 80px;
 }
 .item-total {
-    display: block;
-    font-weight: bold;
+    font-weight: 700;
     color: var(--color-primary);
 }
 .btn-remove {
@@ -572,45 +623,60 @@ footer {
     margin-top: 5px;
 }
 .cart-summary {
-    display: flex;
-    justify-content: space-between;
-    font-weight: bold;
+    text-align: right;
     font-size: 18px;
-    margin: 15px 0;
+    margin-top: 15px;
 }
 .modal-actions {
     display: flex;
-    justify-content: center;
-    gap: 15px;
+    justify-content: flex-end;
+    gap: 10px;
     margin-top: 20px;
 }
-#btn-checkout-whatsapp {
-    background-color: var(--color-whatsapp);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 5px;
+.btn-whatsapp {
+    background-color: var(--color-whatsapp) !important;
 }
-#btn-cancel-cart {
+.btn-whatsapp i {
+    margin-right: 5px;
+}
+.btn-cancel {
     background-color: #999;
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 10px 15px;
     cursor: pointer;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
-#btn-cancel-cart:hover {
+.btn-cancel:hover {
     background-color: #777;
 }
 
 
 /* -------------------------------------- */
-/* 12. AUTOCOMPLETAR BÚSQUEDA */
+/* 12. NOTIFICACIÓN FLotante (Sorteo) */
+/* -------------------------------------- */
+#sorteo-notification {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: transparent;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 9999;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    text-align: center;
+    font-size: 16px;
+}
+
+
+/* -------------------------------------- */
+/* 13. AUTOCOMPLETAR BÚSQUEDA */
 /* -------------------------------------- */
 #autocomplete-results {
     position: absolute;
@@ -633,25 +699,6 @@ footer {
 }
 #autocomplete-results div:hover {
     background-color: #f0f0f0;
-}
-
-
-/* -------------------------------------- */
-/* 13. NOTIFICACIÓN TEMPORAL */
-/* -------------------------------------- */
-#notification {
-    display: none;
-    position: fixed;
-    top: 70px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #25D366;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    z-index: 9999;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    font-weight: 600;
 }
 
 
@@ -695,17 +742,20 @@ footer {
         font-size: 20px;
     }
 
-    /* Menú */
-    .main-nav ul {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-    }
+    /* Menú móvil */
     .menu-toggle {
         display: block;
     }
-    .menu-active .main-nav ul {
+    .main-nav {
+        display: none;
+    }
+    .main-nav.active {
+        display: block;
+    }
+    .main-nav ul {
         display: flex;
+        flex-direction: column;
+        width: 100%;
     }
     .dropdown:hover .dropdown-content {
         position: static;
