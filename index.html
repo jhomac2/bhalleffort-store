@@ -1,301 +1,280 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BHALLEFFORT | Lo mejor y al mejor precio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta charset="utf-8">
+  <title>BHALLEFFORT | Tienda online Ecuador – ropa, juguetes, hogar</title>
+  <meta name="description" content="Compra online en Ecuador: ropa, juguetes y utensilios para el hogar. Envíos a todo el país. Precios bajos todos los días.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index, follow">
+  <!-- JSON-LD para Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "BHALLEFFORT",
+    "image": "https://jhomac2.github.io/bhalleffort-store/logo-ballena.png",
+    "telephone": "+593963923399",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "La Y de Tabacundo",
+      "addressLocality": "Tabacundo",
+      "addressRegion": "Pichincha",
+      "addressCountry": "EC"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "08:00",
+      "closes": "20:00"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root{--rojo:#e2001a;--amarillo:#ffcc00;--morado:#6a0dad;--texto:#222}
+    *{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,Arial}
+    body{background:#fafafa;color:var(--texto)}
+    img{max-width:100%;display:block}
+    .container{width:90%;max-width:1200px;margin:auto}
+    .flex-space,.flex-center{display:flex;align-items:center;justify-content:space-between}
+    .top-bar{background:#eee;font-size:13px;padding:4px 0}
+    .main-header{padding:10px 0;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.05)}
+    .logo-section{display:flex;align-items:center;gap:10px}
+    .whale-icon{width:40px}
+    .brand-text h1{font-size:20px;color:var(--morado)}
+    .brand-text p{font-size:12px;color:#555}
+    .whatsapp-btn{display:flex;align-items:center;gap:6px;background:#25D366;color:#fff;padding:6px 10px;border-radius:4px;font-size:12px;cursor:pointer}
+    .main-nav{background:var(--morado)}
+    .main-nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center}
+    .main-nav a{color:#fff;padding:10px 12px;display:block;font-size:14px;text-decoration:none}
+    .hero-banner{background:url('prod-oferta.jpg') center/cover no-repeat;height:220px;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;text-shadow:1px 1px 3px #000}
+    .hero-banner h2{font-size:26px}
+    .quick-categories{padding:20px 0}
+    .flex-quick-categories{display:flex;gap:15px;justify-content:center;flex-wrap:wrap}
+    .category-box{background:#fff;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,.1);padding:15px 20px;text-align:center;flex:1 1 160px;max-width:200px;text-decoration:none;color:inherit}
+    .category-box i{font-size:28px;color:var(--morado);margin-bottom:6px}
+    .featured-products{padding:20px 0}
+    .section-title{text-align:center;margin-bottom:15px;font-size:22px;color:var(--morado)}
+    .products-grid{display:grid;gap:15px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+    .product-card{background:#fff;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,.1);display:flex;flex-direction:column}
+    .product-image{border-radius:8px 8px 0 0}
+    .product-info{padding:10px;display:flex;flex-direction:column;flex:1}
+    .product-category{font-size:11px;color:#777}
+    .product-name{font-size:15px;margin:4px 0}
+    .current-price{font-weight:700;color:var(--rojo);font-size:17px}
+    .btn-buy{background:var(--amarillo);border:none;padding:8px;border-radius:4px;cursor:pointer;margin-top:auto;font-weight:700}
+    .guarantees{background:#fff;padding:20px 0;margin-top:20px}
+    .flex-guarantees{display:flex;gap:15px;flex-wrap:wrap;justify-content:center;text-align:center}
+    .guarantee-item{flex:1 1 200px}
+    footer{background:#222;color:#fff;font-size:13px;padding:20px 0}
+    .footer-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+    .footer-contact a{color:#fff;text-decoration:none}
+    .god-message{font-size:11px;color:#555;margin-top:4px}
+    #cart-icon{position:fixed;top:15px;right:15px;background:#fff;border-radius:50%;padding:8px;box-shadow:0 2px 5px rgba(0,0,0,.15);cursor:pointer;z-index:1000}
+    #cart-badge{background:var(--rojo);color:#fff;border-radius:50%;padding:2px 6px;font-size:11px;position:absolute;top:-4px;right:-4px}
+    .cart-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000}
+    .cart-modal>div{background:#fff;width:90%;max-width:480px;margin:60px auto;padding:15px;border-radius:8px;position:relative}
+    .cart-modal header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+    .cart-modal footer{text-align:right}
+    @media(max-width:500px){.main-nav ul{flex-direction:column}.hero-banner h2{font-size:20px}}
+  </style>
 </head>
 <body>
+  <!-- carrito flotante -->
+  <div id="cart-icon"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
 
-    <!-- Ícono del carrito flotante -->
-    <div id="cart-icon" style="position: fixed; top: 20px; right: 20px; cursor: pointer; z-index: 1000;">
-        <i class="fas fa-shopping-cart" style="font-size: 24px; color: #6a0dad;"></i>
-        <span id="cart-badge" style="background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 12px; margin-left: -8px; position: relative; top: -8px;">0</span>
+  <!-- top-bar -->
+  <div class="top-bar">
+    <div class="container flex-space">
+      <div><i class="fas fa-map-marker-alt"></i> ENVÍOS A TODO EL PAÍS</div>
+      <div><i class="fas fa-truck"></i> ENVÍOS 100% SEGUROS</div>
     </div>
+  </div>
 
-    <!-- Notificación temporal -->
-    <div id="notification" style="display: none; position: fixed; top: 70px; left: 50%; transform: translateX(-50%); background: #25D366; color: white; padding: 10px 20px; border-radius: 5px; z-index: 9999; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">Producto añadido al carrito</div>
-
-    <!-- Notificación de sorteo -->
-    <div id="sorteo-notification" style="display: none; position: fixed; top: 70px; left: 50%; transform: translateX(-50%); background: transparent; color: #333; padding: 10px 20px; border-radius: 5px; z-index: 9999; font-weight: 600; box-shadow: 0 2px 5px rgba(0,0,0,0.2); text-align: center; font-size: 16px;"></div>
-
-    <!-- Barra de búsqueda flotante -->
-    <div id="search-floating" class="search-floating">
-        <i class="fas fa-search"></i>
+  <!-- header -->
+  <header class="main-header">
+    <div class="container flex-center">
+      <a href="index.html" class="logo-link">
+        <div class="logo-section">
+          <img src="logo-ballena.png" alt="Ballena BHALLEFFORT" class="whale-icon">
+          <div class="brand-text">
+            <h1>BHALLEFFORT</h1>
+            <p>LO MEJOR Y AL MEJOR PRECIO</p>
+          </div>
+        </div>
+      </a>
+      <div class="whatsapp-btn" onclick="window.open('https://wa.me/593963923399','_blank')">
+        <i class="fab fa-whatsapp"></i>
+        <div>
+          <span>PEDIDOS WHATSAPP</span><br>
+          <strong>+593 963 923 399</strong>
+        </div>
+      </div>
     </div>
+  </header>
 
-    <!-- Modal de búsqueda -->
-    <div id="search-modal" class="search-modal">
-        <div class="search-modal-content">
-            <button class="close-search" id="close-search">&times;</button>
-            <input type="text" id="search-input-modal" placeholder="Buscar productos..." autocomplete="off">
-            <div id="search-results" class="search-results">
-                <!-- Se llena automáticamente -->
-            </div>
-        </div>
+  <!-- nav -->
+  <nav class="main-nav">
+    <ul>
+      <li><a href="index.html">INICIO</a></li>
+      <li><a href="quienes-somos.html">QUIÉNES SOMOS</a></li>
+      <li><a href="ropa.html">ROPA</a></li>
+      <li><a href="juguetes.html">JUGUETES</a></li>
+      <li><a href="hogar.html">HOGAR</a></li>
+      <li><a href="promociones.html">PROMOCIONES</a></li>
+      <li><a href="politicas.html">POLÍTICAS</a></li>
+      <li><a href="contacto.html">CONTACTO</a></li>
+    </ul>
+  </nav>
+
+  <!-- hero -->
+  <section class="hero-banner">
+    <div>
+      <h2>TODO PARA TU HOGAR</h2>
+      <p>DESCUBRE LO QUE NECESITAS</p>
     </div>
+  </section>
 
-    <div class="top-bar">
-        <div class="container flex-space">
-            <div class="location">
-                <i class="fas fa-map-marker-alt"></i> ENVIOS A TODO EL PAÍS
-            </div>
-            <div class="socials">
-                <span><i class="fas fa-truck"></i> ENVÍOS 100% SEGUROS</span>
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-tiktok"></i></a>
-            </div>
-        </div>
-        <div class="container" style="padding: 5px 0; text-align: center;">
-            <div class="god-message">DIOS TE DA MAS DE LO QUE PIDES.</div>
-        </div>
+  <!-- categorías -->
+  <section class="quick-categories">
+    <div class="container">
+      <div class="flex-quick-categories">
+        <a href="ropa.html" class="category-box"><i class="fas fa-tshirt"></i><h3>ROPA</h3><p>Moda al mejor precio</p></a>
+        <a href="juguetes.html" class="category-box"><i class="fas fa-puzzle-piece"></i><h3>JUGUETES</h3><p>Diversión garantizada</p></a>
+        <a href="hogar.html" class="category-box"><i class="fas fa-couch"></i><h3>HOGAR</h3><p>Todo para tu casa</p></a>
+      </div>
     </div>
+  </section>
 
-    <header class="main-header">
-        <div class="container flex-center">
-            <a href="index.html" class="logo-link">
-                <div class="logo-section">
-                    <img src="logo-ballena.png" alt="Ballenita Azul" class="whale-icon"> 
-                    <div class="brand-text">
-                        <h1>BHALLEFFORT</h1>
-                        <p>LO MEJOR Y AL MEJOR PRECIO</p>
-                    </div>
-                </div>
-            </a>
-
-            <div class="user-actions">
-                <div class="whatsapp-btn" style="cursor: pointer;">
-                    <i class="fab fa-whatsapp"></i>
-                    <div>
-                        <span>PEDIDOS WHATSAPP</span>
-                        <strong>+593 963923399</strong>
-                    </div>
-                </div>
-                <div class="menu-toggle" id="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <nav class="main-nav" id="mobile-menu" style="display: none;">
-        <div class="container">
-            <ul>
-                <li><a href="index.html">INICIO</a></li>
-                <li class="dropdown">
-                    <a href="#">QUIÉNES SOMOS ▾</a>
-                    <div class="dropdown-content">
-                        <a href="quienes-somos.html">Nuestra Historia</a>
-                        <a href="quienes-somos.html#valores">Valores y Misión</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="#">CATEGORIAS ▾</a>
-                    <div class="dropdown-content">
-                        <a href="ropa.html">Ropa</a> 
-                        <a href="juguetes.html">Juguetes</a>
-                        <a href="hogar.html">Suministros Hogar</a>
-                    </div>
-                </li>
-                <li><a href="promociones.html">SUPER PROMOCIONES</a></li>
-                <li class="dropdown">
-                    <a href="#">POLÍTICAS ▾</a>
-                    <div class="dropdown-content">
-                        <a href="politicas.html#terminos">Términos y Condiciones</a>
-                        <a href="politicas.html#envios">Política de Envíos</a>
-                        <a href="politicas.html#devoluciones">Cambios y Devoluciones</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="#">CONTÁCTENOS ▾</a>
-                    <div class="dropdown-content">
-                        <a href="contacto.html">Ubicación y Email</a>
-                        <a href="https://wa.me/593963923399" target="_blank">WhatsApp Directo</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <section class="hero-banner" style="background-image: url('prod-oferta.jpg'); background-size: cover; background-position: center;">
-        <div style="background-color: rgba(0,0,0,0.5); padding: 20px; border-radius: 10px;">
-            <h2 style="color: white; text-shadow: 2px 2px 4px #000;">TODO PARA TU HOGAR</h2>
-            <p style="color: white; text-align: center; font-size: 16px; margin-top: 10px;">DESCUBRE TODO LO QUE NECESITAS</p>
-        </div>
-    </section>
-
-    <section class="quick-categories">
-        <div class="container flex-quick-categories">
-            <a href="ropa.html" class="category-box" style="text-decoration: none; color: inherit;">
-                <i class="fas fa-tshirt"></i>
-                <h3>ROPA</h3>
-                <p>Moda al mejor precio</p>
-            </a>
-            <a href="juguetes.html" class="category-box" style="text-decoration: none; color: inherit;">
-                <i class="fas fa-toys"></i>
-                <h3>JUGUETES</h3>
-                <p>Diversión garantizada</p>
-            </a>
-            <a href="hogar.html" class="category-box" style="text-decoration: none; color: inherit;">
-                <i class="fas fa-couch"></i>
-                <h3>SUMINISTROS HOGAR</h3>
-                <p>Todo para tu casa</p>
-            </a>
-        </div>
-    </section>
-
-    <section class="featured-products">
-        <div class="container">
-            <h2 class="section-title">✨ SÚPER PROMOCIONES DE LA SEMANA ✨</h2>
-            
-            <div class="products-grid">
-                <div class="product-card">
-                    <img src="prod-ropa.jpg" alt="Camiseta BHALLEFFORT" class="product-image">
-                    <div class="product-info">
-                        <span class="product-category">Ropa</span>
-                        <h4 class="product-name">Camiseta BHALLEFFORT Edición Limitada</h4>
-                        <div class="price">
-                            <span class="current-price">$14.99</span>
-                        </div>
-                        <button class="btn-buy" data-id="P001">Añadir al Carrito</button>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <img src="prod-hogar.jpg" alt="Utensilios Cocina" class="product-image">
-                    <div class="product-info">
-                        <span class="product-category">Hogar</span>
-                        <h4 class="product-name">Set de Utensilios de Cocina Deluxe</h4>
-                        <div class="price">
-                            <span class="current-price">$39.99</span>
-                        </div>
-                        <button class="btn-buy" data-id="P003">Añadir al Carrito</button>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <img src="prod-juguetes.jpg" alt="Bloques Juguete" class="product-image">
-                    <div class="product-info">
-                        <span class="product-category">Juguetes</span>
-                        <h4 class="product-name">Bloques de Construcción Gigantes (500 pzs)</h4>
-                        <div class="price">
-                            <span class="current-price">$22.50</span>
-                        </div>
-                        <button class="btn-buy" data-id="P002">Añadir al Carrito</button>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <img src="prod-oferta.jpg" alt="Pantalón Deportivo" class="product-image">
-                    <div class="product-info">
-                        <span class="product-category">Ropa</span>
-                        <h4 class="product-name">Pantalón Deportivo Morado BHALLEFFORT</h4>
-                        <div class="price">
-                            <span class="current-price">$19.99</span>
-                        </div>
-                        <button class="btn-buy" data-id="O001">Añadir al Carrito</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="guarantees">
-        <div class="container flex-guarantees">
-            <div class="guarantee-item">
-                <i class="fas fa-truck"></i>
-                <div>
-                    <strong>DESPACHO A DOMICILIO:</strong>
-                    <p>Para todo el país</p>
-                </div>
-            </div>
-            <div class="guarantee-item">
-                <i class="fas fa-lock"></i>
-                <div>
-                    <strong>COMPRA SEGURA:</strong>
-                    <p>Usa tus tarjetas de crédito o débito</p>
-                </div>
-            </div>
-            <div class="guarantee-item">
-                <i class="fas fa-store"></i>
-                <div>
-                    <strong>RETIRO EN TIENDA:</strong>
-                    <p>GRATIS a nivel nacional</p>
-                </div>
-            </div>
-            <div class="guarantee-item promo-item">
-                <i class="fas fa-percent"></i>
-                <div>
-                    <strong>DESCUENTOS Y PROMOCIONES:</strong>
-                    <p>Los mejores ¡Precios para ti!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container footer-grid">
-            <div class="footer-brand">
-                <img src="logo-ballena.png" alt="BHALLEFFORT Logo" class="whale-icon-footer">
-                <p>LO MEJOR Y AL MEJOR PRECIO</p>
-                <div class="payment-methods">
-                    <i class="fab fa-cc-visa"></i>
-                    <i class="fab fa-cc-mastercard"></i>
-                </div>
-            </div>
-
-            <div class="footer-contact">
-                <h3>CONTÁCTANOS</h3>
-                <p><i class="fas fa-phone-alt"></i> <strong>+593 963923399</strong> (Whatsapp)</p>
-                <p><i class="fas fa-envelope"></i> agromhasvida5@gmail.com</p>
-                <p><i class="far fa-clock"></i> Horario de atención: 24 horas (compras On Line)</p>
-                <p><i class="fas fa-map-marker-alt"></i> La Y de Tabacundo - Pichincha - Ecuador</p>
-            </div>
-
-            <div class="footer-policies">
-                <h3>POLÍTICAS Y CONDICIONES</h3>
-                <ul>
-                    <li><i class="fas fa-check-circle"></i> Términos y Condiciones</li>
-                    <li><i class="fas fa-check-circle"></i> Políticas de Cambio</li>
-                    <li><i class="fas fa-check-circle"></i> Política de Envíos</li>
-                    <li><i class="fas fa-check-circle"></i> Quiénes somos</li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="footer-copyright">
-            <p>&copy; 2025 BHALLEFFORT. Todos los derechos reservados. Diseñado por Jhomac²</p>
-        </div>
-    </footer>
-
-    <!-- MODAL DEL CARRITO -->
-    <div id="cart-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2000;">
-        <div style="background: white; width: 90%; max-width: 500px; margin: 50px auto; padding: 20px; border-radius: 10px; position: relative; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
-            <button id="btn-cancel-modal" style="position: absolute; top: 10px; right: 15px; background: none; border: none; font-size: 20px; cursor: pointer;">&times;</button>
-            <h3 style="margin-top: 0; color: #6a0dad; display: flex; align-items: center; gap: 10px;">
-                <i class="fas fa-shopping-cart"></i> Tu carrito
-            </h3>
-            <div id="cart-items" style="max-height: 300px; overflow-y: auto; margin-bottom: 15px; border: 1px solid #eee; border-radius: 5px; padding: 10px;">
-                <!-- Se llena automáticamente -->
-            </div>
-            <div style="display: flex; justify-content: space-between; font-weight: bold; margin: 10px 0;">
-                <span>Total:</span>
-                <span id="cart-total">$0.00</span>
-            </div>
-            <div style="text-align: center; margin-top: 15px;">
-                <button id="btn-checkout-whatsapp" style="background: #25D366; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer; margin-right: 10px;">
-                    ✅ Confirmar compra
-                </button>
-                <button id="btn-cancel-cart" style="background: #ccc; color: #333; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
-                    ❌ Cancelar
-                </button>
-            </div>
-        </div>
+  <!-- productos destacados -->
+  <section class="featured-products">
+    <div class="container">
+      <h2 class="section-title">✨ SÚPER PROMOCIONES DE LA SEMANA ✨</h2>
+      <div class="products-grid" id="products-grid">
+        <!-- se llena con JS -->
+      </div>
     </div>
+  </section>
 
-    <script src="script.js"></script>
+  <!-- garantías -->
+  <section class="guarantees">
+    <div class="container flex-guarantees">
+      <div class="guarantee-item"><i class="fas fa-truck"></i><div><strong>DESPACHO A DOMICILIO</strong><p>Para todo el país</p></div></div>
+      <div class="guarantee-item"><i class="fas fa-lock"></i><div><strong>COMPRA SEGURA</strong><p>Tarjetas o transferencia</p></div></div>
+      <div class="guarantee-item"><i class="fas fa-store"></i><div><strong>RETIRO EN TIENDA</strong><p>Gratis - La Y de Tabacundo</p></div></div>
+      <div class="guarantee-item"><i class="fas fa-percent"></i><div><strong>DESCUENTOS</strong><p>Los mejores precios</p></div></div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <img src="logo-ballena.png" alt="Ballena" width="40">
+        <p>LO MEJOR Y AL MEJOR PRECIO</p>
+        <div class="god-message">Dios te da más de lo que pides.</div>
+      </div>
+      <div class="footer-contact">
+        <h3>CONTÁCTANOS</h3>
+        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/593963923399" target="_blank">+593 963 923 399</a></p>
+        <p><i class="fas fa-envelope"></i> agromhasvida5@gmail.com</p>
+        <p><i class="far fa-clock"></i> Horario: 8:00-20:00 (lunes a domingo)</p>
+        <p><i class="fas fa-map-marker-alt"></i> La Y de Tabacundo, Pichincha, Ecuador</p>
+      </div>
+      <div>
+        <h3>POLÍTICAS</h3>
+        <ul style="list-style:none;padding:0">
+          <li><a href="politicas.html#terminos" style="color:#fff">Términos y condiciones</a></li>
+          <li><a href="politicas.html#envios" style="color:#fff">Política de envíos</a></li>
+          <li><a href="politicas.html#devoluciones" style="color:#fff">Cambios y devoluciones</a></li>
+          <li><a href="cookies.html" style="color:#fff">Política de cookies</a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:15px;font-size:12px">© 2025 BHALLEFFORT - Diseñado por Jhomac²</div>
+  </footer>
+
+  <!-- modal carrito -->
+  <div id="cart-modal" class="cart-modal">
+    <div>
+      <header>
+        <h3><i class="fas fa-shopping-cart"></i> Tu carrito</h3>
+        <button id="close-cart" style="background:none;border:none;font-size:20px;cursor:pointer">&times;</button>
+      </header>
+      <div id="cart-items"></div>
+      <footer>
+        <div style="display:flex;justify-content:space-between;font-weight:bold">
+          <span>Total:</span><span id="cart-total">$0.00</span>
+        </div>
+        <button id="btn-wa" style="background:#25D366;color:#fff;border:none;padding:8px 14px;border-radius:4px;cursor:pointer;margin-top:10px">
+          Enviar pedido por WhatsApp
+        </button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- lógica -->
+  <script>
+    // productos desde tu Excel (puedes cambiar aquí o generar desde CSV)
+    const productos = [
+      {id:"P001",cat:"Ropa",nombre:"Camiseta BHALLEFFORT Edición Limitada",precio:14.99,img:"prod-ropa.jpg"},
+      {id:"P002",cat:"Juguetes",nombre:"Bloques de Construcción 500 pzs",precio:22.50,img:"prod-juguetes.jpg"},
+      {id:"P003",cat:"Hogar",nombre:"Set Utensilios Cocina Deluxe",precio:39.99,img:"prod-hogar.jpg"},
+      {id:"O001",cat:"Ropa",nombre:"Pantalón Deportivo Morado",precio:19.99,img:"prod-oferta.jpg"}
+    ];
+
+    let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
+
+    function dibujarProductos() {
+      const grid = document.getElementById('products-grid');
+      grid.innerHTML = productos.map(p => `
+        <div class="product-card">
+          <img src="${p.img}" alt="${p.nombre}" class="product-image">
+          <div class="product-info">
+            <span class="product-category">${p.cat}</span>
+            <h4 class="product-name">${p.nombre}</h4>
+            <div class="current-price">$${p.precio.toFixed(2)}</div>
+            <button class="btn-buy" onclick="addCart('${p.id}','${p.nombre}',${p.precio})">Añadir al carrito</button>
+          </div>
+        </div>`).join('');
+    }
+    function addCart(id,nombre,precio) {
+      carrito.push({id,nombre,precio});
+      localStorage.setItem('bh-cart',JSON.stringify(carrito));
+      actualizarBadge();
+      mostrarModal();
+    }
+    function actualizarBadge() {
+      document.getElementById('cart-badge').textContent = carrito.length;
+    }
+    function mostrarModal() {
+      const modal = document.getElementById('cart-modal');
+      const items = document.getElementById('cart-items');
+      const total = carrito.reduce((t,p)=>t+p.precio,0);
+      items.innerHTML = carrito.map((p,i)=>`
+        <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #eee">
+          <span>${p.nombre} <br><small>$${p.precio.toFixed(2)}</small></span>
+          <button onclick="removeItem(${i})" style="background:none;border:none;color:red;cursor:pointer">🗑️</button>
+        </div>`).join('');
+      document.getElementById('cart-total').textContent = '$'+total.toFixed(2);
+      modal.style.display = 'block';
+    }
+    function removeItem(i) {
+      carrito.splice(i,1);
+      localStorage.setItem('bh-cart',JSON.stringify(carrito));
+      actualizarBadge();
+      mostrarModal();
+    }
+    document.getElementById('close-cart').onclick = () => document.getElementById('cart-modal').style.display = 'none';
+    document.getElementById('cart-icon').onclick = mostrarModal;
+    document.getElementById('btn-wa').onclick = () => {
+      const texto = carrito.map(p => `• ${p.nombre}  $${p.precio.toFixed(2)}`).join('%0A') + '%0A*Total:* $' + carrito.reduce((t,p)=>t+p.precio,0).toFixed(2);
+      window.open(`https://wa.me/593963923399?text=Hola,%20quiero:%0A${texto}`, '_blank');
+    };
+    dibujarProductos();
+    actualizarBadge();
+  </script>
 </body>
 </html>
