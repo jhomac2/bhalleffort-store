@@ -51,6 +51,8 @@ const WHATSAPP_NUMBER = '593963923399';
 const SEARCH_INPUT = document.getElementById('search-input');
 const AUTOCOMPLETE_RESULTS = document.getElementById('autocomplete-results');
 const NOTIFICATION = document.getElementById('notification');
+const MENU_TOGGLE = document.getElementById('menu-toggle');
+const MOBILE_MENU = document.getElementById('mobile-menu');
 
 // ==========================================================
 // 3. Funciones del Carrito
@@ -232,6 +234,13 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 if (AUTOCOMPLETE_RESULTS) AUTOCOMPLETE_RESULTS.style.display = 'none';
             }, 200);
+        });
+    }
+
+    // Menú móvil
+    if (MENU_TOGGLE && MOBILE_MENU) {
+        MENU_TOGGLE.addEventListener('click', () => {
+            MOBILE_MENU.classList.toggle('active');
         });
     }
 
