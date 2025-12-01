@@ -3,11 +3,11 @@
 // ==========================================================
 
 const PRODUCTS_DATA = [
-    // PRODUCTOS DE INDEX.HTML
-    { id: "P001", name: "Chompa de tela pana (Gris)", price: 5.00, category: "Ropa", image: "prod-chompa.jpg" },
-    { id: "P002", name: "Peluche de ballena de felpa", price: 12.00, category: "Juguetes", image: "prod-ballena.jpg" },
-    { id: "O001", name: "Reloj inteligente modelo A3 (OFERTA)", price: 40.00, category: "Promoción", image: "prod-reloj.jpg" },
-    { id: "P003", name: "Taza de cerámica con asa", price: 3.50, category: "Hogar", image: "prod-taza.jpg" },
+    // PRODUCTOS DE INDEX.HTML — ✅ NOMBRES CORREGIDOS
+    { id: "P001", name: "Camiseta BHALLEFFORT Edición Limitada", price: 14.99, category: "Ropa", image: "prod-ropa.jpg" },
+    { id: "P002", name: "Bloques de Construcción Gigantes (500 pzs)", price: 22.50, category: "Juguetes", image: "prod-juguetes.jpg" },
+    { id: "O001", name: "Pantalón Deportivo Morado BHALLEFFORT", price: 19.99, category: "Promoción", image: "prod-oferta.jpg" },
+    { id: "P003", name: "Set de Utensilios de Cocina Deluxe", price: 39.99, category: "Hogar", image: "prod-hogar.jpg" },
     
     // PRODUCTOS DE ROPA.HTML
     { id: "R001", name: "Jeans clásicos elasticados", price: 15.00, category: "Ropa", image: "prod-jeans.jpg" },
@@ -43,11 +43,11 @@ const PRODUCTS_DATA = [
 // ==========================================================
 
 let cart = JSON.parse(localStorage.getItem('bhalEffortCart')) || [];
-const cartBadge = document.getElementById('cart-badge'); // ✅ Usamos este ID
+const cartBadge = document.getElementById('cart-badge');
 const cartModal = document.getElementById('cart-modal');
 const cartItemsContainer = document.getElementById('cart-items');
 const cartTotalElement = document.getElementById('cart-total');
-const WHATSAPP_NUMBER = '593963923399'; // ✅ Nuevo número
+const WHATSAPP_NUMBER = '593963923399';
 const SEARCH_INPUT = document.getElementById('search-input');
 const AUTOCOMPLETE_RESULTS = document.getElementById('autocomplete-results');
 
@@ -73,7 +73,7 @@ function calculateTotal() {
 function renderCart() {
     cartItemsContainer.innerHTML = '';
     if (cart.length === 0) {
-        cartItemsContainer.innerHTML = '<p style="text-align:center; color:#666; padding: 20px;">Tu carrito está vacío</p>';
+        cartItemsContainer.innerHTML = '<p style="text-align:center; padding:20px;">Tu carrito está vacío</p>';
     } else {
         cart.forEach(item => {
             const product = getProductData(item.id);
@@ -82,13 +82,13 @@ function renderCart() {
                 const itemHTML = `
                     <div style="display: flex; align-items: center; border-bottom: 1px solid #eee; padding: 10px 0;">
                         <img src="${product.image}" alt="${product.name}" style="width: 50px; height: 50px; object-fit: cover; margin-right: 10px; border-radius: 5px;">
-                        <div style="flex: 1; overflow: hidden;">
-                            <strong style="display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${product.name}</strong>
+                        <div style="flex: 1;">
+                            <strong>${product.name}</strong><br>
                             <small>$${product.price} x ${item.quantity}</small>
                         </div>
                         <div style="text-align: right; min-width: 80px;">
                             <span style="font-weight: bold;">$${subtotal.toFixed(2)}</span>
-                            <button class="btn-remove" data-id="${item.id}" aria-label="Eliminar producto" style="background: none; border: none; font-size: 14px; cursor: pointer; margin-left: 10px; color: #e74c3c;">
+                            <button class="btn-remove" data-id="${item.id}" style="background: none; border: none; color: #e74c3c; cursor: pointer; margin-left: 8px;">
                                 <i class="fas fa-trash-alt"></i>
                             </button>
                         </div>
@@ -122,7 +122,7 @@ function removeFromCart(id) {
 }
 
 // ==========================================================
-// 4. Mensaje de WhatsApp PERSONALIZADO
+// 4. WhatsApp
 // ==========================================================
 
 function generateWhatsappMessage() {
@@ -147,12 +147,12 @@ function generateWhatsappMessage() {
     message += `📌 Por favor, confírmenme disponibilidad y pasos para pago.\n¡Gracias por su atención! 🙏`;
 
     const encodedMessage = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`; // ✅ Sin espacios
+    const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
     window.open(whatsappURL, '_blank');
 }
 
 // ==========================================================
-// 5. Búsqueda de Productos (Autocompletado)
+// 5. Búsqueda
 // ==========================================================
 
 function searchProducts(query) {
@@ -170,43 +170,32 @@ function searchProducts(query) {
         AUTOCOMPLETE_RESULTS.innerHTML = '';
 
         if (results.length === 0) {
-            AUTOCOMPLETE_RESULTS.innerHTML = '<div style="padding: 10px; color: #666; font-size: 14px;">No encontramos productos con "' + query + '".</div>';
+            AUTOCOMPLETE_RESULTS.innerHTML = '<div style="padding:10px; color:#666;">No se encontraron resultados</div>';
             return;
         }
 
         results.slice(0, 5).forEach(product => {
             const resultItem = document.createElement('div');
             resultItem.style.padding = '10px';
-            resultItem.style.borderBottom = '1px solid #eee';
             resultItem.style.cursor = 'pointer';
-            resultItem.style.fontSize = '14px';
+            resultItem.style.borderBottom = '1px solid #eee';
             resultItem.textContent = `${product.name} (${product.category})`;
             resultItem.addEventListener('click', () => {
-                // Redirigir a la categoría
                 let page = '';
                 switch (product.category) {
-                    case 'Ropa':
-                        page = 'ropa.html';
-                        break;
-                    case 'Juguetes':
-                        page = 'juguetes.html';
-                        break;
-                    case 'Hogar':
-                        page = 'hogar.html';
-                        break;
-                    case 'Promoción':
-                        page = 'promociones.html';
-                        break;
-                    default:
-                        page = 'index.html';
+                    case 'Ropa': page = 'ropa.html'; break;
+                    case 'Juguetes': page = 'juguetes.html'; break;
+                    case 'Hogar': page = 'hogar.html'; break;
+                    case 'Promoción': page = 'promociones.html'; break;
+                    default: page = 'index.html';
                 }
                 window.location.href = page;
-                // Limpiar búsqueda
                 if (SEARCH_INPUT) SEARCH_INPUT.value = '';
                 if (AUTOCOMPLETE_RESULTS) AUTOCOMPLETE_RESULTS.innerHTML = '';
             });
             AUTOCOMPLETE_RESULTS.appendChild(resultItem);
         });
+        AUTOCOMPLETE_RESULTS.style.display = 'block';
     }
 }
 
@@ -217,23 +206,20 @@ function searchProducts(query) {
 document.addEventListener('DOMContentLoaded', () => {
     renderCart();
 
-    // Evento de búsqueda (autocompletado)
+    // Búsqueda
     if (SEARCH_INPUT && AUTOCOMPLETE_RESULTS) {
         SEARCH_INPUT.addEventListener('input', () => {
             searchProducts(SEARCH_INPUT.value);
         });
-
-        // Cerrar autocompletado al perder foco
         SEARCH_INPUT.addEventListener('blur', () => {
             setTimeout(() => {
-                if (AUTOCOMPLETE_RESULTS) AUTOCOMPLETE_RESULTS.innerHTML = '';
+                if (AUTOCOMPLETE_RESULTS) AUTOCOMPLETE_RESULTS.style.display = 'none';
             }, 200);
         });
     }
 
-    // Eventos del carrito
+    // Carrito y WhatsApp
     document.body.addEventListener('click', (e) => {
-        // Añadir al carrito
         const btnAdd = e.target.closest('.btn-buy');
         if (btnAdd && btnAdd.hasAttribute('data-id')) {
             const id = btnAdd.getAttribute('data-id');
@@ -241,13 +227,11 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Abrir carrito (tu HTML usa .cart como contenedor)
         if (e.target.closest('#cart-icon')) {
             cartModal.style.display = 'block';
             return;
         }
 
-        // Cerrar modal
         if (
             e.target.closest('#btn-cancel-modal') ||
             e.target.closest('#btn-cancel-cart') ||
@@ -257,7 +241,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Confirmar compra
         if (e.target.closest('#btn-checkout-whatsapp')) {
             if (cart.length === 0) {
                 alert('El carrito está vacío.');
@@ -267,7 +250,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Eliminar producto
         const removeBtn = e.target.closest('.btn-remove');
         if (removeBtn && removeBtn.hasAttribute('data-id')) {
             const id = removeBtn.getAttribute('data-id');
@@ -276,12 +258,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Evento del botón de WhatsApp (en el header)
+    // Fallback para PC
+    const cartIcon = document.getElementById('cart-icon');
+    if (cartIcon) {
+        cartIcon.addEventListener('click', () => {
+            cartModal.style.display = 'block';
+        });
+    }
+
+    // WhatsApp header
     const whatsappBtn = document.querySelector('.whatsapp-btn');
     if (whatsappBtn) {
         whatsappBtn.addEventListener('click', () => {
-            const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}`;
-            window.open(whatsappURL, '_blank');
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}`, '_blank');
         });
     }
 });
