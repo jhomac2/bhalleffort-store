@@ -695,17 +695,20 @@ footer {
         font-size: 20px;
     }
 
-    /* Menú */
-    .main-nav ul {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-    }
+    /* Menú móvil */
     .menu-toggle {
         display: block;
     }
-    .menu-active .main-nav ul {
+    .main-nav {
+        display: none;
+    }
+    .main-nav.active {
+        display: block;
+    }
+    .main-nav ul {
         display: flex;
+        flex-direction: column;
+        width: 100%;
     }
     .dropdown:hover .dropdown-content {
         position: static;
