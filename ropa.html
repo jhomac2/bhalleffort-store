@@ -18,6 +18,25 @@
     <!-- Notificación temporal -->
     <div id="notification" style="display: none; position: fixed; top: 70px; left: 50%; transform: translateX(-50%); background: #25D366; color: white; padding: 10px 20px; border-radius: 5px; z-index: 9999; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">Producto añadido al carrito</div>
 
+    <!-- Notificación de sorteo -->
+    <div id="sorteo-notification" style="display: none; position: fixed; top: 70px; left: 50%; transform: translateX(-50%); background: transparent; color: #333; padding: 10px 20px; border-radius: 5px; z-index: 9999; font-weight: 600; box-shadow: 0 2px 5px rgba(0,0,0,0.2); text-align: center; font-size: 16px;"></div>
+
+    <!-- Barra de búsqueda flotante -->
+    <div id="search-floating" class="search-floating">
+        <i class="fas fa-search"></i>
+    </div>
+
+    <!-- Modal de búsqueda -->
+    <div id="search-modal" class="search-modal">
+        <div class="search-modal-content">
+            <button class="close-search" id="close-search">&times;</button>
+            <input type="text" id="search-input-modal" placeholder="Buscar productos..." autocomplete="off">
+            <div id="search-results" class="search-results">
+                <!-- Se llena automáticamente -->
+            </div>
+        </div>
+    </div>
+
     <div class="top-bar">
         <div class="container flex-space">
             <div class="location">
@@ -29,6 +48,9 @@
                 <a href="#"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-tiktok"></i></a>
             </div>
+        </div>
+        <div class="container" style="padding: 5px 0; text-align: center;">
+            <div class="god-message">DIOS TE DA MAS DE LO QUE PIDES.</div>
         </div>
     </div>
 
@@ -44,12 +66,6 @@
                 </div>
             </a>
 
-            <div class="search-bar">
-                <input type="text" id="search-input" placeholder="Buscar en Ropa..." autocomplete="off">
-                <div id="autocomplete-results" style="position: absolute; background: white; border: 1px solid #ddd; max-height: 200px; overflow-y: auto; width: 100%; z-index: 1000; display: none; box-shadow: 0 2px 5px rgba(0,0,0,0.1);"></div>
-                <button id="search-button">BÚSQUEDA</button>
-            </div>
-
             <div class="user-actions">
                 <div class="whatsapp-btn" style="cursor: pointer;">
                     <i class="fab fa-whatsapp"></i>
@@ -58,14 +74,14 @@
                         <strong>+593 963923399</strong>
                     </div>
                 </div>
-                <div class="menu-toggle">
+                <div class="menu-toggle" id="menu-toggle">
                     <i class="fas fa-bars"></i>
                 </div>
             </div>
         </div>
     </header>
 
-    <nav class="main-nav">
+    <nav class="main-nav" id="mobile-menu" style="display: none;">
         <div class="container">
             <ul>
                 <li><a href="index.html">INICIO</a></li>
@@ -229,7 +245,7 @@
             </div>
         </div>
         <div class="footer-copyright">
-            <p>&copy; 2025 BHALLEFFORT. Todos los derechos reservados. Autoridad de Jhomac² 🎯</p>
+            <p>&copy; 2025 BHALLEFFORT. Todos los derechos reservados. Diseñado por Jhomac²</p>
         </div>
     </footer>
 
