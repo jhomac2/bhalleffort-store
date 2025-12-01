@@ -18,6 +18,25 @@
     <!-- Notificación temporal -->
     <div id="notification" style="display: none; position: fixed; top: 70px; left: 50%; transform: translateX(-50%); background: #25D366; color: white; padding: 10px 20px; border-radius: 5px; z-index: 9999; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">Producto añadido al carrito</div>
 
+    <!-- Notificación de sorteo -->
+    <div id="sorteo-notification" style="display: none; position: fixed; top: 70px; left: 50%; transform: translateX(-50%); background: transparent; color: #333; padding: 10px 20px; border-radius: 5px; z-index: 9999; font-weight: 600; box-shadow: 0 2px 5px rgba(0,0,0,0.2); text-align: center; font-size: 16px;"></div>
+
+    <!-- Barra de búsqueda flotante -->
+    <div id="search-floating" class="search-floating">
+        <i class="fas fa-search"></i>
+    </div>
+
+    <!-- Modal de búsqueda -->
+    <div id="search-modal" class="search-modal">
+        <div class="search-modal-content">
+            <button class="close-search" id="close-search">&times;</button>
+            <input type="text" id="search-input-modal" placeholder="Buscar productos..." autocomplete="off">
+            <div id="search-results" class="search-results">
+                <!-- Se llena automáticamente -->
+            </div>
+        </div>
+    </div>
+
     <div class="top-bar">
         <div class="container flex-space">
             <div class="location">
@@ -30,11 +49,13 @@
                 <a href="#"><i class="fab fa-tiktok"></i></a>
             </div>
         </div>
+        <div class="container" style="padding: 5px 0; text-align: center;">
+            <div class="god-message">DIOS TE DA MAS DE LO QUE PIDES.</div>
+        </div>
     </div>
 
     <header class="main-header">
         <div class="container flex-center">
-            <!-- ✅ LOGO QUE LLEVA AL INICIO -->
             <a href="index.html" class="logo-link">
                 <div class="logo-section">
                     <img src="logo-ballena.png" alt="Ballenita Azul" class="whale-icon"> 
@@ -45,12 +66,6 @@
                 </div>
             </a>
 
-            <div class="search-bar">
-                <input type="text" id="search-input" placeholder="Buscar productos (Ropa, Juguetes...)..." autocomplete="off">
-                <div id="autocomplete-results" style="position: absolute; background: white; border: 1px solid #ddd; max-height: 200px; overflow-y: auto; width: 100%; z-index: 1000; display: none; box-shadow: 0 2px 5px rgba(0,0,0,0.1);"></div>
-                <button id="search-button">BÚSQUEDA</button>
-            </div>
-
             <div class="user-actions">
                 <div class="whatsapp-btn" style="cursor: pointer;">
                     <i class="fab fa-whatsapp"></i>
@@ -59,14 +74,14 @@
                         <strong>+593 963923399</strong>
                     </div>
                 </div>
-                <div class="menu-toggle">
+                <div class="menu-toggle" id="menu-toggle">
                     <i class="fas fa-bars"></i>
                 </div>
             </div>
         </div>
     </header>
 
-    <nav class="main-nav">
+    <nav class="main-nav" id="mobile-menu" style="display: none;">
         <div class="container">
             <ul>
                 <li><a href="index.html">INICIO</a></li>
@@ -114,21 +129,21 @@
 
     <section class="quick-categories">
         <div class="container flex-quick-categories">
-            <div class="category-box">
+            <a href="ropa.html" class="category-box" style="text-decoration: none; color: inherit;">
                 <i class="fas fa-tshirt"></i>
                 <h3>ROPA</h3>
                 <p>Moda al mejor precio</p>
-            </div>
-            <div class="category-box">
+            </a>
+            <a href="juguetes.html" class="category-box" style="text-decoration: none; color: inherit;">
                 <i class="fas fa-toys"></i>
                 <h3>JUGUETES</h3>
                 <p>Diversión garantizada</p>
-            </div>
-            <div class="category-box">
+            </a>
+            <a href="hogar.html" class="category-box" style="text-decoration: none; color: inherit;">
                 <i class="fas fa-couch"></i>
                 <h3>SUMINISTROS HOGAR</h3>
                 <p>Todo para tu casa</p>
-            </div>
+            </a>
         </div>
     </section>
 
@@ -143,7 +158,6 @@
                         <span class="product-category">Ropa</span>
                         <h4 class="product-name">Camiseta BHALLEFFORT Edición Limitada</h4>
                         <div class="price">
-                            <span class="old-price">$25.00</span>
                             <span class="current-price">$14.99</span>
                         </div>
                         <button class="btn-buy" data-id="P001">Añadir al Carrito</button>
@@ -156,7 +170,6 @@
                         <span class="product-category">Hogar</span>
                         <h4 class="product-name">Set de Utensilios de Cocina Deluxe</h4>
                         <div class="price">
-                            <span class="old-price">$45.00</span>
                             <span class="current-price">$39.99</span>
                         </div>
                         <button class="btn-buy" data-id="P003">Añadir al Carrito</button>
@@ -169,7 +182,6 @@
                         <span class="product-category">Juguetes</span>
                         <h4 class="product-name">Bloques de Construcción Gigantes (500 pzs)</h4>
                         <div class="price">
-                            <span class="old-price">$30.00</span>
                             <span class="current-price">$22.50</span>
                         </div>
                         <button class="btn-buy" data-id="P002">Añadir al Carrito</button>
@@ -182,7 +194,6 @@
                         <span class="product-category">Ropa</span>
                         <h4 class="product-name">Pantalón Deportivo Morado BHALLEFFORT</h4>
                         <div class="price">
-                            <span class="old-price">$35.00</span>
                             <span class="current-price">$19.99</span>
                         </div>
                         <button class="btn-buy" data-id="O001">Añadir al Carrito</button>
@@ -256,11 +267,11 @@
         </div>
         
         <div class="footer-copyright">
-            <p>&copy; 2025 BHALLEFFORT. Todos los derechos reservados. Autoridad de Jhomac² 🎯</p>
+            <p>&copy; 2025 BHALLEFFORT. Todos los derechos reservados. Diseñado por Jhomac²</p>
         </div>
     </footer>
 
-    <!-- MODAL DEL CARRITO (solo se abre al hacer clic en el ícono) -->
+    <!-- MODAL DEL CARRITO -->
     <div id="cart-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2000;">
         <div style="background: white; width: 90%; max-width: 500px; margin: 50px auto; padding: 20px; border-radius: 10px; position: relative; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
             <button id="btn-cancel-modal" style="position: absolute; top: 10px; right: 15px; background: none; border: none; font-size: 20px; cursor: pointer;">&times;</button>
