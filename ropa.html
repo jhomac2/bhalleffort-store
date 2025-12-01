@@ -31,7 +31,7 @@
     <header class="main-header">
         <div class="container flex-center">
             <div class="logo-section">
-                <img src="img/logo-ballena.png" alt="Ballenita Azul" class="whale-icon"> 
+                <img src="logo-ballena.png" alt="Ballenita Azul" class="whale-icon"> 
                 <div class="brand-text">
                     <h1>BHALLEFFORT</h1>
                     <p>LO MEJOR Y AL MEJOR PRECIO</p>
@@ -51,9 +51,7 @@
                         <strong>+593 960503674</strong>
                     </div>
                 </div>
-                <div class="account">
-                    <i class="far fa-user"></i> Acceso | Registro
-                </div>
+                <!-- ✅ Sin "Acceso | Registro" -->
                 <div class="menu-toggle">
                     <i class="fas fa-bars"></i>
                 </div>
@@ -100,7 +98,6 @@
         </div>
     </nav>
 
-    <!-- Sección de título simple (sin imagen de fondo) -->
     <section class="hero-banner" style="background-color: #6a0dad; padding: 40px 20px; text-align: center; color: white;">
         <h2>MODA AL MEJOR PRECIO</h2>
         <p style="font-size: 16px; margin-top: 10px;">¡Ropa cómoda, moderna y económica!</p>
@@ -109,10 +106,9 @@
     <section class="featured-products">
         <div class="container">
             <h2 class="section-title">👗 PRODUCTOS DE ROPA</h2>
-            
             <div class="products-grid">
                 <div class="product-card">
-                    <img src="img/prod-jeans.jpg" alt="Jeans clásicos" class="product-image">
+                    <img src="prod-jeans.jpg" alt="Jeans clásicos" class="product-image">
                     <div class="product-info">
                         <span class="product-category">Ropa</span>
                         <h4 class="product-name">Jeans clásicos elasticados</h4>
@@ -124,7 +120,7 @@
                 </div>
 
                 <div class="product-card">
-                    <img src="img/prod-blusa.jpg" alt="Blusa de seda" class="product-image">
+                    <img src="prod-blusa.jpg" alt="Blusa de seda" class="product-image">
                     <div class="product-info">
                         <span class="product-category">Ropa</span>
                         <h4 class="product-name">Blusa de seda sin mangas, elegante</h4>
@@ -136,7 +132,7 @@
                 </div>
 
                 <div class="product-card">
-                    <img src="img/prod-falda.jpg" alt="Falda de verano" class="product-image">
+                    <img src="prod-falda.jpg" alt="Falda de verano" class="product-image">
                     <div class="product-info">
                         <span class="product-category">Ropa</span>
                         <h4 class="product-name">Falda de verano con estampado</h4>
@@ -148,7 +144,7 @@
                 </div>
 
                 <div class="product-card">
-                    <img src="img/prod-vestido.jpg" alt="Vestido de cóctel" class="product-image">
+                    <img src="prod-vestido.jpg" alt="Vestido de cóctel" class="product-image">
                     <div class="product-info">
                         <span class="product-category">Ropa</span>
                         <h4 class="product-name">Vestido de cóctel ajustado negro</h4>
@@ -160,7 +156,7 @@
                 </div>
 
                 <div class="product-card">
-                    <img src="img/prod-camiseta.jpg" alt="Camiseta deportiva" class="product-image">
+                    <img src="prod-camiseta.jpg" alt="Camiseta deportiva" class="product-image">
                     <div class="product-info">
                         <span class="product-category">Ropa</span>
                         <h4 class="product-name">Camiseta deportiva Dry-Fit</h4>
@@ -172,7 +168,7 @@
                 </div>
 
                 <div class="product-card">
-                    <img src="img/prod-chaqueta.jpg" alt="Chaqueta aviador" class="product-image">
+                    <img src="prod-chaqueta.jpg" alt="Chaqueta aviador" class="product-image">
                     <div class="product-info">
                         <span class="product-category">Ropa</span>
                         <h4 class="product-name">Chaqueta estilo aviador</h4>
@@ -184,7 +180,7 @@
                 </div>
 
                 <div class="product-card">
-                    <img src="img/prod-calcetines.jpg" alt="Pack de calcetines" class="product-image">
+                    <img src="prod-calcetines.jpg" alt="Pack de calcetines" class="product-image">
                     <div class="product-info">
                         <span class="product-category">Ropa</span>
                         <h4 class="product-name">Pack de 3 pares de calcetines</h4>
@@ -201,7 +197,7 @@
     <footer>
         <div class="container footer-grid">
             <div class="footer-brand">
-                <img src="img/logo-ballena.png" alt="BHALLEFFORT Logo" class="whale-icon-footer">
+                <img src="logo-ballena.png" alt="BHALLEFFORT Logo" class="whale-icon-footer">
                 <p>LO MEJOR Y AL MEJOR PRECIO</p>
                 <div class="payment-methods">
                     <i class="fab fa-cc-visa"></i>
@@ -226,7 +222,6 @@
                 </ul>
             </div>
         </div>
-        
         <div class="footer-copyright">
             <p>&copy; 2025 BHALLEFFORT. Todos los derechos reservados.</p>
         </div>
@@ -237,9 +232,7 @@
         <div style="background: white; width: 90%; max-width: 500px; margin: 50px auto; padding: 20px; border-radius: 10px; position: relative;">
             <button id="btn-cancel-modal" style="position: absolute; top: 10px; right: 15px; background: none; border: none; font-size: 20px; cursor: pointer;">&times;</button>
             <h3 style="margin-top: 0; color: #6a0dad;">🛒 Tu carrito</h3>
-            <div id="cart-items" style="max-height: 300px; overflow-y: auto; margin-bottom: 15px;">
-                <!-- Se llena automáticamente -->
-            </div>
+            <div id="cart-items" style="max-height: 300px; overflow-y: auto; margin-bottom: 15px;"></div>
             <div style="display: flex; justify-content: space-between; font-weight: bold; margin: 10px 0;">
                 <span>Total:</span>
                 <span id="cart-total">$0.00</span>
@@ -255,6 +248,6 @@
         </div>
     </div>
 
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
