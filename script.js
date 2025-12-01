@@ -49,6 +49,7 @@ const cartItemsContainer = document.getElementById('cart-items');
 const cartTotalElement = document.getElementById('cart-total');
 const WHATSAPP_NUMBER = '593963923399'; // ✅ Nuevo número
 const SEARCH_INPUT = document.getElementById('search-input');
+const AUTOCOMPLETE_RESULTS = document.getElementById('autocomplete-results');
 
 // ==========================================================
 // 3. Funciones del Carrito
@@ -72,7 +73,7 @@ function calculateTotal() {
 function renderCart() {
     cartItemsContainer.innerHTML = '';
     if (cart.length === 0) {
-        cartItemsContainer.innerHTML = '<p style="text-align:center; color:#666;">Tu carrito está vacío</p>';
+        cartItemsContainer.innerHTML = '<p style="text-align:center; color:#666; padding: 20px;">Tu carrito está vacío</p>';
     } else {
         cart.forEach(item => {
             const product = getProductData(item.id);
@@ -80,12 +81,17 @@ function renderCart() {
                 const subtotal = product.price * item.quantity;
                 const itemHTML = `
                     <div style="display: flex; align-items: center; border-bottom: 1px solid #eee; padding: 10px 0;">
-                        <img src="${product.image}" alt="${product.name}" style="width: 50px; height: 50px; object-fit: cover; margin-right: 10px;">
-                        <div style="flex: 1;">
-                            <strong>${product.name}</strong><br>
+                        <img src="${product.image}" alt="${product.name}" style="width: 50px; height: 50px; object-fit: cover; margin-right: 10px; border-radius: 5px;">
+                        <div style="flex: 1; overflow: hidden;">
+                            <strong style="display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${product.name}</strong>
                             <small>$${product.price} x ${item.quantity}</small>
                         </div>
-                        <div>$${subtotal.toFixed(2)}</div>
+                        <div style="text-align: right; min-width: 80px;">
+                            <span style="font-weight: bold;">$${subtotal.toFixed(2)}</span>
+                            <button class="btn-remove" data-id="${item.id}" aria-label="Eliminar producto" style="background: none; border: none; font-size: 14px; cursor: pointer; margin-left: 10px; color: #e74c3c;">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
                     </div>
                 `;
                 cartItemsContainer.innerHTML += itemHTML;
@@ -146,12 +152,12 @@ function generateWhatsappMessage() {
 }
 
 // ==========================================================
-// 5. Búsqueda de Productos
+// 5. Búsqueda de Productos (Autocompletado)
 // ==========================================================
 
 function searchProducts(query) {
     if (!query.trim()) {
-        alert('Por favor, escribe algo para buscar.');
+        if (AUTOCOMPLETE_RESULTS) AUTOCOMPLETE_RESULTS.innerHTML = '';
         return;
     }
 
@@ -160,34 +166,48 @@ function searchProducts(query) {
         p.category.toLowerCase().includes(query.toLowerCase())
     );
 
-    if (results.length === 0) {
-        alert(`No encontramos productos con "${query}".`);
-        return;
-    }
+    if (AUTOCOMPLETE_RESULTS) {
+        AUTOCOMPLETE_RESULTS.innerHTML = '';
 
-    // Redirigir a la primera categoría encontrada
-    const firstProduct = results[0];
-    let page = '';
-    switch (firstProduct.category) {
-        case 'Ropa':
-            page = 'ropa.html';
-            break;
-        case 'Juguetes':
-            page = 'juguetes.html';
-            break;
-        case 'Hogar':
-            page = 'hogar.html';
-            break;
-        case 'Promoción':
-            page = 'promociones.html';
-            break;
-        default:
-            page = 'index.html';
-    }
+        if (results.length === 0) {
+            AUTOCOMPLETE_RESULTS.innerHTML = '<div style="padding: 10px; color: #666; font-size: 14px;">No encontramos productos con "' + query + '".</div>';
+            return;
+        }
 
-    // Opcional: puedes mostrar una lista en vez de redirigir
-    // Pero por ahora, redirigimos directamente
-    window.location.href = page;
+        results.slice(0, 5).forEach(product => {
+            const resultItem = document.createElement('div');
+            resultItem.style.padding = '10px';
+            resultItem.style.borderBottom = '1px solid #eee';
+            resultItem.style.cursor = 'pointer';
+            resultItem.style.fontSize = '14px';
+            resultItem.textContent = `${product.name} (${product.category})`;
+            resultItem.addEventListener('click', () => {
+                // Redirigir a la categoría
+                let page = '';
+                switch (product.category) {
+                    case 'Ropa':
+                        page = 'ropa.html';
+                        break;
+                    case 'Juguetes':
+                        page = 'juguetes.html';
+                        break;
+                    case 'Hogar':
+                        page = 'hogar.html';
+                        break;
+                    case 'Promoción':
+                        page = 'promociones.html';
+                        break;
+                    default:
+                        page = 'index.html';
+                }
+                window.location.href = page;
+                // Limpiar búsqueda
+                if (SEARCH_INPUT) SEARCH_INPUT.value = '';
+                if (AUTOCOMPLETE_RESULTS) AUTOCOMPLETE_RESULTS.innerHTML = '';
+            });
+            AUTOCOMPLETE_RESULTS.appendChild(resultItem);
+        });
+    }
 }
 
 // ==========================================================
@@ -197,12 +217,17 @@ function searchProducts(query) {
 document.addEventListener('DOMContentLoaded', () => {
     renderCart();
 
-    // Evento de búsqueda
-    if (SEARCH_INPUT) {
-        SEARCH_INPUT.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                searchProducts(SEARCH_INPUT.value);
-            }
+    // Evento de búsqueda (autocompletado)
+    if (SEARCH_INPUT && AUTOCOMPLETE_RESULTS) {
+        SEARCH_INPUT.addEventListener('input', () => {
+            searchProducts(SEARCH_INPUT.value);
+        });
+
+        // Cerrar autocompletado al perder foco
+        SEARCH_INPUT.addEventListener('blur', () => {
+            setTimeout(() => {
+                if (AUTOCOMPLETE_RESULTS) AUTOCOMPLETE_RESULTS.innerHTML = '';
+            }, 200);
         });
     }
 
