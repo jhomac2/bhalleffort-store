@@ -123,7 +123,7 @@ h1, h2, h3, h4 {
 
 /* BUSCADOR */
 .search-bar {
-    position: relative; /* ✅ Añadido para autocompletado */
+    position: relative;
     display: flex;
     flex-grow: 1;
     max-width: 600px;
@@ -164,7 +164,7 @@ h1, h2, h3, h4 {
     gap: 8px;
     font-size: 14px;
     color: var(--color-text);
-    cursor: pointer; /* ✅ Hace clickeable */
+    cursor: pointer;
 }
 .whatsapp-btn i {
     font-size: 24px;
@@ -637,7 +637,26 @@ footer {
 
 
 /* -------------------------------------- */
-/* 13. CORRECCIÓN PARA CARRITO EN PC */
+/* 13. NOTIFICACIÓN TEMPORAL */
+/* -------------------------------------- */
+#notification {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #25D366;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 9999;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    font-weight: 600;
+}
+
+
+/* -------------------------------------- */
+/* 14. CORRECCIÓN PARA CARRITO EN PC */
 /* -------------------------------------- */
 #cart-icon {
     pointer-events: auto !important;
@@ -650,7 +669,7 @@ footer {
 
 
 /* -------------------------------------- */
-/* 14. RESPONSIVE (Móviles) */
+/* 15. RESPONSIVE (Móviles) */
 /* -------------------------------------- */
 @media (max-width: 768px) {
     .flex-center, .flex-space, .flex-guarantees {
@@ -661,7 +680,7 @@ footer {
     .search-bar {
         width: 100%;
         max-width: 100%;
-        order: 3; /* Mover buscador abajo */
+        order: 3;
     }
     .user-actions {
         order: 2;
@@ -678,22 +697,22 @@ footer {
 
     /* Menú */
     .main-nav ul {
-        display: none; /* Ocultar menú en móvil por defecto */
+        display: none;
         flex-direction: column;
         width: 100%;
     }
     .menu-toggle {
-        display: block; /* Mostrar botón de menú */
+        display: block;
     }
     .menu-active .main-nav ul {
-        display: flex; /* Mostrar menú al activar clase */
+        display: flex;
     }
     .dropdown:hover .dropdown-content {
         position: static;
         width: 100%;
     }
     .dropdown-content a {
-        padding-left: 40px; /* Indentar subcategorías */
+        padding-left: 40px;
     }
 
     .flex-quick-categories {
@@ -719,7 +738,7 @@ footer {
 
 
 /* -------------------------------------- */
-/* 15. ESTILOS DE PÁGINA QUIÉNES SOMOS */
+/* 16. ESTILOS DE PÁGINA QUIÉNES SOMOS */
 /* -------------------------------------- */
 .page-header {
     background-color: var(--color-primary);
