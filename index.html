@@ -32,20 +32,20 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    :root{--verde:#2e7d32;--amarillo:#ffe082;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;--fondo:#f5f7fa}
+    :root{--celeste:#87ceeb;--morado:#4c0d8c;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;--fondo:#f5f7fa}
     *{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,Arial}
     body{background:var(--fondo);color:var(--texto)}
     img{max-width:100%;display:block}
     .container{width:90%;max-width:1200px;margin:auto}
     .flex-space,.flex-center{display:flex;align-items:center;justify-content:space-between}
-    .top-bar{background:var(--amarillo);color:var(--texto);font-size:13px;padding:4px 0}
-    .main-header{padding:10px 0;background:var(--verde);color:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
+    .top-bar{background:var(--celeste);color:var(--texto);font-size:13px;padding:4px 0}
+    .main-header{padding:10px 0;background:var(--celeste);color:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
     .logo-section{display:flex;align-items:center;gap:10px}
     .whale-icon{width:46px;border:2px solid var(--morado);border-radius:50%}
     .brand-text h1{font-size:20px;color:var(--morado)}
     .brand-text p{font-size:12px;color:var(--morado);opacity:.9}
     .whatsapp-btn{display:flex;align-items:center;gap:6px;background:#25D366;color:#fff;padding:6px 10px;border-radius:4px;font-size:12px;cursor:pointer}
-    .main-nav{background:var(--verde)}
+    .main-nav{background:var(--celeste)}
     .main-nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center}
     .main-nav a{color:#fff;padding:10px 12px;display:block;font-size:14px;text-decoration:none}
     .hero-banner{background:url('prod-oferta.jpg') center/cover no-repeat;height:220px;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;text-shadow:1px 1px 3px #000}
@@ -55,7 +55,7 @@
     .category-box{background:#fff;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,.1);padding:15px 20px;text-align:center;flex:1 1 160px;max-width:200px;text-decoration:none;color:inherit}
     .category-box i{font-size:28px;color:var(--turquesa);margin-bottom:6px}
     .featured-products{padding:20px 0}
-    .section-title{text-align:center;margin-bottom:15px;font-size:22px;color:var(--verde)}
+    .section-title{text-align:center;margin-bottom:15px;font-size:22px;color:var(--morado)}
     .products-grid{display:grid;gap:15px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
     .product-card{background:#fff;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,.1);display:flex;flex-direction:column}
     .product-image{border-radius:8px 8px 0 0}
@@ -68,7 +68,7 @@
     .guarantees{background:#fff;padding:20px 0;margin-top:20px}
     .flex-guarantees{display:flex;gap:15px;flex-wrap:wrap;justify-content:center;text-align:center}
     .guarantee-item{flex:1 1 200px}
-    footer{background:var(--verde);color:#fff;font-size:13px;padding:20px 0}
+    footer{background:var(--celeste);color:#fff;font-size:13px;padding:20px 0}
     .footer-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
     .footer-contact a{color:#fff;text-decoration:none}
     .god-message{font-size:11px;color:#ddd;margin-top:4px}
@@ -96,7 +96,7 @@
     #menu-toggle{display:none;background:none;border:none;color:#fff;font-size:22px;margin-left:10px;cursor:pointer}
     @media(max-width:768px){
       #menu-toggle{display:block}
-      .main-nav ul{display:none;flex-direction:column;background:var(--verde);width:100%}
+      .main-nav ul{display:none;flex-direction:column;background:var(--celeste);width:100%}
       .main-nav ul.show{display:flex}
     }
   </style>
@@ -352,6 +352,8 @@
       actualizarBannerEnvio();
       mostrarModal();
     }
+    document.getElementById('close-cart').onclick = () => document.getElementById('cart-modal').style.display = 'none';
+    document.getElementById('cart-icon').onclick = mostrarModal;
 
     // WhatsApp con envío y sorteo
     document.getElementById('btn-wa').onclick = () => {
