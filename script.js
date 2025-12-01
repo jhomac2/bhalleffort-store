@@ -51,6 +51,13 @@ const WHATSAPP_NUMBER = '593963923399';
 const SEARCH_INPUT = document.getElementById('search-input');
 const AUTOCOMPLETE_RESULTS = document.getElementById('autocomplete-results');
 const NOTIFICATION = document.getElementById('notification');
+const MENU_TOGGLE = document.getElementById('menu-toggle');
+const MOBILE_MENU = document.getElementById('mobile-menu');
+const SORTEO_NOTIFICATION = document.getElementById('sorteo-notification');
+const SEARCH_FLOATING = document.getElementById('search-floating');
+const SEARCH_MODAL = document.getElementById('search-modal');
+const SEARCH_INPUT_MODAL = document.getElementById('search-input-modal');
+const SEARCH_RESULTS = document.getElementById('search-results');
 
 // ==========================================================
 // 3. Funciones del Carrito
@@ -117,6 +124,12 @@ function addToCart(id, quantity = 1) {
 
     // ✅ Mostrar notificación temporal
     showNotification(`✅ ${getProductData(id).name} añadido al carrito`);
+
+    // ✅ Mostrar notificación de sorteo (solo una vez por sesión)
+    if (!localStorage.getItem('sorteoShown')) {
+        showSorteoNotification();
+        localStorage.setItem('sorteoShown', 'true');
+    }
 }
 
 function removeFromCart(id) {
@@ -139,7 +152,21 @@ function showNotification(message) {
 }
 
 // ==========================================================
-// 5. WhatsApp
+// 5. Notificación de Sorteo
+// ==========================================================
+
+function showSorteoNotification() {
+    if (SORTEO_NOTIFICATION) {
+        SORTEO_NOTIFICATION.textContent = 'Por tus compras mayores a $20 participa en el sorteo mensual y llevate grandes premios.';
+        SORTEO_NOTIFICATION.style.display = 'block';
+        setTimeout(() => {
+            SORTEO_NOTIFICATION.style.display = 'none';
+        }, 5000);
+    }
+}
+
+// ==========================================================
+// 6. WhatsApp
 // ==========================================================
 
 function generateWhatsappMessage() {
@@ -169,12 +196,12 @@ function generateWhatsappMessage() {
 }
 
 // ==========================================================
-// 6. Búsqueda
+// 7. Búsqueda Flotante
 // ==========================================================
 
 function searchProducts(query) {
     if (!query.trim()) {
-        if (AUTOCOMPLETE_RESULTS) AUTOCOMPLETE_RESULTS.innerHTML = '';
+        if (SEARCH_RESULTS) SEARCH_RESULTS.innerHTML = '';
         return;
     }
 
@@ -183,11 +210,11 @@ function searchProducts(query) {
         p.category.toLowerCase().includes(query.toLowerCase())
     );
 
-    if (AUTOCOMPLETE_RESULTS) {
-        AUTOCOMPLETE_RESULTS.innerHTML = '';
+    if (SEARCH_RESULTS) {
+        SEARCH_RESULTS.innerHTML = '';
 
         if (results.length === 0) {
-            AUTOCOMPLETE_RESULTS.innerHTML = '<div style="padding:10px; color:#666;">No se encontraron resultados</div>';
+            SEARCH_RESULTS.innerHTML = '<div class="search-no-results">No se han encontrado respuestas</div>';
             return;
         }
 
@@ -207,31 +234,63 @@ function searchProducts(query) {
                     default: page = 'index.html';
                 }
                 window.location.href = page;
-                if (SEARCH_INPUT) SEARCH_INPUT.value = '';
-                if (AUTOCOMPLETE_RESULTS) AUTOCOMPLETE_RESULTS.innerHTML = '';
+                if (SEARCH_INPUT_MODAL) SEARCH_INPUT_MODAL.value = '';
+                if (SEARCH_RESULTS) SEARCH_RESULTS.innerHTML = '';
+                closeSearchModal();
             });
-            AUTOCOMPLETE_RESULTS.appendChild(resultItem);
+            SEARCH_RESULTS.appendChild(resultItem);
         });
-        AUTOCOMPLETE_RESULTS.style.display = 'block';
+    }
+}
+
+function openSearchModal() {
+    if (SEARCH_MODAL) {
+        SEARCH_MODAL.style.display = 'flex';
+        if (SEARCH_INPUT_MODAL) SEARCH_INPUT_MODAL.focus();
+    }
+}
+
+function closeSearchModal() {
+    if (SEARCH_MODAL) {
+        SEARCH_MODAL.style.display = 'none';
     }
 }
 
 // ==========================================================
-// 7. Eventos
+// 8. Eventos
 // ==========================================================
 
 document.addEventListener('DOMContentLoaded', () => {
     renderCart();
 
-    // Búsqueda
-    if (SEARCH_INPUT && AUTOCOMPLETE_RESULTS) {
-        SEARCH_INPUT.addEventListener('input', () => {
-            searchProducts(SEARCH_INPUT.value);
+    // Búsqueda flotante
+    if (SEARCH_FLOATING && SEARCH_MODAL) {
+        SEARCH_FLOATING.addEventListener('click', openSearchModal);
+    }
+
+    if (SEARCH_INPUT_MODAL) {
+        SEARCH_INPUT_MODAL.addEventListener('input', () => {
+            searchProducts(SEARCH_INPUT_MODAL.value);
         });
-        SEARCH_INPUT.addEventListener('blur', () => {
+        SEARCH_INPUT_MODAL.addEventListener('blur', () => {
             setTimeout(() => {
-                if (AUTOCOMPLETE_RESULTS) AUTOCOMPLETE_RESULTS.style.display = 'none';
+                if (SEARCH_RESULTS) SEARCH_RESULTS.innerHTML = '';
             }, 200);
+        });
+    }
+
+    if (SEARCH_MODAL) {
+        SEARCH_MODAL.addEventListener('click', (e) => {
+            if (e.target === SEARCH_MODAL) {
+                closeSearchModal();
+            }
+        });
+    }
+
+    // Menú móvil
+    if (MENU_TOGGLE && MOBILE_MENU) {
+        MENU_TOGGLE.addEventListener('click', () => {
+            MOBILE_MENU.classList.toggle('active');
         });
     }
 
