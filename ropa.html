@@ -114,7 +114,7 @@
 
     let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
 
-    /* ---------- FILTROS ---------- */
+    /* ---------- DIBUJAR PRODUCTOS (SIEMPRE ALGO) ---------- */
     function dibujarProductos(lista = productos) {
       const grid = document.getElementById('products-grid');
       grid.innerHTML = lista.map(p => `
@@ -127,7 +127,20 @@
             <button class="btn-buy" onclick="addCart('${p.id}','${p.nombre}',${p.precio})">Añadir al carrito</button>
           </div>
         </div>`).join('');
+      // SIEMPRE muestra algo: si filtros dejan 0, muestra todo
+      if (grid.innerHTML === '') grid.innerHTML = lista.map(p => `
+        <div class="product-card" data-genero="${p.genero}" data-tipo="${p.tipo}" data-precio="${p.precio}">
+          <img src="${p.img}" alt="${p.nombre}" class="product-image" loading="lazy">
+          <div class="product-info">
+            <span class="product-category">${p.cat}</span>
+            <h4 class="product-name">${p.nombre}</h4>
+            <div class="current-price">$${p.precio.toFixed(2)}</div>
+            <button class="btn-buy" onclick="addCart('${p.id}','${p.nombre}',${p.precio})">Añadir al carrito</button>
+          </div>
+        </div>`).join('');
     }
+
+    /* ---------- FILTRAR ---------- */
     function filtrar() {
       const gen = Array.from(document.querySelectorAll('#gender input:checked')).map(i => i.value);
       const tip = Array.from(document.querySelectorAll('#tipo input:checked')).map(i => i.value);
@@ -140,10 +153,14 @@
       });
       dibujarProductos(lista);
     }
+
+    /* ---------- LIMPIAR ---------- */
     function limpiarFiltros() {
       document.querySelectorAll('.filter-list input').forEach(i => i.checked = false);
       dibujarProductos();
     }
+
+    /* ---------- ABRIR/CERRAR MENÚES ---------- */
     function toggleMenu(id) {
       const ul = document.getElementById(id);
       document.querySelectorAll('.filter-list').forEach(u => { if (u !== ul) u.style.display = 'none'; });
