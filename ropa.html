@@ -69,9 +69,6 @@
   <!-- banners fijos -->
   <div id="banner-div"><div id="banner-envio">🚚 ¡Envío gratis desde $50!</div><div id="banner-sorteo">🎉 Por compras superiores a $20 participas en el sorteo mensual</div></div>
 
-  <!-- top-bar con redes -->
-  <div class="top-bar"><div class="container flex-space"><div class="social-icons"><a href="https://wa.me/593963923399" target="_blank"><i class="fab fa-whatsapp"></i></a><a href="https://facebook.com/bhalleffort" target="_blank"><i class="fab fa-facebook"></i></a><a href="https://instagram.com/bhalleffort" target="_blank"><i class="fab fa-instagram"></i></a></div><div><i class="fas fa-map-marker-alt"></i> ENVÍOS POR SERVIENTREGA A TODO EL ECUADOR</div><div><i class="fas fa-truck"></i> ENVÍOS 100% SEGUROS</div></div></div>
-
   <!-- header -->
   <header class="main-header"><div class="container flex-center"><a href="index.html" class="logo-link"><div class="logo-section"><img src="logo-ballena.png" alt="Ballena BHALLEFFORT" class="whale-icon"><div class="brand-text"><h1>BHALLEFFORT</h1><p>LO MEJOR Y AL MEJOR PRECIO</p></div></div></a><div style="display:flex;align-items:center;gap:10px"><div class="whatsapp-btn" onclick="window.open('https://wa.me/593963923399','_blank')"><i class="fab fa-whatsapp"></i><div><span>PEDIDOS WHATSAPP</span><br><strong>+593 963 923 399</strong></div></div><button id="menu-toggle" aria-label="Menú"><i class="fas fa-bars"></i></button></div></div></header>
 
@@ -218,9 +215,14 @@
       document.getElementById('nav-menu').classList.toggle('show');
     };
 
-    /* ---------- ARRANQUE ---------- */
+    /* ---------- ARRANQUE + FALLBACK SI NO HAY PRODUCTOS ---------- */
     dibujarProductos();
+    // Si no hay productos, muestra mensaje y habilita flechas
+    if (productos.length === 0) {
+      document.getElementById('products-grid').innerHTML = '<p style="text-align:center;color:#777;margin:40px 0;">Aún no hay productos en esta categoría.</p>';
+      document.getElementById('btn-prev').disabled = false;
+      document.getElementById('btn-next').disabled = false;
+    }
     actualizarBadge();
   </script>
 </body>
-</html>
