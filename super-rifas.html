@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rifas – BHALLEFFORT</title>
+  <meta name="description" content="Participa en nuestras rifas mensuales. ¡Gana increíbles premios! Tienda online en Ecuador.">
+  <link rel="icon" href="https://jhomac2.github.io/bhalleffort-store/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{--morado:#4c0d8c;--celeste:#87ceeb;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;--fondo:#f5f7fa}
+    *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',system-ui,Arial}
+    body{background:var(--fondo);color:var(--texto)}
+    img{max-width:100%;display:block}
+    .container{width:90%;max-width:1200px;margin:auto}
+    .flex-space{display:flex;align-items:center;justify-content:space-between}
+    .top-bar{background:var(--morado);color:#fff;font-size:13px;padding:4px 0}
+    .top-bar .social-icons{display:flex;gap:8px;font-size:16px}
+    .top-bar .social-icons a{color:#fff}
+    .main-header{padding:10px 0;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
+    .logo-section{display:flex;align-items:center;gap:10px}
+    .whale-icon{width:46px;border:2px solid var(--morado);border-radius:50%}
+    .brand-text h1{font-size:20px;color:var(--morado)}
+    .brand-text p{font-size:12px;color:var(--morado);opacity:.9}
+    .dual-buttons{display:flex;gap:1rem;justify-content:center;margin:1rem 0;flex-wrap:wrap}
+    .btn-rifas,.btn-wa{padding:.8rem 1.4rem;border-radius:6px;font-weight:700;text-decoration:none;color:#fff;box-shadow:0 2px 4px rgba(0,0,0,.25)}
+    .btn-rifas{background:#ff6600}
+    .btn-wa{background:#25d366}
+    .main-nav{position:sticky;top:0;z-index:999;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
+    .main-nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center}
+    .main-nav a{color:var(--morado);padding:10px 12px;display:block;font-size:14px;text-decoration:none;font-weight:600}
+    .main-nav a.active{background:var(--morado);color:#fff;border-radius:4px;}
+    .hero-banner{background:linear-gradient(135deg, #ff6600, #ff9933);padding:40px 20px;text-align:center;color:#fff}
+    .hero-banner h2{font-size:26px}
+    .featured-rifas{padding:30px 0}
+    .section-title{text-align:center;color:var(--morado);font-size:22px;margin-bottom:20px}
+    .rifas-grid{
+      display:grid;
+      gap:20px;
+      grid-template-columns:repeat(4,1fr);
+      max-width:1100px;
+      margin:auto;
+    }
+    .rifa-card{
+      background:#fff;
+      border-radius:10px;
+      overflow:hidden;
+      box-shadow:0 3px 8px rgba(0,0,0,.15);
+      text-align:center;
+    }
+    .rifa-image{
+      width:100%;
+      height:200px;
+      object-fit:cover;
+    }
+    .rifa-info{padding:12px}
+    .rifa-name{font-weight:600;color:var(--morado);margin:5px 0}
+    .rifa-desc{font-size:13px;color:#555}
+    footer{background:var(--celeste);color:#000;font-size:13px;padding:20px 0}
+    .footer-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+    .footer-contact a{color:#000;text-decoration:none}
+    .god-message{font-size:11px;color:#000;margin-top:4px}
+    .designer-line{font-size:12px;color:#000;margin-top:4px}
+    /* Carrito */
+    #cart-icon{position:fixed;top:15px;right:15px;background:#fff;border-radius:50%;padding:8px;box-shadow:0 2px 5px rgba(0,0,0,.15);cursor:pointer;z-index:1000}
+    #cart-badge{background:var(--turquesa);color:#fff;border-radius:50%;padding:2px 6px;font-size:11px;position:absolute;top:-4px;right:-4px}
+    /* Banners */
+    #banner-div{position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;box-shadow:0 -2px 5px rgba(0,0,0,.1);z-index:999}
+    #banner-envio{flex:1;background:#25D366;color:#fff;text-align:center;padding:8px;font-size:14px}
+    #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:8px;font-size:14px}
+    @media(max-width:768px){
+      .rifas-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:480px){
+      .rifas-grid{grid-template-columns:repeat(1,1fr)}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Carrito (solo si hay productos) -->
+  <div id="cart-icon" style="display:none;"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
+
+  <!-- Banners inferiores -->
+  <div id="banner-div">
+    <div id="banner-envio">🚚 ¡Envío gratis desde $50!</div>
+    <div id="banner-sorteo">🎉 Por compras superiores a $20 participas automáticamente en nuestra gran rifa</div>
+  </div>
+
+  <!-- Top bar -->
+  <div class="top-bar">
+    <div class="container flex-space">
+      <div class="social-icons">
+        <a href="https://tiktok.com/@bhalleffort" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://facebook.com/bhalleffort" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://instagram.com/bhalleffort" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div><i class="fas fa-truck"></i> ENVÍOS 100% SEGUROS</div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="main-header">
+    <div class="container flex-space">
+      <a href="index.html" style="text-decoration:none; color:inherit;">
+        <div class="logo-section">
+          <img src="logo-ballena.png" alt="BHALLEFFORT" class="whale-icon">
+          <div class="brand-text">
+            <h1>BHALLEFFORT</h1>
+            <p>Tienda Online Ecuador</p>
+          </div>
+        </div>
+      </a>
+      <div class="dual-buttons">
+        <a href="super-rifas.html" class="btn-rifas">🎉 Rifas</a>
+        <a href="https://wa.me/593963923399" class="btn-wa">📱 +593 963 923 399</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Menú -->
+  <nav class="main-nav">
+    <ul id="nav-menu">
+      <li><a href="index.html">INICIO</a></li>
+      <li><a href="ropa.html">ROPA</a></li>
+      <li><a href="zapatos.html">ZAPATOS</a></li>
+      <li><a href="varios.html">VARIOS</a></li>
+      <li><a href="promociones.html">PROMOCIONES</a></li>
+      <li><a href="quienes-somos.html">QUIÉNES SOMOS</a></li>
+      <li><a href="contacto.html">CONTACTO</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero-banner">
+    <h2>🎁 ¡PARTICIPA EN NUESTRAS RIFAS!</h2>
+    <p>Compra y participa automáticamente. ¡Premios increíbles cada mes!</p>
+  </section>
+
+  <!-- Rifas -->
+  <section class="featured-rifas">
+    <div class="container">
+      <h2 class="section-title">🔥 RIFAS ACTIVAS ESTE MES</h2>
+      <div class="rifas-grid">
+        <div class="rifa-card">
+          <img src="rifa1.jpg" alt="Rifa: Smartphone" class="rifa-image">
+          <div class="rifa-info">
+            <div class="rifa-name">📱 Smartphone Nuevo</div>
+            <div class="rifa-desc">Participa por $20 o más</div>
+          </div>
+        </div>
+        <div class="rifa-card">
+          <img src="rifa2.jpg" alt="Rifa: Audífonos" class="rifa-image">
+          <div class="rifa-info">
+            <div class="rifa-name">🎧 Audífonos Inalámbricos</div>
+            <div class="rifa-desc">Participa por $20 o más</div>
+          </div>
+        </div>
+        <div class="rifa-card">
+          <img src="rifa3.jpg" alt="Rifa: Reloj" class="rifa-image">
+          <div class="rifa-info">
+            <div class="rifa-name">⌚ Reloj Inteligente</div>
+            <div class="rifa-desc">Participa por $20 o más</div>
+          </div>
+        </div>
+        <div class="rifa-card">
+          <img src="rifa4.jpg" alt="Rifa: Mochila" class="rifa-image">
+          <div class="rifa-info">
+            <div class="rifa-name">🎒 Mochila Antirrobo</div>
+            <div class="rifa-desc">Participa por $20 o más</div>
+          </div>
+        </div>
+        <div class="rifa-card">
+          <img src="rifa5.jpg" alt="Rifa: Kit de Belleza" class="rifa-image">
+          <div class="rifa-info">
+            <div class="rifa-name">💄 Kit de Belleza</div>
+            <div class="rifa-desc">Participa por $20 o más</div>
+          </div>
+        </div>
+        <div class="rifa-card">
+          <img src="rifa6.jpg" alt="Rifa: Juego de Cocina" class="rifa-image">
+          <div class="rifa-info">
+            <div class="rifa-name">🍳 Set de Cocina</div>
+            <div class="rifa-desc">Participa por $20 o más</div>
+          </div>
+        </div>
+        <div class="rifa-card">
+          <img src="rifa7.jpg" alt="Rifa: Peluche Gigante" class="rifa-image">
+          <div class="rifa-info">
+            <div class="rifa-name">🧸 Peluche Gigante</div>
+            <div class="rifa-desc">Participa por $20 o más</div>
+          </div>
+        </div>
+        <div class="rifa-card">
+          <img src="rifa8.jpg" alt="Rifa: Tarjeta Regalo" class="rifa-image">
+          <div class="rifa-info">
+            <div class="rifa-name">💳 $50 en Compras</div>
+            <div class="rifa-desc">Participa por $20 o más</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <img src="logo-ballena.png" alt="Ballena" width="40">
+        <p>LO MEJOR Y AL MEJOR PRECIO</p>
+        <div class="god-message">Dios te da más de lo que pides.</div>
+        <div class="designer-line">Diseñado por Jhomac² <i class="fab fa-tiktok"></i></div>
+      </div>
+      <div class="footer-contact">
+        <h3>CONTÁCTANOS</h3>
+        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/593963923399" target="_blank">+593 963 923 399</a></p>
+        <p><i class="fas fa-envelope"></i> agromhasvida5@gmail.com</p>
+        <p><i class="far fa-clock"></i> Horario: 8:00-20:00 (lunes a domingo)</p>
+        <p><i class="fas fa-map-marker-alt"></i> La Y de Tabacundo, Pichincha, Ecuador</p>
+      </div>
+      <div>
+        <h3>POLÍTICAS</h3>
+        <ul style="list-style:none;padding:0">
+          <li><a href="politicas.html#terminos" style="color:#000">Términos y condiciones</a></li>
+          <li><a href="politicas.html#envios" style="color:#000">Política de envíos</a></li>
+          <li><a href="politicas.html#devoluciones" style="color:#000">Cambios y devoluciones</a></li>
+          <li><a href="cookies.html" style="color:#000">Política de cookies</a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:15px;font-size:12px;color:#000">
+      © 2025 @BHALLEFFORT. Todos los derechos reservados.<br>
+      Diseñado por Jhomac² <i class="fab fa-tiktok"></i>
+    </div>
+  </footer>
+
+  <!-- Lógica: carrito y banners -->
+  <script>
+    const carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
+    const cartIcon = document.getElementById('cart-icon');
+    const cartBadge = document.getElementById('cart-badge');
+
+    if (carrito.length > 0) {
+      cartBadge.textContent = carrito.length;
+      cartIcon.style.display = 'block';
+    }
+
+    function actualizarBannerEnvio() {
+      const total = carrito.reduce((t,p)=>t+p.precio,0);
+      const bannerEnvio = document.getElementById('banner-envio');
+      const bannerSorteo = document.getElementById('banner-sorteo');
+      if (total >= 50) {
+        bannerEnvio.innerHTML = '✅ ¡Tu envío es gratis!';
+        bannerEnvio.style.background = '#25D366';
+      } else {
+        bannerEnvio.innerHTML = '🚚 ¡Envío gratis desde $50!';
+        bannerEnvio.style.background = '#ff9800';
+      }
+      if (total >= 20) {
+        bannerSorteo.innerHTML = '🎉 ¡YA ESTÁS PARTICIPANDO EN NUESTRA GRAN RIFA!';
+        bannerSorteo.style.background = 'var(--morado)';
+      } else {
+        bannerSorteo.innerHTML = '🎉 Por compras superiores a $20 participas automáticamente en nuestra gran rifa';
+        bannerSorteo.style.background = 'var(--morado)';
+      }
+    }
+
+    actualizarBannerEnvio();
+  </script>
+</body>
+</html>
