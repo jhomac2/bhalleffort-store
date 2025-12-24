@@ -5,15 +5,9 @@
   <title>Ropa y Calzado – BHALLEFFORT</title>
   <meta name="description" content="Ropa, zapatos y accesorios al mejor precio del Ecuador. Envíos a todo el país.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Favicon -->
   <link rel="icon" href="https://jhomac2.github.io/bhalleffort-store/favicon.ico" type="image/x-icon">
-
-  <!-- Fuentes e iconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-  <!-- ESTILOS (copiados y adaptados del index.html) -->
   <style>
     :root{--celeste:#87ceeb;--morado:#4c0d8c;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;--fondo:#f5f7fa}
     *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',system-ui,Arial}
@@ -30,21 +24,22 @@
     .brand-text h1{font-size:20px;color:var(--morado)}
     .brand-text p{font-size:12px;color:var(--morado);opacity:.9}
 
-    /* ---------- BOTONES DUALES ---------- */
+    /* Botones WhatsApp y Rifas */
     .dual-buttons{display:flex;gap:1rem;justify-content:center;margin:1rem 0;flex-wrap:wrap}
     .btn-rifas,.btn-wa{padding:.8rem 1.4rem;border-radius:6px;font-weight:700;text-decoration:none;color:#fff;box-shadow:0 2px 4px rgba(0,0,0,.25)}
     .btn-rifas{background:#ff6600}
     .btn-wa{background:#25d366}
 
-    /* ---------- NAV STICKY ---------- */
+    /* Menú de navegación */
     .main-nav{position:sticky;top:0;z-index:999;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
     .main-nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center}
     .main-nav a{color:var(--morado);padding:10px 12px;display:block;font-size:14px;text-decoration:none;font-weight:600}
 
+    /* Hero banner */
     .hero-banner{background:url('prod-oferta.jpg') center/cover no-repeat;height:220px;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;text-shadow:1px 1px 3px #000}
     .hero-banner h1{font-size:26px}
 
-    /* ---------- PRODUCTOS DESTACADOS (20 en 4 filas de 5) ---------- */
+    /* Productos (4 filas de 5) */
     .featured-products{padding:20px 0}
     .section-title{text-align:center;margin-bottom:15px;font-size:22px;color:var(--morado)}
     .products-grid-ten{
@@ -102,19 +97,19 @@
       .products-grid-ten{grid-template-columns:repeat(2,1fr)}
     }
 
-    /* ---------- GARANTÍAS ---------- */
+    /* Garantías */
     .guarantees{background:#fff;padding:20px 0;margin-top:20px}
     .flex-guarantees{display:flex;gap:15px;flex-wrap:wrap;justify-content:center;text-align:center}
     .guarantee-item{flex:1 1 200px}
 
-    /* ---------- FOOTER ---------- */
+    /* Footer */
     footer{background:var(--celeste);color:#000;font-size:13px;padding:20px 0}
     .footer-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
     .footer-contact a{color:#000;text-decoration:none}
     .god-message{font-size:11px;color:#000;margin-top:4px}
     .designer-line{font-size:12px;color:#000;margin-top:4px}
 
-    /* ---------- CARRITO / LUPA / MODALES ---------- */
+    /* Carrito, lupa, banners */
     #cart-icon{position:fixed;top:15px;right:15px;background:#fff;border-radius:50%;padding:8px;box-shadow:0 2px 5px rgba(0,0,0,.15);cursor:pointer;z-index:1000}
     #cart-badge{background:var(--turquesa);color:#fff;border-radius:50%;padding:2px 6px;font-size:11px;position:absolute;top:-4px;right:-4px}
     .cart-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000}
@@ -138,7 +133,7 @@
 </head>
 <body>
 
-  <!-- carrito + lupa + modales -->
+  <!-- Carrito, búsqueda, notificaciones -->
   <div id="cart-icon"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
   <button id="btn-lupa" title="Buscar producto"><i class="fas fa-search"></i></button>
   <div id="search-modal">
@@ -150,13 +145,13 @@
   </div>
   <div id="noti-add"></div>
 
-  <!-- banner inferior -->
+  <!-- Banners inferiores fijos -->
   <div id="banner-div">
     <div id="banner-envio">🚚 ¡Envío gratis desde $50!</div>
     <div id="banner-sorteo">🎉 Por compras superiores a $20 participas automáticamente en nuestra gran rifa</div>
   </div>
 
-  <!-- top-bar SIN "ENVÍOS POR SERVIENTREGA A TODO EL ECUADOR" -->
+  <!-- Top bar con redes sociales -->
   <div class="top-bar">
     <div class="container flex-space">
       <div class="social-icons">
@@ -168,16 +163,19 @@
     </div>
   </div>
 
-  <!-- header -->
+  <!-- Header con logo enlazado al inicio -->
   <header class="main-header">
     <div class="container flex-space">
-      <div class="logo-section">
-        <img src="logo-ballena.png" alt="BHALLEFFORT" class="whale-icon">
-        <div class="brand-text">
-          <h1>BHALLEFFORT</h1>
-          <p>Tienda Online Ecuador</p>
+      <!-- ✅ AQUÍ ESTÁ EL CAMBIO PRINCIPAL: el logo y texto son un enlace a index.html -->
+      <a href="index.html" style="text-decoration:none; color: inherit;">
+        <div class="logo-section">
+          <img src="logo-ballena.png" alt="BHALLEFFORT" class="whale-icon">
+          <div class="brand-text">
+            <h1>BHALLEFFORT</h1>
+            <p>Tienda Online Ecuador</p>
+          </div>
         </div>
-      </div>
+      </a>
       <div class="dual-buttons">
         <a href="super-rifas.html" class="btn-rifas">🎉 Rifas</a>
         <a href="https://wa.me/593963923399" class="btn-wa">📱 +593 963 923 399</a>
@@ -185,7 +183,7 @@
     </div>
   </header>
 
-  <!-- nav sticky -->
+  <!-- Menú de navegación -->
   <nav class="main-nav">
     <ul id="nav-menu">
       <li><a href="index.html">INICIO</a></li>
@@ -198,7 +196,7 @@
     </ul>
   </nav>
 
-  <!-- hero -->
+  <!-- Hero banner -->
   <section class="hero-banner">
     <div>
       <h1>Ropa y Calzado – BHALLEFFORT</h1>
@@ -206,7 +204,7 @@
     </div>
   </section>
 
-  <!-- PRODUCTOS DE ROPA (20 productos en 4 filas de 5) -->
+  <!-- Productos de ropa (4 filas de 5) -->
   <section class="featured-products">
     <div class="container">
       <h2 class="section-title">✨ ROPA Y CALZADO - TODAS LAS OFERTAS ✨</h2>
@@ -214,7 +212,7 @@
     </div>
   </section>
 
-  <!-- garantías -->
+  <!-- Garantías -->
   <section class="guarantees">
     <div class="container flex-guarantees">
       <div class="guarantee-item"><i class="fas fa-truck"></i><div><strong>ENVÍOS 100% SEGUROS</strong><p>A todo el Ecuador</p></div></div>
@@ -224,13 +222,13 @@
     </div>
   </section>
 
-  <!-- footer -->
+  <!-- Footer -->
   <footer>
     <div class="container footer-grid">
       <div>
         <img src="logo-ballena.png" alt="Ballena" width="40">
         <p>LO MEJOR Y AL MEJOR PRECIO</p>
-        <div class="god-message" style="color:#000">Dios te da más de lo que pides.</div>
+        <div class="god-message">Dios te da más de lo que pides.</div>
         <div class="designer-line">Diseñado por Jhomac² <i class="fab fa-tiktok"></i></div>
       </div>
       <div class="footer-contact">
@@ -256,7 +254,7 @@
     </div>
   </footer>
 
-  <!-- modales y lógica -->
+  <!-- Modal del carrito -->
   <div id="cart-modal" class="cart-modal">
     <div>
       <header>
@@ -275,8 +273,8 @@
     </div>
   </div>
 
+  <!-- Lógica -->
   <script>
-    // Lista de 20 productos de ropa y calzado (puedes reemplazar las imágenes y nombres)
     const productos = [
       {id:"R001",cat:"Ropa",nombre:"Camisa de mujer – Talla única",precio:7.00,img:"prod-camisa-de-mujer-talla-única.webp",url:"ropa.html"},
       {id:"Z001",cat:"Zapatos",nombre:"Tacos triple banda – Color oro",precio:20.00,img:"prod-tacos--triple-banda-talla-color-oro.webp",url:"ropa.html"},
