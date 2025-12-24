@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>BHALLEFFORT | Tienda online Ecuador – ropa, zapatos, varios</title>
-  <meta name="description" content="Compra online en Ecuador: ropa, zapatos y artículos varios. Envíos por Servientrega a todo el Ecuador.">
+  <meta name="description" content="Compra online en Ecuador: ropa, zapatos y artículos varios. Envíos 100% seguros.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="https://jhomac2.github.io/bhalleffort-store/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -15,9 +15,11 @@
     img{max-width:100%;display:block}
     .container{width:90%;max-width:1200px;margin:auto}
     .flex-space{display:flex;align-items:center;justify-content:space-between}
+    /* ---------- TOP BAR ---------- */
     .top-bar{background:var(--morado);color:#fff;font-size:13px;padding:4px 0}
     .top-bar .social-icons{display:flex;gap:8px;font-size:16px}
     .top-bar .social-icons a{color:#fff}
+    /* ---------- HEADER ---------- */
     .main-header{padding:10px 0;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
     .logo-section{display:flex;align-items:center;gap:10px}
     .whale-icon{width:46px;border:2px solid var(--morado);border-radius:50%}
@@ -28,13 +30,13 @@
     .btn-rifas,.btn-wa{padding:.8rem 1.4rem;border-radius:6px;font-weight:700;text-decoration:none;color:#fff;box-shadow:0 2px 4px rgba(0,0,0,.25)}
     .btn-rifas{background:#ff6600}
     .btn-wa{background:#25d366}
-    /* ---------- MENÚ STICKY ---------- */
+    /* ---------- NAV STICKY ---------- */
     .main-nav{position:sticky;top:0;z-index:999;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
     .main-nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center}
     .main-nav a{color:var(--morado);padding:10px 12px;display:block;font-size:14px;text-decoration:none;font-weight:600}
     .hero-banner{background:url('prod-oferta.jpg') center/cover no-repeat;height:220px;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;text-shadow:1px 1px 3px #000}
     .hero-banner h1{font-size:26px}
-    /* ---------- PROMOS 2×5 NUEVO ---------- */
+    /* ---------- PROMOS 2×5 ---------- */
     .promos-2x5{background:#fff;padding:20px 0}
     .promos-2x5 h2{text-align:center;margin-bottom:20px;font-size:22px;color:#4c0d8c}
     .grid-10{display:grid;gap:15px;grid-template-columns:repeat(5,1fr);max-width:1100px;margin:auto}
@@ -105,18 +107,17 @@
   <!-- banner inferior -->
   <div id="banner-div">
     <div id="banner-envio">🚚 ¡Envío gratis desde $50!</div>
-    <div id="banner-sorteo">🎉 Por compras superiores a $20 participas en el sorteo mensual</div>
+    <div id="banner-sorteo">🎉 Por compras superiores a $20 participas automáticamente en nuestra gran rifa</div>
   </div>
 
-  <!-- top-bar -->
+  <!-- top-bar SIN "ENVÍOS POR SERVIENTREGA A TODO EL ECUADOR" -->
   <div class="top-bar">
     <div class="container flex-space">
       <div class="social-icons">
-        <a href="https://wa.me/593963923399" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://tiktok.com/@bhalleffort" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
         <a href="https://facebook.com/bhalleffort" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
         <a href="https://instagram.com/bhalleffort" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
       </div>
-      <div><i class="fas fa-map-marker-alt"></i> ENVÍOS POR SERVIENTREGA A TODO EL ECUADOR</div>
       <div><i class="fas fa-truck"></i> ENVÍOS 100% SEGUROS</div>
     </div>
   </div>
@@ -138,7 +139,7 @@
     </div>
   </header>
 
-  <!-- nav sticky SIN "Super Rifas" -->
+  <!-- nav sticky -->
   <nav class="main-nav">
     <ul id="nav-menu">
       <li><a href="index.html">INICIO</a></li>
@@ -159,9 +160,8 @@
     </div>
   </section>
 
-  <!-- PROMOS 2×5 NUEVO -->
+  <!-- PROMOS 2×5 (sin título extra, solo imágenes) -->
   <section class="promos-2x5">
-    <h2>🔥 SUPER PROMOCIONES DE LA SEMANA</h2>
     <div class="grid-10">
       <!-- Fila 1 -->
       <div class="card-promo">
@@ -219,7 +219,7 @@
   <!-- garantías (sin cambios) -->
   <section class="guarantees">
     <div class="container flex-guarantees">
-      <div class="guarantee-item"><i class="fas fa-truck"></i><div><strong>ENVÍOS POR SERVIENTREGA</strong><p>A todo el Ecuador</p></div></div>
+      <div class="guarantee-item"><i class="fas fa-truck"></i><div><strong>ENVÍOS 100% SEGUROS</strong><p>A todo el Ecuador</p></div></div>
       <div class="guarantee-item"><i class="fas fa-lock"></i><div><strong>PAGO: TRANSFERENCIA O TARJETA</strong><p>100% seguro</p></div></div>
       <div class="guarantee-item"><i class="fas fa-store"></i><div><strong>RETIRO EN TIENDA</strong><p>Gratis - La Y de Tabacundo</p></div></div>
       <div class="guarantee-item"><i class="fas fa-percent"></i><div><strong>DESCUENTOS</strong><p>Los mejores precios</p></div></div>
@@ -344,10 +344,10 @@
         bannerEnvio.style.background = '#ff9800';
       }
       if (total >= 20) {
-        bannerSorteo.innerHTML = '🎉 ¡YA ESTÁS PARTICIPANDO EN EL SORTEO MENSUAL!';
+        bannerSorteo.innerHTML = '🎉 ¡YA ESTÁS PARTICIPANDO EN NUESTRA GRAN RIFA!';
         bannerSorteo.style.background = 'var(--morado)';
       } else {
-        bannerSorteo.innerHTML = '🎉 Por compras superiores a $20 participas en el sorteo mensual';
+        bannerSorteo.innerHTML = '🎉 Por compras superiores a $20 participas automáticamente en nuestra gran rifa';
         bannerSorteo.style.background = 'var(--morado)';
       }
     }
@@ -393,9 +393,9 @@
       texto += `\nTOTAL A PAGAR: $${total.toFixed(2)}`;
       if (subtotal >= 20) {
         const count = incrementSorteo();
-        texto += `\n\n🎉 ¡Felicidades! Estás participando en el sorteo mensual 💜😃\nTu código de participación te lo dará el vendedor.`;
+        texto += `\n\n🎉 ¡Felicidades! Estás participando en nuestra gran rifa 💜😃\nTu código de participación te lo dará el vendedor.`;
       }
-      window.open(`https://wa.me/593963923399?text= ${encodeURIComponent(texto)}`, '_blank');
+      window.open(`https://wa.me/593963923399?text=${encodeURIComponent(texto)}`, '_blank');
     };
 
     const searchModal = document.getElementById('search-modal');
