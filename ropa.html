@@ -5,61 +5,116 @@
   <title>Ropa y Calzado – BHALLEFFORT</title>
   <meta name="description" content="Ropa, zapatos y accesorios al mejor precio del Ecuador. Envíos a todo el país.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="index, follow">
 
   <!-- Favicon -->
   <link rel="icon" href="https://jhomac2.github.io/bhalleffort-store/favicon.ico" type="image/x-icon">
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Ropa y Calzado – BHALLEFFORT">
-  <meta property="og:description" content="Ropa, zapatos y accesorios al mejor precio del Ecuador.">
-  <meta property="og:image" content="https://jhomac2.github.io/bhalleffort-store/logo-ballena.png">
-  <meta property="og:url" content="https://jhomac2.github.io/bhalleffort-store/ropa.html">
-  <meta property="og:site_name" content="BHALLEFFORT">
 
   <!-- Fuentes e iconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-  <!-- ESTILOS -->
+  <!-- ESTILOS (copiados y adaptados del index.html) -->
   <style>
-    :root{--celeste:#87ceeb;--morado:#6a0dad;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;--fondo:#f5f7fa}
+    :root{--celeste:#87ceeb;--morado:#4c0d8c;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;--fondo:#f5f7fa}
     *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',system-ui,Arial}
     body{background:var(--fondo);color:var(--texto)}
     img{max-width:100%;display:block}
     .container{width:90%;max-width:1200px;margin:auto}
-    .flex-space,.flex-center{display:flex;align-items:center;justify-content:space-between}
+    .flex-space{display:flex;align-items:center;justify-content:space-between}
     .top-bar{background:var(--morado);color:#fff;font-size:13px;padding:4px 0}
     .top-bar .social-icons{display:flex;gap:8px;font-size:16px}
     .top-bar .social-icons a{color:#fff}
-    .main-header{padding:10px 0;background:#fff;color:var(--texto);box-shadow:0 2px 4px rgba(0,0,0,.1)}
+    .main-header{padding:10px 0;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
     .logo-section{display:flex;align-items:center;gap:10px}
     .whale-icon{width:46px;border:2px solid var(--morado);border-radius:50%}
     .brand-text h1{font-size:20px;color:var(--morado)}
     .brand-text p{font-size:12px;color:var(--morado);opacity:.9}
-    .whatsapp-btn{display:flex;align-items:center;gap:6px;background:#25D366;color:#fff;padding:6px 10px;border-radius:4px;font-size:12px;cursor:pointer}
+
+    /* ---------- BOTONES DUALES ---------- */
+    .dual-buttons{display:flex;gap:1rem;justify-content:center;margin:1rem 0;flex-wrap:wrap}
+    .btn-rifas,.btn-wa{padding:.8rem 1.4rem;border-radius:6px;font-weight:700;text-decoration:none;color:#fff;box-shadow:0 2px 4px rgba(0,0,0,.25)}
+    .btn-rifas{background:#ff6600}
+    .btn-wa{background:#25d366}
+
+    /* ---------- NAV STICKY ---------- */
     .main-nav{position:sticky;top:0;z-index:999;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
     .main-nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center}
     .main-nav a{color:var(--morado);padding:10px 12px;display:block;font-size:14px;text-decoration:none;font-weight:600}
+
     .hero-banner{background:url('prod-oferta.jpg') center/cover no-repeat;height:220px;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;text-shadow:1px 1px 3px #000}
     .hero-banner h1{font-size:26px}
+
+    /* ---------- PRODUCTOS DESTACADOS (20 en 4 filas de 5) ---------- */
     .featured-products{padding:20px 0}
     .section-title{text-align:center;margin-bottom:15px;font-size:22px;color:var(--morado)}
-    .products-grid{display:grid;gap:15px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
-    .product-card{background:#fff;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,.1);display:flex;flex-direction:column}
-    .product-image{border-radius:8px 8px 0 0}
+    .products-grid-ten{
+      display:grid;
+      gap:15px;
+      grid-template-columns:repeat(5,1fr);
+      max-width:1100px;
+      margin:auto;
+    }
+    .product-card{
+      background:#fff;
+      border-radius:8px;
+      box-shadow:0 2px 5px rgba(0,0,0,.1);
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+    }
+    .product-image{
+      width:100%;
+      height:200px;
+      object-fit:cover;
+      border-radius:8px 8px 0 0;
+    }
     .product-info{padding:10px;display:flex;flex-direction:column;flex:1}
     .product-category{font-size:11px;color:#777}
-    .product-name{font-size:15px;margin:4px 0}
+    .product-name{
+      font-size:14px;
+      margin:4px 0;
+      line-height:1.2;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      display:-webkit-box;
+      -webkit-line-clamp:2;
+      -webkit-box-orient:vertical;
+    }
     .current-price{font-weight:700;color:var(--turquesa);font-size:17px}
-    .btn-buy{background:var(--turquesa);color:#fff;border:none;padding:8px;border-radius:4px;cursor:pointer;margin-top:auto;font-weight:600}
+    .btn-buy{
+      background:var(--turquesa);
+      color:#fff;
+      border:none;
+      padding:8px;
+      border-radius:4px;
+      cursor:pointer;
+      margin-top:auto;
+      font-weight:600;
+      align-self:flex-start;
+    }
     .btn-buy:hover{background:var(--turquesaOsc)}
+
+    /* Responsive */
+    @media(max-width:768px){
+      .products-grid-ten{grid-template-columns:repeat(3,1fr)}
+    }
+    @media(max-width:480px){
+      .products-grid-ten{grid-template-columns:repeat(2,1fr)}
+    }
+
+    /* ---------- GARANTÍAS ---------- */
+    .guarantees{background:#fff;padding:20px 0;margin-top:20px}
+    .flex-guarantees{display:flex;gap:15px;flex-wrap:wrap;justify-content:center;text-align:center}
+    .guarantee-item{flex:1 1 200px}
+
+    /* ---------- FOOTER ---------- */
     footer{background:var(--celeste);color:#000;font-size:13px;padding:20px 0}
     .footer-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
     .footer-contact a{color:#000;text-decoration:none}
     .god-message{font-size:11px;color:#000;margin-top:4px}
     .designer-line{font-size:12px;color:#000;margin-top:4px}
+
+    /* ---------- CARRITO / LUPA / MODALES ---------- */
     #cart-icon{position:fixed;top:15px;right:15px;background:#fff;border-radius:50%;padding:8px;box-shadow:0 2px 5px rgba(0,0,0,.15);cursor:pointer;z-index:1000}
     #cart-badge{background:var(--turquesa);color:#fff;border-radius:50%;padding:2px 6px;font-size:11px;position:absolute;top:-4px;right:-4px}
     .cart-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000}
@@ -79,65 +134,53 @@
     .result-item:hover{background:#f0f0f0}
     #close-search{position:absolute;top:8px;right:12px;background:none;border:none;font-size:20px;cursor:pointer}
     #noti-add{position:fixed;bottom:40px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:8px 14px;border-radius:4px;font-size:13px;z-index:9999;display:none}
-    #menu-toggle{display:none;background:none;border:none;color:var(--morado);font-size:22px;margin-left:10px;cursor:pointer}
-    @media(max-width:768px){
-      #menu-toggle{display:block}
-      .main-nav ul{display:none;flex-direction:column;background:#fff;width:100%}
-      .main-nav ul.show{display:flex}
-    }
   </style>
 </head>
 <body>
 
-  <!-- carrito + noti + búsqueda -->
+  <!-- carrito + lupa + modales -->
   <div id="cart-icon"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
-  <div id="noti-add"></div>
   <button id="btn-lupa" title="Buscar producto"><i class="fas fa-search"></i></button>
   <div id="search-modal">
     <div>
       <button id="close-search">&times;</button>
-      <input type="text" id="search-input" placeholder="Buscar productos...">
+      <input type="text" id="search-input" placeholder="Escribe el nombre del producto...">
       <div id="search-results"></div>
     </div>
   </div>
+  <div id="noti-add"></div>
 
-  <!-- banners inferiores fijos -->
+  <!-- banner inferior -->
   <div id="banner-div">
     <div id="banner-envio">🚚 ¡Envío gratis desde $50!</div>
-    <div id="banner-sorteo">🎉 Por compras superiores a $20 participas en el sorteo mensual</div>
+    <div id="banner-sorteo">🎉 Por compras superiores a $20 participas automáticamente en nuestra gran rifa</div>
   </div>
 
-  <!-- top-bar con redes a la izquierda -->
+  <!-- top-bar SIN "ENVÍOS POR SERVIENTREGA A TODO EL ECUADOR" -->
   <div class="top-bar">
     <div class="container flex-space">
       <div class="social-icons">
-        <a href="https://wa.me/593963923399" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://tiktok.com/@bhalleffort" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
         <a href="https://facebook.com/bhalleffort" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
         <a href="https://instagram.com/bhalleffort" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
       </div>
-      <div><i class="fas fa-map-marker-alt"></i> ENVÍOS POR SERVIENTREGA A TODO EL ECUADOR</div>
       <div><i class="fas fa-truck"></i> ENVÍOS 100% SEGUROS</div>
     </div>
   </div>
 
   <!-- header -->
   <header class="main-header">
-    <div class="container flex-center">
-      <a href="index.html" class="logo-link">
-        <div class="logo-section">
-          <img src="logo-ballena.png" alt="Ballena BHALLEFFORT" class="whale-icon">
-          <div class="brand-text">
-            <h1>BHALLEFFORT</h1>
-            <p>LO MEJOR Y AL MEJOR PRECIO</p>
-          </div>
+    <div class="container flex-space">
+      <div class="logo-section">
+        <img src="logo-ballena.png" alt="BHALLEFFORT" class="whale-icon">
+        <div class="brand-text">
+          <h1>BHALLEFFORT</h1>
+          <p>Tienda Online Ecuador</p>
         </div>
-      </a>
-      <div style="display:flex;align-items:center;gap:10px">
-        <div class="whatsapp-btn" onclick="window.open('https://wa.me/593963923399','_blank')">
-          <i class="fab fa-whatsapp"></i>
-          <div><span>PEDIDOS WHATSAPP</span><br><strong>+593 963 923 399</strong></div>
-        </div>
-        <button id="menu-toggle" aria-label="Menú"><i class="fas fa-bars"></i></button>
+      </div>
+      <div class="dual-buttons">
+        <a href="super-rifas.html" class="btn-rifas">🎉 Rifas</a>
+        <a href="https://wa.me/593963923399" class="btn-wa">📱 +593 963 923 399</a>
       </div>
     </div>
   </header>
@@ -146,17 +189,16 @@
   <nav class="main-nav">
     <ul id="nav-menu">
       <li><a href="index.html">INICIO</a></li>
-      <li><a href="quienes-somos.html">QUIÉNES SOMOS</a></li>
       <li><a href="ropa.html">ROPA</a></li>
-      <li><a href="juguetes.html">JUGUETES</a></li>
-      <li><a href="hogar.html">HOGAR</a></li>
+      <li><a href="zapatos.html">ZAPATOS</a></li>
+      <li><a href="varios.html">VARIOS</a></li>
       <li><a href="promociones.html">PROMOCIONES</a></li>
-      <li><a href="politicas.html">POLÍTICAS</a></li>
+      <li><a href="quienes-somos.html">QUIÉNES SOMOS</a></li>
       <li><a href="contacto.html">CONTACTO</a></li>
     </ul>
   </nav>
 
-  <!-- Hero -->
+  <!-- hero -->
   <section class="hero-banner">
     <div>
       <h1>Ropa y Calzado – BHALLEFFORT</h1>
@@ -164,23 +206,31 @@
     </div>
   </section>
 
-  <!-- SECCIÓN ROPA + ZAPATOS -->
+  <!-- PRODUCTOS DE ROPA (20 productos en 4 filas de 5) -->
   <section class="featured-products">
     <div class="container">
-      <h2 class="section-title">👟 ROPA Y ZAPATOS</h2>
-      <div class="products-grid" id="products-grid">
-        <!-- JS rellenará las cards -->
-      </div>
+      <h2 class="section-title">✨ ROPA Y CALZADO - TODAS LAS OFERTAS ✨</h2>
+      <div class="products-grid-ten" id="products-grid"></div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- garantías -->
+  <section class="guarantees">
+    <div class="container flex-guarantees">
+      <div class="guarantee-item"><i class="fas fa-truck"></i><div><strong>ENVÍOS 100% SEGUROS</strong><p>A todo el Ecuador</p></div></div>
+      <div class="guarantee-item"><i class="fas fa-lock"></i><div><strong>PAGO: TRANSFERENCIA O TARJETA</strong><p>100% seguro</p></div></div>
+      <div class="guarantee-item"><i class="fas fa-store"></i><div><strong>RETIRO EN TIENDA</strong><p>Gratis - La Y de Tabacundo</p></div></div>
+      <div class="guarantee-item"><i class="fas fa-percent"></i><div><strong>DESCUENTOS</strong><p>Los mejores precios</p></div></div>
+    </div>
+  </section>
+
+  <!-- footer -->
   <footer>
     <div class="container footer-grid">
       <div>
         <img src="logo-ballena.png" alt="Ballena" width="40">
         <p>LO MEJOR Y AL MEJOR PRECIO</p>
-        <div class="god-message">Dios te da más de lo que pides.</div>
+        <div class="god-message" style="color:#000">Dios te da más de lo que pides.</div>
         <div class="designer-line">Diseñado por Jhomac² <i class="fab fa-tiktok"></i></div>
       </div>
       <div class="footer-contact">
@@ -206,7 +256,7 @@
     </div>
   </footer>
 
-  <!-- MODAL CARRITO -->
+  <!-- modales y lógica -->
   <div id="cart-modal" class="cart-modal">
     <div>
       <header>
@@ -225,14 +275,29 @@
     </div>
   </div>
 
-  <!-- LÓGICA -->
   <script>
-    /* ---------- LISTA DE PRODUCTOS (solo 4 productos nuevos) ---------- */
+    // Lista de 20 productos de ropa y calzado (puedes reemplazar las imágenes y nombres)
     const productos = [
       {id:"R001",cat:"Ropa",nombre:"Camisa de mujer – Talla única",precio:7.00,img:"prod-camisa-de-mujer-talla-única.webp",url:"ropa.html"},
       {id:"Z001",cat:"Zapatos",nombre:"Tacos triple banda – Color oro",precio:20.00,img:"prod-tacos--triple-banda-talla-color-oro.webp",url:"ropa.html"},
       {id:"Z002",cat:"Zapatos",nombre:"Tacos doble banda – Color oro",precio:20.00,img:"prod-tacos--doble-banda-talla-color-oro.webp",url:"ropa.html"},
-      {id:"Z003",cat:"Zapatos",nombre:"Tacos mariposa – Talla M – Negro",precio:17.00,img:"prod-tacos-mariposa-talla-m-color-negro.webp",url:"ropa.html"}
+      {id:"Z003",cat:"Zapatos",nombre:"Tacos mariposa – Talla M – Negro",precio:17.00,img:"prod-tacos-mariposa-talla-m-color-negro.webp",url:"ropa.html"},
+      {id:"R002",cat:"Ropa",nombre:"Sudadera con capucha – Roja",precio:25.00,img:"prod-sudadera-roja.jpg",url:"ropa.html"},
+      {id:"Z004",cat:"Zapatos",nombre:"Tenis deportivos – Blanco",precio:18.00,img:"prod-tenis-blanco.jpg",url:"ropa.html"},
+      {id:"R003",cat:"Ropa",nombre:"Pantalón jogger – Gris",precio:16.00,img:"prod-pantalon-gris.jpg",url:"ropa.html"},
+      {id:"Z005",cat:"Zapatos",nombre:"Sandalias planas – Doradas",precio:12.00,img:"prod-sandalias-doradas.jpg",url:"ropa.html"},
+      {id:"R004",cat:"Ropa",nombre:"Blusa estampada – Talla S",precio:9.00,img:"prod-blusa-estampada.jpg",url:"ropa.html"},
+      {id:"Z006",cat:"Zapatos",nombre:"Botines cortos – Negros",precio:22.00,img:"prod-botines-negros.jpg",url:"ropa.html"},
+      {id:"R005",cat:"Ropa",nombre:"Chaqueta ligera – Azul",precio:28.00,img:"prod-chaqueta-azul.jpg",url:"ropa.html"},
+      {id:"Z007",cat:"Zapatos",nombre:"Zapatillas de casa – Rosa",precio:8.00,img:"prod-zapatillas-rosa.jpg",url:"ropa.html"},
+      {id:"R006",cat:"Ropa",nombre:"Vestido largo – Estampado floral",precio:19.00,img:"prod-vestido-floral.jpg",url:"ropa.html"},
+      {id:"Z008",cat:"Zapatos",nombre:"Mocasines – Marrones",precio:15.00,img:"prod-mocasines-marron.jpg",url:"ropa.html"},
+      {id:"R007",cat:"Ropa",nombre:"Camiseta básica – Blanca",precio:5.00,img:"prod-camiseta-blanca.jpg",url:"ropa.html"},
+      {id:"Z009",cat:"Zapatos",nombre:"Stilettos – Plateados",precio:24.00,img:"prod-stilettos-plateados.jpg",url:"ropa.html"},
+      {id:"R008",cat:"Ropa",nombre:"Falda plisada – Negra",precio:11.00,img:"prod-falda-negra.jpg",url:"ropa.html"},
+      {id:"Z010",cat:"Zapatos",nombre:"Zapatos de trabajo – Cafés",precio:21.00,img:"prod-zapatos-trabajo-cafe.jpg",url:"ropa.html"},
+      {id:"R009",cat:"Ropa",nombre:"Suéter de lana – Beige",precio:23.00,img:"prod-sweater-beige.jpg",url:"ropa.html"},
+      {id:"Z011",cat:"Zapatos",nombre:"Zapatillas deportivas – Multicolor",precio:19.00,img:"prod-zapatillas-multicolor.jpg",url:"ropa.html"}
     ];
 
     let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
@@ -242,7 +307,6 @@
       const key = `sorteo-${ahora.getFullYear()}-${ahora.getMonth()}`;
       return parseInt(localStorage.getItem(key) || '20');
     }
-
     function incrementSorteo() {
       const ahora = new Date();
       const key = `sorteo-${ahora.getFullYear()}-${ahora.getMonth()}`;
@@ -291,10 +355,10 @@
         bannerEnvio.style.background = '#ff9800';
       }
       if (total >= 20) {
-        bannerSorteo.innerHTML = '🎉 ¡YA ESTÁS PARTICIPANDO EN EL SORTEO MENSUAL!';
+        bannerSorteo.innerHTML = '🎉 ¡YA ESTÁS PARTICIPANDO EN NUESTRA GRAN RIFA!';
         bannerSorteo.style.background = 'var(--morado)';
       } else {
-        bannerSorteo.innerHTML = '🎉 Por compras superiores a $20 participas en el sorteo mensual';
+        bannerSorteo.innerHTML = '🎉 Por compras superiores a $20 participas automáticamente en nuestra gran rifa';
         bannerSorteo.style.background = 'var(--morado)';
       }
     }
@@ -318,7 +382,6 @@
       document.getElementById('cart-total').textContent = '$'+total.toFixed(2);
       modal.style.display = 'block';
     }
-
     function removeItem(i) {
       carrito.splice(i,1);
       localStorage.setItem('bh-cart',JSON.stringify(carrito));
@@ -326,7 +389,6 @@
       actualizarBannerEnvio();
       mostrarModal();
     }
-
     document.getElementById('close-cart').onclick = () => document.getElementById('cart-modal').style.display = 'none';
     document.getElementById('cart-icon').onclick = mostrarModal;
 
@@ -342,24 +404,23 @@
       texto += `\nTOTAL A PAGAR: $${total.toFixed(2)}`;
       if (subtotal >= 20) {
         const count = incrementSorteo();
-        texto += `\n\n🎉 ¡Felicidades! Estás participando en el sorteo mensual 💜😃\nTu código de participación te lo dará el vendedor.`;
+        texto += `\n\n🎉 ¡Felicidades! Estás participando en nuestra gran rifa 💜😃\nTu código de participación te lo dará el vendedor.`;
       }
       window.open(`https://wa.me/593963923399?text=${encodeURIComponent(texto)}`, '_blank');
     };
 
-    document.getElementById('btn-lupa').onclick = () => document.getElementById('search-modal').style.display = 'block';
-    document.getElementById('close-search').onclick = () => document.getElementById('search-modal').style.display = 'none';
-    document.getElementById('search-input').oninput = () => {
-      const q = document.getElementById('search-input').value.toLowerCase();
+    const searchModal = document.getElementById('search-modal');
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+    document.getElementById('btn-lupa').onclick = () => searchModal.style.display = 'block';
+    document.getElementById('close-search').onclick = () => searchModal.style.display = 'none';
+    searchInput.oninput = () => {
+      const q = searchInput.value.toLowerCase();
       const filtrados = productos.filter(p => p.nombre.toLowerCase().includes(q));
-      document.getElementById('search-results').innerHTML = filtrados.map(p => `
+      searchResults.innerHTML = filtrados.map(p => `
         <div class="result-item" onclick="window.open('${p.url}','_self')">
           <strong>${p.nombre}</strong> - $${p.precio.toFixed(2)}
         </div>`).join('');
-    };
-
-    document.getElementById('menu-toggle').onclick = () => {
-      document.getElementById('nav-menu').classList.toggle('show');
     };
 
     dibujarProductos();
