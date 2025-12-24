@@ -50,14 +50,20 @@
     #banner-div{position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;box-shadow:0 -2px 5px rgba(0,0,0,.1);z-index:999}
     #banner-envio{flex:1;background:#25D366;color:#fff;text-align:center;padding:8px;font-size:14px}
     #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:8px;font-size:14px}
+    /* Modal carrito */
+    .cart-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000}
+    .cart-modal>div{background:#fff;width:90%;max-width:480px;margin:60px auto;padding:15px;border-radius:8px;position:relative;display:flex;flex-direction:column;max-height:80vh}
+    .cart-modal header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-shrink:0}
+    #cart-items{flex:1 1 auto;overflow-y:auto;margin-bottom:10px;border:1px solid #eee;border-radius:4px;padding:8px}
+    .cart-modal footer{flex-shrink:0;text-align:right}
   </style>
 </head>
 <body>
 
-  <!-- Carrito flotante (solo visible si hay productos) -->
+  <!-- Carrito flotante -->
   <div id="cart-icon" style="display:none;"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
 
-  <!-- Banners inferiores fijos -->
+  <!-- Banners inferiores -->
   <div id="banner-div">
     <div id="banner-envio">🚚 ¡Envío gratis desde $50!</div>
     <div id="banner-sorteo">🎉 Por compras superiores a $20 participas automáticamente en nuestra gran rifa</div>
@@ -171,18 +177,37 @@
     </div>
   </footer>
 
+  <!-- Modal del carrito -->
+  <div id="cart-modal" class="cart-modal">
+    <div>
+      <header>
+        <h3><i class="fas fa-shopping-cart"></i> Tu carrito</h3>
+        <button id="close-cart" style="background:none;border:none;font-size:20px;cursor:pointer">&times;</button>
+      </header>
+      <div id="cart-items"></div>
+      <footer>
+        <div style="display:flex;justify-content:space-between;font-weight:bold">
+          <span>Total:</span><span id="cart-total">$0.00</span>
+        </div>
+        <button id="btn-wa" style="background:#25D366;color:#fff;border:none;padding:8px 14px;border-radius:4px;cursor:pointer;margin-top:10px">
+          Enviar pedido por WhatsApp 🐋💜
+        </button>
+      </footer>
+    </div>
+  </div>
+
   <script>
-    // Mostrar carrito solo si hay productos
-    const carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
+    let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
     const cartIcon = document.getElementById('cart-icon');
     const cartBadge = document.getElementById('cart-badge');
 
+    // Mostrar carrito si hay productos
     if (carrito.length > 0) {
       cartBadge.textContent = carrito.length;
       cartIcon.style.display = 'block';
     }
 
-    // Actualizar banners según total (opcional, pero coherente)
+    // Actualizar banners
     function actualizarBannerEnvio() {
       const total = carrito.reduce((t,p)=>t+p.precio,0);
       const bannerEnvio = document.getElementById('banner-envio');
@@ -203,7 +228,32 @@
       }
     }
 
-    actualizarBannerEnvio();
-  </script>
-</body>
-</html>
+    // Mostrar modal del carrito
+    function mostrarModal() {
+      const modal = document.getElementById('cart-modal');
+      const items = document.getElementById('cart-items');
+      const total = carrito.reduce((t,p)=>t+p.precio,0);
+      items.innerHTML = carrito.map((p,i)=>`
+        <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #eee">
+          <span>${p.nombre} <br><small>$${p.precio.toFixed(2)}</small></span>
+          <button onclick="removeItem(${i})" style="background:none;border:none;color:red;cursor:pointer">🗑️</button>
+        </div>`).join('');
+      document.getElementById('cart-total').textContent = '$'+total.toFixed(2);
+      modal.style.display = 'block';
+    }
+
+    // Eliminar ítem
+    function removeItem(i) {
+      carrito.splice(i,1);
+      localStorage.setItem('bh-cart',JSON.stringify(carrito));
+      if (carrito.length === 0) {
+        cartIcon.style.display = 'none';
+      } else {
+        cartBadge.textContent = carrito.length;
+      }
+      actualizarBannerEnvio();
+      mostrarModal();
+    }
+
+    // Enviar por WhatsApp
+    document.getElementById('btn-wa').onclick =
