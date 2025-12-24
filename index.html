@@ -5,7 +5,7 @@
   <title>BHALLEFFORT | Tienda online Ecuador – ropa, zapatos, varios</title>
   <meta name="description" content="Compra online en Ecuador: ropa, zapatos y artículos varios. Envíos 100% seguros.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="https://jhomac2.github.io/bhalleffort-store/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="https://jhomac2.github.io/bhalleffort-store/favicon.ico" type="http/image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
@@ -23,48 +23,91 @@
     .whale-icon{width:46px;border:2px solid var(--morado);border-radius:50%}
     .brand-text h1{font-size:20px;color:var(--morado)}
     .brand-text p{font-size:12px;color:var(--morado);opacity:.9}
+
     /* ---------- BOTONES DUALES ---------- */
     .dual-buttons{display:flex;gap:1rem;justify-content:center;margin:1rem 0;flex-wrap:wrap}
     .btn-rifas,.btn-wa{padding:.8rem 1.4rem;border-radius:6px;font-weight:700;text-decoration:none;color:#fff;box-shadow:0 2px 4px rgba(0,0,0,.25)}
     .btn-rifas{background:#ff6600}
     .btn-wa{background:#25d366}
+
     /* ---------- NAV STICKY ---------- */
     .main-nav{position:sticky;top:0;z-index:999;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
     .main-nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center}
     .main-nav a{color:var(--morado);padding:10px 12px;display:block;font-size:14px;text-decoration:none;font-weight:600}
+
     .hero-banner{background:url('prod-oferta.jpg') center/cover no-repeat;height:220px;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;text-shadow:1px 1px 3px #000}
     .hero-banner h1{font-size:26px}
-    /* ---------- PROMOS 2×5 (SOLO IMAGEN 2) ---------- */
-    .promos-2x5{background:#fff;padding:20px 0}
-    .grid-10{display:grid;gap:15px;grid-template-columns:repeat(5,1fr);max-width:1100px;margin:auto}
-    .card-promo{background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.15);display:flex;flex-direction:column}
-    .card-promo img{width:100%;height:200px;object-fit:cover}
-    .card-promo .info{padding:8px;font-size:13px;text-align:center;color:#222}
-    .card-promo .info strong{display:block;font-size:14px;margin-bottom:3px}
-    @media(max-width:768px){.grid-10{grid-template-columns:repeat(3,1fr)}}
-    @media(max-width:480px){.grid-10{grid-template-columns:repeat(2,1fr)}}
-    /* ---------- PRODUCTOS ---------- */
+
+    /* ---------- PRODUCTOS DESTACADOS (10 en 2 filas de 5) ---------- */
     .featured-products{padding:20px 0}
     .section-title{text-align:center;margin-bottom:15px;font-size:22px;color:var(--morado)}
-    .products-grid{display:grid;gap:15px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
-    .product-card{background:#fff;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,.1);display:flex;flex-direction:column}
-    .product-image{border-radius:8px 8px 0 0}
+    .products-grid-ten{
+      display:grid;
+      gap:15px;
+      grid-template-columns:repeat(5,1fr);
+      max-width:1100px;
+      margin:auto;
+    }
+    .product-card{
+      background:#fff;
+      border-radius:8px;
+      box-shadow:0 2px 5px rgba(0,0,0,.1);
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+    }
+    .product-image{
+      width:100%;
+      height:200px;
+      object-fit:cover;
+      border-radius:8px 8px 0 0;
+    }
     .product-info{padding:10px;display:flex;flex-direction:column;flex:1}
     .product-category{font-size:11px;color:#777}
-    .product-name{font-size:15px;margin:4px 0}
+    .product-name{
+      font-size:14px;
+      margin:4px 0;
+      line-height:1.2;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      display:-webkit-box;
+      -webkit-line-clamp:2;
+      -webkit-box-orient:vertical;
+    }
     .current-price{font-weight:700;color:var(--turquesa);font-size:17px}
-    .btn-buy{background:var(--turquesa);color:#fff;border:none;padding:8px;border-radius:4px;cursor:pointer;margin-top:auto;font-weight:600}
+    .btn-buy{
+      background:var(--turquesa);
+      color:#fff;
+      border:none;
+      padding:8px;
+      border-radius:4px;
+      cursor:pointer;
+      margin-top:auto;
+      font-weight:600;
+      align-self:flex-start;
+    }
     .btn-buy:hover{background:var(--turquesaOsc)}
+
+    /* Responsive */
+    @media(max-width:768px){
+      .products-grid-ten{grid-template-columns:repeat(3,1fr)}
+    }
+    @media(max-width:480px){
+      .products-grid-ten{grid-template-columns:repeat(2,1fr)}
+    }
+
     /* ---------- GARANTÍAS ---------- */
     .guarantees{background:#fff;padding:20px 0;margin-top:20px}
     .flex-guarantees{display:flex;gap:15px;flex-wrap:wrap;justify-content:center;text-align:center}
     .guarantee-item{flex:1 1 200px}
+
     /* ---------- FOOTER ---------- */
     footer{background:var(--celeste);color:#000;font-size:13px;padding:20px 0}
     .footer-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
     .footer-contact a{color:#000;text-decoration:none}
     .god-message{font-size:11px;color:#000;margin-top:4px}
     .designer-line{font-size:12px;color:#000;margin-top:4px}
+
     /* ---------- CARRITO / LUPA / MODALES ---------- */
     #cart-icon{position:fixed;top:15px;right:15px;background:#fff;border-radius:50%;padding:8px;box-shadow:0 2px 5px rgba(0,0,0,.15);cursor:pointer;z-index:1000}
     #cart-badge{background:var(--turquesa);color:#fff;border-radius:50%;padding:2px 6px;font-size:11px;position:absolute;top:-4px;right:-4px}
@@ -157,63 +200,15 @@
     </div>
   </section>
 
-  <!-- PROMOS 2×5 (SOLO IMAGEN 2, SIN TÍTULO) -->
-  <section class="promos-2x5">
-    <div class="grid-10">
-      <!-- Fila 1 -->
-      <div class="card-promo">
-        <img src="img/promo1.jpg" alt="Zapatos urbanos edición limitada">
-        <div class="info"><strong>Zapatos urbanos edición limitada</strong>Tallas 38-44</div>
-      </div>
-      <div class="card-promo">
-        <img src="img/promo2.jpg" alt="Set Utensilios Cocina Deluxe">
-        <div class="info"><strong>Set Utensilios Cocina Deluxe</strong>Acero inox</div>
-      </div>
-      <div class="card-promo">
-        <img src="img/promo3.jpg" alt="Tennis cómodos">
-        <div class="info"><strong>Tennis cómodos</strong>Tallas 36-40</div>
-      </div>
-      <div class="card-promo">
-        <img src="img/promo4.jpg" alt="Camiseta BHALLEFFORT Edición Limitada">
-        <div class="info"><strong>Camiseta BHALLEFFORT Edición Limitada</strong>Tallas X-M-L</div>
-      </div>
-      <div class="card-promo">
-        <img src="img/promo5.jpg" alt="Sudadera BHALLEFFORT">
-        <div class="info"><strong>Sudadera BHALLEFFORT</strong>Tallas M-XL</div>
-      </div>
-      <!-- Fila 2 -->
-      <div class="card-promo">
-        <img src="img/promo6.jpg" alt="Sandalias frescas">
-        <div class="info"><strong>Sandalias frescas</strong>Tallas 36-40</div>
-      </div>
-      <div class="card-promo">
-        <img src="img/promo7.jpg" alt="Bloques 500 pzs">
-        <div class="info"><strong>Bloques 500 pzs</strong>Educativos</div>
-      </div>
-      <div class="card-promo">
-        <img src="img/promo8.jpg" alt="Pantalón deportivo">
-        <div class="info"><strong>Pantalón deportivo</strong>Tallas S-XL</div>
-      </div>
-      <div class="card-promo">
-        <img src="img/promo9.jpg" alt="Auto a control">
-        <div class="info"><strong>Auto a control</strong>Incluye batería</div>
-      </div>
-      <div class="card-promo">
-        <img src="img/promo10.jpg" alt="Utensilios cocina">
-        <div class="info"><strong>Utensilios cocina</strong>Acero inox</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- productos destacados (sin cambios) -->
+  <!-- ✨ SÚPER PROMOCIONES DE LA SEMANA – 10 productos en 2 filas de 5 ✨ -->
   <section class="featured-products">
     <div class="container">
       <h2 class="section-title">✨ SÚPER PROMOCIONES DE LA SEMANA ✨</h2>
-      <div class="products-grid" id="products-grid"></div>
+      <div class="products-grid-ten" id="products-grid"></div>
     </div>
   </section>
 
-  <!-- garantías (sin cambios) -->
+  <!-- garantías -->
   <section class="guarantees">
     <div class="container flex-guarantees">
       <div class="guarantee-item"><i class="fas fa-truck"></i><div><strong>ENVÍOS 100% SEGUROS</strong><p>A todo el Ecuador</p></div></div>
@@ -223,7 +218,7 @@
     </div>
   </section>
 
-  <!-- footer (sin cambios) -->
+  <!-- footer -->
   <footer>
     <div class="container footer-grid">
       <div>
@@ -255,7 +250,7 @@
     </div>
   </footer>
 
-  <!-- modales y lógica (sin cambios) -->
+  <!-- modales y lógica -->
   <div id="cart-modal" class="cart-modal">
     <div>
       <header>
@@ -283,7 +278,9 @@
       {id:"P005",cat:"Zapatos",nombre:"Tennis cómodos",precio:12.50,img:"prod-juguetes.jpg",url:"zapatos.html"},
       {id:"P006",cat:"Ropa",nombre:"Sudadera BHALLEFFORT",precio:29.99,img:"prod-ropa.jpg",url:"ropa.html"},
       {id:"P007",cat:"Varios",nombre:"Juego de Toallas 3 pzs",precio:15.99,img:"prod-hogar.jpg",url:"varios.html"},
-      {id:"P008",cat:"Zapatos",nombre:"Sandalias frescas",precio:24.99,img:"prod-juguetes.jpg",url:"zapatos.html"}
+      {id:"P008",cat:"Zapatos",nombre:"Sandalias frescas",precio:24.99,img:"prod-juguetes.jpg",url:"zapatos.html"},
+      {id:"P009",cat:"Ropa",nombre:"Polo Estampado Premium",precio:16.99,img:"prod-ropa.jpg",url:"ropa.html"},
+      {id:"P010",cat:"Varios",nombre:"Organizador Multiusos",precio:18.50,img:"prod-hogar.jpg",url:"varios.html"}
     ];
 
     let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
