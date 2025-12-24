@@ -92,13 +92,11 @@
 </head>
 <body>
 
-  <!-- Carrito -->
   <div id="cart-icon" style="display:none;"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
 
-  <!-- Banners -->
   <div id="banner-div">
-    <div id="banner-envio">🚚 ¡Envío gratis desde $50!</div>
-    <div id="banner-sorteo">🎉 Por compras superiores a $20 participas automáticamente en nuestra gran rifa</div>
+    <div id="banner-envio">🚚 ¡Envío gratis desde $50 en productos!</div>
+    <div id="banner-sorteo">🎉 Por compras superiores a $20 en productos participas en la rifa</div>
   </div>
 
   <div class="top-bar">
@@ -205,7 +203,7 @@
   </div>
 
   <script>
-    // Define tus rifas con nombre, imagen y PRECIO
+    // Rifas con precios reales
     const rifas = [
       {id:"RIFA001", nombre:"📱 Smartphone Nuevo", precio:5.00, img:"rifa1.jpg"},
       {id:"RIFA002", nombre:"🎧 Audífonos Inalámbricos", precio:3.00, img:"rifa2.jpg"},
@@ -219,7 +217,6 @@
 
     let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
 
-    // Renderizar rifas
     function dibujarRifas() {
       const grid = document.getElementById('rifas-grid');
       grid.innerHTML = rifas.map(r => `
@@ -228,17 +225,17 @@
           <div class="rifa-info">
             <div class="rifa-name">${r.nombre}</div>
             <div class="rifa-price">$${r.precio.toFixed(2)}</div>
-            <button class="btn-participar" onclick="agregarAlCarrito('${r.id}','${r.nombre}',${r.precio})">Participar en la rifa</button>
+            <button class="btn-participar" onclick="agregarRifa('${r.id}','${r.nombre}',${r.precio})">Participar en la rifa</button>
           </div>
         </div>`).join('');
     }
 
-    // Agregar al carrito (igual que productos normales)
-    function agregarAlCarrito(id, nombre, precio) {
-      carrito.push({id, nombre, precio});
+    // Agregar rifa con tipo especial
+    function agregarRifa(id, nombre, precio) {
+      carrito.push({id, nombre, precio, tipo: "rifa"});
       localStorage.setItem('bh-cart', JSON.stringify(carrito));
       actualizarUI();
-      mostrarNoti(`✅ ${nombre} agregado al carrito`);
+      mostrarNoti(`✅ ¡Estás participando en la rifa: ${nombre}!`);
     }
 
     function mostrarNoti(texto) {
@@ -268,31 +265,35 @@
     }
 
     function actualizarBanners() {
-      const total = carrito.reduce((t,p) => t + p.precio, 0);
+      // Solo productos normales (sin tipo "rifa") cuentan para envío y participación
+      const totalProductos = carrito
+        .filter(item => item.tipo !== "rifa")
+        .reduce((sum, item) => sum + item.precio, 0);
+
       const bannerEnvio = document.getElementById('banner-envio');
       const bannerSorteo = document.getElementById('banner-sorteo');
 
-      if (total >= 50) {
+      if (totalProductos >= 50) {
         bannerEnvio.innerHTML = '✅ ¡Tu envío es gratis!';
         bannerEnvio.style.background = '#25D366';
       } else {
-        bannerEnvio.innerHTML = '🚚 ¡Envío gratis desde $50!';
+        bannerEnvio.innerHTML = '🚚 ¡Envío gratis desde $50 en productos!';
         bannerEnvio.style.background = '#ff9800';
       }
 
-      if (total >= 20) {
-        bannerSorteo.innerHTML = '🎉 ¡YA ESTÁS PARTICIPANDO EN NUESTRA GRAN RIFA!';
+      if (totalProductos >= 20) {
+        bannerSorteo.innerHTML = '🎉 ¡YA ESTÁS PARTICIPANDO EN LA RIFA!';
         bannerSorteo.style.background = 'var(--morado)';
       } else {
-        bannerSorteo.innerHTML = '🎉 Por compras superiores a $20 participas automáticamente en nuestra gran rifa';
+        bannerSorteo.innerHTML = '🎉 Por compras superiores a $20 en productos participas en la rifa';
         bannerSorteo.style.background = 'var(--morado)';
       }
     }
 
     function mostrarModal() {
       const itemsDiv = document.getElementById('cart-items');
-      const total = carrito.reduce((t,p) => t + p.precio, 0);
-      document.getElementById('cart-total').textContent = '$' + total.toFixed(2);
+      const totalCompleto = carrito.reduce((sum, item) => sum + item.precio, 0);
+      document.getElementById('cart-total').textContent = '$' + totalCompleto.toFixed(2);
 
       itemsDiv.innerHTML = carrito.map((item, i) => `
         <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #eee">
@@ -311,20 +312,29 @@
     }
 
     document.getElementById('btn-wa').onclick = () => {
-      const subtotal = carrito.reduce((t,p) => t + p.precio, 0);
-      const envio = subtotal >= 50 ? 0 : 3.50;
-      const total = subtotal + envio;
+      const totalCompleto = carrito.reduce((sum, item) => sum + item.precio, 0);
+      const totalProductos = carrito
+        .filter(item => item.tipo !== "rifa")
+        .reduce((sum, item) => sum + item.precio, 0);
+
+      const envio = totalProductos >= 50 ? 0 : 3.50;
+      const totalFinal = totalCompleto + envio;
 
       let texto = `🐋 Hola, quiero:\n`;
       texto += carrito.map(p => `• ${p.nombre}  $${p.precio.toFixed(2)}`).join('\n');
-      texto += `\nTotal productos: $${subtotal.toFixed(2)}`;
+      texto += `\nSubtotal productos: $${totalProductos.toFixed(2)}`;
+      texto += `\nSubtotal rifas: $${(totalCompleto - totalProductos).toFixed(2)}`;
       
-      if (envio > 0) texto += `\nEnvío: $${envio.toFixed(2)}`;
-      else texto += '\nEnvío: ¡Gratis!';
+      if (envio > 0) {
+        texto += `\nEnvío: $${envio.toFixed(2)}`;
+      } else {
+        texto += '\nEnvío: ¡Gratis!';
+      }
       
-      texto += `\nTOTAL A PAGAR: $${total.toFixed(2)}`;
-      
-      if (subtotal >= 20) {
+      texto += `\nTOTAL A PAGAR: $${totalFinal.toFixed(2)}`;
+
+      // Participación en rifa: solo si hay productos >= $20
+      if (totalProductos >= 20) {
         const ahora = new Date();
         const key = `sorteo-${ahora.getFullYear()}-${ahora.getMonth()}`;
         let count = parseInt(localStorage.getItem(key) || '20');
@@ -336,11 +346,9 @@
       window.open(`https://wa.me/593963923399?text=${encodeURIComponent(texto)}`, '_blank');
     };
 
-    // Eventos
     document.getElementById('cart-icon').onclick = mostrarModal;
     document.getElementById('close-cart').onclick = () => document.getElementById('cart-modal').style.display = 'none';
 
-    // Iniciar
     dibujarRifas();
     actualizarUI();
   </script>
