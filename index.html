@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>BHALLEFFORT | Tienda online Ecuador – ropa, juguetes, hogar</title>
-  <meta name="description" content="Compra online en Ecuador: ropa, juguetes y utensilios para el hogar. Envíos por Servientrega a todo el Ecuador. Pago: efectivo o transferencia.">
+  <title>BHALLEFFORT | Tienda online Ecuador – ropa, zapatos, varios</title>
+  <meta name="description" content="Compra online en Ecuador: ropa, zapatos y artículos varios. Envíos por Servientrega a todo el Ecuador. Pago: transferencia o tarjeta.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="index, follow">
 
@@ -13,7 +13,7 @@
   <!-- Open Graph / WhatsApp / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="BHALLEFFORT – Tienda Online Ecuador">
-  <meta property="og:description" content="Compra online: ropa, juguetes, hogar. Envíos a todo el Ecuador. Pago contra-entrega o transferencia.">
+  <meta property="og:description" content="Compra online: ropa, zapatos, varios. Envíos a todo el Ecuador.">
   <meta property="og:image" content="https://jhomac2.github.io/bhalleffort-store/logo-ballena.png">
   <meta property="og:url" content="https://jhomac2.github.io/bhalleffort-store/">
   <meta property="og:site_name" content="BHALLEFFORT">
@@ -59,7 +59,11 @@
     .whale-icon{width:46px;border:2px solid var(--morado);border-radius:50%}
     .brand-text h1{font-size:20px;color:var(--morado)}
     .brand-text p{font-size:12px;color:var(--morado);opacity:.9}
-    .whatsapp-btn{display:flex;align-items:center;gap:6px;background:#25D366;color:#fff;padding:6px 10px;border-radius:4px;font-size:12px;cursor:pointer}
+    /* ---------- BOTONES DUALES ---------- */
+    .dual-buttons{display:flex;gap:1rem;justify-content:center;margin:1rem 0;flex-wrap:wrap}
+    .btn-rifas,.btn-wa{padding:.8rem 1.4rem;border-radius:6px;font-weight:700;text-decoration:none;color:#fff;box-shadow:0 2px 4px rgba(0,0,0,.25)}
+    .btn-rifas{background:#ff6600}
+    .btn-wa{background:#25d366}
     /* ---------- MENÚ STICKY ---------- */
     .main-nav{position:sticky;top:0;z-index:999;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
     .main-nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center}
@@ -154,30 +158,33 @@
     </div>
   </div>
 
-  <!-- header -->
-  <header class="header">
-  <img src="logo-ballena.png" alt="BHALLEFFORT" class="logo">
-  <nav class="nav">
-    <a href="index.html">Inicio</a>
-    <a href="ropa.html">Ropa</a>
-    <a href="zapatos.html">Zapatos</a>
-    <a href="varios.html">Varios</a>
-    <a href="promociones.html">Promociones</a>
-    <a href="quienes-somos.html">Quiénes somos</a>
-    <a href="super-rifas.html" style="background:#ff6600;color:#fff;padding:4px 8px;border-radius:4px;">Super Rifas</a>
-    <a href="contacto.html">Contacto</a>
-  </nav>
-</header>
-  <!-- nav -->
+  <!-- header + botones dual -->
+  <header class="main-header">
+    <div class="container flex-space">
+      <div class="logo-section">
+        <img src="logo-ballena.png" alt="BHALLEFFORT" class="whale-icon">
+        <div class="brand-text">
+          <h1>BHALLEFFORT</h1>
+          <p>Tienda Online Ecuador</p>
+        </div>
+      </div>
+      <div class="dual-buttons">
+        <a href="super-rifas.html" class="btn-rifas">🎉 Rifas del mes</a>
+        <a href="https://wa.me/593963923399" class="btn-wa">📱 +593 963 923 399</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- nav sticky -->
   <nav class="main-nav">
     <ul id="nav-menu">
       <li><a href="index.html">INICIO</a></li>
-      <li><a href="quienes-somos.html">QUIÉNES SOMOS</a></li>
       <li><a href="ropa.html">ROPA</a></li>
-      <li><a href="juguetes.html">JUGUETES</a></li>
-      <li><a href="hogar.html">HOGAR</a></li>
+      <li><a href="zapatos.html">ZAPATOS</a></li>
+      <li><a href="varios.html">VARIOS</a></li>
       <li><a href="promociones.html">PROMOCIONES</a></li>
-      <li><a href="politicas.html">POLÍTICAS</a></li>
+      <li><a href="quienes-somos.html">QUIÉNES SOMOS</a></li>
+      <li><a href="super-rifas.html" style="background:#ff6600;color:#fff;padding:4px 8px;border-radius:4px;">SUPER RIFAS</a></li>
       <li><a href="contacto.html">CONTACTO</a></li>
     </ul>
   </nav>
@@ -195,8 +202,8 @@
     <div class="container">
       <div class="flex-quick-categories">
         <a href="ropa.html" class="category-box"><i class="fas fa-tshirt"></i><h3>ROPA</h3><p>Moda al mejor precio</p></a>
-        <a href="juguetes.html" class="category-box"><i class="fas fa-puzzle-piece"></i><h3>JUGUETES</h3><p>Diversión garantizada</p></a>
-        <a href="hogar.html" class="category-box"><i class="fas fa-couch"></i><h3>HOGAR</h3><p>Todo para tu casa</p></a>
+        <a href="zapatos.html" class="category-box"><i class="fas fa-shoe-prints"></i><h3>ZAPATOS</h3><p>Calidad y estilo</p></a>
+        <a href="varios.html" class="category-box"><i class="fas fa-box"></i><h3>VARIOS</h3><p>De todo un poco</p></a>
       </div>
     </div>
   </section>
@@ -215,7 +222,7 @@
   <section class="guarantees">
     <div class="container flex-guarantees">
       <div class="guarantee-item"><i class="fas fa-truck"></i><div><strong>ENVÍOS POR SERVIENTREGA</strong><p>A todo el Ecuador</p></div></div>
-      <div class="guarantee-item"><i class="fas fa-lock"></i><div><strong>PAGO: EFECTIVO O TRANSFERENCIA</strong><p>100% seguro</p></div></div>
+      <div class="guarantee-item"><i class="fas fa-lock"></i><div><strong>PAGO: TRANSFERENCIA O TARJETA</strong><p>100% seguro</p></div></div>
       <div class="guarantee-item"><i class="fas fa-store"></i><div><strong>RETIRO EN TIENDA</strong><p>Gratis - La Y de Tabacundo</p></div></div>
       <div class="guarantee-item"><i class="fas fa-percent"></i><div><strong>DESCUENTOS</strong><p>Los mejores precios</p></div></div>
     </div>
@@ -276,13 +283,13 @@
   <script>
     const productos = [
       {id:"P001",cat:"Ropa",nombre:"Camiseta BHALLEFFORT Edición Limitada",precio:14.99,img:"prod-ropa.jpg",url:"ropa.html"},
-      {id:"P002",cat:"Juguetes",nombre:"Bloques de Construcción 500 pzs",precio:22.50,img:"prod-juguetes.jpg",url:"juguetes.html"},
-      {id:"P003",cat:"Hogar",nombre:"Set Utensilios Cocina Deluxe",precio:39.99,img:"prod-hogar.jpg",url:"hogar.html"},
+      {id:"P002",cat:"Zapatos",nombre:"Zapatos urbanos edición limitada",precio:22.50,img:"prod-juguetes.jpg",url:"zapatos.html"},
+      {id:"P003",cat:"Varios",nombre:"Set Utensilios Cocina Deluxe",precio:39.99,img:"prod-hogar.jpg",url:"varios.html"},
       {id:"O001",cat:"Ropa",nombre:"Pantalón Deportivo Morado",precio:19.99,img:"prod-oferta.jpg",url:"ropa.html"},
-      {id:"P005",cat:"Juguetes",nombre:"Peluche Ballena 30 cm",precio:12.50,img:"prod-juguetes.jpg",url:"juguetes.html"},
+      {id:"P005",cat:"Zapatos",nombre:"Tennis cómodos",precio:12.50,img:"prod-juguetes.jpg",url:"zapatos.html"},
       {id:"P006",cat:"Ropa",nombre:"Sudadera BHALLEFFORT",precio:29.99,img:"prod-ropa.jpg",url:"ropa.html"},
-      {id:"P007",cat:"Hogar",nombre:"Juego de Toallas 3 pzs",precio:15.99,img:"prod-hogar.jpg",url:"hogar.html"},
-      {id:"P008",cat:"Juguetes",nombre:"Auto de Control Remoto",precio:24.99,img:"prod-juguetes.jpg",url:"juguetes.html"}
+      {id:"P007",cat:"Varios",nombre:"Juego de Toallas 3 pzs",precio:15.99,img:"prod-hogar.jpg",url:"varios.html"},
+      {id:"P008",cat:"Zapatos",nombre:"Sandalias frescas",precio:24.99,img:"prod-juguetes.jpg",url:"zapatos.html"}
     ];
 
     let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
@@ -418,4 +425,3 @@
   </script>
 </body>
 </html>
-
