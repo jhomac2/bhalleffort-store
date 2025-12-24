@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root{--morado:#4c0d8c;--celeste:#87ceeb;--texto:#222;--fondo:#f5f7fa}
+    :root{--morado:#4c0d8c;--celeste:#87ceeb;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;--fondo:#f5f7fa}
     *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',system-ui,Arial}
     body{background:var(--fondo);color:var(--texto)}
     .container{width:90%;max-width:1200px;margin:auto}
@@ -23,7 +23,9 @@
     .brand-text h1{font-size:20px;color:var(--morado)}
     .brand-text p{font-size:12px;color:var(--morado);opacity:.9}
     .dual-buttons{display:flex;gap:1rem;justify-content:center;margin:1rem 0;flex-wrap:wrap}
-    .btn-wa{padding:.8rem 1.4rem;border-radius:6px;font-weight:700;text-decoration:none;color:#fff;box-shadow:0 2px 4px rgba(0,0,0,.25);background:#25d366}
+    .btn-rifas,.btn-wa{padding:.8rem 1.4rem;border-radius:6px;font-weight:700;text-decoration:none;color:#fff;box-shadow:0 2px 4px rgba(0,0,0,.25)}
+    .btn-rifas{background:#ff6600}
+    .btn-wa{background:#25d366}
     .main-nav{position:sticky;top:0;z-index:999;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
     .main-nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center}
     .main-nav a{color:var(--morado);padding:10px 12px;display:block;font-size:14px;text-decoration:none;font-weight:600}
@@ -42,9 +44,25 @@
     .footer-contact a{color:#000;text-decoration:none}
     .god-message{font-size:11px;color:#000;margin-top:4px}
     .designer-line{font-size:12px;color:#000;margin-top:4px}
+    /* Carrito flotante */
+    #cart-icon{position:fixed;top:15px;right:15px;background:#fff;border-radius:50%;padding:8px;box-shadow:0 2px 5px rgba(0,0,0,.15);cursor:pointer;z-index:1000}
+    #cart-badge{background:var(--turquesa);color:#fff;border-radius:50%;padding:2px 6px;font-size:11px;position:absolute;top:-4px;right:-4px}
+    /* Banners inferiores */
+    #banner-div{position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;box-shadow:0 -2px 5px rgba(0,0,0,.1);z-index:999}
+    #banner-envio{flex:1;background:#25D366;color:#fff;text-align:center;padding:8px;font-size:14px}
+    #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:8px;font-size:14px}
   </style>
 </head>
 <body>
+
+  <!-- Carrito flotante -->
+  <div id="cart-icon" style="display:none;"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
+
+  <!-- Banners inferiores fijos -->
+  <div id="banner-div">
+    <div id="banner-envio">🚚 ¡Envío gratis desde $50!</div>
+    <div id="banner-sorteo">🎉 Por compras superiores a $20 participas automáticamente en nuestra gran rifa</div>
+  </div>
 
   <div class="top-bar">
     <div class="container flex-space">
@@ -69,6 +87,7 @@
         </div>
       </a>
       <div class="dual-buttons">
+        <a href="super-rifas.html" class="btn-rifas">🎉 Rifas</a>
         <a href="https://wa.me/593963923399" class="btn-wa">📱 +593 963 923 399</a>
       </div>
     </div>
@@ -149,5 +168,37 @@
     </div>
   </footer>
 
+  <script>
+    const carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
+    const cartIcon = document.getElementById('cart-icon');
+    const cartBadge = document.getElementById('cart-badge');
+
+    if (carrito.length > 0) {
+      cartBadge.textContent = carrito.length;
+      cartIcon.style.display = 'block';
+    }
+
+    function actualizarBannerEnvio() {
+      const total = carrito.reduce((t,p)=>t+p.precio,0);
+      const bannerEnvio = document.getElementById('banner-envio');
+      const bannerSorteo = document.getElementById('banner-sorteo');
+      if (total >= 50) {
+        bannerEnvio.innerHTML = '✅ ¡Tu envío es gratis!';
+        bannerEnvio.style.background = '#25D366';
+      } else {
+        bannerEnvio.innerHTML = '🚚 ¡Envío gratis desde $50!';
+        bannerEnvio.style.background = '#ff9800';
+      }
+      if (total >= 20) {
+        bannerSorteo.innerHTML = '🎉 ¡YA ESTÁS PARTICIPANDO EN NUESTRA GRAN RIFA!';
+        bannerSorteo.style.background = 'var(--morado)';
+      } else {
+        bannerSorteo.innerHTML = '🎉 Por compras superiores a $20 participas automáticamente en nuestra gran rifa';
+        bannerSorteo.style.background = 'var(--morado)';
+      }
+    }
+
+    actualizarBannerEnvio();
+  </script>
 </body>
 </html>
