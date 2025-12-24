@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>Ropa y Calzado – BHALLEFFORT</title>
-  <meta name="description" content="Ropa, zapatos y accesorios al mejor precio del Ecuador. Envíos a todo el país.">
+  <title>Ropa – BHALLEFFORT | Tienda Online Ecuador</title>
+  <meta name="description" content="Compra ropa al mejor precio en Ecuador. Envíos a todo el país.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="https://jhomac2.github.io/bhalleffort-store/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -23,23 +23,16 @@
     .whale-icon{width:46px;border:2px solid var(--morado);border-radius:50%}
     .brand-text h1{font-size:20px;color:var(--morado)}
     .brand-text p{font-size:12px;color:var(--morado);opacity:.9}
-
-    /* Botones WhatsApp y Rifas */
     .dual-buttons{display:flex;gap:1rem;justify-content:center;margin:1rem 0;flex-wrap:wrap}
     .btn-rifas,.btn-wa{padding:.8rem 1.4rem;border-radius:6px;font-weight:700;text-decoration:none;color:#fff;box-shadow:0 2px 4px rgba(0,0,0,.25)}
     .btn-rifas{background:#ff6600}
     .btn-wa{background:#25d366}
-
-    /* Menú de navegación */
     .main-nav{position:sticky;top:0;z-index:999;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
     .main-nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center}
     .main-nav a{color:var(--morado);padding:10px 12px;display:block;font-size:14px;text-decoration:none;font-weight:600}
-
-    /* Hero banner */
+    .main-nav a.active{background:var(--morado);color:#fff;border-radius:4px;}
     .hero-banner{background:url('prod-oferta.jpg') center/cover no-repeat;height:220px;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;text-shadow:1px 1px 3px #000}
     .hero-banner h1{font-size:26px}
-
-    /* Productos (4 filas de 5) */
     .featured-products{padding:20px 0}
     .section-title{text-align:center;margin-bottom:15px;font-size:22px;color:var(--morado)}
     .products-grid-ten{
@@ -88,28 +81,16 @@
       align-self:flex-start;
     }
     .btn-buy:hover{background:var(--turquesaOsc)}
-
-    /* Responsive */
-    @media(max-width:768px){
-      .products-grid-ten{grid-template-columns:repeat(3,1fr)}
-    }
-    @media(max-width:480px){
-      .products-grid-ten{grid-template-columns:repeat(2,1fr)}
-    }
-
-    /* Garantías */
+    @media(max-width:768px){.products-grid-ten{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:480px){.products-grid-ten{grid-template-columns:repeat(2,1fr)}}
     .guarantees{background:#fff;padding:20px 0;margin-top:20px}
     .flex-guarantees{display:flex;gap:15px;flex-wrap:wrap;justify-content:center;text-align:center}
     .guarantee-item{flex:1 1 200px}
-
-    /* Footer */
     footer{background:var(--celeste);color:#000;font-size:13px;padding:20px 0}
     .footer-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
     .footer-contact a{color:#000;text-decoration:none}
     .god-message{font-size:11px;color:#000;margin-top:4px}
     .designer-line{font-size:12px;color:#000;margin-top:4px}
-
-    /* Carrito, lupa, banners */
     #cart-icon{position:fixed;top:15px;right:15px;background:#fff;border-radius:50%;padding:8px;box-shadow:0 2px 5px rgba(0,0,0,.15);cursor:pointer;z-index:1000}
     #cart-badge{background:var(--turquesa);color:#fff;border-radius:50%;padding:2px 6px;font-size:11px;position:absolute;top:-4px;right:-4px}
     .cart-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000}
@@ -133,7 +114,6 @@
 </head>
 <body>
 
-  <!-- Carrito, búsqueda, notificaciones -->
   <div id="cart-icon"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
   <button id="btn-lupa" title="Buscar producto"><i class="fas fa-search"></i></button>
   <div id="search-modal">
@@ -145,29 +125,25 @@
   </div>
   <div id="noti-add"></div>
 
-  <!-- Banners inferiores fijos -->
   <div id="banner-div">
     <div id="banner-envio">🚚 ¡Envío gratis desde $50!</div>
     <div id="banner-sorteo">🎉 Por compras superiores a $20 participas automáticamente en nuestra gran rifa</div>
   </div>
 
-  <!-- Top bar con redes sociales -->
   <div class="top-bar">
     <div class="container flex-space">
       <div class="social-icons">
-        <a href="https://tiktok.com/@bhalleffort" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-        <a href="https://facebook.com/bhalleffort" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-        <a href="https://instagram.com/bhalleffort" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://tiktok.com/@bhalleffort" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://facebook.com/bhalleffort" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://instagram.com/bhalleffort" target="_blank"><i class="fab fa-instagram"></i></a>
       </div>
       <div><i class="fas fa-truck"></i> ENVÍOS 100% SEGUROS</div>
     </div>
   </div>
 
-  <!-- Header con logo enlazado al inicio -->
   <header class="main-header">
     <div class="container flex-space">
-      <!-- ✅ AQUÍ ESTÁ EL CAMBIO PRINCIPAL: el logo y texto son un enlace a index.html -->
-      <a href="index.html" style="text-decoration:none; color: inherit;">
+      <a href="index.html" style="text-decoration:none; color:inherit;">
         <div class="logo-section">
           <img src="logo-ballena.png" alt="BHALLEFFORT" class="whale-icon">
           <div class="brand-text">
@@ -183,11 +159,10 @@
     </div>
   </header>
 
-  <!-- Menú de navegación -->
   <nav class="main-nav">
     <ul id="nav-menu">
       <li><a href="index.html">INICIO</a></li>
-      <li><a href="ropa.html">ROPA</a></li>
+      <li><a href="ropa.html" class="active">ROPA</a></li>
       <li><a href="zapatos.html">ZAPATOS</a></li>
       <li><a href="varios.html">VARIOS</a></li>
       <li><a href="promociones.html">PROMOCIONES</a></li>
@@ -196,33 +171,29 @@
     </ul>
   </nav>
 
-  <!-- Hero banner -->
   <section class="hero-banner">
     <div>
-      <h1>Ropa y Calzado – BHALLEFFORT</h1>
-      <p>Moda y comfort al mejor precio del Ecuador</p>
+      <h1>Ropa – BHALLEFFORT</h1>
+      <p>Moda, estilo y comodidad al mejor precio</p>
     </div>
   </section>
 
-  <!-- Productos de ropa (4 filas de 5) -->
   <section class="featured-products">
     <div class="container">
-      <h2 class="section-title">✨ ROPA Y CALZADO - TODAS LAS OFERTAS ✨</h2>
+      <h2 class="section-title">✨ ROPA – TODAS LAS OFERTAS ✨</h2>
       <div class="products-grid-ten" id="products-grid"></div>
     </div>
   </section>
 
-  <!-- Garantías -->
   <section class="guarantees">
     <div class="container flex-guarantees">
       <div class="guarantee-item"><i class="fas fa-truck"></i><div><strong>ENVÍOS 100% SEGUROS</strong><p>A todo el Ecuador</p></div></div>
-      <div class="guarantee-item"><i class="fas fa-lock"></i><div><strong>PAGO: TRANSFERENCIA O TARJETA</strong><p>100% seguro</p></div></div>
-      <div class="guarantee-item"><i class="fas fa-store"></i><div><strong>RETIRO EN TIENDA</strong><p>Gratis - La Y de Tabacundo</p></div></div>
-      <div class="guarantee-item"><i class="fas fa-percent"></i><div><strong>DESCUENTOS</strong><p>Los mejores precios</p></div></div>
+      <div class="guarantee-item"><i class="fas fa-lock"></i><div><strong>PAGO SEGURO</strong><p>Transferencia o tarjeta</p></div></div>
+      <div class="guarantee-item"><i class="fas fa-store"></i><div><strong>RETIRO EN TIENDA</strong><p>La Y de Tabacundo</p></div></div>
+      <div class="guarantee-item"><i class="fas fa-percent"></i><div><strong>MEJORES PRECIOS</strong><p>¡Garantizado!</p></div></div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="container footer-grid">
       <div>
@@ -235,8 +206,8 @@
         <h3>CONTÁCTANOS</h3>
         <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/593963923399" target="_blank">+593 963 923 399</a></p>
         <p><i class="fas fa-envelope"></i> agromhasvida5@gmail.com</p>
-        <p><i class="far fa-clock"></i> Horario: 8:00-20:00 (lunes a domingo)</p>
-        <p><i class="fas fa-map-marker-alt"></i> La Y de Tabacundo, Pichincha, Ecuador</p>
+        <p><i class="far fa-clock"></i> Horario: 8:00-20:00</p>
+        <p><i class="fas fa-map-marker-alt"></i> La Y de Tabacundo, Pichincha</p>
       </div>
       <div>
         <h3>POLÍTICAS</h3>
@@ -254,7 +225,6 @@
     </div>
   </footer>
 
-  <!-- Modal del carrito -->
   <div id="cart-modal" class="cart-modal">
     <div>
       <header>
@@ -273,30 +243,15 @@
     </div>
   </div>
 
-  <!-- Lógica -->
   <script>
-    const productos = [
-      {id:"R001",cat:"Ropa",nombre:"Camisa de mujer – Talla única",precio:7.00,img:"prod-camisa-de-mujer-talla-única.webp",url:"ropa.html"},
-      {id:"Z001",cat:"Zapatos",nombre:"Tacos triple banda – Color oro",precio:20.00,img:"prod-tacos--triple-banda-talla-color-oro.webp",url:"ropa.html"},
-      {id:"Z002",cat:"Zapatos",nombre:"Tacos doble banda – Color oro",precio:20.00,img:"prod-tacos--doble-banda-talla-color-oro.webp",url:"ropa.html"},
-      {id:"Z003",cat:"Zapatos",nombre:"Tacos mariposa – Talla M – Negro",precio:17.00,img:"prod-tacos-mariposa-talla-m-color-negro.webp",url:"ropa.html"},
-      {id:"R002",cat:"Ropa",nombre:"Sudadera con capucha – Roja",precio:25.00,img:"prod-sudadera-roja.jpg",url:"ropa.html"},
-      {id:"Z004",cat:"Zapatos",nombre:"Tenis deportivos – Blanco",precio:18.00,img:"prod-tenis-blanco.jpg",url:"ropa.html"},
-      {id:"R003",cat:"Ropa",nombre:"Pantalón jogger – Gris",precio:16.00,img:"prod-pantalon-gris.jpg",url:"ropa.html"},
-      {id:"Z005",cat:"Zapatos",nombre:"Sandalias planas – Doradas",precio:12.00,img:"prod-sandalias-doradas.jpg",url:"ropa.html"},
-      {id:"R004",cat:"Ropa",nombre:"Blusa estampada – Talla S",precio:9.00,img:"prod-blusa-estampada.jpg",url:"ropa.html"},
-      {id:"Z006",cat:"Zapatos",nombre:"Botines cortos – Negros",precio:22.00,img:"prod-botines-negros.jpg",url:"ropa.html"},
-      {id:"R005",cat:"Ropa",nombre:"Chaqueta ligera – Azul",precio:28.00,img:"prod-chaqueta-azul.jpg",url:"ropa.html"},
-      {id:"Z007",cat:"Zapatos",nombre:"Zapatillas de casa – Rosa",precio:8.00,img:"prod-zapatillas-rosa.jpg",url:"ropa.html"},
-      {id:"R006",cat:"Ropa",nombre:"Vestido largo – Estampado floral",precio:19.00,img:"prod-vestido-floral.jpg",url:"ropa.html"},
-      {id:"Z008",cat:"Zapatos",nombre:"Mocasines – Marrones",precio:15.00,img:"prod-mocasines-marron.jpg",url:"ropa.html"},
-      {id:"R007",cat:"Ropa",nombre:"Camiseta básica – Blanca",precio:5.00,img:"prod-camiseta-blanca.jpg",url:"ropa.html"},
-      {id:"Z009",cat:"Zapatos",nombre:"Stilettos – Plateados",precio:24.00,img:"prod-stilettos-plateados.jpg",url:"ropa.html"},
-      {id:"R008",cat:"Ropa",nombre:"Falda plisada – Negra",precio:11.00,img:"prod-falda-negra.jpg",url:"ropa.html"},
-      {id:"Z010",cat:"Zapatos",nombre:"Zapatos de trabajo – Cafés",precio:21.00,img:"prod-zapatos-trabajo-cafe.jpg",url:"ropa.html"},
-      {id:"R009",cat:"Ropa",nombre:"Suéter de lana – Beige",precio:23.00,img:"prod-sweater-beige.jpg",url:"ropa.html"},
-      {id:"Z011",cat:"Zapatos",nombre:"Zapatillas deportivas – Multicolor",precio:19.00,img:"prod-zapatillas-multicolor.jpg",url:"ropa.html"}
-    ];
+    const productos = Array.from({length:20}, (_,i) => ({
+      id:`R${String(i+1).padStart(3,'0')}`,
+      cat:"Ropa",
+      nombre:`Producto de Ropa ${i+1}`,
+      precio:5 + i * 1.5,
+      img:"prod-ropa.jpg",
+      url:"ropa.html"
+    }));
 
     let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
 
@@ -407,15 +362,12 @@
       window.open(`https://wa.me/593963923399?text=${encodeURIComponent(texto)}`, '_blank');
     };
 
-    const searchModal = document.getElementById('search-modal');
-    const searchInput = document.getElementById('search-input');
-    const searchResults = document.getElementById('search-results');
-    document.getElementById('btn-lupa').onclick = () => searchModal.style.display = 'block';
-    document.getElementById('close-search').onclick = () => searchModal.style.display = 'none';
-    searchInput.oninput = () => {
-      const q = searchInput.value.toLowerCase();
+    document.getElementById('btn-lupa').onclick = () => document.getElementById('search-modal').style.display = 'block';
+    document.getElementById('close-search').onclick = () => document.getElementById('search-modal').style.display = 'none';
+    document.getElementById('search-input').oninput = () => {
+      const q = document.getElementById('search-input').value.toLowerCase();
       const filtrados = productos.filter(p => p.nombre.toLowerCase().includes(q));
-      searchResults.innerHTML = filtrados.map(p => `
+      document.getElementById('search-results').innerHTML = filtrados.map(p => `
         <div class="result-item" onclick="window.open('${p.url}','_self')">
           <strong>${p.nombre}</strong> - $${p.precio.toFixed(2)}
         </div>`).join('');
