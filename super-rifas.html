@@ -56,7 +56,18 @@
     }
     .rifa-info{padding:12px}
     .rifa-name{font-weight:600;color:var(--morado);margin:5px 0}
-    .rifa-desc{font-size:13px;color:#555}
+    .rifa-price{font-weight:700;color:var(--turquesa);font-size:17px;margin:5px 0}
+    .btn-participar{
+      background:var(--morado);
+      color:#fff;
+      border:none;
+      padding:8px 12px;
+      border-radius:4px;
+      cursor:pointer;
+      font-weight:600;
+      margin-top:8px;
+    }
+    .btn-participar:hover{background:#3a0a66;}
     footer{background:var(--celeste);color:#000;font-size:13px;padding:20px 0}
     .footer-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
     .footer-contact a{color:#000;text-decoration:none}
@@ -69,26 +80,27 @@
     #banner-div{position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;box-shadow:0 -2px 5px rgba(0,0,0,.1);z-index:999}
     #banner-envio{flex:1;background:#25D366;color:#fff;text-align:center;padding:8px;font-size:14px}
     #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:8px;font-size:14px}
-    @media(max-width:768px){
-      .rifas-grid{grid-template-columns:repeat(2,1fr)}
-    }
-    @media(max-width:480px){
-      .rifas-grid{grid-template-columns:repeat(1,1fr)}
-    }
+    /* Modal */
+    .cart-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000}
+    .cart-modal>div{background:#fff;width:90%;max-width:480px;margin:60px auto;padding:15px;border-radius:8px;position:relative;display:flex;flex-direction:column;max-height:80vh}
+    .cart-modal header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-shrink:0}
+    #cart-items{flex:1 1 auto;overflow-y:auto;margin-bottom:10px;border:1px solid #eee;border-radius:4px;padding:8px}
+    .cart-modal footer{flex-shrink:0;text-align:right}
+    @media(max-width:768px){.rifas-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:480px){.rifas-grid{grid-template-columns:repeat(1,1fr)}}
   </style>
 </head>
 <body>
 
-  <!-- Carrito (solo si hay productos) -->
+  <!-- Carrito -->
   <div id="cart-icon" style="display:none;"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
 
-  <!-- Banners inferiores -->
+  <!-- Banners -->
   <div id="banner-div">
     <div id="banner-envio">🚚 ¡Envío gratis desde $50!</div>
     <div id="banner-sorteo">🎉 Por compras superiores a $20 participas automáticamente en nuestra gran rifa</div>
   </div>
 
-  <!-- Top bar -->
   <div class="top-bar">
     <div class="container flex-space">
       <div class="social-icons">
@@ -100,7 +112,6 @@
     </div>
   </div>
 
-  <!-- Header -->
   <header class="main-header">
     <div class="container flex-space">
       <a href="index.html" style="text-decoration:none; color:inherit;">
@@ -119,7 +130,6 @@
     </div>
   </header>
 
-  <!-- Menú -->
   <nav class="main-nav">
     <ul id="nav-menu">
       <li><a href="index.html">INICIO</a></li>
@@ -132,78 +142,18 @@
     </ul>
   </nav>
 
-  <!-- Hero -->
   <section class="hero-banner">
     <h2>🎁 ¡PARTICIPA EN NUESTRAS RIFAS!</h2>
-    <p>Compra y participa automáticamente. ¡Premios increíbles cada mes!</p>
+    <p>¡Premios increíbles! Cada boleto te acerca a ganar.</p>
   </section>
 
-  <!-- Rifas -->
   <section class="featured-rifas">
     <div class="container">
       <h2 class="section-title">🔥 RIFAS ACTIVAS ESTE MES</h2>
-      <div class="rifas-grid">
-        <div class="rifa-card">
-          <img src="rifa1.jpg" alt="Rifa: Smartphone" class="rifa-image">
-          <div class="rifa-info">
-            <div class="rifa-name">📱 Smartphone Nuevo</div>
-            <div class="rifa-desc">Participa por $20 o más</div>
-          </div>
-        </div>
-        <div class="rifa-card">
-          <img src="rifa2.jpg" alt="Rifa: Audífonos" class="rifa-image">
-          <div class="rifa-info">
-            <div class="rifa-name">🎧 Audífonos Inalámbricos</div>
-            <div class="rifa-desc">Participa por $20 o más</div>
-          </div>
-        </div>
-        <div class="rifa-card">
-          <img src="rifa3.jpg" alt="Rifa: Reloj" class="rifa-image">
-          <div class="rifa-info">
-            <div class="rifa-name">⌚ Reloj Inteligente</div>
-            <div class="rifa-desc">Participa por $20 o más</div>
-          </div>
-        </div>
-        <div class="rifa-card">
-          <img src="rifa4.jpg" alt="Rifa: Mochila" class="rifa-image">
-          <div class="rifa-info">
-            <div class="rifa-name">🎒 Mochila Antirrobo</div>
-            <div class="rifa-desc">Participa por $20 o más</div>
-          </div>
-        </div>
-        <div class="rifa-card">
-          <img src="rifa5.jpg" alt="Rifa: Kit de Belleza" class="rifa-image">
-          <div class="rifa-info">
-            <div class="rifa-name">💄 Kit de Belleza</div>
-            <div class="rifa-desc">Participa por $20 o más</div>
-          </div>
-        </div>
-        <div class="rifa-card">
-          <img src="rifa6.jpg" alt="Rifa: Juego de Cocina" class="rifa-image">
-          <div class="rifa-info">
-            <div class="rifa-name">🍳 Set de Cocina</div>
-            <div class="rifa-desc">Participa por $20 o más</div>
-          </div>
-        </div>
-        <div class="rifa-card">
-          <img src="rifa7.jpg" alt="Rifa: Peluche Gigante" class="rifa-image">
-          <div class="rifa-info">
-            <div class="rifa-name">🧸 Peluche Gigante</div>
-            <div class="rifa-desc">Participa por $20 o más</div>
-          </div>
-        </div>
-        <div class="rifa-card">
-          <img src="rifa8.jpg" alt="Rifa: Tarjeta Regalo" class="rifa-image">
-          <div class="rifa-info">
-            <div class="rifa-name">💳 $50 en Compras</div>
-            <div class="rifa-desc">Participa por $20 o más</div>
-          </div>
-        </div>
-      </div>
+      <div class="rifas-grid" id="rifas-grid"></div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="container footer-grid">
       <div>
@@ -235,21 +185,93 @@
     </div>
   </footer>
 
-  <!-- Lógica: carrito y banners -->
-  <script>
-    const carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
-    const cartIcon = document.getElementById('cart-icon');
-    const cartBadge = document.getElementById('cart-badge');
+  <!-- Modal Carrito -->
+  <div id="cart-modal" class="cart-modal">
+    <div>
+      <header>
+        <h3><i class="fas fa-shopping-cart"></i> Tu carrito</h3>
+        <button id="close-cart" style="background:none;border:none;font-size:20px;cursor:pointer">&times;</button>
+      </header>
+      <div id="cart-items"></div>
+      <footer>
+        <div style="display:flex;justify-content:space-between;font-weight:bold">
+          <span>Total:</span><span id="cart-total">$0.00</span>
+        </div>
+        <button id="btn-wa" style="background:#25D366;color:#fff;border:none;padding:8px 14px;border-radius:4px;cursor:pointer;margin-top:10px">
+          Enviar pedido por WhatsApp 🐋💜
+        </button>
+      </footer>
+    </div>
+  </div>
 
-    if (carrito.length > 0) {
-      cartBadge.textContent = carrito.length;
-      cartIcon.style.display = 'block';
+  <script>
+    // Define tus rifas con nombre, imagen y PRECIO
+    const rifas = [
+      {id:"RIFA001", nombre:"📱 Smartphone Nuevo", precio:5.00, img:"rifa1.jpg"},
+      {id:"RIFA002", nombre:"🎧 Audífonos Inalámbricos", precio:3.00, img:"rifa2.jpg"},
+      {id:"RIFA003", nombre:"⌚ Reloj Inteligente", precio:4.00, img:"rifa3.jpg"},
+      {id:"RIFA004", nombre:"🎒 Mochila Antirrobo", precio:2.00, img:"rifa4.jpg"},
+      {id:"RIFA005", nombre:"💄 Kit de Belleza", precio:3.50, img:"rifa5.jpg"},
+      {id:"RIFA006", nombre:"🍳 Set de Cocina", precio:5.00, img:"rifa6.jpg"},
+      {id:"RIFA007", nombre:"🧸 Peluche Gigante", precio:2.50, img:"rifa7.jpg"},
+      {id:"RIFA008", nombre:"💳 $50 en Compras", precio:6.00, img:"rifa8.jpg"}
+    ];
+
+    let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
+
+    // Renderizar rifas
+    function dibujarRifas() {
+      const grid = document.getElementById('rifas-grid');
+      grid.innerHTML = rifas.map(r => `
+        <div class="rifa-card">
+          <img src="${r.img}" alt="${r.nombre}" class="rifa-image">
+          <div class="rifa-info">
+            <div class="rifa-name">${r.nombre}</div>
+            <div class="rifa-price">$${r.precio.toFixed(2)}</div>
+            <button class="btn-participar" onclick="agregarAlCarrito('${r.id}','${r.nombre}',${r.precio})">Participar en la rifa</button>
+          </div>
+        </div>`).join('');
     }
 
-    function actualizarBannerEnvio() {
-      const total = carrito.reduce((t,p)=>t+p.precio,0);
+    // Agregar al carrito (igual que productos normales)
+    function agregarAlCarrito(id, nombre, precio) {
+      carrito.push({id, nombre, precio});
+      localStorage.setItem('bh-cart', JSON.stringify(carrito));
+      actualizarUI();
+      mostrarNoti(`✅ ${nombre} agregado al carrito`);
+    }
+
+    function mostrarNoti(texto) {
+      const noti = document.createElement('div');
+      noti.textContent = texto;
+      noti.style.cssText = `
+        position:fixed; bottom:40px; left:50%; transform:translateX(-50%);
+        background:#222; color:#fff; padding:8px 14px; border-radius:4px;
+        font-size:13px; z-index:9999;
+      `;
+      document.body.appendChild(noti);
+      setTimeout(() => document.body.removeChild(noti), 2500);
+    }
+
+    function actualizarUI() {
+      const cartIcon = document.getElementById('cart-icon');
+      const cartBadge = document.getElementById('cart-badge');
+      
+      if (carrito.length > 0) {
+        cartBadge.textContent = carrito.length;
+        cartIcon.style.display = 'block';
+      } else {
+        cartIcon.style.display = 'none';
+      }
+
+      actualizarBanners();
+    }
+
+    function actualizarBanners() {
+      const total = carrito.reduce((t,p) => t + p.precio, 0);
       const bannerEnvio = document.getElementById('banner-envio');
       const bannerSorteo = document.getElementById('banner-sorteo');
+
       if (total >= 50) {
         bannerEnvio.innerHTML = '✅ ¡Tu envío es gratis!';
         bannerEnvio.style.background = '#25D366';
@@ -257,6 +279,7 @@
         bannerEnvio.innerHTML = '🚚 ¡Envío gratis desde $50!';
         bannerEnvio.style.background = '#ff9800';
       }
+
       if (total >= 20) {
         bannerSorteo.innerHTML = '🎉 ¡YA ESTÁS PARTICIPANDO EN NUESTRA GRAN RIFA!';
         bannerSorteo.style.background = 'var(--morado)';
@@ -266,7 +289,60 @@
       }
     }
 
-    actualizarBannerEnvio();
+    function mostrarModal() {
+      const itemsDiv = document.getElementById('cart-items');
+      const total = carrito.reduce((t,p) => t + p.precio, 0);
+      document.getElementById('cart-total').textContent = '$' + total.toFixed(2);
+
+      itemsDiv.innerHTML = carrito.map((item, i) => `
+        <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #eee">
+          <span>${item.nombre} <br><small>$${item.precio.toFixed(2)}</small></span>
+          <button onclick="eliminar(${i})" style="background:none;border:none;color:red;cursor:pointer">🗑️</button>
+        </div>`).join('');
+
+      document.getElementById('cart-modal').style.display = 'block';
+    }
+
+    function eliminar(i) {
+      carrito.splice(i, 1);
+      localStorage.setItem('bh-cart', JSON.stringify(carrito));
+      actualizarUI();
+      mostrarModal();
+    }
+
+    document.getElementById('btn-wa').onclick = () => {
+      const subtotal = carrito.reduce((t,p) => t + p.precio, 0);
+      const envio = subtotal >= 50 ? 0 : 3.50;
+      const total = subtotal + envio;
+
+      let texto = `🐋 Hola, quiero:\n`;
+      texto += carrito.map(p => `• ${p.nombre}  $${p.precio.toFixed(2)}`).join('\n');
+      texto += `\nTotal productos: $${subtotal.toFixed(2)}`;
+      
+      if (envio > 0) texto += `\nEnvío: $${envio.toFixed(2)}`;
+      else texto += '\nEnvío: ¡Gratis!';
+      
+      texto += `\nTOTAL A PAGAR: $${total.toFixed(2)}`;
+      
+      if (subtotal >= 20) {
+        const ahora = new Date();
+        const key = `sorteo-${ahora.getFullYear()}-${ahora.getMonth()}`;
+        let count = parseInt(localStorage.getItem(key) || '20');
+        count++;
+        localStorage.setItem(key, count);
+        texto += `\n\n🎉 ¡Felicidades! Estás participando en nuestra gran rifa 💜😃\nTu código de participación te lo dará el vendedor.`;
+      }
+
+      window.open(`https://wa.me/593963923399?text=${encodeURIComponent(texto)}`, '_blank');
+    };
+
+    // Eventos
+    document.getElementById('cart-icon').onclick = mostrarModal;
+    document.getElementById('close-cart').onclick = () => document.getElementById('cart-modal').style.display = 'none';
+
+    // Iniciar
+    dibujarRifas();
+    actualizarUI();
   </script>
 </body>
 </html>
