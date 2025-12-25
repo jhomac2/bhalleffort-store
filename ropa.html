@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>Ropa – BHALLEFFORT | Tienda Online Ecuador</title>
+  <title>Ropa – BHALLEFFORT | Calidad al mejor precio</title>
   <meta name="description" content="Compra ropa al mejor precio en Ecuador. Envíos a todo el país.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="https://jhomac2.github.io/bhalleffort-store/favicon.ico" type="image/x-icon">
@@ -17,7 +17,7 @@
     .flex-space{display:flex;align-items:center;justify-content:space-between}
     .top-bar{background:var(--morado);color:#fff;font-size:13px;padding:4px 0}
     .top-bar .social-icons{display:flex;gap:8px;font-size:16px}
-    .top-bar .social-icons a{color:#fff}
+    .top-bar .social-icons a{color:#fff;text-decoration:none}
     .main-header{padding:10px 0;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
     .logo-section{display:flex;align-items:center;gap:10px}
     .whale-icon{width:46px;border:2px solid var(--morado);border-radius:50%}
@@ -126,16 +126,16 @@
   <div id="noti-add"></div>
 
   <div id="banner-div">
-    <div id="banner-envio">🚚 ¡Envío gratis desde $50!</div>
-    <div id="banner-sorteo">🎉 Por compras superiores a $20 participas automáticamente en nuestra gran rifa</div>
+    <div id="banner-envio">🚚 ¡Envío gratis desde $50 en productos!</div>
+    <div id="banner-sorteo">🎉 Por compras superiores a $30 en productos participas en la rifa</div>
   </div>
 
   <div class="top-bar">
     <div class="container flex-space">
       <div class="social-icons">
-        <a href="https://tiktok.com/@bhalleffort" target="_blank"><i class="fab fa-tiktok"></i></a>
-        <a href="https://facebook.com/bhalleffort" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://instagram.com/bhalleffort" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://tiktok.com/@bhalleffort" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://facebook.com/bhalleffort" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://instagram.com/bhalleffort" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
       </div>
       <div><i class="fas fa-truck"></i> ENVÍOS 100% SEGUROS</div>
     </div>
@@ -148,7 +148,7 @@
           <img src="logo-ballena.png" alt="BHALLEFFORT" class="whale-icon">
           <div class="brand-text">
             <h1>BHALLEFFORT</h1>
-            <p>Tienda Online Ecuador</p>
+            <p>Calidad al mejor precio</p>
           </div>
         </div>
       </a>
@@ -198,7 +198,7 @@
     <div class="container footer-grid">
       <div>
         <img src="logo-ballena.png" alt="Ballena" width="40">
-        <p>LO MEJOR Y AL MEJOR PRECIO</p>
+        <p>Descubre lo que necesitas</p>
         <div class="god-message">Dios te da más de lo que pides.</div>
         <div class="designer-line">Diseñado por Jhomac² <i class="fab fa-tiktok"></i></div>
       </div>
@@ -304,14 +304,14 @@
         bannerEnvio.innerHTML = '✅ ¡Tu envío es gratis!';
         bannerEnvio.style.background = '#25D366';
       } else {
-        bannerEnvio.innerHTML = '🚚 ¡Envío gratis desde $50!';
+        bannerEnvio.innerHTML = '🚚 ¡Envío gratis desde $50 en productos!';
         bannerEnvio.style.background = '#ff9800';
       }
-      if (total >= 20) {
-        bannerSorteo.innerHTML = '🎉 ¡YA ESTÁS PARTICIPANDO EN NUESTRA GRAN RIFA!';
+      if (total >= 30) {
+        bannerSorteo.innerHTML = '🎉 ¡YA ESTÁS PARTICIPANDO EN LA RIFA!';
         bannerSorteo.style.background = 'var(--morado)';
       } else {
-        bannerSorteo.innerHTML = '🎉 Por compras superiores a $20 participas automáticamente en nuestra gran rifa';
+        bannerSorteo.innerHTML = '🎉 Por compras superiores a $30 en productos participas en la rifa';
         bannerSorteo.style.background = 'var(--morado)';
       }
     }
@@ -355,7 +355,7 @@
       if (envio > 0) texto += `\nEnvío: $${envio.toFixed(2)}`;
       else texto += '\nEnvío: ¡Gratis!';
       texto += `\nTOTAL A PAGAR: $${total.toFixed(2)}`;
-      if (subtotal >= 20) {
+      if (subtotal >= 30) {
         const count = incrementSorteo();
         texto += `\n\n🎉 ¡Felicidades! Estás participando en nuestra gran rifa 💜😃\nTu código de participación te lo dará el vendedor.`;
       }
