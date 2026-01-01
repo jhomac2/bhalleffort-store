@@ -10,7 +10,8 @@
   <style>
     :root{--celeste:#87ceeb;--morado:#4c0d8c;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;--fondo:#f5f7fa}
     *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',sans-serif}
-    body{background:var(--fondo);color:var(--texto);padding-bottom:100px}
+    /* CORRECCIÓN: Se reduce el padding inferior para evitar el espacio blanco excesivo */
+    body{background:var(--fondo);color:var(--texto);padding-bottom: 45px}
     img{max-width:100%;display:block}
     .container{width:90%;max-width:1200px;margin:auto}
     .flex-space{display:flex;align-items:center;justify-content:space-between}
@@ -50,7 +51,6 @@
     .product-image {width: 100%;height: 100%;object-fit: cover;transition: opacity 0.3s ease-in-out}
     .product-image.back {position: absolute;top: 0;left: 0;opacity: 0}
 
-    /* Efectos Hover PC y Touch Celular */
     @media (hover: hover) {
       .product-card:hover .product-image.front { opacity: 0; }
       .product-card:hover .product-image.back { opacity: 1; }
@@ -81,9 +81,11 @@
     #search-modal>div{background:#fff;width:90%;max-width:400px;margin:80px auto;padding:15px;border-radius:8px;position:relative}
 
     /* FOOTER Y BANNERS */
-    footer{background:var(--celeste);color:#000;font-size:14px;padding:40px 0}
+    footer{background:var(--celeste);color:#000;font-size:14px;padding:40px 0;margin-bottom: 0px;}
     .footer-grid{display:grid;gap:30px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
-    .bottom-banners{position:fixed;bottom:0;width:100%;display:flex;z-index:9999;font-weight:bold;font-size:12px}
+    
+    /* BANNERS FIJOS: Se asegura que estén al ras del fondo */
+    .bottom-banners{position:fixed;bottom:0;left:0;width:100%;display:flex;z-index:9999;font-weight:bold;font-size:12px}
     .b-orange{flex:1;background:#ff9800;color:#fff;padding:12px;text-align:center}
     .b-purple{flex:1;background:var(--morado);color:#fff;padding:12px;text-align:center}
     #noti-add{position:fixed;bottom:110px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:8px 14px;border-radius:4px;font-size:13px;z-index:9999;display:none}
@@ -97,11 +99,6 @@
   <div id="cart-icon"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
   <button id="btn-lupa"><i class="fas fa-search"></i></button>
   <div id="noti-add"></div>
-
-  <div class="bottom-banners">
-    <div class="b-orange">🚚 ¡Envío gratis desde $50 en productos!</div>
-    <div class="b-purple">🎉 Por compras superiores a $30 en productos participas en la rifa</div>
-  </div>
 
   <div class="top-bar">
     <div class="container flex-space">
@@ -134,18 +131,12 @@
       <li><a href="zapatos.html">ZAPATOS</a></li>
       <li><a href="varios.html">VARIOS</a></li>
       <li><a href="promociones.html">PROMOCIONES</a></li>
-      <li><a href="quienes-somos.html">QUIÉNES SOMOS</a></li>
-      <li><a href="contacto.html">CONTACTO</a></li>
     </ul>
   </nav>
 
-  <section class="hero-banner">
-    <div><h1>BHALLEFFORT – Tienda Online Ecuador</h1><p>LO MEJOR AL MEJOR PRECIO</p></div>
-  </section>
-
   <section class="featured-products">
     <div class="container">
-      <h2 class="section-title">✨ SÚPER PROMOCIONES ✨</h2>
+      <h2 class="section-title">✨ PRODUCTOS DESTACADOS ✨</h2>
       <div class="products-grid-ten" id="products-grid"></div>
     </div>
   </section>
@@ -177,10 +168,10 @@
       <div>
         <h3>POLÍTICAS</h3>
         <ul style="list-style:none; line-height:2">
-          <li><a href="politicas.html" style="color:#000; text-decoration:none">Términos y condiciones</a></li>
-          <li><a href="politicas.html" style="color:#000; text-decoration:none">Política de envíos</a></li>
-          <li><a href="politicas.html" style="color:#000; text-decoration:none">Cambios y devoluciones</a></li>
-          <li><a href="politicas.html" style="color:#000; text-decoration:none">Política de cookies</a></li>
+          <li>Términos y condiciones</li>
+          <li>Política de envíos</li>
+          <li>Cambios y devoluciones</li>
+          <li>Política de cookies</li>
         </ul>
       </div>
     </div>
@@ -188,6 +179,11 @@
       © 2025 @BHALLEFFORT. Todos los derechos reservados.
     </div>
   </footer>
+
+  <div class="bottom-banners">
+    <div class="b-orange">🚚 ¡Envío gratis desde $50 en productos!</div>
+    <div class="b-purple">🎉 Por compras superiores a $30 en productos participas en la rifa</div>
+  </div>
 
   <div id="cart-modal" class="cart-modal">
     <div>
