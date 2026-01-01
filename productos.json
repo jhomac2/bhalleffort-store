@@ -1,18 +1,11 @@
 [
   {
-    "id": 1,
-    "nombre": "Camisa Mujer Talla Única",
-    "precio": 25.00,
-    "fotoFrente": "prod-camisa-de-mujer-talla-única.webp",
-    "fotoEspalda": "prod-camisa-de-mujer-talla-única-back.webp",
-    "categoria": "ropa"
-  },
-  {
-    "id": 2,
-    "nombre": "Tacos Doble Banda Oro",
-    "precio": 45.00,
-    "fotoFrente": "prod-tacos--doble-banda-talla-color-oro.webp",
-    "fotoEspalda": "prod-tacos--doble-banda-talla-color-oro-back.webp",
-    "categoria": "zapatos"
+    "id": "PROBA01",
+    "cat": "Ropa",
+    "nombre": "Producto de Prueba Hover",
+    "precio": 10.00,
+    "img": "test-frente.webp",
+    "imgBack": "test-espalda.webp",
+    "url": "ropa.html"
   }
 ]
