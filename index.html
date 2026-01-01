@@ -1,215 +1,515 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <title>BHALLEFFORT | Tienda online Ecuador</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BHALLEFFORT – Tienda Online Ecuador</title>
+  <meta name="description" content="Bienvenido a BHALLEFFORT. La mejor calidad en ropa, zapatos y más al mejor precio en Ecuador.">
+  
   <link rel="icon" href="https://jhomac2.github.io/bhalleffort-store/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    :root{--celeste:#87ceeb;--morado:#4c0d8c;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;--fondo:#f5f7fa}
-    *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',system-ui,Arial}
-    body{background:var(--fondo);color:var(--texto);padding-bottom:80px}
-    img{max-width:100%;display:block}
-    .container{width:90%;max-width:1200px;margin:auto}
-    .flex-space{display:flex;align-items:center;justify-content:space-between}
-    .top-bar{background:var(--morado);color:#fff;font-size:13px;padding:4px 0}
-    .main-header{padding:10px 0;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
-    .logo-section{display:flex;align-items:center;gap:10px}
-    .whale-icon{width:46px;border:2px solid var(--morado);border-radius:50%}
-    .brand-text h1{font-size:20px;color:var(--morado)}
-    .brand-text p{font-size:12px;color:var(--morado);opacity:.9}
-
-    .dual-buttons{display:flex;gap:1rem;justify-content:center;margin:1rem 0;flex-wrap:wrap}
-    .btn-rifas,.btn-wa{padding:.8rem 1.4rem;border-radius:6px;font-weight:700;text-decoration:none;color:#fff;box-shadow:0 2px 4px rgba(0,0,0,.25)}
-    .btn-rifas{background:#ff6600}
-    .btn-wa{background:#25d366}
-
-    .main-nav{position:sticky;top:0;z-index:999;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
-    .main-nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center}
-    .main-nav a{color:var(--morado);padding:10px 12px;display:block;font-size:14px;text-decoration:none;font-weight:600}
-
-    .hero-banner{background:url('prod-oferta.jpg') center/cover no-repeat;height:220px;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;text-shadow:1px 1px 3px #000}
-
-    /* Grid de 4 columnas (3 filas = 12 productos) */
-    .products-grid-ten{
-      display:grid;
-      gap:15px;
-      grid-template-columns:repeat(4,1fr);
-      max-width:1150px;
-      margin:auto;
+    :root {
+      --morado: #4c0d8c;
+      --moradoLuz: #6a1bbd;
+      --celeste: #87ceeb;
+      --turquesa: #00c8c8;
+      --turquesaOsc: #009e9e;
+      --naranja: #ff6600;
+      --texto: #222;
+      --fondo: #f5f7fa;
+      --blanco: #ffffff;
+      --shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
 
-    .product-card{background:#fff;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,.1);display:flex;flex-direction:column;overflow:hidden;cursor:pointer}
-    .product-image-container {position: relative; width: 100%; height: 230px; overflow: hidden;}
-    .product-image {width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease, opacity 0.3s ease;}
-    .product-image.back {position: absolute; top: 0; left: 0; opacity: 0;}
-    
-    .product-card:hover .product-image.front { opacity: 0; transform: scale(1.05); }
-    .product-card:hover .product-image.back { opacity: 1; transform: scale(1.05); }
+    /* Reset General */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
 
-    .product-info{padding:12px;display:flex;flex-direction:column;flex:1}
-    .product-category{font-size:10px;color:#777;text-transform:uppercase}
-    .product-name{font-size:14px;margin:4px 0;font-weight:600;line-height:1.2}
-    .product-desc-short{font-size:11px;color:#666;margin-bottom:8px;height:28px;overflow:hidden}
-    .current-price{font-weight:700;color:var(--morado);font-size:17px;margin-bottom:10px}
-    
-    .btn-buy{background:var(--morado);color:#fff;border:none;padding:10px;border-radius:4px;cursor:pointer;font-weight:600;width:100%}
+    body {
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+      overflow-x: hidden;
+      padding-bottom: 100px; /* Espacio para el banner inferior */
+    }
 
-    @media(max-width:992px){ .products-grid-ten{grid-template-columns:repeat(3,1fr)} }
-    @media(max-width:600px){ .products-grid-ten{grid-template-columns:repeat(2,1fr)} }
+    a { text-decoration: none; color: inherit; transition: 0.3s; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
 
-    #cart-icon{position:fixed;top:15px;right:15px;background:#fff;border-radius:50%;padding:8px;box-shadow:0 2px 5px rgba(0,0,0,.15);cursor:pointer;z-index:1000}
-    #cart-badge{background:var(--turquesa);color:#fff;border-radius:50%;padding:2px 6px;font-size:11px;position:absolute;top:-4px;right:-4px}
-    #banner-div{position:fixed;bottom:0;left:0;right:0;display:flex;z-index:999}
-    #banner-envio{flex:1;background:#ff9800;color:#fff;text-align:center;padding:10px;font-size:13px;font-weight:600}
-    #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:10px;font-size:13px;font-weight:600}
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
 
-    .cart-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000}
-    .cart-modal>div{background:#fff;width:90%;max-width:450px;margin:50px auto;padding:20px;border-radius:8px;position:relative}
+    /* TOP BAR (ORIGINAL) */
+    .top-bar {
+      background: var(--morado);
+      color: #fff;
+      font-size: 13px;
+      padding: 8px 0;
+    }
+    .top-bar .flex-space {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .social-icons { display: flex; gap: 15px; font-size: 16px; }
+    .social-icons a:hover { color: var(--celeste); transform: scale(1.1); }
+
+    /* HEADER (ORIGINAL) */
+    .main-header {
+      background: var(--blanco);
+      padding: 15px 0;
+      box-shadow: var(--shadow);
+      position: relative;
+      z-index: 1001;
+    }
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .whale-icon {
+      width: 55px;
+      height: 55px;
+      border: 2px solid var(--morado);
+      border-radius: 50%;
+      padding: 5px;
+    }
+    .brand-text h1 {
+      font-size: 24px;
+      color: var(--morado);
+      line-height: 1;
+    }
+    .brand-text p {
+      font-size: 12px;
+      color: var(--morado);
+      font-weight: 300;
+    }
+
+    .dual-buttons {
+      display: flex;
+      gap: 15px;
+    }
+    .btn-rifas {
+      background: var(--naranja);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      box-shadow: 0 4px 10px rgba(255,102,0,0.3);
+    }
+    .btn-wa {
+      background: #25d366;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      box-shadow: 0 4px 10px rgba(37,211,102,0.3);
+    }
+
+    /* NAVEGACIÓN (ORIGINAL) */
+    .main-nav {
+      background: var(--blanco);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .main-nav ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .main-nav a {
+      padding: 15px 20px;
+      display: block;
+      font-weight: 600;
+      color: var(--morado);
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+    .main-nav a:hover, .main-nav a.active {
+      background: var(--morado);
+      color: #fff;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(rgba(76, 13, 140, 0.7), rgba(76, 13, 140, 0.7)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop') center/cover;
+      color: #fff;
+      padding: 100px 20px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .hero h2 { font-size: 42px; margin-bottom: 10px; }
+    .hero p { font-size: 18px; opacity: 0.9; margin-bottom: 25px; }
+    .btn-cta {
+      background: var(--turquesa);
+      color: #fff;
+      padding: 15px 35px;
+      border-radius: 50px;
+      font-weight: 700;
+      display: inline-block;
+      font-size: 18px;
+    }
+
+    /* GRID DE PRODUCTOS */
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--morado);
+    }
+    .section-title h2 {
+      font-size: 28px;
+      display: inline-block;
+      border-bottom: 4px solid var(--turquesa);
+      padding-bottom: 5px;
+    }
+
+    .productos-grid {
+      display: grid;
+      gap: 25px;
+      grid-template-columns: repeat(4, 1fr);
+      margin-bottom: 60px;
+    }
+
+    .card {
+      background: var(--blanco);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: 0.4s;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover { transform: translateY(-10px); }
+    .img-container { width: 100%; height: 260px; overflow: hidden; }
+    .img-container img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+    .card:hover img { transform: scale(1.1); }
+
+    .info { padding: 20px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+    .nombre { font-weight: 600; font-size: 16px; color: var(--morado); margin-bottom: 10px; min-height: 48px; }
+    .precio { font-size: 22px; font-weight: 700; color: var(--turquesa); margin-bottom: 15px; }
+    .btn-add {
+      background: var(--morado);
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+      transition: 0.3s;
+    }
+    .btn-add:hover { background: var(--turquesaOsc); }
+
+    /* FOOTER (ORIGINAL) */
+    footer {
+      background: var(--celeste);
+      color: #222;
+      padding: 60px 0 20px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 40px;
+    }
+    .god-message { font-style: italic; color: var(--morado); font-weight: 600; margin-top: 15px; }
+    .footer-links h3 { color: var(--morado); margin-bottom: 20px; }
+    .footer-links li { margin-bottom: 10px; }
+
+    /* CARRITO Y BANNERS (MODIFICADOS) */
+    #cart-icon {
+      position: fixed;
+      top: 20px; right: 20px;
+      background: #fff;
+      width: 55px; height: 55px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      cursor: pointer; z-index: 2000;
+    }
+    #cart-badge {
+      position: absolute; top: -5px; right: -5px;
+      background: var(--turquesa); color: #fff;
+      width: 24px; height: 24px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; font-size: 12px;
+    }
+
+    #banner-div {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      display: flex; z-index: 1999;
+    }
+    #banner-envio, #banner-sorteo {
+      flex: 1; padding: 12px; text-align: center;
+      font-weight: 700; font-size: 13px; color: #fff;
+    }
+    #banner-envio { background: var(--naranja); }
+    #banner-sorteo { background: var(--morado); }
+
+    /* MODAL CARRITO */
+    .cart-modal {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.7); z-index: 3000;
+      backdrop-filter: blur(5px);
+    }
+    .cart-content {
+      background: #fff; width: 95%; max-width: 450px;
+      margin: 50px auto; border-radius: 20px; padding: 25px;
+      max-height: 85vh; display: flex; flex-direction: column;
+    }
+    #cart-items { flex-grow: 1; overflow-y: auto; margin: 15px 0; }
+    .cart-item {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 10px 0; border-bottom: 1px solid #eee;
+    }
+    .btn-checkout {
+      background: #25d366; color: #fff; width: 100%;
+      padding: 15px; border-radius: 10px; font-weight: 700; border: none;
+      cursor: pointer; font-size: 16px;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) { .productos-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px) {
+      .productos-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr; text-align: center; }
+      .dual-buttons { display: none; }
+    }
+    @media (max-width: 480px) { .productos-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
 
-  <div id="cart-icon"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
+  <div id="cart-icon" style="display:none;">
+    <i class="fas fa-shopping-cart fa-lg"></i>
+    <span id="cart-badge">0</span>
+  </div>
 
   <div id="banner-div">
-    <div id="banner-envio">🚚 Envío gratis desde $50</div>
-    <div id="banner-sorteo">🎉 Rifa automática desde $30</div>
+    <div id="banner-envio">🚚 Envío gratis desde $50 en productos</div>
+    <div id="banner-sorteo">🎉 Compra $30 en productos y participa en la rifa</div>
+  </div>
+
+  <div class="top-bar">
+    <div class="container flex-space">
+      <div class="social-icons">
+        <a href="https://tiktok.com/@bhalleffort" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://facebook.com/bhalleffort" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://instagram.com/bhalleffort" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div><i class="fas fa-shipping-fast"></i> ENVÍOS GARANTIZADOS A TODO ECUADOR</div>
+    </div>
   </div>
 
   <header class="main-header">
     <div class="container flex-space">
-      <div class="logo-section">
+      <a href="index.html" class="logo-section">
         <img src="logo-ballena.png" alt="BHALLEFFORT" class="whale-icon">
-        <div class="brand-text"><h1>BHALLEFFORT</h1><p>Tienda Online Ecuador</p></div>
-      </div>
+        <div class="brand-text">
+          <h1>BHALLEFFORT</h1>
+          <p>La mejor calidad al mejor precio</p>
+        </div>
+      </a>
       <div class="dual-buttons">
-        <a href="super-rifas.html" class="btn-rifas">🎉 Rifas</a>
-        <a href="https://wa.me/593963923399" class="btn-wa">📱 WhatsApp</a>
+        <a href="super-rifas.html" class="btn-rifas"><i class="fas fa-ticket-alt"></i> RIFAS</a>
+        <a href="https://wa.me/593963923399" class="btn-wa"><i class="fab fa-whatsapp"></i> +593 963 923 399</a>
       </div>
     </div>
   </header>
 
   <nav class="main-nav">
     <ul>
-      <li><a href="index.html">INICIO</a></li>
-      <li><a href="ropa.html">ROPA</a></li>
-      <li><a href="zapatos.html">ZAPATOS</a></li>
-      <li><a href="varios.html">VARIOS</a></li>
-      <li><a href="promociones.html">PROMOS</a></li>
+      <li><a href="index.html" class="active">Inicio</a></li>
+      <li><a href="ropa.html">Ropa</a></li>
+      <li><a href="zapatos.html">Zapatos</a></li>
+      <li><a href="varios.html">Varios</a></li>
+      <li><a href="promociones.html">Promociones</a></li>
+      <li><a href="quienes-somos.html">Nosotros</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
     </ul>
   </nav>
 
-  <section class="hero-banner">
-    <h1>PROMOCIONES EXCLUSIVAS</h1>
+  <section class="hero">
+    <div class="container">
+      <h2>BIENVENIDO A BHALLEFFORT</h2>
+      <p>Descubre las mejores tendencias en moda y calzado con envíos a todo el país.</p>
+      <a href="#novedades" class="btn-cta">VER NOVEDADES</a>
+    </div>
   </section>
 
-  <section class="container" style="padding:40px 0">
-    <h2 style="text-align:center;margin-bottom:25px;color:var(--morado)">✨ OFERTAS DE LA SEMANA ✨</h2>
-    <div class="products-grid-ten" id="products-grid"></div>
+  <section id="novedades" class="container">
+    <div class="section-title">
+      <h2>PRODUCTOS DESTACADOS</h2>
+    </div>
+    <div class="productos-grid" id="main-grid">
+      </div>
   </section>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <img src="logo-ballena.png" alt="Bhalleffort" width="60">
+        <h3>BHALLEFFORT</h3>
+        <p>Tu tienda de confianza en Ecuador. Calidad y servicio garantizado.</p>
+        <div class="god-message">"Dios te da más de lo que pides"</div>
+      </div>
+      <div class="footer-links">
+        <h3>CONTÁCTANOS</h3>
+        <p><i class="fab fa-whatsapp"></i> +593 963 923 399</p>
+        <p><i class="fas fa-map-marker-alt"></i> La Y de Tabacundo, Pichincha</p>
+        <p><i class="far fa-clock"></i> Lun - Dom / 8:00 AM - 8:00 PM</p>
+      </div>
+      <div class="footer-links">
+        <h3>INFORMACIÓN</h3>
+        <ul>
+          <li><a href="politicas.html">Términos y Condiciones</a></li>
+          <li><a href="politicas.html">Políticas de Envío</a></li>
+          <li><a href="politicas.html">Cambios y Devoluciones</a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:30px; font-size:12px;">
+      © 2025 BHALLEFFORT | Diseñado por <b>Jhomac²</b> <i class="fab fa-tiktok"></i>
+    </div>
+  </footer>
 
   <div id="cart-modal" class="cart-modal">
-    <div>
-      <h3>Tu Carrito</h3>
-      <div id="cart-items" style="margin:15px 0; max-height:300px; overflow-y:auto"></div>
-      <div style="font-weight:700; font-size:18px; text-align:right" id="cart-total">Total: $0.00</div>
-      <button id="btn-wa-cart" style="background:#25D366; color:#fff; width:100%; padding:12px; border:none; border-radius:5px; margin-top:10px; cursor:pointer">Pedir por WhatsApp 🐋</button>
-      <button onclick="document.getElementById('cart-modal').style.display='none'" style="width:100%; margin-top:10px; background:#eee; border:none; padding:8px; cursor:pointer">Cerrar</button>
+    <div class="cart-content">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h3><i class="fas fa-shopping-basket"></i> Mi Carrito</h3>
+        <button id="close-cart" style="font-size:30px; border:none; background:none; cursor:pointer;">&times;</button>
+      </div>
+      <div id="cart-items"></div>
+      <div id="envio-info" style="text-align:right; font-size:14px; margin-bottom:10px;"></div>
+      <div style="display:flex; justify-content:space-between; font-weight:700; font-size:20px; margin-bottom:20px;">
+        <span>Total:</span>
+        <span id="cart-total">$0.00</span>
+      </div>
+      <button id="btn-wa-final" class="btn-checkout">
+        <i class="fab fa-whatsapp"></i> CONFIRMAR PEDIDO POR WHATSAPP
+      </button>
     </div>
   </div>
 
   <script>
     let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
 
-    async function cargarIndex() {
+    // Cargar productos
+    async function cargarProductos() {
       try {
         const res = await fetch('productos.json');
         const data = await res.json();
-        // Filtramos 12 de la categoría "Promociones"
-        const promos = data.filter(p => p.cat === "Promociones").slice(0, 12);
-        
-        const grid = document.getElementById('products-grid');
-        grid.innerHTML = promos.map(p => `
-          <div class="product-card">
-            <div class="product-image-container">
-              <img src="${p.img}" class="product-image front">
-              <img src="${p.imgBack}" class="product-image back">
+        const destacados = data.filter(p => p.cat !== "Rifas").slice(0, 12);
+        const grid = document.getElementById('main-grid');
+        grid.innerHTML = destacados.map(p => `
+          <div class="card">
+            <div class="img-container"><img src="${p.img}" alt="${p.nombre}"></div>
+            <div class="info">
+              <div class="nombre">${p.nombre}</div>
+              <div class="precio">$${p.precio.toFixed(2)}</div>
+              <button class="btn-add" onclick="agregar('${p.id}','${p.nombre}',${p.precio},'prod')">AGREGAR AL CARRITO</button>
             </div>
-            <div class="product-info">
-              <span class="product-category">${p.cat}</span>
-              <h4 class="product-name">${p.nombre}</h4>
-              <p class="product-desc-short">${p.desc || 'Calidad BHALLEFFORT'}</p>
-              <div class="current-price">$${p.precio.toFixed(2)}</div>
-              <button class="btn-buy" onclick="addCart('${p.id}','${p.nombre}',${p.precio})">AGREGAR</button>
-            </div>
-          </div>`).join('');
+          </div>
+        `).join('');
       } catch (e) { console.error(e); }
     }
 
-    function addCart(id, nombre, precio) {
-      carrito.push({id, nombre, precio, tipo: "producto"});
+    function agregar(id, nombre, precio, tipo) {
+      carrito.push({id, nombre, precio, tipo});
       localStorage.setItem('bh-cart', JSON.stringify(carrito));
       actualizarUI();
     }
 
     function actualizarUI() {
-      const subtotalFisico = carrito.filter(i => i.tipo !== "rifa").reduce((s, i) => s + i.precio, 0);
-      document.getElementById('cart-badge').textContent = carrito.length;
+      const badge = document.getElementById('cart-badge');
+      const icon = document.getElementById('cart-icon');
+      badge.textContent = carrito.length;
+      icon.style.display = carrito.length > 0 ? 'flex' : 'none';
       
+      const subProd = carrito.filter(i => i.tipo !== 'rifa').reduce((s, i) => s + i.precio, 0);
       const bEnvio = document.getElementById('banner-envio');
       const bSorteo = document.getElementById('banner-sorteo');
 
-      // Envío Gratis $50
-      if(subtotalFisico >= 50) {
-        bEnvio.innerHTML = "✅ ¡Envío GRATIS!";
+      // Banner Envío
+      if (subProd >= 50) {
         bEnvio.style.background = "#25D366";
+        bEnvio.textContent = "✅ ¡ENVÍO GRATIS ACTIVADO!";
       } else {
-        bEnvio.innerHTML = "🚚 Envío gratis desde $50";
-        bEnvio.style.background = "#ff9800";
+        bEnvio.style.background = "var(--naranja)";
+        bEnvio.textContent = "🚚 Envío gratis desde $50 en productos";
       }
 
-      // Rifa Automática $30
-      if(subtotalFisico >= 30) {
-        bSorteo.innerHTML = "🎉 ¡YA ESTÁS EN LA RIFA!";
-        bSorteo.style.background = "#4c0d8c";
+      // Banner Sorteo ($30)
+      if (subProd >= 30) {
+        bSorteo.style.background = "#25D366";
+        bSorteo.textContent = "🎉 ¡YA PARTICIPAS EN LA RIFA!";
       } else {
-        bSorteo.innerHTML = "🎉 Rifa automática desde $30";
+        bSorteo.style.background = "var(--morado)";
+        bSorteo.textContent = "🎉 Compra $30 en productos y participa en la rifa";
       }
     }
 
-    // Modal del Carrito
-    document.getElementById('cart-icon').onclick = () => {
+    function mostrarCarrito() {
       const itemsDiv = document.getElementById('cart-items');
-      const total = carrito.reduce((s, i) => s + i.precio, 0);
-      itemsDiv.innerHTML = carrito.map((p, i) => `
-        <div style="display:flex; justify-content:space-between; border-bottom:1px solid #eee; padding:5px 0">
-          <span>${p.nombre} ($${p.precio})</span>
-          <button onclick="borrar(${i})" style="color:red; background:none; border:none; cursor:pointer">🗑️</button>
-        </div>`).join('');
-      document.getElementById('cart-total').textContent = "Total: $" + total.toFixed(2);
+      const subProd = carrito.filter(i => i.tipo !== 'rifa').reduce((s, i) => s + i.precio, 0);
+      const subRifa = carrito.filter(i => i.tipo === 'rifa').reduce((s, i) => s + i.precio, 0);
+      
+      // Costo envío fijo $3.50 si hay productos y < $50
+      const costoEnvio = (subProd > 0 && subProd < 50) ? 3.50 : 0;
+      const total = subProd + subRifa + costoEnvio;
+
+      document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
+      document.getElementById('envio-info').innerHTML = costoEnvio > 0 
+        ? `<span style="color:var(--naranja)">+ Envío nacional: $3.50</span>` 
+        : (subProd >= 50 ? `<span style="color:#25d366">Envío: GRATIS</span>` : "");
+
+      itemsDiv.innerHTML = carrito.map((item, i) => `
+        <div class="cart-item">
+          <div style="text-align:left">
+            <span style="display:block; font-weight:600; font-size:14px;">${item.nombre}</span>
+            <small>$${item.precio.toFixed(2)}</small>
+          </div>
+          <button onclick="borrar(${i})" style="color:red; border:none; background:none; cursor:pointer;"><i class="fas fa-trash-alt"></i></button>
+        </div>
+      `).join('');
       document.getElementById('cart-modal').style.display = 'block';
-    };
+    }
 
     function borrar(i) {
       carrito.splice(i, 1);
       localStorage.setItem('bh-cart', JSON.stringify(carrito));
       actualizarUI();
-      document.getElementById('cart-icon').click();
+      mostrarCarrito();
     }
 
-    document.getElementById('btn-wa-cart').onclick = () => {
-      const subtotal = carrito.filter(i => i.tipo !== "rifa").reduce((s, i) => s + i.precio, 0);
-      const totalFinal = carrito.reduce((s, i) => s + i.precio, 0) + (subtotal >= 50 ? 0 : 3.50);
-      let texto = "🐋 Pedido BHALLEFFORT:\n" + carrito.map(p => `• ${p.nombre}`).join("\n");
-      if(subtotal >= 30) texto += "\n\n✅ ¡Participo en la RIFA!";
-      texto += `\n\nTotal a pagar: $${totalFinal.toFixed(2)}`;
-      window.open("https://wa.me/593963923399?text=" + encodeURIComponent(texto));
+    document.getElementById('btn-wa-final').onclick = () => {
+      const subProd = carrito.filter(i => i.tipo !== 'rifa').reduce((s, i) => s + i.precio, 0);
+      const subRifa = carrito.filter(i => i.tipo === 'rifa').reduce((s, i) => s + i.precio, 0);
+      const costoEnvio = (subProd > 0 && subProd < 50) ? 3.50 : 0;
+      const total = subProd + subRifa + costoEnvio;
+
+      let msg = `🐋 *NUEVO PEDIDO - BHALLEFFORT*\n\n`;
+      carrito.forEach(item => msg += `• ${item.nombre} ($${item.precio.toFixed(2)})\n`);
+      if(costoEnvio > 0) msg += `\n*Envío:* $3.50`;
+      msg += `\n\n*TOTAL A PAGAR: $${total.toFixed(2)}*`;
+      window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`);
     };
 
-    cargarIndex();
+    document.getElementById('cart-icon').onclick = mostrarCarrito;
+    document.getElementById('close-cart').onclick = () => document.getElementById('cart-modal').style.display = 'none';
+
+    cargarProductos();
     actualizarUI();
   </script>
 </body>
