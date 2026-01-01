@@ -1,13 +1,13 @@
 [
   {
     "id": "PROBA01",
-    "cat": "Ropa",
-    "nombre": "Producto de Prueba Hover",
-    "desc": "Descripción breve del producto aquí",
-    "precio": 10.00,
+    "cat": "Promociones",
+    "nombre": "ESTAMOS EN MANTENIMIENTO",
+    "desc": "PRODUCTO DE PRUEBA RAPIDA",
+    "precio": 15.67,
     "img": "test-frente.webp",
     "imgBack": "test-espalda.webp",
-    "url": "ropa.html"
+    "url": "promociones.html"
   },
   {
     "id": "PROM01",
