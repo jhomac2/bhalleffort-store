@@ -36,6 +36,7 @@
     .featured-products{padding:20px 0}
     .section-title{text-align:center;margin-bottom:15px;font-size:22px;color:var(--morado)}
     .products-grid-ten{display:grid;gap:15px;grid-template-columns:repeat(5,1fr);max-width:1100px;margin:auto}
+    
     .product-card{background:#fff;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,.1);display:flex;flex-direction:column;overflow:hidden;cursor:pointer}
     .product-image-container {position: relative;width: 100%;height: 200px;overflow: hidden;-webkit-tap-highlight-color: transparent}
     .product-image {width: 100%;height: 100%;object-fit: cover;transition: opacity 0.3s ease-in-out}
@@ -52,18 +53,23 @@
     .btn-buy:hover{background:var(--turquesaOsc)}
     @media(max-width:768px){.products-grid-ten{grid-template-columns:repeat(3,1fr)}}
     @media(max-width:480px){.products-grid-ten{grid-template-columns:repeat(2,1fr)}}
+    
     .guarantees{background:#fff;padding:20px 0;margin-top:20px}
     .flex-guarantees{display:flex;gap:15px;flex-wrap:wrap;justify-content:center;text-align:center}
     .guarantee-item{flex:1 1 200px}
     footer{background:var(--celeste);color:#000;font-size:13px;padding:20px 0}
     .footer-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
     .footer-contact a{color:#000;text-decoration:none}
+    .god-message{font-size:11px;color:#000;margin-top:4px}
+    .designer-line{font-size:12px;color:#000;margin-top:4px}
+    
     #cart-icon{position:fixed;top:15px;right:15px;background:#fff;border-radius:50%;padding:8px;box-shadow:0 2px 5px rgba(0,0,0,.15);cursor:pointer;z-index:1000}
     #cart-badge{background:var(--turquesa);color:#fff;border-radius:50%;padding:2px 6px;font-size:11px;position:absolute;top:-4px;right:-4px}
     .cart-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000}
     .cart-modal>div{background:#fff;width:90%;max-width:480px;margin:60px auto;padding:15px;border-radius:8px;position:relative;display:flex;flex-direction:column;max-height:80vh}
     .cart-modal header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-shrink:0}
     #cart-items{flex:1 1 auto;overflow-y:auto;margin-bottom:10px;border:1px solid #eee;border-radius:4px;padding:8px}
+    .cart-modal footer{flex-shrink:0;text-align:right}
     #banner-div{position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;box-shadow:0 -2px 5px rgba(0,0,0,.1);z-index:999}
     #banner-envio{flex:1;background:#25D366;color:#fff;text-align:center;padding:8px;font-size:14px}
     #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:8px;font-size:14px}
@@ -72,6 +78,7 @@
     #search-modal>div{background:#fff;width:90%;max-width:400px;margin:80px auto;padding:15px;border-radius:8px;position:relative}
     #search-modal input{width:100%;padding:8px;border:1px solid #ccc;border-radius:4px;margin-bottom:10px}
     #search-results{max-height:200px;overflow-y:auto}
+    #close-search{position:absolute;top:8px;right:12px;background:none;border:none;font-size:20px;cursor:pointer}
     #noti-add{position:fixed;bottom:40px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:8px 14px;border-radius:4px;font-size:13px;z-index:9999;display:none}
   </style>
 </head>
@@ -81,7 +88,7 @@
   <button id="btn-lupa" title="Buscar producto"><i class="fas fa-search"></i></button>
   <div id="search-modal">
     <div>
-      <button id="close-search" style="position:absolute;top:8px;right:12px;background:none;border:none;font-size:20px;cursor:pointer">&times;</button>
+      <button id="close-search">&times;</button>
       <input type="text" id="search-input" placeholder="Escribe el nombre del producto...">
       <div id="search-results"></div>
     </div>
@@ -141,12 +148,52 @@
     </div>
   </section>
 
-  <main class="featured-products">
+  <section class="featured-products">
     <div class="container">
       <h2 class="section-title">✨ ROPA – TODAS LAS OFERTAS ✨</h2>
       <div class="products-grid-ten" id="products-grid"></div>
     </div>
-  </main>
+  </section>
+
+  <section class="guarantees">
+    <div class="container flex-guarantees">
+      <div class="guarantee-item"><i class="fas fa-truck"></i><div><strong>ENVÍOS 100% SEGUROS</strong><p>A todo el Ecuador</p></div></div>
+      <div class="guarantee-item"><i class="fas fa-lock"></i><div><strong>PAGO SEGURO</strong><p>Transferencia o tarjeta</p></div></div>
+      <div class="guarantee-item"><i class="fas fa-store"></i><div><strong>RETIRO EN TIENDA</strong><p>La Y de Tabacundo</p></div></div>
+      <div class="guarantee-item"><i class="fas fa-percent"></i><div><strong>MEJORES PRECIOS</strong><p>¡Garantizado!</p></div></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <img src="logo-ballena.png" alt="Ballena" width="40">
+        <p>LO MEJOR Y AL MEJOR PRECIO</p>
+        <div class="god-message">Dios te da más de lo que pides.</div>
+        <div class="designer-line">Diseñado por Jhomac² <i class="fab fa-tiktok"></i></div>
+      </div>
+      <div class="footer-contact">
+        <h3>CONTÁCTANOS</h3>
+        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/593963923399" target="_blank">+593 963 923 399</a></p>
+        <p><i class="fas fa-envelope"></i> agromhasvida5@gmail.com</p>
+        <p><i class="far fa-clock"></i> Horario: 8:00-20:00</p>
+        <p><i class="fas fa-map-marker-alt"></i> La Y de Tabacundo, Pichincha</p>
+      </div>
+      <div>
+        <h3>POLÍTICAS</h3>
+        <ul style="list-style:none;padding:0">
+          <li><a href="politicas.html#terminos" style="color:#000">Términos y condiciones</a></li>
+          <li><a href="politicas.html#envios" style="color:#000">Política de envíos</a></li>
+          <li><a href="politicas.html#devoluciones" style="color:#000">Cambios y devoluciones</a></li>
+          <li><a href="cookies.html" style="color:#000">Política de cookies</a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:15px;font-size:12px;color:#000">
+      © 2025 @BHALLEFFORT. Todos los derechos reservados.<br>
+      Diseñado por Jhomac² <i class="fab fa-tiktok"></i>
+    </div>
+  </footer>
 
   <div id="cart-modal" class="cart-modal">
     <div>
@@ -155,11 +202,11 @@
         <button id="close-cart" style="background:none;border:none;font-size:20px;cursor:pointer">&times;</button>
       </header>
       <div id="cart-items"></div>
-      <footer style="text-align:right">
+      <footer>
         <div style="display:flex;justify-content:space-between;font-weight:bold">
           <span>Total:</span><span id="cart-total">$0.00</span>
         </div>
-        <button id="btn-wa-cart" style="background:#25D366;color:#fff;border:none;padding:12px;border-radius:4px;cursor:pointer;margin-top:10px;width:100%;font-weight:700">
+        <button id="btn-wa-cart" style="background:#25D366;color:#fff;border:none;padding:8px 14px;border-radius:4px;cursor:pointer;margin-top:10px;width:100%">
           Enviar pedido por WhatsApp 🐋💜
         </button>
       </footer>
@@ -201,7 +248,7 @@
       carrito.push({id, nombre, precio, tipo: "producto"});
       localStorage.setItem('bh-cart',JSON.stringify(carrito));
       actualizarBadge();
-      mostrarNoti(`✅ ${nombre} añadido`);
+      mostrarNoti(`✅ ${nombre} añadido al carrito`);
       actualizarBannerEnvio();
     }
 
@@ -262,7 +309,7 @@
       const totalFinal = subtotalTotal + costoEnvio;
 
       let msg = `🐋 *¡Hola Bhalleffort! Quiero este pedido:*\n\n`;
-      msg += `👟 *Detalle:*\n`;
+      msg += `👕 *Detalle:*\n`;
       carrito.forEach((p, idx) => { msg += `${idx + 1}. ${p.nombre} ($${p.precio.toFixed(2)})\n`; });
       msg += `\n💵 *Resumen:*\n`;
       msg += `- Productos: $${subtotalTotal.toFixed(2)}\n`;
