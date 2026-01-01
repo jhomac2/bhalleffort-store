@@ -3,9 +3,20 @@
     "id": "PROBA01",
     "cat": "Ropa",
     "nombre": "Producto de Prueba Hover",
+    "desc": "Descripción breve del producto aquí",
     "precio": 10.00,
     "img": "test-frente.webp",
     "imgBack": "test-espalda.webp",
     "url": "ropa.html"
+  },
+  {
+    "id": "PROM01",
+    "cat": "Promociones",
+    "nombre": "Sudadera BHALLEFFORT",
+    "desc": "Algodón premium con bordado",
+    "precio": 35.00,
+    "img": "sudadera-frente.webp",
+    "imgBack": "sudadera-espalda.webp",
+    "url": "promociones.html"
   }
 ]
