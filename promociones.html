@@ -149,7 +149,7 @@
 
   <div id="banner-div">
     <div id="banner-envio">🚚 ¡Envío gratis desde $50!</div>
-    <div id="banner-sorteo">🎉 Por compras superiores a $20 participas automáticamente en nuestra gran rifa</div>
+    <div id="banner-sorteo">🎉 Por compras superiores a $30 participas en nuestra rifa</div>
   </div>
 
   <div class="top-bar">
@@ -273,7 +273,6 @@
       try {
         const res = await fetch('productos.json');
         const data = await res.json();
-        // Filtramos solo la categoría Promoción
         productosPromos = data.filter(p => p.cat === "Promoción");
         dibujarProductos();
       } catch (e) { console.error("Error al cargar JSON", e); }
@@ -311,12 +310,22 @@
     function actualizarBannerEnvio() {
       const total = carrito.reduce((t,p)=>t+p.precio,0);
       const bannerEnvio = document.getElementById('banner-envio');
+      const bannerSorteo = document.getElementById('banner-sorteo');
+      
       if (total >= 50) {
         bannerEnvio.innerHTML = '✅ ¡Tu envío es gratis!';
         bannerEnvio.style.background = '#25D366';
       } else {
         bannerEnvio.innerHTML = '🚚 ¡Envío gratis desde $50!';
         bannerEnvio.style.background = '#ff9800';
+      }
+
+      if (total >= 30) {
+        bannerSorteo.style.background = '#25D366';
+        bannerSorteo.innerHTML = '🎉 ¡Ya participas en la rifa!';
+      } else {
+        bannerSorteo.style.background = 'var(--morado)';
+        bannerSorteo.innerHTML = '🎉 Por compras superiores a $30 participas en nuestra rifa';
       }
     }
 
@@ -330,7 +339,10 @@
     function mostrarModal() {
       const modal = document.getElementById('cart-modal');
       const items = document.getElementById('cart-items');
-      const total = carrito.reduce((t,p)=>t+p.precio,0);
+      const subtotal = carrito.reduce((t,p)=>t+p.precio,0);
+      const envio = subtotal >= 50 ? 0 : 3.50;
+      const total = subtotal + envio;
+
       items.innerHTML = carrito.map((p,i)=>`
         <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #eee">
           <span>${p.nombre} <br><small>$${p.precio.toFixed(2)}</small></span>
@@ -357,7 +369,7 @@
       const total = subtotal + envio;
       let texto = `🐋 Hola, me interesan estas ofertas:\n`;
       texto += carrito.map(p => `• ${p.nombre}  $${p.precio.toFixed(2)}`).join('\n');
-      texto += `\nSubtotal: $${subtotal.toFixed(2)}`;
+      texto += `\n\nSubtotal: $${subtotal.toFixed(2)}`;
       texto += envio > 0 ? `\nEnvío: $${envio.toFixed(2)}` : '\nEnvío: ¡Gratis!';
       texto += `\nTOTAL: $${total.toFixed(2)}`;
       window.open(`https://wa.me/593963923399?text=${encodeURIComponent(texto)}`, '_blank');
