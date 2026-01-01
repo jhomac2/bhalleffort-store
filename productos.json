@@ -1,13 +1,13 @@
 [
   {
     "id": "PROBA01",
-    "cat": "Promociones",
+    "cat": "Ropa",
     "nombre": "ESTAMOS EN MANTENIMIENTO",
     "desc": "PRODUCTO DE PRUEBA RAPIDA",
     "precio": 15.67,
     "img": "test-frente.webp",
     "imgBack": "test-espalda.webp",
-    "url": "promociones.html"
+    "url": "ropa.html"
   },
   {
     "id": "PROM01",
