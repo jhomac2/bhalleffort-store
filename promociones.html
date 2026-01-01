@@ -42,6 +42,8 @@
       max-width:1100px;
       margin:auto;
     }
+
+    /* HOVER ZOOM & DOUBLE IMAGE */
     .product-card{
       background:#fff;
       border-radius:8px;
@@ -49,13 +51,33 @@
       display:flex;
       flex-direction:column;
       overflow:hidden;
+      cursor:pointer;
     }
-    .product-image{
-      width:100%;
-      height:200px;
-      object-fit:cover;
-      border-radius:8px 8px 0 0;
+    .product-image-container {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
     }
+    .product-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease, opacity 0.3s ease;
+    }
+    .product-image.back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+    }
+    @media (hover: hover) {
+      .product-card:hover .product-image.front { opacity: 0; transform: scale(1.1); }
+      .product-card:hover .product-image.back { opacity: 1; transform: scale(1.1); }
+    }
+    .product-card.touch-active .product-image.front { opacity: 0; }
+    .product-card.touch-active .product-image.back { opacity: 1; }
+
     .product-info{padding:10px;display:flex;flex-direction:column;flex:1}
     .product-category{font-size:11px;color:#777}
     .product-name{
@@ -236,7 +258,7 @@
         <div style="display:flex;justify-content:space-between;font-weight:bold">
           <span>Total:</span><span id="cart-total">$0.00</span>
         </div>
-        <button id="btn-wa" style="background:#25D366;color:#fff;border:none;padding:8px 14px;border-radius:4px;cursor:pointer;margin-top:10px">
+        <button id="btn-wa-cart" style="background:#25D366;color:#fff;border:none;padding:8px 14px;border-radius:4px;cursor:pointer;margin-top:10px;width:100%">
           Enviar pedido por WhatsApp 🐋💜
         </button>
       </footer>
@@ -244,42 +266,32 @@
   </div>
 
   <script>
-    // Generamos 50 productos de ejemplo para promociones
-    const productos = Array.from({length:50}, (_,i) => ({
-      id:`P${String(i+1).padStart(3,'0')}`,
-      cat:"Promoción",
-      nombre:`Oferta Especial ${i+1}`,
-      precio:8 + i * 1.3,
-      img:"prod-oferta.jpg",
-      url:"promociones.html"
-    }));
-
+    let productosPromos = [];
     let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
 
-    function getSorteoCount() {
-      const ahora = new Date();
-      const key = `sorteo-${ahora.getFullYear()}-${ahora.getMonth()}`;
-      return parseInt(localStorage.getItem(key) || '20');
-    }
-    function incrementSorteo() {
-      const ahora = new Date();
-      const key = `sorteo-${ahora.getFullYear()}-${ahora.getMonth()}`;
-      let count = parseInt(localStorage.getItem(key) || '20');
-      count++;
-      localStorage.setItem(key, count);
-      return count;
+    async function cargarPromos() {
+      try {
+        const res = await fetch('productos.json');
+        const data = await res.json();
+        // Filtramos solo la categoría Promoción
+        productosPromos = data.filter(p => p.cat === "Promoción");
+        dibujarProductos();
+      } catch (e) { console.error("Error al cargar JSON", e); }
     }
 
     function dibujarProductos() {
       const grid = document.getElementById('products-grid');
-      grid.innerHTML = productos.map(p => `
-        <div class="product-card">
-          <img src="${p.img}" alt="${p.nombre}" class="product-image">
+      grid.innerHTML = productosPromos.map(p => `
+        <div class="product-card" onclick="this.classList.toggle('touch-active')">
+          <div class="product-image-container">
+            <img src="${p.img}" alt="${p.nombre}" class="product-image front">
+            <img src="${p.imgBack}" alt="${p.nombre}" class="product-image back">
+          </div>
           <div class="product-info">
             <span class="product-category">${p.cat}</span>
             <h4 class="product-name">${p.nombre}</h4>
             <div class="current-price">$${p.precio.toFixed(2)}</div>
-            <button class="btn-buy" onclick="addCart('${p.id}','${p.nombre}',${p.precio})">Añadir al carrito</button>
+            <button class="btn-buy" onclick="event.stopPropagation(); addCart('${p.id}','${p.nombre}',${p.precio})">Añadir al carrito</button>
           </div>
         </div>`).join('');
     }
@@ -290,7 +302,6 @@
       actualizarBadge();
       mostrarNoti(`✅ ${nombre} añadido al carrito`);
       actualizarBannerEnvio();
-      if (carrito.length === 1) mostrarNoti('🚚 Por compras mayores a $50 tu envío es gratuito', 10000);
     }
 
     function actualizarBadge() {
@@ -300,20 +311,12 @@
     function actualizarBannerEnvio() {
       const total = carrito.reduce((t,p)=>t+p.precio,0);
       const bannerEnvio = document.getElementById('banner-envio');
-      const bannerSorteo = document.getElementById('banner-sorteo');
       if (total >= 50) {
         bannerEnvio.innerHTML = '✅ ¡Tu envío es gratis!';
         bannerEnvio.style.background = '#25D366';
       } else {
         bannerEnvio.innerHTML = '🚚 ¡Envío gratis desde $50!';
         bannerEnvio.style.background = '#ff9800';
-      }
-      if (total >= 20) {
-        bannerSorteo.innerHTML = '🎉 ¡YA ESTÁS PARTICIPANDO EN NUESTRA GRAN RIFA!';
-        bannerSorteo.style.background = 'var(--morado)';
-      } else {
-        bannerSorteo.innerHTML = '🎉 Por compras superiores a $20 participas automáticamente en nuestra gran rifa';
-        bannerSorteo.style.background = 'var(--morado)';
       }
     }
 
@@ -336,6 +339,7 @@
       document.getElementById('cart-total').textContent = '$'+total.toFixed(2);
       modal.style.display = 'block';
     }
+
     function removeItem(i) {
       carrito.splice(i,1);
       localStorage.setItem('bh-cart',JSON.stringify(carrito));
@@ -343,38 +347,26 @@
       actualizarBannerEnvio();
       mostrarModal();
     }
+
     document.getElementById('close-cart').onclick = () => document.getElementById('cart-modal').style.display = 'none';
     document.getElementById('cart-icon').onclick = mostrarModal;
 
-    document.getElementById('btn-wa').onclick = () => {
+    document.getElementById('btn-wa-cart').onclick = () => {
       const subtotal = carrito.reduce((t,p)=>t+p.precio,0);
       const envio = subtotal >= 50 ? 0 : 3.50;
       const total = subtotal + envio;
-      let texto = `🐋 Hola, quiero:\n`;
+      let texto = `🐋 Hola, me interesan estas ofertas:\n`;
       texto += carrito.map(p => `• ${p.nombre}  $${p.precio.toFixed(2)}`).join('\n');
-      texto += `\nTotal productos: $${subtotal.toFixed(2)}`;
-      if (envio > 0) texto += `\nEnvío: $${envio.toFixed(2)}`;
-      else texto += '\nEnvío: ¡Gratis!';
-      texto += `\nTOTAL A PAGAR: $${total.toFixed(2)}`;
-      if (subtotal >= 20) {
-        const count = incrementSorteo();
-        texto += `\n\n🎉 ¡Felicidades! Estás participando en nuestra gran rifa 💜😃\nTu código de participación te lo dará el vendedor.`;
-      }
+      texto += `\nSubtotal: $${subtotal.toFixed(2)}`;
+      texto += envio > 0 ? `\nEnvío: $${envio.toFixed(2)}` : '\nEnvío: ¡Gratis!';
+      texto += `\nTOTAL: $${total.toFixed(2)}`;
       window.open(`https://wa.me/593963923399?text=${encodeURIComponent(texto)}`, '_blank');
     };
 
     document.getElementById('btn-lupa').onclick = () => document.getElementById('search-modal').style.display = 'block';
     document.getElementById('close-search').onclick = () => document.getElementById('search-modal').style.display = 'none';
-    document.getElementById('search-input').oninput = () => {
-      const q = document.getElementById('search-input').value.toLowerCase();
-      const filtrados = productos.filter(p => p.nombre.toLowerCase().includes(q));
-      document.getElementById('search-results').innerHTML = filtrados.map(p => `
-        <div class="result-item" onclick="window.open('${p.url}','_self')">
-          <strong>${p.nombre}</strong> - $${p.precio.toFixed(2)}
-        </div>`).join('');
-    };
 
-    dibujarProductos();
+    cargarPromos();
     actualizarBadge();
     actualizarBannerEnvio();
   </script>
