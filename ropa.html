@@ -288,23 +288,24 @@
   </div>
 
   <script>
-    let productosRopa = [];
+    let productosTotales = [];
     let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
 
     async function cargarRopa() {
       try {
         const res = await fetch('productos.json');
         const data = await res.json();
-        // Cargar Ropa y Rifas
-        productosRopa = data.filter(p => p.cat === "Ropa" || p.cat === "Rifas");
+        productosTotales = data;
         dibujarProductos();
       } catch (e) { console.error(e); }
     }
 
     function dibujarProductos() {
       const grid = document.getElementById('products-grid');
-      const soloRopa = productosRopa.filter(p => p.cat === "Ropa");
-      grid.innerHTML = soloRopa.map(p => `
+      // Filtrar productos que sean ROPA o PROMOCIONES (según tu tabla)
+      const listaRopa = productosTotales.filter(p => p.cat === "ROPA" || p.cat === "PROMOCIONES");
+      
+      grid.innerHTML = listaRopa.map(p => `
         <div class="product-card" onclick="this.classList.toggle('touch-active')">
           <div class="product-image-container">
             <img src="${p.imgFrontal}" class="product-image front">
@@ -385,7 +386,7 @@
       msg += `\n──────────────────\n`;
 
       if(subTotal >= 30) msg += `\n✨ *¡Genial! Mi compra aplica para la RIFA mensual.* 🎟️🥳`;
-      if(carrito.some(p => p.cat === "Rifas")) msg += `\n🎫 *He incluido boletos de rifa en mi pedido.*`;
+      if(carrito.some(p => p.cat === "RIFAS")) msg += `\n🎫 *He incluido boletos de rifa en mi pedido.*`;
       
       msg += `\n\n¿Me podrían ayudar con los datos para el pago? 🙏`;
 
@@ -401,7 +402,7 @@
       const val = e.target.value.toLowerCase();
       const res = document.getElementById('search-results');
       if(!val) { res.innerHTML = ''; return; }
-      const f = productosRopa.filter(p => p.nombre.toLowerCase().includes(val));
+      const f = productosTotales.filter(p => p.nombre.toLowerCase().includes(val));
       res.innerHTML = f.map(p => `<div style="padding:8px; cursor:pointer; border-bottom:1px solid #eee" onclick="addCart('${p.id}','${p.nombre}',${p.precio}, '${p.cat}'); document.getElementById('search-modal').style.display='none'">${p.nombre}</div>`).join('');
     };
 
