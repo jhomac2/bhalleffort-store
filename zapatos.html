@@ -350,6 +350,7 @@
     function mostrarModal() {
       const items = document.getElementById('cart-items');
       const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
+      // CORRECCIÓN: Si subTotal es >= 50, el envío es 0
       const envio = (subTotal > 0 && subTotal < 50) ? 3.50 : 0;
       items.innerHTML = carrito.map((p,i)=>`
         <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #eee">
@@ -370,6 +371,7 @@
 
     document.getElementById('btn-wa-cart').onclick = () => {
       const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
+      // CORRECCIÓN: Si subTotal es >= 50, el envío es 0
       const envio = subTotal >= 50 ? 0 : 3.50;
       const total = subTotal + envio;
       
