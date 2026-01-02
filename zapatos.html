@@ -370,19 +370,23 @@
 
     document.getElementById('btn-wa-cart').onclick = () => {
       const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
-      const envio = (subTotal > 0 && subTotal < 50) ? 3.50 : 0;
+      const envio = subTotal >= 50 ? 0 : 3.50;
       const total = subTotal + envio;
       
-      let msg = `🐋 *¡Hola BHALLEFFORT! Quiero realizar un pedido:*\n\n`;
-      carrito.forEach((p, idx) => { msg += `${idx + 1}. ${p.nombre} ($${p.precio.toFixed(2)})\n`; });
+      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *Nuevo Pedido:*\n\n`;
+      carrito.forEach((p, idx) => { msg += `${idx + 1}. 👟 ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; });
       
-      msg += `\n💰 *Resumen:*`;
-      msg += `\n- Subtotal: $${subTotal.toFixed(2)}`;
-      msg += `\n- Envío: ${envio === 0 ? '¡GRATIS! 🚚' : '$' + envio.toFixed(2)}`;
+      msg += `\n──────────────────\n`;
+      msg += `💰 *RESUMEN DE COMPRA*`;
+      msg += `\n💵 *Subtotal:* $${subTotal.toFixed(2)}`;
+      msg += `\n🚚 *Envío:* ${envio === 0 ? '¡GRATIS! ✅' : '$' + envio.toFixed(2)}`;
       msg += `\n\n🔥 *TOTAL A PAGAR: $${total.toFixed(2)}*`;
+      msg += `\n──────────────────\n`;
 
-      if(subTotal >= 30) msg += `\n\n✨ *¡Genial! Mi compra aplica para la RIFA mensual.* 🎟️`;
-      if(carrito.some(p => p.cat === "Rifas")) msg += `\n\n🎟️ *He incluido boletos de rifa en mi pedido.*`;
+      if(subTotal >= 30) msg += `\n✨ *¡Genial! Mi compra aplica para la RIFA mensual.* 🎟️🥳`;
+      if(carrito.some(p => p.cat === "Rifas")) msg += `\n🎫 *He incluido boletos de rifa en mi pedido.*`;
+      
+      msg += `\n\n¿Me podrían ayudar con los datos para el pago? 🙏`;
 
       window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`, '_blank');
     };
