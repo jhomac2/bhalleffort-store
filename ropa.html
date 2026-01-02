@@ -307,13 +307,13 @@
       grid.innerHTML = soloRopa.map(p => `
         <div class="product-card" onclick="this.classList.toggle('touch-active')">
           <div class="product-image-container">
-            <img src="${p.img}" class="product-image front">
-            <img src="${p.imgBack || p.img}" class="product-image back">
+            <img src="${p.imgFrontal}" class="product-image front">
+            <img src="${p.imgTrasera || p.imgFrontal}" class="product-image back">
           </div>
           <div class="product-info">
             <span class="product-category">${p.cat}</span>
             <h4 class="product-name">${p.nombre}</h4>
-            <p class="product-desc-short">${p.desc || 'Calidad BHALLEFFORT'}</p>
+            <p class="product-desc-short">${p.detalle || 'Calidad BHALLEFFORT'}</p>
             <div class="current-price">$${p.precio.toFixed(2)}</div>
             <button class="btn-buy" onclick="event.stopPropagation(); addCart('${p.id}','${p.nombre}',${p.precio}, '${p.cat}')">Añadir al carrito</button>
           </div>
