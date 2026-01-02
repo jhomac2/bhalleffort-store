@@ -1,22 +1,164 @@
 [
   {
-    "id": "PROBA01",
-    "cat": "Zapatos",
-    "nombre": "Chompa de hombre Talla M-X-L",
-    "desc": "pupos nueva gama alto contraste",
-    "precio": 15.67,
-    "img": "test-frente.webp",
-    "imgBack": "test-espalda.webp",
-    "url": "zapatos.html"
+    "id": "R001",
+    "nombre": "Sudadera urbana",
+    "precio": 20.00,
+    "cat": "ROPA",
+    "imgFrontal": "img/sudadera-urbana.webp",
+    "imgTrasera": "img/sudadera-urbana-espalda.webp",
+    "detalle": "Color: crema y verde; Talla M - L"
   },
   {
-    "id": "PROM01",
-    "cat": "Promociones",
-    "nombre": "Sudadera BHALLEFFORT",
-    "desc": "Algodón premium con bordado",
-    "precio": 35.00,
-    "img": "sudadera-frente.webp",
-    "imgBack": "sudadera-espalda.webp",
-    "url": "promociones.html"
+    "id": "R002",
+    "nombre": "Chompa deportiva",
+    "precio": 12.00,
+    "cat": "ROPA",
+    "imgFrontal": "img/chompa-deportiva.webp",
+    "imgTrasera": "img/chompa-deportiva-espalda.webp",
+    "detalle": "Color: negro, azul noche y gris; Talla M - L"
+  },
+  {
+    "id": "R003",
+    "nombre": "Buzo columbia",
+    "precio": 20.00,
+    "cat": "ROPA",
+    "imgFrontal": "img/buzo-columbia.webp",
+    "imgTrasera": "img/buzo-columbia-espalda.webp",
+    "detalle": "Único color en stock; Talla M"
+  },
+  {
+    "id": "R004",
+    "nombre": "Chompa impermeable",
+    "precio": 25.00,
+    "cat": "ROPA",
+    "imgFrontal": "img/chompa-impermeable.webp",
+    "imgTrasera": "img/chompa-impermeable-espalda.webp",
+    "detalle": "Único color en stock; Talla M"
+  },
+  {
+    "id": "R005",
+    "nombre": "Hoddie Urbano",
+    "precio": 10.00,
+    "cat": "ROPA",
+    "imgFrontal": "img/hoddie-urbano.webp",
+    "imgTrasera": "img/hoddie-urbano-espalda.webp",
+    "detalle": "Único color en stock; Talla M-L"
+  },
+  {
+    "id": "P006",
+    "nombre": "Tejido de lana",
+    "precio": 15.00,
+    "cat": "PROMOCIONES",
+    "imgFrontal": "img/tejido-de-lana.webp",
+    "imgTrasera": "img/tejido-de-lana-espalda.webp",
+    "detalle": "Único; Talla estándar"
+  },
+  {
+    "id": "Z007",
+    "nombre": "Deportivos puma",
+    "precio": 18.00,
+    "cat": "ZAPATOS",
+    "imgFrontal": "img/deportivos-puma.webp",
+    "imgTrasera": "img/deportivos-puma-espalda.webp",
+    "detalle": "Dos diseños; Talla 38 a la 42"
+  },
+  {
+    "id": "Z008",
+    "nombre": "Deportivo y casual",
+    "precio": 18.00,
+    "cat": "ZAPATOS",
+    "imgFrontal": "img/deportivo-y-casual.webp",
+    "imgTrasera": "img/deportivo-y-casual-espalda.webp",
+    "detalle": "Color azul, gris claro y oscuro; Talla 36 a la 42"
+  },
+  {
+    "id": "Z009",
+    "nombre": "Urbanos levis",
+    "precio": 18.00,
+    "cat": "ZAPATOS",
+    "imgFrontal": "img/urbanos-levis.webp",
+    "imgTrasera": "img/urbanos-levis-espalda.webp",
+    "detalle": "Color azul, café y negro; Talla 36 a la 42"
+  },
+  {
+    "id": "V010",
+    "nombre": "Tacos botines",
+    "precio": 18.00,
+    "cat": "VARIOS",
+    "imgFrontal": "img/tacos-botines.webp",
+    "imgTrasera": "img/tacos-botines-espalda.webp",
+    "detalle": "Color negro, café y blanco; Talla 32 a la 37"
+  },
+  {
+    "id": "Z011",
+    "nombre": "Deportivos altos",
+    "precio": 18.00,
+    "cat": "ZAPATOS",
+    "imgFrontal": "img/deportivos-altos.webp",
+    "imgTrasera": "img/deportivos-altos-espalda.webp",
+    "detalle": "Color azul, café y negro; Talla 32 a la 38"
+  },
+  {
+    "id": "Z012",
+    "nombre": "Deportivos running",
+    "precio": 18.00,
+    "cat": "ZAPATOS",
+    "imgFrontal": "img/deportivos-running.webp",
+    "imgTrasera": "img/deportivos-running-espalda.webp",
+    "detalle": "Color verde, blanco y azul; Talla 37 a la 42"
+  },
+  {
+    "id": "Z013",
+    "nombre": "Deportivos de niños",
+    "precio": 18.00,
+    "cat": "ZAPATOS",
+    "imgFrontal": "img/deportivos-de-niños.webp",
+    "imgTrasera": "img/deportivos-de-niños-espalda.webp",
+    "detalle": "Color rojo, blanco, celeste y negro; Talla 22 a la 32"
+  },
+  {
+    "id": "Z014",
+    "nombre": "Urbanos de niños",
+    "precio": 18.00,
+    "cat": "ZAPATOS",
+    "imgFrontal": "img/urbanos-de-niños.webp",
+    "imgTrasera": "img/urbanos-de-niños-espalda.webp",
+    "detalle": "Color rojo, azul, café y plomo; Talla 22 a la 32"
+  },
+  {
+    "id": "Z015",
+    "nombre": "Casual y urbano",
+    "precio": 18.00,
+    "cat": "ZAPATOS",
+    "imgFrontal": "img/casual-y-urbano.webp",
+    "imgTrasera": "img/casual-y-urbano-espalda.webp",
+    "detalle": "Color único; Talla 37 a la 42"
+  },
+  {
+    "id": "R016",
+    "nombre": "Wafflera blackdecker",
+    "precio": 3.00,
+    "cat": "RIFAS",
+    "imgFrontal": "img/wafflera-blackdecker.webp",
+    "imgTrasera": "img/wafflera-blackdecker-espalda.webp",
+    "detalle": "Productos usado-nuevo con garantía"
+  },
+  {
+    "id": "R017",
+    "nombre": "Mesa organizadora",
+    "precio": 5.00,
+    "cat": "RIFAS",
+    "imgFrontal": "img/mesa-organizadora.webp",
+    "imgTrasera": "img/mesa-organizadora-espalda.webp",
+    "detalle": "Productos usado-nuevo con garantía"
+  },
+  {
+    "id": "R018",
+    "nombre": "Sanduchera",
+    "precio": 1.00,
+    "cat": "RIFAS",
+    "imgFrontal": "img/sanduchera.webp",
+    "imgTrasera": "img/sanduchera-espalda.webp",
+    "detalle": "Productos usado-nuevo con garantía"
   }
 ]
