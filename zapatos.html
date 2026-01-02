@@ -38,11 +38,11 @@
     .main-nav a{color:var(--morado);padding:10px 12px;display:block;font-size:14px;text-decoration:none;font-weight:600}
     .main-nav a.active{background:var(--morado);color:#fff;border-radius:4px}
 
-    /* --- NUEVO HERO PROFESIONAL --- */
+    /* HERO ZAPATOS */
     .hero-banner {
       position: relative;
       background: url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
-      height: 400px; /* Más alto y profesional */
+      height: 400px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -53,24 +53,59 @@
       content: "";
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(76, 13, 140, 0.85); /* Capa morada pedida */
+      background: rgba(76, 13, 140, 0.85);
       z-index: 1;
     }
-    .hero-banner div {
-      position: relative;
-      z-index: 2;
-      padding: 0 20px;
-    }
-    .hero-banner h1 {
-      font-size: 42px;
-      text-transform: uppercase;
-      font-weight: 700;
-      text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-      margin-bottom: 10px;
-    }
+    .hero-banner div { position: relative; z-index: 2; padding: 0 20px; }
+    .hero-banner h1 { font-size: 42px; text-transform: uppercase; font-weight: 700; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); margin-bottom: 10px; }
     .hero-banner p { font-size: 18px; opacity: 0.9; }
 
-    /* PRODUCT GRID & HOVER ZOOM */
+    /* CARRITO Y LUPA (AJUSTADOS) */
+    #cart-icon {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      background: #fff;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+      cursor: pointer;
+      z-index: 1000;
+    }
+    #cart-badge {
+      background: var(--turquesa);
+      color: #fff;
+      border-radius: 50%;
+      padding: 2px 6px;
+      font-size: 11px;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+    }
+    #btn-lupa {
+      position: fixed;
+      top: 75px; 
+      right: 15px;
+      background: var(--turquesa);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 50px; 
+      height: 50px; 
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* PRODUCTOS */
     .featured-products{padding:20px 0}
     .section-title{text-align:center;margin-bottom:15px;font-size:22px;color:var(--morado)}
     .products-grid-ten{display:grid;gap:15px;grid-template-columns:repeat(5,1fr);max-width:1100px;margin:auto}
@@ -93,11 +128,10 @@
     .current-price{font-weight:700;color:var(--turquesa);font-size:17px}
     .btn-buy{background:var(--turquesa);color:#fff;border:none;padding:8px;border-radius:4px;cursor:pointer;margin-top:auto;font-weight:600;align-self:flex-start}
     
-    /* RESPONSIVE */
     @media(max-width:768px){.products-grid-ten{grid-template-columns:repeat(3,1fr)}}
     @media(max-width:480px){.products-grid-ten{grid-template-columns:repeat(2,1fr)}}
     
-    /* GUARANTEES */
+    /* GARANTÍAS */
     .guarantees{background:#fff;padding:20px 0;margin-top:20px}
     .flex-guarantees{display:flex;gap:15px;flex-wrap:wrap;justify-content:center;text-align:center}
     .guarantee-item{flex:1 1 200px}
@@ -106,25 +140,17 @@
     footer{background:var(--celeste);color:#000;font-size:13px;padding:20px 0}
     .footer-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
     .footer-contact a{color:#000;text-decoration:none}
-    .god-message{font-size:11px;color:#000;margin-top:4px}
-    .designer-line{font-size:12px;color:#000;margin-top:4px}
     
-    /* CARRITO, LUPA Y MODALES */
-    #cart-icon{position:fixed;top:15px;right:15px;background:#fff;border-radius:50%;padding:8px;box-shadow:0 2px 5px rgba(0,0,0,.15);cursor:pointer;z-index:1000}
-    #cart-badge{background:var(--turquesa);color:#fff;border-radius:50%;padding:2px 6px;font-size:11px;position:absolute;top:-4px;right:-4px}
+    /* MODALES */
     .cart-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000}
     .cart-modal>div{background:#fff;width:90%;max-width:480px;margin:60px auto;padding:15px;border-radius:8px;position:relative;display:flex;flex-direction:column;max-height:80vh}
-    .cart-modal header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-shrink:0}
     #cart-items{flex:1 1 auto;overflow-y:auto;margin-bottom:10px;border:1px solid #eee;border-radius:4px;padding:8px}
     #banner-div{position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;box-shadow:0 -2px 5px rgba(0,0,0,.1);z-index:999}
     #banner-envio{flex:1;background:#25D366;color:#fff;text-align:center;padding:8px;font-size:14px}
     #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:8px;font-size:14px}
-    #btn-lupa{position:fixed;bottom:80px;right:15px;background:var(--turquesa);color:#fff;border:none;border-radius:50%;width:50px;height:50px;font-size:20px;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.25)}
     #search-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:3000}
     #search-modal>div{background:#fff;width:90%;max-width:400px;margin:80px auto;padding:15px;border-radius:8px;position:relative}
     #search-modal input{width:100%;padding:8px;border:1px solid #ccc;border-radius:4px;margin-bottom:10px}
-    #search-results{max-height:200px;overflow-y:auto}
-    .result-item{padding:6px 0;cursor:pointer;border-bottom:1px solid #eee}
     #noti-add{position:fixed;bottom:40px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:8px 14px;border-radius:4px;font-size:13px;z-index:9999;display:none}
   </style>
 </head>
@@ -136,7 +162,7 @@
   <div id="search-modal">
     <div>
       <button id="close-search" style="position:absolute;top:8px;right:12px;background:none;border:none;font-size:20px;cursor:pointer">&times;</button>
-      <input type="text" id="search-input" placeholder="Escribe el nombre del producto...">
+      <input type="text" id="search-input" placeholder="Buscar en Calzado...">
       <div id="search-results"></div>
     </div>
   </div>
@@ -145,7 +171,7 @@
 
   <div id="banner-div">
     <div id="banner-envio">🚚 ¡Envío gratis desde $50!</div>
-    <div id="banner-sorteo">🎉 Por compras superiores a $30 en productos participas en nuestra rifa mensual</div>
+    <div id="banner-sorteo">🎉 Participa en nuestra rifa mensual</div>
   </div>
 
   <div class="top-bar">
@@ -192,7 +218,7 @@
   <section class="hero-banner">
     <div>
       <h1>Zapatos – BHALLEFFORT</h1>
-      <p>Calzado cómodo, moderno y al mejor precio del mercado</p>
+      <p>Calzado de calidad al mejor precio del mercado</p>
     </div>
   </section>
 
@@ -245,16 +271,16 @@
 
   <div id="cart-modal" class="cart-modal">
     <div>
-      <header>
+      <header style="display:flex; justify-content:space-between; align-items:center;">
         <h3><i class="fas fa-shopping-cart"></i> Tu carrito</h3>
         <button id="close-cart" style="background:none;border:none;font-size:20px;cursor:pointer">&times;</button>
       </header>
       <div id="cart-items"></div>
-      <footer style="flex-shrink:0;text-align:right">
+      <footer>
         <div style="display:flex;justify-content:space-between;font-weight:bold">
           <span>Total:</span><span id="cart-total">$0.00</span>
         </div>
-        <button id="btn-wa-cart" style="background:#25D366;color:#fff;border:none;padding:8px 14px;border-radius:4px;cursor:pointer;margin-top:10px;width:100%">
+        <button id="btn-wa-cart" style="background:#25D366;color:#fff;border:none;padding:10px;border-radius:4px;cursor:pointer;margin-top:10px;width:100%">
           Enviar pedido por WhatsApp 🐋💜
         </button>
       </footer>
@@ -271,7 +297,7 @@
         const data = await res.json();
         productosZapatos = data.filter(p => p.cat === "Zapatos");
         dibujarProductos();
-      } catch (e) { console.error("Error al cargar JSON", e); }
+      } catch (e) { console.error(e); }
     }
 
     function dibujarProductos() {
@@ -279,8 +305,8 @@
       grid.innerHTML = productosZapatos.map(p => `
         <div class="product-card" onclick="this.classList.toggle('touch-active')">
           <div class="product-image-container">
-            <img src="${p.img}" alt="${p.nombre}" class="product-image front">
-            <img src="${p.imgBack || p.img}" alt="${p.nombre}" class="product-image back">
+            <img src="${p.img}" class="product-image front">
+            <img src="${p.imgBack || p.img}" class="product-image back">
           </div>
           <div class="product-info">
             <span class="product-category">${p.cat}</span>
@@ -296,7 +322,7 @@
       carrito.push({id, nombre, precio, tipo: "producto"});
       localStorage.setItem('bh-cart',JSON.stringify(carrito));
       actualizarBadge();
-      mostrarNoti(`✅ ${nombre} añadido al carrito`);
+      mostrarNoti(`✅ ${nombre} añadido`);
       actualizarBannerEnvio();
     }
 
@@ -306,49 +332,31 @@
 
     function actualizarBannerEnvio() {
       const subProd = carrito.filter(i => i.tipo === "producto").reduce((s, i) => s + i.precio, 0);
-      const bannerEnvio = document.getElementById('banner-envio');
-      const bannerSorteo = document.getElementById('banner-sorteo');
-
-      if (subProd >= 50) {
-        bannerEnvio.innerHTML = '✅ ¡Tu envío es gratis!';
-        bannerEnvio.style.background = '#25D366';
-      } else {
-        bannerEnvio.innerHTML = '🚚 ¡Envío gratis desde $50!';
-        bannerEnvio.style.background = '#ff9800';
-      }
-
-      if (subProd >= 30) {
-        bannerSorteo.innerHTML = '🎉 ¡YA ESTÁS EN LA RIFA MENSUAL!';
-        bannerSorteo.style.background = '#25D366';
-      } else {
-        bannerSorteo.innerHTML = '🎉 Por compras superiores a $30 en productos participas en nuestra rifa mensual';
-        bannerSorteo.style.background = 'var(--morado)';
-      }
+      const bEnvio = document.getElementById('banner-envio');
+      const bSorteo = document.getElementById('banner-sorteo');
+      bEnvio.style.background = subProd >= 50 ? '#25D366' : '#ff9800';
+      bEnvio.textContent = subProd >= 50 ? '✅ ¡Tu envío es gratis!' : '🚚 Envío gratis desde $50';
+      bSorteo.style.background = subProd >= 30 ? '#25D366' : 'var(--morado)';
+      bSorteo.textContent = subProd >= 30 ? '🎉 ¡YA ESTÁS EN LA RIFA!' : '🎉 Participa en nuestra rifa mensual';
     }
 
-    function mostrarNoti(texto, tiempo = 2000) {
-      const noti = document.getElementById('noti-add');
-      noti.textContent = texto;
-      noti.style.display = 'block';
-      setTimeout(() => noti.style.display = 'none', tiempo);
+    function mostrarNoti(t) {
+      const n = document.getElementById('noti-add');
+      n.textContent = t; n.style.display = 'block';
+      setTimeout(() => n.style.display = 'none', 2000);
     }
 
     function mostrarModal() {
-      const modal = document.getElementById('cart-modal');
       const items = document.getElementById('cart-items');
-      const subtotalTotal = carrito.reduce((s, i) => s + i.precio, 0);
-      const subtotalFisico = carrito.filter(i => i.tipo === "producto").reduce((s, i) => s + i.precio, 0);
-      const costoEnvio = (subtotalFisico > 0 && subtotalFisico < 50) ? 3.50 : 0;
-      const totalFinal = subtotalTotal + costoEnvio;
-
+      const subProd = carrito.reduce((s, i) => s + i.precio, 0);
+      const costoEnvio = (subProd > 0 && subProd < 50) ? 3.50 : 0;
       items.innerHTML = carrito.map((p,i)=>`
         <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #eee">
-          <span>${p.nombre} <br><small>$${p.precio.toFixed(2)}</small></span>
-          <button onclick="removeItem(${i})" style="background:none;border:none;color:red;cursor:pointer">🗑️</button>
+          <span>${p.nombre} <small>($${p.precio.toFixed(2)})</small></span>
+          <button onclick="removeItem(${i})" style="border:none;color:red;background:none;cursor:pointer">🗑️</button>
         </div>`).join('');
-      
-      document.getElementById('cart-total').textContent = '$' + totalFinal.toFixed(2);
-      modal.style.display = 'block';
+      document.getElementById('cart-total').textContent = '$' + (subProd + costoEnvio).toFixed(2);
+      document.getElementById('cart-modal').style.display = 'block';
     }
 
     function removeItem(i) {
@@ -359,35 +367,17 @@
       mostrarModal();
     }
 
-    document.getElementById('close-cart').onclick = () => document.getElementById('cart-modal').style.display = 'none';
     document.getElementById('cart-icon').onclick = mostrarModal;
-
-    document.getElementById('btn-wa-cart').onclick = () => {
-      const subtotalTotal = carrito.reduce((s, i) => s + i.precio, 0);
-      const subtotalFisico = carrito.filter(i => i.tipo === "producto").reduce((s, i) => s + i.precio, 0);
-      const costoEnvio = (subtotalFisico > 0 && subtotalFisico < 50) ? 3.50 : 0;
-      const totalFinal = subtotalTotal + costoEnvio;
-
-      let msg = `🐋 *¡Hola Bhalleffort! Quiero este pedido de Zapatos:*\n\n`;
-      msg += `👟 *Detalle:*\n`;
-      carrito.forEach((p, idx) => { msg += `${idx + 1}. ${p.nombre} ($${p.precio.toFixed(2)})\n`; });
-      msg += `\n💵 *Resumen:*\n`;
-      msg += `- Productos: $${subtotalTotal.toFixed(2)}\n`;
-      msg += `- Envío: ${costoEnvio === 0 ? '¡GRATIS!' : '$' + costoEnvio.toFixed(2)}\n`;
-      msg += `\n🔥 *TOTAL: $${totalFinal.toFixed(2)}*\n`;
-      if(subtotalFisico >= 30) msg += `\n✨ *¡Genial! Ya participo en la rifa mensual.* 🎟️`;
-      window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`, '_blank');
-    };
-
-    // LOGICA DE BUSQUEDA ORIGINAL
+    document.getElementById('close-cart').onclick = () => document.getElementById('cart-modal').style.display = 'none';
+    
     document.getElementById('btn-lupa').onclick = () => document.getElementById('search-modal').style.display = 'block';
     document.getElementById('close-search').onclick = () => document.getElementById('search-modal').style.display = 'none';
     document.getElementById('search-input').oninput = (e) => {
       const val = e.target.value.toLowerCase();
-      const results = document.getElementById('search-results');
-      if(!val) { results.innerHTML = ''; return; }
-      const filtered = productosZapatos.filter(p => p.nombre.toLowerCase().includes(val));
-      results.innerHTML = filtered.map(p => `<div class="result-item" onclick="addCart('${p.id}','${p.nombre}',${p.precio}); document.getElementById('search-modal').style.display='none'">${p.nombre} - $${p.precio.toFixed(2)}</div>`).join('');
+      const res = document.getElementById('search-results');
+      if(!val) { res.innerHTML = ''; return; }
+      const f = productosZapatos.filter(p => p.nombre.toLowerCase().includes(val));
+      res.innerHTML = f.map(p => `<div style="padding:8px; cursor:pointer; border-bottom:1px solid #eee" onclick="addCart('${p.id}','${p.nombre}',${p.precio}); document.getElementById('search-modal').style.display='none'">${p.nombre}</div>`).join('');
     };
 
     cargarZapatos();
