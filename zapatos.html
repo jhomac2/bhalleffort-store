@@ -9,15 +9,19 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{--celeste:#87ceeb;--morado:#4c0d8c;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;--fondo:#f5f7fa;--naranja:#ff6600}
+    :root{--celeste:#87ceeb;--morado:#4c0d8c;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;--fondo:#f5f7fa}
     *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',system-ui,Arial}
-    body{background:var(--fondo);color:var(--texto);padding-bottom:100px}
+    body{background:var(--fondo);color:var(--texto)}
     img{max-width:100%;display:block}
     .container{width:90%;max-width:1200px;margin:auto}
     .flex-space{display:flex;align-items:center;justify-content:space-between}
+    
+    /* TOP BAR */
     .top-bar{background:var(--morado);color:#fff;font-size:13px;padding:4px 0}
     .top-bar .social-icons{display:flex;gap:8px;font-size:16px}
     .top-bar .social-icons a{color:#fff}
+    
+    /* HEADER */
     .main-header{padding:10px 0;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
     .logo-section{display:flex;align-items:center;gap:10px}
     .whale-icon{width:46px;border:2px solid var(--morado);border-radius:50%}
@@ -25,66 +29,48 @@
     .brand-text p{font-size:12px;color:var(--morado);opacity:.9}
     .dual-buttons{display:flex;gap:1rem;justify-content:center;margin:1rem 0;flex-wrap:wrap}
     .btn-rifas,.btn-wa{padding:.8rem 1.4rem;border-radius:6px;font-weight:700;text-decoration:none;color:#fff;box-shadow:0 2px 4px rgba(0,0,0,.25)}
-    .btn-rifas{background:var(--naranja)}
+    .btn-rifas{background:#ff6600}
     .btn-wa{background:#25d366}
+    
+    /* NAV */
     .main-nav{position:sticky;top:0;z-index:999;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
     .main-nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center}
     .main-nav a{color:var(--morado);padding:10px 12px;display:block;font-size:14px;text-decoration:none;font-weight:600}
     .main-nav a.active{background:var(--morado);color:#fff;border-radius:4px}
 
-    /* --- NUEVO HERO REPLACING HERO-BANNER --- */
-    .hero-zapatos {
+    /* --- NUEVO HERO PROFESIONAL --- */
+    .hero-banner {
       position: relative;
       background: url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
-      height: 450px;
+      height: 400px; /* Más alto y profesional */
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       color: #fff;
-      overflow: hidden;
-      margin-bottom: 20px;
     }
-    .hero-zapatos::before {
+    .hero-banner::before {
       content: "";
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(76, 13, 140, 0.82); /* Capa morada de marca */
+      background: rgba(76, 13, 140, 0.85); /* Capa morada pedida */
       z-index: 1;
     }
-    .hero-content {
+    .hero-banner div {
       position: relative;
       z-index: 2;
       padding: 0 20px;
     }
-    .hero-content h1 {
-      font-size: 48px;
-      font-weight: 700;
+    .hero-banner h1 {
+      font-size: 42px;
       text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 10px;
-      text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-    }
-    .hero-content p {
-      font-size: 18px;
-      opacity: 0.95;
-      margin-bottom: 25px;
-    }
-    .btn-hero-cta {
-      background: var(--turquesa);
-      color: #fff;
-      padding: 12px 35px;
-      border-radius: 50px;
       font-weight: 700;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 4px 15px rgba(0, 200, 200, 0.4);
-      transition: 0.3s;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+      margin-bottom: 10px;
     }
-    .btn-hero-cta:hover { transform: scale(1.05); background: var(--turquesaOsc); }
+    .hero-banner p { font-size: 18px; opacity: 0.9; }
 
-    /* --- FIN NUEVO HERO --- */
-
+    /* PRODUCT GRID & HOVER ZOOM */
     .featured-products{padding:20px 0}
     .section-title{text-align:center;margin-bottom:15px;font-size:22px;color:var(--morado)}
     .products-grid-ten{display:grid;gap:15px;grid-template-columns:repeat(5,1fr);max-width:1100px;margin:auto}
@@ -92,36 +78,44 @@
     .product-image-container {position: relative;width: 100%;height: 200px;overflow: hidden}
     .product-image {width: 100%;height: 100%;object-fit: cover;transition: transform 0.5s ease, opacity 0.3s ease}
     .product-image.back {position: absolute;top: 0;left: 0;opacity: 0}
+    
     @media (hover: hover) {
       .product-card:hover .product-image.front { opacity: 0; transform: scale(1.1); }
       .product-card:hover .product-image.back { opacity: 1; transform: scale(1.1); }
     }
     .product-card.touch-active .product-image.front { opacity: 0; }
     .product-card.touch-active .product-image.back { opacity: 1; }
+
     .product-info{padding:10px;display:flex;flex-direction:column;flex:1}
     .product-category{font-size:11px;color:#777}
     .product-name{font-size:14px;margin:4px 0;line-height:1.2;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
     .product-desc-short{font-size:11px;color:#666;height:32px;overflow:hidden;margin-bottom:5px}
     .current-price{font-weight:700;color:var(--turquesa);font-size:17px}
     .btn-buy{background:var(--turquesa);color:#fff;border:none;padding:8px;border-radius:4px;cursor:pointer;margin-top:auto;font-weight:600;align-self:flex-start}
-    .btn-buy:hover{background:var(--turquesaOsc)}
+    
+    /* RESPONSIVE */
     @media(max-width:768px){.products-grid-ten{grid-template-columns:repeat(3,1fr)}}
     @media(max-width:480px){.products-grid-ten{grid-template-columns:repeat(2,1fr)}}
+    
+    /* GUARANTEES */
     .guarantees{background:#fff;padding:20px 0;margin-top:20px}
     .flex-guarantees{display:flex;gap:15px;flex-wrap:wrap;justify-content:center;text-align:center}
     .guarantee-item{flex:1 1 200px}
+    
+    /* FOOTER */
     footer{background:var(--celeste);color:#000;font-size:13px;padding:20px 0}
     .footer-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
     .footer-contact a{color:#000;text-decoration:none}
     .god-message{font-size:11px;color:#000;margin-top:4px}
     .designer-line{font-size:12px;color:#000;margin-top:4px}
+    
+    /* CARRITO, LUPA Y MODALES */
     #cart-icon{position:fixed;top:15px;right:15px;background:#fff;border-radius:50%;padding:8px;box-shadow:0 2px 5px rgba(0,0,0,.15);cursor:pointer;z-index:1000}
     #cart-badge{background:var(--turquesa);color:#fff;border-radius:50%;padding:2px 6px;font-size:11px;position:absolute;top:-4px;right:-4px}
     .cart-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000}
     .cart-modal>div{background:#fff;width:90%;max-width:480px;margin:60px auto;padding:15px;border-radius:8px;position:relative;display:flex;flex-direction:column;max-height:80vh}
     .cart-modal header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-shrink:0}
     #cart-items{flex:1 1 auto;overflow-y:auto;margin-bottom:10px;border:1px solid #eee;border-radius:4px;padding:8px}
-    .cart-modal footer{flex-shrink:0;text-align:right}
     #banner-div{position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;box-shadow:0 -2px 5px rgba(0,0,0,.1);z-index:999}
     #banner-envio{flex:1;background:#25D366;color:#fff;text-align:center;padding:8px;font-size:14px}
     #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:8px;font-size:14px}
@@ -131,8 +125,6 @@
     #search-modal input{width:100%;padding:8px;border:1px solid #ccc;border-radius:4px;margin-bottom:10px}
     #search-results{max-height:200px;overflow-y:auto}
     .result-item{padding:6px 0;cursor:pointer;border-bottom:1px solid #eee}
-    .result-item:hover{background:#f0f0f0}
-    #close-search{position:absolute;top:8px;right:12px;background:none;border:none;font-size:20px;cursor:pointer}
     #noti-add{position:fixed;bottom:40px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:8px 14px;border-radius:4px;font-size:13px;z-index:9999;display:none}
   </style>
 </head>
@@ -140,13 +132,15 @@
 
   <div id="cart-icon"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
   <button id="btn-lupa" title="Buscar producto"><i class="fas fa-search"></i></button>
+  
   <div id="search-modal">
     <div>
-      <button id="close-search">&times;</button>
+      <button id="close-search" style="position:absolute;top:8px;right:12px;background:none;border:none;font-size:20px;cursor:pointer">&times;</button>
       <input type="text" id="search-input" placeholder="Escribe el nombre del producto...">
       <div id="search-results"></div>
     </div>
   </div>
+  
   <div id="noti-add"></div>
 
   <div id="banner-div">
@@ -195,11 +189,10 @@
     </ul>
   </nav>
 
-  <section class="hero-zapatos">
-    <div class="hero-content">
+  <section class="hero-banner">
+    <div>
       <h1>Zapatos – BHALLEFFORT</h1>
-      <p>Calzado cómodo, moderno y al mejor precio de Ecuador.</p>
-      <button class="btn-hero-cta" onclick="document.getElementById('products-grid').scrollIntoView({behavior: 'smooth'});">VER CATÁLOGO</button>
+      <p>Calzado cómodo, moderno y al mejor precio del mercado</p>
     </div>
   </section>
 
@@ -257,7 +250,7 @@
         <button id="close-cart" style="background:none;border:none;font-size:20px;cursor:pointer">&times;</button>
       </header>
       <div id="cart-items"></div>
-      <footer>
+      <footer style="flex-shrink:0;text-align:right">
         <div style="display:flex;justify-content:space-between;font-weight:bold">
           <span>Total:</span><span id="cart-total">$0.00</span>
         </div>
@@ -386,8 +379,16 @@
       window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`, '_blank');
     };
 
+    // LOGICA DE BUSQUEDA ORIGINAL
     document.getElementById('btn-lupa').onclick = () => document.getElementById('search-modal').style.display = 'block';
     document.getElementById('close-search').onclick = () => document.getElementById('search-modal').style.display = 'none';
+    document.getElementById('search-input').oninput = (e) => {
+      const val = e.target.value.toLowerCase();
+      const results = document.getElementById('search-results');
+      if(!val) { results.innerHTML = ''; return; }
+      const filtered = productosZapatos.filter(p => p.nombre.toLowerCase().includes(val));
+      results.innerHTML = filtered.map(p => `<div class="result-item" onclick="addCart('${p.id}','${p.nombre}',${p.precio}); document.getElementById('search-modal').style.display='none'">${p.nombre} - $${p.precio.toFixed(2)}</div>`).join('');
+    };
 
     cargarZapatos();
     actualizarBadge();
