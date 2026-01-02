@@ -60,7 +60,7 @@
     .hero-banner h1 { font-size: 42px; text-transform: uppercase; font-weight: 700; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); margin-bottom: 10px; }
     .hero-banner p { font-size: 18px; opacity: 0.9; }
 
-    /* CARRITO Y LUPA (AJUSTADOS) */
+    /* CARRITO Y LUPA */
     #cart-icon {
       position: fixed;
       top: 15px;
@@ -88,14 +88,14 @@
     }
     #btn-lupa {
       position: fixed;
-      top: 75px; /* Ubicada debajo del carrito */
+      top: 75px;
       right: 15px;
       background: var(--turquesa);
       color: #fff;
       border: none;
       border-radius: 50%;
-      width: 50px; /* Mismo tamaño */
-      height: 50px; /* Mismo tamaño */
+      width: 50px;
+      height: 50px;
       font-size: 20px;
       cursor: pointer;
       box-shadow: 0 2px 6px rgba(0,0,0,0.25);
@@ -140,8 +140,6 @@
     footer{background:var(--celeste);color:#000;font-size:13px;padding:20px 0}
     .footer-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
     .footer-contact a{color:#000;text-decoration:none}
-    .god-message{font-size:11px;color:#000;margin-top:4px}
-    .designer-line{font-size:12px;color:#000;margin-top:4px}
     
     /* MODALES */
     .cart-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000}
@@ -297,14 +295,16 @@
       try {
         const res = await fetch('productos.json');
         const data = await res.json();
-        productosRopa = data.filter(p => p.cat === "Ropa");
+        // Cargar Ropa y Rifas
+        productosRopa = data.filter(p => p.cat === "Ropa" || p.cat === "Rifas");
         dibujarProductos();
       } catch (e) { console.error(e); }
     }
 
     function dibujarProductos() {
       const grid = document.getElementById('products-grid');
-      grid.innerHTML = productosRopa.map(p => `
+      const soloRopa = productosRopa.filter(p => p.cat === "Ropa");
+      grid.innerHTML = soloRopa.map(p => `
         <div class="product-card" onclick="this.classList.toggle('touch-active')">
           <div class="product-image-container">
             <img src="${p.img}" class="product-image front">
@@ -315,13 +315,13 @@
             <h4 class="product-name">${p.nombre}</h4>
             <p class="product-desc-short">${p.desc || 'Calidad BHALLEFFORT'}</p>
             <div class="current-price">$${p.precio.toFixed(2)}</div>
-            <button class="btn-buy" onclick="event.stopPropagation(); addCart('${p.id}','${p.nombre}',${p.precio})">Añadir al carrito</button>
+            <button class="btn-buy" onclick="event.stopPropagation(); addCart('${p.id}','${p.nombre}',${p.precio}, '${p.cat}')">Añadir al carrito</button>
           </div>
         </div>`).join('');
     }
 
-    function addCart(id,nombre,precio) {
-      carrito.push({id, nombre, precio, tipo: "producto"});
+    function addCart(id,nombre,precio,cat) {
+      carrito.push({id, nombre, precio, cat});
       localStorage.setItem('bh-cart',JSON.stringify(carrito));
       actualizarBadge();
       mostrarNoti(`✅ ${nombre} añadido`);
@@ -333,13 +333,13 @@
     }
 
     function actualizarBannerEnvio() {
-      const subProd = carrito.filter(i => i.tipo === "producto").reduce((s, i) => s + i.precio, 0);
+      const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
       const bEnvio = document.getElementById('banner-envio');
       const bSorteo = document.getElementById('banner-sorteo');
-      bEnvio.style.background = subProd >= 50 ? '#25D366' : '#ff9800';
-      bEnvio.textContent = subProd >= 50 ? '✅ ¡Tu envío es gratis!' : '🚚 Envío gratis desde $50';
-      bSorteo.style.background = subProd >= 30 ? '#25D366' : 'var(--morado)';
-      bSorteo.textContent = subProd >= 30 ? '🎉 ¡YA ESTÁS EN LA RIFA!' : '🎉 Participa en nuestra rifa mensual';
+      bEnvio.style.background = subTotal >= 50 ? '#25D366' : '#ff9800';
+      bEnvio.textContent = subTotal >= 50 ? '✅ ¡Tu envío es gratis!' : '🚚 Envío gratis desde $50';
+      bSorteo.style.background = subTotal >= 30 ? '#25D366' : 'var(--morado)';
+      bSorteo.textContent = subTotal >= 30 ? '🎉 ¡YA ESTÁS EN LA RIFA!' : '🎉 Participa en nuestra rifa mensual';
     }
 
     function mostrarNoti(t) {
@@ -350,14 +350,14 @@
 
     function mostrarModal() {
       const items = document.getElementById('cart-items');
-      const subProd = carrito.reduce((s, i) => s + i.precio, 0);
-      const costoEnvio = (subProd > 0 && subProd < 50) ? 3.50 : 0;
+      const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
+      const envio = (subTotal > 0 && subTotal < 50) ? 3.50 : 0;
       items.innerHTML = carrito.map((p,i)=>`
         <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #eee">
           <span>${p.nombre} <small>($${p.precio.toFixed(2)})</small></span>
           <button onclick="removeItem(${i})" style="border:none;color:red;background:none;cursor:pointer">🗑️</button>
         </div>`).join('');
-      document.getElementById('cart-total').textContent = '$' + (subProd + costoEnvio).toFixed(2);
+      document.getElementById('cart-total').textContent = '$' + (subTotal + envio).toFixed(2);
       document.getElementById('cart-modal').style.display = 'block';
     }
 
@@ -369,17 +369,40 @@
       mostrarModal();
     }
 
+    document.getElementById('btn-wa-cart').onclick = () => {
+      const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
+      const envio = subTotal >= 50 ? 0 : 3.50;
+      const total = subTotal + envio;
+      
+      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *Nuevo Pedido:*\n\n`;
+      carrito.forEach((p, idx) => { msg += `${idx + 1}. 👕 ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; });
+      
+      msg += `\n──────────────────\n`;
+      msg += `💰 *RESUMEN DE COMPRA*`;
+      msg += `\n💵 *Subtotal:* $${subTotal.toFixed(2)}`;
+      msg += `\n🚚 *Envío:* ${envio === 0 ? '¡GRATIS! ✅' : '$' + envio.toFixed(2)}`;
+      msg += `\n\n🔥 *TOTAL A PAGAR: $${total.toFixed(2)}*`;
+      msg += `\n──────────────────\n`;
+
+      if(subTotal >= 30) msg += `\n✨ *¡Genial! Mi compra aplica para la RIFA mensual.* 🎟️🥳`;
+      if(carrito.some(p => p.cat === "Rifas")) msg += `\n🎫 *He incluido boletos de rifa en mi pedido.*`;
+      
+      msg += `\n\n¿Me podrían ayudar con los datos para el pago? 🙏`;
+
+      window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`, '_blank');
+    };
+
     document.getElementById('cart-icon').onclick = mostrarModal;
     document.getElementById('close-cart').onclick = () => document.getElementById('cart-modal').style.display = 'none';
-    
     document.getElementById('btn-lupa').onclick = () => document.getElementById('search-modal').style.display = 'block';
     document.getElementById('close-search').onclick = () => document.getElementById('search-modal').style.display = 'none';
+    
     document.getElementById('search-input').oninput = (e) => {
       const val = e.target.value.toLowerCase();
       const res = document.getElementById('search-results');
       if(!val) { res.innerHTML = ''; return; }
       const f = productosRopa.filter(p => p.nombre.toLowerCase().includes(val));
-      res.innerHTML = f.map(p => `<div style="padding:8px; cursor:pointer; border-bottom:1px solid #eee" onclick="addCart('${p.id}','${p.nombre}',${p.precio}); document.getElementById('search-modal').style.display='none'">${p.nombre}</div>`).join('');
+      res.innerHTML = f.map(p => `<div style="padding:8px; cursor:pointer; border-bottom:1px solid #eee" onclick="addCart('${p.id}','${p.nombre}',${p.precio}, '${p.cat}'); document.getElementById('search-modal').style.display='none'">${p.nombre}</div>`).join('');
     };
 
     cargarRopa();
