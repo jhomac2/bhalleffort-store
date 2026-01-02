@@ -2,7 +2,7 @@
   {
     "id": "R001",
     "nombre": "Sudadera urbana",
-    "precio": 20.00,
+    "precio": 20,
     "cat": "ROPA",
     "imgFrontal": "img/sudadera-urbana.webp",
     "imgTrasera": "img/sudadera-urbana-espalda.webp",
@@ -11,7 +11,7 @@
   {
     "id": "R002",
     "nombre": "Chompa deportiva",
-    "precio": 12.00,
+    "precio": 12,
     "cat": "ROPA",
     "imgFrontal": "img/chompa-deportiva.webp",
     "imgTrasera": "img/chompa-deportiva-espalda.webp",
@@ -20,7 +20,7 @@
   {
     "id": "R003",
     "nombre": "Buzo columbia",
-    "precio": 20.00,
+    "precio": 20,
     "cat": "ROPA",
     "imgFrontal": "img/buzo-columbia.webp",
     "imgTrasera": "img/buzo-columbia-espalda.webp",
@@ -29,7 +29,7 @@
   {
     "id": "R004",
     "nombre": "Chompa impermeable",
-    "precio": 25.00,
+    "precio": 25,
     "cat": "ROPA",
     "imgFrontal": "img/chompa-impermeable.webp",
     "imgTrasera": "img/chompa-impermeable-espalda.webp",
@@ -37,17 +37,17 @@
   },
   {
     "id": "R005",
-    "nombre": "Hoddie Urbano",
-    "precio": 10.00,
+    "nombre": "Hoodie Urbano",
+    "precio": 10,
     "cat": "ROPA",
-    "imgFrontal": "img/hoddie-urbano.webp",
-    "imgTrasera": "img/hoddie-urbano-espalda.webp",
+    "imgFrontal": "img/hoodie-urbano.webp",
+    "imgTrasera": "img/hoodie-urbano-espalda.webp",
     "detalle": "Único color en stock; Talla M-L"
   },
   {
     "id": "P006",
     "nombre": "Tejido de lana",
-    "precio": 15.00,
+    "precio": 15,
     "cat": "PROMOCIONES",
     "imgFrontal": "img/tejido-de-lana.webp",
     "imgTrasera": "img/tejido-de-lana-espalda.webp",
@@ -56,7 +56,7 @@
   {
     "id": "Z007",
     "nombre": "Deportivos puma",
-    "precio": 18.00,
+    "precio": 18,
     "cat": "ZAPATOS",
     "imgFrontal": "img/deportivos-puma.webp",
     "imgTrasera": "img/deportivos-puma-espalda.webp",
@@ -65,7 +65,7 @@
   {
     "id": "Z008",
     "nombre": "Deportivo y casual",
-    "precio": 18.00,
+    "precio": 18,
     "cat": "ZAPATOS",
     "imgFrontal": "img/deportivo-y-casual.webp",
     "imgTrasera": "img/deportivo-y-casual-espalda.webp",
@@ -74,7 +74,7 @@
   {
     "id": "Z009",
     "nombre": "Urbanos levis",
-    "precio": 18.00,
+    "precio": 18,
     "cat": "ZAPATOS",
     "imgFrontal": "img/urbanos-levis.webp",
     "imgTrasera": "img/urbanos-levis-espalda.webp",
@@ -83,7 +83,7 @@
   {
     "id": "V010",
     "nombre": "Tacos botines",
-    "precio": 18.00,
+    "precio": 18,
     "cat": "VARIOS",
     "imgFrontal": "img/tacos-botines.webp",
     "imgTrasera": "img/tacos-botines-espalda.webp",
@@ -92,7 +92,7 @@
   {
     "id": "Z011",
     "nombre": "Deportivos altos",
-    "precio": 18.00,
+    "precio": 18,
     "cat": "ZAPATOS",
     "imgFrontal": "img/deportivos-altos.webp",
     "imgTrasera": "img/deportivos-altos-espalda.webp",
@@ -101,7 +101,7 @@
   {
     "id": "Z012",
     "nombre": "Deportivos running",
-    "precio": 18.00,
+    "precio": 18,
     "cat": "ZAPATOS",
     "imgFrontal": "img/deportivos-running.webp",
     "imgTrasera": "img/deportivos-running-espalda.webp",
@@ -110,7 +110,7 @@
   {
     "id": "Z013",
     "nombre": "Deportivos de niños",
-    "precio": 18.00,
+    "precio": 18,
     "cat": "ZAPATOS",
     "imgFrontal": "img/deportivos-de-niños.webp",
     "imgTrasera": "img/deportivos-de-niños-espalda.webp",
@@ -119,7 +119,7 @@
   {
     "id": "Z014",
     "nombre": "Urbanos de niños",
-    "precio": 18.00,
+    "precio": 18,
     "cat": "ZAPATOS",
     "imgFrontal": "img/urbanos-de-niños.webp",
     "imgTrasera": "img/urbanos-de-niños-espalda.webp",
@@ -128,7 +128,7 @@
   {
     "id": "Z015",
     "nombre": "Casual y urbano",
-    "precio": 18.00,
+    "precio": 18,
     "cat": "ZAPATOS",
     "imgFrontal": "img/casual-y-urbano.webp",
     "imgTrasera": "img/casual-y-urbano-espalda.webp",
@@ -137,7 +137,7 @@
   {
     "id": "R016",
     "nombre": "Wafflera blackdecker",
-    "precio": 3.00,
+    "precio": 3,
     "cat": "RIFAS",
     "imgFrontal": "img/wafflera-blackdecker.webp",
     "imgTrasera": "img/wafflera-blackdecker-espalda.webp",
@@ -146,7 +146,7 @@
   {
     "id": "R017",
     "nombre": "Mesa organizadora",
-    "precio": 5.00,
+    "precio": 5,
     "cat": "RIFAS",
     "imgFrontal": "img/mesa-organizadora.webp",
     "imgTrasera": "img/mesa-organizadora-espalda.webp",
@@ -155,7 +155,7 @@
   {
     "id": "R018",
     "nombre": "Sanduchera",
-    "precio": 1.00,
+    "precio": 1,
     "cat": "RIFAS",
     "imgFrontal": "img/sanduchera.webp",
     "imgTrasera": "img/sanduchera-espalda.webp",
