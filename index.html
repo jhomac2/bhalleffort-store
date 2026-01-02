@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BHALLEFFORT – Tienda Online Ecuador</title>
   <meta name="description" content="Bienvenido a BHALLEFFORT. La mejor calidad en ropa, zapatos y más al mejor precio en Ecuador.">
-  
   <link rel="icon" href="https://jhomac2.github.io/bhalleffort-store/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -24,277 +23,80 @@
       --shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
 
-    /* Reset General */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    body {
-      background: var(--fondo);
-      color: var(--texto);
-      line-height: 1.6;
-      overflow-x: hidden;
-      padding-bottom: 100px; /* Espacio para el banner inferior */
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+    body { background: var(--fondo); color: var(--texto); line-height: 1.6; padding-bottom: 100px; }
     a { text-decoration: none; color: inherit; transition: 0.3s; }
-    ul { list-style: none; }
     img { max-width: 100%; display: block; }
+    .container { width: 90%; max-width: 1200px; margin: auto; }
 
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    /* TOP BAR (ORIGINAL) */
-    .top-bar {
-      background: var(--morado);
-      color: #fff;
-      font-size: 13px;
-      padding: 8px 0;
-    }
-    .top-bar .flex-space {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    /* TOP BAR */
+    .top-bar { background: var(--morado); color: #fff; font-size: 13px; padding: 8px 0; }
+    .top-bar .flex-space { display: flex; justify-content: space-between; align-items: center; }
     .social-icons { display: flex; gap: 15px; font-size: 16px; }
-    .social-icons a:hover { color: var(--celeste); transform: scale(1.1); }
 
-    /* HEADER (ORIGINAL) */
-    .main-header {
-      background: var(--blanco);
-      padding: 15px 0;
-      box-shadow: var(--shadow);
-      position: relative;
-      z-index: 1001;
-    }
-    .logo-section {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-    .whale-icon {
-      width: 55px;
-      height: 55px;
-      border: 2px solid var(--morado);
-      border-radius: 50%;
-      padding: 5px;
-    }
-    .brand-text h1 {
-      font-size: 24px;
-      color: var(--morado);
-      line-height: 1;
-    }
-    .brand-text p {
-      font-size: 12px;
-      color: var(--morado);
-      font-weight: 300;
-    }
+    /* HEADER */
+    .main-header { background: var(--blanco); padding: 15px 0; box-shadow: var(--shadow); position: relative; z-index: 1001; }
+    .logo-section { display: flex; align-items: center; gap: 15px; }
+    .whale-icon { width: 55px; height: 55px; border: 2px solid var(--morado); border-radius: 50%; padding: 5px; }
+    .brand-text h1 { font-size: 24px; color: var(--morado); line-height: 1; }
+    .brand-text p { font-size: 12px; color: var(--morado); font-weight: 300; }
+    .dual-buttons { display: flex; gap: 15px; }
+    .btn-rifas { background: var(--naranja); color: #fff; padding: 10px 20px; border-radius: 8px; font-weight: 700; box-shadow: 0 4px 10px rgba(255,102,0,0.3); }
+    .btn-wa { background: #25d366; color: #fff; padding: 10px 20px; border-radius: 8px; font-weight: 700; box-shadow: 0 4px 10px rgba(37,211,102,0.3); }
 
-    .dual-buttons {
-      display: flex;
-      gap: 15px;
-    }
-    .btn-rifas {
-      background: var(--naranja);
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-weight: 700;
-      box-shadow: 0 4px 10px rgba(255,102,0,0.3);
-    }
-    .btn-wa {
-      background: #25d366;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-weight: 700;
-      box-shadow: 0 4px 10px rgba(37,211,102,0.3);
-    }
-
-    /* NAVEGACIÓN (ORIGINAL) */
-    .main-nav {
-      background: var(--blanco);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    }
-    .main-nav ul {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .main-nav a {
-      padding: 15px 20px;
-      display: block;
-      font-weight: 600;
-      color: var(--morado);
-      font-size: 14px;
-      text-transform: uppercase;
-    }
-    .main-nav a:hover, .main-nav a.active {
-      background: var(--morado);
-      color: #fff;
-    }
+    /* NAV */
+    .main-nav { background: var(--blanco); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+    .main-nav ul { display: flex; justify-content: center; flex-wrap: wrap; list-style: none; }
+    .main-nav a { padding: 15px 20px; display: block; font-weight: 600; color: var(--morado); font-size: 14px; text-transform: uppercase; }
+    .main-nav a:hover, .main-nav a.active { background: var(--morado); color: #fff; }
 
     /* HERO */
-    .hero {
-      background: linear-gradient(rgba(76, 13, 140, 0.7), rgba(76, 13, 140, 0.7)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop') center/cover;
-      color: #fff;
-      padding: 100px 20px;
-      text-align: center;
-      margin-bottom: 40px;
-    }
+    .hero { background: linear-gradient(rgba(76, 13, 140, 0.7), rgba(76, 13, 140, 0.7)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop') center/cover; color: #fff; padding: 100px 20px; text-align: center; margin-bottom: 40px; }
     .hero h2 { font-size: 42px; margin-bottom: 10px; }
     .hero p { font-size: 18px; opacity: 0.9; margin-bottom: 25px; }
-    .btn-cta {
-      background: var(--turquesa);
-      color: #fff;
-      padding: 15px 35px;
-      border-radius: 50px;
-      font-weight: 700;
-      display: inline-block;
-      font-size: 18px;
-    }
+    .btn-cta { background: var(--turquesa); color: #fff; padding: 15px 35px; border-radius: 50px; font-weight: 700; display: inline-block; font-size: 18px; }
 
-    /* GRID DE PRODUCTOS */
-    .section-title {
-      text-align: center;
-      margin-bottom: 40px;
-      color: var(--morado);
-    }
-    .section-title h2 {
-      font-size: 28px;
-      display: inline-block;
-      border-bottom: 4px solid var(--turquesa);
-      padding-bottom: 5px;
-    }
-
-    .productos-grid {
-      display: grid;
-      gap: 25px;
-      grid-template-columns: repeat(4, 1fr);
-      margin-bottom: 60px;
-    }
-
-    .card {
-      background: var(--blanco);
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-      transition: 0.4s;
-      display: flex;
-      flex-direction: column;
-    }
+    /* GRID */
+    .section-title { text-align: center; margin-bottom: 40px; color: var(--morado); }
+    .section-title h2 { font-size: 28px; display: inline-block; border-bottom: 4px solid var(--turquesa); padding-bottom: 5px; }
+    .productos-grid { display: grid; gap: 25px; grid-template-columns: repeat(4, 1fr); margin-bottom: 60px; }
+    .card { background: var(--blanco); border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: 0.4s; display: flex; flex-direction: column; }
     .card:hover { transform: translateY(-10px); }
     .img-container { width: 100%; height: 260px; overflow: hidden; }
     .img-container img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
     .card:hover img { transform: scale(1.1); }
-
     .info { padding: 20px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
     .nombre { font-weight: 600; font-size: 16px; color: var(--morado); margin-bottom: 10px; min-height: 48px; }
     .precio { font-size: 22px; font-weight: 700; color: var(--turquesa); margin-bottom: 15px; }
-    .btn-add {
-      background: var(--morado);
-      color: #fff;
-      border: none;
-      padding: 12px;
-      border-radius: 8px;
-      font-weight: 700;
-      cursor: pointer;
-      width: 100%;
-      transition: 0.3s;
-    }
-    .btn-add:hover { background: var(--turquesaOsc); }
+    .btn-add { background: var(--morado); color: #fff; border: none; padding: 12px; border-radius: 8px; font-weight: 700; cursor: pointer; width: 100%; transition: 0.3s; }
 
-    /* FOOTER (ORIGINAL) */
-    footer {
-      background: var(--celeste);
-      color: #222;
-      padding: 60px 0 20px;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 40px;
-    }
-    .god-message { font-style: italic; color: var(--morado); font-weight: 600; margin-top: 15px; }
-    .footer-links h3 { color: var(--morado); margin-bottom: 20px; }
-    .footer-links li { margin-bottom: 10px; }
+    /* FOOTER */
+    footer { background: var(--celeste); color: #222; padding: 60px 0 20px; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; }
 
-    /* CARRITO Y BANNERS (MODIFICADOS) */
-    #cart-icon {
-      position: fixed;
-      top: 20px; right: 20px;
-      background: #fff;
-      width: 55px; height: 55px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      cursor: pointer; z-index: 2000;
-    }
-    #cart-badge {
-      position: absolute; top: -5px; right: -5px;
-      background: var(--turquesa); color: #fff;
-      width: 24px; height: 24px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center; font-size: 12px;
-    }
-
-    #banner-div {
-      position: fixed; bottom: 0; left: 0; right: 0;
-      display: flex; z-index: 1999;
-    }
-    #banner-envio, #banner-sorteo {
-      flex: 1; padding: 12px; text-align: center;
-      font-weight: 700; font-size: 13px; color: #fff;
-    }
+    /* CARRITO Y BANNERS */
+    #cart-icon { position: fixed; top: 20px; right: 20px; background: #fff; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); cursor: pointer; z-index: 2000; }
+    #cart-badge { position: absolute; top: -5px; right: -5px; background: var(--turquesa); color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; }
+    #banner-div { position: fixed; bottom: 0; left: 0; right: 0; display: flex; z-index: 1999; }
+    #banner-envio, #banner-sorteo { flex: 1; padding: 12px; text-align: center; font-weight: 700; font-size: 13px; color: #fff; }
     #banner-envio { background: var(--naranja); }
     #banner-sorteo { background: var(--morado); }
 
-    /* MODAL CARRITO */
-    .cart-modal {
-      display: none; position: fixed; inset: 0;
-      background: rgba(0,0,0,0.7); z-index: 3000;
-      backdrop-filter: blur(5px);
-    }
-    .cart-content {
-      background: #fff; width: 95%; max-width: 450px;
-      margin: 50px auto; border-radius: 20px; padding: 25px;
-      max-height: 85vh; display: flex; flex-direction: column;
-    }
+    /* MODAL */
+    .cart-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 3000; backdrop-filter: blur(5px); }
+    .cart-content { background: #fff; width: 95%; max-width: 450px; margin: 50px auto; border-radius: 20px; padding: 25px; max-height: 85vh; display: flex; flex-direction: column; }
     #cart-items { flex-grow: 1; overflow-y: auto; margin: 15px 0; }
-    .cart-item {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 10px 0; border-bottom: 1px solid #eee;
-    }
-    .btn-checkout {
-      background: #25d366; color: #fff; width: 100%;
-      padding: 15px; border-radius: 10px; font-weight: 700; border: none;
-      cursor: pointer; font-size: 16px;
-    }
+    .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee; }
+    .btn-checkout { background: #25d366; color: #fff; width: 100%; padding: 15px; border-radius: 10px; font-weight: 700; border: none; cursor: pointer; font-size: 16px; }
 
-    /* Responsive */
     @media (max-width: 1024px) { .productos-grid { grid-template-columns: repeat(3, 1fr); } }
-    @media (max-width: 768px) {
-      .productos-grid { grid-template-columns: repeat(2, 1fr); }
-      .footer-grid { grid-template-columns: 1fr; text-align: center; }
-      .dual-buttons { display: none; }
-    }
+    @media (max-width: 768px) { .productos-grid { grid-template-columns: repeat(2, 1fr); } .footer-grid { grid-template-columns: 1fr; text-align: center; } .dual-buttons { display: none; } }
     @media (max-width: 480px) { .productos-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
 
-  <div id="cart-icon" style="display:none;">
-    <i class="fas fa-shopping-cart fa-lg"></i>
-    <span id="cart-badge">0</span>
-  </div>
+  <div id="cart-icon" style="display:none;"><i class="fas fa-shopping-cart fa-lg"></i><span id="cart-badge">0</span></div>
 
   <div id="banner-div">
     <div id="banner-envio">🚚 Envío gratis desde $50 en productos</div>
@@ -304,9 +106,9 @@
   <div class="top-bar">
     <div class="container flex-space">
       <div class="social-icons">
-        <a href="https://tiktok.com/@bhalleffort" target="_blank"><i class="fab fa-tiktok"></i></a>
-        <a href="https://facebook.com/bhalleffort" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://instagram.com/bhalleffort" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
       </div>
       <div><i class="fas fa-shipping-fast"></i> ENVÍOS GARANTIZADOS A TODO ECUADOR</div>
     </div>
@@ -316,10 +118,7 @@
     <div class="container flex-space">
       <a href="index.html" class="logo-section">
         <img src="logo-ballena.png" alt="BHALLEFFORT" class="whale-icon">
-        <div class="brand-text">
-          <h1>BHALLEFFORT</h1>
-          <p>La mejor calidad al mejor precio</p>
-        </div>
+        <div class="brand-text"><h1>BHALLEFFORT</h1><p>La mejor calidad al mejor precio</p></div>
       </a>
       <div class="dual-buttons">
         <a href="super-rifas.html" class="btn-rifas"><i class="fas fa-ticket-alt"></i> RIFAS</a>
@@ -335,7 +134,6 @@
       <li><a href="zapatos.html">Zapatos</a></li>
       <li><a href="varios.html">Varios</a></li>
       <li><a href="promociones.html">Promociones</a></li>
-      <li><a href="quienes-somos.html">Nosotros</a></li>
       <li><a href="contacto.html">Contacto</a></li>
     </ul>
   </nav>
@@ -349,11 +147,8 @@
   </section>
 
   <section id="novedades" class="container">
-    <div class="section-title">
-      <h2>PRODUCTOS DESTACADOS</h2>
-    </div>
-    <div class="productos-grid" id="main-grid">
-      </div>
+    <div class="section-title"><h2>PRODUCTOS DESTACADOS</h2></div>
+    <div class="productos-grid" id="main-grid"></div>
   </section>
 
   <footer>
@@ -362,26 +157,20 @@
         <img src="logo-ballena.png" alt="Bhalleffort" width="60">
         <h3>BHALLEFFORT</h3>
         <p>Tu tienda de confianza en Ecuador. Calidad y servicio garantizado.</p>
-        <div class="god-message">"Dios te da más de lo que pides"</div>
+        <p style="font-style: italic; margin-top:10px;">"Dios te da más de lo que pides"</p>
       </div>
       <div class="footer-links">
         <h3>CONTÁCTANOS</h3>
         <p><i class="fab fa-whatsapp"></i> +593 963 923 399</p>
         <p><i class="fas fa-map-marker-alt"></i> La Y de Tabacundo, Pichincha</p>
-        <p><i class="far fa-clock"></i> Lun - Dom / 8:00 AM - 8:00 PM</p>
       </div>
       <div class="footer-links">
         <h3>INFORMACIÓN</h3>
-        <ul>
-          <li><a href="politicas.html">Términos y Condiciones</a></li>
-          <li><a href="politicas.html">Políticas de Envío</a></li>
-          <li><a href="politicas.html">Cambios y Devoluciones</a></li>
-        </ul>
+        <p><a href="politicas.html">Términos y Condiciones</a></p>
+        <p><a href="politicas.html">Políticas de Envío</a></p>
       </div>
     </div>
-    <div style="text-align:center; margin-top:30px; font-size:12px;">
-      © 2025 BHALLEFFORT | Diseñado por <b>Jhomac²</b> <i class="fab fa-tiktok"></i>
-    </div>
+    <div style="text-align:center; margin-top:30px; font-size:12px;">© 2025 BHALLEFFORT | Diseñado por Jhomac²</div>
   </footer>
 
   <div id="cart-modal" class="cart-modal">
@@ -393,19 +182,15 @@
       <div id="cart-items"></div>
       <div id="envio-info" style="text-align:right; font-size:14px; margin-bottom:10px;"></div>
       <div style="display:flex; justify-content:space-between; font-weight:700; font-size:20px; margin-bottom:20px;">
-        <span>Total:</span>
-        <span id="cart-total">$0.00</span>
+        <span>Total:</span><span id="cart-total">$0.00</span>
       </div>
-      <button id="btn-wa-final" class="btn-checkout">
-        <i class="fab fa-whatsapp"></i> CONFIRMAR PEDIDO POR WHATSAPP
-      </button>
+      <button id="btn-wa-final" class="btn-checkout"><i class="fab fa-whatsapp"></i> CONFIRMAR PEDIDO</button>
     </div>
   </div>
 
   <script>
     let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
 
-    // Cargar productos
     async function cargarProductos() {
       try {
         const res = await fetch('productos.json');
@@ -414,7 +199,7 @@
         const grid = document.getElementById('main-grid');
         grid.innerHTML = destacados.map(p => `
           <div class="card">
-            <div class="img-container"><img src="${p.img}" alt="${p.nombre}"></div>
+            <div class="img-container"><img src="${p.img}"></div>
             <div class="info">
               <div class="nombre">${p.nombre}</div>
               <div class="precio">$${p.precio.toFixed(2)}</div>
@@ -432,54 +217,25 @@
     }
 
     function actualizarUI() {
-      const badge = document.getElementById('cart-badge');
-      const icon = document.getElementById('cart-icon');
-      badge.textContent = carrito.length;
-      icon.style.display = carrito.length > 0 ? 'flex' : 'none';
-      
+      document.getElementById('cart-badge').textContent = carrito.length;
+      document.getElementById('cart-icon').style.display = carrito.length > 0 ? 'flex' : 'none';
       const subProd = carrito.filter(i => i.tipo !== 'rifa').reduce((s, i) => s + i.precio, 0);
-      const bEnvio = document.getElementById('banner-envio');
-      const bSorteo = document.getElementById('banner-sorteo');
-
-      // Banner Envío
-      if (subProd >= 50) {
-        bEnvio.style.background = "#25D366";
-        bEnvio.textContent = "✅ ¡ENVÍO GRATIS ACTIVADO!";
-      } else {
-        bEnvio.style.background = "var(--naranja)";
-        bEnvio.textContent = "🚚 Envío gratis desde $50 en productos";
-      }
-
-      // Banner Sorteo ($30)
-      if (subProd >= 30) {
-        bSorteo.style.background = "#25D366";
-        bSorteo.textContent = "🎉 ¡YA PARTICIPAS EN LA RIFA!";
-      } else {
-        bSorteo.style.background = "var(--morado)";
-        bSorteo.textContent = "🎉 Compra $30 en productos y participa en la rifa";
-      }
+      document.getElementById('banner-envio').style.background = subProd >= 50 ? "#25D366" : "var(--naranja)";
+      document.getElementById('banner-sorteo').style.background = subProd >= 30 ? "#25D366" : "var(--morado)";
     }
 
     function mostrarCarrito() {
       const itemsDiv = document.getElementById('cart-items');
       const subProd = carrito.filter(i => i.tipo !== 'rifa').reduce((s, i) => s + i.precio, 0);
       const subRifa = carrito.filter(i => i.tipo === 'rifa').reduce((s, i) => s + i.precio, 0);
-      
-      // Costo envío fijo $3.50 si hay productos y < $50
       const costoEnvio = (subProd > 0 && subProd < 50) ? 3.50 : 0;
       const total = subProd + subRifa + costoEnvio;
 
       document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
-      document.getElementById('envio-info').innerHTML = costoEnvio > 0 
-        ? `<span style="color:var(--naranja)">+ Envío nacional: $3.50</span>` 
-        : (subProd >= 50 ? `<span style="color:#25d366">Envío: GRATIS</span>` : "");
-
+      document.getElementById('envio-info').innerHTML = costoEnvio > 0 ? `<span style="color:var(--naranja)">+ Envío: $3.50</span>` : (subProd >= 50 ? `<span style="color:#25d366">Envío GRATIS</span>` : "");
       itemsDiv.innerHTML = carrito.map((item, i) => `
         <div class="cart-item">
-          <div style="text-align:left">
-            <span style="display:block; font-weight:600; font-size:14px;">${item.nombre}</span>
-            <small>$${item.precio.toFixed(2)}</small>
-          </div>
+          <span>${item.nombre} <br><small>$${item.precio.toFixed(2)}</small></span>
           <button onclick="borrar(${i})" style="color:red; border:none; background:none; cursor:pointer;"><i class="fas fa-trash-alt"></i></button>
         </div>
       `).join('');
@@ -497,18 +253,15 @@
       const subProd = carrito.filter(i => i.tipo !== 'rifa').reduce((s, i) => s + i.precio, 0);
       const subRifa = carrito.filter(i => i.tipo === 'rifa').reduce((s, i) => s + i.precio, 0);
       const costoEnvio = (subProd > 0 && subProd < 50) ? 3.50 : 0;
-      const total = subProd + subRifa + costoEnvio;
-
       let msg = `🐋 *NUEVO PEDIDO - BHALLEFFORT*\n\n`;
       carrito.forEach(item => msg += `• ${item.nombre} ($${item.precio.toFixed(2)})\n`);
       if(costoEnvio > 0) msg += `\n*Envío:* $3.50`;
-      msg += `\n\n*TOTAL A PAGAR: $${total.toFixed(2)}*`;
+      msg += `\n\n*TOTAL: $${(subProd + subRifa + costoEnvio).toFixed(2)}*`;
       window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`);
     };
 
     document.getElementById('cart-icon').onclick = mostrarCarrito;
     document.getElementById('close-cart').onclick = () => document.getElementById('cart-modal').style.display = 'none';
-
     cargarProductos();
     actualizarUI();
   </script>
