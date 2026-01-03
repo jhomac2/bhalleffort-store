@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>ROPA | BHALLEFFORT - Calidad al mejor precio</title>
-  <meta name="description" content="Explora nuestra colección de ropa en BHALLEFFORT. Calidad premium en Ecuador.">
+  <title>BHALLEFFORT | Inicio - Calidad al mejor precio</title>
+  <meta name="description" content="Tienda oficial BHALLEFFORT. Moda, calzado y más en Ecuador.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="https://jhomac2.github.io/bhalleffort-store/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -38,13 +38,13 @@
 
     .hero-banner {
       position: relative;
-      background: url('https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
-      height: 300px;
+      background: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+      height: 400px;
       display: flex; align-items: center; justify-content: center; text-align: center; color: #fff;
     }
     .hero-banner::before {
       content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(76, 13, 140, 0.85); z-index: 1;
+      background: rgba(0, 0, 0, 0.5); z-index: 1;
     }
     .hero-banner div { position: relative; z-index: 2; padding: 0 20px; }
     .hero-banner h1 { font-size: 42px; text-transform: uppercase; font-weight: 700; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
@@ -127,9 +127,9 @@
   <div class="top-bar">
     <div class="container flex-space">
       <div class="social-icons">
-        <a href="https://www.tiktok.com/@bhalleffort?_r=1&_t=ZM-92lUqLhI5Qh" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.tiktok.com/@bhalleffort" target="_blank"><i class="fab fa-tiktok"></i></a>
         <a href="https://www.facebook.com/share/17jG7haojA/" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.instagram.com/bhalleffort?igsh=MTRsd3oybnQybHo4Yw==" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.instagram.com/bhalleffort" target="_blank"><i class="fab fa-instagram"></i></a>
       </div>
       <div><i class="fas fa-star"></i> CALIDAD AL MEJOR PRECIO</div>
     </div>
@@ -142,7 +142,7 @@
           <img src="logo-ballena.png" alt="BHALLEFFORT" class="whale-icon">
           <div class="brand-text">
             <h1>BHALLEFFORT</h1>
-            <p>Sección Ropa</p>
+            <p>Bienvenido a nuestra tienda</p>
           </div>
         </div>
       </a>
@@ -155,8 +155,8 @@
 
   <nav class="main-nav">
     <ul>
-      <li><a href="index.html">INICIO</a></li>
-      <li><a href="ropa.html" class="active">ROPA</a></li>
+      <li><a href="index.html" class="active">INICIO</a></li>
+      <li><a href="ropa.html">ROPA</a></li>
       <li><a href="zapatos.html">ZAPATOS</a></li>
       <li><a href="varios.html">VARIOS</a></li>
       <li><a href="promociones.html">PROMOCIONES</a></li>
@@ -167,15 +167,15 @@
 
   <section class="hero-banner">
     <div>
-      <h1>NUESTRA ROPA</h1>
-      <p>Estilo y confort en cada prenda</p>
+      <h1>ESTILO Y TENDENCIA</h1>
+      <p>Lo mejor en moda y calzado premium</p>
     </div>
   </section>
 
   <section class="featured-products">
     <div class="container">
-      <h2 class="section-title">✨ COLECCIÓN DE ROPA ✨</h2>
-      <div class="products-grid-ten" id="ropa-grid"></div>
+      <h2 class="section-title">✨ PRODUCTOS DESTACADOS ✨</h2>
+      <div class="products-grid-ten" id="index-grid"></div>
     </div>
   </section>
 
@@ -228,14 +228,15 @@
       try {
         const res = await fetch('productos.json');
         productosTotales = await res.json();
-        dibujarRopa();
+        dibujarIndex();
       } catch (e) { console.error(e); }
     }
 
-    function dibujarRopa() {
-      const grid = document.getElementById('ropa-grid');
-      const ropa = productosTotales.filter(p => p.cat.toUpperCase() === "ROPA");
-      grid.innerHTML = ropa.map(p => `
+    function dibujarIndex() {
+      const grid = document.getElementById('index-grid');
+      // Mostrar los primeros 10 productos como destacados
+      const destacados = productosTotales.slice(0, 10);
+      grid.innerHTML = destacados.map(p => `
         <div class="product-card" onclick="this.classList.toggle('touch-active')">
           <div class="product-image-container">
             <img src="${p.imgFrontal}" class="product-image front">
@@ -312,11 +313,10 @@
       const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
       const envio = (subTotal >= 50 || subTotal === 0) ? 0 : 3.50;
       const total = subTotal + envio;
-      const securityCheck = btoa(subTotal.toFixed(2)).substring(0, 8).toUpperCase();
       
-      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *PEDIDO VERIFICADO:* #${securityCheck}\n\n`;
+      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *NUEVO PEDIDO:*\n\n`;
       carrito.forEach((p, idx) => { 
-          msg += `${idx + 1}. [ID:${p.id}] ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; 
+          msg += `${idx + 1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; 
       });
       msg += `\n──────────────────\n`;
       msg += `💰 *Subtotal:* $${subTotal.toFixed(2)}\n`;
@@ -324,7 +324,7 @@
       msg += `✅ *TOTAL A PAGAR: $${total.toFixed(2)}*\n`;
       msg += `──────────────────\n`;
       if(subTotal >= 30) msg += `\n🎁 *RECLAMO MI BOLETO PARA LA RIFA*`;
-      msg += `\n⚠️ _Sujeto a validación manual de precios oficiales._`;
+      
       window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`, '_blank');
     };
 
