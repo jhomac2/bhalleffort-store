@@ -16,47 +16,51 @@
     /* Header & Nav */
     .top-bar{background:var(--morado);color:#fff;font-size:13px;padding:5px 0;text-align:center}
     .main-header{padding:10px 0;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
-    .flex-header{display:flex;justify-content:space-between;align-items:center}
-    .whale-icon{width:45px;border:2px solid var(--morado);border-radius:50%}
-    .main-nav{position:sticky;top:0;z-index:999;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
+    .main-nav{position:sticky;top:0;z-index:998;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
     .main-nav ul{list-style:none;display:flex;justify-content:center;flex-wrap:wrap}
     .main-nav a{color:var(--morado);padding:12px 15px;display:block;text-decoration:none;font-weight:600;font-size:14px}
     .main-nav a.active{background:var(--morado);color:#fff}
 
-    /* Contenido Quiénes Somos */
-    .hero-about{background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop'); background-size:cover; background-position:center; color:#fff; padding:60px 0; text-align:center}
-    .hero-about h1{font-size:35px; text-transform:uppercase}
+    /* Botones Flotantes */
+    .float-btn { position: fixed; right: 15px; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 1000; border: none; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: 0.3s; text-decoration: none; }
+    #cart-icon { top: 15px; background: #fff; color: var(--morado); }
+    #btn-lupa { top: 75px; background: var(--turquesa); color: #fff; }
+    #btn-rifas-float { top: 135px; background: #ff6600; color: #fff; font-weight: bold; font-size: 10px; flex-direction: column; }
+    #cart-badge { background: red; color: #fff; border-radius: 50%; padding: 2px 6px; font-size: 11px; position: absolute; top: 0; right: 0; }
 
+    /* Contenido */
+    .hero-about{background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop'); background-size:cover; background-position:center; color:#fff; padding:60px 0; text-align:center}
     .story-section{padding:50px 0; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center}
-    .story-text h2{color:var(--morado); margin-bottom:15px}
     .meaning-card{background:var(--morado); color:#fff; padding:20px; border-radius:10px; margin:20px 0}
     
-    .mv-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; margin:40px 0}
-    .mv-item{background:#fff; padding:25px; border-radius:10px; text-align:center; box-shadow:0 4px 10px rgba(0,0,0,0.05)}
-    .mv-item i{font-size:40px; color:var(--turquesa); margin-bottom:15px}
+    /* Legal Section */
+    .legal-box { background: #eee; padding: 40px 0; text-align: center; border-top: 1px solid #ddd; }
+    .legal-links a { color: var(--morado); margin: 0 10px; font-size: 13px; font-weight: 600; text-decoration: none; }
 
-    .location-box{background:#fff; border:2px dashed var(--morado); padding:30px; border-radius:15px; text-align:center; margin-bottom:50px}
-    .btn-wa{background:#25d366; color:#fff; padding:10px 20px; text-decoration:none; border-radius:5px; font-weight:700; display:inline-block; margin-top:15px}
+    footer{background:var(--celeste); padding:20px 0; text-align:center; font-size:13px}
+    .modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:2000 }
+    .modal-content { background:#fff; width:90%; max-width:400px; margin:100px auto; padding:20px; border-radius:10px; position:relative }
 
-    footer{background:var(--celeste); padding:30px 0; text-align:center; font-size:14px}
-    
-    @media (max-width:768px){ .story-section{grid-template-columns:1fr} .hero-about h1{font-size:28px} }
+    @media (max-width:768px){ .story-section{grid-template-columns:1fr} }
   </style>
 </head>
 <body>
 
+  <div id="cart-icon" class="float-btn"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
+  <button id="btn-lupa" class="float-btn"><i class="fas fa-search"></i></button>
+  <a href="super-rifas.html" id="btn-rifas-float" class="float-btn"><i class="fas fa-ticket-alt"></i>RIFAS</a>
+
   <div class="top-bar">"DIOS TE DA MÁS DE LO QUE PIDES"</div>
 
   <header class="main-header">
-    <div class="container flex-header">
-      <div style="display:flex; align-items:center; gap:10px">
-        <img src="logo-ballena.png" class="whale-icon">
+    <div class="container">
+      <a href="index.html" style="text-decoration:none; display:flex; align-items:center; gap:10px">
+        <img src="logo-ballena.png" class="whale-icon" style="width:45px; border:2px solid var(--morado); border-radius:50%">
         <div>
           <h1 style="font-size:20px; color:var(--morado)">BHALLEFFORT</h1>
-          <p style="font-size:11px">Desde 2024</p>
+          <p style="font-size:11px; color:#666">Desde 2024</p>
         </div>
-      </div>
-      <a href="https://wa.me/593963923399" class="btn-wa" style="margin:0; font-size:12px">WHATSAPP</a>
+      </a>
     </div>
   </header>
 
@@ -73,63 +77,45 @@
   </nav>
 
   <section class="hero-about">
-    <div class="container">
-      <h1>Nuestra Esencia</h1>
-      <p>Unidos por un propósito, guiados por la fe</p>
-    </div>
+    <div class="container"><h1>NUESTRA ESENCIA</h1></div>
   </section>
 
   <div class="container">
     <section class="story-section">
       <div class="story-text">
         <h2>Un Sueño de Dos</h2>
-        <p><strong>BHALLEFFORT</strong> nació en 2024 como testimonio de la unión de dos jóvenes emprendedores. Lo que empezó como una promesa de apoyo mutuo, se transformó en la misión de crear un negocio honesto donde la calidad premium esté al alcance de todas las familias ecuatorianas.</p>
-        
+        <p><strong>BHALLEFFORT</strong> nació en 2024 como muestra de unión entre dos jóvenes emprendedores. Nació de una promesa: tener un negocio de calidad premium que esté al alcance de todos.</p>
         <div class="meaning-card">
-          <p style="font-weight:600; font-style:italic">"Buenos Hábitos te Llevan al Éxito, y son la Fortaleza para vivir"</p>
+          <p style="font-style:italic">"Buenos Hábitos te Llevan al Éxito y es la Fortaleza para vivir"</p>
         </div>
-        
-        <p>No solo vendemos productos; construimos las bases para un futuro donde podamos extender nuestra mano y ayudar a los más necesitados. Cada compra en nuestra tienda nos acerca más a ese objetivo social.</p>
+        <p>Nuestra misión es construir bases sólidas para poder ayudar a los más necesitados en el futuro.</p>
       </div>
-      <div class="story-img">
-        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" style="width:100%; border-radius:15px; box-shadow:0 10px 20px rgba(0,0,0,0.1)">
-      </div>
-    </section>
-
-    <section class="mv-grid">
-      <div class="mv-item">
-        <i class="fas fa-heart"></i>
-        <h3>Valores</h3>
-        <p>Honestidad, esfuerzo constante y fe inquebrantable en cada paso que damos.</p>
-      </div>
-      <div class="mv-item">
-        <i class="fas fa-shipping-fast"></i>
-        <h3>Compromiso</h3>
-        <p>Llevar lo mejor de nosotros a Tabacundo, Cayambe, Atuntaqui y todo el país.</p>
-      </div>
-      <div class="mv-item">
-        <i class="fas fa-hands-helping"></i>
-        <h3>Propósito</h3>
-        <p>Crecer para servir y ser una fuente de bendición para nuestra comunidad.</p>
-      </div>
-    </section>
-
-    <section class="location-box">
-      <h2>NUESTRO PUNTO DE ENCUENTRO</h2>
-      <p style="font-size:18px; margin:10px 0">📍 Estamos ubicados en <strong>La Y de Tabacundo</strong></p>
-      <p>Al lado de la Panadería Local de <strong>MATH´S</strong></p>
-      <p style="color:#666; font-size:14px; margin-top:10px">Entregas personales en Tabacundo y alrededores. Envíos nacionales por Servientrega.</p>
-      <a href="https://wa.me/593963923399" class="btn-wa">Escríbenos para visitarnos 🐋</a>
+      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" style="width:100%; border-radius:15px">
     </section>
   </div>
 
+  <section class="legal-box">
+    <div class="container">
+      <h3 style="margin-bottom:15px; font-size:16px; color:var(--morado)">INFORMACIÓN LEGAL</h3>
+      <div class="legal-links">
+        <a href="terminos-condiciones.html">Términos y Condiciones</a>
+        <a href="politica-privacidad.html">Política de Privacidad</a>
+        <a href="cookies.html">Cookies</a>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <div class="container">
-      <p><strong>BHALLEFFORT</strong> - Calidad al mejor precio</p>
-      <p>Diseñado por Jhomac² | © 2026</p>
-      <p style="margin-top:10px; opacity:0.8">"Dios te da más de lo que pides"</p>
+      <p>BHALLEFFORT © 2026 | "Dios te da más de lo que pides"</p>
     </div>
   </footer>
 
+  <script>
+    let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
+    document.getElementById('cart-badge').textContent = carrito.length;
+    document.getElementById('btn-lupa').onclick = () => alert("Buscador activado...");
+    document.getElementById('cart-icon').onclick = () => window.location.href='index.html#carrito';
+  </script>
 </body>
 </html>
