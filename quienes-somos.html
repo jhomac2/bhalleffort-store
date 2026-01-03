@@ -25,7 +25,7 @@
     .float-btn { position: fixed; right: 15px; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 1000; border: none; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: 0.3s; text-decoration: none; }
     #cart-icon { top: 15px; background: #fff; color: var(--morado); }
     #btn-lupa { top: 75px; background: var(--turquesa); color: #fff; }
-    #btn-rifas-float { top: 135px; background: #ff6600; color: #fff; font-weight: bold; font-size: 10px; flex-direction: column; }
+    #btn-rifas-float { top: 135px; background: #ff6600; color: #fff; font-weight: bold; font-size: 10px; flex-direction: column; text-align: center; }
     #cart-badge { background: red; color: #fff; border-radius: 50%; padding: 2px 6px; font-size: 11px; position: absolute; top: 0; right: 0; }
 
     /* Contenido */
@@ -33,21 +33,22 @@
     .story-section{padding:50px 0; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center}
     .meaning-card{background:var(--morado); color:#fff; padding:20px; border-radius:10px; margin:20px 0}
     
-    /* Legal Section */
-    .legal-box { background: #eee; padding: 40px 0; text-align: center; border-top: 1px solid #ddd; }
-    .legal-links a { color: var(--morado); margin: 0 10px; font-size: 13px; font-weight: 600; text-decoration: none; }
+    /* Nueva Sección Legal Solicitada */
+    .legal-footer-section { padding: 40px 0; background: #e9ecef; text-align: center; border-top: 1px solid #ddd; }
+    .legal-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 10px; }
+    .legal-links a { color: var(--morado); font-size: 13px; font-weight: 600; text-decoration: none; }
 
     footer{background:var(--celeste); padding:20px 0; text-align:center; font-size:13px}
-    .modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:2000 }
-    .modal-content { background:#fff; width:90%; max-width:400px; margin:100px auto; padding:20px; border-radius:10px; position:relative }
-
     @media (max-width:768px){ .story-section{grid-template-columns:1fr} }
   </style>
 </head>
 <body>
 
-  <div id="cart-icon" class="float-btn"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
-  <button id="btn-lupa" class="float-btn"><i class="fas fa-search"></i></button>
+  <div id="cart-icon" class="float-btn" onclick="window.location.href='index.html#carrito'">
+    <i class="fas fa-shopping-cart"></i>
+    <span id="cart-badge">0</span>
+  </div>
+  <button id="btn-lupa" class="float-btn" onclick="window.location.href='index.html'"><i class="fas fa-search"></i></button>
   <a href="super-rifas.html" id="btn-rifas-float" class="float-btn"><i class="fas fa-ticket-alt"></i>RIFAS</a>
 
   <div class="top-bar">"DIOS TE DA MÁS DE LO QUE PIDES"</div>
@@ -55,7 +56,7 @@
   <header class="main-header">
     <div class="container">
       <a href="index.html" style="text-decoration:none; display:flex; align-items:center; gap:10px">
-        <img src="logo-ballena.png" class="whale-icon" style="width:45px; border:2px solid var(--morado); border-radius:50%">
+        <img src="logo-ballena.png" style="width:45px; border:2px solid var(--morado); border-radius:50%">
         <div>
           <h1 style="font-size:20px; color:var(--morado)">BHALLEFFORT</h1>
           <p style="font-size:11px; color:#666">Desde 2024</p>
@@ -77,45 +78,49 @@
   </nav>
 
   <section class="hero-about">
-    <div class="container"><h1>NUESTRA ESENCIA</h1></div>
+    <div class="container"><h1>NUESTRA HISTORIA</h1></div>
   </section>
 
   <div class="container">
     <section class="story-section">
       <div class="story-text">
-        <h2>Un Sueño de Dos</h2>
-        <p><strong>BHALLEFFORT</strong> nació en 2024 como muestra de unión entre dos jóvenes emprendedores. Nació de una promesa: tener un negocio de calidad premium que esté al alcance de todos.</p>
+        <h2>Unión y Esfuerzo</h2>
+        <p><strong>BHALLEFFORT</strong> fue creada por dos jóvenes como muestra de unión. Nacimos de una promesa: construir un negocio que esté al alcance de todos, ofreciendo calidad sin exclusiones.</p>
+        
         <div class="meaning-card">
-          <p style="font-style:italic">"Buenos Hábitos te Llevan al Éxito y es la Fortaleza para vivir"</p>
+          <strong>¿Qué significa BHALLEFFORT?</strong><br>
+          <p style="font-style:italic">"Buenos Hábitos te Llevan al Éxito y es la Fortaleza para vivir."</p>
         </div>
-        <p>Nuestra misión es construir bases sólidas para poder ayudar a los más necesitados en el futuro.</p>
+
+        <p>Nuestra misión no es solo crecer como marca, sino construir bases sólidas para poder ayudar a los más necesitados. Creemos en el éxito basado en valores y en la gratitud hacia Dios.</p>
       </div>
-      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" style="width:100%; border-radius:15px">
+      <div>
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" style="width:100%; border-radius:15px; box-shadow:0 10px 20px rgba(0,0,0,0.1)">
+      </div>
     </section>
   </div>
 
-  <section class="legal-box">
+  <section class="legal-footer-section">
     <div class="container">
-      <h3 style="margin-bottom:15px; font-size:16px; color:var(--morado)">INFORMACIÓN LEGAL</h3>
+      <h4 style="margin-bottom:15px; color:var(--morado)">INFORMACIÓN LEGAL</h4>
       <div class="legal-links">
         <a href="terminos-condiciones.html">Términos y Condiciones</a>
         <a href="politica-privacidad.html">Política de Privacidad</a>
-        <a href="cookies.html">Cookies</a>
+        <a href="cookies.html">Política de Cookies</a>
       </div>
+      <p style="font-size:11px; color:#777">© 2026 BHALLEFFORT. Todos los derechos reservados.</p>
     </div>
   </section>
 
   <footer>
     <div class="container">
-      <p>BHALLEFFORT © 2026 | "Dios te da más de lo que pides"</p>
+      <p>© 2026 BHALLEFFORT | "Dios te da más de lo que pides"</p>
     </div>
   </footer>
 
   <script>
     let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
     document.getElementById('cart-badge').textContent = carrito.length;
-    document.getElementById('btn-lupa').onclick = () => alert("Buscador activado...");
-    document.getElementById('cart-icon').onclick = () => window.location.href='index.html#carrito';
   </script>
 </body>
 </html>
