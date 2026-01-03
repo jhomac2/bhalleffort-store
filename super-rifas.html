@@ -44,7 +44,7 @@
     .prize-info{padding:30px;width:60%}
     .badge{background:var(--naranja);color:#fff;padding:5px 15px;border-radius:20px;font-size:12px;font-weight:700}
 
-    .btn-buy{background:var(--naranja);color:#fff;padding:12px 30px;border-radius:30px;text-decoration:none;display:inline-block;margin-top:15px;font-weight:700}
+    .btn-buy{background:var(--naranja);color:#fff;padding:12px 30px;border-radius:30px;text-decoration:none;display:inline-block;margin-top:15px;font-weight:700;cursor:pointer;border:none}
 
     /* Sección Legal */
     .legal-footer-section { padding: 40px 0; background: #e9ecef; text-align: center; border-top: 1px solid #ddd; }
@@ -93,50 +93,40 @@
   <section class="raffle-hero">
     <div class="container">
       <h1>🎟️ SÚPER RIFAS BHALLEFFORT</h1>
-      <p>Dos formas de ganar premios premium</p>
+      <p>Participa comprando productos o adquiriendo tu boleto</p>
     </div>
   </section>
 
   <div class="container">
     <div class="mechanic-grid">
       <div class="option-card">
-        <i class="fas fa-shopping-cart"></i>
-        <h3>COMPRA MÍNIMA</h3>
-        <p>Por cada compra igual o mayor a:</p>
+        <i class="fas fa-shopping-bag"></i>
+        <h3>POR TUS COMPRAS</h3>
+        <p>En compras mayores a:</p>
         <div class="price-tag">$30.00</div>
-        <p>¡Recibes 1 boleto <strong>GRATIS</strong>!</p>
-        <a href="index.html" class="btn-buy">IR A LA TIENDA</a>
+        <p>¡Boleto de cortesía incluido!</p>
+        <a href="index.html" class="btn-buy">IR A COMPRAR</a>
       </div>
 
       <div class="option-card">
         <i class="fas fa-ticket-alt"></i>
-        <h3>BOLETO INDIVIDUAL</h3>
-        <p>¿Solo quieres participar? Adquiere tu boleto por:</p>
+        <h3>COMPRAR BOLETO</h3>
+        <p>Adquiere tu entrada al sorteo por:</p>
         <div class="price-tag">$2.50</div>
-        <p>Sin necesidad de comprar productos.</p>
-        <a href="https://wa.me/593963923399?text=Hola,%20quiero%20comprar%20boletos%20para%20la%20rifa" class="btn-buy" style="background:var(--morado)">COMPRAR BOLETO</a>
+        <button onclick="agregarBoletoAlCarrito()" class="btn-buy" style="background:var(--morado)">AÑADIR AL CARRITO</button>
       </div>
     </div>
 
     <div class="prizes-section">
-      <h2 style="text-align:center; color:var(--morado); margin-bottom:40px">PRÓXIMOS PREMIOS</h2>
-      
-      <div class="prize-card">
-        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2070&auto=format&fit=crop" class="prize-img">
-        <div class="prize-info">
-          <span class="badge">GRAN PREMIO</span>
-          <h3 style="margin:10px 0">Zapatos de Gama Alta</h3>
-          <p>El ganador podrá elegir cualquier par de nuestra sección de ZAPATOS.</p>
-          <p style="margin-top:10px; font-size:12px; color:#888"><i class="fas fa-calendar"></i> Sorteo: Fin de mes por Facebook Live</p>
-        </div>
-      </div>
-
-      <div class="prize-card">
-        <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=2070&auto=format&fit=crop" class="prize-img">
-        <div class="prize-info">
-          <span class="badge" style="background:var(--turquesa)">2DO PREMIO</span>
-          <h3 style="margin:10px 0">Combo BHALLEFFORT</h3>
-          <p>Incluye una prenda de vestir premium y una gorra original.</p>
+      <h2 style="text-align:center; color:var(--morado); margin-bottom:40px">PREMIOS DEL SORTEO</h2>
+      <div id="lista-premios">
+        <div class="prize-card">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2070&auto=format&fit=crop" class="prize-img">
+            <div class="prize-info">
+              <span class="badge">GRAN PREMIO</span>
+              <h3 style="margin:10px 0">Zapatos de Gama Alta</h3>
+              <p>Elige tu par favorito de la tienda.</p>
+            </div>
         </div>
       </div>
     </div>
@@ -144,24 +134,38 @@
 
   <section class="legal-footer-section">
     <div class="container">
-      <h4 style="margin-bottom:15px; color:var(--morado)">INFORMACIÓN LEGAL</h4>
       <div class="legal-links">
         <a href="terminos-condiciones.html">Términos y Condiciones</a>
-        <a href="politica-privacidad.html">Política de Privacidad</a>
-        <a href="cookies.html">Política de Cookies</a>
+        <a href="politica-privacidad.html">Privacidad</a>
       </div>
     </div>
   </section>
 
   <footer>
-    <div class="container">
-      <p>BHALLEFFORT © 2026 | "Dios te da más de lo que pides"</p>
-    </div>
+    <div class="container"><p>BHALLEFFORT © 2026</p></div>
   </footer>
 
   <script>
-    let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
-    document.getElementById('cart-badge').textContent = carrito.length;
+    function actualizarBadge() {
+        let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
+        document.getElementById('cart-badge').textContent = carrito.length;
+    }
+
+    function agregarBoletoAlCarrito() {
+        let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
+        const boleto = {
+            id: "RIFA-001",
+            nombre: "Boleto Individual Súper Rifa",
+            precio: 2.50,
+            imagen: "https://cdn-icons-png.flaticon.com/512/812/812300.png"
+        };
+        carrito.push(boleto);
+        localStorage.setItem('bh-cart', JSON.stringify(carrito));
+        actualizarBadge();
+        alert("¡Boleto añadido al carrito! Termina tu compra para participar.");
+    }
+
+    actualizarBadge();
   </script>
 </body>
 </html>
