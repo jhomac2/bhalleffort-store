@@ -1,105 +1,67 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiénes Somos - BHALLEFFORT</title>
-  <meta name="description" content="Conoce la historia, valores y misión de BHALLEFFORT. Tienda online en Ecuador con envíos a todo el país.">
+  <meta charset="utf-8">
+  <title>QUIÉNES SOMOS | BHALLEFFORT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="https://jhomac2.github.io/bhalleffort-store/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{--morado:#4c0d8c;--celeste:#87ceeb;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;--fondo:#f5f7fa}
-    *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',system-ui,Arial}
-    body{background:var(--fondo);color:var(--texto)}
-    .container{width:90%;max-width:1200px;margin:auto}
-    .flex-space{display:flex;align-items:center;justify-content:space-between}
-    .top-bar{background:var(--morado);color:#fff;font-size:13px;padding:4px 0}
-    .top-bar .social-icons{display:flex;gap:8px;font-size:16px}
-    .top-bar .social-icons a{color:#fff}
+    :root{--celeste:#87ceeb;--morado:#4c0d8c;--turquesa:#00c8c8;--texto:#222;--fondo:#f5f7fa}
+    *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',sans-serif}
+    body{background:var(--fondo);color:var(--texto);line-height:1.6}
+    .container{width:90%;max-width:1100px;margin:auto}
+    
+    /* Header & Nav */
+    .top-bar{background:var(--morado);color:#fff;font-size:13px;padding:5px 0;text-align:center}
     .main-header{padding:10px 0;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
-    .logo-section{display:flex;align-items:center;gap:10px}
-    .whale-icon{width:46px;border:2px solid var(--morado);border-radius:50%}
-    .brand-text h1{font-size:20px;color:var(--morado)}
-    .brand-text p{font-size:12px;color:var(--morado);opacity:.9}
-    .dual-buttons{display:flex;gap:1rem;justify-content:center;margin:1rem 0;flex-wrap:wrap}
-    .btn-rifas,.btn-wa{padding:.8rem 1.4rem;border-radius:6px;font-weight:700;text-decoration:none;color:#fff;box-shadow:0 2px 4px rgba(0,0,0,.25)}
-    .btn-rifas{background:#ff6600}
-    .btn-wa{background:#25d366}
+    .flex-header{display:flex;justify-content:space-between;align-items:center}
+    .whale-icon{width:45px;border:2px solid var(--morado);border-radius:50%}
     .main-nav{position:sticky;top:0;z-index:999;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
-    .main-nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center}
-    .main-nav a{color:var(--morado);padding:10px 12px;display:block;font-size:14px;text-decoration:none;font-weight:600}
-    .main-nav a.active{background:var(--morado);color:#fff;border-radius:4px;}
-    .hero-banner{background:var(--celeste);padding:40px 20px;text-align:center;color:#fff}
-    .hero-banner h2{font-size:26px}
-    .content-section{padding:40px 20px;background:var(--fondo)}
-    .section-title{text-align:center;color:var(--morado);font-size:22px;margin-bottom:20px}
-    .text-block{max-width:800px;margin:0 auto;text-align:justify;line-height:1.6}
-    .values-list{list-style:none;padding:0;margin-top:20px}
-    .values-list li{display:flex;align-items:flex-start;margin:15px 0}
-    .values-list i{color:var(--morado);margin-right:10px;font-size:18px;margin-top:4px}
-    footer{background:var(--celeste);color:#000;font-size:13px;padding:20px 0}
-    .footer-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
-    .footer-contact a{color:#000;text-decoration:none}
-    .god-message{font-size:11px;color:#000;margin-top:4px}
-    .designer-line{font-size:12px;color:#000;margin-top:4px}
-    /* Carrito */
-    #cart-icon{position:fixed;top:15px;right:15px;background:#fff;border-radius:50%;padding:8px;box-shadow:0 2px 5px rgba(0,0,0,.15);cursor:pointer;z-index:1000}
-    #cart-badge{background:var(--turquesa);color:#fff;border-radius:50%;padding:2px 6px;font-size:11px;position:absolute;top:-4px;right:-4px}
-    /* Banners */
-    #banner-div{position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;box-shadow:0 -2px 5px rgba(0,0,0,.1);z-index:999}
-    #banner-envio{flex:1;background:#25D366;color:#fff;text-align:center;padding:8px;font-size:14px}
-    #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:8px;font-size:14px}
-    /* Modal carrito */
-    .cart-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000}
-    .cart-modal>div{background:#fff;width:90%;max-width:480px;margin:60px auto;padding:15px;border-radius:8px;position:relative;display:flex;flex-direction:column;max-height:80vh}
-    .cart-modal header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-shrink:0}
-    #cart-items{flex:1 1 auto;overflow-y:auto;margin-bottom:10px;border:1px solid #eee;border-radius:4px;padding:8px}
-    .cart-modal footer{flex-shrink:0;text-align:right}
+    .main-nav ul{list-style:none;display:flex;justify-content:center;flex-wrap:wrap}
+    .main-nav a{color:var(--morado);padding:12px 15px;display:block;text-decoration:none;font-weight:600;font-size:14px}
+    .main-nav a.active{background:var(--morado);color:#fff}
+
+    /* Contenido Quiénes Somos */
+    .hero-about{background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop'); background-size:cover; background-position:center; color:#fff; padding:60px 0; text-align:center}
+    .hero-about h1{font-size:35px; text-transform:uppercase}
+
+    .story-section{padding:50px 0; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center}
+    .story-text h2{color:var(--morado); margin-bottom:15px}
+    .meaning-card{background:var(--morado); color:#fff; padding:20px; border-radius:10px; margin:20px 0}
+    
+    .mv-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; margin:40px 0}
+    .mv-item{background:#fff; padding:25px; border-radius:10px; text-align:center; box-shadow:0 4px 10px rgba(0,0,0,0.05)}
+    .mv-item i{font-size:40px; color:var(--turquesa); margin-bottom:15px}
+
+    .location-box{background:#fff; border:2px dashed var(--morado); padding:30px; border-radius:15px; text-align:center; margin-bottom:50px}
+    .btn-wa{background:#25d366; color:#fff; padding:10px 20px; text-decoration:none; border-radius:5px; font-weight:700; display:inline-block; margin-top:15px}
+
+    footer{background:var(--celeste); padding:30px 0; text-align:center; font-size:14px}
+    
+    @media (max-width:768px){ .story-section{grid-template-columns:1fr} .hero-about h1{font-size:28px} }
   </style>
 </head>
 <body>
 
-  <!-- Carrito (solo si hay productos) -->
-  <div id="cart-icon" style="display:none;"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
-
-  <!-- Banners inferiores -->
-  <div id="banner-div">
-    <div id="banner-envio">🚚 ¡Envío gratis desde $50!</div>
-    <div id="banner-sorteo">🎉 Por compras superiores a $20 participas automáticamente en nuestra gran rifa</div>
-  </div>
-
-  <div class="top-bar">
-    <div class="container flex-space">
-      <div class="social-icons">
-        <a href="https://tiktok.com/@bhalleffort" target="_blank"><i class="fab fa-tiktok"></i></a>
-        <a href="https://facebook.com/bhalleffort" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://instagram.com/bhalleffort" target="_blank"><i class="fab fa-instagram"></i></a>
-      </div>
-      <div><i class="fas fa-truck"></i> ENVÍOS 100% SEGUROS</div>
-    </div>
-  </div>
+  <div class="top-bar">"DIOS TE DA MÁS DE LO QUE PIDES"</div>
 
   <header class="main-header">
-    <div class="container flex-space">
-      <a href="index.html" style="text-decoration:none; color:inherit;">
-        <div class="logo-section">
-          <img src="logo-ballena.png" alt="BHALLEFFORT" class="whale-icon">
-          <div class="brand-text">
-            <h1>BHALLEFFORT</h1>
-            <p>Tienda Online Ecuador</p>
-          </div>
+    <div class="container flex-header">
+      <div style="display:flex; align-items:center; gap:10px">
+        <img src="logo-ballena.png" class="whale-icon">
+        <div>
+          <h1 style="font-size:20px; color:var(--morado)">BHALLEFFORT</h1>
+          <p style="font-size:11px">Desde 2024</p>
         </div>
-      </a>
-      <div class="dual-buttons">
-        <a href="super-rifas.html" class="btn-rifas">🎉 Rifas</a>
-        <a href="https://wa.me/593963923399" class="btn-wa">📱 +593 963 923 399</a>
       </div>
+      <a href="https://wa.me/593963923399" class="btn-wa" style="margin:0; font-size:12px">WHATSAPP</a>
     </div>
   </header>
 
   <nav class="main-nav">
-    <ul id="nav-menu">
+    <ul>
       <li><a href="index.html">INICIO</a></li>
       <li><a href="ropa.html">ROPA</a></li>
       <li><a href="zapatos.html">ZAPATOS</a></li>
@@ -110,178 +72,64 @@
     </ul>
   </nav>
 
-  <section class="hero-banner">
-    <h2>👋 ¡HOLA! SOMOS BHALLEFFORT</h2>
-    <p>Más que una tienda, somos tu aliado para comprar bien y ahorrar más.</p>
-  </section>
-
-  <section class="content-section">
+  <section class="hero-about">
     <div class="container">
-      <h2 class="section-title">Nuestra Historia</h2>
-      <div class="text-block">
-        <p>
-          Todo empezó con un sueño sencillo: ofrecer productos de calidad a precios justos, sin complicaciones.
-          Desde nuestro rincón en <strong>La Y de Tabacundo, Pichincha</strong>, empezamos a buscar lo mejor para tu hogar,
-          tu ropa y tus momentos de juego.
-        </p>
-        <p style="margin-top:15px">
-          Hoy, BHALLEFFORT es más que un nombre: es un compromiso. Cada producto que seleccionamos pasa por un filtro:
-          ¿es útil? ¿es duradero? ¿vale la pena? Si la respuesta es “sí”, lo traemos para ti.
-        </p>
-      </div>
-
-      <div style="margin-top:40px">
-        <h2 class="section-title">Valores y Misión</h2>
-        <ul class="values-list">
-          <li><i class="fas fa-heart"></i><div><strong>Confianza:</strong> Tratamos a cada cliente como a un vecino.</div></li>
-          <li><i class="fas fa-tags"></i><div><strong>Precios justos:</strong> Sin letras chiquitas, sin sorpresas.</div></li>
-          <li><i class="fas fa-truck"></i><div><strong>Entrega segura:</strong> Tu pedido llega como lo esperas.</div></li>
-          <li><i class="fas fa-smile"></i><div><strong>Buen trato:</strong> Porque comprar debe ser una experiencia agradable.</div></li>
-        </ul>
-      </div>
-
-      <div style="text-align:center;margin-top:40px">
-        <p style="font-size:18px;color:var(--morado);font-weight:bold">💙 BHALLEFFORT: Calidad, confianza y esa sonrisa al abrir tu paquete.</p>
-      </div>
+      <h1>Nuestra Esencia</h1>
+      <p>Unidos por un propósito, guiados por la fe</p>
     </div>
   </section>
+
+  <div class="container">
+    <section class="story-section">
+      <div class="story-text">
+        <h2>Un Sueño de Dos</h2>
+        <p><strong>BHALLEFFORT</strong> nació en 2024 como testimonio de la unión de dos jóvenes emprendedores. Lo que empezó como una promesa de apoyo mutuo, se transformó en la misión de crear un negocio honesto donde la calidad premium esté al alcance de todas las familias ecuatorianas.</p>
+        
+        <div class="meaning-card">
+          <p style="font-weight:600; font-style:italic">"Buenos Hábitos te Llevan al Éxito, y son la Fortaleza para vivir"</p>
+        </div>
+        
+        <p>No solo vendemos productos; construimos las bases para un futuro donde podamos extender nuestra mano y ayudar a los más necesitados. Cada compra en nuestra tienda nos acerca más a ese objetivo social.</p>
+      </div>
+      <div class="story-img">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" style="width:100%; border-radius:15px; box-shadow:0 10px 20px rgba(0,0,0,0.1)">
+      </div>
+    </section>
+
+    <section class="mv-grid">
+      <div class="mv-item">
+        <i class="fas fa-heart"></i>
+        <h3>Valores</h3>
+        <p>Honestidad, esfuerzo constante y fe inquebrantable en cada paso que damos.</p>
+      </div>
+      <div class="mv-item">
+        <i class="fas fa-shipping-fast"></i>
+        <h3>Compromiso</h3>
+        <p>Llevar lo mejor de nosotros a Tabacundo, Cayambe, Atuntaqui y todo el país.</p>
+      </div>
+      <div class="mv-item">
+        <i class="fas fa-hands-helping"></i>
+        <h3>Propósito</h3>
+        <p>Crecer para servir y ser una fuente de bendición para nuestra comunidad.</p>
+      </div>
+    </section>
+
+    <section class="location-box">
+      <h2>NUESTRO PUNTO DE ENCUENTRO</h2>
+      <p style="font-size:18px; margin:10px 0">📍 Estamos ubicados en <strong>La Y de Tabacundo</strong></p>
+      <p>Al lado de la Panadería Local de <strong>MATH´S</strong></p>
+      <p style="color:#666; font-size:14px; margin-top:10px">Entregas personales en Tabacundo y alrededores. Envíos nacionales por Servientrega.</p>
+      <a href="https://wa.me/593963923399" class="btn-wa">Escríbenos para visitarnos 🐋</a>
+    </section>
+  </div>
 
   <footer>
-    <div class="container footer-grid">
-      <div>
-        <img src="logo-ballena.png" alt="Ballena" width="40">
-        <p>LO MEJOR Y AL MEJOR PRECIO</p>
-        <div class="god-message">Dios te da más de lo que pides.</div>
-        <div class="designer-line">Diseñado por Jhomac² <i class="fab fa-tiktok"></i></div>
-      </div>
-      <div class="footer-contact">
-        <h3>CONTÁCTANOS</h3>
-        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/593963923399" target="_blank">+593 963 923 399</a></p>
-        <p><i class="fas fa-envelope"></i> agromhasvida5@gmail.com</p>
-        <p><i class="far fa-clock"></i> Horario: 8:00-20:00 (lunes a domingo)</p>
-        <p><i class="fas fa-map-marker-alt"></i> La Y de Tabacundo, Pichincha, Ecuador</p>
-      </div>
-      <div>
-        <h3>POLÍTICAS</h3>
-        <ul style="list-style:none;padding:0">
-          <li><a href="politicas.html#terminos" style="color:#000">Términos y condiciones</a></li>
-          <li><a href="politicas.html#envios" style="color:#000">Política de envíos</a></li>
-          <li><a href="politicas.html#devoluciones" style="color:#000">Cambios y devoluciones</a></li>
-          <li><a href="cookies.html" style="color:#000">Política de cookies</a></li>
-        </ul>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:15px;font-size:12px;color:#000">
-      © 2025 @BHALLEFFORT. Todos los derechos reservados.<br>
-      Diseñado por Jhomac² <i class="fab fa-tiktok"></i>
+    <div class="container">
+      <p><strong>BHALLEFFORT</strong> - Calidad al mejor precio</p>
+      <p>Diseñado por Jhomac² | © 2026</p>
+      <p style="margin-top:10px; opacity:0.8">"Dios te da más de lo que pides"</p>
     </div>
   </footer>
 
-  <!-- Modal Carrito -->
-  <div id="cart-modal" class="cart-modal">
-    <div>
-      <header>
-        <h3><i class="fas fa-shopping-cart"></i> Tu carrito</h3>
-        <button id="close-cart" style="background:none;border:none;font-size:20px;cursor:pointer">&times;</button>
-      </header>
-      <div id="cart-items"></div>
-      <footer>
-        <div style="display:flex;justify-content:space-between;font-weight:bold">
-          <span>Total:</span><span id="cart-total">$0.00</span>
-        </div>
-        <button id="btn-wa" style="background:#25D366;color:#fff;border:none;padding:8px 14px;border-radius:4px;cursor:pointer;margin-top:10px">
-          Enviar pedido por WhatsApp 🐋💜
-        </button>
-      </footer>
-    </div>
-  </div>
-
-  <script>
-    let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
-    const cartIcon = document.getElementById('cart-icon');
-    const cartBadge = document.getElementById('cart-badge');
-
-    // Mostrar carrito si hay productos
-    if (carrito.length > 0) {
-      cartBadge.textContent = carrito.length;
-      cartIcon.style.display = 'block';
-    }
-
-    // Actualizar banners
-    function actualizarBannerEnvio() {
-      const total = carrito.reduce((t,p)=>t+p.precio,0);
-      const bannerEnvio = document.getElementById('banner-envio');
-      const bannerSorteo = document.getElementById('banner-sorteo');
-      if (total >= 50) {
-        bannerEnvio.innerHTML = '✅ ¡Tu envío es gratis!';
-        bannerEnvio.style.background = '#25D366';
-      } else {
-        bannerEnvio.innerHTML = '🚚 ¡Envío gratis desde $50!';
-        bannerEnvio.style.background = '#ff9800';
-      }
-      if (total >= 20) {
-        bannerSorteo.innerHTML = '🎉 ¡YA ESTÁS PARTICIPANDO EN NUESTRA GRAN RIFA!';
-        bannerSorteo.style.background = 'var(--morado)';
-      } else {
-        bannerSorteo.innerHTML = '🎉 Por compras superiores a $20 participas automáticamente en nuestra gran rifa';
-        bannerSorteo.style.background = 'var(--morado)';
-      }
-    }
-
-    // Mostrar modal
-    function mostrarModal() {
-      const modal = document.getElementById('cart-modal');
-      const items = document.getElementById('cart-items');
-      const total = carrito.reduce((t,p)=>t+p.precio,0);
-      items.innerHTML = carrito.map((p,i)=>`
-        <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #eee">
-          <span>${p.nombre} <br><small>$${p.precio.toFixed(2)}</small></span>
-          <button onclick="removeItem(${i})" style="background:none;border:none;color:red;cursor:pointer">🗑️</button>
-        </div>`).join('');
-      document.getElementById('cart-total').textContent = '$'+total.toFixed(2);
-      modal.style.display = 'block';
-    }
-
-    // Eliminar producto
-    function removeItem(i) {
-      carrito.splice(i,1);
-      localStorage.setItem('bh-cart',JSON.stringify(carrito));
-      if (carrito.length === 0) {
-        cartIcon.style.display = 'none';
-      } else {
-        cartBadge.textContent = carrito.length;
-      }
-      actualizarBannerEnvio();
-      mostrarModal();
-    }
-
-    // Enviar por WhatsApp
-    document.getElementById('btn-wa').onclick = () => {
-      const subtotal = carrito.reduce((t,p)=>t+p.precio,0);
-      const envio = subtotal >= 50 ? 0 : 3.50;
-      const total = subtotal + envio;
-      let texto = `🐋 Hola, quiero:\n`;
-      texto += carrito.map(p => `• ${p.nombre}  $${p.precio.toFixed(2)}`).join('\n');
-      texto += `\nTotal productos: $${subtotal.toFixed(2)}`;
-      if (envio > 0) texto += `\nEnvío: $${envio.toFixed(2)}`;
-      else texto += '\nEnvío: ¡Gratis!';
-      texto += `\nTOTAL A PAGAR: $${total.toFixed(2)}`;
-      if (subtotal >= 20) {
-        const ahora = new Date();
-        const key = `sorteo-${ahora.getFullYear()}-${ahora.getMonth()}`;
-        let count = parseInt(localStorage.getItem(key) || '20');
-        count++;
-        localStorage.setItem(key, count);
-        texto += `\n\n🎉 ¡Felicidades! Estás participando en nuestra gran rifa 💜😃\nTu código de participación te lo dará el vendedor.`;
-      }
-      window.open(`https://wa.me/593963923399?text=${encodeURIComponent(texto)}`, '_blank');
-    };
-
-    // Eventos
-    document.getElementById('cart-icon').onclick = mostrarModal;
-    document.getElementById('close-cart').onclick = () => document.getElementById('cart-modal').style.display = 'none';
-
-    actualizarBannerEnvio();
-  </script>
 </body>
 </html>
