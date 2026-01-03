@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>Super Promociones – BHALLEFFORT</title>
-  <meta name="description" content="Las mejores ofertas del mes en ropa, zapatos y artículos varios. Envíos a todo el Ecuador.">
+  <title>Promociones – BHALLEFFORT | Ofertas Increíbles</title>
+  <meta name="description" content="Aprovecha las mejores ofertas y promociones en BHALLEFFORT Ecuador.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="https://jhomac2.github.io/bhalleffort-store/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -42,7 +42,7 @@
     .hero-banner {
       position: relative;
       background: url('https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
-      height: 350px;
+      height: 300px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -53,27 +53,56 @@
       content: "";
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(76, 13, 140, 0.7);
+      background: rgba(255, 102, 0, 0.8);
       z-index: 1;
     }
     .hero-banner div { position: relative; z-index: 2; padding: 0 20px; }
-    .hero-banner h1 { font-size: 42px; text-transform: uppercase; font-weight: 700; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
+    .hero-banner h1 { font-size: 42px; text-transform: uppercase; font-weight: 700; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); margin-bottom: 10px; }
+    .hero-banner p { font-size: 18px; opacity: 0.9; }
 
     /* CARRITO Y LUPA */
     #cart-icon {
-      position: fixed; top: 15px; right: 15px; background: #fff; border-radius: 50%;
-      width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.15); cursor: pointer; z-index: 1000;
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      background: #fff;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+      cursor: pointer;
+      z-index: 1000;
     }
     #cart-badge {
-      background: var(--turquesa); color: #fff; border-radius: 50%;
-      padding: 2px 6px; font-size: 11px; position: absolute; top: 0; right: 0;
+      background: var(--turquesa);
+      color: #fff;
+      border-radius: 50%;
+      padding: 2px 6px;
+      font-size: 11px;
+      position: absolute;
+      top: 0px;
+      right: 0px;
     }
     #btn-lupa {
-      position: fixed; top: 75px; right: 15px; background: var(--turquesa);
-      color: #fff; border: none; border-radius: 50%; width: 50px; height: 50px;
-      font-size: 20px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.25);
-      z-index: 1000; display: flex; align-items: center; justify-content: center;
+      position: fixed;
+      top: 75px;
+      right: 15px;
+      background: var(--turquesa);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     /* PRODUCTOS */
@@ -101,17 +130,12 @@
     
     @media(max-width:768px){.products-grid-ten{grid-template-columns:repeat(3,1fr)}}
     @media(max-width:480px){.products-grid-ten{grid-template-columns:repeat(2,1fr)}}
-
+    
     /* GARANTÍAS */
     .guarantees{background:#fff;padding:20px 0;margin-top:20px}
     .flex-guarantees{display:flex;gap:15px;flex-wrap:wrap;justify-content:center;text-align:center}
     .guarantee-item{flex:1 1 200px}
     
-    /* BANNERS INFERIORES */
-    #banner-div{position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;box-shadow:0 -2px 5px rgba(0,0,0,.1);z-index:999}
-    #banner-envio{flex:1;background:#25D366;color:#fff;text-align:center;padding:8px;font-size:14px}
-    #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:8px;font-size:14px}
-
     /* FOOTER */
     footer{background:var(--celeste);color:#000;font-size:13px;padding:20px 0}
     .footer-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
@@ -121,6 +145,9 @@
     .cart-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000}
     .cart-modal>div{background:#fff;width:90%;max-width:480px;margin:60px auto;padding:15px;border-radius:8px;position:relative;display:flex;flex-direction:column;max-height:80vh}
     #cart-items{flex:1 1 auto;overflow-y:auto;margin-bottom:10px;border:1px solid #eee;border-radius:4px;padding:8px}
+    #banner-div{position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;box-shadow:0 -2px 5px rgba(0,0,0,.1);z-index:999}
+    #banner-envio{flex:1;background:#25D366;color:#fff;text-align:center;padding:8px;font-size:14px}
+    #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:8px;font-size:14px}
     #search-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:3000}
     #search-modal>div{background:#fff;width:90%;max-width:400px;margin:80px auto;padding:15px;border-radius:8px;position:relative}
     #search-modal input{width:100%;padding:8px;border:1px solid #ccc;border-radius:4px;margin-bottom:10px}
@@ -135,7 +162,7 @@
   <div id="search-modal">
     <div>
       <button id="close-search" style="position:absolute;top:8px;right:12px;background:none;border:none;font-size:20px;cursor:pointer">&times;</button>
-      <input type="text" id="search-input" placeholder="Buscar ofertas...">
+      <input type="text" id="search-input" placeholder="Buscar promociones...">
       <div id="search-results"></div>
     </div>
   </div>
@@ -165,7 +192,7 @@
           <img src="logo-ballena.png" alt="BHALLEFFORT" class="whale-icon">
           <div class="brand-text">
             <h1>BHALLEFFORT</h1>
-            <p>Tienda Online Ecuador</p>
+            <p>Descubre lo que necesitas</p>
           </div>
         </div>
       </a>
@@ -190,14 +217,14 @@
 
   <section class="hero-banner">
     <div>
-      <h1>OFERTAS IRRESISTIBLES</h1>
-      <p>Lo mejor al mejor precio por tiempo limitado</p>
+      <h1>Promociones – BHALLEFFORT</h1>
+      <p>Las mejores ofertas por tiempo limitado</p>
     </div>
   </section>
 
   <section class="featured-products">
     <div class="container">
-      <h2 class="section-title">💥 PROMOCIONES DEL MES 💥</h2>
+      <h2 class="section-title">🔥 SUPER PROMOCIONES 🔥</h2>
       <div class="products-grid-ten" id="products-grid"></div>
     </div>
   </section>
@@ -222,15 +249,19 @@
       <div class="footer-contact">
         <h3>CONTÁCTANOS</h3>
         <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/593963923399" target="_blank">+593 963 923 399</a></p>
+        <p><i class="fas fa-envelope"></i> agromhasvida5@gmail.com</p>
         <p><i class="fas fa-map-marker-alt"></i> La Y de Tabacundo, Pichincha</p>
       </div>
       <div>
         <h3>POLÍTICAS</h3>
         <ul style="list-style:none;padding:0">
-          <li><a href="politicas.html" style="color:#000">Términos y condiciones</a></li>
-          <li><a href="politicas.html" style="color:#000">Política de envíos</a></li>
+          <li><a href="politicas.html#terminos" style="color:#000">Términos y condiciones</a></li>
+          <li><a href="cookies.html" style="color:#000">Política de cookies</a></li>
         </ul>
       </div>
+    </div>
+    <div style="text-align:center;margin-top:15px;font-size:12px;color:#000">
+      © 2025 @BHALLEFFORT. Todos los derechos reservados.
     </div>
   </footer>
 
@@ -253,38 +284,42 @@
   </div>
 
   <script>
-    let productosPromos = [];
+    let productosTotales = [];
     let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
 
     async function cargarPromos() {
       try {
         const res = await fetch('productos.json');
         const data = await res.json();
-        productosPromos = data.filter(p => p.cat === "Promoción" || p.cat === "Promocion");
+        productosTotales = data;
         dibujarProductos();
       } catch (e) { console.error(e); }
     }
 
     function dibujarProductos() {
       const grid = document.getElementById('products-grid');
-      grid.innerHTML = productosPromos.map(p => `
+      // Filtrar solo por PROMOCIONES
+      const listaPromos = productosTotales.filter(p => p.cat === "PROMOCIONES");
+      
+      grid.innerHTML = listaPromos.map(p => `
         <div class="product-card" onclick="this.classList.toggle('touch-active')">
           <div class="product-image-container">
-            <img src="${p.img}" class="product-image front">
-            <img src="${p.imgBack || p.img}" class="product-image back">
+            <img src="${p.imgFrontal}" class="product-image front">
+            <img src="${p.imgTrasera || p.imgFrontal}" class="product-image back">
           </div>
           <div class="product-info">
-            <span class="product-category">${p.cat}</span>
+            <span class="product-category" style="color:#ff6600; font-weight:700;">${p.cat}</span>
             <h4 class="product-name">${p.nombre}</h4>
-            <p class="product-desc-short">${p.desc || '¡Oferta Especial!'}</p>
+            <p class="product-desc-short">${p.detalle || 'Calidad BHALLEFFORT'}</p>
             <div class="current-price">$${p.precio.toFixed(2)}</div>
-            <button class="btn-buy" onclick="event.stopPropagation(); addCart('${p.id}','${p.nombre}',${p.precio})">Añadir al carrito</button>
+            <button class="btn-buy" onclick="event.stopPropagation(); addCart('${p.id}','${p.nombre}',${p.precio}, '${p.cat}')">Añadir al carrito</button>
           </div>
         </div>`).join('');
     }
 
-    function addCart(id,nombre,precio) {
-      carrito.push({id, nombre, precio});
+    /* FUNCIONES DE CARRITO */
+    function addCart(id,nombre,precio,cat) {
+      carrito.push({id, nombre, precio, cat});
       localStorage.setItem('bh-cart',JSON.stringify(carrito));
       actualizarBadge();
       mostrarNoti(`✅ ${nombre} añadido`);
@@ -296,13 +331,17 @@
     }
 
     function actualizarBannerEnvio() {
-      const sub = carrito.reduce((s, i) => s + i.precio, 0);
+      const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
       const bEnvio = document.getElementById('banner-envio');
       const bSorteo = document.getElementById('banner-sorteo');
-      bEnvio.style.background = sub >= 50 ? '#25D366' : '#ff9800';
-      bEnvio.textContent = sub >= 50 ? '✅ ¡Tu envío es gratis!' : '🚚 Envío gratis desde $50';
-      bSorteo.style.background = sub >= 30 ? '#25D366' : 'var(--morado)';
-      bSorteo.textContent = sub >= 30 ? '🎉 ¡YA ESTÁS EN LA RIFA!' : '🎉 Participa en nuestra rifa mensual';
+      if(bEnvio) {
+          bEnvio.style.background = subTotal >= 50 ? '#25D366' : '#ff9800';
+          bEnvio.textContent = subTotal >= 50 ? '✅ ¡Tu envío es gratis!' : '🚚 Envío gratis desde $50';
+      }
+      if(bSorteo) {
+          bSorteo.style.background = subTotal >= 30 ? '#25D366' : 'var(--morado)';
+          bSorteo.textContent = subTotal >= 30 ? '🎉 ¡YA ESTÁS EN LA RIFA!' : '🎉 Participa en nuestra rifa mensual';
+      }
     }
 
     function mostrarNoti(t) {
@@ -313,29 +352,32 @@
 
     function mostrarModal() {
       const items = document.getElementById('cart-items');
-      const sub = carrito.reduce((s, i) => s + i.precio, 0);
-      const envio = (sub > 0 && sub < 50) ? 3.50 : 0;
+      const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
+      const envio = (subTotal > 0 && subTotal < 50) ? 3.50 : 0;
       items.innerHTML = carrito.map((p,i)=>`
         <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #eee">
           <span>${p.nombre} <small>($${p.precio.toFixed(2)})</small></span>
           <button onclick="removeItem(${i})" style="border:none;color:red;background:none;cursor:pointer">🗑️</button>
         </div>`).join('');
-      document.getElementById('cart-total').textContent = '$' + (sub + envio).toFixed(2);
+      document.getElementById('cart-total').textContent = '$' + (subTotal + envio).toFixed(2);
       document.getElementById('cart-modal').style.display = 'block';
     }
 
     function removeItem(i) {
       carrito.splice(i,1);
       localStorage.setItem('bh-cart',JSON.stringify(carrito));
-      actualizarBadge(); actualizarBannerEnvio(); mostrarModal();
+      actualizarBadge();
+      actualizarBannerEnvio();
+      mostrarModal();
     }
 
     document.getElementById('btn-wa-cart').onclick = () => {
-      const sub = carrito.reduce((s, i) => s + i.precio, 0);
-      const envio = sub >= 50 ? 0 : 3.50;
-      let msg = `🐋 *¡Hola BHALLEFFORT!* \n💥 *Pedido de Ofertas:*\n\n`;
-      carrito.forEach((p, idx) => { msg += `${idx + 1}. 🎁 ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; });
-      msg += `\n💵 *Total:* $${(sub + envio).toFixed(2)}`;
+      const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
+      const envio = subTotal >= 50 ? 0 : 3.50;
+      const total = subTotal + envio;
+      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *Nuevo Pedido (PROMOS):*\n\n`;
+      carrito.forEach((p, idx) => { msg += `${idx + 1}. 🔥 ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; });
+      msg += `\n──────────────────\n💰 *TOTAL A PAGAR: $${total.toFixed(2)}*\n──────────────────\n`;
       window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`, '_blank');
     };
 
@@ -343,13 +385,13 @@
     document.getElementById('close-cart').onclick = () => document.getElementById('cart-modal').style.display = 'none';
     document.getElementById('btn-lupa').onclick = () => document.getElementById('search-modal').style.display = 'block';
     document.getElementById('close-search').onclick = () => document.getElementById('search-modal').style.display = 'none';
-
+    
     document.getElementById('search-input').oninput = (e) => {
       const val = e.target.value.toLowerCase();
       const res = document.getElementById('search-results');
       if(!val) { res.innerHTML = ''; return; }
-      const f = productosPromos.filter(p => p.nombre.toLowerCase().includes(val));
-      res.innerHTML = f.map(p => `<div style="padding:8px; cursor:pointer; border-bottom:1px solid #eee" onclick="addCart('${p.id}','${p.nombre}',${p.precio}); document.getElementById('search-modal').style.display='none'">${p.nombre}</div>`).join('');
+      const f = productosTotales.filter(p => p.nombre.toLowerCase().includes(val));
+      res.innerHTML = f.map(p => `<div style="padding:8px; cursor:pointer; border-bottom:1px solid #eee" onclick="addCart('${p.id}','${p.nombre}',${p.precio}, '${p.cat}'); document.getElementById('search-modal').style.display='none'">${p.nombre}</div>`).join('');
     };
 
     cargarPromos();
