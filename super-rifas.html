@@ -3,13 +3,12 @@
 <head>
   <meta charset="utf-8">
   <title>RIFAS | BHALLEFFORT - Calidad al mejor precio</title>
-  <meta name="description" content="Participa en nuestras rifas exclusivas en BHALLEFFORT. ¡Gana premios increíbles!">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="https://jhomac2.github.io/bhalleffort-store/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{--celeste:#87ceeb;--morado:#4c0d8c;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;--fondo:#f5f7fa}
+    :root{--celeste:#87ceeb;--morado:#4c0d8c;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;--fondo:#eef2f7}
     *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',system-ui,Arial}
     body{background:var(--fondo);color:var(--texto)}
     img{max-width:100%;display:block}
@@ -17,14 +16,15 @@
     .flex-space{display:flex;align-items:center;justify-content:space-between}
     
     .top-bar{background:var(--morado);color:#fff;font-size:13px;padding:4px 0}
-    .top-bar .social-icons{display:flex;gap:8px;font-size:16px}
-    .top-bar .social-icons a{color:#fff}
+    .top-bar .social-icons{display:flex;gap:12px;font-size:18px}
+    .top-bar .social-icons a{color:#fff; text-decoration:none}
     
-    .main-header{padding:10px 0;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
-    .logo-section{display:flex;align-items:center;gap:10px}
-    .whale-icon{width:46px;border:2px solid var(--morado);border-radius:50%}
-    .brand-text h1{font-size:20px;color:var(--morado)}
-    .brand-text p{font-size:12px;color:var(--morado);opacity:.9}
+    .main-header{padding:15px 0;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+    .logo-section{display:flex;align-items:center;gap:15px}
+    .whale-icon{width:85px; border:3px solid var(--morado); border-radius:50%; padding:2px; background:#fff}
+    .brand-text h1{font-size:24px;color:var(--morado);font-weight:700;line-height:1}
+    .brand-text p{font-size:13px;color:var(--morado);opacity:.8}
+    
     .dual-buttons{display:flex;gap:1rem;justify-content:center;margin:1rem 0;flex-wrap:wrap}
     .btn-rifas,.btn-wa{padding:.8rem 1.4rem;border-radius:6px;font-weight:700;text-decoration:none;color:#fff;box-shadow:0 2px 4px rgba(0,0,0,.25)}
     .btn-rifas{background:#ff6600}
@@ -32,31 +32,31 @@
     
     .main-nav{position:sticky;top:0;z-index:999;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
     .main-nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center}
-    .main-nav a{color:var(--morado);padding:10px 12px;display:block;font-size:14px;text-decoration:none;font-weight:600}
+    .main-nav a{color:var(--morado);padding:12px 15px;display:block;font-size:14px;text-decoration:none;font-weight:600}
     .main-nav a.active{background:var(--morado);color:#fff;border-radius:4px}
 
     .hero-banner {
       position: relative;
-      background: url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+      background: url('https://images.unsplash.com/photo-1596743449222-11c212ca200f?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
       height: 300px;
       display: flex; align-items: center; justify-content: center; text-align: center; color: #fff;
     }
     .hero-banner::before {
       content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(255, 102, 0, 0.85); z-index: 1;
+      background: rgba(76, 13, 140, 0.85); z-index: 1;
     }
     .hero-banner div { position: relative; z-index: 2; padding: 0 20px; }
-    .hero-banner h1 { font-size: 42px; text-transform: uppercase; font-weight: 700; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); margin-bottom: 10px; }
+    .hero-banner h1 { font-size: 42px; text-transform: uppercase; font-weight: 700; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
 
     #cart-icon { position: fixed; top: 15px; right: 15px; background: #fff; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.15); cursor: pointer; z-index: 1000; }
     #cart-badge { background: var(--turquesa); color: #fff; border-radius: 50%; padding: 2px 6px; font-size: 11px; position: absolute; top: 0px; right: 0px; }
     #btn-lupa { position: fixed; top: 75px; right: 15px; background: var(--turquesa); color: #fff; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 20px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.25); z-index: 1000; display: flex; align-items: center; justify-content: center; }
 
-    .featured-products{padding:20px 0}
-    .section-title{text-align:center;margin-bottom:15px;font-size:22px;color:var(--morado)}
+    .featured-products{padding:40px 0}
+    .section-title{text-align:center;margin-bottom:30px;font-size:26px;color:var(--morado);text-transform:uppercase}
     .products-grid-ten{display:grid;gap:15px;grid-template-columns:repeat(5,1fr);max-width:1100px;margin:auto}
-    .product-card{background:#fff;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,.1);display:flex;flex-direction:column;overflow:hidden;cursor:pointer}
-    .product-image-container {position: relative;width: 100%;height: 200px;overflow: hidden}
+    .product-card{background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);display:flex;flex-direction:column;overflow:hidden;cursor:pointer}
+    .product-image-container {position: relative;width: 100%;height: 250px;overflow: hidden}
     .product-image {width: 100%;height: 100%;object-fit: cover;transition: transform 0.5s ease, opacity 0.3s ease}
     .product-image.back {position: absolute;top: 0;left: 0;opacity: 0}
     
@@ -67,21 +67,22 @@
     .product-card.touch-active .product-image.front { opacity: 0; }
     .product-card.touch-active .product-image.back { opacity: 1; }
 
-    .product-info{padding:10px;display:flex;flex-direction:column;flex:1}
+    .product-info{padding:12px;display:flex;flex-direction:column;flex:1}
     .product-category{font-size:11px;color:#777}
-    .product-name{font-size:14px;margin:4px 0;line-height:1.2;font-weight:600;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+    .product-name{font-size:15px;margin:4px 0;line-height:1.2;font-weight:600}
     .product-desc-short{font-size:11px;color:#666;height:32px;overflow:hidden;margin-bottom:5px}
-    .current-price{font-weight:700;color:var(--turquesa);font-size:17px}
-    .btn-buy{background:var(--turquesa);color:#fff;border:none;padding:8px;border-radius:4px;cursor:pointer;margin-top:auto;font-weight:600}
+    .current-price{font-weight:700;color:var(--turquesa);font-size:18px}
+    .btn-buy{background:var(--turquesa);color:#fff;border:none;padding:10px;border-radius:4px;cursor:pointer;margin-top:auto;font-weight:600}
     
     @media(max-width:768px){.products-grid-ten{grid-template-columns:repeat(3,1fr)}}
     @media(max-width:480px){.products-grid-ten{grid-template-columns:repeat(2,1fr)}}
     
-    .guarantees{background:#fff;padding:20px 0;margin-top:20px}
-    .flex-guarantees{display:flex;gap:15px;flex-wrap:wrap;justify-content:center;text-align:center}
+    .guarantees{background:#fff;padding:30px 0;margin-top:20px}
+    .flex-guarantees{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;text-align:center}
     .guarantee-item{flex:1 1 200px}
+    .guarantee-item i {font-size: 24px; color: var(--morado); margin-bottom: 10px;}
 
-    footer{background:var(--celeste);color:#000;font-size:13px;padding:20px 0}
+    footer{background:var(--celeste);color:#000;font-size:13px;padding:30px 0}
     .footer-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
     
     .cart-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000}
@@ -110,7 +111,7 @@
   <div id="search-modal">
     <div>
       <button onclick="document.getElementById('search-modal').style.display='none'" style="position:absolute;top:8px;right:12px;background:none;border:none;font-size:20px;cursor:pointer">&times;</button>
-      <input type="text" id="search-input" placeholder="Buscar boletos...">
+      <input type="text" id="search-input" placeholder="Buscar productos...">
       <div id="search-results"></div>
     </div>
   </div>
@@ -125,11 +126,11 @@
   <div class="top-bar">
     <div class="container flex-space">
       <div class="social-icons">
-        <a href="https://tiktok.com/@bhalleffort" target="_blank"><i class="fab fa-tiktok"></i></a>
-        <a href="https://facebook.com/bhalleffort" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://instagram.com/bhalleffort" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@bhalleffort?_r=1&_t=ZM-92lUqLhI5Qh" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.facebook.com/share/17jG7haojA/" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/bhalleffort?igsh=MTRsd3oybnQybHo4Yw==" target="_blank"><i class="fab fa-instagram"></i></a>
       </div>
-      <div><i class="fas fa-star"></i> CALIDAD AL MEJOR PRECIO</div>
+      <div><i class="fas fa-ticket-alt"></i> ¡TU SUERTE EMPIEZA AQUÍ!</div>
     </div>
   </div>
 
@@ -140,7 +141,7 @@
           <img src="logo-ballena.png" alt="BHALLEFFORT" class="whale-icon">
           <div class="brand-text">
             <h1>BHALLEFFORT</h1>
-            <p>Descubre lo que necesitas</p>
+            <p>Sección Rifas</p>
           </div>
         </div>
       </a>
@@ -158,6 +159,7 @@
       <li><a href="zapatos.html">ZAPATOS</a></li>
       <li><a href="varios.html">VARIOS</a></li>
       <li><a href="promociones.html">PROMOCIONES</a></li>
+      <li><a href="super-rifas.html" class="active">RIFAS</a></li>
       <li><a href="quienes-somos.html">QUIÉNES SOMOS</a></li>
       <li><a href="contacto.html">CONTACTO</a></li>
     </ul>
@@ -165,30 +167,30 @@
 
   <section class="hero-banner">
     <div>
-      <h1>NUESTRAS RIFAS</h1>
-      <p>Compra tus boletos y gana con BHALLEFFORT</p>
+      <h1>GRAN RIFA BHALLEFFORT</h1>
+      <p>Compra boletos o gana uno gratis por compras desde $30</p>
     </div>
   </section>
 
   <section class="featured-products">
     <div class="container">
-      <h2 class="section-title">🎫 BOLETOS DISPONIBLES 🎫</h2>
+      <h2 class="section-title">✨ ADQUIERE TUS BOLETOS ✨</h2>
       <div class="products-grid-ten" id="rifas-grid"></div>
     </div>
   </section>
 
   <section class="guarantees">
     <div class="container flex-guarantees">
-      <div class="guarantee-item"><i class="fas fa-truck"></i><div><strong>ENTREGA RÁPIDA</strong><p>Digital o Física</p></div></div>
-      <div class="guarantee-item"><i class="fas fa-lock"></i><div><strong>100% SEGURO</strong><p>Sorteos en vivo</p></div></div>
-      <div class="guarantee-item"><i class="fas fa-gift"></i><div><strong>GRANDES PREMIOS</strong><p>¡Tú puedes ser el ganador!</p></div></div>
+      <div class="guarantee-item"><i class="fas fa-gift"></i><div><strong>PREMIOS REALES</strong><p>Sorteos en vivo</p></div></div>
+      <div class="guarantee-item"><i class="fas fa-ticket-alt"></i><div><strong>BOLETOS GRATIS</strong><p>Por compras de $30+</p></div></div>
+      <div class="guarantee-item"><i class="fas fa-check-circle"></i><div><strong>TRANSPARENCIA</strong><p>Garantizada</p></div></div>
     </div>
   </section>
 
   <footer>
     <div class="container footer-grid">
       <div>
-        <img src="logo-ballena.png" alt="Ballena" width="40">
+        <img src="logo-ballena.png" alt="Ballena" width="60">
         <p>Diseñado por Jhomac² - La Y de Tabacundo</p>
         <div class="god-message">Dios te da más de lo que pides.</div>
       </div>
@@ -232,7 +234,6 @@
 
     function dibujarRifas() {
       const grid = document.getElementById('rifas-grid');
-      // Filtramos por categoría RIFAS
       const rifas = productosTotales.filter(p => p.cat.toUpperCase() === "RIFAS");
       grid.innerHTML = rifas.map(p => `
         <div class="product-card" onclick="this.classList.toggle('touch-active')">
@@ -312,14 +313,16 @@
       const envio = (subTotal >= 50 || subTotal === 0) ? 0 : 3.50;
       const total = subTotal + envio;
       
-      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🎟️ *Nuevo Pedido Web (RIFAS):*\n\n`;
-      carrito.forEach((p, idx) => { msg += `${idx + 1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; });
-      
+      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *NUEVO PEDIDO:*\n\n`;
+      carrito.forEach((p, idx) => { 
+          msg += `${idx + 1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; 
+      });
       msg += `\n──────────────────\n`;
       msg += `💰 *Subtotal:* $${subTotal.toFixed(2)}\n`;
       msg += `🚚 *Envío:* $${envio.toFixed(2)}\n`;
       msg += `✅ *TOTAL A PAGAR: $${total.toFixed(2)}*\n`;
       msg += `──────────────────\n`;
+      if(subTotal >= 30) msg += `\n🎁 *RECLAMO MI BOLETO PARA LA RIFA*`;
       
       window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`, '_blank');
     };
