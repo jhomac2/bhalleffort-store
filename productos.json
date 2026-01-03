@@ -2,7 +2,7 @@
   {
     "id": "R001",
     "nombre": "Sudadera urbana",
-    "precio": 20,
+    "precio": 14,
     "cat": "ROPA",
     "imgFrontal": "img/sudadera-urbana.webp",
     "imgTrasera": "img/sudadera-urbana-espalda.webp",
@@ -11,7 +11,7 @@
   {
     "id": "R002",
     "nombre": "Chompa deportiva",
-    "precio": 12,
+    "precio": 14,
     "cat": "ROPA",
     "imgFrontal": "img/chompa-deportiva.webp",
     "imgTrasera": "img/chompa-deportiva-espalda.webp",
