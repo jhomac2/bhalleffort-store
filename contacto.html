@@ -10,7 +10,7 @@
   <style>
     :root{--celeste:#87ceeb;--morado:#4c0d8c;--turquesa:#00c8c8;--texto:#222;--fondo:#f5f7fa}
     *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',sans-serif}
-    body{background:var(--fondo);color:var(--texto)}
+    body{background:var(--fondo);color:var(--texto);line-height:1.6}
     .container{width:90%;max-width:1100px;margin:auto}
     
     /* Header & Nav */
@@ -28,7 +28,7 @@
     #btn-rifas-float { top: 135px; background: #ff6600; color: #fff; font-weight: bold; font-size: 10px; flex-direction: column; text-align: center; }
     #cart-badge { background: red; color: #fff; border-radius: 50%; padding: 2px 6px; font-size: 11px; position: absolute; top: 0; right: 0; }
 
-    /* Secciones */
+    /* Secciones de Contacto */
     .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:30px; margin:40px 0}
     .info-card{background:#fff; padding:30px; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.05)}
     .info-card h2{color:var(--morado); margin-bottom:20px; border-bottom:2px solid var(--turquesa); display:inline-block}
@@ -37,7 +37,8 @@
     .contact-item i{font-size:24px; color:var(--turquesa); width:30px}
     
     .social-links{display:flex; gap:15px; margin-top:20px}
-    .social-links a{width:45px; height:45px; background:var(--morado); color:#fff; display:flex; align-items:center; justify-content:center; border-radius:50%; text-decoration:none}
+    .social-links a{width:45px; height:45px; background:var(--morado); color:#fff; display:flex; align-items:center; justify-content:center; border-radius:50%; text-decoration:none; transition: 0.3s}
+    .social-links a:hover{background:var(--turquesa)}
 
     .payment-security{background:#fff3cd; border:1px solid #ffeeba; padding:15px; border-radius:8px; margin-top:20px}
     .map-container{width:100%; height:450px; border-radius:15px; overflow:hidden; box-shadow:0 4px 10px rgba(0,0,0,0.1); margin-bottom:50px}
@@ -94,16 +95,16 @@
           <i class="fab fa-whatsapp"></i>
           <div><strong>WhatsApp:</strong><br>+593 96 392 3399</div>
         </div>
-        <h3>Nuestras Redes</h3>
+        <h3>Síguenos</h3>
         <div class="social-links">
-          <a href="https://tiktok.com/@bhalleffort" target="_blank"><i class="fab fa-tiktok"></i></a>
-          <a href="https://facebook.com/bhalleffort" target="_blank"><i class="fab fa-facebook"></i></a>
-          <a href="https://instagram.com/bhalleffort" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
 
       <div class="info-card">
-        <h2>Pagos</h2>
+        <h2>Pagos y Envíos</h2>
         <p>Aceptamos los siguientes métodos:</p>
         <ul style="margin:15px 0; list-style:none">
           <li>✅ Efectivo (Entregas personales)</li>
@@ -113,15 +114,15 @@
           <p style="font-size:12px; color:#856404; font-weight:600">
             <i class="fas fa-user-shield"></i> PROTECCIÓN DE SEGURIDAD:
           </p>
-          <p style="font-size:12px; margin-top:5px">No publicamos números de cuenta para evitar fraudes. Solicita los datos de pago al confirmar tu pedido por WhatsApp.</p>
+          <p style="font-size:12px; margin-top:5px">Por tu seguridad, solicita los datos de cuenta directamente por WhatsApp al confirmar tu pedido.</p>
         </div>
-        <a href="https://wa.me/593963923399" style="background:#25d366; color:#fff; display:block; text-align:center; padding:12px; border-radius:8px; text-decoration:none; font-weight:700; margin-top:20px">SOLICITAR DATOS DE PAGO</a>
+        <a href="https://wa.me/593963923399" style="display:block; background:#25d366; color:#fff; text-align:center; padding:12px; border-radius:8px; text-decoration:none; font-weight:700; margin-top:20px">PEDIR DATOS DE PAGO</a>
       </div>
     </div>
 
-    <h2 style="text-align:center; margin-bottom:20px; color:var(--morado)">DÓNDE ENCONTRARNOS</h2>
+    <h2 style="text-align:center; margin-bottom:20px; color:var(--morado)">NUESTRA UBICACIÓN EXACTA</h2>
     <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.28821415494!2d-78.214416!3d0.1130312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e29a4a2b0b4b477%3A0x6a828281f6f5b5b5!2sLa%20Y%20de%20Tabacundo!5e0!3m2!1ses!2sec!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.673895000445!2d-78.2177346!3d0.0933454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMMKwMDUnMzYuMCJOIDc4wrAxMycwMy44Ilc!5e0!3m2!1ses!2sec!4v1700000000000!5m2!1ses!2sec" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
   </div>
 
