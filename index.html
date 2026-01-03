@@ -9,7 +9,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{--celeste:#87ceeb;--morado:#4c0d8c;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;--fondo:#f5f7fa}
+    /* CAMBIO DE COLOR DE FONDO: De blanco puro a un gris seda muy elegante */
+    :root{--celeste:#87ceeb;--morado:#4c0d8c;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;--fondo:#f0f2f5}
+    
     *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',system-ui,Arial}
     body{background:var(--fondo);color:var(--texto)}
     img{max-width:100%;display:block}
@@ -21,10 +23,15 @@
     .top-bar .social-icons a{color:#fff}
     
     .main-header{padding:10px 0;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
-    .logo-section{display:flex;align-items:center;gap:10px}
-    .whale-icon{width:46px;border:2px solid var(--morado);border-radius:50%}
-    .brand-text h1{font-size:20px;color:var(--morado)}
+    .logo-section{display:flex;align-items:center;gap:12px}
+    
+    /* MEJORA DEL LOGO: Aumentado de 46px a 65px para mejor visibilidad */
+    .whale-icon{width:65px; border:2px solid var(--morado); border-radius:50%; transition: transform 0.3s ease;}
+    .whale-icon:hover{transform: scale(1.05);}
+
+    .brand-text h1{font-size:22px;color:var(--morado);line-height:1}
     .brand-text p{font-size:12px;color:var(--morado);opacity:.9}
+    
     .dual-buttons{display:flex;gap:1rem;justify-content:center;margin:1rem 0;flex-wrap:wrap}
     .btn-rifas,.btn-wa{padding:.8rem 1.4rem;border-radius:6px;font-weight:700;text-decoration:none;color:#fff;box-shadow:0 2px 4px rgba(0,0,0,.25)}
     .btn-rifas{background:#ff6600}
@@ -232,7 +239,6 @@
 
     function dibujarIndex() {
       const grid = document.getElementById('index-grid');
-      // En el index mostramos todos los productos (puedes limitarlos con .slice(0, 10) si quieres)
       grid.innerHTML = productosTotales.map(p => `
         <div class="product-card" onclick="this.classList.toggle('touch-active')">
           <div class="product-image-container">
@@ -310,7 +316,6 @@
       const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
       const envio = (subTotal >= 50 || subTotal === 0) ? 0 : 3.50;
       const total = subTotal + envio;
-      const numSuerte = Math.floor(Math.random() * 9000) + 1000;
       
       let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *Nuevo Pedido desde Inicio:*\n\n`;
       carrito.forEach((p, idx) => { msg += `${idx + 1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; });
@@ -323,7 +328,6 @@
       
       if(subTotal >= 30) {
         msg += `\n🎉 *¡FELICIDADES! Tu compra participa en la RIFA.*`;
-        msg += `\n🍀 *Tu número de la suerte:* #*${numSuerte}*`;
         msg += `\n──────────────────`;
       }
       
@@ -344,4 +348,3 @@
   </script>
 </body>
 </html>
-
