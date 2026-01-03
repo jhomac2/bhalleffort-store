@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>BHALLEFFORT | Calidad al mejor precio</title>
-  <meta name="description" content="Bienvenido a BHALLEFFORT. Encuentra la mejor ropa, zapatos y artículos varios en Ecuador.">
+  <title>INICIO | BHALLEFFORT - Calidad al mejor precio</title>
+  <meta name="description" content="Bienvenido a BHALLEFFORT. Encuentra ropa, zapatos y más con calidad premium en Ecuador.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="https://jhomac2.github.io/bhalleffort-store/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -38,23 +38,22 @@
     .hero-banner {
       position: relative;
       background: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
-      height: 300px;
+      height: 400px;
       display: flex; align-items: center; justify-content: center; text-align: center; color: #fff;
     }
     .hero-banner::before {
       content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(76, 13, 140, 0.85); z-index: 1;
+      background: rgba(0, 0, 0, 0.4); z-index: 1;
     }
     .hero-banner div { position: relative; z-index: 2; padding: 0 20px; }
-    .hero-banner h1 { font-size: 42px; text-transform: uppercase; font-weight: 700; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); margin-bottom: 10px; }
-    .hero-banner p { font-size: 18px; opacity: 0.9; }
+    .hero-banner h1 { font-size: 48px; text-transform: uppercase; font-weight: 700; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); margin-bottom: 10px; }
 
     #cart-icon { position: fixed; top: 15px; right: 15px; background: #fff; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.15); cursor: pointer; z-index: 1000; }
     #cart-badge { background: var(--turquesa); color: #fff; border-radius: 50%; padding: 2px 6px; font-size: 11px; position: absolute; top: 0px; right: 0px; }
     #btn-lupa { position: fixed; top: 75px; right: 15px; background: var(--turquesa); color: #fff; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 20px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.25); z-index: 1000; display: flex; align-items: center; justify-content: center; }
 
-    .featured-products{padding:20px 0}
-    .section-title{text-align:center;margin-bottom:15px;font-size:22px;color:var(--morado)}
+    .featured-products{padding:40px 0}
+    .section-title{text-align:center;margin-bottom:30px;font-size:26px;color:var(--morado);text-transform:uppercase;letter-spacing:1px}
     .products-grid-ten{display:grid;gap:15px;grid-template-columns:repeat(5,1fr);max-width:1100px;margin:auto}
     .product-card{background:#fff;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,.1);display:flex;flex-direction:column;overflow:hidden;cursor:pointer}
     .product-image-container {position: relative;width: 100%;height: 200px;overflow: hidden}
@@ -84,7 +83,6 @@
 
     footer{background:var(--celeste);color:#000;font-size:13px;padding:20px 0}
     .footer-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
-    .footer-contact a{color:#000;text-decoration:none}
     
     .cart-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000}
     .cart-modal>div{background:#fff;width:90%;max-width:480px;margin:60px auto;padding:15px;border-radius:8px;position:relative;display:flex;flex-direction:column;max-height:80vh}
@@ -107,12 +105,12 @@
 <body>
 
   <div id="cart-icon"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
-  <button id="btn-lupa" title="Buscar"><i class="fas fa-search"></i></button>
+  <button id="btn-lupa"><i class="fas fa-search"></i></button>
   
   <div id="search-modal">
     <div>
       <button onclick="document.getElementById('search-modal').style.display='none'" style="position:absolute;top:8px;right:12px;background:none;border:none;font-size:20px;cursor:pointer">&times;</button>
-      <input type="text" id="search-input" placeholder="Buscar productos...">
+      <input type="text" id="search-input" placeholder="¿Qué estás buscando?">
       <div id="search-results"></div>
     </div>
   </div>
@@ -154,7 +152,7 @@
   </header>
 
   <nav class="main-nav">
-    <ul id="nav-menu">
+    <ul>
       <li><a href="index.html" class="active">INICIO</a></li>
       <li><a href="ropa.html">ROPA</a></li>
       <li><a href="zapatos.html">ZAPATOS</a></li>
@@ -168,22 +166,22 @@
   <section class="hero-banner">
     <div>
       <h1>BIENVENIDO A BHALLEFFORT</h1>
-      <p>Lo mejor para ti en un solo lugar</p>
+      <p>Calidad premium y estilo al alcance de un clic</p>
     </div>
   </section>
 
   <section class="featured-products">
     <div class="container">
-      <h2 class="section-title">✨ PRODUCTOS DESTACADOS ✨</h2>
-      <div class="products-grid-ten" id="products-grid"></div>
+      <h2 class="section-title">🔥 PRODUCTOS DESTACADOS 🔥</h2>
+      <div class="products-grid-ten" id="index-grid"></div>
     </div>
   </section>
 
   <section class="guarantees">
     <div class="container flex-guarantees">
-      <div class="guarantee-item"><i class="fas fa-truck"></i><div><strong>ENVÍOS SEGUROS</strong><p>A todo el país</p></div></div>
-      <div class="guarantee-item"><i class="fas fa-lock"></i><div><strong>PAGO SEGURO</strong><p>Transferencia / Efectivo</p></div></div>
-      <div class="guarantee-item"><i class="fas fa-check-circle"></i><div><strong>CALIDAD</strong><p>Garantizada</p></div></div>
+      <div class="guarantee-item"><i class="fas fa-truck"></i><div><strong>ENVÍOS A TODO ECUADOR</strong><p>Rápido y seguro</p></div></div>
+      <div class="guarantee-item"><i class="fas fa-user-shield"></i><div><strong>COMPRA CONFIABLE</strong><p>Atención personalizada</p></div></div>
+      <div class="guarantee-item"><i class="fas fa-tags"></i><div><strong>MEJORES PRECIOS</strong><p>Ahorra con nosotros</p></div></div>
     </div>
   </section>
 
@@ -191,13 +189,12 @@
     <div class="container footer-grid">
       <div>
         <img src="logo-ballena.png" alt="Ballena" width="40">
-        <p>BHALLEFFORT - La Y de Tabacundo</p>
+        <p>Diseñado por Jhomac² - La Y de Tabacundo</p>
         <div class="god-message">Dios te da más de lo que pides.</div>
-        <div class="designer-line">Diseñado por Jhomac² <i class="fab fa-tiktok"></i></div>
       </div>
       <div class="footer-contact">
         <h3>CONTÁCTANOS</h3>
-        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/593963923399" target="_blank">+593 963 923 399</a></p>
+        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/593963923399" target="_blank" style="color:inherit; text-decoration:none;">+593 963 923 399</a></p>
         <p><i class="fas fa-envelope"></i> agromhasvida5@gmail.com</p>
       </div>
     </div>
@@ -234,9 +231,9 @@
     }
 
     function dibujarIndex() {
-      const grid = document.getElementById('products-grid');
-      const destacados = productosTotales.slice(0, 10);
-      grid.innerHTML = destacados.map(p => `
+      const grid = document.getElementById('index-grid');
+      // En el index mostramos todos los productos (puedes limitarlos con .slice(0, 10) si quieres)
+      grid.innerHTML = productosTotales.map(p => `
         <div class="product-card" onclick="this.classList.toggle('touch-active')">
           <div class="product-image-container">
             <img src="${p.imgFrontal}" class="product-image front">
@@ -315,7 +312,7 @@
       const total = subTotal + envio;
       const numSuerte = Math.floor(Math.random() * 9000) + 1000;
       
-      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *Nuevo Pedido Web:*\n\n`;
+      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *Nuevo Pedido desde Inicio:*\n\n`;
       carrito.forEach((p, idx) => { msg += `${idx + 1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; });
       
       msg += `\n──────────────────\n`;
