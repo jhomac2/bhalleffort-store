@@ -9,9 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* 1. FONDO GRIS AZULADO SUAVE */
     :root{--celeste:#87ceeb;--morado:#4c0d8c;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;--fondo:#eef2f7}
-    
     *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',system-ui,Arial}
     body{background:var(--fondo);color:var(--texto)}
     img{max-width:100%;display:block}
@@ -19,16 +17,12 @@
     .flex-space{display:flex;align-items:center;justify-content:space-between}
     
     .top-bar{background:var(--morado);color:#fff;font-size:13px;padding:4px 0}
-    /* ICONOS REDES MÁS GRANDES */
     .top-bar .social-icons{display:flex;gap:12px;font-size:18px}
     .top-bar .social-icons a{color:#fff; text-decoration:none}
     
     .main-header{padding:15px 0;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.1)}
     .logo-section{display:flex;align-items:center;gap:15px}
-    
-    /* 2. LOGO 85PX CON BORDE MORADO GRUESO */
     .whale-icon{width:85px; border:3px solid var(--morado); border-radius:50%; padding:2px; background:#fff}
-    
     .brand-text h1{font-size:24px;color:var(--morado);font-weight:700;line-height:1}
     .brand-text p{font-size:13px;color:var(--morado);opacity:.8}
     
@@ -53,7 +47,7 @@
       background: rgba(76, 13, 140, 0.85); z-index: 1;
     }
     .hero-banner div { position: relative; z-index: 2; padding: 0 20px; }
-    .hero-banner h1 { font-size: 42px; text-transform: uppercase; font-weight: 700; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); margin-bottom: 10px; }
+    .hero-banner h1 { font-size: 42px; text-transform: uppercase; font-weight: 700; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
 
     #cart-icon { position: fixed; top: 15px; right: 15px; background: #fff; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.15); cursor: pointer; z-index: 1000; }
     #cart-badge { background: var(--turquesa); color: #fff; border-radius: 50%; padding: 2px 6px; font-size: 11px; position: absolute; top: 0px; right: 0px; }
@@ -62,8 +56,6 @@
     .featured-products{padding:40px 0}
     .section-title{text-align:center;margin-bottom:30px;font-size:26px;color:var(--morado);text-transform:uppercase}
     .products-grid-ten{display:grid;gap:15px;grid-template-columns:repeat(5,1fr);max-width:1100px;margin:auto}
-    
-    /* TARJETAS BLANCAS RESALTADAS */
     .product-card{background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);display:flex;flex-direction:column;overflow:hidden;cursor:pointer}
     .product-image-container {position: relative;width: 100%;height: 250px;overflow: hidden}
     .product-image {width: 100%;height: 100%;object-fit: cover;transition: transform 0.5s ease, opacity 0.3s ease}
@@ -320,11 +312,10 @@
       const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
       const envio = (subTotal >= 50 || subTotal === 0) ? 0 : 3.50;
       const total = subTotal + envio;
-      const securityCheck = btoa(subTotal.toFixed(2)).substring(0, 8).toUpperCase();
       
-      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *PEDIDO VERIFICADO:* #${securityCheck}\n\n`;
+      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *NUEVO PEDIDO:*\n\n`;
       carrito.forEach((p, idx) => { 
-          msg += `${idx + 1}. [ID:${p.id}] ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; 
+          msg += `${idx + 1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; 
       });
       msg += `\n──────────────────\n`;
       msg += `💰 *Subtotal:* $${subTotal.toFixed(2)}\n`;
@@ -332,7 +323,7 @@
       msg += `✅ *TOTAL A PAGAR: $${total.toFixed(2)}*\n`;
       msg += `──────────────────\n`;
       if(subTotal >= 30) msg += `\n🎁 *RECLAMO MI BOLETO PARA LA RIFA*`;
-      msg += `\n⚠️ _Sujeto a validación manual de precios oficiales._`;
+      
       window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`, '_blank');
     };
 
