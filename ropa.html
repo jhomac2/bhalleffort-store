@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>ROPA | BHALLEFFORT - Calidad al mejor precio</title>
-  <meta name="description" content="Explora nuestra colección de ropa en BHALLEFFORT. Calidad premium en Ecuador.">
+  <title>ZAPATOS | BHALLEFFORT - Calidad al mejor precio</title>
+  <meta name="description" content="Explora nuestra colección de zapatos en BHALLEFFORT. Calidad premium en Ecuador.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="https://jhomac2.github.io/bhalleffort-store/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -26,9 +26,8 @@
     .brand-text h1{font-size:20px;color:var(--morado)}
     .brand-text p{font-size:12px;color:var(--morado);opacity:.9}
     .dual-buttons{display:flex;gap:1rem;justify-content:center;margin:1rem 0;flex-wrap:wrap}
-    .btn-rifas,.btn-wa{padding:.8rem 1.4rem;border-radius:6px;font-weight:700;text-decoration:none;color:#fff;box-shadow:0 2px 4px rgba(0,0,0,.25)}
-    .btn-rifas{background:#ff6600}
-    .btn-wa{background:#25d366}
+    .btn-rifas{background:#ff6600;padding:.8rem 1.4rem;border-radius:6px;font-weight:700;text-decoration:none;color:#fff;box-shadow:0 2px 4px rgba(0,0,0,.25)}
+    .btn-wa{background:#25d366;padding:.8rem 1.4rem;border-radius:6px;font-weight:700;text-decoration:none;color:#fff;box-shadow:0 2px 4px rgba(0,0,0,.25)}
     
     .main-nav{position:sticky;top:0;z-index:999;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
     .main-nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center}
@@ -37,7 +36,7 @@
 
     .hero-banner {
       position: relative;
-      background: url('https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+      background: url('https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=2012&auto=format&fit=crop') center/cover no-repeat;
       height: 300px;
       display: flex; align-items: center; justify-content: center; text-align: center; color: #fff;
     }
@@ -154,8 +153,8 @@
   <nav class="main-nav">
     <ul>
       <li><a href="index.html">INICIO</a></li>
-      <li><a href="ropa.html" class="active">ROPA</a></li>
-      <li><a href="zapatos.html">ZAPATOS</a></li>
+      <li><a href="ropa.html">ROPA</a></li>
+      <li><a href="zapatos.html" class="active">ZAPATOS</a></li>
       <li><a href="varios.html">VARIOS</a></li>
       <li><a href="promociones.html">PROMOCIONES</a></li>
       <li><a href="quienes-somos.html">QUIÉNES SOMOS</a></li>
@@ -165,15 +164,15 @@
 
   <section class="hero-banner">
     <div>
-      <h1>NUESTRA ROPA</h1>
-      <p>Estilo y confort en cada prenda</p>
+      <h1>NUESTROS ZAPATOS</h1>
+      <p>Pasos con estilo y comodidad extrema</p>
     </div>
   </section>
 
   <section class="featured-products">
     <div class="container">
-      <h2 class="section-title">✨ COLECCIÓN DE ROPA ✨</h2>
-      <div class="products-grid-ten" id="ropa-grid"></div>
+      <h2 class="section-title">✨ COLECCIÓN DE ZAPATOS ✨</h2>
+      <div class="products-grid-ten" id="zapatos-grid"></div>
     </div>
   </section>
 
@@ -226,14 +225,15 @@
       try {
         const res = await fetch('productos.json');
         productosTotales = await res.json();
-        dibujarRopa();
+        dibujarZapatos();
       } catch (e) { console.error(e); }
     }
 
-    function dibujarRopa() {
-      const grid = document.getElementById('ropa-grid');
-      const ropa = productosTotales.filter(p => p.cat.toUpperCase() === "ROPA");
-      grid.innerHTML = ropa.map(p => `
+    function dibujarZapatos() {
+      const grid = document.getElementById('zapatos-grid');
+      // FILTRO: Solo categoría ZAPATOS
+      const zapatos = productosTotales.filter(p => p.cat.toUpperCase() === "ZAPATOS");
+      grid.innerHTML = zapatos.map(p => `
         <div class="product-card" onclick="this.classList.toggle('touch-active')">
           <div class="product-image-container">
             <img src="${p.imgFrontal}" class="product-image front">
@@ -312,7 +312,7 @@
       const total = subTotal + envio;
       const numSuerte = Math.floor(Math.random() * 9000) + 1000;
       
-      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *Nuevo Pedido Web:*\n\n`;
+      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *Nuevo Pedido Web (Zapatos):*\n\n`;
       carrito.forEach((p, idx) => { msg += `${idx + 1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; });
       
       msg += `\n──────────────────\n`;
