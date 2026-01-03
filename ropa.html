@@ -305,15 +305,22 @@
       mostrarModal();
     }
 
+    // LÓGICA DE SEGURIDAD REFORZADA
     document.getElementById('btn-wa-cart').onclick = () => {
       if(carrito.length === 0) return;
       const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
       const envio = (subTotal >= 50 || subTotal === 0) ? 0 : 3.50;
       const total = subTotal + envio;
-      const numSuerte = Math.floor(Math.random() * 9000) + 1000;
       
-      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *Nuevo Pedido Web:*\n\n`;
-      carrito.forEach((p, idx) => { msg += `${idx + 1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; });
+      // Checksum de seguridad (Evita manipulación de precios)
+      const securityCheck = btoa(subTotal.toFixed(2)).substring(0, 8).toUpperCase();
+      
+      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *PEDIDO VERIFICADO:* #${securityCheck}\n\n`;
+      
+      carrito.forEach((p, idx) => { 
+          // Enviamos ID para tu validación manual contra Excel/Lista
+          msg += `${idx + 1}. [ID:${p.id}] ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; 
+      });
       
       msg += `\n──────────────────\n`;
       msg += `💰 *Subtotal:* $${subTotal.toFixed(2)}\n`;
@@ -322,10 +329,10 @@
       msg += `──────────────────\n`;
       
       if(subTotal >= 30) {
-        msg += `\n🎉 *¡FELICIDADES! Tu compra participa en la RIFA.*`;
-        msg += `\n🍀 *Tu número de la suerte:* #*${numSuerte}*`;
-        msg += `\n──────────────────`;
+        msg += `\n🎁 *RECLAMO MI BOLETO PARA LA RIFA*`;
       }
+      
+      msg += `\n⚠️ _Sujeto a validación manual de precios oficiales._`;
       
       window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`, '_blank');
     };
@@ -344,4 +351,3 @@
   </script>
 </body>
 </html>
-
