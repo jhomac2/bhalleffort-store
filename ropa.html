@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* FONDO UNIFORME GRIS AZULADO */
     :root{--celeste:#87ceeb;--morado:#4c0d8c;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;--fondo:#eef2f7}
     
     *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',system-ui,Arial}
@@ -23,73 +22,59 @@
     .top-bar .social-icons a{color:#fff; transition: 0.3s}
     .top-bar .social-icons a:hover{color:var(--turquesa)}
     
-    .main-header{padding:15px 0;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.1)}
-    .logo-section{display:flex;align-items:center;gap:15px}
+    /* ENCABEZADO MÁS DELGADO */
+    .main-header{padding:8px 0;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+    .logo-section{display:flex;align-items:center;gap:12px}
     
-    /* LOGO GRANDE Y DISTINGUIBLE */
-    .whale-icon{width:85px; border:3px solid var(--morado); border-radius:50%; padding:2px; background:#fff}
+    /* LOGO AJUSTADO */
+    .whale-icon{width:65px; border:2px solid var(--morado); border-radius:50%; padding:2px; background:#fff}
     
-    .brand-text h1{font-size:24px;color:var(--morado);font-weight:700;line-height:1}
-    .brand-text p{font-size:13px;color:var(--morado);opacity:.8}
+    .brand-text h1{font-size:20px;color:var(--morado);font-weight:700;line-height:1}
+    .brand-text p{font-size:12px;color:var(--morado);opacity:.8}
     
-    .dual-buttons{display:flex;gap:1rem;justify-content:center;margin:1rem 0;flex-wrap:wrap}
-    .btn-rifas,.btn-wa{padding:.8rem 1.4rem;border-radius:6px;font-weight:700;text-decoration:none;color:#fff;box-shadow:0 2px 4px rgba(0,0,0,.25)}
+    .dual-buttons{display:flex;gap:0.8rem;justify-content:center;flex-wrap:wrap}
+    .btn-rifas,.btn-wa{padding:0.6rem 1.2rem;border-radius:6px;font-weight:700;text-decoration:none;color:#fff;font-size:14px;box-shadow:0 2px 4px rgba(0,0,0,.2)}
     .btn-rifas{background:#ff6600}
     .btn-wa{background:#25d366}
     
     .main-nav{position:sticky;top:0;z-index:999;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
     .main-nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center}
-    .main-nav a{color:var(--morado);padding:12px 15px;display:block;font-size:14px;text-decoration:none;font-weight:600}
+    .main-nav a{color:var(--morado);padding:10px 15px;display:block;font-size:13px;text-decoration:none;font-weight:600}
     .main-nav a.active{background:var(--morado);color:#fff;border-radius:4px}
 
-    /* CARRITO Y LUPA FIJOS */
-    #cart-icon { position: fixed; top: 15px; right: 15px; background: #fff; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.15); cursor: pointer; z-index: 1000; }
-    #cart-badge { background: var(--turquesa); color: #fff; border-radius: 50%; padding: 2px 6px; font-size: 11px; position: absolute; top: 0px; right: 0px; }
-    #btn-lupa { position: fixed; top: 75px; right: 15px; background: var(--turquesa); color: #fff; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 20px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.25); z-index: 1000; display: flex; align-items: center; justify-content: center; }
+    /* CARRITO Y LUPA */
+    #cart-icon { position: fixed; top: 10px; right: 10px; background: #fff; border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.15); cursor: pointer; z-index: 1000; }
+    #cart-badge { background: var(--turquesa); color: #fff; border-radius: 50%; padding: 2px 6px; font-size: 10px; position: absolute; top: -2px; right: -2px; }
+    #btn-lupa { position: fixed; top: 65px; right: 10px; background: var(--turquesa); color: #fff; border: none; border-radius: 50%; width: 45px; height: 45px; font-size: 18px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.25); z-index: 1000; display: flex; align-items: center; justify-content: center; }
 
-    .category-page{padding:40px 0}
-    .section-title{text-align:center;margin-bottom:30px;font-size:26px;color:var(--morado);text-transform:uppercase;letter-spacing:1px}
+    .category-page{padding:30px 0}
+    .section-title{text-align:center;margin-bottom:25px;font-size:24px;color:var(--morado);text-transform:uppercase}
     .products-grid{display:grid;gap:15px;grid-template-columns:repeat(5,1fr);max-width:1100px;margin:auto}
     
     .product-card{background:#fff;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,.1);display:flex;flex-direction:column;overflow:hidden;cursor:pointer}
-    .product-image-container {position: relative;width: 100%;height: 250px;overflow: hidden}
-    .product-image {width: 100%;height: 100%;object-fit: cover;transition: transform 0.5s ease, opacity 0.3s ease}
-    .product-image.back {position: absolute;top: 0;left: 0;opacity: 0}
+    .product-image-container {position: relative;width: 100%;height: 220px;overflow: hidden}
+    .product-image {width: 100%;height: 100%;object-fit: cover;transition: 0.3s}
     
-    @media (hover: hover) {
-      .product-card:hover .product-image.front { opacity: 0; transform: scale(1.1); }
-      .product-card:hover .product-image.back { opacity: 1; transform: scale(1.1); }
-    }
-    .product-card.touch-active .product-image.front { opacity: 0; }
-    .product-card.touch-active .product-image.back { opacity: 1; }
-
-    .product-info{padding:12px;display:flex;flex-direction:column;flex:1}
-    .product-name{font-size:15px;margin:5px 0;font-weight:600;color:var(--texto)}
-    .current-price{font-weight:700;color:var(--turquesa);font-size:18px}
-    .btn-buy{background:var(--turquesa);color:#fff;border:none;padding:10px;border-radius:4px;cursor:pointer;margin-top:auto;font-weight:600}
+    .product-info{padding:10px;display:flex;flex-direction:column;flex:1}
+    .product-name{font-size:14px;margin:5px 0;font-weight:600;color:var(--texto)}
+    .current-price{font-weight:700;color:var(--turquesa);font-size:16px}
+    .btn-buy{background:var(--turquesa);color:#fff;border:none;padding:8px;border-radius:4px;cursor:pointer;margin-top:auto;font-weight:600}
     
     @media(max-width:768px){.products-grid{grid-template-columns:repeat(3,1fr)}}
     @media(max-width:480px){.products-grid{grid-template-columns:repeat(2,1fr)}}
 
-    footer{background:var(--celeste);color:#000;font-size:13px;padding:20px 0}
+    footer{background:var(--celeste);color:#000;font-size:12px;padding:20px 0}
     .footer-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
     
-    /* MODALES Y NOTIFICACIONES */
     .cart-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000}
-    .cart-modal>div{background:#fff;width:90%;max-width:480px;margin:60px auto;padding:15px;border-radius:8px;position:relative;display:flex;flex-direction:column;max-height:80vh}
-    #cart-items{flex:1 1 auto;overflow-y:auto;margin-bottom:10px;border:1px solid #eee;border-radius:4px;padding:8px}
-    #noti-add{position:fixed;bottom:40px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:8px 14px;border-radius:4px;font-size:13px;z-index:9999;display:none}
-    
-    #search-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:3000}
-    #search-modal>div{background:#fff;width:90%;max-width:400px;margin:80px auto;padding:15px;border-radius:8px;position:relative}
-    #search-input{width:100%;padding:10px;border:1px solid #ccc;border-radius:4px}
+    .cart-modal>div{background:#fff;width:90%;max-width:400px;margin:50px auto;padding:15px;border-radius:8px}
+    #noti-add{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:8px 12px;border-radius:4px;font-size:12px;z-index:9999;display:none}
   </style>
 </head>
 <body>
 
   <div id="cart-icon"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
   <button id="btn-lupa"><i class="fas fa-search"></i></button>
-  
   <div id="noti-add"></div>
 
   <div class="top-bar">
@@ -99,7 +84,7 @@
         <a href="https://www.facebook.com/share/17jG7haojA/" target="_blank"><i class="fab fa-facebook"></i></a>
         <a href="https://www.instagram.com/bhalleffort?igsh=MTRsd3oybnQybHo4Yw==" target="_blank"><i class="fab fa-instagram"></i></a>
       </div>
-      <div><i class="fas fa-star"></i> CALIDAD AL MEJOR PRECIO</div>
+      <div>CALIDAD AL MEJOR PRECIO <i class="fas fa-star"></i></div>
     </div>
   </div>
 
@@ -116,7 +101,7 @@
       </a>
       <div class="dual-buttons">
         <a href="super-rifas.html" class="btn-rifas">🎉 Rifas</a>
-        <a href="https://wa.me/593963923399" class="btn-wa">📱 WHATSAPP </a>
+        <a href="https://wa.me/593963923399" class="btn-wa">📱 WhatsApp</a>
       </div>
     </div>
   </header>
@@ -135,7 +120,7 @@
 
   <section class="category-page">
     <div class="container">
-      <h2 class="section-title">👕 NUESTRA COLECCIÓN DE ROPA 👗</h2>
+      <h2 class="section-title">👕 Colección de Ropa 👗</h2>
       <div class="products-grid" id="ropa-grid"></div>
     </div>
   </section>
@@ -143,35 +128,15 @@
   <footer>
     <div class="container footer-grid">
       <div>
-        <img src="logo-ballena.png" alt="Ballena" width="60">
         <p>Diseñado por Jhomac² - La Y de Tabacundo</p>
         <div class="god-message">Dios te da más de lo que pides.</div>
       </div>
       <div class="footer-contact">
-        <h3>CONTÁCTANOS</h3>
         <p><i class="fab fa-whatsapp"></i> +593 963 923 399</p>
         <p><i class="fas fa-envelope"></i> agromhasvida5@gmail.com</p>
       </div>
     </div>
   </footer>
-
-  <div id="cart-modal" class="cart-modal">
-    <div>
-      <header style="display:flex; justify-content:space-between; align-items:center;">
-        <h3><i class="fas fa-shopping-cart"></i> Tu Pedido</h3>
-        <button onclick="document.getElementById('cart-modal').style.display='none'" style="background:none;border:none;font-size:20px;cursor:pointer">&times;</button>
-      </header>
-      <div id="cart-items"></div>
-      <footer>
-        <div style="display:flex;justify-content:space-between;font-weight:bold">
-          <span>Total:</span><span id="cart-total">$0.00</span>
-        </div>
-        <button id="btn-wa-cart" style="background:#25D366;color:#fff;border:none;padding:10px;border-radius:4px;cursor:pointer;margin-top:10px;width:100%">
-          Enviar pedido por WhatsApp 🐋
-        </button>
-      </footer>
-    </div>
-  </div>
 
   <script>
     let productosTotales = [];
@@ -187,76 +152,30 @@
 
     function dibujarRopa() {
       const grid = document.getElementById('ropa-grid');
-      // Filtramos solo por la categoría "ROPA"
       const ropa = productosTotales.filter(p => p.cat.toUpperCase() === 'ROPA');
-      
       if(ropa.length === 0) {
         grid.innerHTML = '<p style="text-align:center; grid-column: 1/-1;">Próximamente más productos...</p>';
         return;
       }
-
       grid.innerHTML = ropa.map(p => `
-        <div class="product-card" onclick="this.classList.toggle('touch-active')">
+        <div class="product-card">
           <div class="product-image-container">
-            <img src="${p.imgFrontal}" class="product-image front">
-            <img src="${p.imgTrasera || p.imgFrontal}" class="product-image back">
+            <img src="${p.imgFrontal}" class="product-image">
           </div>
           <div class="product-info">
             <h4 class="product-name">${p.nombre}</h4>
             <div class="current-price">$${p.precio.toFixed(2)}</div>
-            <button class="btn-buy" onclick="event.stopPropagation(); addCart('${p.id}','${p.nombre}',${p.precio}, '${p.cat}')">Añadir al carrito</button>
+            <button class="btn-buy" onclick="addCart('${p.id}','${p.nombre}',${p.precio})">Agregar</button>
           </div>
         </div>`).join('');
     }
 
-    function addCart(id, nombre, precio, cat) {
-      carrito.push({id, nombre, precio, cat});
+    function addCart(id, nombre, precio) {
+      carrito.push({id, nombre, precio});
       localStorage.setItem('bh-cart', JSON.stringify(carrito));
-      actualizarBadge();
+      document.getElementById('cart-badge').textContent = carrito.length;
       mostrarNoti(`✅ ${nombre} añadido`);
     }
-
-    function actualizarBadge() {
-      document.getElementById('cart-badge').textContent = carrito.length;
-    }
-
-    function mostrarModal() {
-      const items = document.getElementById('cart-items');
-      const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
-      const envio = (subTotal > 0 && subTotal < 50) ? 3.50 : 0;
-      items.innerHTML = carrito.map((p,i) => `
-        <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #eee">
-          <span>${p.nombre}</span>
-          <button onclick="removeItem(${i})" style="color:red;border:none;background:none;cursor:pointer">🗑️</button>
-        </div>`).join('');
-      document.getElementById('cart-total').textContent = '$' + (subTotal + envio).toFixed(2);
-      document.getElementById('cart-modal').style.display = 'block';
-    }
-
-    function removeItem(i) {
-      carrito.splice(i,1);
-      localStorage.setItem('bh-cart', JSON.stringify(carrito));
-      actualizarBadge();
-      mostrarModal();
-    }
-
-    document.getElementById('btn-wa-cart').onclick = () => {
-      if(carrito.length === 0) return;
-      const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
-      const envio = (subTotal >= 50 || subTotal === 0) ? 0 : 3.50;
-      const total = subTotal + envio;
-      
-      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *Nuevo Pedido de ROPA:*\n\n`;
-      carrito.forEach((p, idx) => { msg += `${idx + 1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; });
-      
-      msg += `\n──────────────────\n`;
-      msg += `💰 *Subtotal:* $${subTotal.toFixed(2)}\n`;
-      msg += `🚚 *Envío:* $${envio.toFixed(2)}\n`;
-      msg += `✅ *TOTAL A PAGAR: $${total.toFixed(2)}*\n`;
-      msg += `──────────────────\n`;
-      
-      window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`, '_blank');
-    };
 
     function mostrarNoti(t) {
       const n = document.getElementById('noti-add');
@@ -264,9 +183,8 @@
       setTimeout(() => n.style.display = 'none', 2000);
     }
 
-    document.getElementById('cart-icon').onclick = mostrarModal;
     cargarDatos();
-    actualizarBadge();
+    document.getElementById('cart-badge').textContent = carrito.length;
   </script>
 </body>
 </html>
