@@ -83,6 +83,7 @@
 
     footer{background:var(--celeste);color:#000;font-size:13px;padding:20px 0}
     .footer-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+    .footer-contact a{color:#000;text-decoration:none}
     
     .cart-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000}
     .cart-modal>div{background:#fff;width:90%;max-width:480px;margin:60px auto;padding:15px;border-radius:8px;position:relative;display:flex;flex-direction:column;max-height:80vh}
@@ -233,7 +234,6 @@
 
     function dibujarRopa() {
       const grid = document.getElementById('ropa-grid');
-      // FILTRO: Solo productos con categoría ROPA
       const ropa = productosTotales.filter(p => p.cat.toUpperCase() === "ROPA");
       grid.innerHTML = ropa.map(p => `
         <div class="product-card" onclick="this.classList.toggle('touch-active')">
