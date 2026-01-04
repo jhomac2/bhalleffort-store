@@ -45,10 +45,10 @@
     "detalle": "Único color en stock; Talla M-L"
   },
   {
-    "id": "Z006",
+    "id": "R006",
     "nombre": "Tejido de lana",
     "precio": 15.00,
-    "cat": "ZAPATOS",
+    "cat": "ROPA",
     "imgFrontal": "img/tejido-de-lana.webp",
     "imgTrasera": "img/tejido-de-lana-espalda.webp",
     "detalle": "Único; Talla estándar"
