@@ -174,7 +174,7 @@
 
   <section class="featured-products">
     <div class="container">
-      <h2 class="section-title">✨ PRODUCTOS DESTACADOS ✨</h2>
+      <h2 class="section-title">🔥 MEJORES PROMOCIONES 🔥</h2>
       <div class="products-grid-ten" id="index-grid"></div>
     </div>
   </section>
@@ -234,9 +234,11 @@
 
     function dibujarIndex() {
       const grid = document.getElementById('index-grid');
-      // Mostrar los primeros 10 productos como destacados
-      const destacados = productosTotales.slice(0, 10);
-      grid.innerHTML = destacados.map(p => `
+      
+      // FILTRO: Solo productos cuya categoría sea "PROMOCIONES"
+      const soloPromos = productosTotales.filter(p => p.cat === "PROMOCIONES");
+      
+      grid.innerHTML = soloPromos.map(p => `
         <div class="product-card" onclick="this.classList.toggle('touch-active')">
           <div class="product-image-container">
             <img src="${p.imgFrontal}" class="product-image front">
