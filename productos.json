@@ -2,25 +2,25 @@
   {
     "id": "R001",
     "nombre": "Sudadera urbana",
-    "precio": 14,
+    "precio": 20.00,
     "cat": "ROPA",
     "imgFrontal": "img/sudadera-urbana.webp",
     "imgTrasera": "img/sudadera-urbana-espalda.webp",
-    "detalle": "Color: crema y verde; Talla M - L"
+    "detalle": "Color: crema y verde; Talla M -L"
   },
   {
     "id": "R002",
     "nombre": "Chompa deportiva",
-    "precio": 14,
+    "precio": 12.00,
     "cat": "ROPA",
     "imgFrontal": "img/chompa-deportiva.webp",
     "imgTrasera": "img/chompa-deportiva-espalda.webp",
-    "detalle": "Color: negro, azul noche y gris; Talla M - L"
+    "detalle": "Color: negro, azul noche y gris; Talla M -L"
   },
   {
     "id": "R003",
     "nombre": "Buzo columbia",
-    "precio": 20,
+    "precio": 20.00,
     "cat": "ROPA",
     "imgFrontal": "img/buzo-columbia.webp",
     "imgTrasera": "img/buzo-columbia-espalda.webp",
@@ -29,7 +29,7 @@
   {
     "id": "R004",
     "nombre": "Chompa impermeable",
-    "precio": 25,
+    "precio": 25.00,
     "cat": "ROPA",
     "imgFrontal": "img/chompa-impermeable.webp",
     "imgTrasera": "img/chompa-impermeable-espalda.webp",
@@ -38,17 +38,17 @@
   {
     "id": "R005",
     "nombre": "Hoodie Urbano",
-    "precio": 10,
+    "precio": 10.00,
     "cat": "ROPA",
     "imgFrontal": "img/hoodie-urbano.webp",
     "imgTrasera": "img/hoodie-urbano-espalda.webp",
     "detalle": "Único color en stock; Talla M-L"
   },
   {
-    "id": "P006",
+    "id": "Z006",
     "nombre": "Tejido de lana",
-    "precio": 15,
-    "cat": "PROMOCIONES",
+    "precio": 15.00,
+    "cat": "ZAPATOS",
     "imgFrontal": "img/tejido-de-lana.webp",
     "imgTrasera": "img/tejido-de-lana-espalda.webp",
     "detalle": "Único; Talla estándar"
@@ -56,7 +56,7 @@
   {
     "id": "Z007",
     "nombre": "Deportivos puma",
-    "precio": 18,
+    "precio": 18.00,
     "cat": "ZAPATOS",
     "imgFrontal": "img/deportivos-puma.webp",
     "imgTrasera": "img/deportivos-puma-espalda.webp",
@@ -65,7 +65,7 @@
   {
     "id": "Z008",
     "nombre": "Deportivo y casual",
-    "precio": 18,
+    "precio": 18.00,
     "cat": "ZAPATOS",
     "imgFrontal": "img/deportivo-y-casual.webp",
     "imgTrasera": "img/deportivo-y-casual-espalda.webp",
@@ -74,17 +74,17 @@
   {
     "id": "Z009",
     "nombre": "Urbanos levis",
-    "precio": 18,
+    "precio": 18.00,
     "cat": "ZAPATOS",
     "imgFrontal": "img/urbanos-levis.webp",
     "imgTrasera": "img/urbanos-levis-espalda.webp",
     "detalle": "Color azul, café y negro; Talla 36 a la 42"
   },
   {
-    "id": "V010",
+    "id": "Z010",
     "nombre": "Tacos botines",
-    "precio": 18,
-    "cat": "VARIOS",
+    "precio": 18.00,
+    "cat": "ZAPATOS",
     "imgFrontal": "img/tacos-botines.webp",
     "imgTrasera": "img/tacos-botines-espalda.webp",
     "detalle": "Color negro, café y blanco; Talla 32 a la 37"
@@ -92,7 +92,7 @@
   {
     "id": "Z011",
     "nombre": "Deportivos altos",
-    "precio": 18,
+    "precio": 18.00,
     "cat": "ZAPATOS",
     "imgFrontal": "img/deportivos-altos.webp",
     "imgTrasera": "img/deportivos-altos-espalda.webp",
@@ -101,7 +101,7 @@
   {
     "id": "Z012",
     "nombre": "Deportivos running",
-    "precio": 18,
+    "precio": 18.00,
     "cat": "ZAPATOS",
     "imgFrontal": "img/deportivos-running.webp",
     "imgTrasera": "img/deportivos-running-espalda.webp",
@@ -110,7 +110,7 @@
   {
     "id": "Z013",
     "nombre": "Deportivos de niños",
-    "precio": 18,
+    "precio": 18.00,
     "cat": "ZAPATOS",
     "imgFrontal": "img/deportivos-de-niños.webp",
     "imgTrasera": "img/deportivos-de-niños-espalda.webp",
@@ -119,7 +119,7 @@
   {
     "id": "Z014",
     "nombre": "Urbanos de niños",
-    "precio": 18,
+    "precio": 18.00,
     "cat": "ZAPATOS",
     "imgFrontal": "img/urbanos-de-niños.webp",
     "imgTrasera": "img/urbanos-de-niños-espalda.webp",
@@ -128,7 +128,7 @@
   {
     "id": "Z015",
     "nombre": "Casual y urbano",
-    "precio": 18,
+    "precio": 18.00,
     "cat": "ZAPATOS",
     "imgFrontal": "img/casual-y-urbano.webp",
     "imgTrasera": "img/casual-y-urbano-espalda.webp",
@@ -137,7 +137,7 @@
   {
     "id": "R016",
     "nombre": "Wafflera blackdecker",
-    "precio": 3,
+    "precio": 3.00,
     "cat": "RIFAS",
     "imgFrontal": "img/wafflera-blackdecker.webp",
     "imgTrasera": "img/wafflera-blackdecker-espalda.webp",
@@ -146,7 +146,7 @@
   {
     "id": "R017",
     "nombre": "Mesa organizadora",
-    "precio": 5,
+    "precio": 5.00,
     "cat": "RIFAS",
     "imgFrontal": "img/mesa-organizadora.webp",
     "imgTrasera": "img/mesa-organizadora-espalda.webp",
@@ -155,10 +155,262 @@
   {
     "id": "R018",
     "nombre": "Sanduchera",
-    "precio": 1,
+    "precio": 1.00,
     "cat": "RIFAS",
     "imgFrontal": "img/sanduchera.webp",
     "imgTrasera": "img/sanduchera-espalda.webp",
     "detalle": "Productos usado-nuevo con garantía"
+  },
+  {
+    "id": "V019",
+    "nombre": "Mochila verde",
+    "precio": 25.00,
+    "cat": "VARIOS",
+    "imgFrontal": "img/mochila-verde.webp",
+    "imgTrasera": "img/mochila-verde-espalda.webp",
+    "detalle": "Mochila táctica de 45 litros; Color verde-negro y caqui"
+  },
+  {
+    "id": "V020",
+    "nombre": "Mochila caqui",
+    "precio": 25.00,
+    "cat": "VARIOS",
+    "imgFrontal": "img/mochila-caqui.webp",
+    "imgTrasera": "img/mochila-caqui-espalda.webp",
+    "detalle": "Mochila táctica de 45 litros; Color verde-negro y caqui"
+  },
+  {
+    "id": "R021",
+    "nombre": "Saco nike",
+    "precio": 12.00,
+    "cat": "ROPA",
+    "imgFrontal": "img/saco-nike.webp",
+    "imgTrasera": "img/saco-nike-espalda.webp",
+    "detalle": "Color: rojo, negro; Talla M - L"
+  },
+  {
+    "id": "R022",
+    "nombre": "Chompa estilo nike",
+    "precio": 17.00,
+    "cat": "ROPA",
+    "imgFrontal": "img/chompa-estilo-nike.webp",
+    "imgTrasera": "img/chompa-estilo-nike-espalda.webp",
+    "detalle": "Talla M - L"
+  },
+  {
+    "id": "P023",
+    "nombre": "Conjunto M1",
+    "precio": 22.00,
+    "cat": "PROMOCIONES",
+    "imgFrontal": "img/conjunto-m1.webp",
+    "imgTrasera": "img/conjunto-m1-espalda.webp",
+    "detalle": "Chompa tejida + Jean y opcional + Deportivos, $15"
+  },
+  {
+    "id": "P024",
+    "nombre": "Conjunto M2",
+    "precio": 29.00,
+    "cat": "PROMOCIONES",
+    "imgFrontal": "img/conjunto-m2.webp",
+    "imgTrasera": "img/conjunto-m2-espalda.webp",
+    "detalle": "Abrigo tejido + Jean + Blusa estándar"
+  },
+  {
+    "id": "P025",
+    "nombre": "Conjunto M3",
+    "precio": 17.00,
+    "cat": "PROMOCIONES",
+    "imgFrontal": "img/conjunto-m3.webp",
+    "imgTrasera": "img/conjunto-m3-espalda.webp",
+    "detalle": "Chompa roja o negra + Jean y opcional + Deportivos $15"
+  },
+  {
+    "id": "R026",
+    "nombre": "Buzo tejidos",
+    "precio": 6.00,
+    "cat": "ROPA",
+    "imgFrontal": "img/buzo-tejidos.webp",
+    "imgTrasera": "img/buzo-tejidos-espalda.webp",
+    "detalle": "Buzos tejidos; Color gris, negro y rojo"
+  },
+  {
+    "id": "P027",
+    "nombre": "Conjunto M4",
+    "precio": 16.00,
+    "cat": "PROMOCIONES",
+    "imgFrontal": "img/conjunto-m4.webp",
+    "imgTrasera": "img/conjunto-m4-espalda.webp",
+    "detalle": "Buzo tejido + Jean y opcional + Deportivos $15"
+  },
+  {
+    "id": "R028",
+    "nombre": "Jean",
+    "precio": 14.00,
+    "cat": "ROPA",
+    "imgFrontal": "img/jean.webp",
+    "imgTrasera": "img/jean-espalda.webp",
+    "detalle": "Jean de mujer; Color azul, negro y gabardina"
+  },
+  {
+    "id": "P029",
+    "nombre": "Conjunto M5",
+    "precio": 17.00,
+    "cat": "PROMOCIONES",
+    "imgFrontal": "img/conjunto-m5.webp",
+    "imgTrasera": "img/conjunto-m5-espalda.webp",
+    "detalle": "Chompa tejida + Pantalón"
+  },
+  {
+    "id": "R030",
+    "nombre": "Buzo flor",
+    "precio": 14.00,
+    "cat": "ROPA",
+    "imgFrontal": "img/buzo-flor.webp",
+    "imgTrasera": "img/buzo-flor-espalda.webp",
+    "detalle": "Buzo tejido color negro y beige; Talla estándar S-M-L"
+  },
+  {
+    "id": "P031",
+    "nombre": "Conjunto M6",
+    "precio": 14.00,
+    "cat": "PROMOCIONES",
+    "imgFrontal": "img/conjunto-m6.webp",
+    "imgTrasera": "img/conjunto-m6-espalda.webp",
+    "detalle": "Camisa + Blusa varios diseños + Pantalón"
+  },
+  {
+    "id": "P032",
+    "nombre": "Conjunto M7",
+    "precio": 17.00,
+    "cat": "PROMOCIONES",
+    "imgFrontal": "img/conjunto-m7.webp",
+    "imgTrasera": "img/conjunto-m7-espalda.webp",
+    "detalle": "Buzo tejido + Pantalón y opcional + Deportivos, $15"
+  },
+  {
+    "id": "Z033",
+    "nombre": "Deportivos",
+    "precio": 18.00,
+    "cat": "ZAPATOS",
+    "imgFrontal": "img/deportivos.webp",
+    "imgTrasera": "img/deportivos-espalda.webp",
+    "detalle": "Color: negro y blanco; Tallas 37-39"
+  },
+  {
+    "id": "P034",
+    "nombre": "Conjunto M8",
+    "precio": 9.00,
+    "cat": "PROMOCIONES",
+    "imgFrontal": "img/conjunto-m8.webp",
+    "imgTrasera": "img/conjunto-m8-espalda.webp",
+    "detalle": "Pantalón + Blusa distintos modelos"
+  },
+  {
+    "id": "P035",
+    "nombre": "Conjunto M9",
+    "precio": 9.00,
+    "cat": "PROMOCIONES",
+    "imgFrontal": "img/conjunto-m9.webp",
+    "imgTrasera": "img/conjunto-m9-espalda.webp",
+    "detalle": "Pantalón + Tops distintos modelos"
+  },
+  {
+    "id": "P036",
+    "nombre": "Conjunto M10",
+    "precio": 9.00,
+    "cat": "PROMOCIONES",
+    "imgFrontal": "img/conjunto-m10.webp",
+    "imgTrasera": "img/conjunto-m10-espalda.webp",
+    "detalle": "Pantalón + Tops distintos modelos"
+  },
+  {
+    "id": "R037",
+    "nombre": "Chompa Porsche",
+    "precio": 10.00,
+    "cat": "ROPA",
+    "imgFrontal": "img/chompa-porsche.webp",
+    "imgTrasera": "img/chompa-porsche-espalda.webp",
+    "detalle": "Chompas urbanas distintos modelos, Tallas M-L"
+  },
+  {
+    "id": "R038",
+    "nombre": "Chompa Chicago",
+    "precio": 10.00,
+    "cat": "ROPA",
+    "imgFrontal": "img/chompa-chicago.webp",
+    "imgTrasera": "img/chompa-chicago-espalda.webp",
+    "detalle": "Chompas urbanas distintos modelos, Tallas M-L"
+  },
+  {
+    "id": "R039",
+    "nombre": "Chompa Bal",
+    "precio": 10.00,
+    "cat": "ROPA",
+    "imgFrontal": "img/chompa-bal.webp",
+    "imgTrasera": "img/chompa-bal-espalda.webp",
+    "detalle": "Chompas urbanas distintos modelos, Tallas M-L"
+  },
+  {
+    "id": "P040",
+    "nombre": "Conjunto M11",
+    "precio": 9.00,
+    "cat": "PROMOCIONES",
+    "imgFrontal": "img/conjunto-m11.webp",
+    "imgTrasera": "img/conjunto-m11-espalda.webp",
+    "detalle": "Pantalón estándar + buzo"
+  },
+  {
+    "id": "Z041",
+    "nombre": "Deportivos puma",
+    "precio": 18.00,
+    "cat": "ZAPATOS",
+    "imgFrontal": "img/deportivos-puma.webp",
+    "imgTrasera": "img/deportivos-puma-espalda.webp",
+    "detalle": "Talla 33 a la 38, varios diseños y colores"
+  },
+  {
+    "id": "Z042",
+    "nombre": "Casual urbano",
+    "precio": 18.00,
+    "cat": "ZAPATOS",
+    "imgFrontal": "img/casual-urbano.webp",
+    "imgTrasera": "img/casual-urbano-espalda.webp",
+    "detalle": "Talla 33 a la 38, varios diseños y colores"
+  },
+  {
+    "id": "Z043",
+    "nombre": "Deportivo Casual",
+    "precio": 18.00,
+    "cat": "ZAPATOS",
+    "imgFrontal": "img/deportivo-casual.webp",
+    "imgTrasera": "img/deportivo-casual-espalda.webp",
+    "detalle": "Talla 33 a la 38, varios diseños y colores"
+  },
+  {
+    "id": "Z044",
+    "nombre": "Sneaker",
+    "precio": 18.00,
+    "cat": "ZAPATOS",
+    "imgFrontal": "img/sneaker.webp",
+    "imgTrasera": "img/sneaker-espalda.webp",
+    "detalle": "Talla 33 a la 38, varios diseños y colores"
+  },
+  {
+    "id": "Z045",
+    "nombre": "Outdoor Urbano",
+    "precio": 18.00,
+    "cat": "ZAPATOS",
+    "imgFrontal": "img/outdoor-urbano.webp",
+    "imgTrasera": "img/outdoor-urbano-espalda.webp",
+    "detalle": "Talla 33 a la 38, varios diseños y colores"
+  },
+  {
+    "id": "Z046",
+    "nombre": "Urbano Tommy",
+    "precio": 18.00,
+    "cat": "ZAPATOS",
+    "imgFrontal": "img/urbano-tommy.webp",
+    "imgTrasera": "img/urbano-tommy-espalda.webp",
+    "detalle": "Talla 33 a la 38, varios diseños y colores"
   }
 ]
