@@ -2,45 +2,112 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>POLÍTICA DE COOKIES | BHALLEFFORT</title>
+  <title>BHALLEFFORT | Política de Cookies</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="https://jhomac2.github.io/bhalleffort-store/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{--morado:#4c0d8c;--texto:#222;--fondo:#f5f7fa}
-    *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',sans-serif}
-    body{background:var(--fondo);color:var(--texto);line-height:1.6}
-    .container{width:90%;max-width:800px;margin:40px auto;background:#fff;padding:30px;border-radius:15px;box-shadow:0 4px 10px rgba(0,0,0,0.05)}
-    h1, h2{color:var(--morado);margin-bottom:15px}
-    p{margin-bottom:20px;font-size:14px;color:#555}
-    .btn-volver{display:inline-block;background:var(--morado);color:#fff;padding:10px 20px;text-decoration:none;border-radius:5px;font-weight:600}
+    :root{--celeste:#87ceeb;--morado:#4c0d8c;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;--fondo:#eef2f7}
+    *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',system-ui,Arial}
+    body{background:var(--fondo);color:var(--texto)}
+    .container{width:90%;max-width:1200px;margin:auto}
+    .flex-space{display:flex;align-items:center;justify-content:space-between}
+    
+    /* HEADER IDENTICO */
+    .top-bar{background:var(--morado);color:#fff;font-size:13px;padding:4px 0}
+    .top-bar .social-icons{display:flex;gap:12px;font-size:18px}
+    .top-bar .social-icons a{color:#fff; text-decoration:none}
+    .main-header{padding:15px 0;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+    .logo-section{display:flex;align-items:center;gap:15px}
+    .whale-icon{width:85px; border:3px solid var(--morado); border-radius:50%; padding:2px; background:#fff}
+    .brand-text h1{font-size:24px;color:var(--morado);font-weight:700;line-height:1}
+    .dual-buttons{display:flex;gap:1rem;justify-content:center;margin:1rem 0;flex-wrap:wrap}
+    .btn-rifas{background:#ff6600;padding:.8rem 1.4rem;border-radius:6px;font-weight:700;text-decoration:none;color:#fff}
+    .btn-wa{background:#25d366;padding:.8rem 1.4rem;border-radius:6px;font-weight:700;text-decoration:none;color:#fff}
+    
+    .main-nav{position:sticky;top:0;z-index:999;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
+    .main-nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center}
+    .main-nav a{color:var(--morado);padding:12px 15px;display:block;font-size:14px;text-decoration:none;font-weight:600}
+
+    /* CONTENIDO LEGAL */
+    .legal-content{padding:50px 0}
+    .legal-card{background:#fff; padding:40px; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.05); max-width:800px; margin:auto}
+    h2{color:var(--morado); margin-bottom:15px}
+    p{margin-bottom:20px; line-height:1.7}
+
+    /* BOTONES FLOTANTES */
+    #cart-icon { position: fixed; top: 15px; right: 15px; background: #fff; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.15); cursor: pointer; z-index: 1000; }
+    #cart-badge { background: var(--turquesa); color: #fff; border-radius: 50%; padding: 2px 6px; font-size: 11px; position: absolute; top: 0px; right: 0px; }
+    #btn-lupa { position: fixed; top: 75px; right: 15px; background: var(--turquesa); color: #fff; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 20px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.25); z-index: 1000; display: flex; align-items: center; justify-content: center; }
+
+    footer{background:var(--celeste);color:#000;padding:30px 0; text-align:center}
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <h1>Política de Cookies</h1>
-    <p>En <strong>BHALLEFFORT</strong>, valoramos tu privacidad y transparencia. A continuación, te explicamos cómo utilizamos las tecnologías de almacenamiento en nuestro sitio web.</p>
+  <div id="cart-icon"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
+  <button id="btn-lupa" onclick="window.location.href='index.html'"><i class="fas fa-search"></i></button>
 
-    <h2>1. ¿Qué son las Cookies?</h2>
-    <p>Las cookies son pequeños archivos de texto que se guardan en tu navegador. En nuestro caso, utilizamos principalmente el <strong>LocalStorage</strong>, que funciona de manera similar para recordar los productos que añades a tu carrito de compras.</p>
-
-    <h2>2. ¿Para qué las usamos?</h2>
-    <ul>
-      <li><strong>Carrito de Compras:</strong> Para que no pierdas tus productos seleccionados si cierras la página o la recargas.</li>
-      <li><strong>Experiencia de Usuario:</strong> Para recordar tus preferencias de búsqueda y navegación.</li>
-    </ul>
-
-    <h2>3. ¿Cómo desactivarlas?</h2>
-    <p>Puedes borrar los datos de navegación y las cookies en cualquier momento desde los ajustes de tu navegador (Chrome, Safari, Firefox, etc.). Ten en cuenta que, si lo haces, tu carrito de compras se vaciará.</p>
-
-    <h2>4. Seguridad</h2>
-    <p>No utilizamos cookies para almacenar información personal sensible ni para rastrearte en otros sitios web. Todo el uso es estrictamente funcional para tu compra en nuestra tienda.</p>
-
-    <br>
-    <a href="index.html" class="btn-volver">Volver a la tienda</a>
+  <div class="top-bar">
+    <div class="container flex-space">
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div>POLÍTICAS LEGALES</div>
+    </div>
   </div>
 
+  <header class="main-header">
+    <div class="container flex-space">
+      <a href="index.html" style="text-decoration:none; color:inherit;">
+        <div class="logo-section">
+          <img src="logo-ballena.png" alt="BHALLEFFORT" class="whale-icon">
+          <div class="brand-text"><h1>BHALLEFFORT</h1></div>
+        </div>
+      </a>
+      <div class="dual-buttons">
+        <a href="rifas.html" class="btn-rifas">🎉 Rifas</a>
+        <a href="https://wa.me/593963923399" class="btn-wa">📱 WHATSAPP </a>
+      </div>
+    </div>
+  </header>
+
+  <nav class="main-nav">
+    <ul>
+      <li><a href="index.html">INICIO</a></li>
+      <li><a href="ropa.html">ROPA</a></li>
+      <li><a href="zapatos.html">ZAPATOS</a></li>
+      <li><a href="quienes-somos.html">QUIÉNES SOMOS</a></li>
+    </ul>
+  </nav>
+
+  <section class="legal-content">
+    <div class="container">
+      <div class="legal-card">
+        <h2>Política de Cookies</h2>
+        <p>En BHALLEFFORT usamos el <strong>Almacenamiento Local</strong> de tu navegador para guardar los productos de tu carrito. Sin esto, no podrías realizar pedidos por WhatsApp de forma organizada.</p>
+        
+        <h2>¿Qué datos guardamos?</h2>
+        <p>Solo el ID del producto, nombre y precio. No rastreamos tu ubicación ni vendemos tu información a terceros.</p>
+        
+        <div style="text-align:center; margin-top:30px;">
+          <a href="index.html" style="background:var(--morado); color:white; padding:12px 25px; border-radius:5px; text-decoration:none; font-weight:700;">REGRESAR A COMPRAR</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 BHALLEFFORT | Diseñado por Jhomac²</p>
+  </footer>
+
+  <script>
+    let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
+    document.getElementById('cart-badge').textContent = carrito.length;
+    document.getElementById('cart-icon').onclick = () => { window.location.href = 'index.html'; };
+  </script>
 </body>
 </html>
