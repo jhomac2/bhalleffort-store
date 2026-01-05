@@ -66,15 +66,25 @@
   <div id="cart-modal">
     <div class="modal-content">
       <header style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #eee; padding-bottom:10px; margin-bottom:15px;">
-        <h3><i class="fas fa-shopping-cart"></i> Tu Carrito</h3>
+        <h3><i class="fas fa-shopping-cart"></i> Tu Pedido</h3>
         <button onclick="document.getElementById('cart-modal').style.display='none'" style="background:none;border:none;font-size:24px;cursor:pointer">×</button>
       </header>
-      <div id="cart-items"></div>
+      
+      <div id="cart-items" style="max-height:200px; overflow-y:auto;"></div>
+
       <div style="margin-top:20px; border-top:1px solid #eee; padding-top:15px;">
+        <div style="background:#fff3cd; color:#856404; padding:12px; border-radius:8px; font-size:13px; margin-bottom:15px; border:1px solid #ffeeba;">
+          <i class="fas fa-shield-alt"></i> <strong>DATOS PARA PAGO:</strong><br>
+          Única cuenta oficial para pagos a nombre de: <strong>Katherine Pineda</strong>.
+        </div>
+
         <div style="display:flex;justify-content:space-between;font-weight:bold; font-size:18px;">
           <span>Total:</span><span id="cart-total">$0.00</span>
         </div>
-        <button onclick="finalizarCompraWA()" style="background:#25D366;color:#fff;border:none;padding:15px;border-radius:6px;cursor:pointer;width:100%; font-weight:700; margin-top:15px;">FINALIZAR EN WHATSAPP 🐋</button>
+        
+        <button onclick="finalizarCompraWA()" style="background:#25D366;color:#fff;border:none;padding:15px;border-radius:6px;cursor:pointer;width:100%; font-weight:700; margin-top:15px;">
+          FINALIZAR EN WHATSAPP 🐋
+        </button>
       </div>
     </div>
   </div>
@@ -89,8 +99,8 @@
   <div id="search-modal">
     <div class="modal-content">
       <button onclick="document.getElementById('search-modal').style.display='none'" style="position:absolute;top:8px;right:12px;background:none;border:none;font-size:20px;cursor:pointer">×</button>
-      <h3>Buscar Rifas o Productos</h3>
-      <input type="text" id="search-input" style="width:100%; padding:10px; margin-top:10px" placeholder="¿Qué buscas?">
+      <h3>Buscar Rifas</h3>
+      <input type="text" id="search-input" style="width:100%; padding:10px; margin-top:10px" placeholder="¿Qué premio buscas?">
       <div id="search-results" style="margin-top:10px; max-height:200px; overflow-y:auto"></div>
     </div>
   </div>
@@ -114,7 +124,7 @@
         </div>
       </a>
       <div class="dual-buttons">
-        <a href="rifas.html" class="btn-rifas">🎉 Rifas</a>
+        <a href="rifas.html" class="btn-rifas" style="background:var(--morado)">🎉 Rifas</a>
         <a href="https://wa.me/593963923399" class="btn-wa">📱 WhatsApp</a>
       </div>
     </div>
@@ -133,7 +143,7 @@
 
   <div class="container">
     <h2 style="text-align:center; margin-top:30px; color:var(--morado)">🎫 RIFAS ACTIVAS</h2>
-    <p style="text-align:center; font-size:14px; color:#666">Elige tu premio, añádelo al carrito y escoge tu número por WhatsApp.</p>
+    <p style="text-align:center; font-size:14px; color:#666; margin-bottom:20px;">Participa y gana premios premium de nuestra tienda.</p>
     
     <div id="rifas-grid" class="products-grid">
       </div>
@@ -141,6 +151,7 @@
 
   <footer style="margin-top:50px">
     <p>© 2026 BHALLEFFORT | Diseñado por Jhomac²</p>
+    <p style="font-size:12px; opacity:0.7">"Dios te da más de lo que pides"</p>
   </footer>
 
   <script>
@@ -173,10 +184,9 @@
 
     function addCart(id) {
       const p = productosTotales.find(x => x.id === id);
-      carrito.push(p);
+      carrito.push({id: p.id, nombre: p.nombre, precio: p.precio});
       localStorage.setItem('bh-cart', JSON.stringify(carrito));
       actualizarBadge();
-      alert("¡Boleto añadido!");
     }
 
     function actualizarBadge() {
@@ -190,15 +200,17 @@
     }
 
     function mostrarCarrito() {
-      if(carrito.length === 0) return alert("Carrito vacío");
+      if(carrito.length === 0) return alert("El carrito está vacío");
       const items = document.getElementById('cart-items');
       items.innerHTML = carrito.map((p, i) => `
-        <div style="display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid #eee">
-          <span>${p.nombre}</span>
-          <button onclick="removeItem(${i})" style="color:red; border:none; background:none">✕</button>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid #eee">
+          <div style="font-size:14px;"><strong>${p.nombre}</strong><br><span style="color:var(--turquesa)">$${p.precio.toFixed(2)}</span></div>
+          <button onclick="removeItem(${i})" style="color:red; border:none; background:none; cursor:pointer"><i class="fas fa-trash-alt"></i></button>
         </div>
       `).join('');
-      document.getElementById('cart-total').textContent = '$' + carrito.reduce((s, i) => s + i.precio, 0).toFixed(2);
+      
+      const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
+      document.getElementById('cart-total').textContent = '$' + subTotal.toFixed(2);
       document.getElementById('cart-modal').style.display = 'block';
     }
 
@@ -206,13 +218,14 @@
       carrito.splice(i, 1);
       localStorage.setItem('bh-cart', JSON.stringify(carrito));
       actualizarBadge();
-      mostrarCarrito();
+      carrito.length === 0 ? document.getElementById('cart-modal').style.display = 'none' : mostrarCarrito();
     }
 
     function finalizarCompraWA() {
       let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *PEDIDO DE RIFAS:*\n\n`;
       carrito.forEach((p, idx) => { msg += `${idx + 1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; });
       msg += `\n✅ *TOTAL: $${carrito.reduce((s, i) => s + i.precio, 0).toFixed(2)}*`;
+      msg += `\n\n📌 *Deseo elegir mis números de la suerte.*`;
       window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
