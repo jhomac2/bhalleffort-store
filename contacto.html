@@ -33,10 +33,20 @@
     .main-nav a{color:var(--morado);padding:12px 15px;display:block;font-size:14px;text-decoration:none;font-weight:600}
     .main-nav a.active{background:var(--morado);color:#fff;border-radius:4px}
 
+    /* Iconos Flotantes */
     #cart-icon { position: fixed; top: 15px; right: 15px; background: #fff; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.15); cursor: pointer; z-index: 1000; }
     #cart-badge { background: var(--turquesa); color: #fff; border-radius: 50%; padding: 2px 6px; font-size: 11px; position: absolute; top: 0px; right: 0px; }
     #btn-lupa { position: fixed; top: 75px; right: 15px; background: var(--turquesa); color: #fff; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 20px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.25); z-index: 1000; display: flex; align-items: center; justify-content: center; }
 
+    /* Modales */
+    #search-modal, #cart-modal {display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:4000;}
+    #search-modal > div, #cart-modal > div {background:#fff; width:95%; max-width:450px; margin:50px auto; padding:20px; border-radius:12px; position:relative;}
+    #search-input {width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; margin-top:10px;}
+    #search-results {margin-top:10px; max-height:250px; overflow-y:auto;}
+    .search-item {padding:8px; border-bottom:1px solid #eee; cursor:pointer; display:flex; align-items:center; gap:10px;}
+    .search-item img {width:35px; height:35px; object-fit:cover; border-radius:3px;}
+
+    /* Contenido Contacto */
     .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:30px; margin:40px 0}
     .info-card{background:#fff; padding:30px; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.05); display:flex; flex-direction:column;}
     .info-card h2{color:var(--morado); margin-bottom:20px; border-bottom:3px solid var(--turquesa); display:inline-block; padding-bottom:5px}
@@ -61,6 +71,33 @@
   </style>
 </head>
 <body>
+
+  <div id="cart-modal">
+    <div>
+      <header style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #eee; padding-bottom:10px; margin-bottom:15px;">
+        <h3><i class="fas fa-shopping-cart"></i> Tu Pedido</h3>
+        <button onclick="document.getElementById('cart-modal').style.display='none'" style="background:none;border:none;font-size:24px;cursor:pointer">&times;</button>
+      </header>
+      <div id="cart-items" style="max-height:300px; overflow-y:auto;"></div>
+      <footer style="margin-top:20px; border-top:1px solid #eee; padding-top:15px;">
+        <div style="display:flex;justify-content:space-between;font-weight:bold; font-size:18px;">
+          <span>Total:</span><span id="cart-total">$0.00</span>
+        </div>
+        <button onclick="finalizarCompraWA()" style="background:#25D366;color:#fff;border:none;padding:15px;border-radius:6px;cursor:pointer;width:100%; font-weight:700; font-size:16px; margin-top:15px;">
+          FINALIZAR COMPRA POR WHATSAPP 🐋
+        </button>
+      </footer>
+    </div>
+  </div>
+
+  <div id="search-modal">
+    <div>
+      <button onclick="document.getElementById('search-modal').style.display='none'" style="position:absolute;top:8px;right:12px;background:none;border:none;font-size:20px;cursor:pointer">&times;</button>
+      <h3>Buscar Productos</h3>
+      <input type="text" id="search-input" placeholder="¿Qué estás buscando?">
+      <div id="search-results"></div>
+    </div>
+  </div>
 
   <div id="cart-icon"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
   <button id="btn-lupa"><i class="fas fa-search"></i></button>
@@ -153,9 +190,9 @@
 
     <h2 style="text-align:center; margin-bottom:20px; color:var(--morado); text-transform: uppercase;">Ubicación Exacta</h2>
     <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15958.85233158434!2d-78.2215287!3d0.1215287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2a0f8b1c1c1c1c%3A0x1c1c1c1c1c1c1c1c!2sTabacundo%2C%20Ecuador!5e0!3m2!1ses!2sec!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7571329245584!2d-78.2141381254399!3d0.03362196417539422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2a0962b0b474b5%3A0x6a82b0313fdaf6da!2sLa%20Y%20de%20Tabacundo!5e0!3m2!1ses!2sec!4v1705000000000!5m2!1ses!2sec" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
-    <a href="https://maps.app.goo.gl/uX3LhR8v1mE7uD5X8" target="_blank" class="btn-maps">
+    <a href="https://maps.app.goo.gl/uXp83X6mF6u1UuJRA" target="_blank" class="btn-maps">
         <i class="fas fa-directions"></i> CÓMO LLEGAR (GOOGLE MAPS)
     </a>
   </div>
@@ -168,12 +205,66 @@
   </footer>
 
   <script>
+    let productosTotales = [];
     let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
-    document.getElementById('cart-badge').textContent = carrito.length;
-    
-    // La lupa y el carrito redirigen al index para usar su buscador y modal
-    document.getElementById('cart-icon').onclick = () => window.location.href = 'index.html';
-    document.getElementById('btn-lupa').onclick = () => window.location.href = 'index.html';
+
+    async function cargarDatos() {
+      try {
+        const res = await fetch('productos.json');
+        productosTotales = await res.json();
+        actualizarBadge();
+      } catch (e) { console.error(e); }
+    }
+
+    function actualizarBadge() {
+      const badge = document.getElementById('cart-badge');
+      if(badge) badge.textContent = carrito.length;
+    }
+
+    function mostrarModalCarrito() {
+      if(carrito.length === 0) { alert("El carrito está vacío"); return; }
+      const items = document.getElementById('cart-items');
+      const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
+      items.innerHTML = carrito.map((p, i) => `
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid #eee;">
+          <div><div style="font-weight:600; font-size:14px;">${p.nombre}</div><div style="color:var(--turquesa);">$${p.precio.toFixed(2)}</div></div>
+          <button onclick="removeItem(${i})" style="color:#ff4444; border:none; background:none; cursor:pointer;"><i class="fas fa-trash-alt"></i></button>
+        </div>`).join('');
+      document.getElementById('cart-total').textContent = '$' + subTotal.toFixed(2);
+      document.getElementById('cart-modal').style.display = 'block';
+    }
+
+    function removeItem(i) {
+      carrito.splice(i, 1);
+      localStorage.setItem('bh-cart', JSON.stringify(carrito));
+      actualizarBadge();
+      carrito.length === 0 ? document.getElementById('cart-modal').style.display = 'none' : mostrarModalCarrito();
+    }
+
+    function finalizarCompraWA() {
+      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *MI PEDIDO:*\n\n`;
+      carrito.forEach((p, idx) => { msg += `${idx + 1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; });
+      msg += `\n✅ *TOTAL: $${carrito.reduce((s, i) => s + i.precio, 0).toFixed(2)}*`;
+      window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    // Buscador
+    document.getElementById('search-input').oninput = (e) => {
+      const val = e.target.value.toLowerCase();
+      const resDiv = document.getElementById('search-results');
+      if(!val) { resDiv.innerHTML = ''; return; }
+      const f = productosTotales.filter(p => p.nombre.toLowerCase().includes(val)).slice(0, 6);
+      resDiv.innerHTML = f.map(p => `
+        <div class="search-item" onclick="window.location.href='${p.cat.toLowerCase()}.html'">
+          <img src="${p.imgFrontal}">
+          <div><div style="font-size:13px; font-weight:600">${p.nombre}</div><div style="font-size:10px; color:var(--turquesa)">Ver en ${p.cat}</div></div>
+        </div>`).join('');
+    };
+
+    document.getElementById('cart-icon').onclick = mostrarModalCarrito;
+    document.getElementById('btn-lupa').onclick = () => document.getElementById('search-modal').style.display='block';
+
+    cargarDatos();
   </script>
 </body>
 </html>
