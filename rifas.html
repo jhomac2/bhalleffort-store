@@ -2,126 +2,77 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>BHALLEFFORT | Súper Rifas - Calidad al mejor precio</title>
-  <meta name="description" content="Tienda oficial BHALLEFFORT. Participa en nuestras rifas.">
+  <title>RIFAS | BHALLEFFORT</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="https://jhomac2.github.io/bhalleffort-store/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{--celeste:#87ceeb;--morado:#4c0d8c;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;--fondo:#eef2f7;--naranja:#ff6600}
-    *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',system-ui,Arial}
-    body{background:var(--fondo);color:var(--texto)}
-    img{max-width:100%;display:block}
-    .container{width:90%;max-width:1200px;margin:auto}
-    .flex-space{display:flex;align-items:center;justify-content:space-between}
-    
-    .top-bar{background:var(--morado);color:#fff;font-size:13px;padding:4px 0}
-    .top-bar .social-icons{display:flex;gap:12px;font-size:18px}
-    .top-bar .social-icons a{color:#fff; text-decoration:none}
-    
-    .main-header{padding:15px 0;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.1)}
-    .logo-section{display:flex;align-items:center;gap:15px}
-    .whale-icon{width:85px; border:3px solid var(--morado); border-radius:50%; padding:2px; background:#fff}
-    .brand-text h1{font-size:24px;color:var(--morado);font-weight:700;line-height:1}
-    .brand-text p{font-size:13px;color:var(--morado);opacity:.8}
-    
-    .dual-buttons{display:flex;gap:1rem;justify-content:center;margin:1rem 0;flex-wrap:wrap}
-    .btn-rifas,.btn-wa{padding:.8rem 1.4rem;border-radius:6px;font-weight:700;text-decoration:none;color:#fff;box-shadow:0 2px 4px rgba(0,0,0,.25)}
-    .btn-rifas{background:var(--naranja)}
-    .btn-wa{background:#25d366}
-    
-    .main-nav{position:sticky;top:0;z-index:999;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
-    .main-nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center}
-    .main-nav a{color:var(--morado);padding:12px 15px;display:block;font-size:14px;text-decoration:none;font-weight:600}
-    .main-nav a.active{background:var(--morado);color:#fff;border-radius:4px}
-
-    .hero-banner {
-      position: relative;
-      background: url('https://images.unsplash.com/photo-1540317580384-e5d43616b9aa?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
-      height: 400px;
-      display: flex; align-items: center; justify-content: center; text-align: center; color: #fff;
+    :root {
+      --celeste: #87ceeb;
+      --morado: #4c0d8c;
+      --turquesa: #00c8c8;
+      --fondo: #eef2f7;
+      --naranja: #ff6600;
+      --oro: #ffd700;
     }
-    .hero-banner::before {
-      content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.5); z-index: 1;
-    }
-    .hero-banner div { position: relative; z-index: 2; padding: 0 20px; }
-    .hero-banner h1 { font-size: 42px; text-transform: uppercase; font-weight: 700; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
-
-    #cart-icon { position: fixed; top: 15px; right: 15px; background: #fff; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.15); cursor: pointer; z-index: 1000; }
-    #cart-badge { background: var(--turquesa); color: #fff; border-radius: 50%; padding: 2px 6px; font-size: 11px; position: absolute; top: 0px; right: 0px; }
-    #btn-lupa { position: fixed; top: 75px; right: 15px; background: var(--turquesa); color: #fff; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 20px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.25); z-index: 1000; display: flex; align-items: center; justify-content: center; }
-
-    /* Estilos Específicos de la Rifa */
-    .rifa-section{padding:50px 0; display:flex; flex-direction:column; align-items:center}
-    .ticket-box{background:#fff;padding:40px;border-radius:25px;width:100%;max-width:550px;box-shadow:0 15px 35px rgba(0,0,0,0.1);text-align:center; position:relative; overflow:hidden}
-    .ticket-box::before{content:""; position:absolute; top:0; left:0; width:100%; height:8px; background:var(--naranja)}
-    .price-circle{width:100px; height:100px; background:var(--naranja); border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-size:28px; font-weight:800; margin:0 auto 20px; box-shadow:0 5px 15px rgba(255,102,0,0.3)}
-    .input-num{width:100%; padding:18px; border:2px solid #eee; border-radius:12px; font-size:22px; text-align:center; margin-bottom:20px; font-weight:700; outline:none; transition:0.3s}
-    .input-num:focus{border-color:var(--turquesa)}
-    .btn-buy-rifa{background:#25D366; color:#fff; border:none; padding:20px; border-radius:12px; width:100%; font-size:18px; font-weight:700; cursor:pointer; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:10px; transition:0.3s}
-    .btn-buy-rifa:hover{transform:translateY(-3px); box-shadow:0 5px 15px rgba(37,211,102,0.4)}
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+    body { background: var(--fondo); color: #222; line-height: 1.6; }
     
-    .pago-aviso{background:#fffdf0; border:1px solid #ffd700; padding:20px; border-radius:12px; margin-top:25px; font-size:15px; color:#856404; line-height:1.5}
+    .container { width: 90%; max-width: 1200px; margin: auto; }
+    .flex-space { display: flex; align-items: center; justify-content: space-between; }
 
-    /* Banners de fondo fijos como el index */
-    #banner-div{position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;box-shadow:0 -2px 5px rgba(0,0,0,.1);z-index:999}
-    #banner-envio{flex:1;background:#ff9800;color:#fff;text-align:center;padding:8px;font-size:14px;}
-    #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:8px;font-size:14px;}
+    /* HEADER & NAV */
+    .main-header { padding: 15px 0; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.1); }
+    .whale-icon { width: 70px; border: 2px solid var(--morado); border-radius: 50%; }
+    .main-nav { position: sticky; top: 0; z-index: 999; background: #fff; border-bottom: 2px solid var(--morado); }
+    .main-nav ul { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; }
+    .main-nav a { color: var(--morado); padding: 12px 15px; display: block; text-decoration: none; font-weight: 600; font-size: 14px; }
+    .main-nav a.active { background: var(--morado); color: #fff; }
 
-    /* Buscador Modal igual al index */
-    #search-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:3000}
-    #search-modal>div{background:#fff;width:90%;max-width:400px;margin:80px auto;padding:15px;border-radius:8px;position:relative}
-    #search-input{width:100%;padding:10px;border:1px solid #ccc;border-radius:4px}
-    #search-results{margin-top:10px;max-height:250px;overflow-y:auto}
-    .search-item{padding:8px;border-bottom:1px solid #eee;cursor:pointer;display:flex;align-items:center;gap:10px}
-    .search-item img{width:35px;height:35px;object-fit:cover;border-radius:3px}
+    /* HERO */
+    .hero-rifas { background: linear-gradient(45deg, var(--morado), var(--naranja)); color: #fff; padding: 60px 20px; text-align: center; }
+    .hero-rifas h1 { font-size: 35px; text-transform: uppercase; margin-bottom: 10px; }
 
-    .guarantees{background:#fff;padding:40px 0;margin-top:20px}
-    .flex-guarantees{display:flex;gap:30px;flex-wrap:wrap;justify-content:center;text-align:center}
-    .guarantee-item{flex:1 1 250px; padding:10px}
+    /* GRID DE RIFAS */
+    .rifas-grid { display: grid; gap: 25px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); padding: 40px 0; }
+    .rifa-card { background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border: 2px solid var(--oro); transition: 0.3s; }
+    .rifa-card:hover { transform: translateY(-5px); }
+    .rifa-img { width: 100%; height: 250px; object-fit: cover; }
+    .rifa-info { padding: 20px; text-align: center; }
+    .rifa-tag { background: var(--naranja); color: #fff; padding: 5px 15px; border-radius: 20px; font-size: 12px; font-weight: bold; }
+    .price-tag { font-size: 24px; color: var(--morado); font-weight: 800; margin: 10px 0; }
+    
+    .btn-add { background: var(--morado); color: #fff; border: none; padding: 12px 25px; border-radius: 30px; cursor: pointer; font-weight: bold; width: 100%; }
 
-    footer{background:var(--celeste);color:#000;font-size:13px;padding:40px 0}
-    .footer-grid{display:grid;gap:30px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+    /* CARRITO ICON */
+    #cart-trigger { position: fixed; top: 20px; right: 20px; background: #fff; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2); cursor: pointer; z-index: 1001; }
+    #cart-count { position: absolute; top: 0; right: 0; background: var(--naranja); color: #fff; font-size: 12px; padding: 3px 7px; border-radius: 50%; }
+
+    /* MODAL */
+    .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 2000; }
+    .modal-content { background: #fff; width: 90%; max-width: 450px; margin: 50px auto; border-radius: 15px; padding: 20px; position: relative; }
   </style>
 </head>
 <body>
 
-  <div id="cart-icon"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
-  <button id="btn-lupa"><i class="fas fa-search"></i></button>
-
-  <div id="banner-div">
-    <div id="banner-envio">🚚 Envío gratis desde $50</div>
-    <div id="banner-sorteo" style="background:#25D366;">🎉 ¡Participa en nuestras rifas!</div>
-  </div>
-
-  <div class="top-bar">
-    <div class="container flex-space">
-      <div class="social-icons">
-        <a href="https://www.tiktok.com/@bhalleffort" target="_blank"><i class="fab fa-tiktok"></i></a>
-        <a href="https://www.facebook.com/share/17jG7haojA/" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.instagram.com/bhalleffort" target="_blank"><i class="fab fa-instagram"></i></a>
-      </div>
-      <div><i class="fas fa-star"></i> CALIDAD AL MEJOR PRECIO</div>
-    </div>
+  <div id="cart-trigger">
+    <i class="fas fa-ticket-alt" style="font-size: 24px; color: var(--morado);"></i>
+    <span id="cart-count">0</span>
   </div>
 
   <header class="main-header">
     <div class="container flex-space">
-      <a href="index.html" style="text-decoration:none; color:inherit;">
-        <div class="logo-section">
-          <img src="logo-ballena.png" alt="BHALLEFFORT" class="whale-icon">
-          <div class="brand-text">
-            <h1>BHALLEFFORT</h1>
-            <p>Bienvenido a nuestra tienda</p>
-          </div>
+      <div style="display:flex; align-items:center; gap:15px;">
+        <img src="logo-ballena.png" class="whale-icon" alt="Logo">
+        <div>
+          <h2 style="color:var(--morado); line-height:1;">BHALLEFFORT</h2>
+          <small>Suerte y Estilo</small>
         </div>
-      </a>
-      <div class="dual-buttons">
-        <a href="rifas.html" class="btn-rifas">🎉 Rifas</a>
-        <a href="https://wa.me/593963923399" class="btn-wa">📱 WHATSAPP </a>
       </div>
+      <a href="https://wa.me/593963923399" style="background:#25d366; color:#fff; padding:10px 15px; border-radius:5px; text-decoration:none; font-weight:bold; font-size:12px;">
+        <i class="fab fa-whatsapp"></i> SOPORTE RIFAS
+      </a>
     </div>
   </header>
 
@@ -131,133 +82,143 @@
       <li><a href="ropa.html">ROPA</a></li>
       <li><a href="zapatos.html">ZAPATOS</a></li>
       <li><a href="varios.html">VARIOS</a></li>
-      <li><a href="promociones.html">PROMOCIONES</a></li>
-      <li><a href="quienes-somos.html">QUIÉNES SOMOS</a></li>
-      <li><a href="contacto.html">CONTACTO</a></li>
+      <li><a href="rifas.html" class="active">RIFAS</a></li>
+      <li><a href="quienes-somos.html">NOSOTROS</a></li>
     </ul>
   </nav>
 
-  <section class="hero-banner">
-    <div>
-      <h1>SÚPER RIFAS BHALLEFFORT</h1>
-      <p>¡El que no arriesga no gana! Participa hoy.</p>
+  <section class="hero-rifas">
+    <div class="container">
+      <h1>🎰 Sorteos Activos 🎰</h1>
+      <p>Compra tu boleto y participa por premios increíbles. ¡Toda la suerte!</p>
     </div>
   </section>
 
-  <div class="container rifa-section">
-    <div class="ticket-box">
-      <div class="price-circle">$5.00</div>
-      <h2 style="color:var(--morado); margin-bottom:10px;">ADQUIERE TU BOLETO</h2>
-      <p style="color:#666; margin-bottom:20px;">Escoge un número del 01 al 100 y presiona el botón para verificar disponibilidad por WhatsApp.</p>
-      
-      <input type="number" id="num-rifa" class="input-num" placeholder="00" min="1" max="100">
-      
-      <button onclick="comprarRifaWA()" class="btn-buy-rifa">
-        <i class="fab fa-whatsapp"></i> COMPRAR POR WHATSAPP
-      </button>
-
-      <div class="pago-aviso">
-        <i class="fas fa-lock" style="color:var(--morado)"></i> <strong>Unica cuenta oficial para pagos:</strong><br>
-        Transferencia a nombre de: <strong>Katherine Pineda</strong>.
+  <main class="container">
+    <div class="rifas-grid" id="rifas-display">
       </div>
-    </div>
-  </div>
+  </main>
 
-  <section class="guarantees">
-    <div class="container flex-guarantees">
-      <div class="guarantee-item">
-        <i class="fas fa-truck" style="font-size:30px; color:var(--morado); margin-bottom:15px;"></i>
-        <div><strong>ENVÍOS SEGUROS</strong><p>A todo el país mediante servientrega</p></div>
-      </div>
-      <div class="guarantee-item">
-        <i class="fas fa-award" style="font-size:30px; color:var(--morado); margin-bottom:15px;"></i>
-        <div>
-          <strong>CALIDAD GARANTIZADA</strong>
-          <p>Aquí encontrarás productos nuevos y usados con calidad garantizada. ¿Quieres vender tus productos? <a href="https://wa.me/593963923399" style="color:var(--morado); font-weight:700;">Contáctanos.</a></p>
+  <div id="cart-modal" class="modal">
+    <div class="modal-content">
+      <h3 style="margin-bottom:15px; border-bottom:2px solid var(--fondo); padding-bottom:10px;">🎟️ Mis Boletos y Productos</h3>
+      <div id="cart-items-list" style="max-height: 300px; overflow-y: auto;"></div>
+      <div style="margin-top:20px; border-top:2px solid var(--fondo); padding-top:15px;">
+        <div class="flex-space" style="font-weight:bold; font-size:18px; margin-bottom:15px;">
+          <span>Total:</span> <span id="cart-total-price">$0.00</span>
         </div>
+        <button onclick="enviarWhatsApp()" style="background:#25d366; color:#fff; width:100%; border:none; padding:15px; border-radius:10px; font-weight:bold; cursor:pointer;">
+          <i class="fab fa-whatsapp"></i> FINALIZAR COMPRA / RESERVA
+        </button>
+        <button onclick="cerrarModal()" style="width:100%; background:none; border:none; margin-top:10px; color:#888; cursor:pointer;">Continuar viendo</button>
       </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container footer-grid">
-      <div>
-        <img src="logo-ballena.png" alt="Ballena" width="70" style="margin-bottom:15px;">
-        <p>Diseñado por Jhomac² - La Y de Tabacundo</p>
-        <p style="font-style:italic; margin-top:10px;">Dios te da más de lo que pides.</p>
-      </div>
-      <div class="footer-contact">
-        <h3>CONTÁCTANOS</h3>
-        <p><i class="fab fa-whatsapp"></i> +593 963 923 399</p>
-        <p><i class="fas fa-envelope"></i> agromhasvida5@gmail.com</p>
-      </div>
-    </div>
-    <div style="text-align:center; padding:20px 0; background:rgba(0,0,0,0.05); margin-top:30px; font-weight:600;">&copy; 2026 BHALLEFFORT</div>
-  </footer>
-
-  <div id="search-modal">
-    <div>
-      <button onclick="document.getElementById('search-modal').style.display='none'" style="position:absolute;top:8px;right:12px;background:none;border:none;font-size:20px;cursor:pointer">&times;</button>
-      <input type="text" id="search-input" placeholder="Buscar productos similares...">
-      <div id="search-results"></div>
     </div>
   </div>
 
   <script>
-    let productosTotales = [];
+    // Conexión con el Carrito Global
     let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
+    let todosLosProductos = [];
 
-    async function cargarDatos() {
+    async function cargarRifas() {
       try {
-        const res = await fetch('productos.json');
-        productosTotales = await res.json();
-      } catch (e) { console.error("Error cargando productos:", e); }
-    }
-
-    function comprarRifaWA() {
-      const num = document.getElementById('num-rifa').value;
-      if(!num || num < 1 || num > 100) {
-        alert("Por favor, ingresa un número válido entre 1 y 100");
-        return;
+        const respuesta = await fetch('productos.json');
+        todosLosProductos = await respuesta.json();
+        
+        // Filtramos solo los productos de la categoría RIFAS
+        const rifas = todosLosProductos.filter(p => p.cat.toUpperCase() === "RIFAS");
+        renderizarRifas(rifas);
+      } catch (error) {
+        console.error("Error cargando el JSON:", error);
       }
-      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🎟️ *COMPRA DE BOLETO DE RIFA*\n\n`;
-      msg += `🔢 *Número elegido:* ${num}\n`;
-      msg += `💰 *Valor:* $5.00\n`;
-      msg += `──────────────────\n`;
-      msg += `⚠️ *RECUERDA:* Pago a nombre de *Katherine Pineda*.\n\n`;
-      msg += `¿Está disponible este número para realizar el pago?`;
-      window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
-    // Lógica Lupa
-    document.getElementById('btn-lupa').onclick = () => document.getElementById('search-modal').style.display='block';
-    
-    document.getElementById('search-input').oninput = (e) => {
-      const val = e.target.value.toLowerCase();
-      const resDiv = document.getElementById('search-results');
-      if(!val) { resDiv.innerHTML = ''; return; }
-      const f = productosTotales.filter(p => p.nombre.toLowerCase().includes(val)).slice(0, 6);
-      resDiv.innerHTML = f.map(p => `
-        <div class="search-item" onclick="window.location.href='${p.cat.toLowerCase()}.html'">
-          <img src="${p.imgFrontal}">
-          <div>
-            <div style="font-size:13px; font-weight:600">${p.nombre}</div>
-            <div style="font-size:10px; color:var(--turquesa)">Categoría: ${p.cat}</div>
+    function renderizarRifas(lista) {
+      const contenedor = document.getElementById('rifas-display');
+      contenedor.innerHTML = lista.map(p => `
+        <div class="rifa-card">
+          <img src="${p.imgFrontal}" class="rifa-img" alt="${p.nombre}">
+          <div class="rifa-info">
+            <span class="rifa-tag">🍀 Cupos: ${p.stock || 'Disponibles'}</span>
+            <h3 style="margin-top:10px;">${p.nombre}</h3>
+            <p style="font-size:13px; color:#666; height:40px; overflow:hidden;">${p.descripcion || ''}</p>
+            <div class="price-tag">$${p.precio.toFixed(2)}</div>
+            <button class="btn-add" onclick="agregarAlCarrito('${p.id}')">
+              ADQUIRIR BOLETO
+            </button>
           </div>
-        </div>`).join('');
-    };
-
-    // Actualizar badge del carrito
-    function actualizarBadge() {
-      const badge = document.getElementById('cart-badge');
-      if(badge) badge.textContent = carrito.length;
+        </div>
+      `).join('');
     }
 
-    // Redirigir al index para ver el carrito completo
-    document.getElementById('cart-icon').onclick = () => window.location.href = 'index.html';
+    function agregarAlCarrito(id) {
+      const producto = todosLosProductos.find(p => p.id === id);
+      carrito.push(producto);
+      localStorage.setItem('bh-cart', JSON.stringify(carrito));
+      actualizarInterfaz();
+    }
 
-    cargarDatos();
-    actualizarBadge();
+    function actualizarInterfaz() {
+      document.getElementById('cart-count').textContent = carrito.length;
+      dibujarCarrito();
+    }
+
+    function dibujarCarrito() {
+      const listaHTML = document.getElementById('cart-items-list');
+      let total = 0;
+
+      if (carrito.length === 0) {
+        listaHTML.innerHTML = "<p style='text-align:center; color:#888;'>El carrito está vacío.</p>";
+      } else {
+        listaHTML.innerHTML = carrito.map((p, index) => {
+          total += p.precio;
+          return `
+            <div class="flex-space" style="margin-bottom:10px; background:var(--fondo); padding:10px; border-radius:8px;">
+              <div>
+                <strong style="font-size:13px;">${p.nombre}</strong><br>
+                <small>$${p.precio.toFixed(2)}</small>
+              </div>
+              <button onclick="eliminarDelCarrito(${index})" style="color:red; border:none; background:none; cursor:pointer;">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          `;
+        }).join('');
+      }
+      document.getElementById('cart-total-price').textContent = `$${total.toFixed(2)}`;
+    }
+
+    function eliminarDelCarrito(index) {
+      carrito.splice(index, 1);
+      localStorage.setItem('bh-cart', JSON.stringify(carrito));
+      actualizarInterfaz();
+    }
+
+    function enviarWhatsApp() {
+      if (carrito.length === 0) return alert("El carrito está vacío");
+      
+      let mensaje = "🐋 *NUEVO PEDIDO BHALLEFFORT*\n\n";
+      let total = 0;
+      
+      carrito.forEach((p, i) => {
+        mensaje += `${i+1}. ${p.nombre} - $${p.precio.toFixed(2)}\n`;
+        total += p.precio;
+      });
+      
+      mensaje += `\n💰 *TOTAL:* $${total.toFixed(2)}`;
+      mensaje += `\n📌 *Nota:* Por favor confirmar disponibilidad de números de rifa.`;
+      
+      window.open(`https://wa.me/593963923399?text=${encodeURIComponent(mensaje)}`);
+    }
+
+    // Control del Modal
+    document.getElementById('cart-trigger').onclick = () => document.getElementById('cart-modal').style.display = 'block';
+    function cerrarModal() { document.getElementById('cart-modal').style.display = 'none'; }
+    window.onclick = (event) => { if (event.target.className === 'modal') cerrarModal(); }
+
+    // Inicio
+    cargarRifas();
+    actualizarInterfaz();
   </script>
 </body>
 </html>
