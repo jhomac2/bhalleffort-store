@@ -38,7 +38,7 @@
 
     .hero-banner {
       position: relative;
-      background: url('banner-ropa.jpg') center/cover no-repeat;
+      background: url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
       height: 400px;
       display: flex; align-items: center; justify-content: center; text-align: center; color: #fff;
     }
@@ -273,7 +273,6 @@
 
     function dibujarRopa() {
       const grid = document.getElementById('ropa-grid');
-      // FILTRO ÚNICO PARA ROPA
       const soloRopa = productosTotales.filter(p => p.cat === "ROPA");
       grid.innerHTML = soloRopa.map(p => `
         <div class="product-card" onclick="this.classList.toggle('flip')">
