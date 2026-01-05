@@ -61,12 +61,10 @@
     .product-image {width: 100%;height: 100%;object-fit: cover;transition: transform 0.5s ease, opacity 0.3s ease}
     .product-image.back {position: absolute;top: 0;left: 0;opacity: 0}
     
-    /* Efecto Hover para PC */
     @media (hover: hover) {
       .product-card:hover .product-image.front { opacity: 0; }
       .product-card:hover .product-image.back { opacity: 1; }
     }
-    /* Clase para alternar en Móvil/Clic */
     .product-card.flip .product-image.front { opacity: 0; }
     .product-card.flip .product-image.back { opacity: 1; }
 
@@ -90,17 +88,17 @@
     
     .guarantees{background:#fff;padding:30px 0;margin-top:20px}
     .flex-guarantees{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;text-align:center}
-    .guarantee-item{flex:1 1 200px}
+    .guarantee-item{flex:1 1 200px; padding: 10px;}
     .guarantee-item i {font-size: 24px; color: var(--morado); margin-bottom: 10px;}
 
     footer{background:var(--celeste);color:#000;font-size:13px;padding:30px 0}
     .footer-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+    .copyright-bar {text-align: center; padding: 15px 0; background: rgba(0,0,0,0.05); margin-top: 20px; font-weight: 600;}
     
     .cart-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000}
     .cart-modal>div{background:#fff;width:90%;max-width:480px;margin:60px auto;padding:15px;border-radius:8px;position:relative;display:flex;flex-direction:column;max-height:80vh}
     #cart-items{flex:1 1 auto;overflow-y:auto;margin-bottom:10px;border:1px solid #eee;border-radius:4px;padding:8px}
 
-    /* Modal Zoom */
     #zoom-modal{display:none; position:fixed; inset:0; background:rgba(0,0,0,0.95); z-index:5000; align-items:center; justify-content:center; flex-direction:column;}
     .zoom-content{position:relative; width:90%; max-width:450px; text-align:center;}
     #img-zoom{width:100%; border-radius:10px; box-shadow:0 0 25px rgba(255,255,255,0.2); object-fit: contain; max-height: 75vh;}
@@ -198,9 +196,24 @@
 
   <section class="guarantees">
     <div class="container flex-guarantees">
-      <div class="guarantee-item"><i class="fas fa-truck"></i><div><strong>ENVÍOS SEGUROS</strong><p>A todo el país</p></div></div>
-      <div class="guarantee-item"><i class="fas fa-lock"></i><div><strong>PAGO SEGURO</strong><p>Transferencia / Efectivo</p></div></div>
-      <div class="guarantee-item"><i class="fas fa-check-circle"></i><div><strong>CALIDAD</strong><p>Garantizada</p></div></div>
+      <div class="guarantee-item">
+        <i class="fas fa-truck"></i>
+        <div><strong>ENVÍOS SEGUROS</strong><p>A todo el país</p></div>
+      </div>
+      <div class="guarantee-item">
+        <i class="fas fa-shield-alt"></i>
+        <div>
+          <strong>VERIFICA TU PAGO</strong>
+          <p>Asegúrate de que el titular sea <strong>Jenifer Cachipuendo</strong>. Única cuenta oficial.</p>
+        </div>
+      </div>
+      <div class="guarantee-item">
+        <i class="fas fa-store"></i>
+        <div>
+          <strong>ESTILO PARA TODOS</strong>
+          <p>Productos nuevos y usados seleccionados al mejor precio.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -216,6 +229,9 @@
         <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/593963923399" target="_blank" style="color:inherit; text-decoration:none;">+593 963 923 399</a></p>
         <p><i class="fas fa-envelope"></i> agromhasvida5@gmail.com</p>
       </div>
+    </div>
+    <div class="copyright-bar">
+      &copy; 2026 BHALLEFFORT - Todos los derechos reservados.
     </div>
   </footer>
 
@@ -329,7 +345,8 @@
     }
 
     function actualizarBadge() {
-      document.getElementById('cart-badge').textContent = carrito.length;
+      const badge = document.getElementById('cart-badge');
+      if(badge) badge.textContent = carrito.length;
       const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
       const bEnvio = document.getElementById('banner-envio');
       const bSorteo = document.getElementById('banner-sorteo');
