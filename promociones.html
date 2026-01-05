@@ -273,12 +273,12 @@
 
     function dibujarPromos() {
       const grid = document.getElementById('promo-grid');
-      // Filtramos productos que pertenezcan a la categoría PROMOCIONES
       const soloPromos = productosTotales.filter(p => p.cat === "PROMOCIONES");
       
       grid.innerHTML = soloPromos.map(p => {
-        // Calculamos un precio anterior ficticio si no existe en el JSON para que visualmente se vea la oferta
-        const pAnterior = p.precioAnterior || (p.precio * 1.3).toFixed(2);
+        const tachado = (p.precioAnterior && p.precioAnterior > 0) 
+          ? `<span class="old-price">$${p.precioAnterior.toFixed(2)}</span>` 
+          : "";
         
         return `
         <div class="product-card" onclick="this.classList.toggle('flip')">
@@ -295,7 +295,7 @@
             <h4 class="product-name">${p.nombre}</h4>
             <p class="product-desc">${p.descripcion || 'Precio especial de liquidación.'}</p>
             <div class="price-box">
-                <span class="old-price">$${pAnterior}</span>
+                ${tachado} 
                 <span class="current-price">$${p.precio.toFixed(2)}</span>
             </div>
             <button class="btn-buy" onclick="event.stopPropagation(); addCart('${p.id}')">Añadir al carrito</button>
