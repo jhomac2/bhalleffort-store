@@ -124,6 +124,10 @@
     .search-item img{width:35px;height:35px;object-fit:cover;border-radius:3px}
 
     #noti-add{position:fixed;bottom:40px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:8px 14px;border-radius:4px;font-size:13px;z-index:9999;display:none}
+
+    /* MODAL CARRITO */
+    #cart-modal{display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:4000;}
+    #cart-modal > div {background:#fff; width:95%; max-width:450px; margin:50px auto; padding:20px; border-radius:12px; position:relative; box-shadow:0 10px 25px rgba(0,0,0,0.2);}
   </style>
 </head>
 <body>
@@ -197,11 +201,9 @@
   <section class="featured-products">
     <div class="container">
       <h2 class="section-title">🔥 MEJORES PROMOCIONES 🔥</h2>
-      
       <div class="ia-notice">
         📸 <strong>Aviso:</strong> La IA solo mejora el brillo, el producto final no varia.
       </div>
-
       <div class="products-grid-ten" id="index-grid"></div>
     </div>
   </section>
@@ -235,9 +237,7 @@
         <p><i class="fas fa-envelope"></i> agromhasvida5@gmail.com</p>
       </div>
     </div>
-    <div class="copyright-bar">
-      &copy; 2026 BHALLEFFORT - Todos los derechos reservados.
-    </div>
+    <div class="copyright-bar">&copy; 2026 BHALLEFFORT - Todos los derechos reservados.</div>
   </footer>
 
   <div id="zoom-modal">
@@ -249,6 +249,30 @@
               <button onclick="cambiarFotoZoom('trasera')" class="btn-z" style="background:var(--morado);">VER ESPALDA</button>
           </div>
       </div>
+  </div>
+
+  <div id="cart-modal">
+    <div>
+      <header style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #eee; padding-bottom:10px; margin-bottom:15px;">
+        <h3><i class="fas fa-shopping-cart"></i> Tu Pedido</h3>
+        <button onclick="document.getElementById('cart-modal').style.display='none'" style="background:none;border:none;font-size:24px;cursor:pointer">&times;</button>
+      </header>
+      <div id="cart-items" style="max-height:300px; overflow-y:auto;"></div>
+      <footer style="margin-top:20px; border-top:1px solid #eee; padding-top:15px;">
+        <div style="display:flex;justify-content:space-between;font-weight:bold; font-size:18px;">
+          <span>Total:</span><span id="cart-total">$0.00</span>
+        </div>
+        
+        <div style="text-align:center; padding:12px; border:1px solid #ffd700; background:#fffdf0; border-radius:8px; margin:15px 0; font-size:13px;">
+          <i class="fas fa-lock" style="color:var(--morado)"></i> <strong>DATOS PARA PAGO:</strong><br>
+          Transferencia a nombre de: <strong>Katherine Pineda</strong>.
+        </div>
+
+        <button onclick="finalizarCompraWA()" style="background:#25D366;color:#fff;border:none;padding:15px;border-radius:6px;cursor:pointer;width:100%; font-weight:700; font-size:16px;">
+          FINALIZAR COMPRA POR WHATSAPP 🐋
+        </button>
+      </footer>
+    </div>
   </div>
 
   <script>
@@ -268,7 +292,6 @@
     function dibujarIndex() {
       const grid = document.getElementById('index-grid');
       const soloPromos = productosTotales.filter(p => p.cat === "PROMOCIONES");
-      
       grid.innerHTML = soloPromos.map(p => `
         <div class="product-card" onclick="this.classList.toggle('flip')">
           <div class="product-image-container">
@@ -281,51 +304,14 @@
           <div class="product-info">
             <span class="product-category">${p.estado}</span>
             <h4 class="product-name">${p.nombre}</h4>
-            <p class="product-desc-short">${p.detalle || ''}</p>
             <div class="current-price">$${p.precio.toFixed(2)}</div>
-            <button class="btn-buy" onclick="event.stopPropagation(); addCart('${p.id}','${p.nombre}',${p.precio}, '${p.cat}')">Añadir al carrito</button>
+            <button class="btn-buy" onclick="event.stopPropagation(); addCart('${p.id}','${p.nombre}',${p.precio})">Añadir al carrito</button>
           </div>
         </div>`).join('');
     }
 
-    function abrirZoom(imgF, imgT) {
-        imgActualFrontal = imgF;
-        imgActualTrasera = imgT;
-        document.getElementById('img-zoom').src = imgF;
-        document.getElementById('zoom-modal').style.display = 'flex';
-    }
-
-    function cerrarZoom() {
-        document.getElementById('zoom-modal').style.display = 'none';
-    }
-
-    function cambiarFotoZoom(tipo) {
-        const img = document.getElementById('img-zoom');
-        img.src = (tipo === 'frontal') ? imgActualFrontal : imgActualTrasera;
-    }
-
-    document.getElementById('search-input').oninput = (e) => {
-      const val = e.target.value.toLowerCase();
-      const resDiv = document.getElementById('search-results');
-      if(!val) { resDiv.innerHTML = ''; return; }
-      const f = productosTotales.filter(p => p.nombre.toLowerCase().includes(val)).slice(0, 6);
-      resDiv.innerHTML = f.map(p => `
-        <div class="search-item" onclick="irACategoria('${p.cat}')">
-          <img src="${p.imgFrontal}">
-          <div>
-            <div style="font-size:13px; font-weight:600">${p.nombre}</div>
-            <div style="font-size:10px; color:var(--turquesa)">Ver en ${p.cat}</div>
-          </div>
-        </div>`).join('');
-    };
-
-    function irACategoria(cat) {
-      const paginas = { "ROPA": "ropa.html", "ZAPATOS": "zapatos.html", "VARIOS": "varios.html", "PROMOCIONES": "promociones.html", "RIFAS": "super-rifas.html" };
-      window.location.href = paginas[cat.toUpperCase()] || "index.html";
-    }
-
-    function addCart(id, nombre, precio, cat) {
-      carrito.push({id, nombre, precio, cat});
+    function addCart(id, nombre, precio) {
+      carrito.push({id, nombre, precio});
       localStorage.setItem('bh-cart', JSON.stringify(carrito));
       actualizarBadge();
       mostrarNoti(`✅ ${nombre} añadido`);
@@ -336,26 +322,52 @@
       if(badge) badge.textContent = carrito.length;
       const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
       const bEnvio = document.getElementById('banner-envio');
-      const bSorteo = document.getElementById('banner-sorteo');
       if(bEnvio) bEnvio.style.background = subTotal >= 50 ? '#25D366' : '#ff9800';
-      if(bSorteo) bSorteo.style.background = subTotal >= 30 ? '#25D366' : 'var(--morado)';
+    }
+
+    function mostrarModal() {
+      if(carrito.length === 0) { mostrarNoti("El carrito está vacío"); return; }
+      const items = document.getElementById('cart-items');
+      const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
+      const envio = (subTotal >= 50) ? 0 : 3.50;
+      
+      items.innerHTML = carrito.map((p, i) => `
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid #eee;">
+          <div>
+            <div style="font-weight:600; font-size:14px;">${p.nombre}</div>
+            <div style="color:var(--turquesa); font-weight:700;">$${p.precio.toFixed(2)}</div>
+          </div>
+          <button onclick="removeItem(${i})" style="color:#ff4444; border:none; background:none; cursor:pointer; font-size:18px;"><i class="fas fa-trash-alt"></i></button>
+        </div>`).join('');
+      
+      document.getElementById('cart-total').textContent = '$' + (subTotal + envio).toFixed(2);
+      document.getElementById('cart-modal').style.display = 'block';
+    }
+
+    function removeItem(i) {
+      carrito.splice(i, 1);
+      localStorage.setItem('bh-cart', JSON.stringify(carrito));
+      actualizarBadge();
+      if(carrito.length === 0) {
+          document.getElementById('cart-modal').style.display = 'none';
+      } else {
+          mostrarModal();
+      }
     }
 
     function finalizarCompraWA() {
-      if(carrito.length === 0) return;
       const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
-      const envio = (subTotal >= 50 || subTotal === 0) ? 0 : 3.50;
+      const envio = (subTotal >= 50) ? 0 : 3.50;
       const total = subTotal + envio;
       
       let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *NUEVO PEDIDO:*\n\n`;
-      carrito.forEach((p, idx) => { 
-          msg += `${idx + 1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; 
-      });
+      carrito.forEach((p, idx) => { msg += `${idx + 1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; });
       msg += `\n──────────────────\n`;
       msg += `💰 *Subtotal:* $${subTotal.toFixed(2)}\n`;
       msg += `🚚 *Envío:* $${envio.toFixed(2)}\n`;
       msg += `✅ *TOTAL A PAGAR: $${total.toFixed(2)}*\n`;
       msg += `──────────────────\n`;
+      msg += `⚠️ *RECUERDA:* El pago es a nombre de *Katherine Pineda*.\n`;
       if(subTotal >= 30) msg += `\n🎁 *RECLAMO MI BOLETO PARA LA RIFA*`;
       
       window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`, '_blank');
@@ -367,7 +379,16 @@
       setTimeout(() => n.style.display = 'none', 2000);
     }
 
-    document.getElementById('cart-icon').onclick = finalizarCompraWA;
+    // Funciones Zoom
+    function abrirZoom(imgF, imgT) {
+        imgActualFrontal = imgF; imgActualTrasera = imgT;
+        document.getElementById('img-zoom').src = imgF;
+        document.getElementById('zoom-modal').style.display = 'flex';
+    }
+    function cerrarZoom() { document.getElementById('zoom-modal').style.display = 'none'; }
+    function cambiarFotoZoom(tipo) { document.getElementById('img-zoom').src = (tipo === 'frontal') ? imgActualFrontal : imgActualTrasera; }
+
+    document.getElementById('cart-icon').onclick = mostrarModal;
     document.getElementById('btn-lupa').onclick = () => document.getElementById('search-modal').style.display='block';
 
     cargarDatos();
