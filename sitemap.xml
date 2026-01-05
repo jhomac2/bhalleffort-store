@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.bhalleffort.com/</loc><priority>1.0</priority></url>
-  <url><loc>https://www.bhalleffort.com/ropa.html</loc><priority>0.8</priority></url>
-  <url><loc>https://www.bhalleffort.com/zapatos.html</loc><priority>0.8</priority></url>
-  <url><loc>https://www.bhalleffort.com/contacto.html</loc><priority>0.5</priority></url>
+  <url>
+    <loc>https://www.bhalleffort.com/index.html</loc>
+    <priority>1.00</priority>
+  </url>
+  <url><loc>https://www.bhalleffort.com/ropa.html</loc><priority>0.80</priority></url>
+  <url><loc>https://www.bhalleffort.com/zapatos.html</loc><priority>0.80</priority></url>
+  <url><loc>https://www.bhalleffort.com/juguetes.html</loc><priority>0.70</priority></url>
+  <url><loc>https://www.bhalleffort.com/varios.html</loc><priority>0.70</priority></url>
+  <url><loc>https://www.bhalleffort.com/promociones.html</loc><priority>0.90</priority></url>
+  <url><loc>https://www.bhalleffort.com/quienes-somos.html</loc><priority>0.50</priority></url>
+  <url><loc>https://www.bhalleffort.com/contacto.html</loc><priority>0.60</priority></url>
+  <url><loc>https://www.bhalleffort.com/politicas.html</loc><priority>0.30</priority></url>
+  <url><loc>https://www.bhalleffort.com/cookies.html</loc><priority>0.30</priority></url>
+  <url><loc>https://www.bhalleffort.com/rifas.html</loc><priority>0.80</priority></url>
 </urlset>
