@@ -10,15 +10,13 @@
   <style>
     :root{--celeste:#87ceeb;--morado:#4c0d8c;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;--fondo:#eef2f7}
     *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',system-ui,Arial}
-    body{background:var(--fondo);color:var(--texto);line-height:1.6}
+    body{background:var(--fondo);color:var(--texto);line-height:1.6; padding-bottom: 60px;}
     img{max-width:100%;display:block}
     .container{width:90%;max-width:1200px;margin:auto}
     .flex-space{display:flex;align-items:center;justify-content:space-between}
     
-    /* Top Bar Igual */
-    .top-bar{background:var(--morado);color:#fff;font-size:13px;padding:4px 0;text-align:center}
+    .top-bar{background:var(--morado);color:#fff;font-size:13px;padding:6px 0;text-align:center;font-weight:600}
     
-    /* Header Igual con Logo 85px */
     .main-header{padding:15px 0;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.1)}
     .logo-section{display:flex;align-items:center;gap:15px}
     .whale-icon{width:85px; border:3px solid var(--morado); border-radius:50%; padding:2px; background:#fff}
@@ -30,36 +28,34 @@
     .btn-rifas{background:#ff6600}
     .btn-wa{background:#25d366}
 
-    /* Menu Igual */
     .main-nav{position:sticky;top:0;z-index:999;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
     .main-nav ul{list-style:none;display:flex;justify-content:center;flex-wrap:wrap}
     .main-nav a{color:var(--morado);padding:12px 15px;display:block;font-size:14px;text-decoration:none;font-weight:600}
     .main-nav a.active{background:var(--morado);color:#fff;border-radius:4px}
 
-    /* Iconos Flotantes Igual */
     #cart-icon { position: fixed; top: 15px; right: 15px; background: #fff; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.15); cursor: pointer; z-index: 1000; }
     #cart-badge { background: var(--turquesa); color: #fff; border-radius: 50%; padding: 2px 6px; font-size: 11px; position: absolute; top: 0px; right: 0px; }
     #btn-lupa { position: fixed; top: 75px; right: 15px; background: var(--turquesa); color: #fff; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 20px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.25); z-index: 1000; display: flex; align-items: center; justify-content: center; }
 
-    /* Secciones de Contacto - Mantenemos tu info */
     .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:30px; margin:40px 0}
-    .info-card{background:#fff; padding:30px; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.05)}
-    .info-card h2{color:var(--morado); margin-bottom:20px; border-bottom:2px solid var(--turquesa); display:inline-block}
+    .info-card{background:#fff; padding:30px; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.05); display:flex; flex-direction:column;}
+    .info-card h2{color:var(--morado); margin-bottom:20px; border-bottom:3px solid var(--turquesa); display:inline-block; padding-bottom:5px}
     .contact-item{display:flex; align-items:center; gap:15px; margin-bottom:20px}
-    .contact-item i{font-size:24px; color:var(--turquesa); width:30px}
+    .contact-item i{font-size:24px; color:var(--morado); width:30px; text-align:center}
     
-    .social-links{display:flex; gap:15px; margin-top:20px}
-    .social-links a{width:45px; height:45px; background:var(--morado); color:#fff; display:flex; align-items:center; justify-content:center; border-radius:50%; text-decoration:none; transition: 0.3s}
+    .social-links{display:flex; gap:15px; margin-top:10px}
+    .social-links a{width:45px; height:45px; background:var(--morado); color:#fff; display:flex; align-items:center; justify-content:center; border-radius:50%; text-decoration:none; transition: 0.3s; font-size:20px}
     .social-links a:hover{background:var(--turquesa); transform: translateY(-3px)}
 
-    .payment-security{background:#fff3cd; border:1px solid #ffeeba; padding:15px; border-radius:8px; margin-top:20px}
-    .map-container{width:100%; height:450px; border-radius:15px; overflow:hidden; box-shadow:0 4px 10px rgba(0,0,0,0.1); margin-bottom:50px}
+    .payment-security{background:#fff3cd; border:1px solid #ffeeba; padding:15px; border-radius:8px; margin-top:auto}
     
-    /* Footer y Banners Igual */
-    footer{background:var(--celeste); padding:30px 0; text-align:center; font-size:14px; margin-bottom:40px}
-    #banner-div{position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;z-index:999}
-    #banner-envio{flex:1;background:#25D366;color:#fff;text-align:center;padding:8px;font-size:14px}
-    #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:8px;font-size:14px}
+    .map-container{width:100%; height:400px; border-radius:15px; overflow:hidden; box-shadow:0 4px 10px rgba(0,0,0,0.1); margin-bottom:20px; background: #ddd;}
+    .btn-maps {background: var(--morado); color: white; text-align: center; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: 700; display: block; margin-bottom: 50px;}
+
+    footer{background:var(--celeste); padding:30px 0; text-align:center; font-size:14px;}
+    #banner-div{position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;z-index:999;box-shadow: 0 -2px 10px rgba(0,0,0,0.1)}
+    #banner-envio{flex:1;background:#25D366;color:#fff;text-align:center;padding:10px;font-size:14px;font-weight: 700;}
+    #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:10px;font-size:14px;font-weight: 700;}
 
     @media (max-width:768px){ .contact-grid{grid-template-columns:1fr} }
   </style>
@@ -67,11 +63,11 @@
 <body>
 
   <div id="cart-icon"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
-  <button id="btn-lupa" onclick="window.location.href='index.html'"><i class="fas fa-search"></i></button>
+  <button id="btn-lupa"><i class="fas fa-search"></i></button>
 
   <div id="banner-div">
-    <div id="banner-envio">🚚 Envío gratis desde $50</div>
-    <div id="banner-sorteo">🎉 ¡Participa en nuestras rifas!</div>
+    <div id="banner-envio">🚚 Envíos a todo el País</div>
+    <div id="banner-sorteo">🎉 ¡Participa en las Rifas!</div>
   </div>
 
   <div class="top-bar">"DIOS TE DA MÁS DE LO QUE PIDES"</div>
@@ -88,7 +84,7 @@
         </div>
       </a>
       <div class="dual-buttons">
-        <a href="super-rifas.html" class="btn-rifas">🎉 Rifas</a>
+        <a href="rifas.html" class="btn-rifas">🎉 Rifas</a>
         <a href="https://wa.me/593963923399" class="btn-wa">📱 WhatsApp</a>
       </div>
     </div>
@@ -112,17 +108,18 @@
         <h2>Atención al Cliente</h2>
         <div class="contact-item">
           <i class="fas fa-clock"></i>
-          <div><strong>Horario:</strong><br>8:00 AM - 9:00 PM</div>
+          <div><strong>Horario:</strong><br>Lunes a Domingo: 8:00 AM - 9:00 PM</div>
         </div>
         <div class="contact-item">
           <i class="fas fa-map-marker-alt"></i>
-          <div><strong>Ubicación:</strong><br>La Y de Tabacundo (Lado Panadería MATH´S)</div>
+          <div><strong>Punto de Entrega:</strong><br>La Y de Tabacundo (Junto a Panadería MATH´S)</div>
         </div>
         <div class="contact-item">
           <i class="fab fa-whatsapp"></i>
-          <div><strong>WhatsApp:</strong><br>+593 96 392 3399</div>
+          <div><strong>WhatsApp Oficial:</strong><br>+593 96 392 3399</div>
         </div>
-        <h3>Síguenos en Redes</h3>
+        
+        <h3 style="margin-top:10px; font-size:16px; color:var(--morado)">Redes Sociales:</h3>
         <div class="social-links">
           <a href="https://www.tiktok.com/@bhalleffort" target="_blank"><i class="fab fa-tiktok"></i></a>
           <a href="https://www.facebook.com/share/17jG7haojA/" target="_blank"><i class="fab fa-facebook"></i></a>
@@ -134,23 +131,33 @@
         <h2>Pagos y Envíos</h2>
         <p>Aceptamos los siguientes métodos:</p>
         <ul style="margin:15px 0; list-style:none">
-          <li>✅ Efectivo (Entregas personales)</li>
-          <li>✅ Transferencias Bancarias (Pichincha)</li>
+          <li>✅ Efectivo (En puntos de entrega)</li>
+          <li>✅ Transferencias Directas</li>
+          <li>✅ Depósitos</li>
         </ul>
-        <div class="payment-security">
-          <p style="font-size:12px; color:#856404; font-weight:600">
-            <i class="fas fa-user-shield"></i> SEGURIDAD:
-          </p>
-          <p style="font-size:12px; margin-top:5px">Solicita los datos de cuenta directamente por WhatsApp al confirmar tu pedido para garantizar una compra segura.</p>
+        
+        <div class="contact-item" style="margin-top:15px">
+            <i class="fas fa-truck"></i>
+            <div><strong>Envíos Nacionales:</strong><br>Por Servientrega, Enetsa o Cooperativas de transporte.</div>
         </div>
-        <button onclick="window.location.href='https://wa.me/593963923399'" class="btn-wa" style="display:block; width:100%; margin-top:20px; text-align:center">PEDIR DATOS DE PAGO</button>
+
+        <div class="payment-security">
+          <p style="font-size:12px; color:#856404; font-weight:700; margin-bottom:5px">
+            <i class="fas fa-shield-alt"></i> SEGURIDAD:
+          </p>
+          <p style="font-size:12px">Los datos detallados de pago se entregan por WhatsApp al confirmar tu pedido. Titular de confianza: <strong>Katherine Pineda</strong>.</p>
+        </div>
+        <a href="https://wa.me/593963923399" class="btn-wa" style="display:block; width:100%; margin-top:20px; text-align:center; text-decoration:none">PEDIR DATOS POR WHATSAPP</a>
       </div>
     </div>
 
-    <h2 style="text-align:center; margin-bottom:20px; color:var(--morado)">NUESTRA UBICACIÓN EXACTA</h2>
+    <h2 style="text-align:center; margin-bottom:20px; color:var(--morado); text-transform: uppercase;">Ubicación Exacta</h2>
     <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.431525287349!2d-78.2148784!3d0.1130638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2a0950338787f7%3A0xc6d371427a14e666!2sTabacundo%2C%20Ecuador!5e0!3m2!1ses!2s!4v1700000000000!5m2!1ses!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15958.85233158434!2d-78.2215287!3d0.1215287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2a0f8b1c1c1c1c%3A0x1c1c1c1c1c1c1c1c!2sTabacundo%2C%20Ecuador!5e0!3m2!1ses!2sec!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
+    <a href="https://maps.app.goo.gl/uX3LhR8v1mE7uD5X8" target="_blank" class="btn-maps">
+        <i class="fas fa-directions"></i> CÓMO LLEGAR (GOOGLE MAPS)
+    </a>
   </div>
 
   <footer>
@@ -164,10 +171,9 @@
     let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
     document.getElementById('cart-badge').textContent = carrito.length;
     
-    // Abrir carrito (redirige a index para ver el modal)
-    document.getElementById('cart-icon').onclick = () => {
-      window.location.href = 'index.html';
-    };
+    // La lupa y el carrito redirigen al index para usar su buscador y modal
+    document.getElementById('cart-icon').onclick = () => window.location.href = 'index.html';
+    document.getElementById('btn-lupa').onclick = () => window.location.href = 'index.html';
   </script>
 </body>
 </html>
