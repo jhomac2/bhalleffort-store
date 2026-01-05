@@ -56,16 +56,7 @@
     .featured-products{padding:40px 0}
     .section-title{text-align:center;margin-bottom:10px;font-size:26px;color:var(--morado);text-transform:uppercase}
     
-    .ia-notice {
-      text-align: center;
-      background: #fdf6e3;
-      border: 1px dashed #d3af37;
-      padding: 10px;
-      margin-bottom: 30px;
-      border-radius: 8px;
-      font-size: 13px;
-      color: #856404;
-    }
+    .ia-notice { text-align: center; background: #fdf6e3; border: 1px dashed #d3af37; padding: 10px; margin-bottom: 30px; border-radius: 8px; font-size: 13px; color: #856404; }
 
     .products-grid-ten{display:grid;gap:15px;grid-template-columns:repeat(5,1fr);max-width:1100px;margin:auto}
     .product-card{background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);display:flex;flex-direction:column;overflow:hidden;cursor:pointer}
@@ -80,17 +71,11 @@
     .product-card.flip .product-image.front { opacity: 0; }
     .product-card.flip .product-image.back { opacity: 1; }
 
-    .lupa-zoom-icon {
-      position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,0.8);
-      color: var(--morado); width: 35px; height: 35px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center; font-size: 16px;
-      z-index: 10; box-shadow: 0 2px 5px rgba(0,0,0,0.2); transition: 0.3s;
-    }
+    .lupa-zoom-icon { position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,0.8); color: var(--morado); width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; z-index: 10; box-shadow: 0 2px 5px rgba(0,0,0,0.2); transition: 0.3s; }
 
     .product-info{padding:12px;display:flex;flex-direction:column;flex:1}
     .product-category{font-size:11px;color:#777;font-weight:700;text-transform:uppercase}
     .product-name{font-size:15px;margin:4px 0;line-height:1.2;font-weight:600}
-    .product-desc-short{font-size:11px;color:#666;height:32px;overflow:hidden;margin-bottom:5px}
     .current-price{font-weight:700;color:var(--turquesa);font-size:18px}
     .btn-buy{background:var(--turquesa);color:#fff;border:none;padding:10px;border-radius:4px;cursor:pointer;margin-top:auto;font-weight:600}
     
@@ -113,8 +98,8 @@
     .btn-z{padding:12px 25px; border-radius:25px; border:none; cursor:pointer; font-weight:700; color:white; font-size:14px;}
 
     #banner-div{position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;box-shadow:0 -2px 5px rgba(0,0,0,.1);z-index:999}
-    #banner-envio{flex:1;background:#25D366;color:#fff;text-align:center;padding:8px;font-size:14px}
-    #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:8px;font-size:14px}
+    #banner-envio{flex:1;background:#ff9800;color:#fff;text-align:center;padding:8px;font-size:14px;transition:0.3s;}
+    #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:8px;font-size:14px;transition:0.3s;}
     
     #search-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:3000}
     #search-modal>div{background:#fff;width:90%;max-width:400px;margin:80px auto;padding:15px;border-radius:8px;position:relative}
@@ -125,7 +110,6 @@
 
     #noti-add{position:fixed;bottom:40px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:8px 14px;border-radius:4px;font-size:13px;z-index:9999;display:none}
 
-    /* MODAL CARRITO */
     #cart-modal{display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:4000;}
     #cart-modal > div {background:#fff; width:95%; max-width:450px; margin:50px auto; padding:20px; border-radius:12px; position:relative; box-shadow:0 10px 25px rgba(0,0,0,0.2);}
   </style>
@@ -201,9 +185,7 @@
   <section class="featured-products">
     <div class="container">
       <h2 class="section-title">🔥 MEJORES PROMOCIONES 🔥</h2>
-      <div class="ia-notice">
-        📸 <strong>Aviso:</strong> La IA solo mejora el brillo, el producto final no varia.
-      </div>
+      <div class="ia-notice">📸 <strong>Aviso:</strong> La IA solo mejora el brillo, el producto final no varia.</div>
       <div class="products-grid-ten" id="index-grid"></div>
     </div>
   </section>
@@ -217,8 +199,8 @@
       <div class="guarantee-item">
         <i class="fas fa-store"></i>
         <div>
-          <strong>VENDE CON NOSOTROS</strong>
-          <p>¿Quieres vender tus productos aquí? <a href="https://wa.me/593963923399" target="_blank" style="color:var(--morado); font-weight:700;">Contáctanos hoy mismo.</a></p>
+          <strong>CALIDAD GARANTIZADA</strong>
+          <p>Encuentra productos nuevos y usados. ¿Quieres vender aquí? <a href="https://wa.me/593963923399" target="_blank" style="color:var(--morado); font-weight:700;">Contáctanos hoy.</a></p>
         </div>
       </div>
     </div>
@@ -237,7 +219,7 @@
         <p><i class="fas fa-envelope"></i> agromhasvida5@gmail.com</p>
       </div>
     </div>
-    <div class="copyright-bar">&copy; 2026 BHALLEFFORT - Todos los derechos reservados.</div>
+    <div class="copyright-bar">&copy; 2026 BHALLEFFORT</div>
   </footer>
 
   <div id="zoom-modal">
@@ -262,12 +244,10 @@
         <div style="display:flex;justify-content:space-between;font-weight:bold; font-size:18px;">
           <span>Total:</span><span id="cart-total">$0.00</span>
         </div>
-        
         <div style="text-align:center; padding:12px; border:1px solid #ffd700; background:#fffdf0; border-radius:8px; margin:15px 0; font-size:13px;">
           <i class="fas fa-lock" style="color:var(--morado)"></i> <strong>DATOS PARA PAGO:</strong><br>
-          Transferencia a nombre de: <strong>Katherine Pineda</strong>.
+          Unica cuenta oficial para pagos a nombre de: <strong>Katherine Pineda</strong>.
         </div>
-
         <button onclick="finalizarCompraWA()" style="background:#25D366;color:#fff;border:none;padding:15px;border-radius:6px;cursor:pointer;width:100%; font-weight:700; font-size:16px;">
           FINALIZAR COMPRA POR WHATSAPP 🐋
         </button>
@@ -305,13 +285,13 @@
             <span class="product-category">${p.estado}</span>
             <h4 class="product-name">${p.nombre}</h4>
             <div class="current-price">$${p.precio.toFixed(2)}</div>
-            <button class="btn-buy" onclick="event.stopPropagation(); addCart('${p.id}','${p.nombre}',${p.precio})">Añadir al carrito</button>
+            <button class="btn-buy" onclick="event.stopPropagation(); addCart('${p.id}','${p.nombre}',${p.precio}, '${p.cat}')">Añadir al carrito</button>
           </div>
         </div>`).join('');
     }
 
-    function addCart(id, nombre, precio) {
-      carrito.push({id, nombre, precio});
+    function addCart(id, nombre, precio, cat) {
+      carrito.push({id, nombre, precio, cat});
       localStorage.setItem('bh-cart', JSON.stringify(carrito));
       actualizarBadge();
       mostrarNoti(`✅ ${nombre} añadido`);
@@ -322,7 +302,9 @@
       if(badge) badge.textContent = carrito.length;
       const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
       const bEnvio = document.getElementById('banner-envio');
+      const bSorteo = document.getElementById('banner-sorteo');
       if(bEnvio) bEnvio.style.background = subTotal >= 50 ? '#25D366' : '#ff9800';
+      if(bSorteo) bSorteo.style.background = subTotal >= 30 ? '#25D366' : 'var(--morado)';
     }
 
     function mostrarModal() {
@@ -330,16 +312,11 @@
       const items = document.getElementById('cart-items');
       const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
       const envio = (subTotal >= 50) ? 0 : 3.50;
-      
       items.innerHTML = carrito.map((p, i) => `
         <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid #eee;">
-          <div>
-            <div style="font-weight:600; font-size:14px;">${p.nombre}</div>
-            <div style="color:var(--turquesa); font-weight:700;">$${p.precio.toFixed(2)}</div>
-          </div>
-          <button onclick="removeItem(${i})" style="color:#ff4444; border:none; background:none; cursor:pointer; font-size:18px;"><i class="fas fa-trash-alt"></i></button>
+          <div><div style="font-weight:600; font-size:14px;">${p.nombre}</div><div style="color:var(--turquesa);">$${p.precio.toFixed(2)}</div></div>
+          <button onclick="removeItem(${i})" style="color:#ff4444; border:none; background:none; cursor:pointer;"><i class="fas fa-trash-alt"></i></button>
         </div>`).join('');
-      
       document.getElementById('cart-total').textContent = '$' + (subTotal + envio).toFixed(2);
       document.getElementById('cart-modal').style.display = 'block';
     }
@@ -348,38 +325,32 @@
       carrito.splice(i, 1);
       localStorage.setItem('bh-cart', JSON.stringify(carrito));
       actualizarBadge();
-      if(carrito.length === 0) {
-          document.getElementById('cart-modal').style.display = 'none';
-      } else {
-          mostrarModal();
-      }
+      carrito.length === 0 ? document.getElementById('cart-modal').style.display = 'none' : mostrarModal();
     }
 
     function finalizarCompraWA() {
       const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
       const envio = (subTotal >= 50) ? 0 : 3.50;
-      const total = subTotal + envio;
-      
       let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *NUEVO PEDIDO:*\n\n`;
       carrito.forEach((p, idx) => { msg += `${idx + 1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; });
-      msg += `\n──────────────────\n`;
-      msg += `💰 *Subtotal:* $${subTotal.toFixed(2)}\n`;
-      msg += `🚚 *Envío:* $${envio.toFixed(2)}\n`;
-      msg += `✅ *TOTAL A PAGAR: $${total.toFixed(2)}*\n`;
-      msg += `──────────────────\n`;
-      msg += `⚠️ *RECUERDA:* El pago es a nombre de *Katherine Pineda*.\n`;
-      if(subTotal >= 30) msg += `\n🎁 *RECLAMO MI BOLETO PARA LA RIFA*`;
-      
+      msg += `\n──────────────────\n💰 *Subtotal:* $${subTotal.toFixed(2)}\n🚚 *Envío:* $${envio.toFixed(2)}\n✅ *TOTAL: $${(subTotal + envio).toFixed(2)}*\n──────────────────\n`;
+      msg += `⚠️ *RECUERDA:* Pago a nombre de *Katherine Pineda*.\n`;
+      if(subTotal >= 30) msg += `\n🎁 *DAME MI NÚMERO PARA LA RIFA*`;
       window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
-    function mostrarNoti(t) {
-      const n = document.getElementById('noti-add');
-      n.textContent = t; n.style.display = 'block';
-      setTimeout(() => n.style.display = 'none', 2000);
-    }
+    document.getElementById('search-input').oninput = (e) => {
+      const val = e.target.value.toLowerCase();
+      const resDiv = document.getElementById('search-results');
+      if(!val) { resDiv.innerHTML = ''; return; }
+      const f = productosTotales.filter(p => p.nombre.toLowerCase().includes(val)).slice(0, 6);
+      resDiv.innerHTML = f.map(p => `
+        <div class="search-item" onclick="window.location.href='${p.cat.toLowerCase()}.html'">
+          <img src="${p.imgFrontal}">
+          <div><div style="font-size:13px; font-weight:600">${p.nombre}</div><div style="font-size:10px; color:var(--turquesa)">Ver en ${p.cat}</div></div>
+        </div>`).join('');
+    };
 
-    // Funciones Zoom
     function abrirZoom(imgF, imgT) {
         imgActualFrontal = imgF; imgActualTrasera = imgT;
         document.getElementById('img-zoom').src = imgF;
@@ -387,6 +358,7 @@
     }
     function cerrarZoom() { document.getElementById('zoom-modal').style.display = 'none'; }
     function cambiarFotoZoom(tipo) { document.getElementById('img-zoom').src = (tipo === 'frontal') ? imgActualFrontal : imgActualTrasera; }
+    function mostrarNoti(t) { const n = document.getElementById('noti-add'); n.textContent = t; n.style.display = 'block'; setTimeout(() => n.style.display = 'none', 2000); }
 
     document.getElementById('cart-icon').onclick = mostrarModal;
     document.getElementById('btn-lupa').onclick = () => document.getElementById('search-modal').style.display='block';
