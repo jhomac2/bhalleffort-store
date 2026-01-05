@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <title>QUIÉNES SOMOS | BHALLEFFORT</title>
   <meta name="description" content="Tienda oficial de BHALLEFFORT. Encuentra la mejor ropa, zapatos y accesorios en Tabacundo con envíos a todo Ecuador. ¡Calidad al mejor precio!">
-<meta name="keywords" content="BHALLEFFORT, ropa Tabacundo, zapatos Ecuador, Katherine Pineda, tienda de ropa, rifas Ecuador">
-<meta name="author" content="Jhomac²">
-<link rel="canonical" href="https://www.bhalleffort.com/">
+  <meta name="keywords" content="BHALLEFFORT, ropa Tabacundo, zapatos Ecuador, Katherine Pineda, tienda de ropa, rifas Ecuador">
+  <meta name="author" content="Jhomac²">
+  <link rel="canonical" href="https://www.bhalleffort.com/quienes-somos.html">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="https://jhomac2.github.io/bhalleffort-store/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -14,7 +14,7 @@
   <style>
     :root{--celeste:#87ceeb;--morado:#4c0d8c;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;--fondo:#eef2f7}
     *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',system-ui,Arial}
-    body{background:var(--fondo);color:var(--texto);line-height:1.6; padding-bottom: 60px;}
+    body{background:var(--fondo);color:var(--texto);line-height:1.6; padding-bottom: 80px;}
     img{max-width:100%;display:block}
     .container{width:90%;max-width:1200px;margin:auto}
     .flex-space{display:flex;align-items:center;justify-content:space-between}
@@ -60,7 +60,7 @@
 
     footer{background:var(--celeste); padding:30px 0; text-align:center; font-size:14px;}
     #banner-div{position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;z-index:999;box-shadow: 0 -2px 10px rgba(0,0,0,0.1)}
-    #banner-envio{flex:1;background:#25D366;color:#fff;text-align:center;padding:10px;font-size:14px;font-weight: 700;}
+    #banner-envio{flex:1;background:#ff9800;color:#fff;text-align:center;padding:10px;font-size:14px;font-weight: 700;}
     #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:10px;font-size:14px;font-weight: 700;}
   </style>
 </head>
@@ -97,7 +97,7 @@
   <button id="btn-lupa"><i class="fas fa-search"></i></button>
 
   <div id="banner-div">
-    <div id="banner-envio">🚚 Envíos a todo el País</div>
+    <div id="banner-envio">🚚 Envío Gratis desde $50</div>
     <div id="banner-sorteo">🎉 ¡Participa en las Rifas!</div>
   </div>
 
@@ -155,7 +155,7 @@
     <div class="warning-box">
       <h3><i class="fas fa-shield-alt"></i> COMPRA SEGURA</h3>
       <p>Valoramos el trato humano. Cerramos cada venta de forma <strong>manual por WhatsApp</strong> para asegurar que elijas la talla correcta.</p>
-      <p style="margin-top:10px; font-weight:700;">IMPORTANTE: Solo entregamos datos bancarios por nuestro chat oficial. No usamos pagos automáticos por tu seguridad.</p>
+      <p style="margin-top:10px; font-weight:700;">Única cuenta oficial para pagos a nombre de: Katherine Pineda.</p>
     </div>
 
     <section class="section-white">
@@ -179,9 +179,9 @@
   <footer>
     <div class="container">
       <div style="margin-bottom: 15px; display: flex; justify-content: center; gap: 20px;">
-  <a href="cookies.html" style="color: #000; text-decoration: none; font-size: 12px; opacity: 0.7;">Política de Cookies</a>
-  <a href="politicas.html" style="color: #000; text-decoration: none; font-size: 12px; opacity: 0.7;">Políticas de Privacidad y Envíos</a>
-</div>
+        <a href="cookies.html" style="color: #000; text-decoration: none; font-size: 12px; opacity: 0.7;">Política de Cookies</a>
+        <a href="politicas.html" style="color: #000; text-decoration: none; font-size: 12px; opacity: 0.7;">Políticas de Privacidad y Envíos</a>
+      </div>
       <p>© 2026 BHALLEFFORT | Diseñado por Jhomac²</p>
       <p style="opacity:0.8">"Dios te da más de lo que pides"</p>
     </div>
@@ -202,6 +202,13 @@
     function actualizarBadge() {
       const badge = document.getElementById('cart-badge');
       if(badge) badge.textContent = carrito.length;
+      
+      const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
+      const bEnvio = document.getElementById('banner-envio');
+      if(bEnvio) {
+          bEnvio.textContent = subTotal >= 50 ? "✅ ¡Envío Gratis Aplicado!" : "🚚 Envío Gratis desde $50";
+          bEnvio.style.background = subTotal >= 50 ? "#25D366" : "#ff9800";
+      }
     }
 
     function mostrarModalCarrito() {
@@ -225,7 +232,7 @@
     }
 
     function finalizarCompraWA() {
-      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *MI PEDIDO:*\n\n`;
+      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *PEDIDO DESDE QUIÉNES SOMOS:*\n\n`;
       carrito.forEach((p, idx) => { msg += `${idx + 1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; });
       msg += `\n✅ *TOTAL: $${carrito.reduce((s, i) => s + i.precio, 0).toFixed(2)}*`;
       window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`, '_blank');
@@ -237,9 +244,9 @@
       if(!val) { resDiv.innerHTML = ''; return; }
       const f = productosTotales.filter(p => p.nombre.toLowerCase().includes(val)).slice(0, 6);
       resDiv.innerHTML = f.map(p => `
-        <div class="search-item" onclick="window.location.href='${p.cat.toLowerCase()}.html'">
+        <div class="search-item" onclick="window.location.href='index.html'">
           <img src="${p.imgFrontal}">
-          <div><div style="font-size:13px; font-weight:600">${p.nombre}</div><div style="font-size:10px; color:var(--turquesa)">Ver en ${p.cat}</div></div>
+          <div><div style="font-size:13px; font-weight:600">${p.nombre}</div><div style="font-size:10px; color:var(--turquesa)">Ver producto</div></div>
         </div>`).join('');
     };
 
@@ -250,5 +257,3 @@
   </script>
 </body>
 </html>
-
-
