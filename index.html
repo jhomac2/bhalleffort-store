@@ -89,7 +89,7 @@
     }
 
     .product-info{padding:12px;display:flex;flex-direction:column;flex:1}
-    .product-category{font-size:11px;color:#777}
+    .product-category{font-size:11px;color:#777;font-weight:700;text-transform:uppercase}
     .product-name{font-size:15px;margin:4px 0;line-height:1.2;font-weight:600}
     .product-desc-short{font-size:11px;color:#666;height:32px;overflow:hidden;margin-bottom:5px}
     .current-price{font-weight:700;color:var(--turquesa);font-size:18px}
@@ -200,7 +200,7 @@
       <h2 class="section-title">🔥 MEJORES PROMOCIONES 🔥</h2>
       
       <div class="ia-notice">
-        📸 <strong>Aviso:</strong> Fotos mejoradas con IA. Solicita la imagen real de cualquier producto por interno.
+        📸 <strong>Aviso:</strong> La IA solo mejora el brillo, el producto final no varia.
       </div>
 
       <div class="products-grid-ten" id="index-grid"></div>
@@ -212,13 +212,6 @@
       <div class="guarantee-item">
         <i class="fas fa-truck"></i>
         <div><strong>ENVÍOS SEGUROS</strong><p>A todo el país</p></div>
-      </div>
-      <div class="guarantee-item">
-        <i class="fas fa-lock"></i>
-        <div>
-          <strong>VERIFICA TU PAGO</strong>
-          <p>Asegúrate que el titular sea <strong>Katherine Pineda</strong>. Única cuenta oficial.</p>
-        </div>
       </div>
       <div class="guarantee-item">
         <i class="fas fa-store"></i>
@@ -260,17 +253,23 @@
   </div>
 
   <div id="cart-modal" class="cart-modal">
-    <div>
+    <div style="background:#fff; width:90%; max-width:400px; margin:50px auto; padding:20px; border-radius:8px; position:relative;">
       <header style="display:flex; justify-content:space-between; align-items:center;">
         <h3><i class="fas fa-shopping-cart"></i> Tu Pedido</h3>
-        <button onclick="document.getElementById('cart-modal').style.display='none'" style="background:none;border:none;font-size:20px;cursor:pointer">&times;</button>
+        <button onclick="document.getElementById('cart-modal').style.display='none'" style="background:none;border:none;font-size:24px;cursor:pointer">&times;</button>
       </header>
       <div id="cart-items"></div>
       <footer>
-        <div style="display:flex;justify-content:space-between;font-weight:bold">
+        <div style="display:flex;justify-content:space-between;font-weight:bold; margin-top:10px;">
           <span>Total:</span><span id="cart-total">$0.00</span>
         </div>
-        <button id="btn-wa-cart" style="background:#25D366;color:#fff;border:none;padding:10px;border-radius:4px;cursor:pointer;margin-top:10px;width:100%">
+        
+        <div style="text-align:center; padding:10px; border:1px solid #eee; border-radius:5px; margin:15px 0; font-size:12px;">
+          <i class="fas fa-lock" style="color:var(--morado)"></i> <strong>VERIFICA TU PAGO:</strong><br>
+          Asegúrate que el titular sea <strong>Katherine Pineda</strong>. Única cuenta oficial.
+        </div>
+
+        <button id="btn-wa-cart" style="background:#25D366;color:#fff;border:none;padding:12px;border-radius:4px;cursor:pointer;width:100%; font-weight:700">
           Enviar pedido por WhatsApp 🐋
         </button>
       </footer>
@@ -305,7 +304,7 @@
             <img src="${p.imgTrasera || p.imgFrontal}" class="product-image back">
           </div>
           <div class="product-info">
-            <span class="product-category">${p.cat}</span>
+            <span class="product-category">${p.estado}</span>
             <h4 class="product-name">${p.nombre}</h4>
             <p class="product-desc-short">${p.detalle || ''}</p>
             <div class="current-price">$${p.precio.toFixed(2)}</div>
