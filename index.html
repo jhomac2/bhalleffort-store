@@ -230,15 +230,12 @@
         <h3><i class="fas fa-shopping-cart"></i> Tu Pedido</h3>
         <button onclick="document.getElementById('cart-modal').style.display='none'" style="background:none;border:none;font-size:24px;cursor:pointer">&times;</button>
       </header>
-      
       <div id="cart-items" style="max-height:300px; overflow-y:auto;"></div>
-      
       <footer style="margin-top:20px; border-top:1px solid #eee; padding-top:15px;">
-        <div style="background:#fff3cd; color:#856404; padding:12px; border-radius:8px; font-size:13px; margin-bottom:15px; border:1px solid #ffeeba; text-align:left;">
-          <i class="fas fa-shield-alt"></i> <strong>DATOS PARA PAGO:</strong><br>
-          Única cuenta oficial para pagos a nombre de: <strong>Katherine Pineda</strong>.
+        <div style="background:#fff3cd; color:#856404; padding:12px; border-radius:8px; font-size:13px; margin-bottom:15px; border:1px solid #ffeeba;">
+          <i class="fas fa-shield-alt"></i> <strong>PAGO SEGURO:</strong><br>
+          Cuentas oficiales a nombre de: <strong>Katherine Pineda</strong>.
         </div>
-
         <div style="display:flex;justify-content:space-between;font-weight:bold; font-size:18px;">
           <span>Total:</span><span id="cart-total">$0.00</span>
         </div>
@@ -347,16 +344,26 @@
       window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
+    // BUSCADOR CORREGIDO PARA REDIRIGIR POR CATEGORÍA
     document.getElementById('search-input').oninput = (e) => {
       const val = e.target.value.toLowerCase();
       const resDiv = document.getElementById('search-results');
       if(!val) { resDiv.innerHTML = ''; return; }
       const f = productosTotales.filter(p => p.nombre.toLowerCase().includes(val)).slice(0, 6);
-      resDiv.innerHTML = f.map(p => `
-        <div class="search-item" onclick="window.location.href='index.html'">
+      resDiv.innerHTML = f.map(p => {
+        let link = "index.html";
+        if(p.cat === "ropa") link = "ropa.html";
+        else if(p.cat === "zapatos") link = "zapatos.html";
+        else if(p.cat === "varios") link = "varios.html";
+        return `
+        <div class="search-item" onclick="window.location.href='${link}'">
           <img src="${p.imgFrontal}">
-          <div><div style="font-size:13px; font-weight:600">${p.nombre}</div><div style="font-size:10px; color:var(--turquesa)">Ver producto</div></div>
-        </div>`).join('');
+          <div>
+            <div style="font-size:13px; font-weight:600">${p.nombre}</div>
+            <div style="font-size:10px; color:var(--turquesa)">Ir a sección ${p.cat.toUpperCase()}</div>
+          </div>
+        </div>`;
+      }).join('');
     };
 
     function abrirZoom(imgF, imgT) {
