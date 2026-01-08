@@ -3,10 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>BHALLEFFORT | Tienda Oficial - Calidad al mejor precio</title>
-  <meta name="description" content="Tienda oficial de BHALLEFFORT. Encuentra la mejor ropa, zapatos y accesorios en Tabacundo con envíos a todo Ecuador. ¡Calidad al mejor precio!">
-  <meta name="keywords" content="BHALLEFFORT, ropa Tabacundo, zapatos Ecuador, Katherine Pineda, tienda de ropa, rifas Ecuador">
-  <meta name="author" content="Jhomac²">
-  <link rel="canonical" href="https://www.bhalleffort.com/">
+  <meta name="description" content="Tienda oficial de BHALLEFFORT. Encuentra la mejor ropa, zapatos y accesorios en Tabacundo con envíos a todo Ecuador.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="https://jhomac2.github.io/bhalleffort-store/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -145,7 +142,7 @@
         <a href="https://www.facebook.com/share/17jG7haojA/" target="_blank"><i class="fab fa-facebook"></i></a>
         <a href="https://www.instagram.com/bhalleffort" target="_blank"><i class="fab fa-instagram"></i></a>
       </div>
-      <div>DIOS TE DA MÁS DE LO QUE PIDES</div>
+      <div><i class="fas fa-star"></i> DIOS TE DA MÁS DE LO QUE PIDES</div>
     </div>
   </div>
 
@@ -182,7 +179,7 @@
   <section class="hero-banner">
     <div>
       <h1>BIENVENIDOS A BHALLEFFORT</h1>
-      <p>Moda y Calidad desde Tabacundo para todo el Ecuador</p>
+      <p>Calidad al mejor precio para todo el Ecuador</p>
     </div>
   </section>
 
@@ -198,14 +195,11 @@
     <div class="container flex-guarantees">
       <div class="guarantee-item">
         <i class="fas fa-truck"></i>
-        <div><strong>ENVÍOS SEGUROS</strong><p>A todo el país</p></div>
+        <div><strong>ENVÍOS SEGUROS</strong><p>A todo el país desde Tabacundo</p></div>
       </div>
       <div class="guarantee-item">
         <i class="fas fa-store"></i>
-        <div>
-          <strong>CALIDAD GARANTIZADA</strong>
-          <p>Encuentra productos nuevos y usados.</p>
-        </div>
+        <div><strong>CALIDAD GARANTIZADA</strong><p>Productos seleccionados bajo altos estándares.</p></div>
       </div>
     </div>
   </section>
@@ -215,10 +209,12 @@
       <div>
         <img src="logo-ballena.png" alt="Ballena" width="60">
         <p>Diseñado por Jhomac²</p>
+        <div style="font-size: 11px; opacity: 0.7;">Dios te da más de lo que pides.</div>
       </div>
       <div class="footer-contact">
         <h3>CONTÁCTANOS</h3>
         <p><i class="fab fa-whatsapp"></i> +593 963 923 399</p>
+        <p><i class="fas fa-envelope"></i> agromhasvida5@gmail.com</p>
       </div>
     </div>
     <div class="copyright-bar">&copy; 2026 BHALLEFFORT</div>
@@ -272,6 +268,7 @@
 
     function dibujarIndex() {
       const grid = document.getElementById('index-grid');
+      // Muestra una mezcla de productos destacados (primeros 10 del JSON)
       const destacados = productosTotales.slice(0, 10);
       grid.innerHTML = destacados.map(p => `
         <div class="product-card" onclick="this.classList.toggle('flip')">
@@ -344,23 +341,17 @@
       const val = e.target.value.toLowerCase();
       const resDiv = document.getElementById('search-results');
       if(!val) { resDiv.innerHTML = ''; return; }
-      
       const f = productosTotales.filter(p => p.nombre.toLowerCase().includes(val)).slice(0, 6);
       resDiv.innerHTML = f.map(p => {
-        let catUrl = "";
-        const c = p.cat.toUpperCase();
-        // Lógica de redirección total
-        if(c === "ROPA") catUrl = "ropa.html";
-        else if(c === "ZAPATOS") catUrl = "zapatos.html";
-        else if(c === "RIFAS") catUrl = "rifas.html";
-        else catUrl = "varios.html";
-
-        return `<div class="search-item" onclick="window.location.href='${catUrl}'">
+        // Redirección inteligente basada en la categoría
+        let destino = p.cat.toLowerCase() + '.html';
+        if(p.cat.toUpperCase() === 'RIFAS') destino = 'rifas.html';
+        if(p.cat.toUpperCase() === 'VARIOS') destino = 'varios.html';
+        
+        return `
+        <div class="search-item" onclick="window.location.href='${destino}'">
           <img src="${p.imgFrontal}">
-          <div>
-            <div style="font-size:13px; font-weight:600">${p.nombre}</div>
-            <div style="font-size:10px; color:var(--turquesa)">Ver en ${p.cat}</div>
-          </div>
+          <div><div style="font-size:13px; font-weight:600">${p.nombre}</div><div style="font-size:10px; color:var(--turquesa)">Ver en ${p.cat}</div></div>
         </div>`;
       }).join('');
     };
@@ -376,6 +367,7 @@
 
     document.getElementById('cart-icon').onclick = mostrarModal;
     document.getElementById('btn-lupa').onclick = () => document.getElementById('search-modal').style.display='block';
+
     cargarDatos();
   </script>
 </body>
