@@ -4,9 +4,6 @@
   <meta charset="utf-8">
   <title>QUIÉNES SOMOS | BHALLEFFORT</title>
   <meta name="description" content="Tienda oficial de BHALLEFFORT. Encuentra la mejor ropa, zapatos y accesorios en Tabacundo con envíos a todo Ecuador. ¡Calidad al mejor precio!">
-  <meta name="keywords" content="BHALLEFFORT, ropa Tabacundo, zapatos Ecuador, Katherine Pineda, tienda de ropa, rifas Ecuador">
-  <meta name="author" content="Jhomac²">
-  <link rel="canonical" href="https://www.bhalleffort.com/quienes-somos.html">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="https://jhomac2.github.io/bhalleffort-store/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -35,20 +32,17 @@
     .main-nav a{color:var(--morado);padding:12px 15px;display:block;font-size:14px;text-decoration:none;font-weight:600}
     .main-nav a.active{background:var(--morado);color:#fff;border-radius:4px}
 
-    /* Iconos Flotantes */
     #cart-icon { position: fixed; top: 15px; right: 15px; background: #fff; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.15); cursor: pointer; z-index: 1000; }
     #cart-badge { background: var(--turquesa); color: #fff; border-radius: 50%; padding: 2px 6px; font-size: 11px; position: absolute; top: 0px; right: 0px; }
     #btn-lupa { position: fixed; top: 75px; right: 15px; background: var(--turquesa); color: #fff; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 20px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.25); z-index: 1000; display: flex; align-items: center; justify-content: center; }
 
-    /* Modales */
-    #search-modal, #cart-modal {display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:4000;}
-    #search-modal > div, #cart-modal > div {background:#fff; width:95%; max-width:450px; margin:50px auto; padding:20px; border-radius:12px; position:relative;}
+    #search-modal, #cart-modal, #policy-modal {display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:4000; overflow-y:auto;}
+    #search-modal > div, #cart-modal > div, #policy-modal > div {background:#fff; width:95%; max-width:500px; margin:50px auto; padding:20px; border-radius:12px; position:relative;}
     #search-input {width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; margin-top:10px;}
     #search-results {margin-top:10px; max-height:250px; overflow-y:auto;}
     .search-item {padding:8px; border-bottom:1px solid #eee; cursor:pointer; display:flex; align-items:center; gap:10px;}
     .search-item img {width:35px; height:35px; object-fit:cover; border-radius:3px;}
 
-    /* Secciones */
     .hero-about{background: linear-gradient(rgba(76, 13, 140, 0.8), rgba(76, 13, 140, 0.8)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop'); background-size:cover; background-position:center; color:#fff; padding:60px 0; text-align:center}
     .section-white{background:#fff; padding:40px; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.05); margin:30px 0}
     .meaning-card{background:var(--morado); color:#fff; padding:25px; border-radius:10px; text-align:center; font-style:italic; font-size:1.1rem; margin:25px 0}
@@ -62,22 +56,36 @@
     #banner-div{position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;z-index:999;box-shadow: 0 -2px 10px rgba(0,0,0,0.1)}
     #banner-envio{flex:1;background:#ff9800;color:#fff;text-align:center;padding:10px;font-size:14px;font-weight: 700;}
     #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:10px;font-size:14px;font-weight: 700;}
+    .close-btn{background:none;border:none;font-size:24px;cursor:pointer}
   </style>
 </head>
 <body>
+
+  <div id="policy-modal">
+    <div>
+      <header style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #eee; padding-bottom:10px;">
+        <h3 id="policy-title">Políticas</h3>
+        <button onclick="document.getElementById('policy-modal').style.display='none'" class="close-btn">×</button>
+      </header>
+      <div id="policy-content" style="margin-top:15px; font-size:14px; max-height:400px; overflow-y:auto; line-height:1.5;"></div>
+    </div>
+  </div>
 
   <div id="cart-modal">
     <div>
       <header style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #eee; padding-bottom:10px; margin-bottom:15px;">
         <h3><i class="fas fa-shopping-cart"></i> Tu Pedido</h3>
-        <button onclick="document.getElementById('cart-modal').style.display='none'" style="background:none;border:none;font-size:24px;cursor:pointer">×</button>
+        <button onclick="document.getElementById('cart-modal').style.display='none'" class="close-btn">×</button>
       </header>
       <div id="cart-items" style="max-height:300px; overflow-y:auto;"></div>
       <footer style="margin-top:20px; border-top:1px solid #eee; padding-top:15px;">
         <div style="display:flex;justify-content:space-between;font-weight:bold; font-size:18px;">
           <span>Total:</span><span id="cart-total">$0.00</span>
         </div>
-        <button onclick="finalizarCompraWA()" style="background:#25D366;color:#fff;border:none;padding:15px;border-radius:6px;cursor:pointer;width:100%; font-weight:700; font-size:16px; margin-top:15px;">
+        <div style="text-align:center; padding:10px; border:1px solid #ffd700; background:#fffdf0; border-radius:8px; margin:10px 0; font-size:12px;">
+           Pago oficial a nombre de: <strong>Katherine Pineda</strong>.
+        </div>
+        <button onclick="finalizarCompraWA()" style="background:#25D366;color:#fff;border:none;padding:15px;border-radius:6px;cursor:pointer;width:100%; font-weight:700; font-size:16px;">
           FINALIZAR COMPRA POR WHATSAPP 🐋
         </button>
       </footer>
@@ -86,7 +94,7 @@
 
   <div id="search-modal">
     <div>
-      <button onclick="document.getElementById('search-modal').style.display='none'" style="position:absolute;top:8px;right:12px;background:none;border:none;font-size:20px;cursor:pointer">×</button>
+      <button onclick="document.getElementById('search-modal').style.display='none'" style="position:absolute;top:8px;right:12px;" class="close-btn">×</button>
       <h3>Buscar Productos</h3>
       <input type="text" id="search-input" placeholder="¿Qué estás buscando?">
       <div id="search-results"></div>
@@ -160,15 +168,15 @@
 
     <section class="section-white">
       <div class="policy-grid">
-        <div class="policy-item">
+        <div class="policy-item" onclick="abrirPolitica('envios')" style="cursor:pointer">
           <h3><i class="fas fa-truck"></i> Envíos</h3>
           <p>Entregas en Tabacundo/Cayambe en menos de 24h. Envíos nacionales por Servientrega o Cooperativa.</p>
         </div>
-        <div class="policy-item">
+        <div class="policy-item" onclick="abrirPolitica('calidad')" style="cursor:pointer">
           <h3><i class="fas fa-check-circle"></i> Calidad</h3>
           <p>Garantizamos que lo que recibes es 100% igual a la foto real de nuestra tienda.</p>
         </div>
-        <div class="policy-item">
+        <div class="policy-item" onclick="abrirPolitica('cambios')" style="cursor:pointer">
           <h3><i class="fas fa-exchange-alt"></i> Cambios</h3>
           <p>Realizamos cambios por talla o por cualquier otro artículo de la tienda para que quedes satisfecho.</p>
         </div>
@@ -179,8 +187,8 @@
   <footer>
     <div class="container">
       <div style="margin-bottom: 15px; display: flex; justify-content: center; gap: 20px;">
-        <a href="cookies.html" style="color: #000; text-decoration: none; font-size: 12px; opacity: 0.7;">Política de Cookies</a>
-        <a href="politicas.html" style="color: #000; text-decoration: none; font-size: 12px; opacity: 0.7;">Políticas de Privacidad y Envíos</a>
+        <span onclick="abrirPolitica('cookies')" style="cursor:pointer; font-size: 12px; opacity: 0.7;">Política de Cookies</span>
+        <span onclick="abrirPolitica('privacidad')" style="cursor:pointer; font-size: 12px; opacity: 0.7;">Privacidad y Envíos</span>
       </div>
       <p>© 2026 BHALLEFFORT | Diseñado por Jhomac²</p>
       <p style="opacity:0.8">"Dios te da más de lo que pides"</p>
@@ -202,7 +210,6 @@
     function actualizarBadge() {
       const badge = document.getElementById('cart-badge');
       if(badge) badge.textContent = carrito.length;
-      
       const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
       const bEnvio = document.getElementById('banner-envio');
       if(bEnvio) {
@@ -215,12 +222,13 @@
       if(carrito.length === 0) { alert("El carrito está vacío"); return; }
       const items = document.getElementById('cart-items');
       const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
+      const envio = subTotal >= 50 ? 0 : 3.50;
       items.innerHTML = carrito.map((p, i) => `
         <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid #eee;">
           <div><div style="font-weight:600; font-size:14px;">${p.nombre}</div><div style="color:var(--turquesa);">$${p.precio.toFixed(2)}</div></div>
           <button onclick="removeItem(${i})" style="color:#ff4444; border:none; background:none; cursor:pointer;"><i class="fas fa-trash-alt"></i></button>
         </div>`).join('');
-      document.getElementById('cart-total').textContent = '$' + subTotal.toFixed(2);
+      document.getElementById('cart-total').textContent = '$' + (subTotal + envio).toFixed(2);
       document.getElementById('cart-modal').style.display = 'block';
     }
 
@@ -232,9 +240,11 @@
     }
 
     function finalizarCompraWA() {
-      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *PEDIDO DESDE QUIÉNES SOMOS:*\n\n`;
+      const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
+      const envio = subTotal >= 50 ? 0 : 3.50;
+      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *NUEVO PEDIDO:*\n\n`;
       carrito.forEach((p, idx) => { msg += `${idx + 1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; });
-      msg += `\n✅ *TOTAL: $${carrito.reduce((s, i) => s + i.precio, 0).toFixed(2)}*`;
+      msg += `\n💰 *Total: $${(subTotal + envio).toFixed(2)}*\n⚠️ Pago: Katherine Pineda.`;
       window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
@@ -243,12 +253,33 @@
       const resDiv = document.getElementById('search-results');
       if(!val) { resDiv.innerHTML = ''; return; }
       const f = productosTotales.filter(p => p.nombre.toLowerCase().includes(val)).slice(0, 6);
-      resDiv.innerHTML = f.map(p => `
-        <div class="search-item" onclick="window.location.href='index.html'">
+      resDiv.innerHTML = f.map(p => {
+        let link = p.cat.toLowerCase() + '.html';
+        return `
+        <div class="search-item" onclick="window.location.href='${link}'">
           <img src="${p.imgFrontal}">
-          <div><div style="font-size:13px; font-weight:600">${p.nombre}</div><div style="font-size:10px; color:var(--turquesa)">Ver producto</div></div>
-        </div>`).join('');
+          <div><div style="font-size:13px; font-weight:600">${p.nombre}</div><div style="font-size:10px; color:var(--turquesa)">Ver en ${p.cat}</div></div>
+        </div>`;
+      }).join('');
     };
+
+    function abrirPolitica(tipo) {
+      const modal = document.getElementById('policy-modal');
+      const title = document.getElementById('policy-title');
+      const content = document.getElementById('policy-content');
+      
+      const textos = {
+        'envios': ['Envíos y Entregas', 'Entregamos personalmente en Tabacundo y Cayambe en menos de 24 horas. Para el resto del país, utilizamos Servientrega o cooperativas de transporte. El tiempo estimado es de 24 a 48 horas laborables.'],
+        'calidad': ['Garantía de Calidad', 'Todos nuestros artículos pasan por un control de calidad riguroso. Las fotos mostradas son reales del producto que recibirás. Trabajamos con marcas premium y materiales duraderos.'],
+        'cambios': ['Políticas de Cambio', 'Si la talla no te queda o deseas cambiar de modelo, tienes 3 días para solicitar el cambio. El producto debe estar con sus etiquetas y sin señales de uso.'],
+        'cookies': ['Política de Cookies', 'Usamos cookies para mejorar tu experiencia de navegación y recordar los productos en tu carrito. Al continuar navegando, aceptas su uso.'],
+        'privacidad': ['Privacidad y Seguridad', 'Tus datos son tratados de forma confidencial para procesar tus pedidos. Los pagos se realizan mediante transferencia directa a la cuenta oficial de Katherine Pineda para tu total seguridad.']
+      };
+
+      title.innerText = textos[tipo][0];
+      content.innerText = textos[tipo][1];
+      modal.style.display = 'block';
+    }
 
     document.getElementById('cart-icon').onclick = mostrarModalCarrito;
     document.getElementById('btn-lupa').onclick = () => document.getElementById('search-modal').style.display='block';
