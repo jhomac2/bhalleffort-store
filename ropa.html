@@ -4,10 +4,9 @@
   <meta charset="utf-8">
   <title>BHALLEFFORT | Ropa - Calidad al mejor precio</title>
   <meta name="description" content="Tienda oficial de BHALLEFFORT. Encuentra la mejor ropa, zapatos y accesorios en Tabacundo con envíos a todo Ecuador. ¡Calidad al mejor precio!">
-<meta name="keywords" content="BHALLEFFORT, ropa Tabacundo, zapatos Ecuador, Katherine Pineda, tienda de ropa, rifas Ecuador">
-<meta name="author" content="Jhomac²">
-<link rel="canonical" href="https://www.bhalleffort.com/">
-  <meta name="description" content="Tienda oficial BHALLEFFORT. Moda, calzado y más en Ecuador.">
+  <meta name="keywords" content="BHALLEFFORT, ropa Tabacundo, zapatos Ecuador, Katherine Pineda, tienda de ropa, rifas Ecuador">
+  <meta name="author" content="Jhomac²">
+  <link rel="canonical" href="https://www.bhalleffort.com/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="https://jhomac2.github.io/bhalleffort-store/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -225,9 +224,9 @@
       </div>
     </div>
     <div style="margin-bottom: 15px; display: flex; justify-content: center; gap: 20px;">
-  <a href="cookies.html" style="color: #000; text-decoration: none; font-size: 12px; opacity: 0.7;">Política de Cookies</a>
-  <a href="politicas.html" style="color: #000; text-decoration: none; font-size: 12px; opacity: 0.7;">Políticas de Privacidad y Envíos</a>
-</div>
+      <a href="cookies.html" style="color: #000; text-decoration: none; font-size: 12px; opacity: 0.7;">Política de Cookies</a>
+      <a href="politicas.html" style="color: #000; text-decoration: none; font-size: 12px; opacity: 0.7;">Políticas de Privacidad y Envíos</a>
+    </div>
     <div class="copyright-bar">&copy; 2026 BHALLEFFORT</div>
   </footer>
 
@@ -358,11 +357,14 @@
       const resDiv = document.getElementById('search-results');
       if(!val) { resDiv.innerHTML = ''; return; }
       const f = productosTotales.filter(p => p.nombre.toLowerCase().includes(val)).slice(0, 6);
-      resDiv.innerHTML = f.map(p => `
-        <div class="search-item" onclick="window.location.href='${p.cat.toLowerCase()}.html'">
+      resDiv.innerHTML = f.map(p => {
+        let destino = p.cat.toLowerCase() === 'varios' ? 'varios.html' : p.cat.toLowerCase() + '.html';
+        return `
+        <div class="search-item" onclick="window.location.href='${destino}'">
           <img src="${p.imgFrontal}">
           <div><div style="font-size:13px; font-weight:600">${p.nombre}</div><div style="font-size:10px; color:var(--turquesa)">Ver en ${p.cat}</div></div>
-        </div>`).join('');
+        </div>`;
+      }).join('');
     };
 
     function abrirZoom(imgF, imgT) {
@@ -381,5 +383,3 @@
   </script>
 </body>
 </html>
-
-
