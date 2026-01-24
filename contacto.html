@@ -9,67 +9,48 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root{--celeste:#87ceeb;--morado:#4c0d8c;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;--fondo:#eef2f7}
-    *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',system-ui,Arial}
-    body{background:var(--fondo);color:var(--texto); padding-bottom: 60px;}
-    
+    *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',sans-serif}
+    body{background:var(--fondo);color:var(--texto); padding-bottom: 80px;}
     .container{width:90%;max-width:1200px;margin:auto}
     .flex-space{display:flex;align-items:center;justify-content:space-between}
 
-    /* TOP BAR & HEADER */
+    /* HEADER & NAV */
     .top-bar{background:var(--morado);color:#fff;font-size:13px;padding:4px 0}
-    .top-bar .social-icons{display:flex;gap:12px;font-size:18px}
-    .top-bar .social-icons a{color:#fff; text-decoration:none}
-    
     .main-header{padding:15px 0;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.1)}
-    .logo-section{display:flex;align-items:center;gap:15px; text-decoration:none;}
     .whale-icon{width:85px; border:3px solid var(--morado); border-radius:50%; padding:2px; background:#fff}
     .brand-text h1{font-size:24px;color:var(--morado);font-weight:700;line-height:1}
-    .brand-text p{font-size:13px;color:var(--morado);opacity:.8}
-
-    .dual-buttons{display:flex;gap:1rem;justify-content:center;margin:1rem 0;flex-wrap:wrap}
     .btn-rifas{background:#ff6600; padding:.8rem 1.4rem;border-radius:6px;font-weight:700;text-decoration:none;color:#fff;box-shadow:0 2px 4px rgba(0,0,0,.25)}
-
-    /* NAV */
     .main-nav{position:sticky;top:0;z-index:999;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
     .main-nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center}
     .main-nav a{color:var(--morado);padding:12px 15px;display:block;font-size:14px;text-decoration:none;font-weight:600}
     .main-nav a.active{background:var(--morado);color:#fff;border-radius:4px}
 
-    /* HERO */
+    /* HERO & CONTACT GRID */
     .hero-contact { background: linear-gradient(rgba(76, 13, 140, 0.8), rgba(76, 13, 140, 0.8)), url('https://images.unsplash.com/photo-1523966211575-eb4a01e7dd51?q=80&w=2000') center/cover; color: white; padding: 60px 0; text-align: center; }
-
-    /* CONTACT GRID */
     .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: -40px auto 40px; position: relative; z-index: 10; }
     .info-card, .form-card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
     .info-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
     .info-item i { font-size: 18px; color: white; background: var(--morado); width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
-    
-    .form-group { margin-bottom: 15px; }
-    .form-group label { display: block; font-weight: 600; margin-bottom: 5px; font-size: 14px; }
-    .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; }
-    .btn-wa-form { background: #25D366; color: white; border: none; width: 100%; padding: 15px; border-radius: 8px; font-weight: 700; cursor: pointer; transition: 0.3s; }
+    .btn-wa-form { background: #25D366; color: white; border: none; width: 100%; padding: 15px; border-radius: 8px; font-weight: 700; cursor: pointer; }
 
     /* FLOTANTES */
     #cart-icon { position: fixed; top: 15px; right: 15px; background: #fff; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.15); cursor: pointer; z-index: 1000; }
     #cart-badge { background: var(--turquesa); color: #fff; border-radius: 50%; padding: 2px 6px; font-size: 11px; position: absolute; top: 0px; right: 0px; }
     #btn-lupa { position: fixed; top: 75px; right: 15px; background: var(--turquesa); color: #fff; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 20px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.25); z-index: 1000; display: flex; align-items: center; justify-content: center; }
 
-    /* BANNERS */
+    /* BANNERS INFERIORES */
     #banner-div{position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;z-index:999;box-shadow: 0 -2px 10px rgba(0,0,0,0.1)}
-    #banner-envio{flex:1;background:#ff9800;color:#fff;text-align:center;padding:10px;font-size:14px;font-weight:700;transition:0.3s;}
-    #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:10px;font-size:14px;font-weight:700;transition:0.3s;}
-
-    /* FOOTER */
-    footer{background:var(--celeste);color:#000;font-size:14px;padding:25px 0 10px 0; text-align: center;}
-    .footer-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); text-align: left;}
-    .copyright-bar {text-align: center; padding: 15px 0; background: rgba(0,0,0,0.05); margin-top: 15px; font-weight: 700; font-size: 12px;}
+    #banner-envio{flex:1;background:#ff9800;color:#fff;text-align:center;padding:10px;font-size:14px;font-weight:700;}
+    #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:10px;font-size:14px;font-weight:700;}
 
     /* MODALES */
     #search-modal, #cart-modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:4000; }
     #search-modal > div, #cart-modal > div { background:#fff; width:95%; max-width:450px; margin:50px auto; padding:20px; border-radius:12px; position:relative; }
-    #search-results { margin-top:10px; max-height:250px; overflow-y:auto; }
-    .search-item { padding:10px; border-bottom:1px solid #eee; cursor:pointer; display:flex; align-items:center; gap:10px; }
+    #search-results { max-height:250px; overflow-y:auto; margin-top:10px; }
+    .search-item { padding:10px; border-bottom:1px solid #eee; display:flex; align-items:center; gap:10px; cursor:pointer; }
     .search-item img { width:40px; height:40px; object-fit:cover; border-radius:5px; }
+
+    footer{background:var(--celeste); padding:30px 0; text-align:center;}
   </style>
 </head>
 <body>
@@ -84,12 +65,11 @@
 
   <div class="top-bar">
     <div class="container flex-space">
-      <div class="social-icons">
-        <a href="https://www.tiktok.com/@bhalleffort" target="_blank"><i class="fab fa-tiktok"></i></a>
-        <a href="https://www.facebook.com/share/17jG7haojA/" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.instagram.com/bhalleffort" target="_blank"><i class="fab fa-instagram"></i></a>
+      <div style="display:flex;gap:12px;font-size:18px">
+        <a href="https://www.tiktok.com/@bhalleffort" style="color:#fff"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.facebook.com/share/17jG7haojA/" style="color:#fff"><i class="fab fa-facebook"></i></a>
       </div>
-      <div><i class="fas fa-envelope"></i> SOPORTE AL CLIENTE</div>
+      <div>CALIDAD AL MEJOR PRECIO</div>
     </div>
   </div>
 
@@ -97,14 +77,9 @@
     <div class="container flex-space">
       <a href="index.html" class="logo-section">
         <img src="logo-ballena.png" alt="BHALLEFFORT" class="whale-icon">
-        <div class="brand-text">
-          <h1>BHALLEFFORT</h1>
-          <p>Contacto Oficial</p>
-        </div>
+        <div class="brand-text"><h1>BHALLEFFORT</h1><p>Contacto Oficial</p></div>
       </a>
-      <div class="dual-buttons">
-        <a href="rifas.html" class="btn-rifas">🎉 Ir a Rifas</a>
-      </div>
+      <a href="rifas.html" class="btn-rifas">🎉 Ir a Rifas</a>
     </div>
   </header>
 
@@ -122,70 +97,54 @@
 
   <section class="hero-contact">
     <div class="container">
-      <h2 style="font-size: 32px; font-weight: 700;">¡Ponte en contacto!</h2>
-      <p>Estamos aquí para ayudarte con tus compras y sorteos.</p>
+      <h2>¡Hablemos!</h2>
+      <p>Estamos aquí para ayudarte con tus pedidos.</p>
     </div>
   </section>
 
   <div class="container">
     <div class="contact-grid">
       <div class="info-card">
-        <h3 style="color:var(--morado); margin-bottom: 20px;">Datos de Contacto</h3>
-        <div class="info-item"><i class="fas fa-map-marker-alt"></i><div><p><strong>Ubicación</strong></p><p>La Y de Tabacundo, Ecuador.</p></div></div>
+        <h3 style="color:var(--morado);margin-bottom:20px">Información</h3>
+        <div class="info-item"><i class="fas fa-map-marker-alt"></i><div><p><strong>Ubicación</strong></p><p>Tabacundo, Ecuador</p></div></div>
         <div class="info-item"><i class="fab fa-whatsapp"></i><div><p><strong>WhatsApp</strong></p><p>+593 963 923 399</p></div></div>
-        <div class="info-item"><i class="fas fa-user-shield"></i><div><p><strong>Titular</strong></p><p>Katherine Pineda</p></div></div>
-        <div class="info-item"><i class="fas fa-clock"></i><div><p><strong>Atención</strong></p><p>Lun - Sáb: 09:00 - 19:00</p></div></div>
+        <div class="info-item"><i class="fas fa-user-shield"></i><div><p><strong>Pagos a:</strong></p><p>Katherine Pineda</p></div></div>
       </div>
 
       <div class="form-card">
-        <h3 style="color:var(--morado); margin-bottom: 20px;">Envíanos un mensaje</h3>
-        <div class="form-group"><label>Nombre</label><input type="text" id="nombre" placeholder="Tu nombre..."></div>
-        <div class="form-group"><label>Mensaje o Consulta</label><textarea id="mensaje" rows="4" placeholder="¿En qué podemos ayudarte?"></textarea></div>
-        <button class="btn-wa-form" onclick="enviarMensaje()"><i class="fab fa-whatsapp"></i> CONSULTAR POR WHATSAPP</button>
+        <h3 style="color:var(--morado);margin-bottom:20px">Mensaje Directo</h3>
+        <input type="text" id="nombre" placeholder="Tu nombre" style="width:100%;padding:10px;margin-bottom:15px;border:1px solid #ddd;border-radius:8px">
+        <textarea id="mensaje" rows="4" placeholder="Tu consulta..." style="width:100%;padding:10px;margin-bottom:15px;border:1px solid #ddd;border-radius:8px"></textarea>
+        <button class="btn-wa-form" onclick="enviarMensaje()"><i class="fab fa-whatsapp"></i> ENVIAR CONSULTA</button>
       </div>
     </div>
   </div>
 
   <footer>
-    <div class="container footer-grid">
-      <div>
-        <img src="logo-ballena.png" alt="Ballena" width="65">
-        <p>Diseñado por <strong>Jhomac²</strong></p>
-        <div style="margin-top:10px; font-weight:700; color: var(--morado);">"Dios te da más de lo que pides."</div>
-      </div>
-      <div>
-        <h3>POLÍTICAS</h3>
-        <p><a href="cookies.html" style="color: inherit; text-decoration: none;">Política de Cookies</a></p>
-        <p><a href="politicas.html" style="color: inherit; text-decoration: none;">Privacidad y Envíos</a></p>
-      </div>
+    <div class="container">
+      <p><strong>BHALLEFFORT</strong> - Tabacundo, Ecuador</p>
+      <p style="font-size:12px;opacity:0.8">"Dios te da más de lo que pides"</p>
     </div>
-    <div class="copyright-bar">&copy; 2026 BHALLEFFORT - Tabacundo</div>
   </footer>
+
+  <div id="cart-modal">
+    <div>
+      <header style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #eee;padding-bottom:10px;margin-bottom:15px">
+        <h3><i class="fas fa-shopping-cart"></i> Tu Pedido</h3>
+        <button onclick="document.getElementById('cart-modal').style.display='none'" style="border:none;background:none;font-size:24px;cursor:pointer">×</button>
+      </header>
+      <div id="cart-items" style="max-height:300px;overflow-y:auto"></div>
+      <footer style="margin-top:20px;border-top:1px solid #eee;padding-top:15px">
+        </footer>
+    </div>
+  </div>
 
   <div id="search-modal">
     <div>
       <button onclick="document.getElementById('search-modal').style.display='none'" style="position:absolute;top:10px;right:10px;border:none;background:none;font-size:24px;cursor:pointer">×</button>
-      <h3 style="margin-bottom:15px">Buscar en la tienda</h3>
-      <input type="text" id="search-input" placeholder="¿Qué estás buscando?">
+      <h3>Buscar Productos</h3>
+      <input type="text" id="search-input" placeholder="¿Qué buscas?" style="width:100%;padding:10px;margin-top:10px;border:1px solid #ddd;border-radius:8px">
       <div id="search-results"></div>
-    </div>
-  </div>
-
-  <div id="cart-modal">
-    <div>
-      <header style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #eee; padding-bottom:10px; margin-bottom:15px;">
-        <h3><i class="fas fa-shopping-cart"></i> Tu Pedido</h3>
-        <button onclick="document.getElementById('cart-modal').style.display='none'" style="border:none;background:none;font-size:24px;cursor:pointer">×</button>
-      </header>
-      <div id="cart-items" style="max-height:300px; overflow-y:auto;"></div>
-      <footer style="margin-top:20px; border-top:1px solid #eee; padding-top:15px;">
-        <div style="display:flex;justify-content:space-between;font-weight:bold; font-size:18px; color:var(--morado)">
-          <span>Total:</span><span id="cart-total">$0.00</span>
-        </div>
-        <button onclick="finalizarCompraWA()" style="background:#25D366;color:#fff;border:none;padding:15px;border-radius:6px;cursor:pointer;width:100%; font-weight:700; font-size:16px; margin-top:15px">
-          COMPRAR POR WHATSAPP 🐋
-        </button>
-      </footer>
     </div>
   </div>
 
@@ -205,22 +164,38 @@
       const badge = document.getElementById('cart-badge');
       if(badge) badge.textContent = carrito.length;
       const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
-      const bEnvio = document.getElementById('banner-envio');
-      const bSorteo = document.getElementById('banner-sorteo');
-      if(bEnvio) bEnvio.style.background = subTotal >= 50 ? '#25D366' : '#ff9800';
-      if(bSorteo) bSorteo.style.background = subTotal >= 30 ? '#25D366' : 'var(--morado)';
+      document.getElementById('banner-envio').style.background = subTotal >= 50 ? '#25D366' : '#ff9800';
+      document.getElementById('banner-sorteo').style.background = subTotal >= 30 ? '#25D366' : 'var(--morado)';
     }
 
     function mostrarModal() {
       if(carrito.length === 0) { alert("El carrito está vacío"); return; }
       const items = document.getElementById('cart-items');
       const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
-      items.innerHTML = carrito.map((p, i) => `
-        <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid #eee;">
-          <div><div style="font-weight:600; font-size:14px;">${p.nombre}</div><div style="color:var(--turquesa);">$${p.precio.toFixed(2)}</div></div>
-          <button onclick="removeItem(${i})" style="color:#ff4444; border:none; background:none; cursor:pointer;"><i class="fas fa-trash-alt"></i></button>
+      const envio = subTotal >= 50 ? 0 : 3.50;
+
+      items.innerHTML = `
+        <div style="text-align:center;padding:10px;border:2px solid #ffd700;background:#fffdf0;border-radius:8px;margin-bottom:15px;font-size:13px;font-weight:600">
+          Pago oficial a nombre de: <span style="color:var(--morado)">Katherine Pineda</span>.
+        </div>
+      ` + carrito.map((p, i) => `
+        <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #eee">
+          <div><div style="font-weight:600;font-size:14px">${p.nombre}</div><div style="color:var(--turquesa)">$${p.precio.toFixed(2)}</div></div>
+          <button onclick="removeItem(${i})" style="color:#ff4444;border:none;background:none;cursor:pointer"><i class="fas fa-trash-alt"></i></button>
         </div>`).join('');
-      document.getElementById('cart-total').textContent = '$' + subTotal.toFixed(2);
+
+      document.querySelector('#cart-modal footer').innerHTML = `
+        <div style="display:flex;flex-direction:column;gap:5px;font-size:14px;border-bottom:1px solid #eee;padding-bottom:10px">
+          <div style="display:flex;justify-content:space-between"><span>Subtotal:</span><span>$${subTotal.toFixed(2)}</span></div>
+          <div style="display:flex;justify-content:space-between"><span>Envío:</span><span>$${envio.toFixed(2)}</span></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-weight:bold;font-size:18px;color:var(--morado);margin-top:10px">
+          <span>Total:</span><span>$${(subTotal + envio).toFixed(2)}</span>
+        </div>
+        <button onclick="finalizarCompraWA()" style="background:#25D366;color:#fff;border:none;padding:15px;border-radius:6px;cursor:pointer;width:100%;font-weight:700;margin-top:15px">
+          FINALIZAR COMPRA POR WHATSAPP 🐋
+        </button>
+      `;
       document.getElementById('cart-modal').style.display = 'block';
     }
 
@@ -228,41 +203,36 @@
       carrito.splice(i, 1);
       localStorage.setItem('bh-cart', JSON.stringify(carrito));
       actualizarBadge();
-      carrito.length === 0 ? document.getElementById('cart-modal').style.display = 'none' : mostrarModal();
+      carrito.length === 0 ? document.getElementById('cart-modal').style.display='none' : mostrarModal();
     }
 
     function finalizarCompraWA() {
       const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
-      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *MI PEDIDO SELECCIONADO:*\n\n`;
+      const envio = subTotal >= 50 ? 0 : 3.50;
+      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *PEDIDO (CONTACTO):*\n\n`;
       carrito.forEach((p, idx) => { msg += `${idx + 1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; });
-      msg += `\n✅ *TOTAL: $${subTotal.toFixed(2)}*\n`;
-      msg += `\n⚠️ Pago a nombre de *Katherine Pineda*.`;
+      msg += `\n💵 Subtotal: $${subTotal.toFixed(2)}\n🚚 Envío: $${envio.toFixed(2)}\n✅ *TOTAL: $${(subTotal+envio).toFixed(2)}*`;
+      msg += `\n\n⚠️ Pago a nombre de *Katherine Pineda*.`;
       window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
     function enviarMensaje() {
       const nom = document.getElementById('nombre').value;
       const men = document.getElementById('mensaje').value;
-      if(!nom || !men) { alert("Por favor, llena tu nombre y mensaje."); return; }
-      const msg = `👤 *NOMBRE:* ${nom}\n💬 *MENSAJE:* ${men}`;
-      window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`, '_blank');
+      if(!nom || !men) return alert("Llena los campos");
+      window.open(`https://wa.me/593963923399?text=${encodeURIComponent("👤 " + nom + "\n💬 " + men)}`, '_blank');
     }
 
     document.getElementById('search-input').oninput = (e) => {
       const val = e.target.value.toLowerCase();
       const resDiv = document.getElementById('search-results');
-      if(!val) { resDiv.innerHTML = ''; return; }
-      const f = productosTotales.filter(p => p.nombre.toLowerCase().includes(val)).slice(0, 6);
-      resDiv.innerHTML = f.map(p => `
-        <div class="search-item" onclick="window.location.href='index.html?buscar=${p.id}'">
-          <img src="${p.imgFrontal}">
-          <div><div style="font-size:13px; font-weight:600">${p.nombre}</div><div style="font-size:10px; color:var(--turquesa)">Categoría: ${p.cat}</div></div>
-        </div>`).join('');
+      if(!val) return resDiv.innerHTML = '';
+      const f = productosTotales.filter(p => p.nombre.toLowerCase().includes(val)).slice(0, 5);
+      resDiv.innerHTML = f.map(p => `<div class="search-item" onclick="window.location.href='index.html?buscar=${p.id}'"><img src="${p.imgFrontal}"><div><div style="font-weight:600;font-size:13px">${p.nombre}</div><div style="font-size:10px;color:var(--turquesa)">En ${p.cat}</div></div></div>`).join('');
     };
 
     document.getElementById('cart-icon').onclick = mostrarModal;
     document.getElementById('btn-lupa').onclick = () => document.getElementById('search-modal').style.display='block';
-
     cargarDatos();
   </script>
 </body>
