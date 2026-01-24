@@ -2,9 +2,9 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>BHALLEFFORT | Varios y Cosméticos</title>
-  <meta name="description" content="Tienda oficial de BHALLEFFORT. Encuentra cosméticos, tecnología y artículos varios en Tabacundo con envíos a todo Ecuador.">
-  <meta name="keywords" content="BHALLEFFORT, cosméticos Tabacundo, tecnología Ecuador, Katherine Pineda, tienda de varios">
+  <title>BHALLEFFORT | Variedad y Accesorios</title>
+  <meta name="description" content="Tienda oficial de BHALLEFFORT. Encuentra accesorios, tecnología y artículos variados en Tabacundo y todo Ecuador.">
+  <meta name="keywords" content="BHALLEFFORT, accesorios Ecuador, tecnología Tabacundo, regalos, Katherine Pineda">
   <meta name="author" content="Jhomac²">
   <link rel="canonical" href="https://www.bhalleffort.com/varios.html">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,6 +19,7 @@
     .container{width:90%;max-width:1200px;margin:auto}
     .flex-space{display:flex;align-items:center;justify-content:space-between}
     
+    /* TOP BAR */
     .top-bar{background:var(--morado);color:#fff;font-size:13px;padding:4px 0}
     .top-bar .social-icons{display:flex;gap:12px;font-size:18px}
     .top-bar .social-icons a{color:#fff; text-decoration:none}
@@ -39,13 +40,14 @@
     .main-nav a{color:var(--morado);padding:12px 15px;display:block;font-size:14px;text-decoration:none;font-weight:600}
     .main-nav a.active{background:var(--morado);color:#fff;border-radius:4px}
 
+    /* FILTROS */
     .filter-container { display: flex; justify-content: center; gap: 10px; margin: 20px 0; flex-wrap: wrap; }
     .btn-filter { padding: 10px 20px; border: 2px solid var(--morado); border-radius: 25px; background: #fff; color: var(--morado); font-weight: 700; cursor: pointer; transition: 0.3s; }
     .btn-filter.active { background: var(--morado); color: #fff; }
 
     .hero-banner {
       position: relative;
-      background: url('https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+      background: url('https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1999&auto=format&fit=crop') center/cover no-repeat;
       height: 400px;
       display: flex; align-items: center; justify-content: center; text-align: center; color: #fff;
     }
@@ -56,14 +58,16 @@
     .hero-banner div { position: relative; z-index: 2; padding: 0 20px; }
     .hero-banner h1 { font-size: 42px; text-transform: uppercase; font-weight: 700; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
 
+    /* ICONOS FLOTANTES */
     #cart-icon { position: fixed; top: 15px; right: 15px; background: #fff; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.15); cursor: pointer; z-index: 1000; }
     #cart-badge { background: var(--turquesa); color: #fff; border-radius: 50%; padding: 2px 6px; font-size: 11px; position: absolute; top: 0px; right: 0px; }
     #btn-lupa { position: fixed; top: 75px; right: 15px; background: var(--turquesa); color: #fff; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 20px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.25); z-index: 1000; display: flex; align-items: center; justify-content: center; }
 
     .featured-products{padding:40px 0}
     .section-title{text-align:center;margin-bottom:10px;font-size:26px;color:var(--morado);text-transform:uppercase}
-    .ia-notice { text-align: center; background: #fdf6e3; border: 1px dashed #d3af37; padding: 10px; margin-bottom: 30px; border-radius: 8px; font-size: 13px; color: #856404; }
+    .ia-notice { text-align: center; background: #e3f2fd; border: 1px dashed var(--turquesa); padding: 10px; margin-bottom: 30px; border-radius: 8px; font-size: 13px; color: var(--morado); }
 
+    /* GRID PRODUCTOS */
     .products-grid-ten{display:grid;gap:15px;grid-template-columns:repeat(5,1fr);max-width:1100px;margin:auto}
     .product-card{background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);display:flex;flex-direction:column;overflow:hidden;cursor:pointer;position:relative}
     .product-image-container {position: relative;width: 100%;height: 250px;overflow: hidden}
@@ -95,6 +99,7 @@
     .footer-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
     .copyright-bar {text-align: center; padding: 15px 0; background: rgba(0,0,0,0.05); margin-top: 20px; font-weight: 600;}
 
+    /* MODALES */
     #zoom-modal{display:none; position:fixed; inset:0; background:rgba(0,0,0,0.95); z-index:5000; align-items:center; justify-content:center; flex-direction:column;}
     .zoom-content{position:relative; width:90%; max-width:450px; text-align:center;}
     #img-zoom{width:100%; border-radius:10px; box-shadow:0 0 25px rgba(255,255,255,0.2); object-fit: contain; max-height: 75vh;}
@@ -116,6 +121,7 @@
 
     #cart-modal{display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:4000;}
     #cart-modal > div {background:#fff; width:95%; max-width:450px; margin:50px auto; padding:20px; border-radius:12px; position:relative; box-shadow:0 10px 25px rgba(0,0,0,0.2);}
+    .pago-aviso-oficial { background: #fff8e1; border: 1px solid #ffd54f; padding: 10px; border-radius: 8px; margin-bottom: 15px; text-align: center; font-size: 13px; }
   </style>
 </head>
 <body>
@@ -126,7 +132,7 @@
   <div id="search-modal">
     <div>
       <button onclick="document.getElementById('search-modal').style.display='none'" style="position:absolute;top:8px;right:12px;background:none;border:none;font-size:20px;cursor:pointer">&times;</button>
-      <input type="text" id="search-input" placeholder="Buscar productos...">
+      <input type="text" id="search-input" placeholder="Buscar productos varios...">
       <div id="search-results"></div>
     </div>
   </div>
@@ -134,7 +140,7 @@
   <div id="noti-add"></div>
 
   <div id="banner-div">
-    <div id="banner-envio">🚚 Envío gratis desde $50</div>
+    <div id="banner-envio">🚚 Envíos a todo el país</div>
     <div id="banner-sorteo">🎉 ¡Participa en nuestras rifas!</div>
   </div>
 
@@ -145,7 +151,7 @@
         <a href="https://www.facebook.com/share/17jG7haojA/" target="_blank"><i class="fab fa-facebook"></i></a>
         <a href="https://www.instagram.com/bhalleffort" target="_blank"><i class="fab fa-instagram"></i></a>
       </div>
-      <div><i class="fas fa-star"></i> CALIDAD AL MEJOR PRECIO</div>
+      <div><i class="fas fa-star"></i> CALIDAD Y VARIEDAD GARANTIZADA</div>
     </div>
   </div>
 
@@ -156,7 +162,7 @@
           <img src="logo-ballena.png" alt="BHALLEFFORT" class="whale-icon">
           <div class="brand-text">
             <h1>BHALLEFFORT</h1>
-            <p>Varios y Cosméticos</p>
+            <p>Variedad y Accesorios</p>
           </div>
         </div>
       </a>
@@ -181,23 +187,23 @@
 
   <section class="hero-banner">
     <div>
-      <h1>VARIOS Y COSMÉTICOS</h1>
-      <p>Artículos seleccionados de alta calidad</p>
+      <h1>TODO LO QUE BUSCAS</h1>
+      <p>Accesorios, tecnología y sorpresas en un solo lugar</p>
     </div>
   </section>
 
   <section class="featured-products">
     <div class="container">
-      <h2 class="section-title">📦 CATÁLOGO VARIOS 📦</h2>
+      <h2 class="section-title">✨ CATÁLOGO DE VARIOS ✨</h2>
       
       <div class="filter-container">
         <button class="btn-filter active" id="btn-ver-todo" onclick="filtrar('todos', this)">Ver Todo</button>
         <button class="btn-filter" onclick="filtrar('TECNOLOGIA', this)">Tecnología</button>
+        <button class="btn-filter" onclick="filtrar('ACCESORIOS', this)">Accesorios</button>
         <button class="btn-filter" onclick="filtrar('HOGAR', this)">Hogar</button>
-        <button class="btn-filter" onclick="filtrar('COSMETICOS', this)">Cosméticos</button>
       </div>
 
-      <div class="ia-notice">📸 <strong>Aviso:</strong> La IA solo mejora el brillo, el producto final no varia.</div>
+      <div class="ia-notice">🚚 <strong>Envíos:</strong> Realizamos entregas en Tabacundo y envíos seguros a todo el Ecuador.</div>
       <div class="products-grid-ten" id="varios-grid"></div>
     </div>
   </section>
@@ -206,14 +212,11 @@
     <div class="container flex-guarantees">
       <div class="guarantee-item">
         <i class="fas fa-truck"></i>
-        <div><strong>ENVÍOS SEGUROS</strong><p>A todo el país</p></div>
+        <div><strong>ENVÍOS SEGUROS</strong><p>A todo el país por Servientrega</p></div>
       </div>
       <div class="guarantee-item">
-        <i class="fas fa-store"></i>
-        <div>
-          <strong>CALIDAD GARANTIZADA</strong>
-          <p>Encuentra productos nuevos y usados. <a href="https://wa.me/593963923399" target="_blank" style="color:var(--morado); font-weight:700;">Contáctanos hoy.</a></p>
-        </div>
+        <i class="fas fa-check-circle"></i>
+        <div><strong>CALIDAD PROBADA</strong><p>Productos verificados antes de salir</p></div>
       </div>
     </div>
   </section>
@@ -243,8 +246,8 @@
       <div class="zoom-content">
           <img id="img-zoom" src="">
           <div class="zoom-btns">
-              <button onclick="cambiarFotoZoom('frontal')" class="btn-z" style="background:var(--turquesa);">VER FRENTE</button>
-              <button onclick="cambiarFotoZoom('trasera')" class="btn-z" style="background:var(--morado);">VER ESPALDA</button>
+              <button onclick="cambiarFotoZoom('frontal')" class="btn-z" style="background:var(--turquesa);">VISTA FRONTAL</button>
+              <button onclick="cambiarFotoZoom('trasera')" class="btn-z" style="background:var(--morado);">VISTA DETALLE</button>
           </div>
       </div>
   </div>
@@ -252,16 +255,22 @@
   <div id="cart-modal">
     <div>
       <header style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #eee; padding-bottom:10px; margin-bottom:15px;">
-        <h3><i class="fas fa-shopping-cart"></i> Tu Pedido</h3>
+        <h3><i class="fas fa-shopping-cart"></i> Tu Carrito</h3>
         <button onclick="document.getElementById('cart-modal').style.display='none'" style="background:none;border:none;font-size:24px;cursor:pointer">&times;</button>
       </header>
+      
+      <div class="pago-aviso-oficial">
+        Pago oficial a nombre de: <strong>Katherine Pineda</strong>
+      </div>
+
       <div id="cart-items" style="max-height:300px; overflow-y:auto;"></div>
+
       <footer style="margin-top:20px; border-top:1px solid #eee; padding-top:15px;">
         <div style="display:flex;justify-content:space-between;font-size:14px; margin-bottom:5px">
             <span>Subtotal:</span><span id="cart-subtotal">$0.00</span>
         </div>
         <div style="display:flex;justify-content:space-between;font-size:14px; margin-bottom:10px">
-            <span>Envío:</span><span id="cart-envio">$3.50</span>
+            <span>Envío:</span><span id="cart-envio">A convenir</span>
         </div>
         <div style="display:flex;justify-content:space-between;font-weight:bold; font-size:18px; color:var(--morado)">
           <span>Total:</span><span id="cart-total">$0.00</span>
@@ -270,7 +279,7 @@
             ✅ ¡Este pedido participa en la RIFA!
         </div>
         <button onclick="finalizarCompraWA()" style="background:#25D366;color:#fff;border:none;padding:15px;border-radius:6px;cursor:pointer;width:100%; font-weight:700; font-size:16px; margin-top:10px">
-          FINALIZAR COMPRA POR WHATSAPP 🐋
+          PEDIR POR WHATSAPP 🐋
         </button>
       </footer>
     </div>
@@ -289,6 +298,13 @@
         productosTotales = await res.json();
         filtrar('todos', document.getElementById('btn-ver-todo'));
         actualizarBadge();
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const buscarId = urlParams.get('buscar');
+        if (buscarId) {
+            const pEncontrado = productosTotales.filter(x => x.id === buscarId);
+            if(pEncontrado.length > 0) dibujarVarios(pEncontrado);
+        }
       } catch (e) { console.error(e); }
     }
 
@@ -305,9 +321,9 @@
             <img src="${p.imgTrasera || p.imgFrontal}" class="product-image back">
           </div>
           <div class="product-info">
-            <span class="product-category">${p.estado}</span>
+            <span class="product-category">${p.subcat}</span>
             <h4 class="product-name">${p.nombre}</h4>
-            <p class="product-desc">${p.descripcion || 'Sin descripción.'}</p>
+            <p class="product-desc">${p.descripcion || 'Producto de alta calidad.'}</p>
             <div style="margin-bottom:8px">
               ${p.precio_antes ? `<span class="old-price">$${p.precio_antes.toFixed(2)}</span>` : ''}
               <span class="current-price">$${p.precio.toFixed(2)}</span>
@@ -317,14 +333,14 @@
         </div>`).join('');
     }
 
-    function filtrar(tipo, btn) {
+    function filtrar(sub, btn) {
       document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
       if(btn) btn.classList.add('active');
       
-      if(tipo === 'todos') {
-        productosFiltrados = productosTotales.filter(p => p.cat === "VARIOS");
+      if(sub === 'todos') {
+        productosFiltrados = productosTotales.filter(p => p.cat === 'VARIOS');
       } else {
-        productosFiltrados = productosTotales.filter(p => p.cat === "VARIOS" && p.subcat === tipo);
+        productosFiltrados = productosTotales.filter(p => p.cat === 'VARIOS' && p.subcat === sub);
       }
       dibujarVarios(productosFiltrados);
     }
@@ -332,7 +348,7 @@
     function addCart(id) {
       const p = productosTotales.find(x => x.id === id);
       if(p) {
-        carrito.push({id: p.id, nombre: p.nombre, precio: p.precio, cat: p.cat});
+        carrito.push({id: p.id, nombre: p.nombre, precio: p.precio});
         localStorage.setItem('bh-cart', JSON.stringify(carrito));
         actualizarBadge();
         mostrarNoti(`✅ ${p.nombre} añadido`);
@@ -342,13 +358,14 @@
     function actualizarBadge() {
       const badge = document.getElementById('cart-badge');
       if(badge) badge.textContent = carrito.length;
+      
       const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
       const bEnvio = document.getElementById('banner-envio');
       const bSorteo = document.getElementById('banner-sorteo');
       
       if(bEnvio) {
-        bEnvio.style.background = subTotal >= 50 ? '#25D366' : '#ff9800';
-        bEnvio.textContent = subTotal >= 50 ? "🚚 ¡Envío GRATIS activado!" : "🚚 Envío gratis desde $50";
+        bEnvio.style.background = subTotal > 0 ? '#25D366' : '#ff9800';
+        bEnvio.textContent = subTotal > 0 ? "🚚 Envíos disponibles ahora" : "🚚 Envíos a todo el país";
       }
       if(bSorteo) {
         bSorteo.style.background = subTotal >= 30 ? '#25D366' : 'var(--morado)';
@@ -357,10 +374,9 @@
     }
 
     function mostrarModal() {
-      if(carrito.length === 0) { mostrarNoti("El carrito está vacío"); return; }
+      if(carrito.length === 0) { mostrarNoti("Tu carrito está vacío"); return; }
       const items = document.getElementById('cart-items');
       const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
-      const costoEnvio = (subTotal >= 50) ? 0 : 3.50;
       
       items.innerHTML = carrito.map((p, i) => `
         <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid #eee;">
@@ -369,9 +385,7 @@
         </div>`).join('');
       
       document.getElementById('cart-subtotal').textContent = '$' + subTotal.toFixed(2);
-      document.getElementById('cart-envio').textContent = '$' + costoEnvio.toFixed(2);
-      document.getElementById('cart-total').textContent = '$' + (subTotal + costoEnvio).toFixed(2);
-      
+      document.getElementById('cart-total').textContent = '$' + subTotal.toFixed(2);
       document.getElementById('rifa-status').style.display = (subTotal >= 30) ? 'block' : 'none';
       document.getElementById('cart-modal').style.display = 'block';
     }
@@ -385,18 +399,16 @@
 
     function finalizarCompraWA() {
       const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
-      const envio = (subTotal >= 50) ? 0 : 3.50;
-      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *NUEVO PEDIDO:*\n\n`;
+      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *PEDIDO VARIOS:*\n\n`;
       carrito.forEach((p, idx) => { msg += `${idx + 1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; });
-      msg += `\n💵 *Subtotal:* $${subTotal.toFixed(2)}`;
-      msg += `\n🚚 *Envío:* $${envio.toFixed(2)}`;
-      msg += `\n💰 *TOTAL A PAGAR: $${(subTotal + envio).toFixed(2)}*\n`;
-      if(subTotal >= 30) msg += `\n🎟️ *ESTE PEDIDO PARTICIPA EN LA RIFA POR COMPRA > $30*`;
-      msg += `\n\n⚠️ Pago a nombre de *Katherine Pineda*.`;
+      msg += `\n💰 *TOTAL PRODUCTOS: $${subTotal.toFixed(2)}*\n`;
+      msg += `\n⚠️ Pago a nombre de: *Katherine Pineda*`;
+      if(subTotal >= 30) msg += `\n🎟️ *PARTICIPA EN LA RIFA*`;
+      msg += `\n\n¿Podrían confirmarme el costo de envío a mi ubicación?`;
       window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
-    // BUSCADOR CORREGIDO
+    // BUSCADOR
     document.getElementById('search-input').oninput = (e) => {
       const val = e.target.value.toLowerCase();
       const resDiv = document.getElementById('search-results');
@@ -407,7 +419,7 @@
           <img src="${p.imgFrontal}">
           <div>
             <div style="font-size:13px; font-weight:600">${p.nombre}</div>
-            <div style="font-size:10px; color:var(--turquesa)">Categoría: ${p.cat}</div>
+            <div style="font-size:10px; color:var(--turquesa)">Cat: ${p.cat}</div>
           </div>
         </div>`).join('');
     };
@@ -417,7 +429,7 @@
       if (cat === "VARIOS") {
         const p = productosTotales.filter(x => x.id === id);
         dibujarVarios(p);
-        window.scrollTo({top: 500, behavior: 'smooth'});
+        window.scrollTo({top: 600, behavior: 'smooth'});
       } else {
         let pagina = "ropa.html";
         if (cat === "PROGRAMAS" || cat === "STREAMING") pagina = "programas.html";
