@@ -38,7 +38,7 @@
     #cart-badge { background: var(--turquesa); color: #fff; border-radius: 50%; padding: 2px 6px; font-size: 11px; position: absolute; top: 0px; right: 0px; }
     #btn-lupa { position: fixed; top: 75px; right: 15px; background: var(--turquesa); color: #fff; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 20px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.25); z-index: 1000; display: flex; align-items: center; justify-content: center; }
 
-    /* BANNERS INFERIORES */
+    /* BANNERS */
     #banner-div{position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;z-index:999;box-shadow: 0 -2px 10px rgba(0,0,0,0.1)}
     #banner-envio{flex:1;background:#ff9800;color:#fff;text-align:center;padding:10px;font-size:14px;font-weight:700;}
     #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:10px;font-size:14px;font-weight:700;}
@@ -108,7 +108,7 @@
         <h3 style="color:var(--morado);margin-bottom:20px">Información</h3>
         <div class="info-item"><i class="fas fa-map-marker-alt"></i><div><p><strong>Ubicación</strong></p><p>Tabacundo, Ecuador</p></div></div>
         <div class="info-item"><i class="fab fa-whatsapp"></i><div><p><strong>WhatsApp</strong></p><p>+593 963 923 399</p></div></div>
-        <div class="info-item"><i class="fas fa-user-shield"></i><div><p><strong>Pagos a:</strong></p><p>Katherine Pineda</p></div></div>
+        <div class="info-item"><i class="fas fa-user-shield"></i><div><p><strong>Titular Cuenta</strong></p><p>Katherine Pineda</p></div></div>
       </div>
 
       <div class="form-card">
@@ -160,11 +160,22 @@
       } catch (e) { console.error(e); }
     }
 
+    function calcularEnvio() {
+      const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
+      // REGLA: Si hay Software o Programas, el envío es GRATIS ($0)
+      const tieneSoftware = carrito.some(p => p.cat === "SOFTWARE" || p.cat === "PROGRAMAS" || p.cat === "STREAMING");
+      
+      if (tieneSoftware || subTotal >= 50) return 0;
+      return 3.50;
+    }
+
     function actualizarBadge() {
       const badge = document.getElementById('cart-badge');
       if(badge) badge.textContent = carrito.length;
       const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
-      document.getElementById('banner-envio').style.background = subTotal >= 50 ? '#25D366' : '#ff9800';
+      const envio = calcularEnvio();
+      
+      document.getElementById('banner-envio').style.background = (envio === 0 && carrito.length > 0) ? '#25D366' : '#ff9800';
       document.getElementById('banner-sorteo').style.background = subTotal >= 30 ? '#25D366' : 'var(--morado)';
     }
 
@@ -172,7 +183,7 @@
       if(carrito.length === 0) { alert("El carrito está vacío"); return; }
       const items = document.getElementById('cart-items');
       const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
-      const envio = subTotal >= 50 ? 0 : 3.50;
+      const envio = calcularEnvio();
 
       items.innerHTML = `
         <div style="text-align:center;padding:10px;border:2px solid #ffd700;background:#fffdf0;border-radius:8px;margin-bottom:15px;font-size:13px;font-weight:600">
@@ -187,7 +198,7 @@
       document.querySelector('#cart-modal footer').innerHTML = `
         <div style="display:flex;flex-direction:column;gap:5px;font-size:14px;border-bottom:1px solid #eee;padding-bottom:10px">
           <div style="display:flex;justify-content:space-between"><span>Subtotal:</span><span>$${subTotal.toFixed(2)}</span></div>
-          <div style="display:flex;justify-content:space-between"><span>Envío:</span><span>$${envio.toFixed(2)}</span></div>
+          <div style="display:flex;justify-content:space-between"><span>Envío:</span><span>${envio === 0 ? '<b style="color:#25D366">GRATIS</b>' : '$' + envio.toFixed(2)}</span></div>
         </div>
         <div style="display:flex;justify-content:space-between;font-weight:bold;font-size:18px;color:var(--morado);margin-top:10px">
           <span>Total:</span><span>$${(subTotal + envio).toFixed(2)}</span>
@@ -208,11 +219,14 @@
 
     function finalizarCompraWA() {
       const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
-      const envio = subTotal >= 50 ? 0 : 3.50;
+      const envio = calcularEnvio();
       let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *PEDIDO (CONTACTO):*\n\n`;
       carrito.forEach((p, idx) => { msg += `${idx + 1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; });
-      msg += `\n💵 Subtotal: $${subTotal.toFixed(2)}\n🚚 Envío: $${envio.toFixed(2)}\n✅ *TOTAL: $${(subTotal+envio).toFixed(2)}*`;
-      msg += `\n\n⚠️ Pago a nombre de *Katherine Pineda*.`;
+      msg += `\n--------------------------`;
+      msg += `\n💵 Subtotal: $${subTotal.toFixed(2)}`;
+      msg += `\n🚚 Envío: ${envio === 0 ? 'GRATIS' : '$' + envio.toFixed(2)}`;
+      msg += `\n✅ *TOTAL A PAGAR: $${(subTotal + envio).toFixed(2)}*`;
+      msg += `\n\n⚠️ Pago confirmado a nombre de *Katherine Pineda*.`;
       window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
