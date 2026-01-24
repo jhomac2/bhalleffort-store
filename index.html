@@ -2,9 +2,9 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>BHALLEFFORT | Tienda Oficial</title>
-  <meta name="description" content="Tienda oficial de BHALLEFFORT. Ropa, calzado, servicios de streaming y programas en Tabacundo y todo Ecuador.">
-  <meta name="keywords" content="BHALLEFFORT, Katherine Pineda, tienda Tabacundo, ropa Ecuador, streaming barato">
+  <title>BHALLEFFORT | Tienda Oficial de la Ballena</title>
+  <meta name="description" content="Tienda oficial de BHALLEFFORT. Encuentra ropa, calzado original, servicios de streaming y programas en Tabacundo y todo Ecuador.">
+  <meta name="keywords" content="BHALLEFFORT, Katherine Pineda, tienda Tabacundo, ropa Ecuador, streaming barato, tecnología">
   <meta name="author" content="Jhomac²">
   <link rel="canonical" href="https://www.bhalleffort.com/index.html">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,94 +40,86 @@
     .main-nav a{color:var(--morado);padding:12px 15px;display:block;font-size:14px;text-decoration:none;font-weight:600}
     .main-nav a.active{background:var(--morado);color:#fff;border-radius:4px}
 
-    /* HERO DINÁMICO */
-    .hero-slider {
-      position: relative;
-      height: 500px;
-      overflow: hidden;
-      background: #000;
-    }
-    .slide {
-      position: absolute;
-      inset: 0;
-      background-size: cover;
-      background-position: center;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #fff;
-    }
-    .slide.active { opacity: 1; }
-    .slide::before { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.4); }
-    .slide-content { position: relative; z-index: 2; padding: 20px; }
-    .slide-content h2 { font-size: 48px; text-transform: uppercase; margin-bottom: 10px; }
-    .btn-shop { display: inline-block; padding: 12px 30px; background: var(--turquesa); color: #fff; text-decoration: none; border-radius: 30px; font-weight: 700; margin-top: 20px; transition: 0.3s; }
-    .btn-shop:hover { background: var(--morado); }
+    /* SLIDER DINÁMICO */
+    .hero-slider{position:relative;height:500px;overflow:hidden;background:#000}
+    .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1s ease-in-out;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff}
+    .slide.active{opacity:1}
+    .slide::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.4)}
+    .slide-content{position:relative;z-index:2;padding:20px;max-width:800px}
+    .slide-content h2{font-size:48px;text-transform:uppercase;margin-bottom:10px;font-weight:700}
+    .btn-shop{display:inline-block;padding:12px 30px;background:var(--turquesa);color:#fff;text-decoration:none;border-radius:30px;font-weight:700;margin-top:20px;transition:0.3s}
 
     /* ICONOS FLOTANTES */
     #cart-icon { position: fixed; top: 15px; right: 15px; background: #fff; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.15); cursor: pointer; z-index: 1000; }
     #cart-badge { background: var(--turquesa); color: #fff; border-radius: 50%; padding: 2px 6px; font-size: 11px; position: absolute; top: 0px; right: 0px; }
     #btn-lupa { position: fixed; top: 75px; right: 15px; background: var(--turquesa); color: #fff; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 20px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.25); z-index: 1000; display: flex; align-items: center; justify-content: center; }
 
-    .home-sections { padding: 50px 0; }
-    .section-title { text-align: center; margin-bottom: 30px; font-size: 28px; color: var(--morado); position: relative; }
-    .section-title::after { content: ""; display: block; width: 60px; height: 3px; background: var(--turquesa); margin: 10px auto; }
-
-    /* CATEGORÍAS GRID */
-    .cat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 50px; }
-    .cat-card { height: 250px; border-radius: 12px; overflow: hidden; position: relative; cursor: pointer; transition: 0.3s; }
-    .cat-card:hover { transform: translateY(-5px); }
-    .cat-card img { width: 100%; height: 100%; object-fit: cover; }
-    .cat-overlay { position: absolute; inset: 0; background: rgba(76, 13, 140, 0.6); display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; opacity: 0.9; }
-    .cat-overlay h3 { font-size: 24px; margin-bottom: 5px; }
+    /* SECCIONES HOME */
+    .home-sections{padding:60px 0}
+    .section-title{text-align:center;margin-bottom:40px;font-size:28px;color:var(--morado);text-transform:uppercase;position:relative}
+    .section-title::after{content:"";display:block;width:60px;height:3px;background:var(--turquesa);margin:10px auto}
+    
+    .cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;margin-bottom:60px}
+    .cat-card{height:300px;border-radius:12px;overflow:hidden;position:relative;cursor:pointer;box-shadow:0 4px 15px rgba(0,0,0,0.1);transition:0.3s}
+    .cat-card:hover{transform:translateY(-8px)}
+    .cat-card img{width:100%;height:100%;object-fit:cover}
+    .cat-overlay{position:absolute;inset:0;background:linear-gradient(to top, rgba(76,13,140,0.9), transparent);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:30px;color:#fff;text-align:center}
+    .cat-overlay h3{font-size:24px;margin-bottom:5px}
 
     /* GRID PRODUCTOS DESTACADOS */
-    .products-grid-ten { display: grid; gap: 15px; grid-template-columns: repeat(5, 1fr); max-width: 1100px; margin: auto; }
-    .product-card { background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: flex; flex-direction: column; overflow: hidden; position: relative; cursor: pointer; }
-    .product-image-container { position: relative; width: 100%; height: 250px; overflow: hidden; }
-    .product-image { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease, opacity 0.3s ease; }
-    .product-image.back { position: absolute; top: 0; left: 0; opacity: 0; }
+    .products-grid-ten{display:grid;gap:15px;grid-template-columns:repeat(5,1fr);max-width:1100px;margin:auto}
+    .product-card{background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);display:flex;flex-direction:column;overflow:hidden;cursor:pointer;position:relative}
+    .product-image-container {position: relative;width: 100%;height: 250px;overflow: hidden}
+    .product-image {width: 100%;height: 100%;object-fit: cover;transition: transform 0.5s ease, opacity 0.3s ease}
+    .product-image.back {position: absolute;top: 0;left: 0;opacity: 0}
     .product-card.flip .product-image.front { opacity: 0; }
     .product-card.flip .product-image.back { opacity: 1; }
-    
+
     .badge-promo { position: absolute; top: 10px; left: 10px; background: #ff4444; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; z-index: 5; }
-    .lupa-zoom-icon { position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,0.8); color: var(--morado); width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; z-index: 10; }
+    .lupa-zoom-icon { position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,0.8); color: var(--morado); width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; z-index: 10; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
 
-    .product-info { padding: 12px; display: flex; flex-direction: column; flex: 1; }
-    .current-price { font-weight: 700; color: var(--turquesa); font-size: 18px; }
-    .btn-buy { background: var(--turquesa); color: #fff; border: none; padding: 10px; border-radius: 4px; cursor: pointer; margin-top: auto; font-weight: 600; }
-
-    @media(max-width:768px){ .products-grid-ten{grid-template-columns:repeat(3,1fr)} .hero-slider{height:350px} .slide-content h2{font-size:30px} }
-    @media(max-width:480px){ .products-grid-ten{grid-template-columns:repeat(2,1fr)} }
+    .product-info{padding:12px;display:flex;flex-direction:column;flex:1}
+    .product-name{font-size:14px;margin:4px 0;line-height:1.2;font-weight:600;min-height:35px}
+    .current-price{font-weight:700;color:var(--turquesa);font-size:18px}
+    .btn-buy{background:var(--turquesa);color:#fff;border:none;padding:10px;border-radius:4px;cursor:pointer;margin-top:auto;font-weight:600}
+    
+    @media(max-width:768px){.products-grid-ten{grid-template-columns:repeat(3,1fr)} .hero-slider{height:350px} .slide-content h2{font-size:32px}}
+    @media(max-width:480px){.products-grid-ten{grid-template-columns:repeat(2,1fr)}}
+    
+    /* GARANTÍAS */
+    .guarantees{background:#fff;padding:40px 0;margin-top:20px}
+    .flex-guarantees{display:flex;gap:30px;flex-wrap:wrap;justify-content:center;text-align:center}
+    .guarantee-item{flex:1 1 250px; padding: 15px;}
+    .guarantee-item i {font-size: 30px; color: var(--morado); margin-bottom: 15px;}
 
     /* FOOTER */
     footer{background:var(--celeste);color:#000;font-size:13px;padding:40px 0}
-    .footer-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
-    .copyright-bar {text-align: center; padding: 15px 0; background: rgba(0,0,0,0.05); margin-top: 20px; font-weight: 600;}
+    .footer-grid{display:grid;gap:30px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+    .copyright-bar {text-align: center; padding: 15px 0; background: rgba(0,0,0,0.05); margin-top: 25px; font-weight: 600;}
 
     /* MODALES */
     #zoom-modal{display:none; position:fixed; inset:0; background:rgba(0,0,0,0.95); z-index:5000; align-items:center; justify-content:center; flex-direction:column;}
     .zoom-content{position:relative; width:90%; max-width:450px; text-align:center;}
-    #img-zoom{width:100%; border-radius:10px; object-fit: contain; max-height: 75vh;}
-    
-    #banner-div{position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;z-index:999}
-    #banner-envio{flex:1;background:#ff9800;color:#fff;text-align:center;padding:8px;font-size:14px;}
-    #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:8px;font-size:14px;}
+    #img-zoom{width:100%; border-radius:10px; box-shadow:0 0 25px rgba(255,255,255,0.2); object-fit: contain; max-height: 75vh;}
+    .zoom-btns{display:flex; justify-content:center; gap:15px; margin-top:20px;}
+    .btn-z{padding:12px 25px; border-radius:25px; border:none; cursor:pointer; font-weight:700; color:white; font-size:14px;}
 
+    #banner-div{position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;box-shadow:0 -2px 5px rgba(0,0,0,.1);z-index:999}
+    #banner-envio{flex:1;background:#ff9800;color:#fff;text-align:center;padding:10px;font-size:14px;transition:0.3s;font-weight:600}
+    #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:10px;font-size:14px;transition:0.3s;font-weight:600}
+    
     #search-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:3000}
     #search-modal>div{background:#fff;width:90%;max-width:400px;margin:80px auto;padding:15px;border-radius:8px;position:relative}
-    #search-input{width:100%;padding:10px;border:1px solid #ccc;border-radius:4px}
-    #search-results{margin-top:10px;max-height:250px;overflow-y:auto}
-    .search-item{padding:8px;border-bottom:1px solid #eee;cursor:pointer;display:flex;align-items:center;gap:10px}
-    .search-item img{width:35px;height:35px;object-fit:cover;border-radius:3px}
+    #search-input{width:100%;padding:12px;border:1px solid #ccc;border-radius:4px}
+    #search-results{margin-top:10px;max-height:280px;overflow-y:auto}
+    .search-item{padding:10px;border-bottom:1px solid #eee;cursor:pointer;display:flex;align-items:center;gap:12px}
+    .search-item img{width:40px;height:40px;object-fit:cover;border-radius:4px}
 
-    #noti-add{position:fixed;bottom:40px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:8px 14px;border-radius:4px;font-size:13px;z-index:9999;display:none}
+    #noti-add{position:fixed;bottom:40px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:10px 18px;border-radius:6px;font-size:13px;z-index:9999;display:none;box-shadow:0 4px 10px rgba(0,0,0,0.3)}
 
     #cart-modal{display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:4000;}
-    #cart-modal > div {background:#fff; width:95%; max-width:450px; margin:50px auto; padding:20px; border-radius:12px; position:relative;}
+    #cart-modal > div {background:#fff; width:95%; max-width:480px; margin:40px auto; padding:25px; border-radius:15px; position:relative; box-shadow:0 15px 35px rgba(0,0,0,0.3);}
+    .pago-aviso-oficial { background: #fff8e1; border: 1px solid #ffd54f; padding: 12px; border-radius: 8px; margin-bottom: 15px; text-align: center; font-size: 13px; color: #856404; font-weight: 600; }
   </style>
 </head>
 <body>
@@ -137,8 +129,8 @@
   
   <div id="search-modal">
     <div>
-      <button onclick="document.getElementById('search-modal').style.display='none'" style="position:absolute;top:8px;right:12px;background:none;border:none;font-size:20px;cursor:pointer">&times;</button>
-      <input type="text" id="search-input" placeholder="¿Qué estás buscando?">
+      <button onclick="document.getElementById('search-modal').style.display='none'" style="position:absolute;top:8px;right:12px;background:none;border:none;font-size:24px;cursor:pointer">&times;</button>
+      <input type="text" id="search-input" placeholder="Buscar en toda la tienda...">
       <div id="search-results"></div>
     </div>
   </div>
@@ -157,7 +149,7 @@
         <a href="https://www.facebook.com/share/17jG7haojA/" target="_blank"><i class="fab fa-facebook"></i></a>
         <a href="https://www.instagram.com/bhalleffort" target="_blank"><i class="fab fa-instagram"></i></a>
       </div>
-      <div>BIENVENIDOS A LA TIENDA DE LA BALLENA</div>
+      <div style="font-weight:600"><i class="fas fa-star"></i> CALIDAD Y CONFIANZA TOTAL</div>
     </div>
   </div>
 
@@ -171,8 +163,8 @@
         </div>
       </div>
       <div class="dual-buttons">
-        <a href="rifas.html" class="btn-rifas">🎉 Rifas</a>
-        <a href="https://wa.me/593963923399" class="btn-wa">📱 WHATSAPP </a>
+        <a href="rifas.html" class="btn-rifas">🎉 Rifas Activas</a>
+        <a href="https://wa.me/593963923399" class="btn-wa">📱 ATENCIÓN WA </a>
       </div>
     </div>
   </header>
@@ -190,94 +182,140 @@
   </nav>
 
   <section class="hero-slider">
-    <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070')">
+    <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070')">
       <div class="slide-content">
-        <h2>MODA Y ESTILO</h2>
-        <p>Las mejores marcas en ropa y calzado original</p>
-        <a href="ropa.html" class="btn-shop">VER COLECCIÓN</a>
+        <h2>TU ESTILO, TU ELECCIÓN</h2>
+        <p>Calzado G5 y Ropa de las mejores marcas del mundo</p>
+        <a href="ropa.html" class="btn-shop">COMPRAR AHORA</a>
       </div>
     </div>
     <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?q=80&w=2070')">
       <div class="slide-content">
-        <h2>STREAMING PREMIUM</h2>
-        <p>Netflix, Disney+, Spotify y más al mejor precio</p>
-        <a href="programas.html" class="btn-shop">VER CUENTAS</a>
+        <h2>ENTRETENIMIENTO PREMIUM</h2>
+        <p>Netflix, Disney+, Spotify y HBO a precios increíbles</p>
+        <a href="programas.html" class="btn-shop">VER PLANES</a>
+      </div>
+    </div>
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?q=80&w=2070')">
+      <div class="slide-content">
+        <h2>PRODUCTOS VARIOS</h2>
+        <p>Tecnología, hogar y accesorios con garantía BHALLEFFORT</p>
+        <a href="varios.html" class="btn-shop">DESCUBRIR</a>
       </div>
     </div>
   </section>
 
   <main class="container home-sections">
-    <h2 class="section-title">EXPLORA NUESTRO MUNDO</h2>
+    <h2 class="section-title">Nuestras Categorías</h2>
     <div class="cat-grid">
       <div class="cat-card" onclick="location.href='ropa.html'">
         <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2070" alt="Calzado">
-        <div class="cat-overlay"><h3>CALZADO</h3><p>Originales y G5</p></div>
+        <div class="cat-overlay"><h3>MODA</h3><p>Originales y G5</p></div>
       </div>
       <div class="cat-card" onclick="location.href='programas.html'">
         <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=1974" alt="Streaming">
-        <div class="cat-overlay"><h3>STREAMING</h3><p>Activación inmediata</p></div>
+        <div class="cat-overlay"><h3>DIGITAL</h3><p>Activación inmediata</p></div>
       </div>
       <div class="cat-card" onclick="location.href='promociones.html'">
         <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=2070" alt="Ofertas">
-        <div class="cat-overlay"><h3>OFERTAS</h3><p>Precios de locura</p></div>
+        <div class="cat-overlay"><h3>OFERTAS</h3><p>Precios de liquidación</p></div>
       </div>
     </div>
 
-    <h2 class="section-title">LO MÁS DESTACADO</h2>
+    <h2 class="section-title">🔥 Productos Destacados 🔥</h2>
     <div class="products-grid-ten" id="featured-grid">
-      </div>
+        </div>
   </main>
 
-  <section style="background:#fff; padding:40px 0; margin-top:30px">
-    <div class="container" style="display:flex; justify-content:space-around; flex-wrap:wrap; text-align:center; gap:20px">
-        <div><i class="fas fa-truck" style="font-size:30px; color:var(--morado)"></i><h4>ENVIOS RÁPIDOS</h4></div>
-        <div><i class="fas fa-lock" style="font-size:30px; color:var(--morado)"></i><h4>PAGO SEGURO</h4></div>
-        <div><i class="fas fa-medal" style="font-size:30px; color:var(--morado)"></i><h4>CALIDAD TOP</h4></div>
+  <section class="guarantees">
+    <div class="container flex-guarantees">
+      <div class="guarantee-item">
+        <i class="fas fa-truck-moving"></i>
+        <div><strong>ENVÍOS NACIONALES</strong><p>Llegamos a cada rincón del Ecuador</p></div>
+      </div>
+      <div class="guarantee-item">
+        <i class="fas fa-shield-alt"></i>
+        <div><strong>COMPRA SEGURA</strong><p>Garantía directa con Katherine Pineda</p></div>
+      </div>
+      <div class="guarantee-item">
+        <i class="fas fa-headset"></i>
+        <div><strong>SOPORTE 24/7</strong><p>Atención personalizada por WhatsApp</p></div>
+      </div>
     </div>
   </section>
 
   <footer>
     <div class="container footer-grid">
       <div>
-        <img src="logo-ballena.png" alt="Logo" width="60">
-        <p>BHALLEFFORT - Tabacundo, Ecuador</p>
-        <p>Diseñado por Jhomac²</p>
+        <img src="logo-ballena.png" alt="Logo" width="70">
+        <p style="margin-top:10px"><strong>BHALLEFFORT</strong><br>La tienda de confianza en Tabacundo.</p>
+        <p style="font-size:12px; margin-top:10px">Diseñado por Jhomac²</p>
       </div>
       <div>
-        <h3>ENLACES</h3>
-        <p><a href="politicas.html" style="color:inherit">Políticas de Envío</a></p>
-        <p><a href="contacto.html" style="color:inherit">Contacto</a></p>
+        <h3>TIENDA</h3>
+        <p><a href="ropa.html" style="color:inherit; text-decoration:none">Ropa y Calzado</a></p>
+        <p><a href="programas.html" style="color:inherit; text-decoration:none">Streaming</a></p>
+        <p><a href="varios.html" style="color:inherit; text-decoration:none">Varios</a></p>
       </div>
       <div>
-        <h3>SOPORTE</h3>
-        <p>WhatsApp: +593 963 923 399</p>
-        <p>Email: agromhasvida5@gmail.com</p>
+        <h3>LEGAL</h3>
+        <p><a href="politicas.html" style="color:inherit; text-decoration:none">Políticas de Privacidad</a></p>
+        <p><a href="politicas.html" style="color:inherit; text-decoration:none">Términos y Envíos</a></p>
+        <p><a href="contacto.html" style="color:inherit; text-decoration:none">Ubicación</a></p>
       </div>
     </div>
-    <div class="copyright-bar">&copy; 2026 BHALLEFFORT - DIOS TE DA MÁS DE LO QUE PIDES</div>
+    <div class="copyright-bar">
+        &copy; 2026 BHALLEFFORT - <span style="color:var(--morado)">DIOS TE DA MÁS DE LO QUE PIDES</span>
+    </div>
   </footer>
 
   <div id="zoom-modal">
-      <button onclick="cerrarZoom()" style="position:absolute; top:20px; right:20px; background:white; border:none; border-radius:50%; width:45px; height:45px; font-weight:bold; cursor:pointer;">&times;</button>
-      <div class="zoom-content"><img id="img-zoom" src=""></div>
+      <button onclick="cerrarZoom()" style="position:absolute; top:20px; right:20px; background:white; border:none; border-radius:50%; width:45px; height:45px; font-size:24px; cursor:pointer; font-weight:bold; z-index:5001;">&times;</button>
+      <div class="zoom-content">
+          <img id="img-zoom" src="">
+          <div class="zoom-btns">
+              <button onclick="cambiarFotoZoom('frontal')" class="btn-z" style="background:var(--turquesa);">FOTO 1</button>
+              <button onclick="cambiarFotoZoom('trasera')" class="btn-z" style="background:var(--morado);">FOTO 2</button>
+          </div>
+      </div>
   </div>
 
   <div id="cart-modal">
     <div>
-      <h3 style="margin-bottom:15px; border-bottom:1px solid #eee; padding-bottom:10px;">Tu Carrito</h3>
+      <header style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #eee; padding-bottom:10px; margin-bottom:15px;">
+        <h3><i class="fas fa-shopping-cart"></i> Tu Carrito</h3>
+        <button onclick="document.getElementById('cart-modal').style.display='none'" style="background:none;border:none;font-size:24px;cursor:pointer">&times;</button>
+      </header>
+      
+      <div class="pago-aviso-oficial">Pago oficial a nombre de: Katherine Pineda</div>
+
       <div id="cart-items" style="max-height:300px; overflow-y:auto;"></div>
-      <div style="margin-top:15px; font-weight:700; font-size:18px; text-align:right;">Total: <span id="cart-total">$0.00</span></div>
-      <button onclick="finalizarCompraWA()" style="background:#25D366; color:#fff; border:none; padding:12px; width:100%; border-radius:6px; margin-top:15px; font-weight:700; cursor:pointer;">PEDIR POR WHATSAPP</button>
-      <button onclick="document.getElementById('cart-modal').style.display='none'" style="margin-top:10px; width:100%; background:none; border:none; color:#777; cursor:pointer;">Cerrar</button>
+
+      <footer style="margin-top:20px; border-top:1px solid #eee; padding-top:15px;">
+        <div style="display:flex;justify-content:space-between;font-size:14px; margin-bottom:5px">
+            <span>Subtotal:</span><span id="cart-subtotal">$0.00</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-weight:bold; font-size:18px; color:var(--morado)">
+          <span>Total:</span><span id="cart-total">$0.00</span>
+        </div>
+        <div id="rifa-status" style="text-align:center; padding:8px; background:#e8f5e9; color:#2e7d32; border-radius:6px; margin:10px 0; font-size:12px; display:none;">
+            ✅ ¡Este pedido participa en la RIFA!
+        </div>
+        <button onclick="finalizarCompraWA()" style="background:#25D366;color:#fff;border:none;padding:15px;border-radius:6px;cursor:pointer;width:100%; font-weight:700; font-size:16px; margin-top:10px">
+          FINALIZAR EN WHATSAPP 🐋
+        </button>
+      </footer>
     </div>
   </div>
 
   <script>
     let productosTotales = [];
     let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
+    let imgActualFrontal = "";
+    let imgActualTrasera = "";
     let currentSlide = 0;
 
-    // SLIDER LÓGICA
+    // SLIDER
     function nextSlide() {
       const slides = document.querySelectorAll('.slide');
       slides[currentSlide].classList.remove('active');
@@ -286,43 +324,47 @@
     }
     setInterval(nextSlide, 5000);
 
-    // DATOS
-    async function cargarInicio() {
+    // CARGA DE DATOS
+    async function cargarHome() {
       try {
         const res = await fetch('productos.json');
         productosTotales = await res.json();
-        const destacados = productosTotales.slice(0, 10); // Los primeros 10 como destacados
+        
+        // Mostrar 10 productos aleatorios o destacados en el index
+        const destacados = productosTotales.filter(p => p.oferta === 'SI' || p.cat === 'ROPA').slice(0, 10);
         
         const grid = document.getElementById('featured-grid');
         grid.innerHTML = destacados.map(p => `
           <div class="product-card" onclick="this.classList.toggle('flip')">
             ${p.oferta === 'SI' ? '<div class="badge-promo">OFERTA</div>' : ''}
             <div class="product-image-container">
-              <div class="lupa-zoom-icon" onclick="event.stopPropagation(); abrirZoom('${p.imgFrontal}')">
+              <div class="lupa-zoom-icon" onclick="event.stopPropagation(); abrirZoom('${p.imgFrontal}', '${p.imgTrasera || p.imgFrontal}')">
                 <i class="fas fa-search-plus"></i>
               </div>
               <img src="${p.imgFrontal}" class="product-image front">
               <img src="${p.imgTrasera || p.imgFrontal}" class="product-image back">
             </div>
             <div class="product-info">
-              <h4 style="font-size:14px;">${p.nombre}</h4>
-              <span class="current-price">$${p.precio.toFixed(2)}</span>
+              <h4 class="product-name">${p.nombre}</h4>
+              <div style="margin-bottom:8px">
+                <span class="current-price">$${p.precio.toFixed(2)}</span>
+              </div>
               <button class="btn-buy" onclick="event.stopPropagation(); addCart('${p.id}')">Añadir</button>
             </div>
           </div>`).join('');
         
         actualizarBadge();
-      } catch (e) { console.error(e); }
+      } catch (e) { console.error("Error cargando productos:", e); }
     }
 
-    // CARRITO
+    // LÓGICA CARRITO
     function addCart(id) {
       const p = productosTotales.find(x => x.id === id);
       if(p) {
         carrito.push({id: p.id, nombre: p.nombre, precio: p.precio});
         localStorage.setItem('bh-cart', JSON.stringify(carrito));
         actualizarBadge();
-        mostrarNoti("✅ Añadido al carrito");
+        mostrarNoti(`✅ ${p.nombre} añadido`);
       }
     }
 
@@ -335,16 +377,19 @@
     }
 
     function mostrarModal() {
-      if(carrito.length === 0) { mostrarNoti("Carrito vacío"); return; }
+      if(carrito.length === 0) { mostrarNoti("Tu carrito está vacío"); return; }
       const items = document.getElementById('cart-items');
       const total = carrito.reduce((s, i) => s + i.precio, 0);
+      
       items.innerHTML = carrito.map((p, i) => `
-        <div style="display:flex; justify-content:space-between; padding:5px 0; border-bottom:1px solid #eee;">
-          <span style="font-size:12px;">${p.nombre}</span>
-          <span>$${p.precio.toFixed(2)}</span>
-          <i class="fas fa-trash" onclick="removeItem(${i})" style="color:red; cursor:pointer;"></i>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid #eee;">
+          <div><div style="font-weight:600; font-size:14px;">${p.nombre}</div><div style="color:var(--turquesa);">$${p.precio.toFixed(2)}</div></div>
+          <button onclick="removeItem(${i})" style="color:#ff4444; border:none; background:none; cursor:pointer;"><i class="fas fa-trash-alt"></i></button>
         </div>`).join('');
+      
+      document.getElementById('cart-subtotal').textContent = '$' + total.toFixed(2);
       document.getElementById('cart-total').textContent = '$' + total.toFixed(2);
+      document.getElementById('rifa-status').style.display = (total >= 30) ? 'block' : 'none';
       document.getElementById('cart-modal').style.display = 'block';
     }
 
@@ -357,9 +402,11 @@
 
     function finalizarCompraWA() {
       const total = carrito.reduce((s, i) => s + i.precio, 0);
-      let msg = `🐋 *PEDIDO BHALLEFFORT:*\n`;
-      carrito.forEach(p => msg += `- ${p.nombre} ($${p.precio})\n`);
-      msg += `\n*TOTAL: $${total.toFixed(2)}*`;
+      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *NUEVO PEDIDO:*\n\n`;
+      carrito.forEach((p, idx) => { msg += `${idx + 1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; });
+      msg += `\n💰 *TOTAL: $${total.toFixed(2)}*\n`;
+      if(total >= 30) msg += `\n🎟️ *PARTICIPA EN LA RIFA*`;
+      msg += `\n\n¿Me ayudan con los datos de pago y envío?`;
       window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
@@ -368,11 +415,14 @@
       const val = e.target.value.toLowerCase();
       const resDiv = document.getElementById('search-results');
       if(!val) { resDiv.innerHTML = ''; return; }
-      const f = productosTotales.filter(p => p.nombre.toLowerCase().includes(val)).slice(0, 5);
+      const f = productosTotales.filter(p => p.nombre.toLowerCase().includes(val)).slice(0, 6);
       resDiv.innerHTML = f.map(p => `
         <div class="search-item" onclick="irA('${p.id}', '${p.cat}')">
           <img src="${p.imgFrontal}">
-          <div><strong>${p.nombre}</strong><br><small>${p.cat}</small></div>
+          <div>
+            <div style="font-size:13px; font-weight:600">${p.nombre}</div>
+            <div style="font-size:10px; color:var(--turquesa)">Categoría: ${p.cat}</div>
+          </div>
         </div>`).join('');
     };
 
@@ -381,17 +431,28 @@
       if(cat === "PROGRAMAS" || cat === "STREAMING") pg = "programas.html";
       if(cat === "VARIOS") pg = "varios.html";
       if(cat === "PROMOCIONES") pg = "promociones.html";
-      window.location.href = `${pg}?buscar=${id}`;
+      window.location.href = pg + "?buscar=" + id;
     }
 
-    function abrirZoom(img) { document.getElementById('img-zoom').src = img; document.getElementById('zoom-modal').style.display = 'flex'; }
+    // ZOOM
+    function abrirZoom(imgF, imgT) {
+        imgActualFrontal = imgF; imgActualTrasera = imgT;
+        document.getElementById('img-zoom').src = imgF;
+        document.getElementById('zoom-modal').style.display = 'flex';
+    }
     function cerrarZoom() { document.getElementById('zoom-modal').style.display = 'none'; }
-    function mostrarNoti(t) { const n = document.getElementById('noti-add'); n.textContent = t; n.style.display = 'block'; setTimeout(() => n.style.display = 'none', 2000); }
+    function cambiarFotoZoom(tipo) { document.getElementById('img-zoom').src = (tipo === 'frontal') ? imgActualFrontal : imgActualTrasera; }
+    
+    function mostrarNoti(t) { 
+        const n = document.getElementById('noti-add'); 
+        n.textContent = t; n.style.display = 'block'; 
+        setTimeout(() => n.style.display = 'none', 2000); 
+    }
 
     document.getElementById('cart-icon').onclick = mostrarModal;
     document.getElementById('btn-lupa').onclick = () => document.getElementById('search-modal').style.display='block';
 
-    cargarInicio();
+    cargarHome();
   </script>
 </body>
 </html>
