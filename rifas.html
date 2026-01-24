@@ -38,7 +38,7 @@
 
     .hero-banner {
       position: relative;
-      background: url('https://images.unsplash.com/photo-1596743444253-a4a5ad565928?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+      background: url('https://images.unsplash.com/photo-1596743444253-a4a5ad565928?q=80&w=2070') center/cover no-repeat;
       height: 400px; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff;
     }
     .hero-banner::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); z-index: 1; }
@@ -51,23 +51,17 @@
 
     .featured-products{padding:40px 0}
     .section-title{text-align:center;margin-bottom:10px;font-size:26px;color:var(--morado);text-transform:uppercase}
-    
     .ia-notice { text-align: center; background: #fdf6e3; border: 1px dashed #d3af37; padding: 10px; margin-bottom: 30px; border-radius: 8px; font-size: 13px; color: #856404; }
 
     .products-grid-ten{display:grid;gap:15px;grid-template-columns:repeat(5,1fr);max-width:1100px;margin:auto}
-    .product-card{background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);display:flex;flex-direction:column;overflow:hidden;cursor:pointer}
+    .product-card{background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);display:flex;flex-direction:column;overflow:hidden;cursor:pointer;position:relative}
     .product-image-container {position: relative;width: 100%;height: 250px;overflow: hidden}
     .product-image {width: 100%;height: 100%;object-fit: cover;transition: transform 0.5s ease, opacity 0.3s ease}
     .product-image.back {position: absolute;top: 0;left: 0;opacity: 0}
-    
-    @media (hover: hover) {
-      .product-card:hover .product-image.front { opacity: 0; }
-      .product-card:hover .product-image.back { opacity: 1; }
-    }
     .product-card.flip .product-image.front { opacity: 0; }
     .product-card.flip .product-image.back { opacity: 1; }
 
-    .lupa-zoom-icon { position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,0.8); color: var(--morado); width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; z-index: 10; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+    .lupa-zoom-icon { position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,0.8); color: var(--morado); width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; z-index: 10; box-shadow: 0 2px 5px rgba(0,0,0,0.2); transition: 0.3s; }
 
     .product-info{padding:12px;display:flex;flex-direction:column;flex:1}
     .product-category{font-size:11px;color:#ff6600;font-weight:700;text-transform:uppercase}
@@ -84,9 +78,12 @@
     .guarantee-item{flex:1 1 200px; padding: 10px;}
     .guarantee-item i {font-size: 24px; color: var(--morado); margin-bottom: 10px;}
 
-    footer{background:var(--celeste);color:#000;font-size:13px;padding:30px 0}
-    .footer-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
-    .copyright-bar {text-align: center; padding: 15px 0; background: rgba(0,0,0,0.05); margin-top: 20px; font-weight: 600;}
+    footer{background:var(--celeste);color:#000;font-size:14px;padding:25px 0 10px 0}
+    .footer-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));align-items: start;}
+    .footer-contact h3 { font-size: 16px; margin-bottom: 10px; color: var(--morado); text-transform: uppercase; border-bottom: 2px solid rgba(0,0,0,0.1); display: inline-block;}
+    .footer-contact p { margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .footer-contact i { color: var(--morado); width: 18px; text-align: center; }
+    .copyright-bar {text-align: center; padding: 15px 0; background: rgba(0,0,0,0.05); margin-top: 15px; font-weight: 700; font-size: 12px;}
 
     #zoom-modal{display:none; position:fixed; inset:0; background:rgba(0,0,0,0.95); z-index:5000; align-items:center; justify-content:center; flex-direction:column;}
     .zoom-content{position:relative; width:90%; max-width:450px; text-align:center;}
@@ -95,8 +92,8 @@
     .btn-z{padding:12px 25px; border-radius:25px; border:none; cursor:pointer; font-weight:700; color:white; font-size:14px;}
 
     #banner-div{position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;box-shadow:0 -2px 5px rgba(0,0,0,.1);z-index:999}
-    #banner-envio{flex:1;background:#ff9800;color:#fff;text-align:center;padding:8px;font-size:14px;}
-    #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:8px;font-size:14px;}
+    #banner-envio{flex:1;background:#ff9800;color:#fff;text-align:center;padding:8px;font-size:14px;transition:0.3s;}
+    #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:8px;font-size:14px;transition:0.3s;}
     
     #search-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:3000}
     #search-modal>div{background:#fff;width:90%;max-width:400px;margin:80px auto;padding:15px;border-radius:8px;position:relative}
@@ -105,7 +102,7 @@
     .search-item{padding:8px;border-bottom:1px solid #eee;cursor:pointer;display:flex;align-items:center;gap:10px}
     .search-item img{width:35px;height:35px;object-fit:cover;border-radius:3px}
 
-    #noti-add{position:fixed;bottom:40px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:8px 14px;border-radius:4px;font-size:13px;z-index:9999;display:none}
+    #noti-add{position:fixed;bottom:50px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:8px 14px;border-radius:4px;font-size:13px;z-index:9999;display:none}
 
     #cart-modal{display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:4000;}
     #cart-modal > div {background:#fff; width:95%; max-width:450px; margin:50px auto; padding:20px; border-radius:12px; position:relative; box-shadow:0 10px 25px rgba(0,0,0,0.2);}
@@ -163,8 +160,8 @@
   <nav class="main-nav">
     <ul>
       <li><a href="index.html">INICIO</a></li>
-      <li><a href="ropa.html">ROPA</a></li>
-      <li><a href="zapatos.html">ZAPATOS</a></li>
+      <li><a href="ropa.html">ROPA Y CALZADO</a></li>
+      <li><a href="programas.html">PROGRAMAS Y STREAMING</a></li>
       <li><a href="varios.html">VARIOS</a></li>
       <li><a href="promociones.html">PROMOCIONES</a></li>
       <li><a href="quienes-somos.html">QUIÉNES SOMOS</a></li>
@@ -175,7 +172,7 @@
   <section class="hero-banner">
     <div>
       <h1>RIFAS BHALLEFFORT</h1>
-      <p>Compra tus boletos o participa gratis por tus compras mayores a $30</p>
+      <p>Boletos directos o gratis por compras mayores a $30</p>
     </div>
   </section>
 
@@ -191,13 +188,13 @@
     <div class="container flex-guarantees">
       <div class="guarantee-item">
         <i class="fas fa-check-circle"></i>
-        <div><strong>SORTEOS REALES</strong><p>Transparencia total</p></div>
+        <div><strong>SORTEOS REALES</strong><p>Transparencia total en vivo</p></div>
       </div>
       <div class="guarantee-item">
         <i class="fas fa-ticket-alt"></i>
         <div>
           <strong>¿CÓMO PARTICIPAR?</strong>
-          <p>Compra boletos directos o recibe números gratis por compras de $30+. <a href="https://wa.me/593963923399" target="_blank" style="color:var(--morado); font-weight:700;">Más info aquí.</a></p>
+          <p>Compra boletos o recibe números gratis por compras de $30+. <a href="https://wa.me/593963923399" target="_blank" style="color:var(--morado); font-weight:700;">Más info aquí.</a></p>
         </div>
       </div>
     </div>
@@ -206,21 +203,27 @@
   <footer>
     <div class="container footer-grid">
       <div>
-        <img src="logo-ballena.png" alt="Ballena" width="60">
-        <p>Diseñado por Jhomac² - La Y de Tabacundo</p>
-        <div class="god-message" style="font-size: 11px; opacity: 0.7; margin-top: 5px;">Dios te da más de lo que pides.</div>
+        <img src="logo-ballena.png" alt="Ballena" width="65">
+        <p>Diseñado por <strong>Jhomac²</strong></p>
+        <p>La Y de Tabacundo</p>
+        <div class="god-message" style="margin-top:10px; font-weight:700; color: var(--morado);">"Dios te da más de lo que pides."</div>
       </div>
+      
       <div class="footer-contact">
         <h3>CONTÁCTANOS</h3>
+        <p><i class="fas fa-user-shield"></i> <strong>Katherine Pineda</strong></p>
         <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/593963923399" target="_blank" style="color:inherit; text-decoration:none;">+593 963 923 399</a></p>
         <p><i class="fas fa-envelope"></i> agromhasvida5@gmail.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> Tabacundo, Ecuador</p>
+      </div>
+
+      <div>
+        <h3>INFORMACIÓN</h3>
+        <p><a href="cookies.html" style="color: #000; text-decoration: none;">Política de Cookies</a></p>
+        <p><a href="politicas.html" style="color: #000; text-decoration: none;">Privacidad y Envíos</a></p>
       </div>
     </div>
-    <div style="margin: 15px 0; display: flex; justify-content: center; gap: 20px;">
-      <a href="cookies.html" style="color: #000; text-decoration: none; font-size: 12px; opacity: 0.7;">Política de Cookies</a>
-      <a href="politicas.html" style="color: #000; text-decoration: none; font-size: 12px; opacity: 0.7;">Políticas de Privacidad y Envíos</a>
-    </div>
-    <div class="copyright-bar">&copy; 2026 BHALLEFFORT</div>
+    <div class="copyright-bar">&copy; 2026 BHALLEFFORT - Todos los derechos reservados</div>
   </footer>
 
   <div id="zoom-modal">
@@ -241,15 +244,16 @@
         <button onclick="document.getElementById('cart-modal').style.display='none'" style="background:none;border:none;font-size:24px;cursor:pointer">&times;</button>
       </header>
       <div id="cart-items" style="max-height:300px; overflow-y:auto;"></div>
+      
+      <div style="background: #fffbef; border: 2px solid #ffeb3b; padding: 10px; text-align: center; border-radius: 8px; font-size: 13px; margin: 15px 0; color: #000;">
+        Pago oficial a nombre de: <strong>Katherine Pineda</strong>.
+      </div>
+
       <footer style="margin-top:20px; border-top:1px solid #eee; padding-top:15px;">
-        <div style="display:flex;justify-content:space-between;font-weight:bold; font-size:18px;">
+        <div style="display:flex;justify-content:space-between;font-weight:bold; font-size:18px; color:var(--morado)">
           <span>Total:</span><span id="cart-total">$0.00</span>
         </div>
-        <div style="text-align:center; padding:12px; border:1px solid #ffd700; background:#fffdf0; border-radius:8px; margin:15px 0; font-size:13px;">
-          <i class="fas fa-lock" style="color:var(--morado)"></i> <strong>PAGO SEGURO:</strong><br>
-          Pago a nombre de: <strong>Katherine Pineda</strong>.
-        </div>
-        <button onclick="finalizarCompraWA()" style="background:#25D366;color:#fff;border:none;padding:15px;border-radius:6px;cursor:pointer;width:100%; font-weight:700; font-size:16px;">
+        <button onclick="finalizarCompraWA()" style="background:#25D366;color:#fff;border:none;padding:15px;border-radius:6px;cursor:pointer;width:100%; font-weight:700; font-size:16px; margin-top:15px">
           COMPRAR BOLETO POR WHATSAPP 🐋
         </button>
       </footer>
@@ -267,7 +271,7 @@
         productosTotales = await res.json();
         dibujarRifas();
         actualizarBadge();
-      } catch (e) { console.error("Error cargando rifas:", e); }
+      } catch (e) { console.error(e); }
     }
 
     function dibujarRifas() {
@@ -275,7 +279,7 @@
       const soloRifas = productosTotales.filter(p => p.cat.toUpperCase() === "RIFAS");
       
       if(soloRifas.length === 0) {
-        grid.innerHTML = "<p style='text-align:center; grid-column:1/-1;'>No hay rifas activas en este momento. ¡Sigue nuestras redes para el próximo anuncio!</p>";
+        grid.innerHTML = "<p style='text-align:center; grid-column:1/-1; padding:40px;'>No hay rifas activas. ¡Próximamente!</p>";
         return;
       }
 
@@ -301,10 +305,10 @@
     function addCart(id) {
       const p = productosTotales.find(x => x.id === id);
       if(p) {
-        carrito.push({id: p.id, nombre: p.nombre, precio: p.precio, cat: p.cat});
+        carrito.push({id: p.id, nombre: p.nombre, precio: p.precio});
         localStorage.setItem('bh-cart', JSON.stringify(carrito));
         actualizarBadge();
-        mostrarNoti(`✅ Boleto para ${p.nombre} añadido`);
+        mostrarNoti(`✅ Boleto añadido`);
       }
     }
 
@@ -322,13 +326,12 @@
       if(carrito.length === 0) { mostrarNoti("El carrito está vacío"); return; }
       const items = document.getElementById('cart-items');
       const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
-      const envio = (subTotal >= 50) ? 0 : 3.50;
       items.innerHTML = carrito.map((p, i) => `
         <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid #eee;">
           <div><div style="font-weight:600; font-size:14px;">${p.nombre}</div><div style="color:var(--turquesa);">$${p.precio.toFixed(2)}</div></div>
           <button onclick="removeItem(${i})" style="color:#ff4444; border:none; background:none; cursor:pointer;"><i class="fas fa-trash-alt"></i></button>
         </div>`).join('');
-      document.getElementById('cart-total').textContent = '$' + (subTotal + envio).toFixed(2);
+      document.getElementById('cart-total').textContent = '$' + subTotal.toFixed(2);
       document.getElementById('cart-modal').style.display = 'block';
     }
 
@@ -341,10 +344,10 @@
 
     function finalizarCompraWA() {
       const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
-      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🎫 *COMPRA DE BOLETOS PARA RIFAS:*\n\n`;
+      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🎫 *COMPRA DE BOLETOS:*\n\n`;
       carrito.forEach((p, idx) => { msg += `${idx + 1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; });
-      msg += `\n──────────────────\n✅ *TOTAL A PAGAR: $${subTotal.toFixed(2)}*\n──────────────────\n`;
-      msg += `⚠️ *PAGO:* A nombre de *Katherine Pineda*.\n`;
+      msg += `\n✅ *TOTAL A PAGAR: $${subTotal.toFixed(2)}*\n`;
+      msg += `\n⚠️ Pago a nombre de *Katherine Pineda*.`;
       window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
@@ -353,15 +356,11 @@
       const resDiv = document.getElementById('search-results');
       if(!val) { resDiv.innerHTML = ''; return; }
       const f = productosTotales.filter(p => p.nombre.toLowerCase().includes(val)).slice(0, 6);
-      resDiv.innerHTML = f.map(p => {
-        let destino = p.cat.toLowerCase() + '.html';
-        if(p.cat.toUpperCase() === 'RIFAS') destino = 'rifas.html';
-        return `
-        <div class="search-item" onclick="window.location.href='${destino}'">
+      resDiv.innerHTML = f.map(p => `
+        <div class="search-item" onclick="window.location.href='index.html?buscar=${p.id}'">
           <img src="${p.imgFrontal}">
-          <div><div style="font-size:13px; font-weight:600">${p.nombre}</div><div style="font-size:10px; color:var(--turquesa)">Ver en ${p.cat}</div></div>
-        </div>`;
-      }).join('');
+          <div><div style="font-size:13px; font-weight:600">${p.nombre}</div><div style="font-size:10px; color:var(--turquesa)">Cat: ${p.cat}</div></div>
+        </div>`).join('');
     };
 
     function abrirZoom(imgF, imgT) {
