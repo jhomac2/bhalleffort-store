@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <title>QUIÉNES SOMOS | BHALLEFFORT</title>
-  <meta name="description" content="Tienda oficial de BHALLEFFORT. Encuentra la mejor ropa, zapatos y accesorios en Tabacundo con envíos a todo Ecuador.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="https://jhomac2.github.io/bhalleffort-store/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -23,92 +22,77 @@
     .container { width: 90%; max-width: 1200px; margin: auto; }
     .flex-space { display: flex; align-items: center; justify-content: space-between; }
 
-    /* HEADER Y TOP BAR */
+    /* TOP BAR & HEADER */
     .top-bar { background: var(--morado); color: #fff; font-size: 13px; padding: 8px 0; text-align: center; font-weight: 600; }
     .main-header { padding: 15px 0; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.1); }
     .whale-icon { width: 85px; border: 3px solid var(--morado); border-radius: 50%; padding: 2px; background: #fff; }
     .brand-text h1 { font-size: 24px; color: var(--morado); font-weight: 700; line-height: 1; }
-    .btn-rifas { background: #ff6600; padding: .8rem 1.4rem; border-radius: 6px; font-weight: 700; text-decoration: none; color: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s; }
-    .btn-rifas:hover { background: #e65c00; transform: scale(1.05); }
+    .btn-rifas { background: #ff6600; padding: .8rem 1.4rem; border-radius: 6px; font-weight: 700; text-decoration: none; color: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
 
     /* NAVEGACIÓN COMPLETA */
     .main-nav { position: sticky; top: 0; z-index: 999; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
     .main-nav ul { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; }
-    .main-nav a { color: var(--morado); padding: 12px 15px; display: block; font-size: 13px; text-decoration: none; font-weight: 600; transition: 0.3s; }
-    .main-nav a:hover { color: var(--turquesa); }
+    .main-nav a { color: var(--morado); padding: 12px 15px; display: block; font-size: 13px; text-decoration: none; font-weight: 600; }
     .main-nav a.active { background: var(--morado); color: #fff; border-radius: 4px; }
 
-    /* CONTENIDO QUIÉNES SOMOS */
+    /* SECCIONES QUIÉNES SOMOS */
     .hero-about { 
       background: linear-gradient(rgba(76, 13, 140, 0.8), rgba(76, 13, 140, 0.8)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2000') center/cover; 
-      color: #fff; padding: 80px 0; text-align: center; margin-bottom: 20px;
+      color: #fff; padding: 80px 0; text-align: center; 
     }
     .section-white { background: #fff; padding: 40px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin: 30px 0; }
-    .meaning-card { 
-      background: var(--morado); color: #fff; padding: 30px; border-radius: 12px; 
-      text-align: center; font-style: italic; font-size: 1.2rem; margin: 25px 0; 
-      box-shadow: 0 5px 15px rgba(76, 13, 140, 0.3);
-    }
+    .meaning-card { background: var(--morado); color: #fff; padding: 30px; border-radius: 12px; text-align: center; font-style: italic; font-size: 1.2rem; margin: 25px 0; }
+    
     .policy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
     .policy-item { padding: 20px; background: #f9f9f9; border-radius: 10px; border-bottom: 4px solid var(--turquesa); cursor: pointer; transition: 0.3s; }
-    .policy-item:hover { transform: translateY(-5px); background: #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .policy-item:hover { transform: translateY(-5px); }
 
-    /* BOTONES FLOTANTES */
+    /* FLOTANTES */
     #cart-icon { position: fixed; top: 15px; right: 15px; background: #fff; border-radius: 50%; width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2); cursor: pointer; z-index: 1001; }
     #cart-badge { background: var(--turquesa); color: #fff; border-radius: 50%; padding: 2px 7px; font-size: 12px; position: absolute; top: 0; right: 0; font-weight: bold; }
-    #btn-lupa { position: fixed; top: 80px; right: 15px; background: var(--turquesa); color: #fff; border: none; border-radius: 50%; width: 55px; height: 55px; font-size: 22px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 1001; transition: 0.3s; }
-    #btn-lupa:hover { background: var(--turquesaOsc); transform: scale(1.1); }
+    #btn-lupa { position: fixed; top: 80px; right: 15px; background: var(--turquesa); color: #fff; border: none; border-radius: 50%; width: 55px; height: 55px; font-size: 22px; cursor: pointer; z-index: 1001; }
 
-    /* BANNERS INFERIORES */
+    /* BANNERS */
     #banner-div { position: fixed; bottom: 0; left: 0; right: 0; display: flex; z-index: 1000; }
-    #banner-envio, #banner-sorteo { flex: 1; padding: 12px; text-align: center; font-weight: 700; font-size: 14px; color: #fff; text-transform: uppercase; }
+    #banner-envio, #banner-sorteo { flex: 1; padding: 12px; text-align: center; font-weight: 700; font-size: 14px; color: #fff; }
     #banner-envio { background: #ff9800; }
     #banner-sorteo { background: var(--morado); }
 
     /* MODALES */
-    #search-modal, #cart-modal, #policy-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 5000; backdrop-filter: blur(3px); overflow-y: auto; }
-    .modal-content { background: #fff; width: 90%; max-width: 500px; margin: 40px auto; padding: 30px; border-radius: 20px; position: relative; animation: slideDown 0.3s ease-out; }
-    @keyframes slideDown { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    #cart-modal, #policy-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 5000; overflow-y: auto; }
+    .modal-content { background: #fff; width: 90%; max-width: 480px; margin: 40px auto; padding: 25px; border-radius: 15px; position: relative; }
 
+    /* FOOTER */
     footer { background: var(--celeste); padding: 50px 0; text-align: center; }
-    .social-links a { color: var(--morado); font-size: 28px; margin: 0 15px; transition: 0.3s; display: inline-block; }
-    .social-links a:hover { transform: translateY(-5px); color: #fff; }
+    .social-links a { color: var(--morado); font-size: 24px; margin: 0 10px; transition: 0.3s; }
+    .social-links a:hover { color: var(--turquesaOsc); }
   </style>
 </head>
 <body>
 
-  <div id="search-modal">
+  <div id="policy-modal">
     <div class="modal-content">
-      <button onclick="document.getElementById('search-modal').style.display='none'" style="position:absolute; top:15px; right:20px; border:none; background:none; font-size:30px; cursor:pointer">&times;</button>
-      <h3 style="margin-bottom:15px; color:var(--morado)">Buscar en la Tienda</h3>
-      <input type="text" id="search-input" placeholder="Escribe el producto..." style="width:100%; padding:15px; border:2px solid #eee; border-radius:10px; outline:none; font-size:16px;">
-      <div id="search-results" style="margin-top:20px; max-height:300px; overflow-y:auto;"></div>
+      <header class="flex-space" style="border-bottom:1px solid #eee; padding-bottom:10px;">
+        <h3 id="policy-title"></h3>
+        <button onclick="document.getElementById('policy-modal').style.display='none'" style="border:none; background:none; font-size:28px; cursor:pointer">&times;</button>
+      </header>
+      <div id="policy-content" style="margin-top:20px;"></div>
     </div>
   </div>
 
   <div id="cart-modal">
     <div class="modal-content">
-      <header class="flex-space" style="border-bottom:2px solid #f5f5f5; padding-bottom:15px;">
-        <h3 style="color:var(--morado)"><i class="fas fa-shopping-cart"></i> Tu Pedido</h3>
-        <button onclick="document.getElementById('cart-modal').style.display='none'" style="border:none; background:none; font-size:30px; cursor:pointer">&times;</button>
+      <header class="flex-space" style="border-bottom:1px solid #eee; padding-bottom:10px;">
+        <h3><i class="fas fa-shopping-cart"></i> Tu Pedido</h3>
+        <button onclick="document.getElementById('cart-modal').style.display='none'" style="border:none; background:none; font-size:28px; cursor:pointer">&times;</button>
       </header>
-      <div id="cart-items" style="margin-top:15px;"></div>
-      <footer id="cart-footer-logic" style="margin-top:20px; border-top:2px solid #f5f5f5; padding-top:20px;"></footer>
-    </div>
-  </div>
-
-  <div id="policy-modal">
-    <div class="modal-content">
-      <header class="flex-space" style="border-bottom:2px solid #f5f5f5; padding-bottom:15px;">
-        <h3 id="policy-title" style="color:var(--morado)"></h3>
-        <button onclick="document.getElementById('policy-modal').style.display='none'" style="border:none; background:none; font-size:30px; cursor:pointer">&times;</button>
-      </header>
-      <div id="policy-content" style="margin-top:20px; font-size:15px; color:#555;"></div>
+      <div id="cart-items" style="max-height:350px; overflow-y:auto; margin-top:15px;"></div>
+      <footer id="cart-footer-logic" style="margin-top:20px; border-top:1px solid #eee; padding-top:15px;"></footer>
     </div>
   </div>
 
   <div id="cart-icon"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
-  <button id="btn-lupa"><i class="fas fa-search"></i></button>
+  <button id="btn-lupa" onclick="alert('Buscador disponible en Inicio')"><i class="fas fa-search"></i></button>
 
   <div id="banner-div">
     <div id="banner-envio">🚚 Envío Gratis desde $50 Físicos</div>
@@ -142,28 +126,28 @@
 
   <section class="hero-about">
     <div class="container">
-      <h1 style="font-size:3rem; margin-bottom:10px;">¿Quiénes Somos?</h1>
-      <p style="font-size:1.2rem; opacity:0.9;">Tu tienda de confianza en Tabacundo con envíos a todo Ecuador</p>
+      <h1>¿Quiénes Somos?</h1>
+      <p>Pasión por la moda, compromiso con nuestra gente</p>
     </div>
   </section>
 
   <div class="container">
     <section class="section-white">
-      <h2 style="color:var(--morado); margin-bottom:20px; border-left:5px solid var(--turquesa); padding-left:15px;">Un Sueño con Propósito</h2>
-      <p><strong>BHALLEFFORT</strong> no es solo una marca de ropa, es un testimonio de esfuerzo, fe y disciplina. Nacimos con la visión de ofrecer productos de <strong>Calidad Premium (1:1 / G5)</strong> a precios que permitan a las familias ecuatorianas lucir lo mejor sin sacrificar su economía.</p>
+      <h2 style="color:var(--morado); margin-bottom:15px;">Un Sueño con Propósito</h2>
+      <p><strong>BHALLEFFORT</strong> nació como testimonio de esfuerzo y fe. Nos basamos en que los "Buenos Hábitos te Llevan al Éxito".</p>
       <div class="meaning-card">"Buenos Hábitos te Llevan al Éxito, y son la Fortaleza para vivir"</div>
-      <p>Nuestro nombre representa esa lucha diaria por ser mejores. Creemos que cada cliente es parte de nuestra familia y por ello garantizamos honestidad total en cada entrega.</p>
+      <p>Nuestra misión es llevar calidad premium a cada rincón de Ecuador, brindando honestidad en cada venta.</p>
     </section>
 
     <section class="section-white">
       <div class="policy-grid">
         <div class="policy-item" onclick="abrirPolitica('envios')">
-          <h3 style="color:var(--morado); margin-bottom:10px;"><i class="fas fa-truck"></i> Envíos Seguros</h3>
-          <p>Entregas locales inmediatas y envíos a todo el país vía Servientrega con seguimiento.</p>
+          <h3 style="color:var(--morado)"><i class="fas fa-truck"></i> Envíos</h3>
+          <p>Locales y Nacionales por Servientrega.</p>
         </div>
         <div class="policy-item" onclick="abrirPolitica('calidad')">
-          <h3 style="color:var(--morado); margin-bottom:10px;"><i class="fas fa-gem"></i> Calidad Garantizada</h3>
-          <p>Seleccionamos cuidadosamente cada prenda y calzado para asegurar durabilidad y estilo.</p>
+          <h3 style="color:var(--morado)"><i class="fas fa-check-circle"></i> Calidad</h3>
+          <p>Garantía de productos Premium G5/1:1.</p>
         </div>
       </div>
     </section>
@@ -171,158 +155,103 @@
 
   <footer>
     <div class="container">
-      <div class="social-links" style="margin-bottom:30px;">
-        <a href="https://www.facebook.com/share/17jG7haojA/"><i class="fab fa-facebook-f"></i></a>
+      <div class="social-links" style="margin-bottom:20px;">
+        <a href="https://www.facebook.com/share/17jG7haojA/"><i class="fab fa-facebook"></i></a>
         <a href="https://www.instagram.com/bhalleffort"><i class="fab fa-instagram"></i></a>
         <a href="https://www.tiktok.com/@bhalleffort"><i class="fab fa-tiktok"></i></a>
       </div>
-      <p style="font-weight:700; color:var(--morado);">© 2026 BHALLEFFORT | Tabacundo, Pichincha, Ecuador</p>
-      <p style="font-size:12px; margin-top:10px; opacity:0.7;">"Lo que hoy es un sueño, mañana será tu realidad"</p>
+      <p style="font-weight:700;">© 2026 BHALLEFFORT | Tabacundo, Ecuador</p>
     </div>
   </footer>
 
   <script>
-    let productosData = [];
     let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
 
-    // CARGAR PRODUCTOS PARA EL BUSCADOR
-    async function init() {
-      try {
-        const res = await fetch('productos.json');
-        productosData = await res.json();
-      } catch (e) { console.error("Error cargando productos"); }
-      actualizarBadge();
-    }
-
-    function calcularLogicaNegocio() {
-      const catsSinPromo = ["RIFAS", "STREAMING", "PROGRAMAS", "SOFTWARE", "CURSOS"];
-      let subTotalTotal = 0;
-      let subTotalFisico = 0; // Solo lo que se envía (Ropa/Calzado/etc)
-      let tieneFisico = false;
+    function calcularLogica() {
+      // Categorías que NO cobran envío ni activan rifas
+      const digitalCats = ["RIFAS", "STREAMING", "PROGRAMAS", "SOFTWARE", "CURSOS"];
+      let totalTodo = 0, totalFisico = 0, tieneFisico = false;
 
       carrito.forEach(p => {
-        subTotalTotal += p.precio;
-        if (!catsSinPromo.includes(p.cat.toUpperCase())) {
-          subTotalFisico += p.precio;
+        totalTodo += p.precio;
+        if (!digitalCats.includes(p.cat.toUpperCase())) {
+          totalFisico += p.precio;
           tieneFisico = true;
         }
       });
 
-      // REGLA 1: Envío solo si hay cosas físicas y no llegan a $50
-      let costoEnvio = 0;
-      if (tieneFisico) {
-        costoEnvio = (subTotalFisico >= 50) ? 0 : 3.50;
-      }
+      // Envío: $3.50 si hay físico y es < $50. Si es digital o físico > $50, es $0.
+      let envio = (tieneFisico && totalFisico < 50) ? 3.50 : 0;
+      // Rifa: Solo si lo físico suma $30+
+      let ganaRifa = (totalFisico >= 30);
 
-      // REGLA 2: Rifa Gratis solo si lo físico suma $30+
-      let ganaRifa = (subTotalFisico >= 30);
-
-      return { subTotalTotal, subTotalFisico, costoEnvio, ganaRifa };
+      return { totalTodo, totalFisico, envio, ganaRifa };
     }
 
     function actualizarBadge() {
-      const badge = document.getElementById('cart-badge');
-      badge.textContent = carrito.length;
-      const logica = calcularLogicaNegocio();
-      document.getElementById('banner-envio').style.background = (logica.costoEnvio === 0 && carrito.length > 0) ? "#25D366" : "#ff9800";
-    }
-
-    function abrirPolitica(tipo) {
-      const p = {
-        'envios': ['Nuestros Envíos', 'Realizamos envíos de Lunes a Sábado. En Tabacundo y Cayambe la entrega es personal. Al resto del país enviamos por Servientrega o Cooperativas de Transporte (Costo: $3.50).'],
-        'calidad': ['Garantía de Calidad', 'Todos nuestros productos son revisados antes del envío. Manejamos calidad premium 1:1, asegurando que recibas exactamente lo que ves en nuestras fotos y videos.']
-      };
-      document.getElementById('policy-title').innerText = p[tipo][0];
-      document.getElementById('policy-content').innerText = p[tipo][1];
-      document.getElementById('policy-modal').style.display = 'block';
+      document.getElementById('cart-badge').textContent = carrito.length;
+      const logica = calcularLogica();
+      document.getElementById('banner-envio').style.background = (logica.envio === 0 && carrito.length > 0) ? "#25D366" : "#ff9800";
     }
 
     function mostrarCarrito() {
-      if(carrito.length === 0) { alert("Tu carrito está vacío"); return; }
-      const itemsDiv = document.getElementById('cart-items');
-      const logica = calcularLogicaNegocio();
+      if(carrito.length === 0) return alert("El carrito está vacío");
+      const { totalTodo, envio, ganaRifa } = calcularLogica();
+      const items = document.getElementById('cart-items');
 
-      itemsDiv.innerHTML = `
-        <div style="text-align:center; padding:12px; border:2px solid #ffd700; background:#fffdf0; border-radius:10px; margin-bottom:20px; font-size:13px; font-weight:600;">
-          ⚠️ IMPORTANTE: Pagos únicamente a nombre de <span style="color:var(--morado)">Katherine Pineda</span>.
+      items.innerHTML = `
+        <div style="text-align:center; padding:10px; border:2px solid #ffd700; background:#fffdf0; border-radius:8px; margin-bottom:15px; font-size:12px;">
+          Depósitos a nombre de: <b>Katherine Pineda</b>.
         </div>
       ` + carrito.map((p, i) => `
-        <div style="display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid #f0f0f0;">
-          <div>
-            <div style="font-weight:700; font-size:14px;">${p.nombre}</div>
-            <div style="color:var(--turquesa); font-size:13px; font-weight:600;">$${p.precio.toFixed(2)}</div>
-          </div>
-          <button onclick="eliminarDelCarrito(${i})" style="background:none; border:none; color:#ff4d4d; cursor:pointer; font-size:18px;"><i class="fas fa-trash-alt"></i></button>
-        </div>
-      `).join('');
+        <div class="flex-space" style="padding:10px 0; border-bottom:1px solid #eee;">
+          <div><div style="font-weight:600; font-size:14px;">${p.nombre}</div><div style="color:var(--turquesa); font-size:12px;">$${p.precio.toFixed(2)}</div></div>
+          <button onclick="removeItem(${i})" style="color:red; border:none; background:none; cursor:pointer;"><i class="fas fa-trash-alt"></i></button>
+        </div>`).join('');
 
       document.getElementById('cart-footer-logic').innerHTML = `
-        <div style="display:flex; flex-direction:column; gap:8px; font-size:15px;">
-          <div class="flex-space"><span>Subtotal:</span><span>$${logica.subTotalTotal.toFixed(2)}</span></div>
-          <div class="flex-space"><span>Envío:</span><span>${logica.costoEnvio === 0 ? '<b style="color:#25D366">GRATIS</b>' : '$' + logica.costoEnvio.toFixed(2)}</span></div>
-          ${logica.ganaRifa ? '<div style="background:rgba(255,102,0,0.1); color:#ff6600; padding:8px; border-radius:8px; text-align:center; font-weight:700; border:1px dashed #ff6600; margin-top:5px;">✨ ¡RIFA GRATIS INCLUIDA! ✨</div>' : ''}
+        <div style="font-size:14px;">
+          <div class="flex-space"><span>Subtotal:</span><span>$${totalTodo.toFixed(2)}</span></div>
+          <div class="flex-space"><span>Envío:</span><span>${envio === 0 ? '<b style="color:#25D366">GRATIS</b>' : '$' + envio.toFixed(2)}</span></div>
+          ${ganaRifa ? '<div style="color:#ff6600; font-weight:700; text-align:center; margin-top:5px;">✨ ¡RIFA GRATIS ACTIVADA! ✨</div>' : ''}
         </div>
-        <div class="flex-space" style="font-weight:bold; font-size:22px; color:var(--morado); margin-top:15px; border-top:2px solid #eee; padding-top:10px;">
-          <span>Total:</span><span>$${(logica.subTotalTotal + logica.costoEnvio).toFixed(2)}</span>
+        <div class="flex-space" style="font-weight:bold; font-size:20px; color:var(--morado); margin-top:10px;">
+          <span>Total:</span><span>$${(totalTodo + envio).toFixed(2)}</span>
         </div>
-        <button onclick="enviarWhatsApp()" style="width:100%; background:#25D366; color:#fff; border:none; padding:18px; border-radius:12px; font-weight:700; font-size:16px; margin-top:20px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:10px; transition:0.3s;">
-          <i class="fab fa-whatsapp" style="font-size:20px;"></i> FINALIZAR COMPRA
-        </button>
+        <button onclick="finalizarWA()" style="background:#25D366;color:#fff;border:none;padding:15px;border-radius:8px;cursor:pointer;width:100%; font-weight:700; margin-top:15px;">FINALIZAR WHATSAPP 🐋</button>
       `;
       document.getElementById('cart-modal').style.display = 'block';
     }
 
-    function eliminarDelCarrito(index) {
-      carrito.splice(index, 1);
+    function removeItem(i) {
+      carrito.splice(i, 1);
       localStorage.setItem('bh-cart', JSON.stringify(carrito));
       actualizarBadge();
-      carrito.length > 0 ? mostrarCarrito() : document.getElementById('cart-modal').style.display = 'none';
+      carrito.length ? mostrarCarrito() : document.getElementById('cart-modal').style.display='none';
     }
 
-    function enviarWhatsApp() {
-      const logica = calcularLogicaNegocio();
-      let texto = `🐋 *NUEVO PEDIDO BHALLEFFORT*\n\n`;
-      carrito.forEach((p, idx) => {
-        texto += `*${idx + 1}.* ${p.nombre} - _$${p.precio.toFixed(2)}_\n`;
-      });
-      texto += `\n--------------------------\n`;
-      texto += `💵 *Subtotal:* $${logica.subTotalTotal.toFixed(2)}\n`;
-      texto += `🚚 *Envío:* ${logica.costoEnvio === 0 ? 'GRATIS' : '$' + logica.costoEnvio.toFixed(2)}\n`;
-      if(logica.ganaRifa) texto += `🎁 *PROMOCIÓN:* Incluye boleto para Rifa!\n`;
-      texto += `\n💰 *TOTAL A PAGAR: $${(logica.subTotalTotal + logica.costoEnvio).toFixed(2)}*`;
-      texto += `\n\n⚠️ Pago oficial a: *Katherine Pineda*.`;
-      
-      const url = `https://wa.me/593963923399?text=${encodeURIComponent(texto)}`;
-      window.open(url, '_blank');
+    function finalizarWA() {
+      const { totalTodo, envio, ganaRifa } = calcularLogica();
+      let msg = `🐋 *PEDIDO BHALLEFFORT*\n\n`;
+      carrito.forEach((p, idx) => msg += `${idx + 1}. ${p.nombre} ($${p.precio})\n`);
+      msg += `\nSubtotal: $${totalTodo.toFixed(2)}\nEnvío: ${envio === 0 ? 'GRATIS' : '$'+envio}\n`;
+      if(ganaRifa) msg += `🎁 *PROMO:* ¡Incluye Rifa!\n`;
+      msg += `\n*TOTAL: $${(totalTodo + envio).toFixed(2)}*`;
+      window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`);
     }
 
-    // BUSCADOR
-    document.getElementById('btn-lupa').onclick = () => document.getElementById('search-modal').style.display = 'block';
-    document.getElementById('search-input').oninput = function(e) {
-      const query = e.target.value.toLowerCase();
-      const resultsDiv = document.getElementById('search-results');
-      if (query.length < 2) { resultsDiv.innerHTML = ''; return; }
-
-      const filtrados = productosData.filter(p => p.nombre.toLowerCase().includes(query)).slice(0, 6);
-      resultsDiv.innerHTML = filtrados.map(p => `
-        <div onclick="window.location.href='index.html?p=${p.id}'" style="display:flex; align-items:center; gap:15px; padding:12px; border-bottom:1px solid #eee; cursor:pointer;">
-          <img src="${p.imgFrontal}" style="width:50px; height:50px; object-fit:cover; border-radius:8px;">
-          <div>
-            <div style="font-weight:600; font-size:14px;">${p.nombre}</div>
-            <div style="color:var(--turquesa); font-weight:700;">$${p.precio.toFixed(2)}</div>
-          </div>
-        </div>
-      `).join('');
-    };
+    function abrirPolitica(t) {
+      const d = {
+        'envios': ['Envíos', 'Entregas locales en Tabacundo/Cayambe gratis. Envíos nacionales $3.50 por Servientrega.'],
+        'calidad': ['Calidad', 'Garantizamos calidad premium en calzado y ropa.']
+      };
+      document.getElementById('policy-title').innerText = d[t][0];
+      document.getElementById('policy-content').innerText = d[t][1];
+      document.getElementById('policy-modal').style.display = 'block';
+    }
 
     document.getElementById('cart-icon').onclick = mostrarCarrito;
-    window.onclick = function(e) {
-      if(e.target.className === 'modal' || e.target.id.includes('modal')) {
-        e.target.style.display = 'none';
-      }
-    };
-
-    init();
+    actualizarBadge();
   </script>
 </body>
 </html>
