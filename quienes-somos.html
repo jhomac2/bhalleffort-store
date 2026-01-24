@@ -3,100 +3,110 @@
 <head>
   <meta charset="utf-8">
   <title>QUIÉNES SOMOS | BHALLEFFORT</title>
-  <meta name="description" content="Tienda oficial de BHALLEFFORT. Encuentra la mejor ropa, zapatos y accesorios en Tabacundo con envíos a todo Ecuador. ¡Calidad al mejor precio!">
+  <meta name="description" content="Tienda oficial de BHALLEFFORT. Encuentra la mejor ropa, zapatos y accesorios en Tabacundo con envíos a todo Ecuador.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="https://jhomac2.github.io/bhalleffort-store/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{--celeste:#87ceeb;--morado:#4c0d8c;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;--fondo:#eef2f7}
-    *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',sans-serif}
-    body{background:var(--fondo);color:var(--texto);line-height:1.6; padding-bottom: 80px;}
-    .container{width:90%;max-width:1200px;margin:auto}
-    .flex-space{display:flex;align-items:center;justify-content:space-between}
-    
-    /* HEADER */
-    .top-bar{background:var(--morado);color:#fff;font-size:13px;padding:6px 0;text-align:center;font-weight:600}
-    .main-header{padding:15px 0;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.1)}
-    .whale-icon{width:85px; border:3px solid var(--morado); border-radius:50%; padding:2px; background:#fff}
-    .brand-text h1{font-size:24px;color:var(--morado);font-weight:700;line-height:1}
-    .btn-rifas{background:#ff6600; padding:.8rem 1.4rem;border-radius:6px;font-weight:700;text-decoration:none;color:#fff}
+    :root {
+      --celeste: #87ceeb;
+      --morado: #4c0d8c;
+      --turquesa: #00c8c8;
+      --turquesaOsc: #009e9e;
+      --texto: #222;
+      --fondo: #eef2f7;
+    }
 
-    /* NAV */
-    .main-nav{position:sticky;top:0;z-index:999;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
-    .main-nav ul{list-style:none;display:flex;justify-content:center;flex-wrap:wrap}
-    .main-nav a{color:var(--morado);padding:12px 15px;display:block;font-size:14px;text-decoration:none;font-weight:600}
-    .main-nav a.active{background:var(--morado);color:#fff;border-radius:4px}
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+    body { background: var(--fondo); color: var(--texto); line-height: 1.6; padding-bottom: 80px; }
+    .container { width: 90%; max-width: 1200px; margin: auto; }
+    .flex-space { display: flex; align-items: center; justify-content: space-between; }
 
-    /* CONTENT */
-    .hero-about{background: linear-gradient(rgba(76, 13, 140, 0.8), rgba(76, 13, 140, 0.8)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2000') center/cover; color:#fff; padding:60px 0; text-align:center}
-    .section-white{background:#fff; padding:40px; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.05); margin:30px 0}
-    .meaning-card{background:var(--morado); color:#fff; padding:25px; border-radius:10px; text-align:center; font-style:italic; margin:25px 0}
-    .policy-grid{display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:25px}
-    .policy-item{padding:15px; border-bottom:1px solid #eee; cursor:pointer}
+    /* HEADER & TOP BAR */
+    .top-bar { background: var(--morado); color: #fff; font-size: 13px; padding: 8px 0; text-align: center; font-weight: 600; }
+    .main-header { padding: 15px 0; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.1); }
+    .whale-icon { width: 85px; border: 3px solid var(--morado); border-radius: 50%; padding: 2px; background: #fff; }
+    .brand-text h1 { font-size: 24px; color: var(--morado); font-weight: 700; line-height: 1; }
+    .btn-rifas { background: #ff6600; padding: .8rem 1.4rem; border-radius: 6px; font-weight: 700; text-decoration: none; color: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
 
-    /* FLOATS */
-    #cart-icon { position: fixed; top: 15px; right: 15px; background: #fff; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.15); cursor: pointer; z-index: 1000; }
-    #cart-badge { background: var(--turquesa); color: #fff; border-radius: 50%; padding: 2px 6px; font-size: 11px; position: absolute; top: 0px; right: 0px; }
-    #btn-lupa { position: fixed; top: 75px; right: 15px; background: var(--turquesa); color: #fff; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 20px; cursor: pointer; z-index: 1000; display: flex; align-items: center; justify-content: center; }
+    /* NAVEGACIÓN COMPLETA */
+    .main-nav { position: sticky; top: 0; z-index: 999; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .main-nav ul { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; }
+    .main-nav a { color: var(--morado); padding: 12px 15px; display: block; font-size: 13px; text-decoration: none; font-weight: 600; }
+    .main-nav a.active { background: var(--morado); color: #fff; border-radius: 4px; }
+
+    /* SECCIÓN QUIÉNES SOMOS */
+    .hero-about { 
+      background: linear-gradient(rgba(76, 13, 140, 0.8), rgba(76, 13, 140, 0.8)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2000') center/cover; 
+      color: #fff; padding: 80px 0; text-align: center; 
+    }
+    .section-white { background: #fff; padding: 40px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin: 30px 0; }
+    .meaning-card { 
+      background: var(--morado); color: #fff; padding: 30px; border-radius: 12px; 
+      text-align: center; font-style: italic; font-size: 1.2rem; margin: 25px 0; 
+      box-shadow: 0 5px 15px rgba(76, 13, 140, 0.3);
+    }
+    .policy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .policy-item { padding: 20px; background: #f9f9f9; border-radius: 10px; border-bottom: 4px solid var(--turquesa); cursor: pointer; transition: 0.3s; }
+    .policy-item:hover { transform: translateY(-5px); }
+
+    /* FLOTANTES */
+    #cart-icon { position: fixed; top: 15px; right: 15px; background: #fff; border-radius: 50%; width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2); cursor: pointer; z-index: 1001; }
+    #cart-badge { background: var(--turquesa); color: #fff; border-radius: 50%; padding: 2px 7px; font-size: 12px; position: absolute; top: 0; right: 0; }
+    #btn-lupa { position: fixed; top: 80px; right: 15px; background: var(--turquesa); color: #fff; border: none; border-radius: 50%; width: 55px; height: 55px; font-size: 22px; cursor: pointer; z-index: 1001; }
 
     /* BANNERS */
-    #banner-div{position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;z-index:999;}
-    #banner-envio{flex:1;background:#ff9800;color:#fff;text-align:center;padding:10px;font-size:14px;font-weight: 700;}
-    #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:10px;font-size:14px;font-weight: 700;}
+    #banner-div { position: fixed; bottom: 0; left: 0; right: 0; display: flex; z-index: 1000; }
+    #banner-envio, #banner-sorteo { flex: 1; padding: 12px; text-align: center; font-weight: 700; font-size: 14px; color: #fff; }
+    #banner-envio { background: #ff9800; }
+    #banner-sorteo { background: var(--morado); }
 
-    /* MODALS */
-    #search-modal, #cart-modal, #policy-modal {display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:4000; overflow-y:auto;}
-    #search-modal > div, #cart-modal > div, #policy-modal > div {background:#fff; width:95%; max-width:480px; margin:50px auto; padding:20px; border-radius:12px; position:relative;}
+    /* MODALES */
+    #cart-modal, #policy-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 5000; overflow-y: auto; }
+    .modal-content { background: #fff; width: 90%; max-width: 480px; margin: 40px auto; padding: 25px; border-radius: 15px; position: relative; }
 
-    footer{background:var(--celeste); padding:40px 0; text-align:center;}
+    footer { background: var(--celeste); padding: 50px 0; text-align: center; }
+    .social-links a { color: var(--morado); font-size: 24px; margin: 0 10px; transition: 0.3s; }
+    .social-links a:hover { color: var(--turquesaOsc); }
   </style>
 </head>
 <body>
 
   <div id="policy-modal">
-    <div>
-      <header style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #eee; padding-bottom:10px;">
+    <div class="modal-content">
+      <header class="flex-space" style="border-bottom:1px solid #eee; padding-bottom:10px;">
         <h3 id="policy-title">Políticas</h3>
-        <button onclick="document.getElementById('policy-modal').style.display='none'" style="border:none; background:none; font-size:24px; cursor:pointer">×</button>
+        <button onclick="document.getElementById('policy-modal').style.display='none'" style="border:none; background:none; font-size:28px; cursor:pointer">&times;</button>
       </header>
-      <div id="policy-content" style="margin-top:15px; font-size:14px;"></div>
+      <div id="policy-content" style="margin-top:20px;"></div>
     </div>
   </div>
 
   <div id="cart-modal">
-    <div>
-      <header style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #eee; padding-bottom:10px; margin-bottom:15px;">
+    <div class="modal-content">
+      <header class="flex-space" style="border-bottom:1px solid #eee; padding-bottom:10px;">
         <h3><i class="fas fa-shopping-cart"></i> Tu Pedido</h3>
-        <button onclick="document.getElementById('cart-modal').style.display='none'" style="background:none;border:none;font-size:24px;cursor:pointer">×</button>
+        <button onclick="document.getElementById('cart-modal').style.display='none'" style="border:none; background:none; font-size:28px; cursor:pointer">&times;</button>
       </header>
-      <div id="cart-items" style="max-height:300px; overflow-y:auto;"></div>
-      <footer id="modal-footer-carrito" style="margin-top:20px; border-top:1px solid #eee; padding-top:15px;"></footer>
-    </div>
-  </div>
-
-  <div id="search-modal">
-    <div>
-      <button onclick="document.getElementById('search-modal').style.display='none'" style="position:absolute;top:8px;right:12px;background:none;border:none;font-size:20px;cursor:pointer">×</button>
-      <h3>Buscar Productos</h3>
-      <input type="text" id="search-input" placeholder="¿Qué buscas?" style="width:100%; padding:10px; margin-top:10px; border:1px solid #ccc; border-radius:8px;">
-      <div id="search-results"></div>
+      <div id="cart-items" style="max-height:350px; overflow-y:auto; margin-top:15px;"></div>
+      <footer id="cart-footer-logic" style="margin-top:20px; border-top:1px solid #eee; padding-top:15px;"></footer>
     </div>
   </div>
 
   <div id="cart-icon"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
-  <button id="btn-lupa"><i class="fas fa-search"></i></button>
+  <button id="btn-lupa" onclick="alert('Usa el buscador en la página de Inicio')"><i class="fas fa-search"></i></button>
 
   <div id="banner-div">
-    <div id="banner-envio">🚚 Envío Gratis desde $50</div>
-    <div id="banner-sorteo">🎉 ¡Participa en las Rifas!</div>
+    <div id="banner-envio">🚚 Envío Gratis desde $50 Físicos</div>
+    <div id="banner-sorteo">🎉 ¡Rifa Gratis desde $30 Físicos!</div>
   </div>
 
   <div class="top-bar">"DIOS TE DA MÁS DE LO QUE PIDES"</div>
 
   <header class="main-header">
     <div class="container flex-space">
-      <a href="index.html" style="text-decoration:none; display:flex; align-items:center; gap:15px">
+      <a href="index.html" style="text-decoration:none; display:flex; align-items:center; gap:15px; color:inherit;">
         <img src="logo-ballena.png" alt="BHALLEFFORT" class="whale-icon">
         <div class="brand-text"><h1>BHALLEFFORT</h1><p>Moda y Calidad</p></div>
       </a>
@@ -108,7 +118,8 @@
     <ul>
       <li><a href="index.html">INICIO</a></li>
       <li><a href="ropa.html">ROPA</a></li>
-      <li><a href="zapatos.html">ZAPATOS</a></li>
+      <li><a href="calzado.html">CALZADO</a></li>
+      <li><a href="streaming.html">STREAMING</a></li>
       <li><a href="varios.html">VARIOS</a></li>
       <li><a href="promociones.html">PROMOCIONES</a></li>
       <li><a href="quienes-somos.html" class="active">QUIÉNES SOMOS</a></li>
@@ -125,11 +136,9 @@
 
   <div class="container">
     <section class="section-white">
-      <h2>Un Sueño con Propósito</h2>
+      <h2 style="color:var(--morado); margin-bottom:15px;">Un Sueño con Propósito</h2>
       <p><strong>BHALLEFFORT</strong> nació como testimonio de esfuerzo y fe. Lo que empezó como un sueño personal, se transformó en la misión de crear un negocio honesto donde la calidad premium esté al alcance de todas las familias ecuatorianas.</p>
-      <div class="meaning-card">
-        "Buenos Hábitos te Llevan al Éxito, y son la Fortaleza para vivir"
-      </div>
+      <div class="meaning-card">"Buenos Hábitos te Llevan al Éxito, y son la Fortaleza para vivir"</div>
       <p>No solo vendemos productos; construimos las bases para un futuro donde podamos ayudar a quienes más lo necesitan.</p>
     </section>
 
@@ -137,11 +146,11 @@
       <div class="policy-grid">
         <div class="policy-item" onclick="abrirPolitica('envios')">
           <h3 style="color:var(--morado)"><i class="fas fa-truck"></i> Envíos</h3>
-          <p>Entregas en Tabacundo/Cayambe en menos de 24h. Envíos nacionales seguros.</p>
+          <p>Entregas locales en Tabacundo/Cayambe. Nacionales por Servientrega.</p>
         </div>
         <div class="policy-item" onclick="abrirPolitica('calidad')">
           <h3 style="color:var(--morado)"><i class="fas fa-check-circle"></i> Calidad</h3>
-          <p>Garantizamos que lo que recibes es 100% igual a la foto real.</p>
+          <p>Garantía de calidad premium. Lo que ves es lo que recibes.</p>
         </div>
       </div>
     </section>
@@ -149,68 +158,73 @@
 
   <footer>
     <div class="container">
-      <div style="margin-bottom: 15px; display: flex; justify-content: center; gap: 20px;">
-        <span onclick="abrirPolitica('cookies')" style="cursor:pointer; font-size: 12px; opacity: 0.7;">Política de Cookies</span>
-        <span onclick="abrirPolitica('privacidad')" style="cursor:pointer; font-size: 12px; opacity: 0.7;">Privacidad y Envíos</span>
+      <div class="social-links" style="margin-bottom:20px;">
+        <a href="https://www.facebook.com/share/17jG7haojA/"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/bhalleffort"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@bhalleffort"><i class="fab fa-tiktok"></i></a>
       </div>
-      <p>© 2026 BHALLEFFORT | Diseñado por Jhomac²</p>
+      <p style="font-weight:700;">© 2026 BHALLEFFORT | Tabacundo, Ecuador</p>
     </div>
   </footer>
 
   <script>
-    let productosTotales = [];
     let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
 
-    async function cargarDatos() {
-      try {
-        const res = await fetch('productos.json');
-        productosTotales = await res.json();
-        actualizarBadge();
-      } catch (e) { console.error(e); }
-    }
+    function calcularLogica() {
+      const catsDigitales = ["RIFAS", "STREAMING", "PROGRAMAS", "SOFTWARE"];
+      const subTotalTodo = carrito.reduce((s, i) => s + i.precio, 0);
+      
+      const prodsFisicos = carrito.filter(p => !catsDigitales.includes(p.cat));
+      const subTotalFisico = prodsFisicos.reduce((s, i) => s + i.precio, 0);
+      
+      let envio = 0;
+      if (prodsFisicos.length > 0) {
+        envio = subTotalFisico >= 50 ? 0 : 3.50;
+      }
 
-    function calcularEnvio() {
-      const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
-      const tieneDigital = carrito.some(p => p.cat === "SOFTWARE" || p.cat === "PROGRAMAS" || p.cat === "STREAMING");
-      if (tieneDigital || subTotal >= 50) return 0;
-      return 3.50;
+      return {
+        subTotalTodo,
+        subTotalFisico,
+        envio,
+        ganaRifa: subTotalFisico >= 30
+      };
     }
 
     function actualizarBadge() {
-      const badge = document.getElementById('cart-badge');
-      if(badge) badge.textContent = carrito.length;
-      const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
-      const envio = calcularEnvio();
-      document.getElementById('banner-envio').style.background = (envio === 0 && carrito.length > 0) ? "#25D366" : "#ff9800";
+      document.getElementById('cart-badge').textContent = carrito.length;
+      const logica = calcularLogica();
+      const bEnvio = document.getElementById('banner-envio');
+      bEnvio.style.background = (logica.envio === 0 && carrito.length > 0) ? "#25D366" : "#ff9800";
     }
 
     function mostrarModalCarrito() {
       if(carrito.length === 0) { alert("El carrito está vacío"); return; }
       const items = document.getElementById('cart-items');
-      const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
-      const envio = calcularEnvio();
+      const logica = calcularLogica();
 
       items.innerHTML = `
-        <div style="text-align:center; padding:10px; border:2px solid #ffd700; background:#fffdf0; border-radius:8px; margin-bottom:15px; font-size:13px; font-weight:600;">
-          Pago oficial a nombre de: <span style="color:var(--morado)">Katherine Pineda</span>.
+        <div style="text-align:center; padding:10px; border:2px solid #ffd700; background:#fffdf0; border-radius:8px; margin-bottom:15px; font-size:12px;">
+          Depósitos a nombre de: <b>Katherine Pineda</b>.
         </div>
       ` + carrito.map((p, i) => `
         <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid #eee;">
-          <div><div style="font-weight:600; font-size:14px;">${p.nombre}</div><div style="color:var(--turquesa);">$${p.precio.toFixed(2)}</div></div>
+          <div>
+            <div style="font-weight:600; font-size:14px;">${p.nombre}</div>
+            <div style="color:var(--turquesa); font-size:12px;">$${p.precio.toFixed(2)}</div>
+          </div>
           <button onclick="removeItem(${i})" style="color:#ff4444; border:none; background:none; cursor:pointer;"><i class="fas fa-trash-alt"></i></button>
         </div>`).join('');
 
-      document.getElementById('modal-footer-carrito').innerHTML = `
-        <div style="display:flex; flex-direction:column; gap:5px; font-size:14px; border-bottom:1px solid #eee; padding-bottom:10px;">
-          <div style="display:flex; justify-content:space-between;"><span>Subtotal:</span><span>$${subTotal.toFixed(2)}</span></div>
-          <div style="display:flex; justify-content:space-between;"><span>Envío:</span><span>${envio === 0 ? '<b style="color:#25D366">GRATIS</b>' : '$' + envio.toFixed(2)}</span></div>
+      document.getElementById('cart-footer-logic').innerHTML = `
+        <div style="font-size:14px; display:flex; flex-direction:column; gap:5px;">
+          <div class="flex-space"><span>Subtotal:</span><span>$${logica.subTotalTodo.toFixed(2)}</span></div>
+          <div class="flex-space"><span>Envío:</span><span>${logica.envio === 0 ? '<b style="color:#25D366">GRATIS</b>' : '$' + logica.envio.toFixed(2)}</span></div>
+          ${logica.ganaRifa ? '<div style="color:#ff6600; font-weight:700; text-align:center; margin-top:5px;">✨ ¡RIFA GRATIS ACTIVADA! ✨</div>' : ''}
         </div>
-        <div style="display:flex; justify-content:space-between; font-weight:bold; font-size:18px; color:var(--morado); margin-top:10px;">
-          <span>Total:</span><span>$${(subTotal + envio).toFixed(2)}</span>
+        <div class="flex-space" style="font-weight:bold; font-size:20px; color:var(--morado); margin-top:10px;">
+          <span>Total:</span><span>$${(logica.subTotalTodo + logica.envio).toFixed(2)}</span>
         </div>
-        <button onclick="finalizarCompraWA()" style="background:#25D366;color:#fff;border:none;padding:15px;border-radius:6px;cursor:pointer;width:100%; font-weight:700; margin-top:15px;">
-          FINALIZAR COMPRA POR WHATSAPP 🐋
-        </button>
+        <button onclick="finalizarCompraWA()" style="background:#25D366;color:#fff;border:none;padding:15px;border-radius:8px;cursor:pointer;width:100%; font-weight:700; margin-top:15px; font-size:16px;">FINALIZAR WHATSAPP 🐋</button>
       `;
       document.getElementById('cart-modal').style.display = 'block';
     }
@@ -223,38 +237,27 @@
     }
 
     function finalizarCompraWA() {
-      const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
-      const envio = calcularEnvio();
-      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *PEDIDO (QUIÉNES SOMOS):*\n\n`;
+      const logica = calcularLogica();
+      let msg = `🐋 *NUEVO PEDIDO BHALLEFFORT*\n\n`;
       carrito.forEach((p, idx) => { msg += `${idx + 1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; });
-      msg += `\n💵 Subtotal: $${subTotal.toFixed(2)}\n🚚 Envío: ${envio === 0 ? 'GRATIS' : '$' + envio.toFixed(2)}\n✅ *TOTAL: $${(subTotal + envio).toFixed(2)}*`;
-      msg += `\n\n⚠️ Pago a nombre de *Katherine Pineda*.`;
+      msg += `\n💵 Subtotal: $${logica.subTotalTodo.toFixed(2)}\n🚚 Envío: ${logica.envio === 0 ? 'GRATIS' : '$' + logica.envio.toFixed(2)}\n`;
+      if(logica.ganaRifa) msg += `🎁 *PROMOCIÓN:* ¡Incluye boleto de Rifa!\n`;
+      msg += `✅ *TOTAL: $${(logica.subTotalTodo + logica.envio).toFixed(2)}*`;
       window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
     function abrirPolitica(tipo) {
-      const textos = {
-        'envios': ['Envíos y Entregas', 'Entregas locales en 24h. Envíos nacionales vía Servientrega o Cooperativa.'],
-        'calidad': ['Garantía de Calidad', 'Garantizamos calidad premium. Lo que ves en la foto es lo que recibes.'],
-        'cookies': ['Política de Cookies', 'Usamos cookies para guardar tu carrito y mejorar tu experiencia.'],
-        'privacidad': ['Privacidad y Seguridad', 'Pagos seguros a Katherine Pineda. Tus datos están protegidos.']
+      const t = {
+        'envios': ['Envíos', 'Entregas locales en 24h. Envíos nacionales por Servientrega o Cooperativas.'],
+        'calidad': ['Calidad', 'Garantizamos que el producto es igual a la foto. Calidad Premium G5/1:1.']
       };
-      document.getElementById('policy-title').innerText = textos[tipo][0];
-      document.getElementById('policy-content').innerText = textos[tipo][1];
+      document.getElementById('policy-title').innerText = t[tipo][0];
+      document.getElementById('policy-content').innerText = t[tipo][1];
       document.getElementById('policy-modal').style.display = 'block';
     }
 
-    document.getElementById('search-input').oninput = (e) => {
-      const val = e.target.value.toLowerCase();
-      const resDiv = document.getElementById('search-results');
-      if(!val) return resDiv.innerHTML = '';
-      const f = productosTotales.filter(p => p.nombre.toLowerCase().includes(val)).slice(0, 5);
-      resDiv.innerHTML = f.map(p => `<div style="padding:10px; border-bottom:1px solid #eee; display:flex; align-items:center; gap:10px; cursor:pointer" onclick="window.location.href='index.html?buscar=${p.id}'"><img src="${p.imgFrontal}" style="width:40px;height:40px;object-fit:cover;border-radius:5px"><div><div style="font-weight:600;font-size:13px">${p.nombre}</div><div style="font-size:10px;color:var(--turquesa)">Ver en ${p.cat}</div></div></div>`).join('');
-    };
-
     document.getElementById('cart-icon').onclick = mostrarModalCarrito;
-    document.getElementById('btn-lupa').onclick = () => document.getElementById('search-modal').style.display='block';
-    cargarDatos();
+    actualizarBadge();
   </script>
 </body>
 </html>
