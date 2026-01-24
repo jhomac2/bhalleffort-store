@@ -39,7 +39,6 @@
     .main-nav a{color:var(--morado);padding:12px 15px;display:block;font-size:14px;text-decoration:none;font-weight:600}
     .main-nav a.active{background:var(--morado);color:#fff;border-radius:4px}
 
-    /* ESTILO DE FILTROS NUEVOS */
     .filter-container { display: flex; justify-content: center; gap: 10px; margin: 20px 0; flex-wrap: wrap; }
     .btn-filter { padding: 10px 20px; border: 2px solid var(--morado); border-radius: 25px; background: #fff; color: var(--morado); font-weight: 700; cursor: pointer; transition: 0.3s; }
     .btn-filter.active { background: var(--morado); color: #fff; }
@@ -66,7 +65,7 @@
     .ia-notice { text-align: center; background: #fdf6e3; border: 1px dashed #d3af37; padding: 10px; margin-bottom: 30px; border-radius: 8px; font-size: 13px; color: #856404; }
 
     .products-grid-ten{display:grid;gap:15px;grid-template-columns:repeat(5,1fr);max-width:1100px;margin:auto}
-    .product-card{background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);display:flex;flex-direction:column;overflow:hidden;cursor:pointer}
+    .product-card{background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);display:flex;flex-direction:column;overflow:hidden;cursor:pointer;position:relative}
     .product-image-container {position: relative;width: 100%;height: 250px;overflow: hidden}
     .product-image {width: 100%;height: 100%;object-fit: cover;transition: transform 0.5s ease, opacity 0.3s ease}
     .product-image.back {position: absolute;top: 0;left: 0;opacity: 0}
@@ -74,12 +73,14 @@
     .product-card.flip .product-image.front { opacity: 0; }
     .product-card.flip .product-image.back { opacity: 1; }
 
+    .badge-oferta { position: absolute; top: 10px; left: 10px; background: #ff4444; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; z-index: 5; }
     .lupa-zoom-icon { position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,0.8); color: var(--morado); width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; z-index: 10; box-shadow: 0 2px 5px rgba(0,0,0,0.2); transition: 0.3s; }
 
     .product-info{padding:12px;display:flex;flex-direction:column;flex:1}
     .product-category{font-size:11px;color:#777;font-weight:700;text-transform:uppercase}
     .product-name{font-size:15px;margin:4px 0;line-height:1.2;font-weight:600}
     .product-desc { font-size: 12px; color: #666; margin-bottom: 8px; line-height: 1.3; }
+    .old-price { text-decoration: line-through; color: #999; font-size: 13px; margin-right: 8px; }
     .current-price{font-weight:700;color:var(--turquesa);font-size:18px}
     .btn-buy{background:var(--turquesa);color:#fff;border:none;padding:10px;border-radius:4px;cursor:pointer;margin-top:auto;font-weight:600}
     
@@ -192,10 +193,10 @@
       
       <div class="filter-container">
         <button class="btn-filter active" onclick="filtrar('todos', this)">Ver Todo</button>
-        <button class="btn-filter" onclick="filtrar('hombre', this)">Hombre</button>
-        <button class="btn-filter" onclick="filtrar('mujer', this)">Mujer</button>
-        <button class="btn-filter" onclick="filtrar('niño', this)">Niños</button>
-        <button class="btn-filter" onclick="filtrar('ZAPATOS', this)" style="border-color:var(--turquesa)">Zapatos</button>
+        <button class="btn-filter" onclick="filtrar('HOMBRE', this)">Hombre</button>
+        <button class="btn-filter" onclick="filtrar('MUJER', this)">Mujer</button>
+        <button class="btn-filter" onclick="filtrar('NIÑOS', this)">Niños</button>
+        <button class="btn-filter" onclick="filtrar('CALZADO', this)" style="border-color:var(--turquesa)">Zapatos</button>
       </div>
 
       <div class="ia-notice">📸 <strong>Aviso:</strong> La IA solo mejora el brillo, el producto final no varia.</div>
@@ -283,9 +284,8 @@
       try {
         const res = await fetch('productos.json');
         productosTotales = await res.json();
-        // Cargamos todo lo que sea ROPA o ZAPATOS al inicio
-        productosFiltrados = productosTotales.filter(p => p.cat === "ROPA" || p.cat === "ZAPATOS" || p.cat === "CALZADO");
-        dibujarRopa(productosFiltrados);
+        // Filtro inicial para Ropa y Calzado
+        filtrar('todos', document.querySelector('.btn-filter'));
         actualizarBadge();
       } catch (e) { console.error(e); }
     }
@@ -294,6 +294,7 @@
       const grid = document.getElementById('ropa-grid');
       grid.innerHTML = lista.map(p => `
         <div class="product-card" onclick="this.classList.toggle('flip')">
+          ${p.oferta === 'SI' ? '<div class="badge-oferta">OFERTA</div>' : ''}
           <div class="product-image-container">
             <div class="lupa-zoom-icon" onclick="event.stopPropagation(); abrirZoom('${p.imgFrontal}', '${p.imgTrasera || p.imgFrontal}')">
                 <i class="fas fa-search-plus"></i>
@@ -302,10 +303,13 @@
             <img src="${p.imgTrasera || p.imgFrontal}" class="product-image back">
           </div>
           <div class="product-info">
-            <span class="product-category">${p.estado}</span>
+            <span class="product-category">${p.estado} | ${p.subcat || p.cat}</span>
             <h4 class="product-name">${p.nombre}</h4>
             <p class="product-desc">${p.descripcion || 'Sin descripción.'}</p>
-            <div class="current-price">$${p.precio.toFixed(2)}</div>
+            <div class="price-area">
+              ${p.precio_antes ? `<span class="old-price">$${p.precio_antes.toFixed(2)}</span>` : ''}
+              <span class="current-price">$${p.precio.toFixed(2)}</span>
+            </div>
             <button class="btn-buy" onclick="event.stopPropagation(); addCart('${p.id}')">Añadir al carrito</button>
           </div>
         </div>`).join('');
@@ -316,11 +320,12 @@
       btn.classList.add('active');
 
       if(tipo === 'todos') {
-        productosFiltrados = productosTotales.filter(p => p.cat === "ROPA" || p.cat === "ZAPATOS" || p.cat === "CALZADO");
-      } else if (tipo === 'ZAPATOS') {
-        productosFiltrados = productosTotales.filter(p => p.cat === "ZAPATOS" || p.cat === "CALZADO");
+        productosFiltrados = productosTotales.filter(p => p.cat === "ROPA" || p.cat === "CALZADO" || p.cat === "ZAPATOS");
+      } else if (tipo === 'CALZADO') {
+        productosFiltrados = productosTotales.filter(p => p.cat === "CALZADO" || p.cat === "ZAPATOS");
       } else {
-        productosFiltrados = productosTotales.filter(p => (p.cat === "ROPA" || p.cat === "ZAPATOS") && p.subcat === tipo);
+        // Filtrar por subcategoría (HOMBRE, MUJER, NIÑOS) asegurando que sea Ropa o Calzado
+        productosFiltrados = productosTotales.filter(p => (p.cat === "ROPA" || p.cat === "CALZADO" || p.cat === "ZAPATOS") && p.subcat === tipo);
       }
       dibujarRopa(productosFiltrados);
     }
