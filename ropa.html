@@ -91,7 +91,6 @@
     .guarantee-item{flex:1 1 200px; padding: 10px;}
     .guarantee-item i {font-size: 24px; color: var(--morado); margin-bottom: 10px;}
 
-    /* FOOTER AJUSTADO (SIN ESPACIOS VACÍOS Y CON DATOS DE KATHERINE) */
     footer{background:var(--celeste);color:#000;font-size:14px;padding:25px 0 10px 0}
     .footer-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));align-items: start;}
     .footer-contact h3 { font-size: 16px; margin-bottom: 10px; color: var(--morado); text-transform: uppercase; border-bottom: 2px solid rgba(0,0,0,0.1); display: inline-block;}
@@ -267,6 +266,11 @@
         <button onclick="document.getElementById('cart-modal').style.display='none'" style="background:none;border:none;font-size:24px;cursor:pointer">&times;</button>
       </header>
       <div id="cart-items" style="max-height:300px; overflow-y:auto;"></div>
+      
+      <div style="background: #fffbef; border: 2px solid #ffeb3b; padding: 10px; text-align: center; border-radius: 8px; font-size: 13px; margin: 15px 0; color: #000;">
+        Pago oficial a nombre de: <strong>Katherine Pineda</strong>.
+      </div>
+
       <footer style="margin-top:20px; border-top:1px solid #eee; padding-top:15px;">
         <div style="display:flex;justify-content:space-between;font-size:14px; margin-bottom:5px">
             <span>Subtotal:</span><span id="cart-subtotal">$0.00</span>
