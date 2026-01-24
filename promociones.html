@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <title>BHALLEFFORT | Promociones y Ofertas</title>
-  <meta name="description" content="Aprovecha las mejores ofertas en BHALLEFFORT. Descuentos exclusivos en Tabacundo con envíos a todo Ecuador.">
-  <meta name="keywords" content="BHALLEFFORT, ofertas, descuentos, Katherine Pineda, Tabacundo">
+  <meta name="description" content="Tienda oficial de BHALLEFFORT. Aprovecha las mejores promociones y ofertas especiales en Tabacundo y todo Ecuador.">
+  <meta name="keywords" content="BHALLEFFORT, ofertas Ecuador, descuentos Tabacundo, promociones ropa, Katherine Pineda">
   <meta name="author" content="Jhomac²">
   <link rel="canonical" href="https://www.bhalleffort.com/promociones.html">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,13 +12,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{--celeste:#87ceeb;--morado:#4c0d8c;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;--fondo:#eef2f7;--rojo:#ff4444}
+    :root{--celeste:#87ceeb;--morado:#4c0d8c;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;--fondo:#eef2f7}
     *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',system-ui,Arial}
     body{background:var(--fondo);color:var(--texto)}
     img{max-width:100%;display:block}
     .container{width:90%;max-width:1200px;margin:auto}
     .flex-space{display:flex;align-items:center;justify-content:space-between}
     
+    /* TOP BAR */
     .top-bar{background:var(--morado);color:#fff;font-size:13px;padding:4px 0}
     .top-bar .social-icons{display:flex;gap:12px;font-size:18px}
     .top-bar .social-icons a{color:#fff; text-decoration:none}
@@ -39,26 +40,34 @@
     .main-nav a{color:var(--morado);padding:12px 15px;display:block;font-size:14px;text-decoration:none;font-weight:600}
     .main-nav a.active{background:var(--morado);color:#fff;border-radius:4px}
 
+    /* FILTROS */
+    .filter-container { display: flex; justify-content: center; gap: 10px; margin: 20px 0; flex-wrap: wrap; }
+    .btn-filter { padding: 10px 20px; border: 2px solid var(--morado); border-radius: 25px; background: #fff; color: var(--morado); font-weight: 700; cursor: pointer; transition: 0.3s; }
+    .btn-filter.active { background: var(--morado); color: #fff; }
+
     .hero-banner {
       position: relative;
       background: url('https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
-      height: 300px;
+      height: 400px;
       display: flex; align-items: center; justify-content: center; text-align: center; color: #fff;
     }
     .hero-banner::before {
       content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(255, 68, 68, 0.3); z-index: 1;
+      background: rgba(183, 28, 28, 0.4); z-index: 1;
     }
-    .hero-banner div { position: relative; z-index: 2; }
-    .hero-banner h1 { font-size: 42px; text-transform: uppercase; font-weight: 700; }
+    .hero-banner div { position: relative; z-index: 2; padding: 0 20px; }
+    .hero-banner h1 { font-size: 42px; text-transform: uppercase; font-weight: 700; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
 
+    /* ICONOS FLOTANTES */
     #cart-icon { position: fixed; top: 15px; right: 15px; background: #fff; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.15); cursor: pointer; z-index: 1000; }
     #cart-badge { background: var(--turquesa); color: #fff; border-radius: 50%; padding: 2px 6px; font-size: 11px; position: absolute; top: 0px; right: 0px; }
     #btn-lupa { position: fixed; top: 75px; right: 15px; background: var(--turquesa); color: #fff; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 20px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.25); z-index: 1000; display: flex; align-items: center; justify-content: center; }
 
     .featured-products{padding:40px 0}
-    .section-title{text-align:center;margin-bottom:30px;font-size:26px;color:var(--rojo);text-transform:uppercase}
+    .section-title{text-align:center;margin-bottom:10px;font-size:26px;color:var(--morado);text-transform:uppercase}
+    .ia-notice { text-align: center; background: #fffde7; border: 1px dashed #fbc02d; padding: 10px; margin-bottom: 30px; border-radius: 8px; font-size: 13px; color: #7f6e00; }
 
+    /* GRID PRODUCTOS */
     .products-grid-ten{display:grid;gap:15px;grid-template-columns:repeat(5,1fr);max-width:1100px;margin:auto}
     .product-card{background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);display:flex;flex-direction:column;overflow:hidden;cursor:pointer;position:relative}
     .product-image-container {position: relative;width: 100%;height: 250px;overflow: hidden}
@@ -67,23 +76,30 @@
     .product-card.flip .product-image.front { opacity: 0; }
     .product-card.flip .product-image.back { opacity: 1; }
 
-    .badge-promo { position: absolute; top: 10px; left: 10px; background: var(--rojo); color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; z-index: 5; }
+    .badge-promo { position: absolute; top: 10px; left: 10px; background: #ff4444; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; z-index: 5; }
     .lupa-zoom-icon { position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,0.8); color: var(--morado); width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; z-index: 10; box-shadow: 0 2px 5px rgba(0,0,0,0.2); transition: 0.3s; }
 
     .product-info{padding:12px;display:flex;flex-direction:column;flex:1}
     .product-category{font-size:11px;color:#777;font-weight:700;text-transform:uppercase}
     .product-name{font-size:15px;margin:4px 0;line-height:1.2;font-weight:600}
+    .product-desc { font-size: 12px; color: #666; margin-bottom: 8px; line-height: 1.3; }
     .old-price { text-decoration: line-through; color: #999; font-size: 13px; margin-right: 5px; }
-    .current-price{font-weight:700;color:var(--rojo);font-size:18px}
+    .current-price{font-weight:700;color:var(--turquesa);font-size:18px}
     .btn-buy{background:var(--turquesa);color:#fff;border:none;padding:10px;border-radius:4px;cursor:pointer;margin-top:auto;font-weight:600}
     
     @media(max-width:768px){.products-grid-ten{grid-template-columns:repeat(3,1fr)}}
     @media(max-width:480px){.products-grid-ten{grid-template-columns:repeat(2,1fr)}}
+    
+    .guarantees{background:#fff;padding:30px 0;margin-top:20px}
+    .flex-guarantees{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;text-align:center}
+    .guarantee-item{flex:1 1 200px; padding: 10px;}
+    .guarantee-item i {font-size: 24px; color: var(--morado); margin-bottom: 10px;}
 
-    footer{background:var(--celeste);color:#000;font-size:13px;padding:30px 0;margin-top:40px}
+    footer{background:var(--celeste);color:#000;font-size:13px;padding:30px 0}
     .footer-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
     .copyright-bar {text-align: center; padding: 15px 0; background: rgba(0,0,0,0.05); margin-top: 20px; font-weight: 600;}
 
+    /* MODALES */
     #zoom-modal{display:none; position:fixed; inset:0; background:rgba(0,0,0,0.95); z-index:5000; align-items:center; justify-content:center; flex-direction:column;}
     .zoom-content{position:relative; width:90%; max-width:450px; text-align:center;}
     #img-zoom{width:100%; border-radius:10px; box-shadow:0 0 25px rgba(255,255,255,0.2); object-fit: contain; max-height: 75vh;}
@@ -91,8 +107,8 @@
     .btn-z{padding:12px 25px; border-radius:25px; border:none; cursor:pointer; font-weight:700; color:white; font-size:14px;}
 
     #banner-div{position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;box-shadow:0 -2px 5px rgba(0,0,0,.1);z-index:999}
-    #banner-envio{flex:1;background:#ff9800;color:#fff;text-align:center;padding:8px;font-size:14px;}
-    #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:8px;font-size:14px;}
+    #banner-envio{flex:1;background:#ff9800;color:#fff;text-align:center;padding:8px;font-size:14px;transition:0.3s;}
+    #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:8px;font-size:14px;transition:0.3s;}
     
     #search-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:3000}
     #search-modal>div{background:#fff;width:90%;max-width:400px;margin:80px auto;padding:15px;border-radius:8px;position:relative}
@@ -104,7 +120,8 @@
     #noti-add{position:fixed;bottom:40px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:8px 14px;border-radius:4px;font-size:13px;z-index:9999;display:none}
 
     #cart-modal{display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:4000;}
-    #cart-modal > div {background:#fff; width:95%; max-width:450px; margin:50px auto; padding:20px; border-radius:12px; position:relative;}
+    #cart-modal > div {background:#fff; width:95%; max-width:450px; margin:50px auto; padding:20px; border-radius:12px; position:relative; box-shadow:0 10px 25px rgba(0,0,0,0.2);}
+    .pago-aviso-oficial { background: #fff8e1; border: 1px solid #ffd54f; padding: 10px; border-radius: 8px; margin-bottom: 15px; text-align: center; font-size: 13px; }
   </style>
 </head>
 <body>
@@ -115,7 +132,7 @@
   <div id="search-modal">
     <div>
       <button onclick="document.getElementById('search-modal').style.display='none'" style="position:absolute;top:8px;right:12px;background:none;border:none;font-size:20px;cursor:pointer">&times;</button>
-      <input type="text" id="search-input" placeholder="Buscar productos...">
+      <input type="text" id="search-input" placeholder="Buscar ofertas...">
       <div id="search-results"></div>
     </div>
   </div>
@@ -123,7 +140,7 @@
   <div id="noti-add"></div>
 
   <div id="banner-div">
-    <div id="banner-envio">🚚 Envío gratis desde $50</div>
+    <div id="banner-envio">🔥 ¡Ofertas por tiempo limitado!</div>
     <div id="banner-sorteo">🎉 ¡Participa en nuestras rifas!</div>
   </div>
 
@@ -134,7 +151,7 @@
         <a href="https://www.facebook.com/share/17jG7haojA/" target="_blank"><i class="fab fa-facebook"></i></a>
         <a href="https://www.instagram.com/bhalleffort" target="_blank"><i class="fab fa-instagram"></i></a>
       </div>
-      <div>🔥 ¡OFERTAS POR TIEMPO LIMITADO!</div>
+      <div><i class="fas fa-fire"></i> LAS MEJORES PROMOCIONES DE LA SEMANA</div>
     </div>
   </div>
 
@@ -145,7 +162,7 @@
           <img src="logo-ballena.png" alt="BHALLEFFORT" class="whale-icon">
           <div class="brand-text">
             <h1>BHALLEFFORT</h1>
-            <p>Varios y Cosméticos</p>
+            <p>Promociones y Ofertas</p>
           </div>
         </div>
       </a>
@@ -171,14 +188,36 @@
   <section class="hero-banner">
     <div>
       <h1>ZONA DE DESCUENTOS</h1>
-      <p>Lo mejor al precio más bajo</p>
+      <p>Aprovecha precios exclusivos antes de que se agoten</p>
     </div>
   </section>
 
   <section class="featured-products">
     <div class="container">
-      <h2 class="section-title">🛑 GRANDES OFERTAS 🛑</h2>
-      <div class="products-grid-ten" id="promo-grid"></div>
+      <h2 class="section-title">🎁 MEJORES OFERTAS 🎁</h2>
+      
+      <div class="filter-container">
+        <button class="btn-filter active" id="btn-ver-todo" onclick="filtrar('todos', this)">Ver Todo</button>
+        <button class="btn-filter" onclick="filtrar('ROPA', this)">Ropa</button>
+        <button class="btn-filter" onclick="filtrar('DIGITAL', this)">Digital</button>
+        <button class="btn-filter" onclick="filtrar('LIQUIDACION', this)">Liquidación</button>
+      </div>
+
+      <div class="ia-notice">📢 <strong>Atención:</strong> Estas promociones son válidas hasta agotar stock o finalizar el tiempo de oferta.</div>
+      <div class="products-grid-ten" id="promos-grid"></div>
+    </div>
+  </section>
+
+  <section class="guarantees">
+    <div class="container flex-guarantees">
+      <div class="guarantee-item">
+        <i class="fas fa-percentage"></i>
+        <div><strong>PRECIOS BAJOS</strong><p>Ahorro real garantizado</p></div>
+      </div>
+      <div class="guarantee-item">
+        <i class="fas fa-gift"></i>
+        <div><strong>RIFAS ACTIVAS</strong><p>Tus compras mayores a $30 participan</p></div>
+      </div>
     </div>
   </section>
 
@@ -186,25 +225,29 @@
     <div class="container footer-grid">
       <div>
         <img src="logo-ballena.png" alt="Ballena" width="60">
-        <p>Diseñado por Jhomac² - Tabacundo</p>
-        <div style="margin-top:10px; font-weight:700;">Dios te da más de lo que pides.</div>
+        <p>Diseñado por Jhomac² - La Y de Tabacundo</p>
+        <div class="god-message" style="margin-top:10px; font-weight:700;">Dios te da más de lo que pides.</div>
       </div>
       <div class="footer-contact">
         <h3>CONTÁCTANOS</h3>
-        <p><i class="fab fa-whatsapp"></i> +593 963 923 399</p>
+        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/593963923399" target="_blank" style="color:inherit; text-decoration:none;">+593 963 923 399</a></p>
         <p><i class="fas fa-envelope"></i> agromhasvida5@gmail.com</p>
       </div>
+    </div>
+    <div style="margin-top:15px; display: flex; justify-content: center; gap: 20px;">
+      <a href="cookies.html" style="color: #000; text-decoration: none; font-size: 12px; opacity: 0.7;">Política de Cookies</a>
+      <a href="politicas.html" style="color: #000; text-decoration: none; font-size: 12px; opacity: 0.7;">Políticas de Privacidad y Envíos</a>
     </div>
     <div class="copyright-bar">&copy; 2026 BHALLEFFORT</div>
   </footer>
 
   <div id="zoom-modal">
-      <button onclick="cerrarZoom()" style="position:absolute; top:20px; right:20px; background:white; border:none; border-radius:50%; width:45px; height:45px; font-size:24px; cursor:pointer; font-weight:bold;">&times;</button>
+      <button onclick="cerrarZoom()" style="position:absolute; top:20px; right:20px; background:white; border:none; border-radius:50%; width:45px; height:45px; font-size:24px; cursor:pointer; font-weight:bold; z-index:5001;">&times;</button>
       <div class="zoom-content">
           <img id="img-zoom" src="">
           <div class="zoom-btns">
-              <button onclick="cambiarFotoZoom('frontal')" class="btn-z" style="background:var(--turquesa);">VER FRENTE</button>
-              <button onclick="cambiarFotoZoom('trasera')" class="btn-z" style="background:var(--morado);">VER ESPALDA</button>
+              <button onclick="cambiarFotoZoom('frontal')" class="btn-z" style="background:var(--turquesa);">VISTA PRINCIPAL</button>
+              <button onclick="cambiarFotoZoom('trasera')" class="btn-z" style="background:var(--morado);">MÁS DETALLES</button>
           </div>
       </div>
   </div>
@@ -212,23 +255,39 @@
   <div id="cart-modal">
     <div>
       <header style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #eee; padding-bottom:10px; margin-bottom:15px;">
-        <h3><i class="fas fa-shopping-cart"></i> Tu Carrito</h3>
+        <h3><i class="fas fa-shopping-cart"></i> Carrito de Ofertas</h3>
         <button onclick="document.getElementById('cart-modal').style.display='none'" style="background:none;border:none;font-size:24px;cursor:pointer">&times;</button>
       </header>
+      
+      <div class="pago-aviso-oficial">
+        Pago oficial a nombre de: <strong>Katherine Pineda</strong>
+      </div>
+
       <div id="cart-items" style="max-height:300px; overflow-y:auto;"></div>
-      <div id="cart-summary" style="margin-top:20px; border-top:1px solid #eee; padding-top:15px;">
-        <div style="display:flex;justify-content:space-between; font-weight:bold; font-size:18px; color:var(--morado)">
+
+      <footer style="margin-top:20px; border-top:1px solid #eee; padding-top:15px;">
+        <div style="display:flex;justify-content:space-between;font-size:14px; margin-bottom:5px">
+            <span>Subtotal:</span><span id="cart-subtotal">$0.00</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:14px; margin-bottom:10px">
+            <span>Envío/Comisión:</span><span id="cart-envio">Según producto</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-weight:bold; font-size:18px; color:var(--morado)">
           <span>Total:</span><span id="cart-total">$0.00</span>
         </div>
+        <div id="rifa-status" style="text-align:center; padding:8px; background:#e8f5e9; color:#2e7d32; border-radius:6px; margin:10px 0; font-size:12px; display:none;">
+            ✅ ¡Este pedido participa en la RIFA!
+        </div>
         <button onclick="finalizarCompraWA()" style="background:#25D366;color:#fff;border:none;padding:15px;border-radius:6px;cursor:pointer;width:100%; font-weight:700; font-size:16px; margin-top:10px">
-          PEDIR POR WHATSAPP 🐋
+          APROVECHAR OFERTA POR WA 🐋
         </button>
-      </div>
+      </footer>
     </div>
   </div>
 
   <script>
     let productosTotales = [];
+    let productosFiltrados = [];
     let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
     let imgActualFrontal = "";
     let imgActualTrasera = "";
@@ -237,19 +296,20 @@
       try {
         const res = await fetch('productos.json');
         productosTotales = await res.json();
-        // FILTRAR SOLO LOS QUE ESTÁN EN OFERTA
-        const promos = productosTotales.filter(p => p.oferta === "SI");
-        dibujarPromos(promos);
+        filtrar('todos', document.getElementById('btn-ver-todo'));
         actualizarBadge();
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const buscarId = urlParams.get('buscar');
+        if (buscarId) {
+            const pEncontrado = productosTotales.filter(x => x.id === buscarId);
+            if(pEncontrado.length > 0) dibujarPromos(pEncontrado);
+        }
       } catch (e) { console.error(e); }
     }
 
     function dibujarPromos(lista) {
-      const grid = document.getElementById('promo-grid');
-      if(lista.length === 0){
-        grid.innerHTML = "<p style='grid-column:1/-1; text-align:center;'>Próximamente nuevas ofertas...</p>";
-        return;
-      }
+      const grid = document.getElementById('promos-grid');
       grid.innerHTML = lista.map(p => `
         <div class="product-card" onclick="this.classList.toggle('flip')">
           <div class="badge-promo">OFERTA</div>
@@ -263,6 +323,7 @@
           <div class="product-info">
             <span class="product-category">${p.cat}</span>
             <h4 class="product-name">${p.nombre}</h4>
+            <p class="product-desc">${p.descripcion || '¡Precio especial por tiempo limitado!'}</p>
             <div style="margin-bottom:8px">
               ${p.precio_antes ? `<span class="old-price">$${p.precio_antes.toFixed(2)}</span>` : ''}
               <span class="current-price">$${p.precio.toFixed(2)}</span>
@@ -272,37 +333,61 @@
         </div>`).join('');
     }
 
+    function filtrar(tipo, btn) {
+      document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
+      if(btn) btn.classList.add('active');
+      
+      if(tipo === 'todos') {
+        productosFiltrados = productosTotales.filter(p => p.oferta === 'SI' || p.cat === 'PROMOCIONES');
+      } else {
+        // Lógica de filtrado por subcategoría de promoción
+        productosFiltrados = productosTotales.filter(p => (p.oferta === 'SI' || p.cat === 'PROMOCIONES') && (p.cat.includes(tipo) || p.subcat.includes(tipo)));
+      }
+      dibujarPromos(productosFiltrados);
+    }
+
     function addCart(id) {
       const p = productosTotales.find(x => x.id === id);
       if(p) {
         carrito.push({id: p.id, nombre: p.nombre, precio: p.precio});
         localStorage.setItem('bh-cart', JSON.stringify(carrito));
         actualizarBadge();
-        mostrarNoti(`✅ ${p.nombre} añadido`);
+        mostrarNoti(`✅ ${p.nombre} en carrito`);
       }
     }
 
     function actualizarBadge() {
       const badge = document.getElementById('cart-badge');
       if(badge) badge.textContent = carrito.length;
+      
       const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
       const bEnvio = document.getElementById('banner-envio');
+      const bSorteo = document.getElementById('banner-sorteo');
+      
       if(bEnvio) {
-        bEnvio.style.background = subTotal >= 50 ? '#25D366' : '#ff9800';
-        bEnvio.textContent = subTotal >= 50 ? "🚚 ¡Envío GRATIS activado!" : "🚚 Envío gratis desde $50";
+        bEnvio.style.background = subTotal > 0 ? '#d32f2f' : '#ff9800';
+        bEnvio.textContent = subTotal > 0 ? "🔥 Oferta lista en carrito" : "🔥 ¡Ofertas por tiempo limitado!";
+      }
+      if(bSorteo) {
+        bSorteo.style.background = subTotal >= 30 ? '#25D366' : 'var(--morado)';
+        bSorteo.textContent = subTotal >= 30 ? "🎟️ ¡Ya participas en la RIFA!" : "🎉 ¡Participa en nuestras rifas!";
       }
     }
 
     function mostrarModal() {
       if(carrito.length === 0) { mostrarNoti("El carrito está vacío"); return; }
       const items = document.getElementById('cart-items');
-      const total = carrito.reduce((s, i) => s + i.precio, 0);
+      const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
+      
       items.innerHTML = carrito.map((p, i) => `
-        <div style="display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid #eee;">
-          <div>${p.nombre}</div>
-          <div>$${p.precio.toFixed(2)} <button onclick="removeItem(${i})" style="color:red; border:none; background:none; cursor:pointer; margin-left:10px;"><i class="fas fa-trash"></i></button></div>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid #eee;">
+          <div><div style="font-weight:600; font-size:14px;">${p.nombre}</div><div style="color:var(--turquesa);">$${p.precio.toFixed(2)}</div></div>
+          <button onclick="removeItem(${i})" style="color:#ff4444; border:none; background:none; cursor:pointer;"><i class="fas fa-trash-alt"></i></button>
         </div>`).join('');
-      document.getElementById('cart-total').textContent = '$' + total.toFixed(2);
+      
+      document.getElementById('cart-subtotal').textContent = '$' + subTotal.toFixed(2);
+      document.getElementById('cart-total').textContent = '$' + subTotal.toFixed(2);
+      document.getElementById('rifa-status').style.display = (subTotal >= 30) ? 'block' : 'none';
       document.getElementById('cart-modal').style.display = 'block';
     }
 
@@ -314,10 +399,13 @@
     }
 
     function finalizarCompraWA() {
-      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🔥 *PEDIDO DE PROMOCIONES:*\n\n`;
+      const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
+      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🎁 *PEDIDO DE PROMOCIONES:*\n\n`;
       carrito.forEach((p, idx) => { msg += `${idx + 1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; });
-      const total = carrito.reduce((s, i) => s + i.precio, 0);
-      msg += `\n💰 *TOTAL: $${total.toFixed(2)}*`;
+      msg += `\n💰 *TOTAL OFERTA: $${subTotal.toFixed(2)}*\n`;
+      msg += `\n⚠️ Pago a nombre de: *Katherine Pineda*`;
+      if(subTotal >= 30) msg += `\n🎟️ *ESTE PEDIDO PARTICIPA EN LA RIFA*`;
+      msg += `\n\nQuiero aprovechar estos precios especiales.`;
       window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
@@ -326,13 +414,32 @@
       const val = e.target.value.toLowerCase();
       const resDiv = document.getElementById('search-results');
       if(!val) { resDiv.innerHTML = ''; return; }
-      const f = productosTotales.filter(p => p.nombre.toLowerCase().includes(val)).slice(0, 5);
+      const f = productosTotales.filter(p => p.nombre.toLowerCase().includes(val)).slice(0, 6);
       resDiv.innerHTML = f.map(p => `
-        <div class="search-item" onclick="window.location.href='${p.cat.toLowerCase()}.html?id=${p.id}'">
+        <div class="search-item" onclick="irAProducto('${p.id}', '${p.cat}')">
           <img src="${p.imgFrontal}">
-          <div>${p.nombre} <br><small>${p.cat}</small></div>
+          <div>
+            <div style="font-size:13px; font-weight:600">${p.nombre}</div>
+            <div style="font-size:10px; color:var(--turquesa)">Descuento en: ${p.cat}</div>
+          </div>
         </div>`).join('');
     };
+
+    function irAProducto(id, cat) {
+      document.getElementById('search-modal').style.display = 'none';
+      // Si el producto es parte de promociones, mostrarlo aquí
+      const p = productosTotales.find(x => x.id === id);
+      if (p.oferta === 'SI' || p.cat === 'PROMOCIONES') {
+        dibujarPromos([p]);
+        window.scrollTo({top: 600, behavior: 'smooth'});
+      } else {
+        // Si no es oferta, redirigir a su página correspondiente
+        let pagina = "ropa.html";
+        if (cat === "PROGRAMAS" || cat === "STREAMING") pagina = "programas.html";
+        if (cat === "VARIOS") pagina = "varios.html";
+        window.location.href = pagina + "?buscar=" + id;
+      }
+    }
 
     function abrirZoom(imgF, imgT) {
         imgActualFrontal = imgF; imgActualTrasera = imgT;
