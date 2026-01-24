@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>BHALLEFFORT | Ropa - Calidad al mejor precio</title>
+  <title>BHALLEFFORT | Ropa y Calzado - Calidad al mejor precio</title>
   <meta name="description" content="Tienda oficial de BHALLEFFORT. Encuentra la mejor ropa, zapatos y accesorios en Tabacundo con envíos a todo Ecuador. ¡Calidad al mejor precio!">
   <meta name="keywords" content="BHALLEFFORT, ropa Tabacundo, zapatos Ecuador, Katherine Pineda, tienda de ropa, rifas Ecuador">
   <meta name="author" content="Jhomac²">
@@ -39,6 +39,11 @@
     .main-nav a{color:var(--morado);padding:12px 15px;display:block;font-size:14px;text-decoration:none;font-weight:600}
     .main-nav a.active{background:var(--morado);color:#fff;border-radius:4px}
 
+    /* ESTILO DE FILTROS NUEVOS */
+    .filter-container { display: flex; justify-content: center; gap: 10px; margin: 20px 0; flex-wrap: wrap; }
+    .btn-filter { padding: 10px 20px; border: 2px solid var(--morado); border-radius: 25px; background: #fff; color: var(--morado); font-weight: 700; cursor: pointer; transition: 0.3s; }
+    .btn-filter.active { background: var(--morado); color: #fff; }
+
     .hero-banner {
       position: relative;
       background: url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
@@ -58,7 +63,6 @@
 
     .featured-products{padding:40px 0}
     .section-title{text-align:center;margin-bottom:10px;font-size:26px;color:var(--morado);text-transform:uppercase}
-    
     .ia-notice { text-align: center; background: #fdf6e3; border: 1px dashed #d3af37; padding: 10px; margin-bottom: 30px; border-radius: 8px; font-size: 13px; color: #856404; }
 
     .products-grid-ten{display:grid;gap:15px;grid-template-columns:repeat(5,1fr);max-width:1100px;margin:auto}
@@ -67,10 +71,6 @@
     .product-image {width: 100%;height: 100%;object-fit: cover;transition: transform 0.5s ease, opacity 0.3s ease}
     .product-image.back {position: absolute;top: 0;left: 0;opacity: 0}
     
-    @media (hover: hover) {
-      .product-card:hover .product-image.front { opacity: 0; }
-      .product-card:hover .product-image.back { opacity: 1; }
-    }
     .product-card.flip .product-image.front { opacity: 0; }
     .product-card.flip .product-image.back { opacity: 1; }
 
@@ -156,7 +156,7 @@
           <img src="logo-ballena.png" alt="BHALLEFFORT" class="whale-icon">
           <div class="brand-text">
             <h1>BHALLEFFORT</h1>
-            <p>Sección de Ropa</p>
+            <p>Ropa y Calzado</p>
           </div>
         </div>
       </a>
@@ -170,8 +170,8 @@
   <nav class="main-nav">
     <ul>
       <li><a href="index.html">INICIO</a></li>
-      <li><a href="ropa.html" class="active">ROPA</a></li>
-      <li><a href="zapatos.html">ZAPATOS</a></li>
+      <li><a href="ropa.html" class="active">ROPA Y CALZADO</a></li>
+      <li><a href="programas.html">PROGRAMAS Y STREAMING</a></li>
       <li><a href="varios.html">VARIOS</a></li>
       <li><a href="promociones.html">PROMOCIONES</a></li>
       <li><a href="quienes-somos.html">QUIÉNES SOMOS</a></li>
@@ -182,13 +182,22 @@
   <section class="hero-banner">
     <div>
       <h1>NUESTRA COLECCIÓN</h1>
-      <p>Moda exclusiva seleccionada para ti</p>
+      <p>Moda y Calzado premium seleccionada para ti</p>
     </div>
   </section>
 
   <section class="featured-products">
     <div class="container">
-      <h2 class="section-title">👕 CATÁLOGO DE ROPA 👕</h2>
+      <h2 class="section-title">👕 CATÁLOGO GENERAL 👟</h2>
+      
+      <div class="filter-container">
+        <button class="btn-filter active" onclick="filtrar('todos', this)">Ver Todo</button>
+        <button class="btn-filter" onclick="filtrar('hombre', this)">Hombre</button>
+        <button class="btn-filter" onclick="filtrar('mujer', this)">Mujer</button>
+        <button class="btn-filter" onclick="filtrar('niño', this)">Niños</button>
+        <button class="btn-filter" onclick="filtrar('ZAPATOS', this)" style="border-color:var(--turquesa)">Zapatos</button>
+      </div>
+
       <div class="ia-notice">📸 <strong>Aviso:</strong> La IA solo mejora el brillo, el producto final no varia.</div>
       <div class="products-grid-ten" id="ropa-grid"></div>
     </div>
@@ -204,7 +213,7 @@
         <i class="fas fa-store"></i>
         <div>
           <strong>CALIDAD GARANTIZADA</strong>
-          <p>Encuentra productos nuevos y usados. ¿Quieres vender aquí? <a href="https://wa.me/593963923399" target="_blank" style="color:var(--morado); font-weight:700;">Contáctanos hoy.</a></p>
+          <p>Encuentra productos nuevos y usados. <a href="https://wa.me/593963923399" target="_blank" style="color:var(--morado); font-weight:700;">Contáctanos hoy.</a></p>
         </div>
       </div>
     </div>
@@ -215,7 +224,7 @@
       <div>
         <img src="logo-ballena.png" alt="Ballena" width="60">
         <p>Diseñado por Jhomac² - La Y de Tabacundo</p>
-        <div class="god-message">Dios te da más de lo que pides.</div>
+        <div class="god-message" style="margin-top:10px; font-weight:700;">Dios te da más de lo que pides.</div>
       </div>
       <div class="footer-contact">
         <h3>CONTÁCTANOS</h3>
@@ -223,7 +232,7 @@
         <p><i class="fas fa-envelope"></i> agromhasvida5@gmail.com</p>
       </div>
     </div>
-    <div style="margin-bottom: 15px; display: flex; justify-content: center; gap: 20px;">
+    <div style="margin-top:15px; display: flex; justify-content: center; gap: 20px;">
       <a href="cookies.html" style="color: #000; text-decoration: none; font-size: 12px; opacity: 0.7;">Política de Cookies</a>
       <a href="politicas.html" style="color: #000; text-decoration: none; font-size: 12px; opacity: 0.7;">Políticas de Privacidad y Envíos</a>
     </div>
@@ -265,6 +274,7 @@
 
   <script>
     let productosTotales = [];
+    let productosFiltrados = [];
     let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
     let imgActualFrontal = "";
     let imgActualTrasera = "";
@@ -273,15 +283,16 @@
       try {
         const res = await fetch('productos.json');
         productosTotales = await res.json();
-        dibujarRopa();
+        // Cargamos todo lo que sea ROPA o ZAPATOS al inicio
+        productosFiltrados = productosTotales.filter(p => p.cat === "ROPA" || p.cat === "ZAPATOS" || p.cat === "CALZADO");
+        dibujarRopa(productosFiltrados);
         actualizarBadge();
       } catch (e) { console.error(e); }
     }
 
-    function dibujarRopa() {
+    function dibujarRopa(lista) {
       const grid = document.getElementById('ropa-grid');
-      const soloRopa = productosTotales.filter(p => p.cat === "ROPA");
-      grid.innerHTML = soloRopa.map(p => `
+      grid.innerHTML = lista.map(p => `
         <div class="product-card" onclick="this.classList.toggle('flip')">
           <div class="product-image-container">
             <div class="lupa-zoom-icon" onclick="event.stopPropagation(); abrirZoom('${p.imgFrontal}', '${p.imgTrasera || p.imgFrontal}')">
@@ -293,11 +304,25 @@
           <div class="product-info">
             <span class="product-category">${p.estado}</span>
             <h4 class="product-name">${p.nombre}</h4>
-            <p class="product-desc">${p.descripcion || 'Sin descripción disponible.'}</p>
+            <p class="product-desc">${p.descripcion || 'Sin descripción.'}</p>
             <div class="current-price">$${p.precio.toFixed(2)}</div>
             <button class="btn-buy" onclick="event.stopPropagation(); addCart('${p.id}')">Añadir al carrito</button>
           </div>
         </div>`).join('');
+    }
+
+    function filtrar(tipo, btn) {
+      document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      if(tipo === 'todos') {
+        productosFiltrados = productosTotales.filter(p => p.cat === "ROPA" || p.cat === "ZAPATOS" || p.cat === "CALZADO");
+      } else if (tipo === 'ZAPATOS') {
+        productosFiltrados = productosTotales.filter(p => p.cat === "ZAPATOS" || p.cat === "CALZADO");
+      } else {
+        productosFiltrados = productosTotales.filter(p => (p.cat === "ROPA" || p.cat === "ZAPATOS") && p.subcat === tipo);
+      }
+      dibujarRopa(productosFiltrados);
     }
 
     function addCart(id) {
@@ -344,11 +369,10 @@
     function finalizarCompraWA() {
       const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
       const envio = (subTotal >= 50) ? 0 : 3.50;
-      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *NUEVO PEDIDO (ROPA):*\n\n`;
+      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *NUEVO PEDIDO:*\n\n`;
       carrito.forEach((p, idx) => { msg += `${idx + 1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; });
-      msg += `\n──────────────────\n💰 *Subtotal:* $${subTotal.toFixed(2)}\n🚚 *Envío:* $${envio.toFixed(2)}\n✅ *TOTAL: $${(subTotal + envio).toFixed(2)}*\n──────────────────\n`;
-      msg += `⚠️ *RECUERDA:* Pago a nombre de *Katherine Pineda*.\n`;
-      if(subTotal >= 30) msg += `\n🎁 *DAME MI NÚMERO PARA LA RIFA*`;
+      msg += `\n💰 *TOTAL: $${(subTotal + envio).toFixed(2)}*\n`;
+      msg += `⚠️ Pago a nombre de *Katherine Pineda*.`;
       window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
@@ -357,14 +381,10 @@
       const resDiv = document.getElementById('search-results');
       if(!val) { resDiv.innerHTML = ''; return; }
       const f = productosTotales.filter(p => p.nombre.toLowerCase().includes(val)).slice(0, 6);
-      resDiv.innerHTML = f.map(p => {
-        let destino = p.cat.toLowerCase() === 'varios' ? 'varios.html' : p.cat.toLowerCase() + '.html';
-        return `
-        <div class="search-item" onclick="window.location.href='${destino}'">
+      resDiv.innerHTML = f.map(p => `<div class="search-item" onclick="window.location.href='index.html'">
           <img src="${p.imgFrontal}">
           <div><div style="font-size:13px; font-weight:600">${p.nombre}</div><div style="font-size:10px; color:var(--turquesa)">Ver en ${p.cat}</div></div>
-        </div>`;
-      }).join('');
+        </div>`).join('');
     };
 
     function abrirZoom(imgF, imgT) {
