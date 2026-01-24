@@ -191,7 +191,7 @@
       <h2 class="section-title">👕 CATÁLOGO GENERAL 👟</h2>
       
       <div class="filter-container">
-        <button class="btn-filter active" onclick="filtrar('todos', this)">Ver Todo</button>
+        <button class="btn-filter active" id="btn-ver-todo" onclick="filtrar('todos', this)">Ver Todo</button>
         <button class="btn-filter" onclick="filtrar('HOMBRE', this)">Hombre</button>
         <button class="btn-filter" onclick="filtrar('MUJER', this)">Mujer</button>
         <button class="btn-filter" onclick="filtrar('NIÑOS', this)">Niños</button>
@@ -288,7 +288,7 @@
       try {
         const res = await fetch('productos.json');
         productosTotales = await res.json();
-        filtrar('todos', document.querySelector('.btn-filter'));
+        filtrar('todos', document.getElementById('btn-ver-todo'));
         actualizarBadge();
       } catch (e) { console.error(e); }
     }
@@ -320,8 +320,9 @@
 
     function filtrar(tipo, btn) {
       document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+      if(btn) btn.classList.add('active');
       const catsValidas = ["ROPA", "CALZADO", "ZAPATOS"];
+      
       if(tipo === 'todos') {
         productosFiltrados = productosTotales.filter(p => catsValidas.includes(p.cat));
       } else if (tipo === 'CALZADO') {
@@ -400,16 +401,40 @@
       window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
+    // BUSCADOR CORREGIDO: Redirige según categoría o filtra si es Ropa
     document.getElementById('search-input').oninput = (e) => {
       const val = e.target.value.toLowerCase();
       const resDiv = document.getElementById('search-results');
       if(!val) { resDiv.innerHTML = ''; return; }
       const f = productosTotales.filter(p => p.nombre.toLowerCase().includes(val)).slice(0, 6);
-      resDiv.innerHTML = f.map(p => `<div class="search-item" onclick="window.location.href='index.html'">
+      resDiv.innerHTML = f.map(p => `
+        <div class="search-item" onclick="irAProducto('${p.id}', '${p.cat}')">
           <img src="${p.imgFrontal}">
-          <div><div style="font-size:13px; font-weight:600">${p.nombre}</div><div style="font-size:10px; color:var(--turquesa)">Ver en ${p.cat}</div></div>
+          <div>
+            <div style="font-size:13px; font-weight:600">${p.nombre}</div>
+            <div style="font-size:10px; color:var(--turquesa)">Categoría: ${p.cat}</div>
+          </div>
         </div>`).join('');
     };
+
+    function irAProducto(id, cat) {
+      document.getElementById('search-modal').style.display = 'none';
+      const ropaCats = ["ROPA", "CALZADO", "ZAPATOS"];
+      
+      if (ropaCats.includes(cat)) {
+        // Si ya estamos en ropa.html, solo filtramos ese producto
+        const p = productosTotales.filter(x => x.id === id);
+        dibujarRopa(p);
+        window.scrollTo({top: 500, behavior: 'smooth'});
+      } else {
+        // Redirección dinámica según categoría
+        let pagina = "index.html";
+        if (cat === "PROGRAMAS" || cat === "STREAMING") pagina = "programas.html";
+        if (cat === "VARIOS") pagina = "varios.html";
+        if (cat === "PROMOCIONES") pagina = "promociones.html";
+        window.location.href = pagina + "?buscar=" + id;
+      }
+    }
 
     function abrirZoom(imgF, imgT) {
         imgActualFrontal = imgF; imgActualTrasera = imgT;
