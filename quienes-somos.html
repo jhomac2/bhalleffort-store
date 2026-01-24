@@ -8,104 +8,70 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --celeste: #87ceeb;
-      --morado: #4c0d8c;
-      --turquesa: #00c8c8;
-      --turquesaOsc: #009e9e;
-      --texto: #222;
-      --fondo: #eef2f7;
-    }
+    :root { --celeste: #87ceeb; --morado: #4c0d8c; --turquesa: #00c8c8; --turquesaOsc: #009e9e; --texto: #222; --fondo: #eef2f7 }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif }
+    body { background: var(--fondo); color: var(--texto); padding-bottom: 80px; }
+    .container { width: 90%; max-width: 1200px; margin: auto }
+    .flex-space { display: flex; align-items: center; justify-content: space-between }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
-    body { background: var(--fondo); color: var(--texto); line-height: 1.6; padding-bottom: 80px; }
-    .container { width: 90%; max-width: 1200px; margin: auto; }
-    .flex-space { display: flex; align-items: center; justify-content: space-between; }
+    /* HEADER & NAV */
+    .top-bar { background: var(--morado); color: #fff; font-size: 13px; padding: 4px 0 }
+    .main-header { padding: 15px 0; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.1) }
+    .whale-icon { width: 85px; border: 3px solid var(--morado); border-radius: 50%; padding: 2px; background: #fff }
+    .brand-text h1 { font-size: 24px; color: var(--morado); font-weight: 700; line-height: 1 }
+    .btn-rifas { background: #ff6600; padding: .8rem 1.4rem; border-radius: 6px; font-weight: 700; text-decoration: none; color: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.25) }
+    .main-nav { position: sticky; top: 0; z-index: 999; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1) }
+    .main-nav ul { list-style: none; display: flex; flex-wrap: wrap; justify-content: center }
+    .main-nav a { color: var(--morado); padding: 12px 15px; display: block; font-size: 14px; text-decoration: none; font-weight: 600 }
+    .main-nav a.active { background: var(--morado); color: #fff; border-radius: 4px }
 
-    /* TOP BAR & HEADER */
-    .top-bar { background: var(--morado); color: #fff; font-size: 13px; padding: 8px 0; text-align: center; font-weight: 600; }
-    .main-header { padding: 15px 0; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.1); }
-    .whale-icon { width: 85px; border: 3px solid var(--morado); border-radius: 50%; padding: 2px; background: #fff; }
-    .brand-text h1 { font-size: 24px; color: var(--morado); font-weight: 700; line-height: 1; }
-    .btn-rifas { background: #ff6600; padding: .8rem 1.4rem; border-radius: 6px; font-weight: 700; text-decoration: none; color: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-
-    /* NAVEGACIÓN COMPLETA */
-    .main-nav { position: sticky; top: 0; z-index: 999; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-    .main-nav ul { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; }
-    .main-nav a { color: var(--morado); padding: 12px 15px; display: block; font-size: 13px; text-decoration: none; font-weight: 600; }
-    .main-nav a.active { background: var(--morado); color: #fff; border-radius: 4px; }
-
-    /* SECCIONES QUIÉNES SOMOS */
-    .hero-about { 
-      background: linear-gradient(rgba(76, 13, 140, 0.8), rgba(76, 13, 140, 0.8)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2000') center/cover; 
-      color: #fff; padding: 80px 0; text-align: center; 
-    }
-    .section-white { background: #fff; padding: 40px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin: 30px 0; }
-    .meaning-card { background: var(--morado); color: #fff; padding: 30px; border-radius: 12px; text-align: center; font-style: italic; font-size: 1.2rem; margin: 25px 0; }
-    
-    .policy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-    .policy-item { padding: 20px; background: #f9f9f9; border-radius: 10px; border-bottom: 4px solid var(--turquesa); cursor: pointer; transition: 0.3s; }
-    .policy-item:hover { transform: translateY(-5px); }
+    /* CONTENIDO ESPECÍFICO */
+    .hero-about { background: linear-gradient(rgba(76, 13, 140, 0.8), rgba(76, 13, 140, 0.8)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2000') center/cover; color: white; padding: 60px 0; text-align: center; }
+    .about-card { background: white; padding: 35px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin: -30px auto 40px; position: relative; z-index: 10; max-width: 800px; }
+    .quote-box { background: var(--morado); color: white; padding: 20px; border-radius: 10px; text-align: center; font-style: italic; margin-top: 20px; }
 
     /* FLOTANTES */
-    #cart-icon { position: fixed; top: 15px; right: 15px; background: #fff; border-radius: 50%; width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2); cursor: pointer; z-index: 1001; }
-    #cart-badge { background: var(--turquesa); color: #fff; border-radius: 50%; padding: 2px 7px; font-size: 12px; position: absolute; top: 0; right: 0; font-weight: bold; }
-    #btn-lupa { position: fixed; top: 80px; right: 15px; background: var(--turquesa); color: #fff; border: none; border-radius: 50%; width: 55px; height: 55px; font-size: 22px; cursor: pointer; z-index: 1001; }
+    #cart-icon { position: fixed; top: 15px; right: 15px; background: #fff; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.15); cursor: pointer; z-index: 1000; }
+    #cart-badge { background: var(--turquesa); color: #fff; border-radius: 50%; padding: 2px 6px; font-size: 11px; position: absolute; top: 0px; right: 0px; }
+    #btn-lupa { position: fixed; top: 75px; right: 15px; background: var(--turquesa); color: #fff; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 20px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.25); z-index: 1000; display: flex; align-items: center; justify-content: center; }
 
     /* BANNERS */
-    #banner-div { position: fixed; bottom: 0; left: 0; right: 0; display: flex; z-index: 1000; }
-    #banner-envio, #banner-sorteo { flex: 1; padding: 12px; text-align: center; font-weight: 700; font-size: 14px; color: #fff; }
-    #banner-envio { background: #ff9800; }
-    #banner-sorteo { background: var(--morado); }
+    #banner-div { position: fixed; bottom: 0; left: 0; right: 0; display: flex; background: #fff; z-index: 999; box-shadow: 0 -2px 10px rgba(0,0,0,0.1) }
+    #banner-envio { flex: 1; background: #ff9800; color: #fff; text-align: center; padding: 10px; font-size: 14px; font-weight: 700; }
+    #banner-sorteo { flex: 1; background: var(--morado); color: #fff; text-align: center; padding: 10px; font-size: 14px; font-weight: 700; }
 
     /* MODALES */
-    #cart-modal, #policy-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 5000; overflow-y: auto; }
-    .modal-content { background: #fff; width: 90%; max-width: 480px; margin: 40px auto; padding: 25px; border-radius: 15px; position: relative; }
-
-    /* FOOTER */
-    footer { background: var(--celeste); padding: 50px 0; text-align: center; }
-    .social-links a { color: var(--morado); font-size: 24px; margin: 0 10px; transition: 0.3s; }
-    .social-links a:hover { color: var(--turquesaOsc); }
+    #search-modal, #cart-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 4000; }
+    #search-modal > div, #cart-modal > div { background: #fff; width: 95%; max-width: 450px; margin: 50px auto; padding: 20px; border-radius: 12px; position: relative; }
+    
+    footer { background: var(--celeste); padding: 30px 0; text-align: center; }
   </style>
 </head>
 <body>
 
-  <div id="policy-modal">
-    <div class="modal-content">
-      <header class="flex-space" style="border-bottom:1px solid #eee; padding-bottom:10px;">
-        <h3 id="policy-title"></h3>
-        <button onclick="document.getElementById('policy-modal').style.display='none'" style="border:none; background:none; font-size:28px; cursor:pointer">&times;</button>
-      </header>
-      <div id="policy-content" style="margin-top:20px;"></div>
-    </div>
-  </div>
-
-  <div id="cart-modal">
-    <div class="modal-content">
-      <header class="flex-space" style="border-bottom:1px solid #eee; padding-bottom:10px;">
-        <h3><i class="fas fa-shopping-cart"></i> Tu Pedido</h3>
-        <button onclick="document.getElementById('cart-modal').style.display='none'" style="border:none; background:none; font-size:28px; cursor:pointer">&times;</button>
-      </header>
-      <div id="cart-items" style="max-height:350px; overflow-y:auto; margin-top:15px;"></div>
-      <footer id="cart-footer-logic" style="margin-top:20px; border-top:1px solid #eee; padding-top:15px;"></footer>
-    </div>
-  </div>
-
   <div id="cart-icon"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
-  <button id="btn-lupa" onclick="alert('Buscador disponible en Inicio')"><i class="fas fa-search"></i></button>
+  <button id="btn-lupa"><i class="fas fa-search"></i></button>
 
   <div id="banner-div">
-    <div id="banner-envio">🚚 Envío Gratis desde $50 Físicos</div>
+    <div id="banner-envio">🚚 Envío gratis desde $50 Físicos</div>
     <div id="banner-sorteo">🎉 ¡Rifa Gratis desde $30 Físicos!</div>
   </div>
 
-  <div class="top-bar">"DIOS TE DA MÁS DE LO QUE PIDES"</div>
+  <div class="top-bar">
+    <div class="container flex-space">
+      <div style="display:flex;gap:12px;font-size:18px">
+        <a href="https://www.tiktok.com/@bhalleffort" style="color:#fff"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.facebook.com/share/17jG7haojA/" style="color:#fff"><i class="fab fa-facebook"></i></a>
+      </div>
+      <div>CALIDAD AL MEJOR PRECIO</div>
+    </div>
+  </div>
 
   <header class="main-header">
     <div class="container flex-space">
-      <a href="index.html" style="text-decoration:none; display:flex; align-items:center; gap:15px; color:inherit;">
+      <a href="index.html" class="logo-section" style="text-decoration:none; display:flex; align-items:center; gap:10px;">
         <img src="logo-ballena.png" alt="BHALLEFFORT" class="whale-icon">
-        <div class="brand-text"><h1>BHALLEFFORT</h1><p>Moda y Calidad</p></div>
+        <div class="brand-text"><h1>BHALLEFFORT</h1><p>Quiénes Somos</p></div>
       </a>
       <a href="rifas.html" class="btn-rifas">🎉 Ir a Rifas</a>
     </div>
@@ -114,9 +80,8 @@
   <nav class="main-nav">
     <ul>
       <li><a href="index.html">INICIO</a></li>
-      <li><a href="ropa.html">ROPA</a></li>
-      <li><a href="calzado.html">CALZADO</a></li>
-      <li><a href="streaming.html">STREAMING</a></li>
+      <li><a href="ropa.html">ROPA Y CALZADO</a></li>
+      <li><a href="programas.html">STREAMING</a></li>
       <li><a href="varios.html">VARIOS</a></li>
       <li><a href="promociones.html">PROMOCIONES</a></li>
       <li><a href="quienes-somos.html" class="active">QUIÉNES SOMOS</a></li>
@@ -126,99 +91,122 @@
 
   <section class="hero-about">
     <div class="container">
-      <h1>¿Quiénes Somos?</h1>
-      <p>Pasión por la moda, compromiso con nuestra gente</p>
+      <h2>Nuestra Esencia</h2>
+      <p>Esfuerzo, fe y los mejores hábitos para el éxito.</p>
     </div>
   </section>
 
   <div class="container">
-    <section class="section-white">
-      <h2 style="color:var(--morado); margin-bottom:15px;">Un Sueño con Propósito</h2>
-      <p><strong>BHALLEFFORT</strong> nació como testimonio de esfuerzo y fe. Nos basamos en que los "Buenos Hábitos te Llevan al Éxito".</p>
-      <div class="meaning-card">"Buenos Hábitos te Llevan al Éxito, y son la Fortaleza para vivir"</div>
-      <p>Nuestra misión es llevar calidad premium a cada rincón de Ecuador, brindando honestidad en cada venta.</p>
-    </section>
-
-    <section class="section-white">
-      <div class="policy-grid">
-        <div class="policy-item" onclick="abrirPolitica('envios')">
-          <h3 style="color:var(--morado)"><i class="fas fa-truck"></i> Envíos</h3>
-          <p>Locales y Nacionales por Servientrega.</p>
-        </div>
-        <div class="policy-item" onclick="abrirPolitica('calidad')">
-          <h3 style="color:var(--morado)"><i class="fas fa-check-circle"></i> Calidad</h3>
-          <p>Garantía de productos Premium G5/1:1.</p>
-        </div>
+    <div class="about-card">
+      <h3 style="color:var(--morado); margin-bottom:15px">¿Quiénes Somos?</h3>
+      <p>BHALLEFFORT nació de un sueño impulsado por la fe y el deseo de ofrecer calidad premium a precios justos en Tabacundo y todo Ecuador.</p>
+      <p style="margin-top:10px">Nuestra marca representa la fortaleza y la disciplina necesarias para alcanzar cualquier meta.</p>
+      <div class="quote-box">
+        "Buenos Hábitos te Llevan al Éxito, y son la Fortaleza para vivir"
       </div>
-    </section>
+    </div>
   </div>
 
   <footer>
     <div class="container">
-      <div class="social-links" style="margin-bottom:20px;">
-        <a href="https://www.facebook.com/share/17jG7haojA/"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.instagram.com/bhalleffort"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.tiktok.com/@bhalleffort"><i class="fab fa-tiktok"></i></a>
-      </div>
-      <p style="font-weight:700;">© 2026 BHALLEFFORT | Tabacundo, Ecuador</p>
+      <p><strong>BHALLEFFORT</strong> - Tabacundo, Ecuador</p>
+      <p style="font-size:12px;opacity:0.8">"Dios te da más de lo que pides"</p>
     </div>
   </footer>
 
+  <div id="cart-modal">
+    <div>
+      <header style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #eee;padding-bottom:10px;margin-bottom:15px">
+        <h3><i class="fas fa-shopping-cart"></i> Tu Pedido</h3>
+        <button onclick="document.getElementById('cart-modal').style.display='none'" style="border:none;background:none;font-size:24px;cursor:pointer">×</button>
+      </header>
+      <div id="cart-items" style="max-height:300px;overflow-y:auto"></div>
+      <footer style="margin-top:20px;border-top:1px solid #eee;padding-top:15px"></footer>
+    </div>
+  </div>
+
+  <div id="search-modal">
+    <div>
+      <button onclick="document.getElementById('search-modal').style.display='none'" style="position:absolute;top:10px;right:10px;border:none;background:none;font-size:24px;cursor:pointer">×</button>
+      <h3>Buscar Productos</h3>
+      <input type="text" id="search-input" placeholder="¿Qué buscas?" style="width:100%;padding:10px;margin-top:10px;border:1px solid #ddd;border-radius:8px">
+      <div id="search-results" style="max-height:250px; overflow-y:auto; margin-top:10px;"></div>
+    </div>
+  </div>
+
   <script>
+    let productosTotales = [];
     let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
 
+    async function cargarDatos() {
+      try {
+        const res = await fetch('productos.json');
+        productosTotales = await res.json();
+        actualizarInterfaz();
+      } catch (e) { console.error(e); }
+    }
+
     function calcularLogica() {
-      // Categorías que NO cobran envío ni activan rifas
-      const digitalCats = ["RIFAS", "STREAMING", "PROGRAMAS", "SOFTWARE", "CURSOS"];
-      let totalTodo = 0, totalFisico = 0, tieneFisico = false;
+      const catsDigitales = ["RIFAS", "STREAMING", "PROGRAMAS", "SOFTWARE"];
+      let subTotalTodo = 0;
+      let subTotalFisico = 0;
+      let tieneFisico = false;
 
       carrito.forEach(p => {
-        totalTodo += p.precio;
-        if (!digitalCats.includes(p.cat.toUpperCase())) {
-          totalFisico += p.precio;
+        subTotalTodo += p.precio;
+        // Solo cuenta para envío y rifas si NO es digital
+        if (!catsDigitales.includes(p.cat.toUpperCase())) {
+          subTotalFisico += p.precio;
           tieneFisico = true;
         }
       });
 
-      // Envío: $3.50 si hay físico y es < $50. Si es digital o físico > $50, es $0.
-      let envio = (tieneFisico && totalFisico < 50) ? 3.50 : 0;
-      // Rifa: Solo si lo físico suma $30+
-      let ganaRifa = (totalFisico >= 30);
+      // Envío: Si hay algo físico, se cobra 3.50 a menos que lo físico sea >= 50
+      let envio = (tieneFisico && subTotalFisico < 50) ? 3.50 : 0;
+      // Rifa Gratis: Solo si lo físico es >= 30
+      let ganaRifa = (subTotalFisico >= 30);
 
-      return { totalTodo, totalFisico, envio, ganaRifa };
+      return { subTotalTodo, envio, ganaRifa };
     }
 
-    function actualizarBadge() {
-      document.getElementById('cart-badge').textContent = carrito.length;
+    function actualizarInterfaz() {
+      const badge = document.getElementById('cart-badge');
+      if(badge) badge.textContent = carrito.length;
+      
       const logica = calcularLogica();
-      document.getElementById('banner-envio').style.background = (logica.envio === 0 && carrito.length > 0) ? "#25D366" : "#ff9800";
+      
+      // Colores de banners según lógica
+      document.getElementById('banner-envio').style.background = (logica.envio === 0 && carrito.length > 0) ? '#25D366' : '#ff9800';
+      document.getElementById('banner-sorteo').style.background = logica.ganaRifa ? '#25D366' : 'var(--morado)';
     }
 
     function mostrarCarrito() {
-      if(carrito.length === 0) return alert("El carrito está vacío");
-      const { totalTodo, envio, ganaRifa } = calcularLogica();
-      const items = document.getElementById('cart-items');
+      if(carrito.length === 0) { alert("El carrito está vacío"); return; }
+      const itemsDiv = document.getElementById('cart-items');
+      const { subTotalTodo, envio, ganaRifa } = calcularLogica();
 
-      items.innerHTML = `
-        <div style="text-align:center; padding:10px; border:2px solid #ffd700; background:#fffdf0; border-radius:8px; margin-bottom:15px; font-size:12px;">
-          Depósitos a nombre de: <b>Katherine Pineda</b>.
+      itemsDiv.innerHTML = `
+        <div style="text-align:center;padding:10px;border:2px solid #ffd700;background:#fffdf0;border-radius:8px;margin-bottom:15px;font-size:13px;font-weight:600">
+          Pago oficial a nombre de: <span style="color:var(--morado)">Katherine Pineda</span>.
         </div>
       ` + carrito.map((p, i) => `
-        <div class="flex-space" style="padding:10px 0; border-bottom:1px solid #eee;">
-          <div><div style="font-weight:600; font-size:14px;">${p.nombre}</div><div style="color:var(--turquesa); font-size:12px;">$${p.precio.toFixed(2)}</div></div>
-          <button onclick="removeItem(${i})" style="color:red; border:none; background:none; cursor:pointer;"><i class="fas fa-trash-alt"></i></button>
+        <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #eee">
+          <div><div style="font-weight:600;font-size:14px">${p.nombre}</div><div style="color:var(--turquesa)">$${p.precio.toFixed(2)}</div></div>
+          <button onclick="removeItem(${i})" style="color:#ff4444;border:none;background:none;cursor:pointer"><i class="fas fa-trash-alt"></i></button>
         </div>`).join('');
 
-      document.getElementById('cart-footer-logic').innerHTML = `
-        <div style="font-size:14px;">
-          <div class="flex-space"><span>Subtotal:</span><span>$${totalTodo.toFixed(2)}</span></div>
-          <div class="flex-space"><span>Envío:</span><span>${envio === 0 ? '<b style="color:#25D366">GRATIS</b>' : '$' + envio.toFixed(2)}</span></div>
-          ${ganaRifa ? '<div style="color:#ff6600; font-weight:700; text-align:center; margin-top:5px;">✨ ¡RIFA GRATIS ACTIVADA! ✨</div>' : ''}
+      document.querySelector('#cart-modal footer').innerHTML = `
+        <div style="display:flex;flex-direction:column;gap:5px;font-size:14px;border-bottom:1px solid #eee;padding-bottom:10px">
+          <div style="display:flex;justify-content:space-between"><span>Subtotal:</span><span>$${subTotalTodo.toFixed(2)}</span></div>
+          <div style="display:flex;justify-content:space-between"><span>Envío:</span><span>${envio === 0 ? '<b style="color:#25D366">GRATIS</b>' : '$' + envio.toFixed(2)}</span></div>
+          ${ganaRifa ? '<div style="color:#ff6600;font-weight:700;text-align:center;margin-top:5px">✨ ¡GANASTE RIFA GRATIS! ✨</div>' : ''}
         </div>
-        <div class="flex-space" style="font-weight:bold; font-size:20px; color:var(--morado); margin-top:10px;">
-          <span>Total:</span><span>$${(totalTodo + envio).toFixed(2)}</span>
+        <div style="display:flex;justify-content:space-between;font-weight:bold;font-size:18px;color:var(--morado);margin-top:10px">
+          <span>Total:</span><span>$${(subTotalTodo + envio).toFixed(2)}</span>
         </div>
-        <button onclick="finalizarWA()" style="background:#25D366;color:#fff;border:none;padding:15px;border-radius:8px;cursor:pointer;width:100%; font-weight:700; margin-top:15px;">FINALIZAR WHATSAPP 🐋</button>
+        <button onclick="finalizarCompraWA()" style="background:#25D366;color:#fff;border:none;padding:15px;border-radius:6px;cursor:pointer;width:100%;font-weight:700;margin-top:15px">
+          FINALIZAR COMPRA POR WHATSAPP 🐋
+        </button>
       `;
       document.getElementById('cart-modal').style.display = 'block';
     }
@@ -226,32 +214,36 @@
     function removeItem(i) {
       carrito.splice(i, 1);
       localStorage.setItem('bh-cart', JSON.stringify(carrito));
-      actualizarBadge();
-      carrito.length ? mostrarCarrito() : document.getElementById('cart-modal').style.display='none';
+      actualizarInterfaz();
+      carrito.length === 0 ? document.getElementById('cart-modal').style.display='none' : mostrarCarrito();
     }
 
-    function finalizarWA() {
-      const { totalTodo, envio, ganaRifa } = calcularLogica();
-      let msg = `🐋 *PEDIDO BHALLEFFORT*\n\n`;
-      carrito.forEach((p, idx) => msg += `${idx + 1}. ${p.nombre} ($${p.precio})\n`);
-      msg += `\nSubtotal: $${totalTodo.toFixed(2)}\nEnvío: ${envio === 0 ? 'GRATIS' : '$'+envio}\n`;
-      if(ganaRifa) msg += `🎁 *PROMO:* ¡Incluye Rifa!\n`;
-      msg += `\n*TOTAL: $${(totalTodo + envio).toFixed(2)}*`;
-      window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`);
+    function finalizarCompraWA() {
+      const { subTotalTodo, envio, ganaRifa } = calcularLogica();
+      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *PEDIDO (DESDE SOBRE NOSOTROS):*\n\n`;
+      carrito.forEach((p, idx) => { msg += `${idx + 1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; });
+      msg += `\n--------------------------`;
+      msg += `\n💵 Subtotal: $${subTotalTodo.toFixed(2)}`;
+      msg += `\n🚚 Envío: ${envio === 0 ? 'GRATIS' : '$' + envio.toFixed(2)}`;
+      if(ganaRifa) msg += `\n🎁 *PROMO:* ¡Incluye Rifa Gratis!`;
+      msg += `\n✅ *TOTAL A PAGAR: $${(subTotalTodo + envio).toFixed(2)}*`;
+      msg += `\n\n⚠️ Pago a nombre de *Katherine Pineda*.`;
+      window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
-    function abrirPolitica(t) {
-      const d = {
-        'envios': ['Envíos', 'Entregas locales en Tabacundo/Cayambe gratis. Envíos nacionales $3.50 por Servientrega.'],
-        'calidad': ['Calidad', 'Garantizamos calidad premium en calzado y ropa.']
-      };
-      document.getElementById('policy-title').innerText = d[t][0];
-      document.getElementById('policy-content').innerText = d[t][1];
-      document.getElementById('policy-modal').style.display = 'block';
-    }
+    // Buscador
+    document.getElementById('search-input').oninput = (e) => {
+      const val = e.target.value.toLowerCase();
+      const resDiv = document.getElementById('search-results');
+      if(!val) return resDiv.innerHTML = '';
+      const f = productosTotales.filter(p => p.nombre.toLowerCase().includes(val)).slice(0, 5);
+      resDiv.innerHTML = f.map(p => `<div style="padding:10px; border-bottom:1px solid #eee; display:flex; align-items:center; gap:10px; cursor:pointer;" onclick="window.location.href='index.html?buscar=${p.id}'"><img src="${p.imgFrontal}" style="width:40px;height:40px;object-fit:cover;border-radius:5px;"><div><div style="font-weight:600;font-size:13px">${p.nombre}</div><div style="font-size:10px;color:var(--turquesa)">$${p.precio.toFixed(2)}</div></div></div>`).join('');
+    };
 
     document.getElementById('cart-icon').onclick = mostrarCarrito;
-    actualizarBadge();
+    document.getElementById('btn-lupa').onclick = () => document.getElementById('search-modal').style.display='block';
+    
+    cargarDatos();
   </script>
 </body>
 </html>
