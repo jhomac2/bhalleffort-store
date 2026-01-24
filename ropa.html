@@ -116,9 +116,34 @@
 
     #cart-modal{display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:4000;}
     #cart-modal > div {background:#fff; width:95%; max-width:450px; margin:50px auto; padding:20px; border-radius:12px; position:relative; box-shadow:0 10px 25px rgba(0,0,0,0.2);}
+
+    /* BLOQUE DE CONTACTO INFERIOR DERECHA */
+    .floating-contact {
+      position: fixed;
+      bottom: 60px;
+      right: 15px;
+      background: #fff;
+      padding: 12px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      z-index: 1000;
+      font-size: 11px;
+      border: 1px solid var(--celeste);
+      line-height: 1.4;
+    }
+    .floating-contact strong { color: var(--morado); display: block; margin-bottom: 3px; font-size: 12px;}
+    @media(max-width: 480px) { .floating-contact { bottom: 70px; padding: 8px; font-size: 10px; } }
+
   </style>
 </head>
 <body>
+
+  <div class="floating-contact">
+    <strong><i class="fas fa-user-shield"></i> Katherine Pineda</strong>
+    <div><i class="fab fa-whatsapp"></i> +593 963 923 399</div>
+    <div><i class="fas fa-envelope"></i> agromhasvida5@gmail.com</div>
+    <div><i class="fas fa-map-marker-alt"></i> Tabacundo, Ecuador</div>
+  </div>
 
   <div id="cart-icon"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
   <button id="btn-lupa"><i class="fas fa-search"></i></button>
@@ -401,7 +426,6 @@
       window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
-    // BUSCADOR CORREGIDO: Redirige según categoría o filtra si es Ropa
     document.getElementById('search-input').oninput = (e) => {
       const val = e.target.value.toLowerCase();
       const resDiv = document.getElementById('search-results');
@@ -422,12 +446,10 @@
       const ropaCats = ["ROPA", "CALZADO", "ZAPATOS"];
       
       if (ropaCats.includes(cat)) {
-        // Si ya estamos en ropa.html, solo filtramos ese producto
         const p = productosTotales.filter(x => x.id === id);
         dibujarRopa(p);
         window.scrollTo({top: 500, behavior: 'smooth'});
       } else {
-        // Redirección dinámica según categoría
         let pagina = "index.html";
         if (cat === "PROGRAMAS" || cat === "STREAMING") pagina = "programas.html";
         if (cat === "VARIOS") pagina = "varios.html";
