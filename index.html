@@ -8,32 +8,34 @@
   <link rel="icon" href="https://jhomac2.github.io/bhalleffort-store/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.0.6/tsparticles.slim.bundle.min.js"></script>
+
   <style>
-    /* VARIABLES DE COLOR */
-    :root {
-      --celeste: #87ceeb;
-      --morado: #4c0d8c;
-      --turquesa: #00c8c8;
-      --turquesaOsc: #009e9e;
-      --texto: #222;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', system-ui, Arial; }
-
-    /* --- CAMBIO CRÍTICO: FONDO DE UNIVERSO --- */
+    :root{--celeste:#87ceeb;--morado:#4c0d8c;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;}
+    
+    /* ESTILOS BASE */
     body {
-      /* Imagen de Espacio 3D Alta Definición */
-      background: url('https://images.unsplash.com/photo-1465101162946-4377e57745c3?q=80&w=2078&auto=format&fit=crop') no-repeat center center fixed !important;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;
-      
-      /* Texto base blanco para que se lea sobre el espacio */
-      color: #fff; 
-      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', system-ui, Arial;
+      background-color: #000; /* Fondo negro de respaldo */
+      color: #fff; /* Texto general blanco */
+      position: relative;
     }
 
+    /* --- NUEVO: CONTENEDOR DEL FONDO 3D --- */
+    #tsparticles {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1; /* IMPORTANTE: Se queda detrás de todo */
+      background: linear-gradient(180deg, #0a0a2a 0%, #000000 100%); /* Degradado oscuro profundo */
+    }
+
+    * { box-sizing: border-box; }
     img { max-width: 100%; display: block; }
     .container { width: 90%; max-width: 1200px; margin: auto; }
     .flex-space { display: flex; align-items: center; justify-content: space-between; }
@@ -55,7 +57,7 @@
     .btn-wa { background: #25d366; }
     
     .main-nav { position: sticky; top: 0; z-index: 999; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,.1); }
-    .main-nav ul { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; }
+    .main-nav ul { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; margin: 0; padding: 0; }
     .main-nav a { color: var(--morado); padding: 12px 15px; display: block; font-size: 14px; text-decoration: none; font-weight: 600; }
     .main-nav a.active { background: var(--morado); color: #fff; border-radius: 4px; }
 
@@ -64,14 +66,14 @@
     .btn-filter { padding: 10px 20px; border: 2px solid var(--morado); border-radius: 25px; background: #fff; color: var(--morado); font-weight: 700; cursor: pointer; transition: 0.3s; }
     .btn-filter.active { background: var(--morado); color: #fff; }
 
-    /* HERO BANNER */
+    /* HERO BANNER (Imagen interna distinta al fondo) */
     .hero-banner {
       position: relative;
-      /* Imagen diferente para el banner interno */
       background: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070') center/cover no-repeat;
       height: 400px;
       display: flex; align-items: center; justify-content: center; text-align: center; color: #fff;
       border-bottom: 4px solid var(--turquesa);
+      margin-bottom: 20px;
     }
     .hero-banner::before { content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.5); z-index: 1; }
     .hero-banner div { position: relative; z-index: 2; padding: 0 20px; }
@@ -80,7 +82,7 @@
     /* SECCIONES Y TÍTULOS */
     .featured-products { padding: 40px 0; }
     
-    /* CAMBIO: Título blanco brillante con sombra neón para resaltar en el espacio */
+    /* Título blanco brillante con sombra neón para resaltar en el espacio */
     .section-title { 
       text-align: center; 
       margin-bottom: 20px; 
@@ -94,7 +96,7 @@
     /* GRID PRODUCTOS */
     .products-grid-ten { display: grid; gap: 15px; grid-template-columns: repeat(5,1fr); max-width: 1100px; margin: auto; }
     
-    /* TARJETA DE PRODUCTO (Blanca para que el producto se vea bien) */
+    /* TARJETA DE PRODUCTO (Blanca internamente) */
     .product-card { 
       background: #fff; 
       border-radius: 8px; 
@@ -167,6 +169,7 @@
   </style>
 </head>
 <body>
+  <div id="tsparticles"></div>
 
   <div id="cart-icon"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
   <button id="btn-lupa"><i class="fas fa-search"></i></button>
@@ -333,6 +336,55 @@
       </footer>
     </div>
   </div>
+
+  <script>
+    tsParticles.load("tsparticles", {
+      fpsLimit: 60,
+      background: {
+        color: "transparent" /* El color lo da el CSS del contenedor #tsparticles */
+      },
+      particles: {
+        number: {
+          value: 100, /* Cantidad de estrellas */
+          density: { enable: true, value_area: 800 }
+        },
+        color: { value: "#ffffff" }, /* Color de las estrellas */
+        shape: { type: "circle" },
+        opacity: {
+          value: 0.8,
+          random: true,
+          animation: { enable: true, speed: 1, minimumValue: 0.1, sync: false }
+        },
+        size: {
+          value: 3,
+          random: true,
+          animation: { enable: false, speed: 40, minimumValue: 0.1, sync: false }
+        },
+        move: {
+          enable: true,
+          speed: 0.6, /* Velocidad de movimiento lento para efecto 3D */
+          direction: "none",
+          random: false,
+          straight: false,
+          out_mode: "out",
+          attract: { enable: false, rotateX: 600, rotateY: 1200 }
+        }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "bubble" }, /* Efecto al pasar el mouse */
+          onclick: { enable: true, mode: "push" },
+          resize: true
+        },
+        modes: {
+          bubble: { distance: 200, size: 6, duration: 2, opacity: 1, speed: 3 },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
+    });
+  </script>
 
   <script>
     let productosTotales = [];
