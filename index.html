@@ -4,207 +4,131 @@
   <meta charset="utf-8">
   <title>BHALLEFFORT | Tienda Oficial - Calidad al mejor precio</title>
   <meta name="description" content="Tienda oficial de BHALLEFFORT. Encuentra la mejor ropa, zapatos y servicios en Tabacundo con envíos a todo Ecuador.">
+  <meta name="keywords" content="BHALLEFFORT, ropa Tabacundo, zapatos Ecuador, Katherine Pineda, tienda de ropa, rifas Ecuador">
+  <meta name="author" content="Jhomac²">
+  <link rel="canonical" href="https://www.bhalleffort.com/index.html">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="https://jhomac2.github.io/bhalleffort-store/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.0.6/tsparticles.slim.bundle.min.js"></script>
-
   <style>
-    /* VARIABLES DE COLOR (Mantenemos tu identidad) */
-    :root{--celeste:#87ceeb;--morado:#4c0d8c;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;}
+    :root{--celeste:#87ceeb;--morado:#4c0d8c;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;--fondo:#eef2f7}
+    *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',system-ui,Arial}
+    body{background:var(--fondo);color:var(--texto)}
+    img{max-width:100%;display:block}
+    .container{width:90%;max-width:1200px;margin:auto}
+    .flex-space{display:flex;align-items:center;justify-content:space-between}
     
-    /* ESTILOS BASE */
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Poppins', system-ui, Arial;
-      background-color: #050510; /* Color de respaldo oscuro */
-      color: #e0e0e0; /* Texto general claro (casi blanco) para contraste */
-      position: relative;
-      overflow-x: hidden;
-    }
+    .top-bar{background:var(--morado);color:#fff;font-size:13px;padding:4px 0}
+    .top-bar .social-icons{display:flex;gap:12px;font-size:18px}
+    .top-bar .social-icons a{color:#fff; text-decoration:none}
+    
+    .main-header{padding:15px 0;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+    .logo-section{display:flex;align-items:center;gap:15px}
+    .whale-icon{width:85px; border:3px solid var(--morado); border-radius:50%; padding:2px; background:#fff}
+    .brand-text h1{font-size:24px;color:var(--morado);font-weight:700;line-height:1}
+    .brand-text p{font-size:13px;color:var(--morado);opacity:.8}
+    
+    .dual-buttons{display:flex;gap:1rem;justify-content:center;margin:1rem 0;flex-wrap:wrap}
+    .btn-rifas,.btn-wa{padding:.8rem 1.4rem;border-radius:6px;font-weight:700;text-decoration:none;color:#fff;box-shadow:0 2px 4px rgba(0,0,0,.25)}
+    .btn-rifas{background:#ff6600}
+    .btn-wa{background:#25d366}
+    
+    .main-nav{position:sticky;top:0;z-index:999;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
+    .main-nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center}
+    .main-nav a{color:var(--morado);padding:12px 15px;display:block;font-size:14px;text-decoration:none;font-weight:600}
+    .main-nav a.active{background:var(--morado);color:#fff;border-radius:4px}
 
-    /* --- NUEVO: CONTENEDOR DEL FONDO 3D "NEBULOSA DIGITAL" --- */
-    #tsparticles {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      z-index: -1; /* Se queda detrás de todo */
-      /* Degradado sutil que usa tu morado hacia la oscuridad */
-      background: radial-gradient(circle at center bottom, #2a0845 0%, #000000 100%);
-    }
+    .filter-container { display: flex; justify-content: center; gap: 10px; margin: 20px 0; flex-wrap: wrap; }
+    .btn-filter { padding: 10px 20px; border: 2px solid var(--morado); border-radius: 25px; background: #fff; color: var(--morado); font-weight: 700; cursor: pointer; transition: 0.3s; }
+    .btn-filter.active { background: var(--morado); color: #fff; }
 
-    * { box-sizing: border-box; }
-    img { max-width: 100%; display: block; }
-    .container { width: 90%; max-width: 1200px; margin: auto; }
-    .flex-space { display: flex; align-items: center; justify-content: space-between; }
-    
-    /* CABECERAS Y NAVEGACIÓN (Mantienen fondo blanco para que el logo resalte) */
-    .top-bar { background: var(--morado); color: #fff; font-size: 13px; padding: 4px 0; box-shadow: 0 2px 10px var(--morado); }
-    .top-bar .social-icons { display: flex; gap: 12px; font-size: 18px; }
-    .top-bar .social-icons a { color: #fff; text-decoration: none; transition: 0.3s; }
-    .top-bar .social-icons a:hover { color: var(--turquesa); transform: translateY(-2px); }
-    
-    .main-header { padding: 15px 0; background: rgba(255, 255, 255, 0.95); box-shadow: 0 2px 15px rgba(0,0,0,0.2); color: var(--texto); backdrop-filter: blur(5px); }
-    .logo-section { display: flex; align-items: center; gap: 15px; }
-    .whale-icon { width: 85px; border: 3px solid var(--morado); border-radius: 50%; padding: 2px; background: #fff; }
-    .brand-text h1 { font-size: 24px; color: var(--morado); font-weight: 700; line-height: 1; }
-    .brand-text p { font-size: 13px; color: var(--morado); opacity: .8; }
-    
-    .dual-buttons { display: flex; gap: 1rem; justify-content: center; margin: 1rem 0; flex-wrap: wrap; }
-    .btn-rifas, .btn-wa { padding: .8rem 1.4rem; border-radius: 6px; font-weight: 700; text-decoration: none; color: #fff; box-shadow: 0 4px 10px rgba(0,0,0,.3); transition: 0.3s;}
-    .btn-rifas { background: #ff6600; } .btn-rifas:hover{ background:#e65c00; transform: translateY(-2px);}
-    .btn-wa { background: #25d366; } .btn-wa:hover{ background:#20bd5a; transform: translateY(-2px);}
-    
-    .main-nav { position: sticky; top: 0; z-index: 999; background: rgba(255,255,255,0.95); box-shadow: 0 2px 10px rgba(0,0,0,.1); backdrop-filter: blur(5px); }
-    .main-nav ul { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; margin: 0; padding: 5px 0; }
-    .main-nav a { color: var(--morado); padding: 12px 15px; display: block; font-size: 14px; text-decoration: none; font-weight: 600; transition: 0.3s; border-radius: 4px;}
-    .main-nav a:hover { background: rgba(76, 13, 140, 0.1); color: var(--turquesaOsc); }
-    .main-nav a.active { background: var(--morado); color: #fff; box-shadow: 0 2px 8px rgba(76, 13, 140, 0.4);}
-
-    /* FILTROS */
-    .filter-container { display: flex; justify-content: center; gap: 10px; margin: 30px 0; flex-wrap: wrap; }
-    .btn-filter { padding: 10px 20px; border: 2px solid var(--turquesa); border-radius: 25px; background: transparent; color: var(--turquesa); font-weight: 700; cursor: pointer; transition: 0.3s; }
-    .btn-filter:hover { background: rgba(0, 200, 200, 0.1); box-shadow: 0 0 10px var(--turquesa); }
-    .btn-filter.active { background: var(--turquesa); color: #000; box-shadow: 0 0 15px var(--turquesa); }
-
-    /* HERO BANNER */
     .hero-banner {
       position: relative;
       background: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070') center/cover no-repeat;
       height: 400px;
       display: flex; align-items: center; justify-content: center; text-align: center; color: #fff;
-      border-bottom: 3px solid var(--turquesa);
-      box-shadow: 0 5px 20px rgba(0, 200, 200, 0.3);
-      margin-bottom: 30px;
     }
-    .hero-banner::before { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(76, 13, 140, 0.4), rgba(0,0,0,0.7)); z-index: 1; }
+    .hero-banner::before {
+      content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5); z-index: 1;
+    }
     .hero-banner div { position: relative; z-index: 2; padding: 0 20px; }
-    .hero-banner h1 { font-size: 46px; text-transform: uppercase; font-weight: 800; text-shadow: 0 0 10px var(--turquesa), 0 0 20px var(--morado); letter-spacing: 1px; }
-    .hero-banner p { font-size: 18px; font-weight: 600; text-shadow: 1px 1px 2px rgba(0,0,0,0.8); }
+    .hero-banner h1 { font-size: 42px; text-transform: uppercase; font-weight: 700; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
 
-    /* SECCIONES Y TÍTULOS */
-    .featured-products { padding: 40px 0; }
-    
-    /* Título estilo NEÓN que resalta sobre el fondo oscuro */
-    .section-title { 
-      text-align: center; 
-      margin-bottom: 25px; 
-      font-size: 32px; 
-      color: #fff; 
-      text-transform: uppercase; 
-      text-shadow: 0 0 10px var(--turquesa), 0 0 20px var(--morado), 0 0 30px var(--morado);
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
+    #cart-icon { position: fixed; top: 15px; right: 15px; background: #fff; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.15); cursor: pointer; z-index: 1000; }
+    #cart-badge { background: var(--turquesa); color: #fff; border-radius: 50%; padding: 2px 6px; font-size: 11px; position: absolute; top: 0px; right: 0px; }
+    #btn-lupa { position: fixed; top: 75px; right: 15px; background: var(--turquesa); color: #fff; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 20px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.25); z-index: 1000; display: flex; align-items: center; justify-content: center; }
 
-    /* GRID PRODUCTOS */
-    .products-grid-ten { display: grid; gap: 20px; grid-template-columns: repeat(5,1fr); max-width: 1100px; margin: auto; }
-    
-    /* TARJETA DE PRODUCTO (FLOTANTE) */
-    .product-card { 
-      background: #fff; 
-      border-radius: 12px; 
-      /* Sombra brillante para que parezca flotar */
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3), 0 0 5px rgba(0, 200, 200, 0.2); 
-      display: flex; flex-direction: column; 
-      overflow: hidden; cursor: pointer; position: relative; 
-      color: #222; /* Texto interno oscuro */
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .product-card:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 8px 25px rgba(0,0,0,0.4), 0 0 15px rgba(0, 200, 200, 0.4); }
+    .featured-products{padding:40px 0}
+    .section-title{text-align:center;margin-bottom:10px;font-size:26px;color:var(--morado);text-transform:uppercase}
 
-    .product-image-container { position: relative; width: 100%; height: 250px; overflow: hidden; }
-    .product-image { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease, opacity 0.3s ease; }
-    .product-image.back { position: absolute; top: 0; left: 0; opacity: 0; }
+    .products-grid-ten{display:grid;gap:15px;grid-template-columns:repeat(5,1fr);max-width:1100px;margin:auto}
+    .product-card{background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);display:flex;flex-direction:column;overflow:hidden;cursor:pointer;position:relative}
+    .product-image-container {position: relative;width: 100%;height: 250px;overflow: hidden}
+    .product-image {width: 100%;height: 100%;object-fit: cover;transition: transform 0.5s ease, opacity 0.3s ease}
+    .product-image.back {position: absolute;top: 0;left: 0;opacity: 0}
     .product-card.flip .product-image.front { opacity: 0; }
     .product-card.flip .product-image.back { opacity: 1; }
 
-    .badge-promo { position: absolute; top: 10px; left: 10px; background: #ff4444; color: white; padding: 5px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; z-index: 5; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-    .lupa-zoom-icon { position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,0.9); color: var(--morado); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition:0.3s; }
-    .lupa-zoom-icon:hover { background: var(--turquesa); color: #fff; }
+    .badge-promo { position: absolute; top: 10px; left: 10px; background: #ff4444; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; z-index: 5; }
+    .lupa-zoom-icon { position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,0.8); color: var(--morado); width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; z-index: 10; box-shadow: 0 2px 5px rgba(0,0,0,0.2); transition: 0.3s; }
 
-    .product-info { padding: 15px; display: flex; flex-direction: column; flex: 1; border-top: 1px solid #eee; }
-    .product-category { font-size: 10px; color: var(--turquesaOsc); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
-    .product-name { font-size: 15px; margin: 5px 0; line-height: 1.3; font-weight: 700; }
-    .product-desc { font-size: 12px; color: #666; margin-bottom: 10px; line-height: 1.4; }
-    .old-price { text-decoration: line-through; color: #999; font-size: 13px; margin-right: 8px; }
-    .current-price { font-weight: 800; color: var(--morado); font-size: 20px; }
-    .btn-buy { background: var(--turquesa); color: #fff; border: none; padding: 12px; border-radius: 8px; cursor: pointer; margin-top: auto; font-weight: 700; transition: 0.3s; text-transform: uppercase; font-size: 13px;}
-    .btn-buy:hover { background: var(--morado); box-shadow: 0 4px 10px rgba(76, 13, 140, 0.3); }
-
-    /* FLOTANTES (Rediseñados para el tema oscuro) */
-    #cart-icon { position: fixed; top: 15px; right: 15px; background: #fff; border-radius: 50%; width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 20px var(--turquesa); cursor: pointer; z-index: 1000; color: var(--morado); font-size: 22px; transition: 0.3s; }
-    #cart-icon:hover { transform: scale(1.1); }
-    #cart-badge { background: var(--morado); color: #fff; border-radius: 50%; padding: 3px 8px; font-size: 12px; position: absolute; top: -2px; right: -2px; border: 2px solid #fff; font-weight: bold;}
+    .product-info{padding:12px;display:flex;flex-direction:column;flex:1}
+    .product-category{font-size:11px;color:#777;font-weight:700;text-transform:uppercase}
+    .product-name{font-size:15px;margin:4px 0;line-height:1.2;font-weight:600}
+    .product-desc { font-size: 12px; color: #666; margin-bottom: 8px; line-height: 1.3; }
+    .old-price { text-decoration: line-through; color: #999; font-size: 13px; margin-right: 5px; }
+    .current-price{font-weight:700;color:var(--turquesa);font-size:18px}
+    .btn-buy{background:var(--turquesa);color:#fff;border:none;padding:10px;border-radius:4px;cursor:pointer;margin-top:auto;font-weight:600}
     
-    #btn-lupa { position: fixed; top: 85px; right: 15px; background: var(--turquesa); color: #fff; border: none; border-radius: 50%; width: 55px; height: 55px; font-size: 24px; cursor: pointer; box-shadow: 0 4px 15px rgba(0, 200, 200, 0.4); z-index: 1000; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
-    #btn-lupa:hover { background: var(--morado); transform: scale(1.1); }
-
-    /* GARANTÍAS */
-    .guarantees { background: rgba(255, 255, 255, 0.9); padding: 40px 0; margin-top: 40px; color: #222; box-shadow: 0 0 30px rgba(0,0,0,0.5); backdrop-filter: blur(5px); border-radius: 15px; margin-bottom: 40px;}
-    .flex-guarantees { display: flex; gap: 30px; flex-wrap: wrap; justify-content: center; text-align: center; }
-    .guarantee-item { flex: 1 1 220px; padding: 15px; transition: 0.3s; }
-    .guarantee-item:hover { transform: translateY(-5px); }
-    .guarantee-item i { font-size: 32px; color: var(--turquesa); margin-bottom: 15px; filter: drop-shadow(0 0 5px var(--turquesa)); }
-    .guarantee-item strong { display: block; margin-bottom: 5px; font-size: 16px; color: var(--morado); }
-
-    /* FOOTER */
-    footer { background: linear-gradient(to top, #000 0%, var(--morado) 100%); color: #fff; font-size: 14px; padding: 40px 0 10px 0; margin-top: 0; border-top: 3px solid var(--turquesa); }
-    .footer-grid { display: grid; gap: 30px; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); align-items: start; }
-    .footer-contact h3, .footer-links h3 { font-size: 18px; margin-bottom: 15px; color: var(--turquesa); text-transform: uppercase; font-weight: 800; letter-spacing: 1px; }
-    .footer-contact p { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
-    .footer-contact i { color: var(--turquesa); width: 20px; text-align: center; font-size: 18px; }
-    .footer-links p a { color: #e0e0e0; text-decoration: none; transition: 0.3s; display: inline-block; padding: 5px 0; }
-    .footer-links p a:hover { color: var(--turquesa); transform: translateX(5px); }
-    .copyright-bar { text-align: center; padding: 20px 0; background: rgba(0,0,0,0.3); margin-top: 30px; font-weight: 600; font-size: 13px; letter-spacing: 1px; }
-
-    /* MODALES */
-    #zoom-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 5000; align-items: center; justify-content: center; flex-direction: column; }
-    .zoom-content { position: relative; width: 90%; max-width: 450px; text-align: center; }
-    #img-zoom { width: 100%; border-radius: 10px; box-shadow: 0 0 30px rgba(0, 200, 200, 0.3); object-fit: contain; max-height: 75vh; border: 2px solid var(--turquesa); }
-    .zoom-btns { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
-    .btn-z { padding: 12px 30px; border-radius: 30px; border: none; cursor: pointer; font-weight: 700; color: white; font-size: 14px; transition:0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
-    .btn-z:hover { transform: scale(1.05); filter: brightness(1.1); }
-
-    #banner-div { position: fixed; bottom: 0; left: 0; right: 0; display: flex; background: #fff; box-shadow: 0 -4px 15px rgba(0,0,0,.2); z-index: 999; }
-    #banner-envio { flex: 1; background: #ff9800; color: #fff; text-align: center; padding: 10px; font-size: 14px; transition: 0.3s; font-weight: 700; }
-    #banner-sorteo { flex: 1; background: var(--morado); color: #fff; text-align: center; padding: 10px; font-size: 14px; transition: 0.3s; font-weight: 700; }
+    @media(max-width:768px){.products-grid-ten{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:480px){.products-grid-ten{grid-template-columns:repeat(2,1fr)}}
     
-    #search-modal { display: none; position: fixed; inset: 0; background: rgba(10, 10, 30, 0.9); z-index: 3000; backdrop-filter: blur(5px); }
-    #search-modal > div { background: #fff; width: 90%; max-width: 450px; margin: 100px auto; padding: 20px; border-radius: 12px; position: relative; color: #222; box-shadow: 0 0 30px var(--turquesa); border: 2px solid var(--morado); }
-    #search-input { width: 100%; padding: 12px; border: 2px solid #eee; border-radius: 6px; font-size: 16px; transition: 0.3s; }
-    #search-input:focus { border-color: var(--turquesa); outline: none; }
-    #search-results { margin-top: 15px; max-height: 300px; overflow-y: auto; }
-    .search-item { padding: 10px; border-bottom: 1px solid #eee; cursor: pointer; display: flex; align-items: center; gap: 15px; color: #222; transition: 0.2s; }
-    .search-item:hover { background: #f5f5f5; }
-    .search-item img { width: 45px; height: 45px; object-fit: cover; border-radius: 4px; border: 1px solid #ddd; }
+    .guarantees{background:#fff;padding:30px 0;margin-top:20px}
+    .flex-guarantees{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;text-align:center}
+    .guarantee-item{flex:1 1 200px; padding: 10px;}
+    .guarantee-item i {font-size: 24px; color: var(--morado); margin-bottom: 10px;}
 
-    #noti-add { position: fixed; bottom: 60px; left: 50%; transform: translateX(-50%); background: var(--morado); color: #fff; padding: 10px 20px; border-radius: 30px; font-size: 14px; z-index: 9999; display: none; box-shadow: 0 4px 15px rgba(0,0,0,0.3); font-weight: 600; border: 2px solid var(--turquesa); }
+    footer{background:var(--celeste);color:#000;font-size:14px;padding:25px 0 10px 0}
+    .footer-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));align-items: start;}
+    .footer-contact h3 { font-size: 16px; margin-bottom: 10px; color: var(--morado); text-transform: uppercase; border-bottom: 2px solid rgba(0,0,0,0.1); display: inline-block;}
+    .footer-contact p { margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .footer-contact i { color: var(--morado); width: 18px; text-align: center; }
+    .copyright-bar {text-align: center; padding: 15px 0; background: rgba(0,0,0,0.05); margin-top: 15px; font-weight: 700; font-size: 12px;}
 
-    #cart-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 4000; backdrop-filter: blur(3px); }
-    #cart-modal > div { background: #fff; width: 95%; max-width: 450px; margin: 50px auto; padding: 25px; border-radius: 15px; position: relative; box-shadow: 0 0 40px rgba(76, 13, 140, 0.4); color: #222; border: 3px solid var(--morado); }
+    #zoom-modal{display:none; position:fixed; inset:0; background:rgba(0,0,0,0.95); z-index:5000; align-items:center; justify-content:center; flex-direction:column;}
+    .zoom-content{position:relative; width:90%; max-width:450px; text-align:center;}
+    #img-zoom{width:100%; border-radius:10px; box-shadow:0 0 25px rgba(255,255,255,0.2); object-fit: contain; max-height: 75vh;}
+    .zoom-btns{display:flex; justify-content:center; gap:15px; margin-top:20px;}
+    .btn-z{padding:12px 25px; border-radius:25px; border:none; cursor:pointer; font-weight:700; color:white; font-size:14px;}
 
-    /* RESPONSIVE */
-    @media(max-width:768px){ .products-grid-ten{grid-template-columns:repeat(3,1fr); gap: 10px;} .hero-banner h1 {font-size: 32px;} .section-title{font-size: 24px;}}
-    @media(max-width:480px){ .products-grid-ten{grid-template-columns:repeat(2,1fr)} .top-bar .social-icons{display:none;} .brand-text h1{font-size: 20px;} .btn-rifas, .btn-wa {padding: 0.6rem 1rem; font-size: 12px;} }
+    #banner-div{position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;box-shadow:0 -2px 5px rgba(0,0,0,.1);z-index:999}
+    #banner-envio{flex:1;background:#ff9800;color:#fff;text-align:center;padding:8px;font-size:14px;transition:0.3s;}
+    #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:8px;font-size:14px;transition:0.3s;}
+    
+    #search-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:3000}
+    #search-modal>div{background:#fff;width:90%;max-width:400px;margin:80px auto;padding:15px;border-radius:8px;position:relative}
+    #search-input{width:100%;padding:10px;border:1px solid #ccc;border-radius:4px}
+    #search-results{margin-top:10px;max-height:250px;overflow-y:auto}
+    .search-item{padding:8px;border-bottom:1px solid #eee;cursor:pointer;display:flex;align-items:center;gap:10px}
+    .search-item img{width:35px;height:35px;object-fit:cover;border-radius:3px}
+
+    #noti-add{position:fixed;bottom:50px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:8px 14px;border-radius:4px;font-size:13px;z-index:9999;display:none}
+
+    #cart-modal{display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:4000;}
+    #cart-modal > div {background:#fff; width:95%; max-width:450px; margin:50px auto; padding:20px; border-radius:12px; position:relative; box-shadow:0 10px 25px rgba(0,0,0,0.2);}
   </style>
 </head>
 <body>
-  <div id="tsparticles"></div>
 
   <div id="cart-icon"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
   <button id="btn-lupa"><i class="fas fa-search"></i></button>
   
   <div id="search-modal">
     <div>
-      <button onclick="document.getElementById('search-modal').style.display='none'" style="position:absolute;top:10px;right:15px;background:none;border:none;font-size:24px;cursor:pointer; color:var(--morado)">&times;</button>
-      <h3 style="color:var(--morado); margin-bottom:15px;">Buscar Producto</h3>
-      <input type="text" id="search-input" placeholder="¿Qué necesitas hoy?">
+      <button onclick="document.getElementById('search-modal').style.display='none'" style="position:absolute;top:8px;right:12px;background:none;border:none;font-size:20px;cursor:pointer">&times;</button>
+      <input type="text" id="search-input" placeholder="Buscar productos...">
       <div id="search-results"></div>
     </div>
   </div>
@@ -223,7 +147,7 @@
         <a href="https://www.facebook.com/share/17jG7haojA/" target="_blank"><i class="fab fa-facebook"></i></a>
         <a href="https://www.instagram.com/bhalleffort" target="_blank"><i class="fab fa-instagram"></i></a>
       </div>
-      <div><i class="fas fa-gem"></i> CALIDAD PREMIUM Y TECNOLOGÍA</div>
+      <div><i class="fas fa-star"></i> CALIDAD AL MEJOR PRECIO</div>
     </div>
   </div>
 
@@ -234,13 +158,13 @@
           <img src="logo-ballena.png" alt="BHALLEFFORT" class="whale-icon">
           <div class="brand-text">
             <h1>BHALLEFFORT</h1>
-            <p>Innovación y Estilo</p>
+            <p>Lo que pidas, te lo tenemos</p>
           </div>
         </div>
       </a>
       <div class="dual-buttons">
-        <a href="rifas.html" class="btn-rifas"><i class="fas fa-ticket-alt"></i> Rifas</a>
-        <a href="https://wa.me/593963923399" class="btn-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="rifas.html" class="btn-rifas">🎉 Rifas</a>
+        <a href="https://wa.me/593963923399" class="btn-wa">📱 WHATSAPP </a>
       </div>
     </div>
   </header>
@@ -249,8 +173,8 @@
     <ul>
       <li><a href="index.html" class="active">INICIO</a></li>
       <li><a href="ropa.html">ROPA Y CALZADO</a></li>
-      <li><a href="programas.html">SOFTWARE & IA</a></li>
-      <li><a href="varios.html">VARIOS Y GAMING</a></li>
+      <li><a href="programas.html">PROGRAMAS Y STREAMING</a></li>
+      <li><a href="varios.html">VARIOS</a></li>
       <li><a href="promociones.html">PROMOCIONES</a></li>
       <li><a href="quienes-somos.html">QUIÉNES SOMOS</a></li>
       <li><a href="contacto.html">CONTACTO</a></li>
@@ -259,19 +183,19 @@
 
   <section class="hero-banner">
     <div>
-      <h1>TU UNIVERSO DE COMPRAS</h1>
-      <p>Moda, Tecnología y Soluciones Digitales</p>
+      <h1>TU TIENDA DE CONFIANZA</h1>
+      <p>Todo lo que buscas en un solo lugar</p>
     </div>
   </section>
 
   <section class="featured-products">
     <div class="container">
-      <h2 class="section-title">✨ EXPLORA NUESTRO CATÁLOGO ✨</h2>
+      <h2 class="section-title">✨ PRODUCTOS DESTACADOS ✨</h2>
       
       <div class="filter-container">
-        <button class="btn-filter active" id="btn-ver-todo" onclick="filtrar('todos', this)">Todo</button>
-        <button class="btn-filter" onclick="filtrar('ROPA', this)">Moda</button>
-        <button class="btn-filter" onclick="filtrar('PROGRAMAS', this)">Tech/IA</button>
+        <button class="btn-filter active" id="btn-ver-todo" onclick="filtrar('todos', this)">Ver Todo</button>
+        <button class="btn-filter" onclick="filtrar('ROPA', this)">Ropa</button>
+        <button class="btn-filter" onclick="filtrar('PROGRAMAS', this)">Streaming</button>
         <button class="btn-filter" onclick="filtrar('VARIOS', this)">Varios</button>
       </div>
 
@@ -282,21 +206,14 @@
   <section class="guarantees">
     <div class="container flex-guarantees">
       <div class="guarantee-item">
-        <i class="fas fa-truck-fast"></i>
-        <div><strong>ENVÍOS RÁPIDOS</strong><p>Físicos y Digitales al instante</p></div>
+        <i class="fas fa-truck"></i>
+        <div><strong>ENVÍOS SEGUROS</strong><p>A todo el país</p></div>
       </div>
       <div class="guarantee-item">
-        <i class="fas fa-shield-halved"></i>
+        <i class="fas fa-lock"></i>
         <div>
-          <strong>COMPRA SEGURA</strong>
-          <p>Pagos directos a Katherine Pineda</p>
-        </div>
-      </div>
-      <div class="guarantee-item">
-        <i class="fas fa-headset"></i>
-        <div>
-          <strong>SOPORTE 24/7</strong>
-          <p>Atención personalizada por WhatsApp</p>
+          <strong>PAGO GARANTIZADO</strong>
+          <p>Transferencias a Katherine Pineda</p>
         </div>
       </div>
     </div>
@@ -305,31 +222,31 @@
   <footer>
     <div class="container footer-grid">
       <div>
-        <img src="logo-ballena.png" alt="Ballena" width="70" style="background: #fff; border-radius: 50%; border: 2px solid var(--turquesa); padding: 2px;">
-        <p style="margin-top:15px;">Diseñado por <strong>Jhomac²</strong></p>
-        <p>La Y de Tabacundo, Ecuador</p>
-        <div class="god-message" style="margin-top:15px; font-weight:700; color: var(--turquesa); font-style: italic;">"Dios te da más de lo que pides."</div>
+        <img src="logo-ballena.png" alt="Ballena" width="65">
+        <p>Diseñado por <strong>Jhomac²</strong></p>
+        <p>La Y de Tabacundo</p>
+        <div class="god-message" style="margin-top:10px; font-weight:700; color: var(--morado);">"Dios te da más de lo que pides."</div>
       </div>
       
       <div class="footer-contact">
         <h3>CONTÁCTANOS</h3>
-        <p><i class="fas fa-user-check"></i> <strong>Katherine Pineda</strong></p>
+        <p><i class="fas fa-user-shield"></i> <strong>Katherine Pineda</strong></p>
         <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/593963923399" target="_blank" style="color:inherit; text-decoration:none;">+593 963 923 399</a></p>
-        <p><i class="fas fa-envelope-open-text"></i> agromhasvida5@gmail.com</p>
+        <p><i class="fas fa-envelope"></i> agromhasvida5@gmail.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> Tabacundo, Ecuador</p>
       </div>
 
-      <div class="footer-links">
-        <h3>ENLACES</h3>
-        <p><a href="cookies.html">Política de Cookies</a></p>
-        <p><a href="politicas.html">Términos y Envíos</a></p>
-        <p><a href="quienes-somos.html">Nuestra Historia</a></p>
+      <div>
+        <h3>INFORMACIÓN</h3>
+        <p><a href="cookies.html" style="color: #000; text-decoration: none;">Política de Cookies</a></p>
+        <p><a href="politicas.html" style="color: #000; text-decoration: none;">Privacidad y Envíos</a></p>
       </div>
     </div>
-    <div class="copyright-bar">&copy; 2026 BHALLEFFORT - Innovación y Estilo. Todos los derechos reservados.</div>
+    <div class="copyright-bar">&copy; 2026 BHALLEFFORT - Todos los derechos reservados</div>
   </footer>
 
   <div id="zoom-modal">
-      <button onclick="cerrarZoom()" style="position:absolute; top:20px; right:20px; background:white; border:none; border-radius:50%; width:45px; height:45px; font-size:24px; cursor:pointer; font-weight:bold; z-index:5001; color:var(--morado); box-shadow: 0 0 10px white;">&times;</button>
+      <button onclick="cerrarZoom()" style="position:absolute; top:20px; right:20px; background:white; border:none; border-radius:50%; width:45px; height:45px; font-size:24px; cursor:pointer; font-weight:bold; z-index:5001;">&times;</button>
       <div class="zoom-content">
           <img id="img-zoom" src="">
           <div class="zoom-btns">
@@ -341,95 +258,35 @@
 
   <div id="cart-modal">
     <div>
-      <header style="display:flex; justify-content:space-between; align-items:center; border-bottom:2px solid #eee; padding-bottom:15px; margin-bottom:20px;">
-        <h3 style="color:var(--morado); font-weight:800; font-size: 22px;"><i class="fas fa-cart-shopping"></i> Tu Pedido</h3>
-        <button onclick="document.getElementById('cart-modal').style.display='none'" style="background:none;border:none;font-size:28px;cursor:pointer; color:var(--morado); transition:0.3s;" onmouseover="this.style.transform='rotate(90deg)'" onmouseout="this.style.transform='rotate(0deg)'">&times;</button>
+      <header style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #eee; padding-bottom:10px; margin-bottom:15px;">
+        <h3><i class="fas fa-shopping-cart"></i> Tu Pedido</h3>
+        <button onclick="document.getElementById('cart-modal').style.display='none'" style="background:none;border:none;font-size:24px;cursor:pointer">&times;</button>
       </header>
-      <div id="cart-items" style="max-height:300px; overflow-y:auto; padding-right: 5px;"></div>
+      <div id="cart-items" style="max-height:300px; overflow-y:auto;"></div>
       
-      <div style="background: #fffbef; border: 2px solid #ffeb3b; padding: 12px; text-align: center; border-radius: 8px; font-size: 14px; margin: 20px 0; color: #555; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 10px;">
-        <i class="fas fa-circle-info" style="color:#ffc107; font-size: 18px;"></i>
-        <div>Pago oficial a nombre de: <strong style="color:#000;">Katherine Pineda</strong>.</div>
+      <div style="background: #fffbef; border: 2px solid #ffeb3b; padding: 10px; text-align: center; border-radius: 8px; font-size: 13px; margin: 15px 0; color: #000;">
+        Pago oficial a nombre de: <strong>Katherine Pineda</strong>.
       </div>
 
-      <footer style="margin-top:20px; border-top:2px solid #eee; padding-top:20px;">
-        <div style="display:flex;justify-content:space-between;font-size:15px; margin-bottom:8px; color: #666;">
-            <span>Subtotal:</span><span id="cart-subtotal" style="font-weight:600; color:#333;">$0.00</span>
+      <footer style="margin-top:20px; border-top:1px solid #eee; padding-top:15px;">
+        <div style="display:flex;justify-content:space-between;font-size:14px; margin-bottom:5px">
+            <span>Subtotal:</span><span id="cart-subtotal">$0.00</span>
         </div>
-        <div style="display:flex;justify-content:space-between;font-size:15px; margin-bottom:15px; color: #666;">
-            <span>Envío:</span><span id="cart-envio" style="font-weight:600; color:var(--turquesa);">$3.50</span>
+        <div style="display:flex;justify-content:space-between;font-size:14px; margin-bottom:10px">
+            <span>Envío:</span><span id="cart-envio">$3.50</span>
         </div>
-        <div style="display:flex;justify-content:space-between;font-weight:800; font-size:22px; color:var(--morado); margin-bottom: 20px;">
+        <div style="display:flex;justify-content:space-between;font-weight:bold; font-size:18px; color:var(--morado)">
           <span>Total:</span><span id="cart-total">$0.00</span>
         </div>
-        <div id="rifa-status" style="text-align:center; padding:10px; background: linear-gradient(45deg, #25D366, #00c8c8); color:#fff; border-radius:8px; margin-bottom:15px; font-size:13px; display:none; font-weight: 700; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);">
-            🎟️ ¡GENIAL! Este pedido participa en la RIFA MENSUAL.
+        <div id="rifa-status" style="text-align:center; padding:8px; background:#e8f5e9; color:#2e7d32; border-radius:6px; margin:10px 0; font-size:12px; display:none;">
+            ✅ ¡Este pedido participa en la RIFA!
         </div>
-        <button onclick="finalizarCompraWA()" style="background: linear-gradient(45deg, #25D366, #128C7E); color:#fff; border:none; padding:15px; border-radius:10px; cursor:pointer; width:100%; font-weight:800; font-size:16px; transition:0.3s; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); display: flex; align-items: center; justify-content: center; gap: 10px;">
-          <i class="fab fa-whatsapp" style="font-size: 20px;"></i> FINALIZAR COMPRA POR WHATSAPP
+        <button onclick="finalizarCompraWA()" style="background:#25D366;color:#fff;border:none;padding:15px;border-radius:6px;cursor:pointer;width:100%; font-weight:700; font-size:16px; margin-top:10px">
+          FINALIZAR COMPRA POR WHATSAPP 🐋
         </button>
       </footer>
     </div>
   </div>
-
-  <script>
-    tsParticles.load("tsparticles", {
-      fpsLimit: 60,
-      fullScreen: { enable: true },
-      background: {
-        color: "transparent" // El color lo da el CSS
-      },
-      particles: {
-        number: {
-          value: 120, // Más partículas para más densidad
-          density: { enable: true, value_area: 800 }
-        },
-        // USAMOS TUS COLORES DE MARCA: Turquesa y Morado Claro
-        color: { value: ["#00c8c8", "#bb86fc"] },
-        shape: { type: "circle" },
-        opacity: {
-          value: 0.6,
-          random: true,
-          anim: { enable: true, speed: 0.5, opacity_min: 0.1, sync: false }
-        },
-        size: {
-          value: 4, // Partículas un poco más grandes
-          random: true,
-          anim: { enable: true, speed: 2, size_min: 0.1, sync: false }
-        },
-        // CONEXIONES DE RED (El toque tecnológico)
-        links: {
-          enable: true,
-          distance: 150,
-          color: "#bb86fc", // Color de las líneas (morado claro)
-          opacity: 0.2, // Muy sutiles
-          width: 1
-        },
-        move: {
-          enable: true,
-          speed: 0.8, // Movimiento lento y fluido
-          direction: "none",
-          random: false,
-          straight: false,
-          out_mode: "out",
-          attract: { enable: false, rotateX: 600, rotateY: 1200 }
-        }
-      },
-      interactivity: {
-        detect_on: "canvas",
-        events: {
-          onhover: { enable: true, mode: "grab" }, // Efecto de atraer al mouse
-          onclick: { enable: true, mode: "push" },
-          resize: true
-        },
-        modes: {
-          grab: { distance: 180, line_linked: { opacity: 0.5 } },
-          push: { particles_nb: 4 }
-        }
-      },
-      retina_detect: true
-    });
-  </script>
 
   <script>
     let productosTotales = [];
@@ -515,11 +372,8 @@
       
       items.innerHTML = carrito.map((p, i) => `
         <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid #eee;">
-          <div style="display:flex; align-items:center; gap:10px;">
-            <img src="${p.imgFrontal || 'logo-ballena.png'}" style="width:40px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #eee;">
-            <div><div style="font-weight:600; font-size:14px;">${p.nombre}</div><div style="color:var(--turquesa); font-weight:700;">$${p.precio.toFixed(2)}</div></div>
-          </div>
-          <button onclick="removeItem(${i})" style="color:#ff4444; border:none; background:none; cursor:pointer; font-size:16px; padding:5px;"><i class="fas fa-trash-alt"></i></button>
+          <div><div style="font-weight:600; font-size:14px;">${p.nombre}</div><div style="color:var(--turquesa);">$${p.precio.toFixed(2)}</div></div>
+          <button onclick="removeItem(${i})" style="color:#ff4444; border:none; background:none; cursor:pointer;"><i class="fas fa-trash-alt"></i></button>
         </div>`).join('');
       
       document.getElementById('cart-subtotal').textContent = '$' + subTotal.toFixed(2);
@@ -539,14 +393,13 @@
     function finalizarCompraWA() {
       const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
       const envio = (subTotal >= 50) ? 0 : 3.50;
-      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *NUEVO PEDIDO WEB:*\n\n`;
-      carrito.forEach((p, idx) => { msg += `🔹 ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; });
+      let msg = `🐋 *¡Hola BHALLEFFORT!* \n🛍️ *NUEVO PEDIDO:*\n\n`;
+      carrito.forEach((p, idx) => { msg += `${idx + 1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; });
       msg += `\n💵 *Subtotal:* $${subTotal.toFixed(2)}`;
       msg += `\n🚚 *Envío:* $${envio.toFixed(2)}`;
       msg += `\n💰 *TOTAL A PAGAR: $${(subTotal + envio).toFixed(2)}*\n`;
-      if(subTotal >= 30) msg += `\n🎟️ *¡CONFIRMADO! PARTICIPA EN LA RIFA MENSUAL* 🎉\n`;
-      msg += `\n👤 *Datos de Pago:*\nBanco: [Tu Banco]\nCuenta: [Tipo y Número]\nTitular: *Katherine Pineda*\nCI: [Número de Cédula]`;
-      msg += `\n\n📍 *Por favor, envíame tu ubicación y comprobante para despachar.*`;
+      if(subTotal >= 30) msg += `\n🎟️ *ESTE PEDIDO PARTICIPA EN LA RIFA POR COMPRA > $30*`;
+      msg += `\n\n⚠️ Pago a nombre de *Katherine Pineda*.`;
       window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
@@ -588,3 +441,5 @@
   </script>
 </body>
 </html>
+
+
