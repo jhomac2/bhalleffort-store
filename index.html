@@ -3,30 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <title>BHALLEFFORT | Tienda Oficial - Calidad al mejor precio</title>
-  
-  <meta name="description" content="Tienda oficial de BHALLEFFORT. Encuentra la mejor ropa, zapatos y servicios en Tabacundo con envíos a todo Ecuador.">
-  <meta name="keywords" content="BHALLEFFORT, ropa Tabacundo, zapatos Ecuador, Katherine Pineda, tienda de ropa, rifas Ecuador">
+
+  <title>BHALLEFFORT | Ropa y Calzado Urbano</title>
+
+  <meta name="description" content="Catálogo de Ropa, Zapatos y Accesorios en Tabacundo. Envíos seguros a todo Ecuador. ¡Calidad al mejor precio!">
+  <meta name="keywords" content="ropa ecuador, zapatos tabacundo, sneakers, bhalleffort, moda urbana">
   <meta name="author" content="Jhomac²">
-  <link rel="canonical" href="https://www.bhalleffort.com/">
-  
+   
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.bhalleffort.com/">
-  <meta property="og:title" content="BHALLEFFORT | Tienda Oficial">
-  <meta property="og:description" content="Ropa, Zapatos, Streaming y Servicios en Ecuador. ¡Envíos seguros y Rifas!">
+  <meta property="og:url" content="https://www.bhalleffort.com/ropa.html">
+  <meta property="og:title" content="👟 BHALLEFFORT - Ropa y Zapatos">
+  <meta property="og:description" content="Mira los nuevos modelos disponibles. Envíos 100% seguros.">
   <meta property="og:image" content="https://www.bhalleffort.com/logo-ballena.webp">
 
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://www.bhalleffort.com/">
-  <meta property="twitter:title" content="BHALLEFFORT | Tienda Oficial">
-  <meta property="twitter:description" content="Lo que pidas, te lo tenemos. Envíos a todo Ecuador.">
-  <meta property="twitter:image" content="https://www.bhalleffort.com/logo-ballena.webp">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  
   <style>
     :root{--celeste:#87ceeb;--morado:#4c0d8c;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;--fondo:#eef2f7}
     *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',system-ui,Arial}
@@ -61,7 +54,8 @@
 
     .hero-banner {
       position: relative;
-      background: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070') center/cover no-repeat;
+      /* CAMBIO REALIZADO AQUÍ: Se reemplazó la URL de Unsplash por tu imagen local */
+      background: url('pedidos-temu.webp') center/cover no-repeat;
       height: 400px;
       display: flex; align-items: center; justify-content: center; text-align: center; color: #fff;
     }
@@ -78,6 +72,7 @@
 
     .featured-products{padding:40px 0}
     .section-title{text-align:center;margin-bottom:10px;font-size:26px;color:var(--morado);text-transform:uppercase}
+    .ia-notice { text-align: center; background: #fdf6e3; border: 1px dashed #d3af37; padding: 10px; margin-bottom: 30px; border-radius: 8px; font-size: 13px; color: #856404; }
 
     .products-grid-ten{display:grid;gap:15px;grid-template-columns:repeat(5,1fr);max-width:1100px;margin:auto}
     .product-card{background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);display:flex;flex-direction:column;overflow:hidden;cursor:pointer;position:relative}
@@ -140,7 +135,7 @@
 
   <div id="cart-icon"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
   <button id="btn-lupa"><i class="fas fa-search"></i></button>
-  
+   
   <div id="search-modal">
     <div>
       <button onclick="document.getElementById('search-modal').style.display='none'" style="position:absolute;top:8px;right:12px;background:none;border:none;font-size:20px;cursor:pointer">&times;</button>
@@ -148,7 +143,7 @@
       <div id="search-results"></div>
     </div>
   </div>
-  
+   
   <div id="noti-add"></div>
 
   <div id="banner-div">
@@ -171,10 +166,10 @@
     <div class="container flex-space">
       <a href="index.html" style="text-decoration:none; color:inherit;">
         <div class="logo-section">
-          <img src="logo-ballena." alt="BHALLEFFORT" class="whale-icon">
+          <img src="logo-ballena.webp" alt="BHALLEFFORT" class="whale-icon">
           <div class="brand-text">
             <h1>BHALLEFFORT</h1>
-            <p>Lo que pidas, te lo tenemos</p>
+            <p>Ropa y Calzado</p>
           </div>
         </div>
       </a>
@@ -187,8 +182,8 @@
 
   <nav class="main-nav">
     <ul>
-      <li><a href="index.html" class="active">INICIO</a></li>
-      <li><a href="ropa.html">ROPA Y CALZADO</a></li>
+      <li><a href="index.html">INICIO</a></li>
+      <li><a href="ropa.html" class="active">ROPA Y CALZADO</a></li>
       <li><a href="programas.html">PROGRAMAS Y STREAMING</a></li>
       <li><a href="varios.html">VARIOS</a></li>
       <li><a href="promociones.html">PROMOCIONES</a></li>
@@ -199,23 +194,25 @@
 
   <section class="hero-banner">
     <div>
-      <h1>TU TIENDA DE CONFIANZA</h1>
-      <p>Todo lo que buscas en un solo lugar</p>
+      <h1>NUESTRA COLECCIÓN</h1>
+      <p>Moda y Calzado premium seleccionada para ti</p>
     </div>
   </section>
 
   <section class="featured-products">
     <div class="container">
-      <h2 class="section-title">✨ PRODUCTOS DESTACADOS ✨</h2>
-      
+      <h2 class="section-title">👕 CATÁLOGO GENERAL 👟</h2>
+       
       <div class="filter-container">
         <button class="btn-filter active" id="btn-ver-todo" onclick="filtrar('todos', this)">Ver Todo</button>
-        <button class="btn-filter" onclick="filtrar('ROPA', this)">Ropa</button>
-        <button class="btn-filter" onclick="filtrar('PROGRAMAS', this)">Streaming</button>
-        <button class="btn-filter" onclick="filtrar('VARIOS', this)">Varios</button>
+        <button class="btn-filter" onclick="filtrar('HOMBRE', this)">Hombre</button>
+        <button class="btn-filter" onclick="filtrar('MUJER', this)">Mujer</button>
+        <button class="btn-filter" onclick="filtrar('NIÑOS', this)">Niños</button>
+        <button class="btn-filter" onclick="filtrar('CALZADO', this)" style="border-color:var(--turquesa)">Zapatos</button>
       </div>
 
-      <div class="products-grid-ten" id="index-grid"></div>
+      <div class="ia-notice">📸 <strong>Aviso:</strong> La IA solo mejora el brillo, el producto final no varia.</div>
+      <div class="products-grid-ten" id="ropa-grid"></div>
     </div>
   </section>
 
@@ -226,10 +223,10 @@
         <div><strong>ENVÍOS SEGUROS</strong><p>A todo el país</p></div>
       </div>
       <div class="guarantee-item">
-        <i class="fas fa-lock"></i>
+        <i class="fas fa-store"></i>
         <div>
-          <strong>PAGO GARANTIZADO</strong>
-          <p>Transferencias a Katherine Pineda</p>
+          <strong>CALIDAD GARANTIZADA</strong>
+          <p>Encuentra productos nuevos y usados. <a href="https://wa.me/593963923399" target="_blank" style="color:var(--morado); font-weight:700;">Contáctanos hoy.</a></p>
         </div>
       </div>
     </div>
@@ -243,7 +240,7 @@
         <p>La Y de Tabacundo</p>
         <div class="god-message" style="margin-top:10px; font-weight:700; color: var(--morado);">"Dios te da más de lo que pides."</div>
       </div>
-      
+       
       <div class="footer-contact">
         <h3>CONTÁCTANOS</h3>
         <p><i class="fas fa-user-shield"></i> <strong>Katherine Pineda</strong></p>
@@ -279,7 +276,7 @@
         <button onclick="document.getElementById('cart-modal').style.display='none'" style="background:none;border:none;font-size:24px;cursor:pointer">&times;</button>
       </header>
       <div id="cart-items" style="max-height:300px; overflow-y:auto;"></div>
-      
+       
       <div style="background: #fffbef; border: 2px solid #ffeb3b; padding: 10px; text-align: center; border-radius: 8px; font-size: 13px; margin: 15px 0; color: #000;">
         Pago oficial a nombre de: <strong>Katherine Pineda</strong>.
       </div>
@@ -306,6 +303,7 @@
 
   <script>
     let productosTotales = [];
+    let productosFiltrados = [];
     let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
     let imgActualFrontal = "";
     let imgActualTrasera = "";
@@ -319,8 +317,8 @@
       } catch (e) { console.error(e); }
     }
 
-    function dibujarGrid(lista) {
-      const grid = document.getElementById('index-grid');
+    function dibujarRopa(lista) {
+      const grid = document.getElementById('ropa-grid');
       grid.innerHTML = lista.map(p => `
         <div class="product-card" onclick="this.classList.toggle('flip')">
           ${p.oferta === 'SI' ? '<div class="badge-promo">OFERTA</div>' : ''}
@@ -332,7 +330,7 @@
             <img src="${p.imgTrasera || p.imgFrontal}" class="product-image back">
           </div>
           <div class="product-info">
-            <span class="product-category">${p.cat}</span>
+            <span class="product-category">${p.estado}</span>
             <h4 class="product-name">${p.nombre}</h4>
             <p class="product-desc">${p.descripcion || 'Sin descripción.'}</p>
             <div style="margin-bottom:8px">
@@ -347,15 +345,22 @@
     function filtrar(tipo, btn) {
       document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
       if(btn) btn.classList.add('active');
-      
-      let filtrados = (tipo === 'todos') ? productosTotales : productosTotales.filter(p => p.cat === tipo);
-      dibujarGrid(filtrados);
+      const catsValidas = ["ROPA", "CALZADO", "ZAPATOS"];
+       
+      if(tipo === 'todos') {
+        productosFiltrados = productosTotales.filter(p => catsValidas.includes(p.cat));
+      } else if (tipo === 'CALZADO') {
+        productosFiltrados = productosTotales.filter(p => p.cat === "CALZADO" || p.cat === "ZAPATOS");
+      } else {
+        productosFiltrados = productosTotales.filter(p => catsValidas.includes(p.cat) && p.subcat === tipo);
+      }
+      dibujarRopa(productosFiltrados);
     }
 
     function addCart(id) {
       const p = productosTotales.find(x => x.id === id);
       if(p) {
-        carrito.push({id: p.id, nombre: p.nombre, precio: p.precio});
+        carrito.push({id: p.id, nombre: p.nombre, precio: p.precio, cat: p.cat});
         localStorage.setItem('bh-cart', JSON.stringify(carrito));
         actualizarBadge();
         mostrarNoti(`✅ ${p.nombre} añadido`);
@@ -366,10 +371,10 @@
       const badge = document.getElementById('cart-badge');
       if(badge) badge.textContent = carrito.length;
       const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
-      
+       
       const bEnvio = document.getElementById('banner-envio');
       const bSorteo = document.getElementById('banner-sorteo');
-      
+       
       if(bEnvio) {
         bEnvio.style.background = subTotal >= 50 ? '#25D366' : '#ff9800';
         bEnvio.textContent = subTotal >= 50 ? "🚚 ¡Envío GRATIS activado!" : "🚚 Envío gratis desde $50";
@@ -385,16 +390,17 @@
       const items = document.getElementById('cart-items');
       const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
       const costoEnvio = (subTotal >= 50) ? 0 : 3.50;
-      
+       
       items.innerHTML = carrito.map((p, i) => `
         <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid #eee;">
           <div><div style="font-weight:600; font-size:14px;">${p.nombre}</div><div style="color:var(--turquesa);">$${p.precio.toFixed(2)}</div></div>
           <button onclick="removeItem(${i})" style="color:#ff4444; border:none; background:none; cursor:pointer;"><i class="fas fa-trash-alt"></i></button>
         </div>`).join('');
-      
+       
       document.getElementById('cart-subtotal').textContent = '$' + subTotal.toFixed(2);
       document.getElementById('cart-envio').textContent = '$' + costoEnvio.toFixed(2);
       document.getElementById('cart-total').textContent = '$' + (subTotal + costoEnvio).toFixed(2);
+       
       document.getElementById('rifa-status').style.display = (subTotal >= 30) ? 'block' : 'none';
       document.getElementById('cart-modal').style.display = 'block';
     }
@@ -429,16 +435,26 @@
           <img src="${p.imgFrontal}">
           <div>
             <div style="font-size:13px; font-weight:600">${p.nombre}</div>
-            <div style="font-size:10px; color:var(--turquesa)">Cat: ${p.cat}</div>
+            <div style="font-size:10px; color:var(--turquesa)">Categoría: ${p.cat}</div>
           </div>
         </div>`).join('');
     };
 
     function irAProducto(id, cat) {
       document.getElementById('search-modal').style.display = 'none';
-      const p = productosTotales.filter(x => x.id === id);
-      dibujarGrid(p);
-      window.scrollTo({top: 500, behavior: 'smooth'});
+      const ropaCats = ["ROPA", "CALZADO", "ZAPATOS"];
+       
+      if (ropaCats.includes(cat)) {
+        const p = productosTotales.filter(x => x.id === id);
+        dibujarRopa(p);
+        window.scrollTo({top: 500, behavior: 'smooth'});
+      } else {
+        let pagina = "index.html";
+        if (cat === "PROGRAMAS" || cat === "STREAMING") pagina = "programas.html";
+        if (cat === "VARIOS") pagina = "varios.html";
+        if (cat === "PROMOCIONES") pagina = "promociones.html";
+        window.location.href = pagina + "?buscar=" + id;
+      }
     }
 
     function abrirZoom(imgF, imgT) {
@@ -457,4 +473,3 @@
   </script>
 </body>
 </html>
-
