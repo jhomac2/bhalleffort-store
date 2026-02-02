@@ -54,7 +54,6 @@
 
     .hero-banner {
       position: relative;
-      /* CAMBIO REALIZADO: Imagen de Universo/Galaxia en alta calidad */
       background: url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=2022&auto=format&fit=crop') center/cover no-repeat;
       height: 400px;
       display: flex; align-items: center; justify-content: center; text-align: center; color: #fff;
@@ -129,9 +128,29 @@
 
     #cart-modal{display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:4000;}
     #cart-modal > div {background:#fff; width:95%; max-width:450px; margin:50px auto; padding:20px; border-radius:12px; position:relative; box-shadow:0 10px 25px rgba(0,0,0,0.2);}
+
+    /* ESTILO PARA EL ANUNCIO POPUP */
+    #promo-modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:10001; align-items:center; justify-content:center; }
+    .promo-content { position:relative; width:90%; max-width:450px; background:#fff; border-radius:15px; overflow:hidden; text-align:center; animation: scaleUp 0.3s ease; }
+    .close-btn { position:absolute; top:10px; right:10px; background:rgba(255,255,255,0.9); border:none; border-radius:50%; width:35px; height:35px; font-size:20px; font-weight:bold; cursor:pointer; z-index:10002; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+    @keyframes scaleUp { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
   </style>
 </head>
 <body>
+
+  <div id="promo-modal">
+      <div class="promo-content">
+          <button onclick="cerrarAnuncio()" class="close-btn">&times;</button>
+          <a href="https://wa.me/593963923399" target="_blank">
+              <img src="pedidos-temu.webp" alt="Pedidos Temu" style="width:100%; height:auto; display:block;">
+          </a>
+          <div style="padding:15px;">
+              <h2 style="color:var(--morado); font-size:20px; margin-bottom:5px;">🛍️ ¡PEDIDOS TEMU ACTIVOS!</h2>
+              <p style="font-size:13px; color:#555;">Traemos tus compras con tarifa fija a todo Ecuador.</p>
+              <div id="timer-bar" style="height:4px; background:var(--turquesa); width:100%; margin-top:10px; transition: width 10s linear;"></div>
+          </div>
+      </div>
+  </div>
 
   <div id="cart-icon"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
   <button id="btn-lupa"><i class="fas fa-search"></i></button>
@@ -308,12 +327,32 @@
     let imgActualFrontal = "";
     let imgActualTrasera = "";
 
+    // Lógica del Anuncio Automático
+    function iniciarAnuncio() {
+        const modal = document.getElementById('promo-modal');
+        const timerBar = document.getElementById('timer-bar');
+        
+        setTimeout(() => {
+            modal.style.display = 'flex';
+            // Inicia la barra de tiempo
+            setTimeout(() => { timerBar.style.width = '0%'; }, 100);
+            
+            // Cierre automático en 10 segundos
+            setTimeout(() => { cerrarAnuncio(); }, 10000);
+        }, 800);
+    }
+
+    function cerrarAnuncio() {
+        document.getElementById('promo-modal').style.display = 'none';
+    }
+
     async function cargarDatos() {
       try {
         const res = await fetch('productos.json');
         productosTotales = await res.json();
         filtrar('todos', document.getElementById('btn-ver-todo'));
         actualizarBadge();
+        iniciarAnuncio(); // Lanzamos el anuncio al cargar
       } catch (e) { console.error(e); }
     }
 
