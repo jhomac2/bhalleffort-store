@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -12,15 +13,15 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.bhalleffort.com/contacto.html">
+  <meta property="og:url" content="https://www.bhalleffort.com/contacto.html  ">
   <meta property="og:title" content="📞 Contáctanos - BHALLEFFORT">
   <meta property="og:description" content="Haz clic aquí para hablarnos directo al WhatsApp. Estamos para ayudarte.">
-  <meta property="og:image" content="https://www.bhalleffort.com/logo-ballena.webp">
+  <meta property="og:image" content="https://www.bhalleffort.com/logo-ballena.webp  ">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css  ">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{--celeste:#87ceeb;--morado:#4c0d8c;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#222;--fondo:#eef2f7}
+    :root{--celeste:#87ceeb;--morado:#4c0d8c;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#fff;--fondo:#0f0f0f;--card-bg:#1a1a1a}
     *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',sans-serif}
     body{background:var(--fondo);color:var(--texto); padding-bottom: 80px;}
     .container{width:90%;max-width:1200px;margin:auto}
@@ -28,41 +29,51 @@
 
     /* HEADER & NAV */
     .top-bar{background:var(--morado);color:#fff;font-size:13px;padding:4px 0}
-    .main-header{padding:15px 0;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+    .main-header{padding:15px 0;background:#1a1a1a;box-shadow:0 2px 8px rgba(0,0,0,.3)}
     .whale-icon{width:85px; border:3px solid var(--morado); border-radius:50%; padding:2px; background:#fff}
     .brand-text h1{font-size:24px;color:var(--morado);font-weight:700;line-height:1}
+    .brand-text p{font-size:13px;color:#fff;opacity:.8}
     .btn-rifas{background:#ff6600; padding:.8rem 1.4rem;border-radius:6px;font-weight:700;text-decoration:none;color:#fff;box-shadow:0 2px 4px rgba(0,0,0,.25)}
-    .main-nav{position:sticky;top:0;z-index:999;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}
+    .main-nav{position:sticky;top:0;z-index:999;background:#1a1a1a;box-shadow:0 2px 4px rgba(0,0,0,.3)}
     .main-nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center}
-    .main-nav a{color:var(--morado);padding:12px 15px;display:block;font-size:14px;text-decoration:none;font-weight:600}
+    .main-nav a{color:#fff;padding:12px 15px;display:block;font-size:14px;text-decoration:none;font-weight:600}
     .main-nav a.active{background:var(--morado);color:#fff;border-radius:4px}
+    .main-nav a:hover{color:var(--turquesa)}
 
     /* HERO & CONTACT GRID */
-    .hero-contact { background: linear-gradient(rgba(76, 13, 140, 0.8), rgba(76, 13, 140, 0.8)), url('https://images.unsplash.com/photo-1523966211575-eb4a01e7dd51?q=80&w=2000') center/cover; color: white; padding: 60px 0; text-align: center; }
+    .hero-contact { background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1523966211575-eb4a01e7dd51?q=80&w=2000') center/cover; color: white; padding: 60px 0; text-align: center; }
     .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: -40px auto 40px; position: relative; z-index: 10; }
-    .info-card, .form-card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+    .info-card, .form-card { background: var(--card-bg); padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); border: 1px solid #333; }
     .info-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
     .info-item i { font-size: 18px; color: white; background: var(--morado); width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
-    .btn-wa-form { background: #25D366; color: white; border: none; width: 100%; padding: 15px; border-radius: 8px; font-weight: 700; cursor: pointer; }
+    .info-item p { color: #ccc; }
+    .info-item strong { color: #fff; }
+    .btn-wa-form { background: #25D366; color: white; border: none; width: 100%; padding: 15px; border-radius: 8px; font-weight: 700; cursor: pointer; transition: 0.3s; }
+    .btn-wa-form:hover { background: #1ebc57; }
+    input, textarea { background: #0f0f0f; border: 1px solid #333; color: #fff; }
+    input::placeholder, textarea::placeholder { color: #777; }
 
     /* FLOTANTES */
-    #cart-icon { position: fixed; top: 15px; right: 15px; background: #fff; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.15); cursor: pointer; z-index: 1000; }
+    #cart-icon { position: fixed; top: 15px; right: 15px; background: var(--morado); color: #fff; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.3); cursor: pointer; z-index: 1000; }
     #cart-badge { background: var(--turquesa); color: #fff; border-radius: 50%; padding: 2px 6px; font-size: 11px; position: absolute; top: 0px; right: 0px; }
-    #btn-lupa { position: fixed; top: 75px; right: 15px; background: var(--turquesa); color: #fff; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 20px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.25); z-index: 1000; display: flex; align-items: center; justify-content: center; }
+    #btn-lupa { position: fixed; top: 75px; right: 15px; background: var(--turquesa); color: #fff; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 20px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.3); z-index: 1000; display: flex; align-items: center; justify-content: center; }
 
     /* BANNERS */
-    #banner-div{position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;z-index:999;box-shadow: 0 -2px 10px rgba(0,0,0,0.1)}
+    #banner-div{position:fixed;bottom:0;left:0;right:0;display:flex;background:#1a1a1a;z-index:999;box-shadow: 0 -2px 10px rgba(0,0,0,0.3)}
     #banner-envio{flex:1;background:#ff9800;color:#fff;text-align:center;padding:10px;font-size:14px;font-weight:700;}
     #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:10px;font-size:14px;font-weight:700;}
 
     /* MODALES */
-    #search-modal, #cart-modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:4000; }
-    #search-modal > div, #cart-modal > div { background:#fff; width:95%; max-width:450px; margin:50px auto; padding:20px; border-radius:12px; position:relative; }
+    #search-modal, #cart-modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:4000; }
+    #search-modal > div, #cart-modal > div { background:#1a1a1a; color:#fff; width:95%; max-width:450px; margin:50px auto; padding:20px; border-radius:12px; position:relative; border: 2px solid var(--morado); }
     #search-results { max-height:250px; overflow-y:auto; margin-top:10px; }
-    .search-item { padding:10px; border-bottom:1px solid #eee; display:flex; align-items:center; gap:10px; cursor:pointer; }
+    .search-item { padding:10px; border-bottom:1px solid #333; display:flex; align-items:center; gap:10px; cursor:pointer; color:#fff; }
+    .search-item:hover { background: #252525; }
     .search-item img { width:40px; height:40px; object-fit:cover; border-radius:5px; }
 
-    footer{background:var(--celeste); padding:30px 0; text-align:center;}
+    footer{background:#1a1a1a; padding:30px 0; text-align:center; border-top: 2px solid var(--morado);}
+    footer p { color: #aaa; }
+    footer strong { color: #fff; }
   </style>
 </head>
 <body>
@@ -117,16 +128,16 @@
   <div class="container">
     <div class="contact-grid">
       <div class="info-card">
-        <h3 style="color:var(--morado);margin-bottom:20px">Información</h3>
+        <h3 style="color:var(--turquesa);margin-bottom:20px">Información</h3>
         <div class="info-item"><i class="fas fa-map-marker-alt"></i><div><p><strong>Ubicación</strong></p><p>Tabacundo, Ecuador</p></div></div>
         <div class="info-item"><i class="fab fa-whatsapp"></i><div><p><strong>WhatsApp</strong></p><p>+593 963 923 399</p></div></div>
         <div class="info-item"><i class="fas fa-user-shield"></i><div><p><strong>Titular Cuenta</strong></p><p>Katherine Pineda</p></div></div>
       </div>
 
       <div class="form-card">
-        <h3 style="color:var(--morado);margin-bottom:20px">Mensaje Directo</h3>
-        <input type="text" id="nombre" placeholder="Tu nombre" style="width:100%;padding:10px;margin-bottom:15px;border:1px solid #ddd;border-radius:8px">
-        <textarea id="mensaje" rows="4" placeholder="Tu consulta..." style="width:100%;padding:10px;margin-bottom:15px;border:1px solid #ddd;border-radius:8px"></textarea>
+        <h3 style="color:var(--turquesa);margin-bottom:20px">Mensaje Directo</h3>
+        <input type="text" id="nombre" placeholder="Tu nombre" style="width:100%;padding:10px;margin-bottom:15px;border:1px solid #333;border-radius:8px">
+        <textarea id="mensaje" rows="4" placeholder="Tu consulta..." style="width:100%;padding:10px;margin-bottom:15px;border:1px solid #333;border-radius:8px"></textarea>
         <button class="btn-wa-form" onclick="enviarMensaje()"><i class="fab fa-whatsapp"></i> ENVIAR CONSULTA</button>
       </div>
     </div>
@@ -141,21 +152,21 @@
 
   <div id="cart-modal">
     <div>
-      <header style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #eee;padding-bottom:10px;margin-bottom:15px">
+      <header style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #333;padding-bottom:10px;margin-bottom:15px">
         <h3><i class="fas fa-shopping-cart"></i> Tu Pedido</h3>
-        <button onclick="document.getElementById('cart-modal').style.display='none'" style="border:none;background:none;font-size:24px;cursor:pointer">×</button>
+        <button onclick="document.getElementById('cart-modal').style.display='none'" style="border:none;background:none;font-size:24px;cursor:pointer;color:#fff">×</button>
       </header>
       <div id="cart-items" style="max-height:300px;overflow-y:auto"></div>
-      <footer style="margin-top:20px;border-top:1px solid #eee;padding-top:15px">
+      <footer style="margin-top:20px;border-top:1px solid #333;padding-top:15px">
         </footer>
     </div>
   </div>
 
   <div id="search-modal">
     <div>
-      <button onclick="document.getElementById('search-modal').style.display='none'" style="position:absolute;top:10px;right:10px;border:none;background:none;font-size:24px;cursor:pointer">×</button>
+      <button onclick="document.getElementById('search-modal').style.display='none'" style="position:absolute;top:10px;right:10px;border:none;background:none;font-size:24px;cursor:pointer;color:#fff">×</button>
       <h3>Buscar Productos</h3>
-      <input type="text" id="search-input" placeholder="¿Qué buscas?" style="width:100%;padding:10px;margin-top:10px;border:1px solid #ddd;border-radius:8px">
+      <input type="text" id="search-input" placeholder="¿Qué buscas?" style="width:100%;padding:10px;margin-top:10px;border:1px solid #333;border-radius:8px">
       <div id="search-results"></div>
     </div>
   </div>
@@ -198,21 +209,21 @@
       const envio = calcularEnvio();
 
       items.innerHTML = `
-        <div style="text-align:center;padding:10px;border:2px solid #ffd700;background:#fffdf0;border-radius:8px;margin-bottom:15px;font-size:13px;font-weight:600">
-          Pago oficial a nombre de: <span style="color:var(--morado)">Katherine Pineda</span>.
+        <div style="text-align:center;padding:10px;border:2px solid #ffd700;background:#1a1a1a;border-radius:8px;margin-bottom:15px;font-size:13px;font-weight:600;color:#aaa">
+          Pago oficial a nombre de: <span style="color:#fff">Katherine Pineda</span>.
         </div>
       ` + carrito.map((p, i) => `
-        <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #eee">
-          <div><div style="font-weight:600;font-size:14px">${p.nombre}</div><div style="color:var(--turquesa)">$${p.precio.toFixed(2)}</div></div>
+        <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #333">
+          <div><div style="font-weight:600;font-size:14px;color:#fff">${p.nombre}</div><div style="color:var(--turquesa)">$${p.precio.toFixed(2)}</div></div>
           <button onclick="removeItem(${i})" style="color:#ff4444;border:none;background:none;cursor:pointer"><i class="fas fa-trash-alt"></i></button>
         </div>`).join('');
 
       document.querySelector('#cart-modal footer').innerHTML = `
-        <div style="display:flex;flex-direction:column;gap:5px;font-size:14px;border-bottom:1px solid #eee;padding-bottom:10px">
-          <div style="display:flex;justify-content:space-between"><span>Subtotal:</span><span>$${subTotal.toFixed(2)}</span></div>
+        <div style="display:flex;flex-direction:column;gap:5px;font-size:14px;border-bottom:1px solid #333;padding-bottom:10px;color:#aaa">
+          <div style="display:flex;justify-content:space-between"><span>Subtotal:</span><span style="color:#fff">$${subTotal.toFixed(2)}</span></div>
           <div style="display:flex;justify-content:space-between"><span>Envío:</span><span>${envio === 0 ? '<b style="color:#25D366">GRATIS</b>' : '$' + envio.toFixed(2)}</span></div>
         </div>
-        <div style="display:flex;justify-content:space-between;font-weight:bold;font-size:18px;color:var(--morado);margin-top:10px">
+        <div style="display:flex;justify-content:space-between;font-weight:bold;font-size:18px;color:var(--turquesa);margin-top:10px">
           <span>Total:</span><span>$${(subTotal + envio).toFixed(2)}</span>
         </div>
         <button onclick="finalizarCompraWA()" style="background:#25D366;color:#fff;border:none;padding:15px;border-radius:6px;cursor:pointer;width:100%;font-weight:700;margin-top:15px">
@@ -254,7 +265,7 @@
       const resDiv = document.getElementById('search-results');
       if(!val) return resDiv.innerHTML = '';
       const f = productosTotales.filter(p => p.nombre.toLowerCase().includes(val)).slice(0, 5);
-      resDiv.innerHTML = f.map(p => `<div class="search-item" onclick="window.location.href='index.html?buscar=${p.id}'"><img src="${p.imgFrontal}"><div><div style="font-weight:600;font-size:13px">${p.nombre}</div><div style="font-size:10px;color:var(--turquesa)">En ${p.cat}</div></div></div>`).join('');
+      resDiv.innerHTML = f.map(p => `<div class="search-item" onclick="window.location.href='index.html?buscar=${p.id}'"><img src="${p.imgFrontal}"><div><div style="font-weight:600;font-size:13px;color:#fff">${p.nombre}</div><div style="font-size:10px;color:var(--turquesa)">En ${p.cat}</div></div></div>`).join('');
     };
 
     document.getElementById('cart-icon').onclick = mostrarModal;
@@ -263,4 +274,4 @@
   </script>
 </body>
 </html>
-
+```
