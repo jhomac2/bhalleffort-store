@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <title>POLÍTICAS | BHALLEFFORT</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="https://jhomac2.github.io/bhalleffort-store/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root { --celeste: #87ceeb; --morado: #4c0d8c; --turquesa: #00c8c8; --turquesaOsc: #009e9e; --texto: #222; --fondo: #eef2f7 }
+    :root { --celeste: #87ceeb; --morado: #4c0d8c; --turquesa: #00c8c8; --turquesaOsc: #009e9e; --texto: #fff; --fondo: #0f0f0f; --card-bg: #1a1a1a }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif }
     body { background: var(--fondo); color: var(--texto); line-height: 1.6; padding-bottom: 80px; }
     .container { width: 90%; max-width: 1200px; margin: auto }
@@ -16,40 +16,48 @@
 
     /* HEADER & NAV */
     .top-bar { background: var(--morado); color: #fff; font-size: 13px; padding: 8px 0; text-align: center; font-weight: 600; }
-    .main-header { padding: 15px 0; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.1); }
+    .main-header { padding: 15px 0; background: #1a1a1a; box-shadow: 0 2px 8px rgba(0,0,0,.3); }
     .whale-icon { width: 85px; border: 3px solid var(--morado); border-radius: 50%; padding: 2px; background: #fff; }
     .brand-text h1 { font-size: 24px; color: var(--morado); font-weight: 700; line-height: 1; }
+    .brand-text p { font-size: 13px; color: #fff; opacity: .8; }
     .btn-rifas { background: #ff6600; padding: .8rem 1.4rem; border-radius: 6px; font-weight: 700; text-decoration: none; color: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-    .main-nav { position: sticky; top: 0; z-index: 999; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .main-nav { position: sticky; top: 0; z-index: 999; background: #1a1a1a; box-shadow: 0 2px 4px rgba(0,0,0,0.3); }
     .main-nav ul { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; }
-    .main-nav a { color: var(--morado); padding: 12px 15px; display: block; font-size: 14px; text-decoration: none; font-weight: 600; }
+    .main-nav a { color: #fff; padding: 12px 15px; display: block; font-size: 14px; text-decoration: none; font-weight: 600; }
     .main-nav a.active { background: var(--morado); color: #fff; border-radius: 4px; }
+    .main-nav a:hover { color: var(--turquesa); }
 
     /* CONTENIDO POLÍTICAS */
-    .policy-box { background: #fff; padding: 40px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin: 30px 0; }
-    .policy-box h2 { color: var(--morado); margin-bottom: 20px; border-left: 5px solid var(--turquesa); padding-left: 15px; }
-    .policy-box h3 { color: var(--morado); margin: 25px 0 10px; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; }
+    .policy-box { background: var(--card-bg); padding: 40px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); margin: 30px 0; border: 1px solid #333; }
+    .policy-box h2 { color: var(--turquesa); margin-bottom: 20px; border-left: 5px solid var(--turquesa); padding-left: 15px; }
+    .policy-box h3 { color: #fff; margin: 25px 0 10px; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; }
+    .policy-box p { color: #ccc; }
     .policy-box i { color: var(--turquesa); }
+    .policy-box strong { color: #fff; }
 
     /* FLOTANTES */
-    #cart-icon { position: fixed; top: 15px; right: 15px; background: #fff; border-radius: 50%; width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2); cursor: pointer; z-index: 1001; }
+    #cart-icon { position: fixed; top: 15px; right: 15px; background: var(--morado); color: #fff; border-radius: 50%; width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); cursor: pointer; z-index: 1001; }
     #cart-badge { background: var(--turquesa); color: #fff; border-radius: 50%; padding: 2px 7px; font-size: 12px; position: absolute; top: 0; right: 0; font-weight: bold; }
     #btn-lupa { position: fixed; top: 80px; right: 15px; background: var(--turquesa); color: #fff; border: none; border-radius: 50%; width: 55px; height: 55px; font-size: 22px; cursor: pointer; z-index: 1001; display: flex; align-items: center; justify-content: center; }
 
     /* BANNERS */
-    #banner-div { position: fixed; bottom: 0; left: 0; right: 0; display: flex; z-index: 1000; }
+    #banner-div { position: fixed; bottom: 0; left: 0; right: 0; display: flex; z-index: 1000; background: #1a1a1a; box-shadow: 0 -2px 5px rgba(0,0,0,.3); }
     #banner-envio, #banner-sorteo { flex: 1; padding: 12px; text-align: center; font-weight: 700; font-size: 14px; color: #fff; }
     #banner-envio { background: #ff9800; }
     #banner-sorteo { background: var(--morado); }
 
     /* MODALES */
-    #cart-modal, #search-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 5000; overflow-y: auto; }
-    .modal-content { background: #fff; width: 95%; max-width: 480px; margin: 40px auto; padding: 25px; border-radius: 15px; position: relative; }
+    #cart-modal, #search-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 5000; overflow-y: auto; }
+    .modal-content { background: var(--card-bg); color: #fff; width: 95%; max-width: 480px; margin: 40px auto; padding: 25px; border-radius: 15px; position: relative; border: 2px solid var(--morado); }
+    .modal-content h3 { color: #fff; }
     #search-results { max-height: 300px; overflow-y: auto; margin-top: 15px; }
-    .search-item { display: flex; align-items: center; gap: 10px; padding: 10px; border-bottom: 1px solid #eee; cursor: pointer; }
+    .search-item { display: flex; align-items: center; gap: 10px; padding: 10px; border-bottom: 1px solid #333; cursor: pointer; color: #fff; }
+    .search-item:hover { background: #252525; }
     .search-item img { width: 50px; height: 50px; object-fit: cover; border-radius: 5px; }
 
-    footer { background: var(--celeste); padding: 40px 0; text-align: center; }
+    footer { background: var(--card-bg); padding: 40px 0; text-align: center; border-top: 2px solid var(--morado); }
+    footer p { color: #aaa; }
+    footer strong { color: #fff; }
   </style>
 </head>
 <body>
@@ -61,21 +69,21 @@
     <div class="modal-content">
       <header class="flex-space">
         <h3>Buscar en BHALLEFFORT</h3>
-        <button onclick="document.getElementById('search-modal').style.display='none'" style="border:none; background:none; font-size:30px; cursor:pointer">&times;</button>
+        <button onclick="document.getElementById('search-modal').style.display='none'" style="border:none; background:none; font-size:30px; cursor:pointer; color:#fff">&times;</button>
       </header>
-      <input type="text" id="search-input" placeholder="¿Qué estás buscando?" style="width:100%; padding:12px; margin-top:15px; border:1px solid #ddd; border-radius:8px;">
+      <input type="text" id="search-input" placeholder="¿Qué estás buscando?" style="width:100%; padding:12px; margin-top:15px; border:1px solid var(--morado); border-radius:8px; background:#0f0f0f; color:#fff;">
       <div id="search-results"></div>
     </div>
   </div>
 
   <div id="cart-modal">
     <div class="modal-content">
-      <header class="flex-space" style="border-bottom:1px solid #eee; padding-bottom:10px;">
+      <header class="flex-space" style="border-bottom:1px solid #333; padding-bottom:10px;">
         <h3><i class="fas fa-shopping-cart"></i> Mi Pedido</h3>
-        <button onclick="document.getElementById('cart-modal').style.display='none'" style="border:none; background:none; font-size:30px; cursor:pointer">&times;</button>
+        <button onclick="document.getElementById('cart-modal').style.display='none'" style="border:none; background:none; font-size:30px; cursor:pointer; color:#fff">&times;</button>
       </header>
       <div id="cart-items" style="margin-top:15px;"></div>
-      <footer id="cart-footer-logic" style="margin-top:20px; border-top:1px solid #eee; padding-top:15px;"></footer>
+      <footer id="cart-footer-logic" style="margin-top:20px; border-top:1px solid #333; padding-top:15px;"></footer>
     </div>
   </div>
 
@@ -89,7 +97,7 @@
   <header class="main-header">
     <div class="container flex-space">
       <a href="index.html" style="text-decoration:none; display:flex; align-items:center; gap:15px; color:inherit;">
-        <img src="logo-ballena.png" alt="BHALLEFFORT" class="whale-icon">
+        <img src="logo-ballena.webp" alt="BHALLEFFORT" class="whale-icon">
         <div class="brand-text"><h1>BHALLEFFORT</h1><p>Tienda Oficial</p></div>
       </a>
       <a href="rifas.html" class="btn-rifas">🎉 Ir a Rifas</a>
@@ -129,7 +137,7 @@
 
   <footer>
     <div class="container">
-      <p style="font-weight:700;">© 2026 BHALLEFFORT | Tabacundo, Ecuador</p>
+      <p style="font-weight:700; color:#fff;">© 2026 BHALLEFFORT | Tabacundo, Ecuador</p>
     </div>
   </footer>
 
@@ -175,22 +183,22 @@
       const items = document.getElementById('cart-items');
 
       items.innerHTML = `
-        <div style="text-align:center; padding:10px; border:2px solid #ffd700; background:#fffdf0; border-radius:8px; margin-bottom:15px; font-size:12px;">
-          Depósito oficial: <b>Katherine Pineda</b>.
+        <div style="text-align:center; padding:10px; border:2px solid #ffd700; background:#1a1a1a; border-radius:8px; margin-bottom:15px; font-size:12px; color:#aaa;">
+          Depósito oficial: <b style="color:#fff">Katherine Pineda</b>.
         </div>
       ` + carrito.map((p, i) => `
-        <div class="flex-space" style="padding:10px 0; border-bottom:1px solid #eee;">
-          <div><div style="font-weight:600; font-size:14px;">${p.nombre}</div><div style="color:var(--turquesa); font-size:12px;">$${p.precio.toFixed(2)}</div></div>
-          <button onclick="removeItem(${i})" style="color:red; border:none; background:none; cursor:pointer;"><i class="fas fa-trash-alt"></i></button>
+        <div class="flex-space" style="padding:10px 0; border-bottom:1px solid #333;">
+          <div><div style="font-weight:600; font-size:14px; color:#fff">${p.nombre}</div><div style="color:var(--turquesa); font-size:12px;">$${p.precio.toFixed(2)}</div></div>
+          <button onclick="removeItem(${i})" style="color:#ff4444; border:none; background:none; cursor:pointer;"><i class="fas fa-trash-alt"></i></button>
         </div>`).join('');
 
       document.getElementById('cart-footer-logic').innerHTML = `
-        <div style="font-size:14px;">
-          <div class="flex-space"><span>Subtotal:</span><span>$${subTodo.toFixed(2)}</span></div>
+        <div style="font-size:14px; color:#aaa;">
+          <div class="flex-space"><span>Subtotal:</span><span style="color:#fff">$${subTodo.toFixed(2)}</span></div>
           <div class="flex-space"><span>Envío:</span><span>${envio === 0 ? '<b style="color:#25D366">GRATIS</b>' : '$' + envio.toFixed(2)}</span></div>
           ${ganaRifa ? '<div style="color:#ff6600; font-weight:700; text-align:center; margin-top:5px;">✨ ¡GANASTE RIFA GRATIS! ✨</div>' : ''}
         </div>
-        <div class="flex-space" style="font-weight:bold; font-size:20px; color:var(--morado); margin-top:10px;">
+        <div class="flex-space" style="font-weight:bold; font-size:20px; color:var(--turquesa); margin-top:10px;">
           <span>Total:</span><span>$${(subTodo + envio).toFixed(2)}</span>
         </div>
         <button onclick="finalizarWA()" style="background:#25D366;color:#fff;border:none;padding:15px;border-radius:8px;cursor:pointer;width:100%; font-weight:700; margin-top:15px;">FINALIZAR POR WHATSAPP 🐋</button>
@@ -223,7 +231,7 @@
       res.innerHTML = f.map(p => `
         <div class="search-item" onclick="window.location.href='index.html?buscar=${p.id}'">
           <img src="${p.imgFrontal}">
-          <div><b>${p.nombre}</b><br><small>$${p.precio.toFixed(2)}</small></div>
+          <div><b style="color:#fff">${p.nombre}</b><br><small style="color:var(--turquesa)">$${p.precio.toFixed(2)}</small></div>
         </div>`).join('');
     };
 
