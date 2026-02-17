@@ -13,12 +13,12 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.bhalleffort.com/quienes-somos.html  ">
+  <meta property="og:url" content="https://www.bhalleffort.com/quienes-somos.html">
   <meta property="og:title" content="🐋 Conoce BHALLEFFORT - Nuestra Historia">
   <meta property="og:description" content="Más que una tienda, una familia. Calidad y confianza desde Tabacundo.">
-  <meta property="og:image" content="https://www.bhalleffort.com/logo-ballena.webp  ">
+  <meta property="og:image" content="https://www.bhalleffort.com/logo-ballena.webp">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css  ">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root { --celeste: #87ceeb; --morado: #4c0d8c; --turquesa: #00c8c8; --turquesaOsc: #009e9e; --texto: #fff; --fondo: #0f0f0f; --card-bg: #1a1a1a }
@@ -50,12 +50,14 @@
     .section-white { background: var(--card-bg); padding: 40px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); margin: 30px 0; border: 1px solid #333; }
     .meaning-card { background: var(--morado); color: #fff; padding: 30px; border-radius: 12px; text-align: center; font-style: italic; font-size: 1.2rem; margin: 25px 0; border: 1px solid #4c0d8c; }
     
-    /* POLÍTICAS */
-    .policy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
-    .policy-item { padding: 20px; background: #1a1a1a; border-radius: 10px; border-bottom: 4px solid var(--turquesa); cursor: pointer; transition: 0.3s; border: 1px solid #333; }
-    .policy-item:hover { transform: translateY(-5px); background: #252525; }
-    .policy-item h3 { color: #fff; }
-    .policy-item p { color: #aaa; }
+    /* ESTILOS PARA EL NUEVO CONTENIDO */
+    .about-content h3 { color: var(--turquesa); margin: 25px 0 15px 0; font-size: 1.3rem; border-left: 4px solid var(--turquesa); padding-left: 15px; }
+    .about-content p { color: #ccc; margin-bottom: 15px; }
+    .about-content ul { list-style: none; padding-left: 0; }
+    .about-content ul li { background: #252525; padding: 15px; margin-bottom: 10px; border-radius: 8px; border-left: 3px solid var(--morado); color: #fff; }
+    .about-content ul li strong { color: var(--turquesa); display: block; margin-bottom: 5px; font-size: 1.1rem; }
+    .visit-box { background: #252525; padding: 20px; border-radius: 10px; margin-top: 30px; text-align: center; border: 1px dashed var(--turquesa); }
+    .visit-box i { font-size: 30px; color: var(--turquesa); margin-bottom: 10px; }
     
     /* FLOTANTES */
     #cart-icon { position: fixed; top: 15px; right: 15px; background: var(--morado); color: #fff; border-radius: 50%; width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); cursor: pointer; z-index: 1001; }
@@ -159,24 +161,40 @@
   </section>
 
   <div class="container">
-    <section class="section-white">
+    <section class="section-white about-content">
       <h2 style="color:var(--turquesa); margin-bottom:15px;">¿Quiénes Somos?</h2>
-      <p style="color:#ccc;"><strong>BHALLEFFORT</strong> es un testimonio de que con esfuerzo y fe todo es posible. Nacimos para ofrecer calidad premium en Ecuador, bajo el lema de los buenos hábitos.</p>
-      <div class="meaning-card">"Buenos Hábitos te Llevan al Éxito, y son la Fortaleza para vivir"</div>
+      <p><strong>BHALLEFFORT</strong> nació del sueño de dos jóvenes con un objetivo claro: emprender juntos y llegar a cada rincón del país. Lo que empezó como una meta personal, hoy se está convirtiendo en un Marketplace donde no solo vendemos nuestros productos, sino que también ayudamos a otros a vender los suyos.</p>
       
-      <div class="policy-grid">
-        <div class="policy-item" onclick="verP('envios')">
-          <h3><i class="fas fa-truck"></i> Envíos</h3>
-          <p>Cobertura nacional vía Servientrega.</p>
-        </div>
-        <div class="policy-item" onclick="verP('pagos')">
-          <h3><i class="fas fa-wallet"></i> Pagos</h3>
-          <p>Depósitos a Katherine Pineda.</p>
-        </div>
-        <div class="policy-item" onclick="verP('calidad')">
-          <h3><i class="fas fa-award"></i> Calidad</h3>
-          <p>Garantía G5 y 1:1 Premium.</p>
-        </div>
+      <div class="meaning-card">
+        "Buenos Hábitos te Llevan al Éxito, y son la Fortaleza para vivir"
+      </div>
+
+      <h3>¿Qué significa BHALLEFFORT?</h3>
+      <p>Nuestro nombre es un recordatorio constante: <strong>Buenos Hábitos te Llevan al Éxito</strong>. Creemos que la disciplina y el esfuerzo diario son la clave para crecer.</p>
+
+      <h3>¿Qué ofrecemos?</h3>
+      <ul>
+        <li>
+          <strong>Precios Accesibles</strong>
+          Moda urbana, calzado y servicios digitales al alcance de todos.
+        </li>
+        <li>
+          <strong>Comunidad</strong>
+          Somos un puente para que más personas puedan comercializar sus productos.
+        </li>
+        <li>
+          <strong>Confianza</strong>
+          Nos enfocamos en darte seguridad en cada compra y atención personalizada.
+        </li>
+      </ul>
+
+      <h3>Nuestro Equipo</h3>
+      <p>Más que trabajadores, somos una familia. Trabajamos unidos para que cada pedido llegue perfecto a tus manos.</p>
+
+      <div class="visit-box">
+        <i class="fas fa-store"></i>
+        <h3 style="color:#fff; margin:10px 0; border:none; padding:0;">Visítanos</h3>
+        <p style="color:#ccc;">Si prefieres ver los productos en persona, te esperamos en nuestra tienda física ubicada en <strong>La Y de Tabacundo</strong>. ¡Será un gusto recibirte!</p>
       </div>
     </section>
   </div>
@@ -184,9 +202,9 @@
   <footer>
     <div class="container">
       <div class="social-links" style="margin-bottom:20px;">
-        <a href="https://www.facebook.com/share/17jG7haojA/  "><i class="fab fa-facebook"></i></a>
-        <a href="https://www.instagram.com/bhalleffort  "><i class="fab fa-instagram"></i></a>
-        <a href="https://www.tiktok.com/@bhalleffort  "><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.facebook.com/share/17jG7haojA/"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/bhalleffort"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@bhalleffort"><i class="fab fa-tiktok"></i></a>
       </div>
       <p style="font-weight:700; color:#fff;">© 2026 BHALLEFFORT | Tabacundo, Ecuador</p>
     </div>
@@ -272,17 +290,6 @@
       if(ganaRifa) m += `\n🎁 *PROMO:* ¡Incluye Rifa Gratis!`;
       m += `\n✅ *TOTAL: $${(subTotalTodo + envio).toFixed(2)}*`;
       window.open(`https://wa.me/593963923399?text=${encodeURIComponent(m)}`);
-    }
-
-    function verP(t) {
-      const d = {
-        'envios': ['Envíos', 'Entregas en Tabacundo gratis. Resto del país $3.50 por Servientrega.'],
-        'pagos': ['Pagos', 'Transferencias a Katherine Pineda. Envíanos el comprobante por WhatsApp.'],
-        'calidad': ['Calidad', 'Solo trabajamos con lo mejor: Calidad G5 y 1:1 Importada.']
-      };
-      document.getElementById('policy-title').innerText = d[t][0];
-      document.getElementById('policy-text').innerText = d[t][1];
-      document.getElementById('policy-modal').style.display = 'block';
     }
 
     // BUSCADOR
