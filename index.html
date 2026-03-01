@@ -14,1111 +14,185 @@
 <meta property="og:description" content="Mira los nuevos modelos disponibles. Envíos 100% seguros.">
 <meta property="og:image" content="https://www.bhalleffort.com/logo-ballena.webp">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-/* ===== VARIABLES & RESET ===== */
-:root {
-  --morado: #4c0d8c;
-  --morado-claro: #6b1fc1;
-  --turquesa: #00c8c8;
-  --turquesaOsc: #009e9e;
-  --naranja: #ff6600;
-  --verde-wa: #25d366;
-  --fondo: #0a0a0f;
-  --card-bg: #13131f;
-  --card-border: #2a2a3e;
-  --texto-claro: #e8e8f0;
-  --texto-gris: #9090a8;
-}
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  background: var(--fondo);
-  color: var(--texto-claro);
-  font-family: 'Nunito', system-ui, sans-serif;
-  overflow-x: hidden;
-}
-
-img { max-width: 100%; display: block; }
-a { text-decoration: none; }
-.container { width: 92%; max-width: 1280px; margin: auto; }
-
-/* ===== TOP BAR ===== */
-.top-bar {
-  background: linear-gradient(90deg, #1a0033 0%, var(--morado) 50%, #1a0033 100%);
-  color: #fff;
-  font-size: 12px;
-  padding: 6px 0;
-  border-bottom: 1px solid rgba(0,200,200,0.2);
-}
-
-.top-bar-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.top-bar-left {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 600;
-}
-
-.top-bar-left i { color: var(--turquesa); }
-
-.top-bar-right {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.top-wa-link {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: #fff;
-  font-weight: 700;
-  font-size: 12px;
-  background: var(--verde-wa);
-  padding: 3px 10px;
-  border-radius: 20px;
-  transition: 0.2s;
-}
-.top-wa-link:hover { background: #1da851; }
-
-.social-icons { display: flex; gap: 10px; }
-.social-icons a {
-  color: rgba(255,255,255,0.7);
-  font-size: 15px;
-  transition: 0.2s;
-}
-.social-icons a:hover { color: var(--turquesa); }
-
-/* ===== HEADER ===== */
-.main-header {
-  background: #0f0f1a;
-  border-bottom: 2px solid var(--morado);
-  padding: 12px 0;
-  position: relative;
-}
-
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.logo-section {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.whale-icon {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  border: 3px solid var(--turquesa);
-  padding: 3px;
-  background: #fff;
-  box-shadow: 0 0 20px rgba(0,200,200,0.3);
-  object-fit: cover;
-}
-
-.brand-text h1 {
-  font-family: 'Bebas Neue', cursive;
-  font-size: 32px;
-  letter-spacing: 2px;
-  background: linear-gradient(135deg, var(--turquesa), var(--morado-claro));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  line-height: 1;
-}
-
-.brand-text p {
-  font-size: 12px;
-  color: var(--texto-gris);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.brand-text span {
-  display: inline-block;
-  background: var(--turquesa);
-  color: #000;
-  font-size: 10px;
-  font-weight: 800;
-  padding: 1px 8px;
-  border-radius: 3px;
-  margin-top: 3px;
-}
-
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.btn-rifas {
-  background: linear-gradient(135deg, var(--naranja), #ff9200);
-  color: #fff;
-  padding: 9px 20px;
-  border-radius: 8px;
-  font-weight: 800;
-  font-size: 14px;
-  box-shadow: 0 4px 15px rgba(255,102,0,0.4);
-  transition: 0.2s;
-}
-.btn-rifas:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,102,0,0.5); }
-
-.btn-wa-header {
-  background: linear-gradient(135deg, var(--verde-wa), #1da851);
-  color: #fff;
-  padding: 9px 20px;
-  border-radius: 8px;
-  font-weight: 800;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  box-shadow: 0 4px 15px rgba(37,211,102,0.35);
-  transition: 0.2s;
-}
-.btn-wa-header:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,211,102,0.5); }
-
-/* ===== NAV ===== */
-.main-nav {
-  position: sticky;
-  top: 0;
-  z-index: 998;
-  background: rgba(15,15,26,0.97);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--morado);
-}
-
-.main-nav ul {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.main-nav a {
-  color: var(--texto-claro);
-  padding: 13px 16px;
-  display: block;
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  transition: 0.2s;
-  position: relative;
-}
-
-.main-nav a::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 50%; right: 50%;
-  height: 2px;
-  background: var(--turquesa);
-  transition: 0.3s;
-}
-
-.main-nav a:hover::after,
-.main-nav a.active::after {
-  left: 0; right: 0;
-}
-
-.main-nav a.active { color: var(--turquesa); }
-.main-nav a:hover { color: var(--turquesa); }
-
-/* ===== HERO SLIDER ===== */
-.hero-slider {
-  position: relative;
-  width: 100%;
-  height: 460px;
-  overflow: hidden;
-}
-
-.slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 0.8s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.slide.active { opacity: 1; }
-
-.slide-bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  transform: scale(1.05);
-  transition: transform 6s ease;
-}
-
-.slide.active .slide-bg { transform: scale(1); }
-
-.slide-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(76,13,140,0.85) 0%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.3) 100%);
-}
-
-.slide-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  padding: 0 20px;
-  max-width: 700px;
-}
-
-.slide-content .label {
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--turquesa);
-  margin-bottom: 10px;
-}
-
-.slide-content h2 {
-  font-family: 'Bebas Neue', cursive;
-  font-size: clamp(42px, 7vw, 72px);
-  letter-spacing: 2px;
-  line-height: 1;
-  color: #fff;
-  text-shadow: 0 2px 20px rgba(0,0,0,0.6);
-  margin-bottom: 14px;
-}
-
-.slide-content p {
-  font-size: 16px;
-  color: rgba(255,255,255,0.85);
-  margin-bottom: 24px;
-}
-
-.slide-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--turquesa);
-  color: #000;
-  font-weight: 800;
-  font-size: 14px;
-  padding: 12px 28px;
-  border-radius: 50px;
-  box-shadow: 0 4px 20px rgba(0,200,200,0.5);
-  transition: 0.2s;
-}
-.slide-cta:hover { background: #fff; transform: scale(1.03); }
-
-/* Slider dots */
-.slider-dots {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 8px;
-  z-index: 10;
-}
-
-.dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.4);
-  cursor: pointer;
-  transition: 0.3s;
-}
-.dot.active { background: var(--turquesa); width: 24px; border-radius: 4px; }
-
-/* Slider arrows */
-.slider-arrow {
-  position: absolute;
-  top: 50%; transform: translateY(-50%);
-  background: rgba(76,13,140,0.7);
-  color: #fff;
-  border: none;
-  width: 42px; height: 42px;
-  border-radius: 50%;
-  font-size: 16px;
-  cursor: pointer;
-  z-index: 10;
-  transition: 0.2s;
-  display: flex; align-items: center; justify-content: center;
-}
-.slider-arrow:hover { background: var(--morado); }
-.slider-arrow.prev { left: 16px; }
-.slider-arrow.next { right: 16px; }
-
-/* ===== BENEFICIOS STRIP ===== */
-.beneficios-strip {
-  background: linear-gradient(90deg, var(--morado) 0%, #2d0566 50%, var(--morado) 100%);
-  padding: 0;
-  overflow: hidden;
-}
-
-.beneficios-inner {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.beneficio-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 16px 28px;
-  border-right: 1px solid rgba(255,255,255,0.1);
-  flex: 1;
-  min-width: 200px;
-  transition: 0.2s;
-}
-.beneficio-item:last-child { border-right: none; }
-.beneficio-item:hover { background: rgba(255,255,255,0.05); }
-
-.beneficio-icon {
-  width: 44px; height: 44px;
-  background: rgba(0,200,200,0.15);
-  border: 2px solid var(--turquesa);
-  border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 20px;
-  color: var(--turquesa);
-  flex-shrink: 0;
-}
-
-.beneficio-text strong {
-  display: block;
-  font-size: 13px;
-  font-weight: 800;
-  text-transform: uppercase;
-  color: #fff;
-}
-.beneficio-text span {
-  font-size: 11px;
-  color: rgba(255,255,255,0.6);
-}
-
-/* ===== SECTION TITLE ===== */
-.section-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.section-header h2 {
-  font-family: 'Bebas Neue', cursive;
-  font-size: clamp(28px, 4vw, 40px);
-  letter-spacing: 3px;
-  color: #fff;
-  margin-bottom: 6px;
-}
-
-.section-header h2 span { color: var(--turquesa); }
-
-.section-header p {
-  font-size: 14px;
-  color: var(--texto-gris);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.section-line {
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(90deg, var(--morado), var(--turquesa));
-  margin: 10px auto 0;
-  border-radius: 2px;
-}
-
-/* ===== CATEGORÍAS SLIDER ===== */
-.cats-section {
-  padding: 60px 0 40px;
-}
-
-.cats-slider-wrap {
-  position: relative;
-  overflow: hidden;
-}
-
-.cats-track {
-  display: flex;
-  gap: 16px;
-  transition: transform 0.5s ease;
-  padding: 8px 4px 16px;
-}
-
-.cat-card {
-  flex: 0 0 200px;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 16px;
-  padding: 28px 20px;
-  text-align: center;
-  cursor: pointer;
-  transition: 0.3s;
-  text-decoration: none;
-  color: #fff;
-  position: relative;
-  overflow: hidden;
-}
-
-.cat-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--morado), var(--turquesa));
-  opacity: 0;
-  transition: 0.3s;
-}
-
-.cat-card:hover::before { opacity: 0.12; }
-.cat-card:hover { transform: translateY(-5px); border-color: var(--turquesa); box-shadow: 0 10px 30px rgba(0,200,200,0.2); }
-
-.cat-icon {
-  width: 56px; height: 56px;
-  background: linear-gradient(135deg, rgba(76,13,140,0.4), rgba(0,200,200,0.2));
-  border: 2px solid var(--morado);
-  border-radius: 16px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 26px;
-  margin: 0 auto 14px;
-  transition: 0.3s;
-  position: relative;
-}
-
-.cat-card:hover .cat-icon {
-  border-color: var(--turquesa);
-  background: linear-gradient(135deg, rgba(0,200,200,0.2), rgba(76,13,140,0.4));
-}
-
-.cat-card span {
-  font-size: 13px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  position: relative;
-}
-
-/* rifas badge */
-.cat-badge {
-  position: absolute;
-  top: -6px; right: -6px;
-  background: var(--naranja);
-  color: #fff;
-  font-size: 9px;
-  font-weight: 800;
-  padding: 2px 6px;
-  border-radius: 10px;
-}
-
-/* ===== IA NOTICE ===== */
-.ia-notice {
-  text-align: center;
-  background: linear-gradient(135deg, rgba(76,13,140,0.2), rgba(0,200,200,0.08));
-  border: 1px dashed rgba(0,200,200,0.3);
-  padding: 10px 20px;
-  margin-bottom: 32px;
-  border-radius: 10px;
-  font-size: 13px;
-  color: var(--texto-gris);
-}
-
-/* ===== PRODUCTS GRID ===== */
-.featured-products { padding: 40px 0 60px; }
-
-.products-grid-ten {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(5, 1fr);
-  max-width: 1180px;
-  margin: auto;
-}
-
-/* NEW CARD DESIGN — matching image 3 */
-.product-card {
-  background: #fff;
-  border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  cursor: pointer;
-  position: relative;
-  border: none;
-  transition: 0.3s;
-}
-
-.product-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 35px rgba(0,200,200,0.25);
-}
-
-/* Badge ribbon top-left */
-.badge-promo {
-  position: absolute;
-  top: 0; left: 0;
-  background: linear-gradient(135deg, #ff6b6b, #ff4444);
-  color: #fff;
-  font-size: 11px;
-  font-weight: 800;
-  padding: 6px 14px;
-  border-radius: 0 0 12px 0;
-  z-index: 5;
-  letter-spacing: 0.5px;
-}
-
-.badge-nuevo {
-  position: absolute;
-  top: 0; left: 0;
-  background: linear-gradient(135deg, #ff9a7b, #ff6b6b);
-  color: #fff;
-  font-size: 11px;
-  font-weight: 800;
-  padding: 6px 14px;
-  border-radius: 0 0 12px 0;
-  z-index: 5;
-  letter-spacing: 0.5px;
-}
-
-/* Eye icon top-right */
-.lupa-zoom-icon {
-  position: absolute;
-  top: 10px; right: 10px;
-  background: rgba(255,255,255,0.95);
-  border: 2px solid rgba(0,200,200,0.4);
-  color: var(--turquesa);
-  width: 40px; height: 40px;
-  border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 18px;
-  z-index: 10;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  transition: 0.2s;
-  cursor: pointer;
-}
-.lupa-zoom-icon:hover {
-  background: var(--turquesa);
-  color: #fff;
-  border-color: var(--turquesa);
-}
-
-.product-image-container {
-  position: relative;
-  width: 100%;
-  height: 220px;
-  overflow: hidden;
-  background: #f0f2f5;
-  border-radius: 0;
-}
-
-.product-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 0.4s ease, transform 0.5s ease;
-}
-
-.product-image.back {
-  position: absolute;
-  top: 0; left: 0;
-  opacity: 0;
-}
-
-.product-card.flip .product-image.front { opacity: 0; }
-.product-card.flip .product-image.back { opacity: 1; }
-
-/* Card info — white background like image 3 */
-.product-info {
-  padding: 14px 16px 16px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  background: #fff;
-}
-
-.product-category {
-  font-size: 11px;
-  color: var(--turquesa);
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 3px;
-}
-
-.product-name {
-  font-size: 14px;
-  font-weight: 800;
-  color: #1a1a2e;
-  line-height: 1.3;
-  margin-bottom: 4px;
-}
-
-.product-desc {
-  font-size: 12px;
-  color: #666;
-  line-height: 1.4;
-  margin-bottom: 8px;
-}
-
-.price-row {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-bottom: 10px;
-}
-
-.old-price {
-  text-decoration: line-through;
-  color: #bbb;
-  font-size: 12px;
-}
-
-.current-price {
-  font-size: 20px;
-  font-weight: 800;
-  color: #1a1a2e;
-}
-
-.envio-tag {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  color: #888;
-  margin-bottom: 12px;
-}
-
-.btn-buy {
-  background: linear-gradient(135deg, var(--turquesa), var(--turquesaOsc));
-  color: #fff;
-  border: none;
-  padding: 11px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 800;
-  font-size: 13px;
-  letter-spacing: 0.3px;
-  margin-top: auto;
-  transition: 0.2s;
-  box-shadow: 0 4px 12px rgba(0,200,200,0.35);
-}
-.btn-buy:hover {
-  transform: scale(1.02);
-  box-shadow: 0 6px 18px rgba(0,200,200,0.5);
-}
-
-/* ===== GARANTIAS ===== */
-.guarantees {
-  background: linear-gradient(135deg, #0f0f1a 0%, #1a0033 100%);
-  padding: 50px 0;
-  border-top: 1px solid var(--card-border);
-  border-bottom: 1px solid var(--card-border);
-}
-
-.guarantees-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 24px;
-  text-align: center;
-}
-
-.guarantee-item {
-  padding: 24px 16px;
-  border: 1px solid var(--card-border);
-  border-radius: 16px;
-  background: rgba(76,13,140,0.1);
-  transition: 0.3s;
-}
-.guarantee-item:hover {
-  border-color: var(--turquesa);
-  background: rgba(0,200,200,0.06);
-}
-
-.guarantee-item i {
-  font-size: 30px;
-  color: var(--turquesa);
-  margin-bottom: 12px;
-  display: block;
-}
-
-.guarantee-item strong {
-  display: block;
-  font-size: 14px;
-  font-weight: 800;
-  text-transform: uppercase;
-  color: #fff;
-  margin-bottom: 4px;
-}
-
-.guarantee-item p {
-  font-size: 12px;
-  color: var(--texto-gris);
-  line-height: 1.4;
-}
-
-/* ===== RIFAS PROMO BANNER ===== */
-.rifas-banner {
-  margin: 60px 0;
-  background: linear-gradient(135deg, var(--naranja) 0%, #ff9200 50%, var(--naranja) 100%);
-  border-radius: 20px;
-  padding: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 20px;
-  position: relative;
-  overflow: hidden;
-}
-
-.rifas-banner::before {
-  content: '🎉';
-  position: absolute;
-  font-size: 120px;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  opacity: 0.15;
-}
-
-.rifas-banner-text h3 {
-  font-family: 'Bebas Neue', cursive;
-  font-size: 36px;
-  letter-spacing: 2px;
-  color: #fff;
-  margin-bottom: 6px;
-}
-
-.rifas-banner-text p {
-  color: rgba(255,255,255,0.85);
-  font-size: 15px;
-}
-
-.rifas-banner-btn {
-  background: #fff;
-  color: var(--naranja);
-  font-weight: 800;
-  font-size: 15px;
-  padding: 14px 32px;
-  border-radius: 50px;
-  transition: 0.2s;
-  white-space: nowrap;
-}
-.rifas-banner-btn:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
-
-/* ===== FOOTER ===== */
-footer {
-  background: #080810;
-  border-top: 2px solid var(--morado);
-  padding: 50px 0 0;
-  font-size: 14px;
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
-  padding-bottom: 40px;
-}
-
-.footer-brand img { margin-bottom: 12px; }
-.footer-brand .tagline { color: var(--texto-gris); font-size: 13px; }
-.footer-brand .location { color: var(--texto-gris); font-size: 13px; margin-top: 4px; }
-.god-message {
-  margin-top: 14px;
-  color: var(--turquesa);
-  font-style: italic;
-  font-size: 13px;
-  font-weight: 700;
-  border-left: 3px solid var(--turquesa);
-  padding-left: 10px;
-}
-
-.footer-col h3 {
-  font-size: 13px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--turquesa);
-  margin-bottom: 16px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--card-border);
-}
-
-.footer-contact-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-  font-size: 13px;
-  color: var(--texto-gris);
-}
-.footer-contact-item i { color: var(--morado-claro); width: 16px; flex-shrink: 0; }
-.footer-contact-item a { color: var(--turquesa); }
-
-.footer-links a {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--texto-gris);
-  font-size: 13px;
-  margin-bottom: 10px;
-  transition: 0.2s;
-}
-.footer-links a::before { content: '›'; color: var(--turquesa); }
-.footer-links a:hover { color: var(--turquesa); }
-
-.copyright-bar {
-  text-align: center;
-  padding: 14px 0;
-  background: rgba(76,13,140,0.15);
-  border-top: 1px solid var(--card-border);
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--texto-gris);
-}
-
-/* ===== FLOATING ELEMENTS ===== */
-/* WhatsApp flotante PERMANENTE */
-#wa-float {
-  position: fixed;
-  bottom: 70px;
-  right: 20px;
-  width: 58px; height: 58px;
-  background: var(--verde-wa);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 28px;
-  color: #fff;
-  box-shadow: 0 4px 20px rgba(37,211,102,0.5);
-  z-index: 9000;
-  cursor: pointer;
-  transition: 0.2s;
-  animation: waPulse 2s infinite;
-}
-#wa-float:hover { transform: scale(1.1); }
-
-@keyframes waPulse {
-  0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.5); }
-  50% { box-shadow: 0 4px 30px rgba(37,211,102,0.8); }
-}
-
-/* Cart icon */
-#cart-icon {
-  position: fixed;
-  top: 16px; right: 16px;
-  background: var(--morado);
-  color: #fff;
-  border-radius: 50%;
-  width: 48px; height: 48px;
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 2px 12px rgba(76,13,140,0.5);
-  cursor: pointer;
-  z-index: 1001;
-  transition: 0.2s;
-}
-#cart-icon:hover { background: var(--morado-claro); transform: scale(1.05); }
-#cart-badge {
-  background: var(--turquesa);
-  color: #000;
-  border-radius: 50%;
-  padding: 2px 5px;
-  font-size: 10px;
-  font-weight: 800;
-  position: absolute;
-  top: -2px; right: -2px;
-}
-
-/* Lupa */
-#btn-lupa {
-  position: fixed;
-  top: 72px; right: 16px;
-  background: var(--turquesa);
-  color: #000;
-  border: none;
-  border-radius: 50%;
-  width: 48px; height: 48px;
-  font-size: 18px;
-  cursor: pointer;
-  box-shadow: 0 2px 12px rgba(0,200,200,0.4);
-  z-index: 1001;
-  display: flex; align-items: center; justify-content: center;
-  transition: 0.2s;
-}
-#btn-lupa:hover { transform: scale(1.05); }
-
-/* ===== BOTTOM BANNER ===== */
-#banner-div {
-  position: fixed;
-  bottom: 0; left: 0; right: 0;
-  display: flex;
-  z-index: 999;
-  height: 42px;
-}
-
-#banner-envio {
-  flex: 1;
-  background: #ff9800;
-  color: #fff;
-  text-align: center;
-  line-height: 42px;
-  font-size: 13px;
-  font-weight: 700;
-  transition: 0.3s;
-}
-
-#banner-sorteo {
-  flex: 1;
-  background: var(--morado);
-  color: #fff;
-  text-align: center;
-  line-height: 42px;
-  font-size: 13px;
-  font-weight: 700;
-  transition: 0.3s;
-}
-
-/* ===== MODALS ===== */
-#zoom-modal {
-  display: none;
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,0.96);
-  z-index: 5000;
-  align-items: center; justify-content: center;
-  flex-direction: column;
-}
-
-.zoom-content { position: relative; width: 90%; max-width: 460px; text-align: center; }
-#img-zoom { width: 100%; border-radius: 16px; box-shadow: 0 0 40px rgba(0,200,200,0.3); object-fit: contain; max-height: 75vh; }
-.zoom-btns { display: flex; justify-content: center; gap: 12px; margin-top: 18px; }
-.btn-z { padding: 10px 22px; border-radius: 50px; border: none; cursor: pointer; font-weight: 800; color: #fff; font-size: 13px; }
-
-#search-modal {
-  display: none;
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,0.85);
-  z-index: 3000;
-}
-#search-modal > div {
-  background: #12121e;
-  width: 90%; max-width: 420px;
-  margin: 80px auto;
-  padding: 18px;
-  border-radius: 14px;
-  position: relative;
-  border: 2px solid var(--morado);
-  box-shadow: 0 10px 40px rgba(76,13,140,0.4);
-}
-#search-input {
-  width: 100%;
-  padding: 11px 14px;
-  border: 1px solid var(--morado);
-  border-radius: 8px;
-  background: var(--fondo);
-  color: #fff;
-  font-size: 14px;
-  font-family: 'Nunito', sans-serif;
-}
-#search-results { margin-top: 10px; max-height: 260px; overflow-y: auto; }
-.search-item { padding: 8px; border-bottom: 1px solid #2a2a3e; cursor: pointer; display: flex; align-items: center; gap: 10px; border-radius: 6px; transition: 0.2s; }
-.search-item:hover { background: rgba(76,13,140,0.2); }
-.search-item img { width: 38px; height: 38px; object-fit: cover; border-radius: 6px; }
-
-#noti-add {
-  position: fixed;
-  bottom: 55px; left: 50%;
-  transform: translateX(-50%);
-  background: var(--turquesa);
-  color: #000;
-  padding: 8px 18px;
-  border-radius: 50px;
-  font-size: 13px;
-  font-weight: 700;
-  z-index: 9999;
-  display: none;
-  box-shadow: 0 4px 15px rgba(0,200,200,0.5);
-}
-
-#cart-modal {
-  display: none;
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,0.85);
-  z-index: 4000;
-}
-#cart-modal > div {
-  background: #12121e;
-  width: 95%; max-width: 460px;
-  margin: 50px auto;
-  padding: 22px;
-  border-radius: 18px;
-  position: relative;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-  border: 2px solid var(--morado);
-}
-
-#promo-modal {
-  display: none;
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,0.92);
-  z-index: 10001;
-  align-items: center; justify-content: center;
-}
-.promo-content {
-  position: relative;
-  width: 90%; max-width: 460px;
-  background: #12121e;
-  border-radius: 20px;
-  overflow: hidden;
-  text-align: center;
-  animation: scaleUp 0.3s ease;
-  border: 2px solid var(--morado);
-}
-.close-btn {
-  position: absolute;
-  top: 10px; right: 10px;
-  background: var(--morado);
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  width: 34px; height: 34px;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  z-index: 10002;
-}
-
-@keyframes scaleUp { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 900px) {
-  .products-grid-ten { grid-template-columns: repeat(3, 1fr); }
-  .hero-slider { height: 360px; }
-}
-@media (max-width: 600px) {
-  .products-grid-ten { grid-template-columns: repeat(2, 1fr); }
-  .hero-slider { height: 300px; }
-  .slide-content h2 { font-size: 32px; }
-  .beneficio-item { min-width: 160px; padding: 14px 16px; }
-  .rifas-banner { padding: 28px 24px; }
-  .brand-text h1 { font-size: 24px; }
-}
-@media (max-width: 400px) {
-  .products-grid-ten { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+:root{--morado:#4c0d8c;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--fondo:#0f0f0f;--card-bg:#1a1a1a}
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',system-ui,Arial}
+body{background:var(--fondo);color:#fff}
+img{max-width:100%;display:block}
+.container{width:90%;max-width:1200px;margin:auto}
+
+/* TOP BAR */
+.top-bar{background:#0a0a0a;color:#fff;font-size:12px;padding:6px 0;border-bottom:1px solid #222}
+.top-bar-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px}
+.top-bar-left{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.top-bar-left span{display:flex;align-items:center;gap:5px;color:#aaa}
+.top-bar-left i{color:var(--turquesa)}
+.social-icons{display:flex;gap:10px}
+.social-icons a{color:#ccc;font-size:15px;text-decoration:none;transition:0.2s}
+.social-icons a:hover{color:var(--turquesa)}
+
+/* MAIN HEADER */
+.main-header{padding:12px 0;background:#111;box-shadow:0 2px 8px rgba(0,0,0,.5);border-bottom:2px solid var(--morado)}
+.header-inner{display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap}
+.logo-section{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+.whale-icon{width:65px;border:3px solid var(--morado);border-radius:50%;padding:2px;background:#fff}
+.brand-text h1{font-size:20px;color:var(--morado);font-weight:700;line-height:1}
+.brand-text p{font-size:11px;color:#aaa}
+.header-search{flex:1;max-width:460px;display:flex}
+.header-search input{flex:1;padding:9px 14px;border:2px solid var(--morado);border-right:none;border-radius:6px 0 0 6px;background:#0f0f0f;color:#fff;font-size:13px;outline:none}
+.header-search input::placeholder{color:#555}
+.header-search button{padding:9px 16px;background:var(--morado);color:#fff;border:none;border-radius:0 6px 6px 0;cursor:pointer;font-size:14px;transition:0.2s}
+.header-search button:hover{background:var(--turquesa)}
+.header-right{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.wa-header{display:flex;align-items:center;gap:8px;background:#25d366;color:#fff;padding:8px 14px;border-radius:6px;text-decoration:none;font-weight:700;font-size:12px;transition:0.2s;white-space:nowrap}
+.wa-header:hover{background:#1da851}
+.wa-header i{font-size:20px}
+.cart-btn{position:relative;background:var(--morado);color:#fff;border:none;border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:17px;transition:0.2s}
+.cart-btn:hover{background:var(--turquesa)}
+#cart-badge{background:var(--turquesa);color:#fff;border-radius:50%;padding:2px 6px;font-size:10px;position:absolute;top:-2px;right:-2px;font-weight:700}
+
+/* NAV */
+.main-nav{position:sticky;top:0;z-index:999;background:#1a1a1a;box-shadow:0 2px 4px rgba(0,0,0,.4)}
+.main-nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;margin:0;padding:0}
+.main-nav a{color:#fff;padding:11px 13px;display:block;font-size:12px;text-decoration:none;font-weight:600;transition:0.2s;white-space:nowrap}
+.main-nav a.active{background:var(--morado)}
+.main-nav a:hover{color:var(--turquesa)}
+
+/* HERO SLIDER */
+.hero-slider{position:relative;width:100%;height:420px;overflow:hidden}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 0.8s ease;background-size:cover;background-position:center}
+.slide.active{opacity:1}
+.slide-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.55);display:flex;align-items:center;justify-content:center;text-align:center;padding:20px}
+.slide-text h2{font-size:36px;font-weight:700;text-transform:uppercase;text-shadow:2px 2px 10px rgba(0,0,0,.6);margin-bottom:10px}
+.slide-text p{font-size:15px;color:#ddd;margin-bottom:20px}
+.slide-text .btn-slide{background:var(--turquesa);color:#fff;padding:10px 26px;border-radius:6px;text-decoration:none;font-weight:700;font-size:14px;transition:0.2s;display:inline-block}
+.slide-text .btn-slide:hover{background:var(--turquesaOsc)}
+.slider-dots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:10}
+.dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.4);cursor:pointer;transition:0.3s;border:none}
+.dot.active{background:#fff}
+.slider-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.45);color:#fff;border:none;padding:11px 15px;cursor:pointer;font-size:18px;z-index:10;border-radius:4px;transition:0.2s}
+.slider-arrow:hover{background:var(--morado)}
+.slider-prev{left:12px}
+.slider-next{right:12px}
+
+/* CATEGORIES */
+.cats-section{padding:38px 0 18px}
+.section-title{text-align:center;margin-bottom:6px;font-size:22px;color:var(--turquesa);text-transform:uppercase;font-weight:700}
+.section-sub{text-align:center;color:#aaa;font-size:12px;margin-bottom:26px;text-transform:uppercase;letter-spacing:1px}
+.cats-grid{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.cat-card{background:var(--card-bg);border:2px solid var(--morado);border-radius:14px;padding:20px 26px;color:#fff;text-decoration:none;font-weight:700;font-size:14px;transition:all 0.3s;display:flex;flex-direction:column;align-items:center;gap:10px;min-width:120px;text-align:center}
+.cat-card:hover{background:var(--morado);transform:translateY(-4px);box-shadow:0 8px 20px rgba(76,13,140,0.5)}
+.cat-card i{font-size:26px;color:var(--turquesa);transition:0.3s}
+.cat-card:hover i{color:#fff}
+.cat-card span{font-size:12px}
+
+/* RIFAS BANNER */
+.rifas-banner{margin:24px 0 0;background:linear-gradient(135deg,#4c0d8c,#7b1fa2);border-radius:12px;padding:18px 26px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.rifas-banner .rifa-text h3{font-size:18px;font-weight:700;color:#fff;margin-bottom:4px}
+.rifas-banner .rifa-text p{font-size:12px;color:#ddd}
+.rifas-banner a{background:var(--turquesa);color:#fff;padding:9px 20px;border-radius:6px;text-decoration:none;font-weight:700;font-size:13px;white-space:nowrap;transition:0.2s}
+.rifas-banner a:hover{background:var(--turquesaOsc)}
+
+/* IA NOTICE */
+.ia-notice{text-align:center;background:#1a1a1a;border:1px dashed var(--morado);padding:9px;margin-bottom:22px;border-radius:8px;font-size:12px;color:#aaa}
+
+/* PRODUCTS SECTION */
+.products-section{padding:16px 0 50px}
+.products-grid{display:grid;gap:16px;grid-template-columns:repeat(5,1fr);max-width:1100px;margin:auto}
+
+/* PRODUCT CARD */
+.product-card{background:var(--card-bg);border-radius:12px;box-shadow:0 3px 12px rgba(0,0,0,0.4);display:flex;flex-direction:column;overflow:hidden;position:relative;border:1px solid #2a2a2a;transition:transform 0.2s,box-shadow 0.2s}
+.product-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,198,200,0.15)}
+.badge-nuevo{position:absolute;top:0;left:0;background:linear-gradient(135deg,rgba(210,45,45,0.8),rgba(255,120,120,0.55));color:#fff;padding:4px 11px;font-size:10px;font-weight:700;border-radius:0 0 10px 0;z-index:5;letter-spacing:.5px}
+.badge-oferta{position:absolute;top:0;left:0;background:linear-gradient(135deg,rgba(255,100,0,0.88),rgba(255,170,0,0.65));color:#fff;padding:4px 11px;font-size:10px;font-weight:700;border-radius:0 0 10px 0;z-index:5;letter-spacing:.5px}
+.eye-zoom{position:absolute;top:8px;right:8px;background:rgba(255,255,255,0.1);color:rgba(0,200,200,0.55);width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;z-index:10;cursor:pointer;transition:0.3s;border:1px solid rgba(0,200,200,0.18)}
+.eye-zoom:hover{background:rgba(0,200,200,0.22);color:var(--turquesa)}
+.product-image-container{position:relative;width:100%;height:220px;overflow:hidden;background:#fff;cursor:pointer}
+.product-image{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease,opacity 0.3s ease}
+.product-image.back{position:absolute;top:0;left:0;opacity:0}
+.product-card.flip .product-image.front{opacity:0}
+.product-card.flip .product-image.back{opacity:1}
+.product-info{padding:11px;display:flex;flex-direction:column;flex:1;gap:4px}
+.product-name{font-size:13px;font-weight:700;color:#fff;line-height:1.2}
+.product-provider{font-size:11px;color:var(--turquesa);text-decoration:none;font-weight:600;display:inline-block}
+.product-provider:hover{text-decoration:underline}
+.product-desc{font-size:11px;color:#777;line-height:1.3}
+.price-row{display:flex;align-items:center;gap:6px;margin:3px 0}
+.old-price{text-decoration:line-through;color:#555;font-size:12px}
+.current-price{font-weight:700;color:var(--turquesa);font-size:17px}
+.product-meta{font-size:11px;color:#999;line-height:1.8}
+.product-meta span{display:block}
+.envio-line{display:flex;align-items:center;gap:5px;font-size:11px;color:#666;margin-top:3px}
+.envio-line i{font-size:11px}
+.btn-buy{background:var(--turquesa);color:#fff;border:none;padding:9px;border-radius:6px;cursor:pointer;margin-top:auto;font-weight:700;font-size:12px;transition:0.2s;width:100%}
+.btn-buy:hover{background:var(--turquesaOsc)}
+
+/* GUARANTEES */
+.guarantees{background:#111;padding:28px 0;border-top:1px solid #1f1f1f}
+.flex-guarantees{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;text-align:center}
+.guarantee-item{flex:1 1 170px;padding:10px;display:flex;flex-direction:column;align-items:center;gap:7px}
+.guarantee-item i{font-size:26px;color:var(--turquesa)}
+.guarantee-item strong{font-size:13px}
+.guarantee-item p{color:#aaa;font-size:12px}
+
+/* FOOTER */
+footer{background:#111;color:#fff;font-size:13px;padding:32px 0 10px;border-top:3px solid var(--morado)}
+.footer-grid{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));align-items:start}
+.footer-logo p{color:#aaa;font-size:12px;margin-top:5px}
+.footer-god{margin-top:10px;font-weight:700;color:var(--turquesa);font-size:12px}
+.footer-social{display:flex;gap:12px;margin-top:10px}
+.footer-social a{color:#ccc;font-size:20px;transition:0.2s}
+.footer-social a:hover{color:var(--turquesa)}
+.footer-col h3{font-size:13px;color:var(--turquesa);text-transform:uppercase;border-bottom:2px solid var(--morado);padding-bottom:6px;margin-bottom:12px;font-weight:700}
+.footer-col p,.footer-col a{color:#aaa;font-size:12px;text-decoration:none;display:flex;align-items:center;gap:7px;margin-bottom:8px}
+.footer-col a:hover{color:var(--turquesa)}
+.footer-col i{color:var(--morado);width:15px;text-align:center}
+.footer-widget{background:#1a1a1a;border:1px solid #2a2a2a;border-radius:8px;padding:14px;font-size:12px;color:#aaa;margin-top:4px}
+.copyright-bar{text-align:center;padding:14px 0;background:rgba(76,13,140,0.2);margin-top:18px;font-size:11px;color:#aaa;font-weight:700}
+
+/* FLOATING WA */
+.float-wa{position:fixed;bottom:72px;right:16px;background:#25d366;color:#fff;border-radius:50%;width:54px;height:54px;display:flex;align-items:center;justify-content:center;font-size:26px;text-decoration:none;box-shadow:0 4px 14px rgba(37,211,102,0.5);z-index:9998;transition:0.2s;animation:pulseWa 2.2s infinite}
+.float-wa:hover{transform:scale(1.1)}
+@keyframes pulseWa{0%,100%{box-shadow:0 4px 14px rgba(37,211,102,0.4)}50%{box-shadow:0 4px 24px rgba(37,211,102,0.75)}}
+
+/* FIXED SEARCH BTN */
+#btn-lupa{position:fixed;top:72px;right:14px;background:var(--turquesa);color:#fff;border:none;border-radius:50%;width:46px;height:46px;font-size:17px;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.3);z-index:1000;display:flex;align-items:center;justify-content:center}
+
+/* BOTTOM BANNER */
+#banner-div{position:fixed;bottom:0;left:0;right:0;display:flex;z-index:997;box-shadow:0 -2px 5px rgba(0,0,0,.4)}
+#banner-envio{flex:1;background:#ff9800;color:#fff;text-align:center;padding:7px;font-size:12px;transition:0.4s}
+#banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:7px;font-size:12px;transition:0.4s}
+
+/* MODALS */
+#search-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:3000}
+#search-modal>div{background:#1a1a1a;width:90%;max-width:440px;margin:80px auto;padding:18px;border-radius:10px;position:relative;border:2px solid var(--morado)}
+#search-input{width:100%;padding:10px;border:1px solid var(--morado);border-radius:4px;background:#0f0f0f;color:#fff;font-size:13px;outline:none}
+#search-results{margin-top:10px;max-height:260px;overflow-y:auto}
+.search-item{padding:8px;border-bottom:1px solid #2a2a2a;cursor:pointer;display:flex;align-items:center;gap:10px}
+.search-item:hover{background:#222}
+.search-item img{width:36px;height:36px;object-fit:cover;border-radius:4px}
+#zoom-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:5000;align-items:center;justify-content:center;flex-direction:column}
+.zoom-content{position:relative;width:90%;max-width:460px;text-align:center}
+#img-zoom{width:100%;border-radius:10px;box-shadow:0 0 25px rgba(0,198,200,0.3);object-fit:contain;max-height:75vh}
+.zoom-btns{display:flex;justify-content:center;gap:14px;margin-top:18px}
+.btn-z{padding:11px 22px;border-radius:25px;border:none;cursor:pointer;font-weight:700;color:#fff;font-size:13px}
+#cart-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:4000}
+#cart-modal>div{background:#1a1a1a;width:95%;max-width:450px;margin:50px auto;padding:20px;border-radius:12px;position:relative;border:2px solid var(--morado)}
+#noti-add{position:fixed;bottom:52px;left:50%;transform:translateX(-50%);background:var(--turquesa);color:#fff;padding:8px 16px;border-radius:6px;font-size:12px;z-index:9999;display:none;white-space:nowrap}
+#promo-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:10001;align-items:center;justify-content:center}
+.promo-content{position:relative;width:90%;max-width:450px;background:#1a1a1a;border-radius:15px;overflow:hidden;text-align:center;animation:scaleUp 0.3s ease;border:2px solid var(--morado)}
+.close-btn{position:absolute;top:10px;right:10px;background:var(--morado);color:#fff;border:none;border-radius:50%;width:34px;height:34px;font-size:19px;font-weight:bold;cursor:pointer;z-index:10002}
+@keyframes scaleUp{from{transform:scale(0.8);opacity:0}to{transform:scale(1);opacity:1}}
+
+/* RESPONSIVE */
+@media(max-width:900px){.products-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){
+  .products-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-slider{height:260px}
+  .slide-text h2{font-size:22px}
+  .slide-text p{font-size:13px}
+  .header-search{display:none}
 }
 </style>
 </head>
@@ -1129,33 +203,23 @@ footer {
   <div class="promo-content">
     <button onclick="cerrarAnuncio()" class="close-btn">&times;</button>
     <a href="https://wa.me/593963923399" target="_blank">
-      <img src="pedidos-temu.webp" alt="Pedidos Temu" style="width:100%;height:auto;display:block;">
+      <img src="pedidos-temu.webp" alt="Pedidos Temu" style="width:100%;height:auto;display:block">
     </a>
-    <div style="padding:18px;">
-      <h2 style="color:var(--turquesa);font-size:20px;margin-bottom:5px;">🛍️ ¡PEDIDOS TEMU ACTIVOS!</h2>
-      <p style="font-size:13px;color:var(--texto-gris);">Traemos tus compras con tarifa fija a todo Ecuador.</p>
-      <div id="timer-bar" style="height:4px;background:var(--turquesa);width:100%;margin-top:12px;border-radius:2px;transition:width 10s linear;"></div>
+    <div style="padding:15px">
+      <h2 style="color:var(--turquesa);font-size:19px;margin-bottom:5px">🛍️ ¡PEDIDOS TEMU ACTIVOS!</h2>
+      <p style="font-size:12px;color:#aaa">Traemos tus compras con tarifa fija a todo Ecuador.</p>
+      <div id="timer-bar" style="height:4px;background:var(--turquesa);width:100%;margin-top:10px;transition:width 10s linear"></div>
     </div>
   </div>
 </div>
 
-<!-- FIXED FLOATING CART & LUPA -->
-<div id="cart-icon"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
-<button id="btn-lupa"><i class="fas fa-search"></i></button>
-
-<!-- WHATSAPP FLOTANTE PERMANENTE -->
-<a id="wa-float" href="https://wa.me/593963923399" target="_blank" title="Escríbenos por WhatsApp">
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/593963923399" target="_blank" class="float-wa" title="Escríbenos por WhatsApp">
   <i class="fab fa-whatsapp"></i>
 </a>
 
-<!-- SEARCH MODAL -->
-<div id="search-modal">
-  <div>
-    <button onclick="document.getElementById('search-modal').style.display='none'" style="position:absolute;top:10px;right:14px;background:none;border:none;font-size:22px;cursor:pointer;color:#fff;">&times;</button>
-    <input type="text" id="search-input" placeholder="🔍 Buscar productos...">
-    <div id="search-results"></div>
-  </div>
-</div>
+<!-- SEARCH FIXED BTN -->
+<button id="btn-lupa"><i class="fas fa-search"></i></button>
 
 <div id="noti-add"></div>
 
@@ -1165,45 +229,56 @@ footer {
   <div id="banner-sorteo">🎉 ¡Participa en nuestras rifas!</div>
 </div>
 
+<!-- SEARCH MODAL -->
+<div id="search-modal">
+  <div>
+    <button onclick="document.getElementById('search-modal').style.display='none'" style="position:absolute;top:8px;right:12px;background:none;border:none;font-size:22px;cursor:pointer;color:#fff">&times;</button>
+    <input type="text" id="search-input" placeholder="Buscar productos...">
+    <div id="search-results"></div>
+  </div>
+</div>
+
 <!-- TOP BAR -->
 <div class="top-bar">
   <div class="container top-bar-inner">
     <div class="top-bar-left">
-      <i class="fas fa-map-marker-alt"></i>
-      <span>La Y de Tabacundo, Ecuador</span>
+      <span><i class="fas fa-map-marker-alt"></i> La Y de Tabacundo, Ecuador</span>
+      <span><i class="fas fa-truck"></i> Envíos a todo Ecuador</span>
     </div>
-    <div class="top-bar-right">
-      <a href="https://wa.me/593963923399" target="_blank" class="top-wa-link">
-        <i class="fab fa-whatsapp"></i>
-        <span>+593 963 923 399</span>
-      </a>
-      <div class="social-icons">
-        <a href="https://www.tiktok.com/@bhalleffort" target="_blank"><i class="fab fa-tiktok"></i></a>
-        <a href="https://www.facebook.com/share/17jG7haojA/" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.instagram.com/bhalleffort" target="_blank"><i class="fab fa-instagram"></i></a>
-      </div>
+    <div class="social-icons">
+      <a href="https://www.tiktok.com/@bhalleffort" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.facebook.com/share/17jG7haojA/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/bhalleffort" target="_blank"><i class="fab fa-instagram"></i></a>
     </div>
   </div>
 </div>
 
-<!-- HEADER -->
+<!-- MAIN HEADER -->
 <header class="main-header">
   <div class="container header-inner">
-    <a href="index.html">
-      <div class="logo-section">
-        <img src="logo-ballena.webp" alt="BHALLEFFORT" class="whale-icon">
-        <div class="brand-text">
-          <h1>BHALLEFFORT</h1>
-          <p>Ropa · Calzado · Accesorios</p>
-          <span>📍 Tabacundo</span>
-        </div>
+    <a href="index.html" class="logo-section">
+      <img src="logo-ballena.webp" alt="BHALLEFFORT" class="whale-icon">
+      <div class="brand-text">
+        <h1>BHALLEFFORT</h1>
+        <p>Ropa, Calzado y más</p>
       </div>
     </a>
-    <div class="header-actions">
-      <a href="rifas.html" class="btn-rifas">🎉 Rifas</a>
-      <a href="https://wa.me/593963923399" target="_blank" class="btn-wa-header">
-        <i class="fab fa-whatsapp"></i> WhatsApp
+    <div class="header-search">
+      <input type="text" id="search-input-header" placeholder="Buscar productos..." oninput="buscarHeader(this.value)">
+      <button onclick="abrirBusqueda()"><i class="fas fa-search"></i></button>
+    </div>
+    <div class="header-right">
+      <a href="https://wa.me/593963923399" target="_blank" class="wa-header">
+        <i class="fab fa-whatsapp"></i>
+        <div>
+          <div style="font-size:10px;opacity:0.85;font-weight:400">VENTAS WHATSAPP</div>
+          <div>+593 963 923 399</div>
+        </div>
       </a>
+      <button class="cart-btn" onclick="mostrarModal()">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-badge">0</span>
+      </button>
     </div>
   </div>
 </header>
@@ -1211,532 +286,19 @@ footer {
 <!-- NAV -->
 <nav class="main-nav">
   <ul>
-    <li><a href="index.html" class="active">Inicio</a></li>
-    <li><a href="ropa.html">Ropa y Calzado</a></li>
-    <li><a href="programas.html">Programas y Streaming</a></li>
-    <li><a href="varios.html">Varios</a></li>
-    <li><a href="promociones.html">Promociones</a></li>
-    <li><a href="quienes-somos.html">Quiénes Somos</a></li>
-    <li><a href="contacto.html">Contacto</a></li>
+    <li><a href="index.html" class="active">INICIO</a></li>
+    <li><a href="ropa.html">ROPA Y CALZADO</a></li>
+    <li><a href="programas.html">PROGRAMAS Y STREAMING</a></li>
+    <li><a href="varios.html">VARIOS</a></li>
+    <li><a href="promociones.html">PROMOCIONES</a></li>
+    <li><a href="quienes-somos.html">QUIÉNES SOMOS</a></li>
+    <li><a href="contacto.html">CONTACTO</a></li>
   </ul>
 </nav>
 
 <!-- HERO SLIDER -->
-<section class="hero-slider" id="heroSlider">
-  <div class="slide active">
-    <div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=2070&auto=format&fit=crop');"></div>
-    <div class="slide-overlay"></div>
-    <div class="slide-content">
-      <div class="label">⭐ Nueva Temporada 2026</div>
-      <h2>Moda Urbana en Tabacundo</h2>
-      <p>Ropa, calzado y accesorios con envíos seguros a todo Ecuador</p>
-      <a href="ropa.html" class="slide-cta"><i class="fas fa-tshirt"></i> Ver Catálogo</a>
-    </div>
-  </div>
-  <div class="slide">
-    <div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2070&auto=format&fit=crop');"></div>
-    <div class="slide-overlay" style="background:linear-gradient(135deg,rgba(0,100,100,0.85) 0%,rgba(0,0,0,0.5) 60%,rgba(0,0,0,0.3) 100%);"></div>
-    <div class="slide-content">
-      <div class="label">👟 Calzado Premium</div>
-      <h2>Sneakers & Zapatos</h2>
-      <p>Los mejores modelos al mejor precio. ¡Calidad garantizada!</p>
-      <a href="ropa.html" class="slide-cta"><i class="fas fa-shoe-prints"></i> Ver Calzado</a>
-    </div>
-  </div>
-  <div class="slide">
-    <div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=2070&auto=format&fit=crop');"></div>
-    <div class="slide-overlay" style="background:linear-gradient(135deg,rgba(200,80,0,0.8) 0%,rgba(0,0,0,0.5) 60%,rgba(0,0,0,0.3) 100%);"></div>
-    <div class="slide-content">
-      <div class="label">🎉 Sorteos Activos</div>
-      <h2>¡Participa y Gana!</h2>
-      <p>Compras mayores a $30 participan automáticamente en nuestras rifas</p>
-      <a href="rifas.html" class="slide-cta"><i class="fas fa-ticket-alt"></i> Ver Rifas</a>
-    </div>
-  </div>
-  <div class="slide">
-    <div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=2070&auto=format&fit=crop');"></div>
-    <div class="slide-overlay" style="background:linear-gradient(135deg,rgba(76,13,140,0.85) 0%,rgba(0,0,0,0.5) 60%,rgba(0,0,0,0.3) 100%);"></div>
-    <div class="slide-content">
-      <div class="label">🚀 Envíos Nacionales</div>
-      <h2>A Todo Ecuador</h2>
-      <p>Envío gratis en compras mayores a $50. Rápido y seguro</p>
-      <a href="https://wa.me/593963923399" target="_blank" class="slide-cta"><i class="fab fa-whatsapp"></i> Pedir Ahora</a>
-    </div>
-  </div>
-
-  <button class="slider-arrow prev" id="sliderPrev"><i class="fas fa-chevron-left"></i></button>
-  <button class="slider-arrow next" id="sliderNext"><i class="fas fa-chevron-right"></i></button>
-
-  <div class="slider-dots" id="sliderDots">
-    <div class="dot active" onclick="goToSlide(0)"></div>
-    <div class="dot" onclick="goToSlide(1)"></div>
-    <div class="dot" onclick="goToSlide(2)"></div>
-    <div class="dot" onclick="goToSlide(3)"></div>
-  </div>
-</section>
-
-<!-- BENEFICIOS STRIP -->
-<div class="beneficios-strip">
-  <div class="beneficios-inner">
-    <div class="beneficio-item">
-      <div class="beneficio-icon"><i class="fas fa-truck"></i></div>
-      <div class="beneficio-text">
-        <strong>Envío Gratis</strong>
-        <span>Compras desde $50</span>
-      </div>
-    </div>
-    <div class="beneficio-item">
-      <div class="beneficio-icon"><i class="fab fa-whatsapp"></i></div>
-      <div class="beneficio-text">
-        <strong>Ventas WhatsApp</strong>
-        <span>+593 963 923 399</span>
-      </div>
-    </div>
-    <div class="beneficio-item">
-      <div class="beneficio-icon"><i class="fas fa-shield-alt"></i></div>
-      <div class="beneficio-text">
-        <strong>Compra Segura</strong>
-        <span>Katherine Pineda</span>
-      </div>
-    </div>
-    <div class="beneficio-item">
-      <div class="beneficio-icon"><i class="fas fa-ticket-alt"></i></div>
-      <div class="beneficio-text">
-        <strong>Rifas & Sorteos</strong>
-        <span>Desde $30 participas</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- NUESTRAS CATEGORÍAS -->
-<section class="cats-section">
-  <div class="container">
-    <div class="section-header">
-      <h2>Nuestras <span>Categorías</span></h2>
-      <p>Llévalo antes que se acaben</p>
-      <div class="section-line"></div>
-    </div>
-
-    <div class="cats-track" id="catsTrack">
-      <a href="ropa.html" class="cat-card">
-        <div class="cat-icon"><i class="fas fa-tshirt" style="color:var(--turquesa);"></i></div>
-        <span>Ropa</span>
-      </a>
-      <a href="ropa.html" class="cat-card">
-        <div class="cat-icon"><i class="fas fa-shoe-prints" style="color:var(--turquesa);"></i></div>
-        <span>Calzado</span>
-      </a>
-      <a href="programas.html" class="cat-card">
-        <div class="cat-icon"><i class="fas fa-laptop" style="color:var(--turquesa);"></i></div>
-        <span>Programas</span>
-      </a>
-      <a href="programas.html" class="cat-card">
-        <div class="cat-icon"><i class="fas fa-play-circle" style="color:var(--turquesa);"></i></div>
-        <span>Streaming</span>
-      </a>
-      <a href="varios.html" class="cat-card">
-        <div class="cat-icon"><i class="fas fa-box-open" style="color:var(--turquesa);"></i></div>
-        <span>Varios</span>
-      </a>
-      <a href="rifas.html" class="cat-card">
-        <div class="cat-icon" style="position:relative;">
-          <i class="fas fa-ticket-alt" style="color:#ff9200;"></i>
-          <span class="cat-badge">¡HOT!</span>
-        </div>
-        <span>Rifas</span>
-      </a>
-      <a href="promociones.html" class="cat-card">
-        <div class="cat-icon"><i class="fas fa-percent" style="color:#ff4444;"></i></div>
-        <span>Ofertas</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- PRODUCTS -->
-<section class="featured-products">
-  <div class="container">
-    <div class="section-header">
-      <h2>Catálogo <span>General</span></h2>
-      <p>Todos nuestros productos disponibles</p>
-      <div class="section-line"></div>
-    </div>
-
-    <div class="ia-notice">
-      📸 <strong>Aviso:</strong> La IA solo mejora el brillo — el producto final no varía.
-    </div>
-
-    <div class="products-grid-ten" id="ropa-grid"></div>
-  </div>
-</section>
-
-<!-- RIFAS BANNER -->
-<div class="container">
-  <div class="rifas-banner">
-    <div class="rifas-banner-text">
-      <h3>🎉 ¡No te pierdas nuestras rifas!</h3>
-      <p>Compras mayores a $30 participan automáticamente. ¡Gana increíbles premios!</p>
-    </div>
-    <a href="rifas.html" class="rifas-banner-btn">Ver Rifas →</a>
-  </div>
-</div>
-
-<!-- GARANTIAS -->
-<section class="guarantees">
-  <div class="container">
-    <div class="section-header" style="margin-bottom:30px;">
-      <h2>¿Por qué <span>elegirnos?</span></h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="guarantees-grid">
-      <div class="guarantee-item">
-        <i class="fas fa-truck"></i>
-        <strong>Envíos Seguros</strong>
-        <p>A todo Ecuador. Gratis desde $50.</p>
-      </div>
-      <div class="guarantee-item">
-        <i class="fas fa-star"></i>
-        <strong>Calidad Garantizada</strong>
-        <p>Productos nuevos y seleccionados.</p>
-      </div>
-      <div class="guarantee-item">
-        <i class="fab fa-whatsapp"></i>
-        <strong>Atención Directa</strong>
-        <p>Respuesta rápida por WhatsApp.</p>
-      </div>
-      <div class="guarantee-item">
-        <i class="fas fa-ticket-alt"></i>
-        <strong>Rifas y Sorteos</strong>
-        <p>Participa con cada compra +$30.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="container footer-grid">
-    <div class="footer-brand">
-      <img src="logo-ballena.webp" alt="BHALLEFFORT" width="70">
-      <div class="tagline">Diseñado por <strong style="color:#fff;">Jhomac²</strong></div>
-      <div class="location"><i class="fas fa-map-marker-alt" style="color:var(--turquesa);margin-right:6px;"></i>La Y de Tabacundo, Ecuador</div>
-      <div class="god-message">"Dios te da más de lo que pides."</div>
-    </div>
-    <div class="footer-col footer-contact">
-      <h3>Contáctanos</h3>
-      <div class="footer-contact-item">
-        <i class="fas fa-user-shield"></i>
-        <span><strong style="color:#fff;">Katherine Pineda</strong></span>
-      </div>
-      <div class="footer-contact-item">
-        <i class="fab fa-whatsapp"></i>
-        <a href="https://wa.me/593963923399" target="_blank">+593 963 923 399</a>
-      </div>
-      <div class="footer-contact-item">
-        <i class="fas fa-envelope"></i>
-        <span>agromhasvida5@gmail.com</span>
-      </div>
-      <div class="footer-contact-item">
-        <i class="fas fa-map-marker-alt"></i>
-        <span>Tabacundo, Pichincha, Ecuador</span>
-      </div>
-    </div>
-    <div class="footer-col">
-      <h3>Información</h3>
-      <div class="footer-links">
-        <a href="cookies.html">Política de Cookies</a>
-        <a href="politicas.html">Privacidad y Envíos</a>
-        <a href="quienes-somos.html">Quiénes Somos</a>
-        <a href="contacto.html">Contacto</a>
-      </div>
-    </div>
-    <div class="footer-col">
-      <h3>Síguenos</h3>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;">
-        <a href="https://www.tiktok.com/@bhalleffort" target="_blank" style="display:flex;align-items:center;gap:6px;color:var(--texto-gris);font-size:13px;transition:0.2s;" onmouseover="this.style.color='var(--turquesa)'" onmouseout="this.style.color='var(--texto-gris)'">
-          <i class="fab fa-tiktok" style="font-size:20px;"></i> TikTok
-        </a>
-        <a href="https://www.facebook.com/share/17jG7haojA/" target="_blank" style="display:flex;align-items:center;gap:6px;color:var(--texto-gris);font-size:13px;transition:0.2s;" onmouseover="this.style.color='var(--turquesa)'" onmouseout="this.style.color='var(--texto-gris)'">
-          <i class="fab fa-facebook" style="font-size:20px;"></i> Facebook
-        </a>
-        <a href="https://www.instagram.com/bhalleffort" target="_blank" style="display:flex;align-items:center;gap:6px;color:var(--texto-gris);font-size:13px;transition:0.2s;" onmouseover="this.style.color='var(--turquesa)'" onmouseout="this.style.color='var(--turquesa)'">
-          <i class="fab fa-instagram" style="font-size:20px;"></i> Instagram
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="copyright-bar">&copy; 2026 BHALLEFFORT — Todos los derechos reservados</div>
-</footer>
-
-<!-- ZOOM MODAL -->
-<div id="zoom-modal">
-  <button onclick="cerrarZoom()" style="position:absolute;top:18px;right:18px;background:var(--morado);color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:22px;cursor:pointer;font-weight:bold;z-index:5001;">&times;</button>
-  <div class="zoom-content">
-    <img id="img-zoom" src="">
-    <div class="zoom-btns">
-      <button onclick="cambiarFotoZoom('frontal')" class="btn-z" style="background:var(--turquesa);color:#000;">👁 Ver Frente</button>
-      <button onclick="cambiarFotoZoom('trasera')" class="btn-z" style="background:var(--morado);">↩ Ver Espalda</button>
-    </div>
-  </div>
-</div>
-
-<!-- CART MODAL -->
-<div id="cart-modal">
-  <div>
-    <header style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #2a2a3e;padding-bottom:12px;margin-bottom:16px;">
-      <h3 style="color:#fff;font-size:16px;"><i class="fas fa-shopping-cart" style="color:var(--turquesa);margin-right:8px;"></i>Tu Pedido</h3>
-      <button onclick="document.getElementById('cart-modal').style.display='none'" style="background:none;border:none;font-size:24px;cursor:pointer;color:#fff;">&times;</button>
-    </header>
-    <div id="cart-items" style="max-height:300px;overflow-y:auto;"></div>
-    <div style="background:rgba(76,13,140,0.15);border:1px solid var(--morado);padding:10px;text-align:center;border-radius:10px;font-size:13px;margin:14px 0;color:var(--texto-gris);">
-      Pago oficial a nombre de: <strong style="color:#fff;">Katherine Pineda</strong>
-    </div>
-    <footer style="margin-top:16px;border-top:1px solid #2a2a3e;padding-top:14px;">
-      <div style="display:flex;justify-content:space-between;font-size:14px;margin-bottom:5px;color:var(--texto-gris);">
-        <span>Subtotal:</span><span id="cart-subtotal">$0.00</span>
-      </div>
-      <div style="display:flex;justify-content:space-between;font-size:14px;margin-bottom:10px;color:var(--texto-gris);">
-        <span>Envío:</span><span id="cart-envio">$3.50</span>
-      </div>
-      <div style="display:flex;justify-content:space-between;font-weight:800;font-size:20px;color:var(--turquesa);">
-        <span>Total:</span><span id="cart-total">$0.00</span>
-      </div>
-      <div id="rifa-status" style="text-align:center;padding:8px;background:#0d3a0d;color:#4ade80;border-radius:8px;margin:10px 0;font-size:12px;display:none;">
-        ✅ ¡Este pedido participa en la RIFA!
-      </div>
-      <button onclick="finalizarCompraWA()" style="background:var(--verde-wa);color:#fff;border:none;padding:14px;border-radius:10px;cursor:pointer;width:100%;font-weight:800;font-size:15px;margin-top:12px;box-shadow:0 4px 15px rgba(37,211,102,0.4);">
-        🐋 FINALIZAR POR WHATSAPP
-      </button>
-    </footer>
-  </div>
-</div>
-
-<script>
-/* ===== HERO SLIDER ===== */
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slide');
-const dots = document.querySelectorAll('.dot');
-let sliderInterval;
-
-function goToSlide(n) {
-  slides[currentSlide].classList.remove('active');
-  dots[currentSlide].classList.remove('active');
-  currentSlide = (n + slides.length) % slides.length;
-  slides[currentSlide].classList.add('active');
-  dots[currentSlide].classList.add('active');
-}
-
-function nextSlide() { goToSlide(currentSlide + 1); }
-function prevSlide() { goToSlide(currentSlide - 1); }
-
-document.getElementById('sliderNext').onclick = () => { clearInterval(sliderInterval); nextSlide(); startSlider(); };
-document.getElementById('sliderPrev').onclick = () => { clearInterval(sliderInterval); prevSlide(); startSlider(); };
-
-function startSlider() {
-  sliderInterval = setInterval(nextSlide, 5000);
-}
-startSlider();
-
-/* ===== APP LOGIC (unchanged) ===== */
-let productosTotales = [];
-let productosFiltrados = [];
-let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
-let imgActualFrontal = "";
-let imgActualTrasera = "";
-
-function iniciarAnuncio() {
-  const modal = document.getElementById('promo-modal');
-  const timerBar = document.getElementById('timer-bar');
-  setTimeout(() => {
-    modal.style.display = 'flex';
-    setTimeout(() => { timerBar.style.width = '0%'; }, 100);
-    setTimeout(() => { cerrarAnuncio(); }, 10000);
-  }, 800);
-}
-
-function cerrarAnuncio() {
-  document.getElementById('promo-modal').style.display = 'none';
-}
-
-async function cargarDatos() {
-  try {
-    const res = await fetch('productos.json');
-    productosTotales = await res.json();
-    filtrar('todos', document.getElementById('btn-ver-todo'));
-    actualizarBadge();
-    iniciarAnuncio();
-  } catch (e) {
-    console.error(e);
-  }
-}
-
-function dibujarRopa(lista) {
-  const grid = document.getElementById('ropa-grid');
-  grid.innerHTML = lista.map(p => `
-    <div class="product-card" onclick="this.classList.toggle('flip')">
-      ${p.oferta === 'SI' ? '<div class="badge-promo">OFERTA</div>' : '<div class="badge-nuevo">Nuevo</div>'}
-      <div class="product-image-container">
-        <div class="lupa-zoom-icon" onclick="event.stopPropagation(); abrirZoom('${p.imgFrontal}', '${p.imgTrasera || p.imgFrontal}')">
-          <i class="fas fa-eye"></i>
-        </div>
-        <img src="${p.imgFrontal}" class="product-image front" alt="${p.nombre}">
-        <img src="${p.imgTrasera || p.imgFrontal}" class="product-image back" alt="${p.nombre} espalda">
-      </div>
-      <div class="product-info">
-        <span class="product-category">${p.estado}</span>
-        <h4 class="product-name">${p.nombre}</h4>
-        <p class="product-desc">${p.descripcion || 'Sin descripción.'}</p>
-        <div class="price-row">
-          ${p.precio_antes ? `<span class="old-price">$${p.precio_antes.toFixed(2)}</span>` : ''}
-          <span class="current-price">$${p.precio.toFixed(2)}</span>
-        </div>
-        <div class="envio-tag"><i class="fas fa-truck"></i> Envío nacional</div>
-        <button class="btn-buy" onclick="event.stopPropagation(); addCart('${p.id}')">Añadir al carrito</button>
-      </div>
-    </div>
-  `).join('');
-}
-
-function filtrar(tipo, btn) {
-  document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
-  if (btn) btn.classList.add('active');
-  const catsValidas = ["ROPA", "CALZADO", "ZAPATOS"];
-  if (tipo === 'todos') {
-    productosFiltrados = productosTotales;
-  } else if (tipo === 'CALZADO') {
-    productosFiltrados = productosTotales.filter(p => p.cat === "CALZADO" || p.cat === "ZAPATOS");
-  } else {
-    productosFiltrados = productosTotales.filter(p => catsValidas.includes(p.cat) && p.subcat === tipo);
-  }
-  dibujarRopa(productosFiltrados);
-}
-
-function addCart(id) {
-  const p = productosTotales.find(x => x.id === id);
-  if (p) {
-    carrito.push({ id: p.id, nombre: p.nombre, precio: p.precio, cat: p.cat });
-    localStorage.setItem('bh-cart', JSON.stringify(carrito));
-    actualizarBadge();
-    mostrarNoti(`✅ ${p.nombre} añadido`);
-  }
-}
-
-function actualizarBadge() {
-  const badge = document.getElementById('cart-badge');
-  if (badge) badge.textContent = carrito.length;
-  const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
-  const bEnvio = document.getElementById('banner-envio');
-  const bSorteo = document.getElementById('banner-sorteo');
-  if (bEnvio) {
-    bEnvio.style.background = subTotal >= 50 ? '#25D366' : '#ff9800';
-    bEnvio.textContent = subTotal >= 50 ? "🚚 ¡Envío GRATIS activado!" : "🚚 Envío gratis desde $50";
-  }
-  if (bSorteo) {
-    bSorteo.style.background = subTotal >= 30 ? '#25D366' : 'var(--morado)';
-    bSorteo.textContent = subTotal >= 30 ? "🎟️ ¡Ya participas en la RIFA!" : "🎉 ¡Participa en nuestras rifas!";
-  }
-}
-
-function mostrarModal() {
-  if (carrito.length === 0) { mostrarNoti("El carrito está vacío"); return; }
-  const items = document.getElementById('cart-items');
-  const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
-  const costoEnvio = subTotal >= 50 ? 0 : 3.50;
-  items.innerHTML = carrito.map((p, i) => `
-    <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #2a2a3e;">
-      <div>
-        <div style="font-weight:700;font-size:14px;color:#fff;">${p.nombre}</div>
-        <div style="color:var(--turquesa);font-weight:700;">$${p.precio.toFixed(2)}</div>
-      </div>
-      <button onclick="removeItem(${i})" style="color:#ff4444;border:none;background:none;cursor:pointer;font-size:16px;"><i class="fas fa-trash-alt"></i></button>
-    </div>
-  `).join('');
-  document.getElementById('cart-subtotal').textContent = '$' + subTotal.toFixed(2);
-  document.getElementById('cart-envio').textContent = '$' + costoEnvio.toFixed(2);
-  document.getElementById('cart-total').textContent = '$' + (subTotal + costoEnvio).toFixed(2);
-  document.getElementById('rifa-status').style.display = subTotal >= 30 ? 'block' : 'none';
-  document.getElementById('cart-modal').style.display = 'block';
-}
-
-function removeItem(i) {
-  carrito.splice(i, 1);
-  localStorage.setItem('bh-cart', JSON.stringify(carrito));
-  actualizarBadge();
-  carrito.length === 0 ? document.getElementById('cart-modal').style.display = 'none' : mostrarModal();
-}
-
-function finalizarCompraWA() {
-  const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
-  const envio = subTotal >= 50 ? 0 : 3.50;
-  let msg = `🐋 *¡Hola BHALLEFFORT!*\n🛍️ *NUEVO PEDIDO:*\n\n`;
-  carrito.forEach((p, idx) => { msg += `${idx + 1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; });
-  msg += `\n💵 *Subtotal:* $${subTotal.toFixed(2)}`;
-  msg += `\n🚚 *Envío:* $${envio.toFixed(2)}`;
-  msg += `\n💰 *TOTAL A PAGAR: $${(subTotal + envio).toFixed(2)}*\n`;
-  if (subTotal >= 30) msg += `\n🎟️ *ESTE PEDIDO PARTICIPA EN LA RIFA POR COMPRA > $30*`;
-  msg += `\n\n⚠️ Pago a nombre de *Katherine Pineda*.`;
-  window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`, '_blank');
-}
-
-document.getElementById('search-input').oninput = (e) => {
-  const val = e.target.value.toLowerCase();
-  const resDiv = document.getElementById('search-results');
-  if (!val) { resDiv.innerHTML = ''; return; }
-  const f = productosTotales.filter(p => p.nombre.toLowerCase().includes(val)).slice(0, 6);
-  resDiv.innerHTML = f.map(p => `
-    <div class="search-item" onclick="irAProducto('${p.id}','${p.cat}')">
-      <img src="${p.imgFrontal}" alt="${p.nombre}">
-      <div>
-        <div style="font-size:13px;font-weight:700;color:#fff;">${p.nombre}</div>
-        <div style="font-size:10px;color:var(--turquesa);">Categoría: ${p.cat}</div>
-      </div>
-    </div>
-  `).join('');
-};
-
-function irAProducto(id, cat) {
-  document.getElementById('search-modal').style.display = 'none';
-  const ropaCats = ["ROPA", "CALZADO", "ZAPATOS"];
-  if (ropaCats.includes(cat)) {
-    const p = productosTotales.filter(x => x.id === id);
-    dibujarRopa(p);
-    window.scrollTo({ top: 500, behavior: 'smooth' });
-  } else {
-    let pagina = "index.html";
-    if (cat === "PROGRAMAS" || cat === "STREAMING") pagina = "programas.html";
-    if (cat === "VARIOS") pagina = "varios.html";
-    if (cat === "PROMOCIONES") pagina = "promociones.html";
-    window.location.href = pagina + "?buscar=" + id;
-  }
-}
-
-function abrirZoom(imgF, imgT) {
-  imgActualFrontal = imgF;
-  imgActualTrasera = imgT;
-  document.getElementById('img-zoom').src = imgF;
-  document.getElementById('zoom-modal').style.display = 'flex';
-}
-
-function cerrarZoom() {
-  document.getElementById('zoom-modal').style.display = 'none';
-}
-
-function cambiarFotoZoom(tipo) {
-  document.getElementById('img-zoom').src = tipo === 'frontal' ? imgActualFrontal : imgActualTrasera;
-}
-
-function mostrarNoti(t) {
-  const n = document.getElementById('noti-add');
-  n.textContent = t;
-  n.style.display = 'block';
-  setTimeout(() => n.style.display = 'none', 2000);
-}
-
-document.getElementById('cart-icon').onclick = mostrarModal;
-document.getElementById('btn-lupa').onclick = () => document.getElementById('search-modal').style.display = 'block';
-
-cargarDatos();
-</script>
-</body>
-</html>
+<div class="hero-slider">
+  <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=2070&auto=format&fit=crop')">
+    <div class="slide-overlay">
+      <div class="slide-text">
+        <h2>
