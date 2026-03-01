@@ -288,12 +288,7 @@ to{transform:scale(1);opacity:1}}
 .wa-overlay{display:none;position:fixed;inset:0;z-index:8998}
 .wa-overlay.open{display:block}
 
-/* FILTRO RÁPIDO */
-.filtro-bar{background:rgba(15,15,26,0.95);padding:10px 0;border-bottom:1px solid var(--card-border);position:sticky;top:46px;z-index:990}
-.filtro-inner{display:flex;gap:8px;overflow-x:auto;padding:0 8px;scrollbar-width:none}
-.filtro-inner::-webkit-scrollbar{display:none}
-.filtro-btn{flex-shrink:0;background:transparent;border:1px solid var(--card-border);color:var(--texto-gris);padding:7px 16px;border-radius:20px;font-size:12px;font-weight:700;cursor:pointer;transition:.2s;white-space:nowrap}
-.filtro-btn:hover,.filtro-btn.active{background:var(--turquesa);color:#000;border-color:var(--turquesa)}
+
 </style>
 </head>
 <body>
@@ -556,16 +551,7 @@ to{transform:scale(1);opacity:1}}
 </section>
 
 
-<!-- FILTRO RÁPIDO -->
-<div class="filtro-bar">
-  <div class="container filtro-inner">
-    <button class="filtro-btn active" onclick="scrollCat('top')">🏠 Todos</button>
-    <button class="filtro-btn" onclick="scrollCat('ropa')">👕 Ropa y Calzado</button>
-    <button class="filtro-btn" onclick="scrollCat('programas')">💻 Programas y Streaming</button>
-    <button class="filtro-btn" onclick="scrollCat('varios')">📦 Varios</button>
-    <button class="filtro-btn" onclick="scrollCat('promociones')">🔥 Promociones</button>
-    <button class="filtro-btn" onclick="scrollCat('rifas')">🎟️ Rifas</button>
-  </div>
+
 </div>
 <div id="catalogo-sections"></div>
 
@@ -756,7 +742,7 @@ function buildCard(p, proveedor, provLink) {
         <img src="${p.imgTrasera||p.imgFrontal}" class="product-image back" alt="${p.nombre}">
       </div>
       <div class="product-info">
-        <a href="${provLink}" target="_blank" class="product-proveedor" onclick="event.stopPropagation()">Proveedor: ${proveedor}</a>
+        <a href="https://wa.me/593963923399" target="_blank" class="product-proveedor" onclick="event.stopPropagation()">&#128205; Math'Shop</a>
         <h4 class="product-name">${p.nombre}</h4>
         <p class="product-desc">${p.descripcion||'Sin descripción.'}</p>
         <div class="price-row">
