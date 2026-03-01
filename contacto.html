@@ -648,7 +648,7 @@ to{transform:scale(1);opacity:1}}
       <div class="section-line"></div>
     </div>
     <div class="mapa-box">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.123456789!2d-78.23000!3d0.05000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2a3b2b2b2b2b2b%3A0x123456789!2sLa%20Y%20de%20Tabacundo%2C%20Pedro%20Moncayo%2C%20Pichincha%2C%20Ecuador!5e0!3m2!1ses!2sec!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe src="https://maps.google.com/maps?q=0.04944,-78.21694&t=&z=17&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
 </section>
@@ -699,7 +699,48 @@ to{transform:scale(1);opacity:1}}
       <p class="sub">Todo lo que necesitas saber</p>
       <div class="section-line"></div>
     </div>
-    <div class="faq-list" id="faq-list"></div>
+    <div class="faq-list">
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span>¿Cómo hago un pedido?</span><i class="fas fa-plus"></i></div>
+        <div class="faq-answer"><p>Explora el catálogo, agrega productos al carrito y pulsa "Finalizar pedido". Se abrirá WhatsApp con tu pedido listo para enviar a nuestro equipo.</p></div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span>¿Cuánto tarda el envío a mi ciudad?</span><i class="fas fa-plus"></i></div>
+        <div class="faq-answer"><p>Envíos nacionales: 2–5 días hábiles. En Tabacundo y alrededores puede ser el mismo día o al siguiente. Siempre te confirmamos la fecha por WhatsApp.</p></div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span>¿El envío es gratis?</span><i class="fas fa-plus"></i></div>
+        <div class="faq-answer"><p>Sí, el envío es GRATIS en compras mayores a $50. En compras menores se aplica una tarifa de $3.50.</p></div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span>¿Los productos son nuevos?</span><i class="fas fa-plus"></i></div>
+        <div class="faq-answer"><p>La mayoría son nuevos. Dependiendo del proveedor, algunos productos pueden ser de segunda mano — pero <strong>garantizamos que estén en excelente estado</strong>. Siempre se indica claramente en la descripción del producto.</p></div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span>¿Cómo funciona la rifa?</span><i class="fas fa-plus"></i></div>
+        <div class="faq-answer"><p>Cada compra mayor a $30 te da entrada automática. Recibes tu número por WhatsApp y el sorteo se realiza en vivo por redes sociales. <a href="rifas.html">Ver más sobre rifas →</a></p></div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span>¿Cuáles son los métodos de pago?</span><i class="fas fa-plus"></i></div>
+        <div class="faq-answer"><p>Aceptamos transferencia bancaria, depósito y PayPhone. El pago se realiza a nombre de <strong>Katherine Pineda</strong>. Te enviamos los datos al confirmar el pedido.</p></div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span>¿Puedo hacer cambios o devoluciones?</span><i class="fas fa-plus"></i></div>
+        <div class="faq-answer"><p>Aceptamos cambios dentro de las 48 horas de recibido el producto, siempre que esté en las mismas condiciones. Contáctanos por WhatsApp con foto del producto.</p></div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span>¿Los programas y cuentas premium son legales?</span><i class="fas fa-plus"></i></div>
+        <div class="faq-answer"><p>Sí. Son licencias y cuentas premium oficiales. Incluyen soporte básico para activación. Si tienes algún problema con tu cuenta, te ayudamos de inmediato.</p></div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span>¿Puedo solicitar tallas o colores específicos?</span><i class="fas fa-plus"></i></div>
+        <div class="faq-answer"><p>Sí, especialmente en ropa y conjuntos. Escríbenos por WhatsApp con el producto que te interesa, la talla o color deseado, y verificamos disponibilidad.</p></div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span>¿Cómo puedo vender mis productos en Tio Yapero?</span><i class="fas fa-plus"></i></div>
+        <div class="faq-answer"><p>Escríbenos por WhatsApp con el asunto "Quiero ser proveedor". Revisamos tu catálogo y si cumple los estándares de calidad, te sumamos a la red de proveedores certificados. <strong>Sin comisiones ni regalías.</strong></p></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -990,32 +1031,6 @@ function renderProveedores() {
 }
 
 /* ═══ FAQ ═══ */
-const FAQS = [
-  { q: "¿Cómo hago un pedido?", a: "Explora el catálogo, agrega productos al carrito y pulsa 'Finalizar pedido'. Se abrirá WhatsApp con tu pedido listo para enviar a nuestro equipo." },
-  { q: "¿Cuánto tarda el envío a mi ciudad?", a: "Envíos nacionales: 2–5 días hábiles. En Tabacundo y alrededores puede ser el mismo día o al siguiente. Siempre te confirmamos la fecha por WhatsApp." },
-  { q: "¿El envío es gratis?", a: "Sí, el envío es GRATIS en compras mayores a $50. En compras menores se aplica una tarifa de $3.50." },
-  { q: "¿Los productos son nuevos?", a: "Sí, todos los productos son nuevos, revisados y certificados por nuestros proveedores antes del envío. En la sección Liquidación se indica si son usados-nuevos con garantía." },
-  { q: "¿Cómo funciona la rifa?", a: "Cada compra mayor a $30 te da entrada automática. Recibes tu número por WhatsApp y el sorteo se realiza en vivo por redes sociales. <a href='rifas.html'>Ver más sobre rifas →</a>" },
-  { q: "¿Cuáles son los métodos de pago?", a: "Aceptamos transferencia bancaria, depósito y PayPhone. El pago se realiza a nombre de Katherine Pineda. Te enviamos los datos al confirmar el pedido." },
-  { q: "¿Puedo hacer cambios o devoluciones?", a: "Aceptamos cambios dentro de las 48 horas de recibido el producto, siempre que esté en las mismas condiciones sin uso. Contáctanos por WhatsApp con foto del producto." },
-  { q: "¿Los programas y cuentas premium son legales?", a: "Sí. Son licencias y cuentas premium oficiales. Incluyen soporte básico para activación. Si tienes un problema con tu cuenta, te ayudamos de inmediato." },
-  { q: "¿Puedo solicitar tallas o colores específicos?", a: "Sí, especialmente en ropa y conjuntos. Escríbenos por WhatsApp con el producto que te interesa y la talla o color deseado, y verificamos disponibilidad." },
-  { q: "¿Cómo puedo vender mis productos en Tio Yapero?", a: "Escríbenos por WhatsApp con el asunto 'Quiero ser proveedor'. Revisamos tu catálogo y si cumple los estándares de calidad, te sumamos a la red de proveedores certificados." }
-];
-
-function renderFAQ() {
-  const list = document.getElementById('faq-list');
-  if (!list) return;
-  list.innerHTML = FAQS.map((f, i) => `
-    <div class="faq-item" id="faq-${i}">
-      <div class="faq-question" onclick="toggleFAQ(${i})">
-        <span>${f.q}</span>
-        <i class="fas fa-plus"></i>
-      </div>
-      <div class="faq-answer"><p>${f.a}</p></div>
-    </div>
-  `).join('');
-}
 
 function toggleFAQ(i) {
   const item = document.getElementById('faq-' + i);
@@ -1048,7 +1063,6 @@ ${mensaje}`;
 
 document.addEventListener('DOMContentLoaded', () => {
   renderProveedores();
-  renderFAQ();
   actualizarBadge();
 });
 
