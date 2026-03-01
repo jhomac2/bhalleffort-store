@@ -4,19 +4,26 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TIO YAPERO | Ropa y Calzado</title>
-<meta name="description" content="Ropa urbana, calzado, mochilas y accesorios en Tabacundo. Envíos seguros a todo Ecuador.">
-<meta name="keywords" content="ropa ecuador, zapatos tabacundo, sneakers, tioyapero, moda urbana">
+<meta name="description" content="Ropa urbana, calzado, sneakers y mochilas en Tabacundo. Envíos seguros a todo Ecuador.">
+<meta name="keywords" content="ropa ecuador, zapatos tabacundo, sneakers, tioyapero, tio yapero, moda urbana, marketplace">
 <meta name="author" content="Jhomac²">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.tioyapero.com/ropa.html">
-<meta property="og:title" content="👕 TIO YAPERO - Ropa y Calzado">
-<meta property="og:description" content="Moda urbana, calzado y accesorios. Envíos 100% seguros.">
+<meta property="og:url" content="https://www.tioyapero.com/">
+<meta property="og:title" content="👟 TIO YAPERO - Marketplace Ecuador">
+<meta property="og:description" content="Tu marketplace de confianza en Ecuador. Envíos 100% seguros.">
 <meta property="og:image" content="https://www.tioyapero.com/logo-ballena.webp">
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4c0d8c">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Tio Yapero">
+  <link rel="apple-touch-icon" href="icon-192.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-
 :root {
   --morado:#4c0d8c; --morado-claro:#6b1fc1; --turquesa:#00c8c8;
   --turquesaOsc:#009e9e; --naranja:#ff6600; --verde-wa:#25d366;
@@ -143,7 +150,6 @@ a{text-decoration:none}
 .product-card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,200,200,.18)}
 
 /* Only show oferta badge, no NUEVO */
-.badge-nuevo{position:absolute;top:10px;left:10px;background:var(--turquesa);color:#000;padding:4px 8px;border-radius:4px;font-size:11px;font-weight:700;z-index:5}
 .badge-promo{position:absolute;top:0;left:0;background:linear-gradient(135deg,#ff6b6b,#ff4444);color:#fff;font-size:11px;font-weight:800;padding:5px 12px;border-radius:0 0 9px 0;z-index:5}
 
 .lupa-zoom-icon{position:absolute;top:8px;right:8px;background:rgba(255,255,255,.95);border:2px solid rgba(0,200,200,.4);color:var(--turquesa);width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;z-index:10;box-shadow:0 2px 8px rgba(0,0,0,.1);transition:.2s;cursor:pointer}
@@ -296,98 +302,39 @@ to{transform:scale(1);opacity:1}}
 .filtro-inner::-webkit-scrollbar{display:none}
 .filtro-btn{flex-shrink:0;background:transparent;border:1px solid var(--card-border);color:var(--texto-gris);padding:7px 16px;border-radius:20px;font-size:12px;font-weight:700;cursor:pointer;transition:.2s;white-space:nowrap}
 .filtro-btn:hover,.filtro-btn.active{background:var(--turquesa);color:#000;border-color:var(--turquesa)}
-
-
-/* GRID ROPA — sin carrusel, todo visible */
-.ropa-section{padding:40px 0 60px}
-.ropa-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:1280px;margin:0 auto}
-@media(max-width:1000px){.ropa-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:640px){.ropa-grid{grid-template-columns:repeat(2,1fr);gap:10px}}
-
-/* Product card grid override */
-.ropa-grid .product-card{flex:unset;width:100%}
-.ropa-grid .product-image-container{height:220px}
-
-/* FILTROS */
-.filtros-ropa{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;padding:24px 0 8px}
-.filtros-ropa button{background:var(--card-bg);border:2px solid var(--card-border);color:var(--texto-claro);padding:9px 20px;border-radius:25px;font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:.2s}
-.filtros-ropa button:hover{border-color:var(--turquesa);color:var(--turquesa)}
-.filtros-ropa button.active{background:var(--turquesa);color:#000;border-color:var(--turquesa)}
-.no-resultados{text-align:center;color:var(--texto-gris);padding:40px;font-size:14px;grid-column:1/-1}
-
-/* HERO ROPA */
-.hero-ropa{position:relative;height:340px;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.hero-ropa-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=2070&auto=format&fit=crop');background-size:cover;background-position:center;transform:scale(1.05);transition:transform 8s ease}
-.hero-ropa:hover .hero-ropa-bg{transform:scale(1)}
-.hero-ropa-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(76,13,140,.85) 0%,rgba(0,0,0,.5) 60%,rgba(0,0,0,.2) 100%)}
-.hero-ropa-content{position:relative;z-index:2;text-align:center;padding:0 20px}
-.hero-ropa-content .label{font-size:12px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--turquesa);margin-bottom:10px}
-.hero-ropa-content h2{font-family:'Bebas Neue',cursive;font-size:clamp(36px,6vw,64px);letter-spacing:2px;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.6);margin-bottom:10px}
-.hero-ropa-content p{font-size:15px;color:rgba(255,255,255,.85);margin-bottom:20px}
-.hero-ropa-content a{display:inline-flex;align-items:center;gap:8px;background:var(--turquesa);color:#000;font-weight:800;font-size:14px;padding:11px 26px;border-radius:50px;box-shadow:0 4px 20px rgba(0,200,200,.5);transition:.2s;text-decoration:none}
-.hero-ropa-content a:hover{background:#fff;transform:scale(1.03)}
-
-/* SUBCATS ICONS */
-.subcats-strip{background:var(--card-bg);border-bottom:1px solid var(--card-border);padding:16px 0}
-.subcats-inner{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-.subcat-btn{display:flex;flex-direction:column;align-items:center;gap:7px;background:transparent;border:1px solid var(--card-border);border-radius:12px;padding:14px 20px;cursor:pointer;transition:.3s;color:#fff;min-width:90px;font-family:'Nunito',sans-serif}
-.subcat-btn:hover,.subcat-btn.active{border-color:var(--turquesa);background:rgba(0,200,200,.08);color:var(--turquesa)}
-.subcat-btn i{font-size:22px;color:var(--turquesa)}
-.subcat-btn span{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.5px}
-
-/* CERT STRIP */
-.cert-strip{text-align:center;background:rgba(0,200,200,0.08);border-top:1px solid rgba(0,200,200,0.2);color:var(--turquesa);font-size:11px;font-weight:700;padding:4px 10px;letter-spacing:0.5px}
-.cert-strip i{margin-right:5px;color:#ffd700}
-
-/* RIFAS BANNER */
-.rifas-banner{margin:0 0 32px;background:linear-gradient(135deg,var(--naranja) 0%,#ff9200 50%,var(--naranja) 100%);border-radius:16px;padding:32px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;position:relative;overflow:hidden}
-.rifas-banner::before{content:'🎉';position:absolute;font-size:90px;right:18px;top:50%;transform:translateY(-50%);opacity:.12}
-.rifas-banner-text h3{font-family:'Bebas Neue',cursive;font-size:28px;letter-spacing:2px;color:#fff;margin-bottom:5px}
-.rifas-banner-text p{color:rgba(255,255,255,.85);font-size:13px}
-.rifas-banner-btn{background:#fff;color:var(--naranja);font-weight:800;font-size:14px;padding:12px 26px;border-radius:50px;transition:.2s;text-decoration:none}
-.rifas-banner-btn:hover{transform:scale(1.05)}
-/* CÓMO COMPRAR */
-.como-section{padding:32px 0;background:linear-gradient(135deg,rgba(76,13,140,.08),rgba(0,200,200,.04));border-bottom:1px solid var(--card-border)}
-.como-grid{display:flex;justify-content:center;align-items:center;gap:0;flex-wrap:wrap}
-.como-step{display:flex;align-items:center;gap:13px;padding:16px 24px;flex:1;min-width:200px;max-width:280px}
-.como-num{width:44px;height:44px;background:linear-gradient(135deg,var(--morado),var(--turquesa));border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',cursive;font-size:20px;color:#fff;flex-shrink:0;box-shadow:0 4px 12px rgba(76,13,140,.4)}
-.como-text strong{display:block;font-size:13px;font-weight:800;color:#fff;margin-bottom:2px}
-.como-text span{font-size:11px;color:var(--texto-gris)}
-.como-arrow{font-size:20px;color:var(--turquesa);opacity:.5;flex-shrink:0}
-@media(max-width:640px){.como-arrow{display:none}.como-step{min-width:150px;padding:12px 14px}}
-/* GARANTÍAS */
-.guarantees{background:linear-gradient(135deg,#0f0f1a 0%,#1a0033 100%);padding:46px 0;border-top:1px solid var(--card-border)}
-.guarantees-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:18px;text-align:center}
-.guarantee-item{padding:20px 12px;border:1px solid var(--card-border);border-radius:13px;background:rgba(76,13,140,.1);transition:.3s}
-.guarantee-item:hover{border-color:var(--turquesa);background:rgba(0,200,200,.06)}
-.guarantee-item i{font-size:26px;color:var(--turquesa);margin-bottom:9px;display:block}
-.guarantee-item strong{display:block;font-size:12px;font-weight:800;text-transform:uppercase;color:#fff;margin-bottom:4px}
-.guarantee-item p{font-size:11px;color:var(--texto-gris);line-height:1.4}
 </style>
 </head>
 <body>
 
+</div>
+
 <!-- FIXED BUTTONS -->
-<button id="btn-top" title="Volver arriba" style="position:fixed;bottom:112px;right:16px;width:44px;height:44px;background:var(--morado-claro);color:#fff;border:none;border-radius:50%;font-size:16px;cursor:pointer;z-index:9000;display:none;align-items:center;justify-content:center;box-shadow:0 3px 12px rgba(76,13,140,.5);transition:.3s"><i class="fas fa-chevron-up"></i></button>
+<button id="btn-top" title="Volver arriba"><i class="fas fa-chevron-up"></i></button>
+
 <div id="cart-icon"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
 <button id="btn-lupa"><i class="fas fa-search"></i></button>
 
-<!-- WA MENU -->
+
+<!-- WA MENU OPCIONES -->
 <div id="wa-overlay" class="wa-overlay" onclick="cerrarWaMenu()"></div>
 <div id="wa-menu">
   <button class="wa-option" onclick="abrirWA('info')"><i class="fas fa-info-circle"></i>Quiero más información</button>
   <button class="wa-option" onclick="abrirWA('compra')"><i class="fas fa-shopping-bag"></i>Quiero realizar una compra</button>
   <button class="wa-option" onclick="abrirWA('vender')"><i class="fas fa-store"></i>Quiero vender mis productos</button>
 </div>
-<button id="wa-float" onclick="toggleWaMenu()" title="Escríbenos por WhatsApp" style="border:none;cursor:pointer;position:fixed;bottom:64px;right:16px;width:54px;height:54px;background:var(--verde-wa);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:25px;color:#fff;box-shadow:0 4px 16px rgba(37,211,102,.5);z-index:9000;animation:waPulse 2.5s infinite">
+<!-- WHATSAPP FLOTANTE PERMANENTE -->
+<button id="wa-float" onclick="toggleWaMenu()" title="Escríbenos por WhatsApp" style="border:none;cursor:pointer;">
   <i class="fab fa-whatsapp"></i>
 </button>
 
-<!-- SEARCH -->
-<div id="search-modal"><div>
-  <input type="text" id="search-input" placeholder="🔍 Buscar productos...">
-  <div id="search-results"></div>
-</div></div>
+<!-- SEARCH DROPDOWN (small, no full screen) -->
+<div id="search-modal">
+  <div>
+    <input type="text" id="search-input" placeholder="🔍 Buscar productos...">
+    <div id="search-results"></div>
+  </div>
+</div>
+
 <div id="noti-add"></div>
 
 <!-- BOTTOM BANNER -->
@@ -417,7 +364,6 @@ to{transform:scale(1);opacity:1}}
   </div>
 </div>
 
-
 <!-- HEADER -->
 <header class="main-header">
   <div class="container header-inner">
@@ -440,7 +386,6 @@ to{transform:scale(1);opacity:1}}
   </div>
 </header>
 
-
 <!-- NAV -->
 <nav class="main-nav">
   <ul>
@@ -455,42 +400,80 @@ to{transform:scale(1);opacity:1}}
   <div class="cert-strip"><i class="fas fa-shield-alt"></i>Todos los proveedores son certificados por <strong>Tio Yapero</strong></div>
 </nav>
 
-
-
-<!-- HERO ROPA -->
-<div class="hero-ropa">
-  <div class="hero-ropa-bg"></div>
-  <div class="hero-ropa-overlay"></div>
-  <div class="hero-ropa-content">
-    <div class="label">👕 Colección 2026</div>
-    <h2>Ropa y Calzado</h2>
-    <p>Moda urbana, sneakers y mochilas. Envíos a todo Ecuador 🇪🇨</p>
-    <a href="#ropa-grid-container"><i class="fas fa-tshirt"></i> Ver Catálogo</a>
+<!-- HERO SLIDER -->
+<section class="hero-slider">
+  <div class="slide active">
+    <div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=2070&auto=format&fit=crop');"></div>
+    <div class="slide-overlay"></div>
+    <div class="slide-content">
+      <div class="label">👕 Nueva Temporada 2026</div>
+      <h2>Moda Urbana</h2>
+      <p>Ropa y accesorios con estilo. Envíos seguros a todo Ecuador</p>
+      <a href="#catalogo-sections" class="slide-cta"><i class="fas fa-tshirt"></i> Ver Ropa</a>
+    </div>
   </div>
-</div>
-
-<!-- SUBCATS ICONS -->
-<div class="subcats-strip">
-  <div class="container subcats-inner">
-    <button class="subcat-btn active" onclick="filtrarRopa('todos',this)"><i class="fas fa-th"></i><span>Todo</span></button>
-    <button class="subcat-btn" onclick="filtrarRopa('hombre',this)"><i class="fas fa-male"></i><span>Hombre</span></button>
-    <button class="subcat-btn" onclick="filtrarRopa('mujer',this)"><i class="fas fa-female"></i><span>Mujer</span></button>
-    <button class="subcat-btn" onclick="filtrarRopa('mochilas',this)"><i class="fas fa-shopping-bag"></i><span>Mochilas</span></button>
-    <button class="subcat-btn" onclick="filtrarRopa('zapatos',this)"><i class="fas fa-shoe-prints"></i><span>Zapatos</span></button>
-    <button class="subcat-btn" onclick="filtrarRopa('ofertas',this)"><i class="fas fa-percent" style="color:#ff4444"></i><span>Ofertas</span></button>
+  <div class="slide">
+    <div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2070&auto=format&fit=crop');"></div>
+    <div class="slide-overlay" style="background:linear-gradient(135deg,rgba(0,100,100,.82) 0%,rgba(0,0,0,.5) 60%,rgba(0,0,0,.3) 100%);"></div>
+    <div class="slide-content">
+      <div class="label">👟 Calzado Premium</div>
+      <h2>Sneakers & Zapatos</h2>
+      <p>Los mejores modelos al mejor precio. ¡Calidad garantizada!</p>
+      <a href="#catalogo-sections" class="slide-cta"><i class="fas fa-shoe-prints"></i> Ver Calzado</a>
+    </div>
   </div>
-</div>
+  <div class="slide">
+    <div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=2070&auto=format&fit=crop');"></div>
+    <div class="slide-overlay" style="background:linear-gradient(135deg,rgba(76,13,140,.85) 0%,rgba(0,0,0,.5) 60%,rgba(0,0,0,.3) 100%);"></div>
+    <div class="slide-content">
+      <div class="label">🎒 Mochilas & Accesorios</div>
+      <h2>Complementa tu Look</h2>
+      <p>Mochilas tácticas y accesorios de calidad al mejor precio</p>
+      <a href="#catalogo-sections" class="slide-cta"><i class="fas fa-shopping-bag"></i> Ver Accesorios</a>
+    </div>
+  </div>
 
-<!-- BENEFICIOS STRIP -->
+
+
+
+
+  <button class="slider-arrow prev" id="sliderPrev"><i class="fas fa-chevron-left"></i></button>
+  <button class="slider-arrow next" id="sliderNext"><i class="fas fa-chevron-right"></i></button>
+    <div class="slider-dots" id="sliderDots">
+    <div class="dot active" onclick="goToSlide(0)"></div>
+    <div class="dot" onclick="goToSlide(1)"></div>
+    <div class="dot" onclick="goToSlide(2)"></div>
+  </div>
+    <div class="dot" onclick="goToSlide(1)"></div>
+    <div class="dot" onclick="goToSlide(2)"></div>
+    <div class="dot" onclick="goToSlide(3)"></div>
+    <div class="dot" onclick="goToSlide(4)"></div>
+    <div class="dot" onclick="goToSlide(5)"></div>
+    <div class="dot" onclick="goToSlide(6)"></div>
+  </div>
+</section>
+
+<!-- BENEFICIOS -->
 <div class="beneficios-strip">
   <div class="beneficios-inner">
-    <div class="beneficio-item"><div class="beneficio-icon"><i class="fas fa-truck"></i></div><div class="beneficio-text"><strong>Envío Gratis</strong><span>Compras desde $50</span></div></div>
-    <div class="beneficio-item"><div class="beneficio-icon"><i class="fab fa-whatsapp"></i></div><div class="beneficio-text"><strong>Ventas WhatsApp</strong><span>+593 963 923 399</span></div></div>
-    <div class="beneficio-item"><div class="beneficio-icon"><i class="fas fa-shield-alt"></i></div><div class="beneficio-text"><strong>Compra Segura</strong><span>Tio Yapero</span></div></div>
-    <div class="beneficio-item"><div class="beneficio-icon"><i class="fas fa-store"></i></div><div class="beneficio-text"><strong>Math's Shop</strong><span>Proveedor certificado</span></div></div>
+    <div class="beneficio-item">
+      <div class="beneficio-icon"><i class="fas fa-truck"></i></div>
+      <div class="beneficio-text"><strong>Envío Gratis</strong><span>Compras desde $50</span></div>
+    </div>
+    <div class="beneficio-item">
+      <div class="beneficio-icon"><i class="fab fa-whatsapp"></i></div>
+      <div class="beneficio-text"><strong>Ventas WhatsApp</strong><span>+593 963 923 399</span></div>
+    </div>
+    <div class="beneficio-item">
+      <div class="beneficio-icon"><i class="fas fa-shield-alt"></i></div>
+      <div class="beneficio-text"><strong>Compra Segura</strong><span>Katherine Pineda</span></div>
+    </div>
+    <div class="beneficio-item">
+      <div class="beneficio-icon"><i class="fas fa-ticket-alt"></i></div>
+      <div class="beneficio-text"><strong>Rifas & Sorteos</strong><span>Desde $30 participas</span></div>
+    </div>
   </div>
 </div>
-
 
 <!-- CÓMO COMPRAR -->
 <section class="como-section">
@@ -527,24 +510,49 @@ to{transform:scale(1);opacity:1}}
   </div>
 </section>
 
-
-<!-- CATÁLOGO GRID -->
-<section class="ropa-section" id="ropa-grid-container">
+<!-- CATEGORÍAS ICONOS -->
+<section class="cats-section">
   <div class="container">
-    <div class="section-header" style="margin-bottom:6px">
-      <h2 id="grid-titulo">Toda la <span>Colección</span></h2>
-      <p class="sub" id="grid-sub">Ropa · Calzado · Mochilas</p>
+    <div class="section-header">
+      <h2>Explora por <span>Subcategoría</span></h2>
+      <p class="sub">Ropa y Calzado · Math's Shop</p>
       <div class="section-line"></div>
     </div>
-    <div class="ropa-grid" id="ropa-grid"></div>
+    <div class="cats-track">
+      <a href="#" onclick="scrollCat('ropa');return false;" class="cat-card"><div class="cat-icon"><i class="fas fa-tshirt" style="color:var(--turquesa)"></i></div><span>Ropa</span></a>
+      <a href="#" onclick="scrollCat('calzado');return false;" class="cat-card"><div class="cat-icon"><i class="fas fa-shoe-prints" style="color:var(--turquesa)"></i></div><span>Calzado</span></a>
+      <a href="#" onclick="scrollCat('mochilas');return false;" class="cat-card"><div class="cat-icon"><i class="fas fa-shopping-bag" style="color:var(--turquesa)"></i></div><span>Mochilas</span></a>
+      <a href="promociones.html" class="cat-card"><div class="cat-icon"><i class="fas fa-percent" style="color:#ff4444"></i></div><span>Ofertas</span></a>
+      <a href="rifas.html" class="cat-card">
+        <div class="cat-icon" style="position:relative"><i class="fas fa-ticket-alt" style="color:#ff9200"></i><span class="cat-badge">¡HOT!</span></div>
+        <span>Rifas</span>
+      </a>
+    </div><span>Ropa y Calzado</span></a>
+      <a href="programas.html" class="cat-card"><div class="cat-icon"><i class="fas fa-laptop" style="color:var(--turquesa)"></i></div><span>Programas y Streaming</span></a>
+      <a href="varios.html" class="cat-card"><div class="cat-icon"><i class="fas fa-box-open" style="color:var(--turquesa)"></i></div><span>Varios</span></a>
+      <a href="promociones.html" class="cat-card"><div class="cat-icon"><i class="fas fa-percent" style="color:#ff4444"></i></div><span>Promociones</span></a>
+      <a href="rifas.html" class="cat-card">
+        <div class="cat-icon" style="position:relative"><i class="fas fa-ticket-alt" style="color:#ff9200"></i><span class="cat-badge">¡HOT!</span></div>
+        <span>Rifas</span>
+      </a>
+    </div>
   </div>
 </section>
 
 
-
+<!-- FILTRO RÁPIDO -->
+<div class="filtro-bar">
+  <div class="container filtro-inner">
+    <button class="filtro-btn active" onclick="scrollCat('top')">👕 Todo</button>
+    <button class="filtro-btn" onclick="scrollCat('ropa')">👔 Ropa</button>
+    <button class="filtro-btn" onclick="scrollCat('calzado')">👟 Calzado</button>
+    <button class="filtro-btn" onclick="scrollCat('mochilas')">🎒 Mochilas</button>
+  </div>
+</div>
+<div id="catalogo-sections"></div>
 
 <!-- RIFAS BANNER -->
-<div class="container" style="padding:32px 0 0">
+<div class="container">
   <div class="rifas-banner">
     <div class="rifas-banner-text">
       <h3>🎉 ¡No te pierdas nuestras rifas!</h3>
@@ -554,12 +562,10 @@ to{transform:scale(1);opacity:1}}
   </div>
 </div>
 
-
-
 <!-- GARANTÍAS -->
 <section class="guarantees">
   <div class="container">
-    <div class="section-header" style="margin-bottom:24px">
+    <div class="section-header" style="margin-bottom:24px;">
       <h2>¿Por qué <span>Elegirnos?</span></h2>
       <div class="section-line"></div>
     </div>
@@ -571,7 +577,6 @@ to{transform:scale(1);opacity:1}}
     </div>
   </div>
 </section>
-
 
 <!-- FOOTER -->
 <footer>
@@ -609,7 +614,6 @@ to{transform:scale(1);opacity:1}}
   <div class="copyright-bar">&copy; 2026 TIO YAPERO — Todos los derechos reservados</div>
 </footer>
 
-
 <!-- ZOOM MODAL -->
 <div id="zoom-modal">
   <button onclick="cerrarZoom()" style="position:absolute;top:14px;right:14px;background:var(--morado);color:#fff;border:none;border-radius:50%;width:40px;height:40px;font-size:19px;cursor:pointer;font-weight:bold;z-index:5001;">&times;</button>
@@ -621,7 +625,6 @@ to{transform:scale(1);opacity:1}}
     </div>
   </div>
 </div>
-
 
 <!-- CART MODAL -->
 <div id="cart-modal">
@@ -644,149 +647,310 @@ to{transform:scale(1);opacity:1}}
   </div>
 </div>
 
-
-
 <script>
+/* === HERO SLIDER === */
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+let sliderInterval;
+
+function goToSlide(n) {
+  slides[currentSlide].classList.remove('active');
+  dots[currentSlide].classList.remove('active');
+  currentSlide = (n + slides.length) % slides.length;
+  slides[currentSlide].classList.add('active');
+  dots[currentSlide].classList.add('active');
+}
+document.getElementById('sliderNext').onclick = () => { clearInterval(sliderInterval); goToSlide(currentSlide + 1); startSlider(); };
+document.getElementById('sliderPrev').onclick = () => { clearInterval(sliderInterval); goToSlide(currentSlide - 1); startSlider(); };
+function startSlider() { sliderInterval = setInterval(() => goToSlide(currentSlide + 1), 5000); }
+startSlider();
+
+/* === SEARCH DROPDOWN (small) === */
+document.getElementById('btn-lupa').onclick = (e) => {
+  e.stopPropagation();
+  const m = document.getElementById('search-modal');
+  m.style.display = m.style.display === 'block' ? 'none' : 'block';
+  if (m.style.display === 'block') document.getElementById('search-input').focus();
+};
+document.addEventListener('click', (e) => {
+  const m = document.getElementById('search-modal');
+  if (!m.contains(e.target) && e.target.id !== 'btn-lupa') m.style.display = 'none';
+});
+
+/* === CATEGORY CONFIG === */
+const CATS_CONFIG = [
+  {
+    id: 'ropa',
+    label: 'Ropa', labelSpan: 'Urbana',
+    desc: 'Camisetas, conjuntos, pantalones y más. Moda urbana para toda ocasión.',
+    filter: p => p.cat === "ROPA",
+    proveedor: "Math's Shop",
+    provLink: "https://www.tiktok.com/@demats1?_r=1&_t=ZS-94JOKDWJgIx"
+  },
+  {
+    id: 'calzado',
+    label: 'Calzado', labelSpan: 'y Sneakers',
+    desc: 'Zapatos, sneakers y deportivos de calidad al mejor precio.',
+    filter: p => ["CALZADO","ZAPATOS"].includes(p.cat),
+    proveedor: "Math's Shop",
+    provLink: "https://www.tiktok.com/@demats1?_r=1&_t=ZS-94JOKDWJgIx"
+  },
+  {
+    id: 'mochilas',
+    label: 'Mochilas', labelSpan: 'y Accesorios',
+    desc: 'Mochilas tácticas, bolsos y accesorios para completar tu look.',
+    filter: p => p.cat === "MOCHILAS",
+    proveedor: "Math's Shop",
+    provLink: "https://www.tiktok.com/@demats1?_r=1&_t=ZS-94JOKDWJgIx"
+  }roduct-card">
+      ${oferta ? '<div class="badge-promo">OFERTA</div>' : ''}
+      <div class="product-image-container">
+        <div class="lupa-zoom-icon" onclick="event.stopPropagation();abrirZoom('${p.imgFrontal}','${p.imgTrasera||p.imgFrontal}')">
+          <i class="fas fa-eye"></i>
+        </div>
+        <img src="${p.imgFrontal}" class="product-image front" alt="${p.nombre}">
+        <img src="${p.imgTrasera||p.imgFrontal}" class="product-image back" alt="${p.nombre}">
+      </div>
+      <div class="product-info">
+        <a href="${provLink}" target="_blank" class="product-proveedor" onclick="event.stopPropagation()">Proveedor: ${proveedor}</a>
+        <h4 class="product-name">${p.nombre}</h4>
+        <p class="product-desc">${p.descripcion||'Sin descripción.'}</p>
+        <div class="price-row">
+          ${p.precio_antes?`<span class="old-price">$${p.precio_antes.toFixed(2)}</span>`:''}
+          <span class="current-price">$${p.precio.toFixed(2)}</span>
+        </div>
+        <div class="envio-tag"><i class="fas fa-truck"></i> Envío nacional</div>
+        <button class="btn-buy" onclick="event.stopPropagation();addCart('${p.id}')">Añadir al carrito</button>
+      </div>
+    </div>`;
+}
+
+function renderCar(id) {
+  const st = carState[id];
+  const cfg = CATS_CONFIG.find(c => c.id === id);
+  const PAGE = 5;
+  const start = st.page * PAGE;
+  const slice = st.items.slice(start, start + PAGE);
+  document.getElementById('car-' + id).innerHTML = slice.map(p => buildCard(p, cfg.proveedor, cfg.provLink)).join('');
+  // dots
+  const dotsEl = document.getElementById('cardots-' + id);
+  dotsEl.innerHTML = Array.from({length: st.total}, (_, i) =>
+    `<div onclick="carGoTo('${id}',${i})" style="width:${i===st.page?'18px':'7px'};height:7px;border-radius:4px;background:${i===st.page?'var(--turquesa)':'rgba(255,255,255,.25)'};cursor:pointer;transition:.3s;"></div>`
+  ).join('');
+}
+
+function carMove(id, dir) {
+  const st = carState[id];
+  if (st.total <= 1) return;
+  st.page = (st.page + dir + st.total) % st.total;
+  renderCar(id);
+  resetInterval(id);
+}
+
+function carGoTo(id, pg) {
+  carState[id].page = pg;
+  renderCar(id);
+  resetInterval(id);
+}
+
+function startInterval(id) {
+  if (carState[id].total <= 1) return;
+  carState[id].timer = setInterval(() => { carState[id].page = (carState[id].page + 1) % carState[id].total; renderCar(id); }, 10000);
+}
+
+function resetInterval(id) { clearInterval(carState[id].timer); startInterval(id); }
+
+function buildCatalog(productos) {
+  const container = document.getElementById('catalogo-sections');
+  CATS_CONFIG.forEach(cfg => {
+    const items = productos.filter(cfg.filter);
+    if (items.length === 0) return;
+    const PAGE = 5;
+    const total = Math.max(1, Math.ceil(items.length / PAGE));
+    carState[cfg.id] = { page: 0, total, items, timer: null };
+
+    const sec = document.createElement('div');
+    sec.className = 'cat-row-section';
+    sec.innerHTML = `
+      <div class="container">
+        <div class="section-header" style="margin-bottom:18px;">
+          <h2>${cfg.label} <span>${cfg.labelSpan}</span></h2>
+          <p class="cat-desc">${cfg.desc}</p>
+          <div class="section-line"></div>
+        </div>
+        <div class="products-carousel-wrap">
+          <button class="car-arrow left" onclick="carMove('${cfg.id}',-1)"><i class="fas fa-chevron-left"></i></button>
+          <div class="products-carousel" id="car-${cfg.id}"></div>
+          <button class="car-arrow right" onclick="carMove('${cfg.id}',1)"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div id="cardots-${cfg.id}" style="display:flex;justify-content:center;gap:5px;margin-top:10px;"></div>
+      </div>`;
+    container.appendChild(sec);
+    renderCar(cfg.id);
+    startInterval(cfg.id);
+  });
+}
+
+/* === CORE === */
 let productosTotales = [];
 let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
 let imgActualFrontal = '', imgActualTrasera = '';
-const ROPA_CATS = ["ROPA","CALZADO","ZAPATOS","MOCHILAS"];
 
-/* === FILTRAR Y DIBUJAR GRID === */
-function filtrarRopa(tipo, btn) {
-  // Actualizar botones activos en ambas barras
-  document.querySelectorAll('.filtros-ropa button, .subcat-btn').forEach(b => b.classList.remove('active'));
-  if(btn) {
-    btn.classList.add('active');
-    // sincronizar la otra barra
-    document.querySelectorAll(`.filtros-ropa button[onclick*="${tipo}"], .subcat-btn[onclick*="${tipo}"]`).forEach(b=>b.classList.add('active'));
-  }
-
-  let lista = productosTotales.filter(p => ROPA_CATS.includes(p.cat));
-  let titulo = 'Toda la'; let sub = 'Ropa · Calzado · Mochilas'; let span = 'Colección';
-
-  if(tipo === 'hombre')   { lista = lista.filter(p => p.subcat === 'HOMBRE');   titulo='Ropa'; span='Hombre'; sub='Camisetas, conjuntos, pantalones'; }
-  if(tipo === 'mujer')    { lista = lista.filter(p => p.subcat === 'MUJER');    titulo='Ropa'; span='Mujer'; sub='Moda femenina y accesorios'; }
-  if(tipo === 'mochilas') { lista = lista.filter(p => p.cat === 'MOCHILAS');    titulo='Mochilas'; span='y Accesorios'; sub='Mochilas tácticas y bolsos'; }
-  if(tipo === 'zapatos')  { lista = lista.filter(p => ['CALZADO','ZAPATOS'].includes(p.cat)); titulo='Calzado'; span='y Sneakers'; sub='Zapatos, deportivos y más'; }
-  if(tipo === 'ofertas')  { lista = lista.filter(p => p.oferta === 'SI');       titulo='Promociones'; span='en Ropa'; sub='Ofertas por tiempo limitado'; }
-
-  document.getElementById('grid-titulo').innerHTML = titulo + ' <span>' + span + '</span>';
-  document.getElementById('grid-sub').textContent = sub;
-
-  const grid = document.getElementById('ropa-grid');
-  if(lista.length === 0) {
-    grid.innerHTML = '<div class="no-resultados"><i class="fas fa-box-open" style="font-size:32px;margin-bottom:10px;display:block"></i>No hay productos en esta categoría aún</div>';
-    return;
-  }
-  grid.innerHTML = lista.map(p => buildCard(p)).join('');
+async function cargarDatos() {
+  try {
+    const res = await fetch('productos.json');
+    productosTotales = await res.json();
+    actualizarBadge();
+    buildCatalog(productosTotales);;
+  } catch(e) { console.error('Error:', e); }
 }
 
-function buildCard(p) {
-  return `<div class="product-card">
-    ${p.oferta==='SI'?'<div class="badge-promo">OFERTA</div>':''} ${p.nuevo==='SI'&&p.oferta!=='SI'?'<div class="badge-nuevo">NUEVO</div>':''}
-    <div class="product-image-container">
-      <div class="lupa-zoom-icon" onclick="abrirZoom('${p.imgFrontal}','${p.imgTrasera||p.imgFrontal}')"><i class="fas fa-eye"></i></div>
-      <img src="${p.imgFrontal}" class="product-image front" alt="${p.nombre}" loading="lazy">
-      <img src="${p.imgTrasera||p.imgFrontal}" class="product-image back" alt="${p.nombre}" loading="lazy">
-    </div>
-    <div class="product-info">
-      <a href="${p.proveedorLink||'https://wa.me/593963923399'}" target="_blank" class="product-proveedor" onclick="event.stopPropagation()"><span style="color:var(--texto-gris);font-weight:600">Proveedor: </span>${p.proveedor||'Tio Yapero'}</a>
-      <h4 class="product-name">${p.nombre}</h4>
-      <p class="product-desc">${p.descripcion||''}</p>
-      <div class="price-row">
-        ${p.precio_antes?`<span class="old-price">$${p.precio_antes.toFixed(2)}</span>`:''}
-        <span class="current-price">$${p.precio.toFixed(2)}</span>
-      </div>
-      <div class="envio-tag"><i class="fas fa-truck"></i> Envío nacional</div>
-      <button class="btn-buy" onclick="event.stopPropagation();addCart('${p.id}')">🛒 Agregar</button>
-    </div>
-  </div>`;
-}
-
-/* === CARRITO === */
 function addCart(id) {
   const p = productosTotales.find(x => x.id === id);
-  if(p) { carrito.push({id:p.id,nombre:p.nombre,precio:p.precio,cat:p.cat}); localStorage.setItem('bh-cart',JSON.stringify(carrito)); actualizarBadge(); mostrarNoti('✅ '+p.nombre+' añadido'); }
+  if (p) {
+    carrito.push({id:p.id,nombre:p.nombre,precio:p.precio,cat:p.cat});
+    localStorage.setItem('bh-cart', JSON.stringify(carrito));
+    actualizarBadge();
+    mostrarNoti(`✅ ${p.nombre} añadido`);
+  }
 }
+
 function actualizarBadge() {
-  const badge=document.getElementById('cart-badge'); if(badge) badge.textContent=carrito.length;
-  const sub=carrito.reduce((s,i)=>s+i.precio,0);
-  const be=document.getElementById('banner-envio'); const bs=document.getElementById('banner-sorteo');
-  if(be){be.style.background=sub>=50?'#25D366':'#ff9800';be.textContent=sub>=50?'🚚 ¡Envío GRATIS activado!':'🚚 Envío gratis desde $50';}
-  if(bs){bs.style.background=sub>=30?'#25D366':'var(--morado)';bs.textContent=sub>=30?'🎟️ ¡Ya participas en la RIFA!':'🎉 ¡Participa en nuestras rifas!';}
+  const badge = document.getElementById('cart-badge');
+  if (badge) badge.textContent = carrito.length;
+  const sub = carrito.reduce((s,i) => s+i.precio, 0);
+  const be = document.getElementById('banner-envio');
+  const bs = document.getElementById('banner-sorteo');
+  if (be) { be.style.background = sub>=50?'#25D366':'#ff9800'; be.textContent = sub>=50?"🚚 ¡Envío GRATIS activado!":"🚚 Envío gratis desde $50"; }
+  if (bs) { bs.style.background = sub>=30?'#25D366':'var(--morado)'; bs.textContent = sub>=30?"🎟️ ¡Ya participas en la RIFA!":"🎉 ¡Participa en nuestras rifas!"; }
 }
+
 function mostrarModal() {
-  if(carrito.length===0){mostrarNoti('El carrito está vacío');return;}
-  const items=document.getElementById('cart-items'); const sub=carrito.reduce((s,i)=>s+i.precio,0); const env=sub>=50?0:3.50;
-  items.innerHTML=carrito.map((p,i)=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid #2a2a3e"><div><div style="font-weight:700;font-size:13px;color:#fff">${p.nombre}</div><div style="color:var(--turquesa);font-weight:700">${p.precio.toFixed(2)}</div></div><button onclick="removeItem(${i})" style="color:#ff4444;border:none;background:none;cursor:pointer;font-size:15px"><i class="fas fa-trash-alt"></i></button></div>`).join('');
+  if (carrito.length===0) { mostrarNoti("El carrito está vacío"); return; }
+  const items = document.getElementById('cart-items');
+  const sub = carrito.reduce((s,i) => s+i.precio, 0);
+  const env = sub>=50?0:3.50;
+  items.innerHTML = carrito.map((p,i) => `
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid #2a2a3e;">
+      <div>
+        <div style="font-weight:700;font-size:13px;color:#fff;">${p.nombre}</div>
+        <div style="color:var(--turquesa);font-weight:700;font-size:13px;">$${p.precio.toFixed(2)}</div>
+      </div>
+      <button onclick="removeItem(${i})" style="color:#ff4444;border:none;background:none;cursor:pointer;font-size:15px;"><i class="fas fa-trash-alt"></i></button>
+    </div>`).join('');
   document.getElementById('cart-subtotal').textContent='$'+sub.toFixed(2);
   document.getElementById('cart-envio').textContent='$'+env.toFixed(2);
   document.getElementById('cart-total').textContent='$'+(sub+env).toFixed(2);
   document.getElementById('rifa-status').style.display=sub>=30?'block':'none';
   document.getElementById('cart-modal').style.display='block';
 }
-function removeItem(i){carrito.splice(i,1);localStorage.setItem('bh-cart',JSON.stringify(carrito));actualizarBadge();carrito.length===0?document.getElementById('cart-modal').style.display='none':mostrarModal();}
-function finalizarCompraWA(){
-  const sub=carrito.reduce((s,i)=>s+i.precio,0);const env=sub>=50?0:3.50;
-  let msg='🦅 *¡Hola TIO YAPERO!*\n🛍️ *NUEVO PEDIDO:*\n\n';
-  carrito.forEach((p,idx)=>{msg+=`${idx+1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`;});
-  msg+=`\n💵 *Subtotal:* $${sub.toFixed(2)}\n🚚 *Envío:* $${env.toFixed(2)}\n💰 *TOTAL: $${(sub+env).toFixed(2)}*`;
-  if(sub>=30) msg+='\n\n🎟️ *¡Este pedido participa en la RIFA!*';
-  msg+='\n\n⚠️ Pago a nombre de *Katherine Pineda*.';
-  window.open('https://wa.me/593963923399?text='+encodeURIComponent(msg),'_blank');
+
+function removeItem(i) {
+  carrito.splice(i,1);
+  localStorage.setItem('bh-cart',JSON.stringify(carrito));
+  actualizarBadge();
+  carrito.length===0?document.getElementById('cart-modal').style.display='none':mostrarModal();
 }
 
-/* === SEARCH === */
-document.getElementById('btn-lupa').onclick=(e)=>{e.stopPropagation();const m=document.getElementById('search-modal');m.style.display=m.style.display==='block'?'none':'block';if(m.style.display==='block')document.getElementById('search-input').focus();};
-document.addEventListener('click',(e)=>{const m=document.getElementById('search-modal');if(!m.contains(e.target)&&e.target.id!=='btn-lupa')m.style.display='none';});
-document.getElementById('search-input').oninput=(e)=>{
-  const val=e.target.value.toLowerCase().trim();const res=document.getElementById('search-results');
-  if(!val){res.innerHTML='';return;}
-  const f=productosTotales.filter(p=>p.nombre.toLowerCase().includes(val)).slice(0,6);
-  res.innerHTML=f.length===0?'<div style="color:var(--texto-gris);padding:8px;font-size:12px">Sin resultados</div>':f.map(p=>`<div class="search-item" onclick="irAProducto('${p.id}','${p.cat}')"><img src="${p.imgFrontal}" alt="${p.nombre}"><div><div style="font-size:13px;font-weight:700;color:#fff">${p.nombre}</div><div style="font-size:10px;color:var(--turquesa)">${p.precio.toFixed(2)} · ${p.cat}</div></div></div>`).join('');
+function finalizarCompraWA() {
+  const sub = carrito.reduce((s,i)=>s+i.precio,0);
+  const env = sub>=50?0:3.50;
+  let msg=`🦅 *¡Hola TIO YAPERO!*\n🛍️ *NUEVO PEDIDO:*\n\n`;
+  carrito.forEach((p,idx)=>{msg+=`${idx+1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`;});
+  msg+=`\n💵 *Subtotal:* $${sub.toFixed(2)}\n🚚 *Envío:* $${env.toFixed(2)}\n💰 *TOTAL A PAGAR: $${(sub+env).toFixed(2)}*\n`;
+  if(sub>=30) msg+=`\n🎟️ *ESTE PEDIDO PARTICIPA EN LA RIFA POR COMPRA > $30*`;
+  msg+=`\n\n⚠️ Pago a nombre de *Katherine Pineda*.`;
+  window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`,'_blank');
+}
+
+document.getElementById('search-input').oninput = (e) => {
+  const val = e.target.value.toLowerCase().trim();
+  const res = document.getElementById('search-results');
+  if (!val) { res.innerHTML=''; return; }
+  const f = productosTotales.filter(p=>p.nombre.toLowerCase().includes(val)).slice(0,6);
+  res.innerHTML = f.length===0
+    ? '<div style="color:var(--texto-gris);padding:8px;font-size:12px;">Sin resultados</div>'
+    : f.map(p=>`
+      <div class="search-item" onclick="irAProducto('${p.id}','${p.cat}')">
+        <img src="${p.imgFrontal}" alt="${p.nombre}">
+        <div>
+          <div style="font-size:13px;font-weight:700;color:#fff;">${p.nombre}</div>
+          <div style="font-size:10px;color:var(--turquesa);">$${p.precio.toFixed(2)} · ${p.cat}</div>
+        </div>
+      </div>`).join('');
 };
-function irAProducto(id,cat){
+
+function irAProducto(id,cat) {
   document.getElementById('search-modal').style.display='none';
-  if(ROPA_CATS.includes(cat)){const y=document.getElementById('ropa-grid-container').getBoundingClientRect().top+window.scrollY-90;window.scrollTo({top:y,behavior:'smooth'});return;}
+  const ropas=["ROPA","CALZADO","ZAPATOS","MOCHILAS"];
   let pg='index.html';
-  if(['PROGRAMAS','SOFTWARE','STREAMING'].includes(cat)) pg='programas.html';
-  else if(cat==='VARIOS') pg='varios.html';
-  else if(cat==='PROMOCIONES') pg='promociones.html';
+  if(ropas.includes(cat)) pg='ropa.html';
+  else if(["PROGRAMAS","SOFTWARE","STREAMING"].includes(cat)) pg='programas.html';
+  else if(cat==="VARIOS") pg='varios.html';
+  else if(cat==="PROMOCIONES") pg='promociones.html';
   window.location.href=pg+'?buscar='+id;
 }
 
-/* === ZOOM === */
-function abrirZoom(f,t){imgActualFrontal=f;imgActualTrasera=t;document.getElementById('img-zoom').src=f;document.getElementById('zoom-modal').style.display='flex';}
-function cerrarZoom(){document.getElementById('zoom-modal').style.display='none';}
-function cambiarFotoZoom(tipo){document.getElementById('img-zoom').src=tipo==='frontal'?imgActualFrontal:imgActualTrasera;}
+function abrirZoom(f,t) { imgActualFrontal=f;imgActualTrasera=t;document.getElementById('img-zoom').src=f;document.getElementById('zoom-modal').style.display='flex'; }
+function cerrarZoom() { document.getElementById('zoom-modal').style.display='none'; }
+function cambiarFotoZoom(tipo) { document.getElementById('img-zoom').src=tipo==='frontal'?imgActualFrontal:imgActualTrasera; }
+function mostrarNoti(t) { const n=document.getElementById('noti-add');n.textContent=t;n.style.display='block';setTimeout(()=>n.style.display='none',2000); }
 
-/* === WA MENU === */
-function toggleWaMenu(){const m=document.getElementById('wa-menu');const o=document.getElementById('wa-overlay');const open=m.classList.toggle('open');o.classList.toggle('open',open);}
-function cerrarWaMenu(){document.getElementById('wa-menu').classList.remove('open');document.getElementById('wa-overlay').classList.remove('open');}
-function abrirWA(tipo){cerrarWaMenu();const msgs={info:'Hola Tio Yapero! 👋 Quisiera obtener más información sobre sus productos.',compra:'Hola Tio Yapero! 🛍️ Estoy interesado/a en realizar una compra. ¿Me pueden ayudar?',vender:'Hola Tio Yapero! 🏪 Me gustaría vender mis productos con ustedes. ¿Cuál es el proceso?'};window.open('https://wa.me/593963923399?text='+encodeURIComponent(msgs[tipo]),'_blank');}
-
-/* === HOVER IMAGEN === */
-document.addEventListener('mouseover',e=>{const card=e.target.closest('.product-card');if(card)card.classList.add('flip');});
-document.addEventListener('mouseout',e=>{const card=e.target.closest('.product-card');if(card&&!card.matches(':hover'))card.classList.remove('flip');});
-
-/* === SCROLL TOP === */
-const btnTop=document.getElementById('btn-top');
-window.addEventListener('scroll',()=>{btnTop.style.display=window.scrollY>400?'flex':'none';});
-btnTop.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
-
-/* === CARGAR DATOS === */
-async function cargarDatos(){
-  try{
-    const res=await fetch('productos.json');
-    productosTotales=await res.json();
-    filtrarRopa('todos',document.querySelector('.filtros-ropa button.active'));
-    actualizarBadge();
-  }catch(e){console.error('Error cargando productos:',e);}
-}
 document.getElementById('cart-icon').onclick=mostrarModal;
-mostrarNoti=function(t){const n=document.getElementById('noti-add');n.textContent=t;n.style.display='block';setTimeout(()=>n.style.display='none',2000);};
 cargarDatos();
+
+/* SUBIR ARRIBA */
+const btnTop = document.getElementById('btn-top');
+window.addEventListener('scroll', () => {
+  btnTop.style.display = window.scrollY > 400 ? 'flex' : 'none';
+});
+btnTop.onclick = () => window.scrollTo({top:0, behavior:'smooth'});
+
+/* WA MENU */
+function toggleWaMenu(){
+  const m=document.getElementById('wa-menu');
+  const o=document.getElementById('wa-overlay');
+  const open=m.classList.toggle('open');
+  o.classList.toggle('open',open);
+}
+function cerrarWaMenu(){
+  document.getElementById('wa-menu').classList.remove('open');
+  document.getElementById('wa-overlay').classList.remove('open');
+}
+function abrirWA(tipo){
+  cerrarWaMenu();
+  const msgs={
+    info:'Hola Tio Yapero! 👋 Quisiera obtener más información sobre sus productos.',
+    compra:'Hola Tio Yapero! 🛍️ Estoy interesado/a en realizar una compra. ¿Me pueden ayudar?',
+    vender:'Hola Tio Yapero! 🏪 Me gustaría vender mis productos con ustedes. ¿Cuál es el proceso?'
+  };
+  window.open('https://wa.me/593963923399?text='+encodeURIComponent(msgs[tipo]),'_blank');
+}
+
+
+/* FILTRO SCROLL */
+function scrollCat(id){
+  document.querySelectorAll('.filtro-btn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  if(id==='top'){window.scrollTo({top:0,behavior:'smooth'});return;}
+  const sec=document.getElementById('car-'+id);
+  if(sec){
+    const y=sec.closest('.cat-row-section').getBoundingClientRect().top+window.scrollY-90;
+    window.scrollTo({top:y,behavior:'smooth'});
+  }
+}
+
+</script>
+<!-- PWA Service Worker -->
+<script>
+if('serviceWorker' in navigator){
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .then(() => console.log('PWA activa ✅'))
+      .catch(e => console.log('SW error:', e));
+  });
+}
 </script>
 </body>
 </html>
