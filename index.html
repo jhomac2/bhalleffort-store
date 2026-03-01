@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BHALLEFFORT | Marketplace de Ropa, Calzado y más</title>
+<title>TIO YAPERO | Marketplace de Ropa, Calzado y más</title>
 <meta name="description" content="Marketplace de Ropa, Zapatos, Programas y más en Tabacundo. Envíos seguros a todo Ecuador.">
-<meta name="keywords" content="ropa ecuador, zapatos tabacundo, sneakers, bhalleffort, moda urbana, marketplace">
+<meta name="keywords" content="ropa ecuador, zapatos tabacundo, sneakers, tioyapero, tio yapero, moda urbana, marketplace">
 <meta name="author" content="Jhomac²">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.bhalleffort.com/">
-<meta property="og:title" content="👟 BHALLEFFORT - Marketplace Ecuador">
+<meta property="og:url" content="https://www.tioyapero.com/">
+<meta property="og:title" content="👟 TIO YAPERO - Marketplace Ecuador">
 <meta property="og:description" content="Tu marketplace de confianza en Ecuador. Envíos 100% seguros.">
-<meta property="og:image" content="https://www.bhalleffort.com/logo-ballena.webp">
+<meta property="og:image" content="https://www.tioyapero.com/logo-ballena.webp">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -263,6 +263,13 @@ footer{background:#080810;border-top:2px solid var(--morado);padding:44px 0 0;fo
   .product-card{flex:0 0 calc(50% - 7px)}
   .products-carousel-wrap{padding:0 18px}
 }
+
+/* ESCUDO ECUADOR */
+.escudo-ec{width:46px;height:auto;filter:drop-shadow(0 0 8px rgba(255,210,0,0.5));flex-shrink:0}
+
+/* CERT STRIP (inside sticky nav) */
+.cert-strip{text-align:center;background:rgba(0,200,200,0.08);border-top:1px solid rgba(0,200,200,0.2);color:var(--turquesa);font-size:11px;font-weight:700;padding:4px 10px;letter-spacing:0.5px}
+.cert-strip i{margin-right:5px;color:#ffd700}
 </style>
 </head>
 <body>
@@ -333,9 +340,10 @@ footer{background:#080810;border-top:2px solid var(--morado);padding:44px 0 0;fo
   <div class="container header-inner">
     <a href="index.html">
       <div class="logo-section">
-        <img src="logo-ballena.webp" alt="BHALLEFFORT" class="whale-icon">
+        <img src="logo-ballena.webp" alt="TIO YAPERO" class="whale-icon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Coat_of_arms_of_Ecuador.svg/80px-Coat_of_arms_of_Ecuador.svg.png" alt="Escudo de Ecuador" class="escudo-ec" title="Ecuador">
         <div class="brand-text">
-          <h1>BHALLEFFORT</h1>
+          <h1>TIO YAPERO</h1>
           <p class="sub1">Tu Marketplace de confianza en Ecuador</p>
           <span class="sub2">📍 La Y de Tabacundo</span>
         </div>
@@ -361,6 +369,7 @@ footer{background:#080810;border-top:2px solid var(--morado);padding:44px 0 0;fo
     <li><a href="quienes-somos.html">Quiénes Somos</a></li>
     <li><a href="contacto.html">Contacto</a></li>
   </ul>
+  <div class="cert-strip"><i class="fas fa-shield-alt"></i>Todos los proveedores son certificados por <strong>Tio Yapero</strong></div>
 </nav>
 
 <!-- HERO SLIDER -->
@@ -497,7 +506,7 @@ footer{background:#080810;border-top:2px solid var(--morado);padding:44px 0 0;fo
 <footer>
   <div class="container footer-grid">
     <div class="footer-brand">
-      <img src="logo-ballena.webp" alt="BHALLEFFORT" width="62">
+      <img src="logo-ballena.webp" alt="TIO YAPERO" width="62">
       <div class="tagline">Diseñado por <a href="https://www.tiktok.com/@jhomac22?_r=1&_t=ZS-94JOSYjSU7u" target="_blank" class="jhomac-link">Jhomac</a></div>
       <div class="location"><i class="fas fa-map-marker-alt" style="color:var(--turquesa);margin-right:4px;"></i>La Y de Tabacundo, Ecuador</div>
       <div class="god-message">"Dios te da más de lo que pides."</div>
@@ -527,7 +536,7 @@ footer{background:#080810;border-top:2px solid var(--morado);padding:44px 0 0;fo
       </div>
     </div>
   </div>
-  <div class="copyright-bar">&copy; 2026 BHALLEFFORT — Todos los derechos reservados</div>
+  <div class="copyright-bar">&copy; 2026 TIO YAPERO — Todos los derechos reservados</div>
 </footer>
 
 <!-- ZOOM MODAL -->
@@ -558,7 +567,7 @@ footer{background:#080810;border-top:2px solid var(--morado);padding:44px 0 0;fo
       <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:9px;color:var(--texto-gris);"><span>Envío:</span><span id="cart-envio">$3.50</span></div>
       <div style="display:flex;justify-content:space-between;font-weight:800;font-size:19px;color:var(--turquesa);"><span>Total:</span><span id="cart-total">$0.00</span></div>
       <div id="rifa-status" style="text-align:center;padding:7px;background:#0d3a0d;color:#4ade80;border-radius:7px;margin:9px 0;font-size:12px;display:none;">✅ ¡Este pedido participa en la RIFA!</div>
-      <button onclick="finalizarCompraWA()" style="background:var(--verde-wa);color:#fff;border:none;padding:13px;border-radius:9px;cursor:pointer;width:100%;font-weight:800;font-size:14px;margin-top:10px;box-shadow:0 4px 14px rgba(37,211,102,.4);">🐋 FINALIZAR POR WHATSAPP</button>
+      <button onclick="finalizarCompraWA()" style="background:var(--verde-wa);color:#fff;border:none;padding:13px;border-radius:9px;cursor:pointer;width:100%;font-weight:800;font-size:14px;margin-top:10px;box-shadow:0 4px 14px rgba(37,211,102,.4);">🦅 FINALIZAR POR WHATSAPP</button>
     </footer>
   </div>
 </div>
@@ -617,7 +626,7 @@ const CATS_CONFIG = [
     label: 'Streaming', labelSpan: 'y Rifas',
     desc: 'Cuentas de streaming, entretenimiento digital y participación en rifas.',
     filter: p => ["STREAMING","RIFAS","RIFA"].includes(p.cat),
-    proveedor: "Bhalleffort",
+    proveedor: "Tio Yapero",
     provLink: "https://www.tiktok.com/@bhalleffort.ec?_r=1&_t=ZS-94JOUwwt47e"
   },
   {
@@ -625,7 +634,7 @@ const CATS_CONFIG = [
     label: 'Varios', labelSpan: '& Accesorios',
     desc: 'Accesorios, artículos del hogar, tecnología y más. Todo en un solo lugar.',
     filter: p => p.cat === "VARIOS",
-    proveedor: "Bhalleffort",
+    proveedor: "Tio Yapero",
     provLink: "https://www.tiktok.com/@bhalleffort.ec?_r=1&_t=ZS-94JOUwwt47e"
   },
   {
@@ -633,7 +642,7 @@ const CATS_CONFIG = [
     label: 'Promociones', labelSpan: '& Ofertas',
     desc: 'Los mejores precios del mercado. Ofertas por tiempo limitado.',
     filter: p => p.cat === "PROMOCIONES" || p.oferta === "SI",
-    proveedor: "Bhalleffort",
+    proveedor: "Tio Yapero",
     provLink: "https://www.tiktok.com/@bhalleffort.ec?_r=1&_t=ZS-94JOUwwt47e"
   }
 ];
@@ -809,7 +818,7 @@ function removeItem(i) {
 function finalizarCompraWA() {
   const sub = carrito.reduce((s,i)=>s+i.precio,0);
   const env = sub>=50?0:3.50;
-  let msg=`🐋 *¡Hola BHALLEFFORT!*\n🛍️ *NUEVO PEDIDO:*\n\n`;
+  let msg=`🦅 *¡Hola TIO YAPERO!*\n🛍️ *NUEVO PEDIDO:*\n\n`;
   carrito.forEach((p,idx)=>{msg+=`${idx+1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`;});
   msg+=`\n💵 *Subtotal:* $${sub.toFixed(2)}\n🚚 *Envío:* $${env.toFixed(2)}\n💰 *TOTAL A PAGAR: $${(sub+env).toFixed(2)}*\n`;
   if(sub>=30) msg+=`\n🎟️ *ESTE PEDIDO PARTICIPA EN LA RIFA POR COMPRA > $30*`;
