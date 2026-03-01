@@ -527,21 +527,6 @@ to{transform:scale(1);opacity:1}}
   </div>
 </section>
 
-<!-- GARANTÍAS -->
-<section class="guarantees">
-  <div class="container">
-    <div class="section-header" style="margin-bottom:24px">
-      <h2>¿Por qué <span>Elegirnos?</span></h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="guarantees-grid">
-      <div class="guarantee-item"><i class="fas fa-truck"></i><strong>Envíos Seguros</strong><p>A todo Ecuador. Gratis desde $50.</p></div>
-      <div class="guarantee-item"><i class="fas fa-star"></i><strong>Calidad Garantizada</strong><p>Productos nuevos y seleccionados.</p></div>
-      <div class="guarantee-item"><i class="fab fa-whatsapp"></i><strong>Atención Directa</strong><p>Respuesta rápida por WhatsApp.</p></div>
-      <div class="guarantee-item"><i class="fas fa-store"></i><strong>Marketplace Local</strong><p>Conectamos vendedores y compradores.</p></div>
-    </div>
-  </div>
-</section>
 
 <!-- CATÁLOGO GRID -->
 <section class="ropa-section" id="ropa-grid-container">
@@ -564,6 +549,8 @@ to{transform:scale(1);opacity:1}}
 </section>
 
 
+
+
 <!-- RIFAS BANNER -->
 <div class="container" style="padding:32px 0 0">
   <div class="rifas-banner">
@@ -574,6 +561,25 @@ to{transform:scale(1);opacity:1}}
     <a href="rifas.html" class="rifas-banner-btn" onclick="window.location.href='rifas.html';return false;">Ver Rifas →</a>
   </div>
 </div>
+
+
+
+<!-- GARANTÍAS -->
+<section class="guarantees">
+  <div class="container">
+    <div class="section-header" style="margin-bottom:24px">
+      <h2>¿Por qué <span>Elegirnos?</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="guarantees-grid">
+      <div class="guarantee-item"><i class="fas fa-truck"></i><strong>Envíos Seguros</strong><p>A todo Ecuador. Gratis desde $50.</p></div>
+      <div class="guarantee-item"><i class="fas fa-star"></i><strong>Calidad Garantizada</strong><p>Productos nuevos y seleccionados.</p></div>
+      <div class="guarantee-item"><i class="fab fa-whatsapp"></i><strong>Atención Directa</strong><p>Respuesta rápida por WhatsApp.</p></div>
+      <div class="guarantee-item"><i class="fas fa-store"></i><strong>Marketplace Local</strong><p>Conectamos vendedores y compradores.</p></div>
+    </div>
+  </div>
+</section>
+
 
 <!-- FOOTER -->
 <footer>
@@ -697,7 +703,7 @@ function buildCard(p) {
       <h4 class="product-name">${p.nombre}</h4>
       <p class="product-desc">${p.descripcion||''}</p>
       <div class="price-row">
-        ${p.precio_antes?`<span class="old-price">$$\{p.precio_antes.toFixed(2)}</span>`:''}
+        ${p.precio_antes?`<span class="old-price">$${p.precio_antes.toFixed(2)}</span>`:''}
         <span class="current-price">$${p.precio.toFixed(2)}</span>
       </div>
       <div class="envio-tag"><i class="fas fa-truck"></i> Envío nacional</div>
