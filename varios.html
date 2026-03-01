@@ -363,9 +363,49 @@ to{transform:scale(1);opacity:1}}
 .guarantee-item i{font-size:26px;color:var(--turquesa);margin-bottom:9px;display:block}
 .guarantee-item strong{display:block;font-size:12px;font-weight:800;text-transform:uppercase;color:#fff;margin-bottom:4px}
 .guarantee-item p{font-size:11px;color:var(--texto-gris);line-height:1.4}
+
+/* ═══════════════════════════════════
+   SIDEBAR FIJO IZQUIERDO
+═══════════════════════════════════ */
+.sidebar-filtros{
+  position:fixed;left:0;top:50%;transform:translateY(-50%);
+  z-index:900;display:flex;flex-direction:column;gap:6px;
+  background:rgba(10,10,20,.92);backdrop-filter:blur(10px);
+  border:1px solid var(--card-border);border-left:none;
+  border-radius:0 14px 14px 0;padding:12px 8px;
+  box-shadow:4px 0 24px rgba(0,0,0,.4);
+  transition:transform .3s;
+}
+.sidebar-filtros .sf-btn{
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  background:transparent;border:1px solid transparent;
+  border-radius:10px;padding:9px 10px;cursor:pointer;
+  color:var(--texto-gris);font-size:10px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.5px;
+  transition:.2s;min-width:54px;
+}
+.sidebar-filtros .sf-btn i{font-size:18px;color:var(--texto-gris);transition:.2s}
+.sidebar-filtros .sf-btn:hover,.sidebar-filtros .sf-btn.active{
+  background:rgba(0,200,200,.12);border-color:var(--turquesa);
+  color:var(--turquesa);
+}
+.sidebar-filtros .sf-btn:hover i,.sidebar-filtros .sf-btn.active i{color:var(--turquesa)}
+.sidebar-filtros .sf-divider{height:1px;background:var(--card-border);margin:2px 4px}
+@media(max-width:768px){.sidebar-filtros{display:none}}
+
 </style>
 </head>
 <body>
+
+<!-- SIDEBAR FILTROS -->
+<div class="sidebar-filtros">
+  <button class="sf-btn" data-tipo="todos" title="Todo"><i class="fas fa-th"></i><span>Todo</span></button>
+  <div class="sf-divider"></div>
+  <button class="sf-btn" data-tipo="mochilas" title="Mochilas"><i class="fas fa-backpack"></i><span>Mochilas</span></button>
+  <button class="sf-btn" data-tipo="hogar" title="Hogar"><i class="fas fa-home"></i><span>Hogar</span></button>
+  <button class="sf-btn" data-tipo="cosmeticos" title="Cosméticos"><i class="fas fa-spray-can"></i><span>Cosméticos</span></button>
+  <button class="sf-btn" data-tipo="ofertas" title="Ofertas"><i class="fas fa-percent" style="color:#ff4444"></i><span>Ofertas</span></button>
+</div>
 
 <!-- FIXED BUTTONS -->
 <button id="btn-top" title="Volver arriba" style="position:fixed;bottom:112px;right:16px;width:44px;height:44px;background:var(--morado-claro);color:#fff;border:none;border-radius:50%;font-size:16px;cursor:pointer;z-index:9000;display:none;align-items:center;justify-content:center;box-shadow:0 3px 12px rgba(76,13,140,.5);transition:.3s"><i class="fas fa-chevron-up"></i></button>
@@ -654,11 +694,11 @@ const ROPA_CATS = ["VARIOS","MOCHILAS"];
 /* === FILTRAR Y DIBUJAR GRID === */
 function filtrarRopa(tipo, btn) {
   // Actualizar botones activos en ambas barras
-  document.querySelectorAll('.filtros-ropa button, .subcat-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.filtros-ropa button, .subcat-btn, .sf-btn').forEach(b => b.classList.remove('active'));
   if(btn) {
     btn.classList.add('active');
     // sincronizar la otra barra
-    document.querySelectorAll(`.filtros-ropa button[onclick*="${tipo}"], .subcat-btn[onclick*="${tipo}"]`).forEach(b=>b.classList.add('active'));
+    document.querySelectorAll(`.sf-btn[data-tipo="${tipo}"], `.filtros-ropa button[onclick*="${tipo}"], .subcat-btn[onclick*="${tipo}"]`).forEach(b=>b.classList.add('active'));
   }
 
   let lista = productosTotales.filter(p => ROPA_CATS.includes(p.cat));
@@ -785,6 +825,25 @@ async function cargarDatos(){
 document.getElementById('cart-icon').onclick=mostrarModal;
 mostrarNoti=function(t){const n=document.getElementById('noti-add');n.textContent=t;n.style.display='block';setTimeout(()=>n.style.display='none',2000);};
 cargarDatos();
+
+// Sincronizar sidebar con los subcat-btn
+function syncSidebar(tipo) {
+  document.querySelectorAll('.sf-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.tipo === tipo);
+  });
+}
+const _filtrarRopaOrig = filtrarRopa;
+// Override para incluir sync sidebar
+const _sfBtns = document.querySelectorAll('.sf-btn');
+_sfBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filtrarRopa(btn.dataset.tipo, btn);
+    document.querySelectorAll('.subcat-btn').forEach(b => b.classList.remove('active'));
+    const match = document.querySelector(`.subcat-btn[onclick*="${btn.dataset.tipo}"]`);
+    if(match) match.classList.add('active');
+  });
+});
+
 </script>
 </body>
 </html>
