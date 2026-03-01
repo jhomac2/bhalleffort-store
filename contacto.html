@@ -364,34 +364,7 @@ to{transform:scale(1);opacity:1}}
 .guarantee-item strong{display:block;font-size:12px;font-weight:800;text-transform:uppercase;color:#fff;margin-bottom:4px}
 .guarantee-item p{font-size:11px;color:var(--texto-gris);line-height:1.4}
 
-/* ═══════════════════════════════════
-   SIDEBAR FIJO IZQUIERDO
-═══════════════════════════════════ */
-.sidebar-filtros{
-  position:fixed;left:0;top:50%;transform:translateY(-50%);
-  z-index:900;display:flex;flex-direction:column;gap:6px;
-  background:rgba(10,10,20,.92);backdrop-filter:blur(10px);
-  border:1px solid var(--card-border);border-left:none;
-  border-radius:0 14px 14px 0;padding:12px 8px;
-  box-shadow:4px 0 24px rgba(0,0,0,.4);
-  transition:transform .3s;
-}
-.sidebar-filtros .sf-btn{
-  display:flex;flex-direction:column;align-items:center;gap:4px;
-  background:transparent;border:1px solid transparent;
-  border-radius:10px;padding:9px 10px;cursor:pointer;
-  color:var(--texto-gris);font-size:10px;font-weight:700;
-  text-transform:uppercase;letter-spacing:.5px;
-  transition:.2s;min-width:54px;
-}
-.sidebar-filtros .sf-btn i{font-size:18px;color:var(--texto-gris);transition:.2s}
-.sidebar-filtros .sf-btn:hover,.sidebar-filtros .sf-btn.active{
-  background:rgba(0,200,200,.12);border-color:var(--turquesa);
-  color:var(--turquesa);
-}
-.sidebar-filtros .sf-btn:hover i,.sidebar-filtros .sf-btn.active i{color:var(--turquesa)}
-.sidebar-filtros .sf-divider{height:1px;background:var(--card-border);margin:2px 4px}
-@media(max-width:768px){.sidebar-filtros{display:none}}
+
 
 
 /* ═══════════════ CONTACTO PAGE ═══════════════ */
@@ -465,20 +438,20 @@ to{transform:scale(1);opacity:1}}
 .faq-answer p{padding:0 20px 16px;font-size:13px;color:var(--texto-gris);line-height:1.7}
 .faq-answer a{color:var(--turquesa)}
 
+
+/* SOCIAL PROV CARDS */
+.proveedores-social-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
+.social-prov-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:14px;padding:20px;text-align:center;transition:.3s;display:flex;flex-direction:column;align-items:center;gap:8px}
+.social-prov-card:hover{transform:translateY(-5px);border-color:var(--turquesa);box-shadow:0 10px 24px rgba(0,200,200,.15)}
+.social-prov-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;border:2px solid;margin-bottom:4px}
+.social-prov-name{font-family:'Bebas Neue',cursive;font-size:18px;letter-spacing:1px;color:#fff}
+.social-prov-handle{font-size:11px;color:var(--texto-gris);font-weight:700}
+.social-prov-btn{display:inline-flex;align-items:center;gap:6px;background:#000;color:#fff;padding:7px 14px;border-radius:20px;font-size:11px;font-weight:800;margin-top:6px;transition:.2s}
+.social-prov-btn:hover{transform:scale(1.05)}
+
 </style>
 </head>
 <body>
-
-<!-- SIDEBAR FILTROS -->
-<div class="sidebar-filtros">
-  <button class="sf-btn" data-tipo="todos" onclick="filtrarRopa('todos',this)" title="Todo"><i class="fas fa-th"></i><span>Todo</span></button>
-  <div class="sf-divider"></div>
-  <button class="sf-btn" data-tipo="hombre" onclick="filtrarRopa('hombre',this)" title="Hombre"><i class="fas fa-male"></i><span>Hombre</span></button>
-  <button class="sf-btn" data-tipo="mujer" onclick="filtrarRopa('mujer',this)" title="Mujer"><i class="fas fa-female"></i><span>Mujer</span></button>
-  <button class="sf-btn" data-tipo="mochilas" onclick="filtrarRopa('mochilas',this)" title="Mochilas"><i class="fas fa-shopping-bag"></i><span>Mochilas</span></button>
-  <button class="sf-btn" data-tipo="zapatos" onclick="filtrarRopa('zapatos',this)" title="Zapatos"><i class="fas fa-shoe-prints"></i><span>Zapatos</span></button>
-  <button class="sf-btn" data-tipo="ofertas" onclick="filtrarRopa('ofertas',this)" title="Ofertas"><i class="fas fa-percent" style="color:#ff4444"></i><span>Ofertas</span></button>
-</div>
 
 <!-- FIXED BUTTONS -->
 <button id="btn-top" title="Volver arriba" style="position:fixed;bottom:112px;right:16px;width:44px;height:44px;background:var(--morado-claro);color:#fff;border:none;border-radius:50%;font-size:16px;cursor:pointer;z-index:9000;display:none;align-items:center;justify-content:center;box-shadow:0 3px 12px rgba(76,13,140,.5);transition:.3s"><i class="fas fa-chevron-up"></i></button>
@@ -689,6 +662,32 @@ to{transform:scale(1);opacity:1}}
       <div class="section-line"></div>
     </div>
     <div class="proveedores-grid" id="proveedores-grid"></div>
+
+    <!-- REDES SOCIALES PROVEEDORES -->
+    <div class="section-header" style="margin-top:36px;margin-bottom:20px">
+      <h3 style="font-family:'Bebas Neue',cursive;font-size:20px;letter-spacing:2px;color:#fff">Síguenos en <span style="color:var(--turquesa)">TikTok</span></h3>
+      <div class="section-line"></div>
+    </div>
+    <div class="proveedores-social-grid">
+      <a href="https://www.tiktok.com/@bhalleffort.ec" target="_blank" class="social-prov-card">
+        <div class="social-prov-icon" style="background:rgba(0,0,0,.4);border-color:#fff"><i class="fab fa-tiktok" style="color:#fff"></i></div>
+        <div class="social-prov-name">Math's Shop</div>
+        <div class="social-prov-handle">@bhalleffort.ec</div>
+        <div class="social-prov-btn"><i class="fab fa-tiktok"></i> Ver TikTok</div>
+      </a>
+      <a href="https://www.tiktok.com/@jhomac22" target="_blank" class="social-prov-card">
+        <div class="social-prov-icon" style="background:rgba(255,102,0,.15);border-color:var(--naranja)"><i class="fab fa-tiktok" style="color:var(--naranja)"></i></div>
+        <div class="social-prov-name">Jhomac</div>
+        <div class="social-prov-handle">@jhomac22</div>
+        <div class="social-prov-btn" style="background:var(--naranja)"><i class="fab fa-tiktok"></i> Ver TikTok</div>
+      </a>
+      <a href="https://www.tiktok.com/@bhalleffort.ec" target="_blank" class="social-prov-card">
+        <div class="social-prov-icon" style="background:rgba(107,31,193,.2);border-color:var(--morado-claro)"><i class="fab fa-tiktok" style="color:var(--morado-claro)"></i></div>
+        <div class="social-prov-name">Tio Yapero</div>
+        <div class="social-prov-handle">@bhalleffort.ec</div>
+        <div class="social-prov-btn" style="background:var(--morado-claro)"><i class="fab fa-tiktok"></i> Ver TikTok</div>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -957,7 +956,7 @@ const PROVEEDORES = [
     cert: true
   },
   {
-    nombre: "BHAllEffort",
+    nombre: "Tio Yapero",
     tipo: "Marketplace · Gestión · Rifas",
     emoji: "🦅",
     horario: "24/7 disponible",
@@ -992,16 +991,16 @@ function renderProveedores() {
 
 /* ═══ FAQ ═══ */
 const FAQS = [
-  { q: "¿Cómo hago un pedido?", a: "Explora el catálogo, agrega los productos al carrito y haz clic en 'Finalizar pedido'. Se abrirá WhatsApp con tu pedido listo para enviar." },
-  { q: "¿Cuánto tarda el envío?", a: "Los envíos nacionales tardan entre 2 a 5 días hábiles dependiendo de tu ciudad. Para Tabacundo y alrededores puede ser el mismo día." },
-  { q: "¿Los productos tienen garantía?", a: "Todos los productos son nuevos y revisados por los proveedores certificados. Si hay algún problema, escríbenos al WhatsApp y lo resolvemos." },
-  { q: "¿Cómo funciona la rifa?", a: "Cada compra mayor a $30 te da entrada automática. Te enviamos tu número por WhatsApp y el sorteo se realiza en vivo por redes sociales. <a href='rifas.html'>Ver más →</a>" },
-  { q: "¿Puedo devolver un producto?", a: "Aceptamos cambios dentro de las 48 horas después de recibir el producto, siempre que esté en las mismas condiciones. Contáctanos por WhatsApp." },
-  { q: "¿Cuáles son los métodos de pago?", a: "Aceptamos transferencia bancaria, Depósito, PayPhone y pago a nombre de Katherine Pineda. Se indica en el proceso de compra." },
-  { q: "¿Hacen envíos a todo Ecuador?", a: "Sí, hacemos envíos a todo Ecuador a través de couriers confiables. Envío GRATIS en compras desde $50." },
-  { q: "¿Cómo puedo vender mis productos aquí?", a: "Escríbenos por WhatsApp indicando 'Quiero vender mis productos'. Revisamos tu catálogo y si cumple los estándares de calidad, ¡te unimos a la red de proveedores!" },
-  { q: "¿Puedo hacer pedidos personalizados?", a: "Sí, especialmente en ropa. Puedes solicitar tallas, colores o combinaciones específicas escribiéndonos directamente por WhatsApp." },
-  { q: "¿Los programas y software son legales?", a: "Sí. Todos los programas de la sección Software & Streaming son licencias o cuentas premium oficiales. Incluyen soporte técnico básico." }
+  { q: "¿Cómo hago un pedido?", a: "Explora el catálogo, agrega productos al carrito y pulsa 'Finalizar pedido'. Se abrirá WhatsApp con tu pedido listo para enviar a nuestro equipo." },
+  { q: "¿Cuánto tarda el envío a mi ciudad?", a: "Envíos nacionales: 2–5 días hábiles. En Tabacundo y alrededores puede ser el mismo día o al siguiente. Siempre te confirmamos la fecha por WhatsApp." },
+  { q: "¿El envío es gratis?", a: "Sí, el envío es GRATIS en compras mayores a $50. En compras menores se aplica una tarifa de $3.50." },
+  { q: "¿Los productos son nuevos?", a: "Sí, todos los productos son nuevos, revisados y certificados por nuestros proveedores antes del envío. En la sección Liquidación se indica si son usados-nuevos con garantía." },
+  { q: "¿Cómo funciona la rifa?", a: "Cada compra mayor a $30 te da entrada automática. Recibes tu número por WhatsApp y el sorteo se realiza en vivo por redes sociales. <a href='rifas.html'>Ver más sobre rifas →</a>" },
+  { q: "¿Cuáles son los métodos de pago?", a: "Aceptamos transferencia bancaria, depósito y PayPhone. El pago se realiza a nombre de Katherine Pineda. Te enviamos los datos al confirmar el pedido." },
+  { q: "¿Puedo hacer cambios o devoluciones?", a: "Aceptamos cambios dentro de las 48 horas de recibido el producto, siempre que esté en las mismas condiciones sin uso. Contáctanos por WhatsApp con foto del producto." },
+  { q: "¿Los programas y cuentas premium son legales?", a: "Sí. Son licencias y cuentas premium oficiales. Incluyen soporte básico para activación. Si tienes un problema con tu cuenta, te ayudamos de inmediato." },
+  { q: "¿Puedo solicitar tallas o colores específicos?", a: "Sí, especialmente en ropa y conjuntos. Escríbenos por WhatsApp con el producto que te interesa y la talla o color deseado, y verificamos disponibilidad." },
+  { q: "¿Cómo puedo vender mis productos en Tio Yapero?", a: "Escríbenos por WhatsApp con el asunto 'Quiero ser proveedor'. Revisamos tu catálogo y si cumple los estándares de calidad, te sumamos a la red de proveedores certificados." }
 ];
 
 function renderFAQ() {
