@@ -143,6 +143,7 @@ a{text-decoration:none}
 .product-card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,200,200,.18)}
 
 /* Only show oferta badge, no NUEVO */
+.badge-nuevo{position:absolute;top:10px;left:10px;background:var(--turquesa);color:#000;padding:4px 8px;border-radius:4px;font-size:11px;font-weight:700;z-index:5}
 .badge-promo{position:absolute;top:0;left:0;background:linear-gradient(135deg,#ff6b6b,#ff4444);color:#fff;font-size:11px;font-weight:800;padding:5px 12px;border-radius:0 0 9px 0;z-index:5}
 
 .lupa-zoom-icon{position:absolute;top:8px;right:8px;background:rgba(255,255,255,.95);border:2px solid rgba(0,200,200,.4);color:var(--turquesa);width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;z-index:10;box-shadow:0 2px 8px rgba(0,0,0,.1);transition:.2s;cursor:pointer}
@@ -337,6 +338,31 @@ to{transform:scale(1);opacity:1}}
 /* CERT STRIP */
 .cert-strip{text-align:center;background:rgba(0,200,200,0.08);border-top:1px solid rgba(0,200,200,0.2);color:var(--turquesa);font-size:11px;font-weight:700;padding:4px 10px;letter-spacing:0.5px}
 .cert-strip i{margin-right:5px;color:#ffd700}
+
+/* RIFAS BANNER */
+.rifas-banner{margin:0 0 32px;background:linear-gradient(135deg,var(--naranja) 0%,#ff9200 50%,var(--naranja) 100%);border-radius:16px;padding:32px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;position:relative;overflow:hidden}
+.rifas-banner::before{content:'🎉';position:absolute;font-size:90px;right:18px;top:50%;transform:translateY(-50%);opacity:.12}
+.rifas-banner-text h3{font-family:'Bebas Neue',cursive;font-size:28px;letter-spacing:2px;color:#fff;margin-bottom:5px}
+.rifas-banner-text p{color:rgba(255,255,255,.85);font-size:13px}
+.rifas-banner-btn{background:#fff;color:var(--naranja);font-weight:800;font-size:14px;padding:12px 26px;border-radius:50px;transition:.2s;text-decoration:none}
+.rifas-banner-btn:hover{transform:scale(1.05)}
+/* CÓMO COMPRAR */
+.como-section{padding:32px 0;background:linear-gradient(135deg,rgba(76,13,140,.08),rgba(0,200,200,.04));border-bottom:1px solid var(--card-border)}
+.como-grid{display:flex;justify-content:center;align-items:center;gap:0;flex-wrap:wrap}
+.como-step{display:flex;align-items:center;gap:13px;padding:16px 24px;flex:1;min-width:200px;max-width:280px}
+.como-num{width:44px;height:44px;background:linear-gradient(135deg,var(--morado),var(--turquesa));border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',cursive;font-size:20px;color:#fff;flex-shrink:0;box-shadow:0 4px 12px rgba(76,13,140,.4)}
+.como-text strong{display:block;font-size:13px;font-weight:800;color:#fff;margin-bottom:2px}
+.como-text span{font-size:11px;color:var(--texto-gris)}
+.como-arrow{font-size:20px;color:var(--turquesa);opacity:.5;flex-shrink:0}
+@media(max-width:640px){.como-arrow{display:none}.como-step{min-width:150px;padding:12px 14px}}
+/* GARANTÍAS */
+.guarantees{background:linear-gradient(135deg,#0f0f1a 0%,#1a0033 100%);padding:46px 0;border-top:1px solid var(--card-border)}
+.guarantees-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:18px;text-align:center}
+.guarantee-item{padding:20px 12px;border:1px solid var(--card-border);border-radius:13px;background:rgba(76,13,140,.1);transition:.3s}
+.guarantee-item:hover{border-color:var(--turquesa);background:rgba(0,200,200,.06)}
+.guarantee-item i{font-size:26px;color:var(--turquesa);margin-bottom:9px;display:block}
+.guarantee-item strong{display:block;font-size:12px;font-weight:800;text-transform:uppercase;color:#fff;margin-bottom:4px}
+.guarantee-item p{font-size:11px;color:var(--texto-gris);line-height:1.4}
 </style>
 </head>
 <body>
@@ -465,6 +491,18 @@ to{transform:scale(1);opacity:1}}
   </div>
 </div>
 
+
+<!-- RIFAS BANNER -->
+<div class="container" style="padding:32px 0 0">
+  <div class="rifas-banner">
+    <div class="rifas-banner-text">
+      <h3>🎉 ¡No te pierdas nuestras rifas!</h3>
+      <p>Compras mayores a $30 participan automáticamente. ¡Gana increíbles premios!</p>
+    </div>
+    <a href="rifas.html" class="rifas-banner-btn" onclick="window.location.href='rifas.html';return false;">Ver Rifas →</a>
+  </div>
+</div>
+
 <!-- CATÁLOGO GRID -->
 <section class="ropa-section" id="ropa-grid-container">
   <div class="container">
@@ -482,6 +520,58 @@ to{transform:scale(1);opacity:1}}
       <button onclick="filtrarRopa('ofertas',this)">🔥 Ofertas</button>
     </div>
     <div class="ropa-grid" id="ropa-grid"></div>
+  </div>
+</section>
+
+
+<!-- CÓMO COMPRAR -->
+<section class="como-section">
+  <div class="container">
+    <div class="section-header" style="margin-bottom:18px">
+      <h2>¿Cómo <span>Comprar?</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="como-grid">
+      <div class="como-step">
+        <div class="como-num">1</div>
+        <div class="como-text">
+          <strong>Elige tu producto</strong>
+          <span>Explora el catálogo y agrega al carrito</span>
+        </div>
+      </div>
+      <div class="como-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="como-step">
+        <div class="como-num">2</div>
+        <div class="como-text">
+          <strong>Escríbenos</strong>
+          <span>Te contactamos por WhatsApp con tu pedido</span>
+        </div>
+      </div>
+      <div class="como-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="como-step">
+        <div class="como-num">3</div>
+        <div class="como-text">
+          <strong>¡Recibe en casa!</strong>
+          <span>Envío seguro a todo Ecuador 🇪🇨</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GARANTÍAS -->
+<section class="guarantees">
+  <div class="container">
+    <div class="section-header" style="margin-bottom:24px">
+      <h2>¿Por qué <span>Elegirnos?</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="guarantees-grid">
+      <div class="guarantee-item"><i class="fas fa-truck"></i><strong>Envíos Seguros</strong><p>A todo Ecuador. Gratis desde $50.</p></div>
+      <div class="guarantee-item"><i class="fas fa-star"></i><strong>Calidad Garantizada</strong><p>Productos nuevos y seleccionados.</p></div>
+      <div class="guarantee-item"><i class="fab fa-whatsapp"></i><strong>Atención Directa</strong><p>Respuesta rápida por WhatsApp.</p></div>
+      <div class="guarantee-item"><i class="fas fa-store"></i><strong>Marketplace Local</strong><p>Conectamos vendedores y compradores.</p></div>
+    </div>
   </div>
 </section>
 
@@ -596,18 +686,18 @@ function filtrarRopa(tipo, btn) {
 
 function buildCard(p) {
   return `<div class="product-card">
-    ${p.oferta==='SI'?'<div class="badge-promo">OFERTA</div>':''}
+    ${p.oferta==='SI'?'<div class="badge-promo">OFERTA</div>':''} ${p.nuevo==='SI'&&p.oferta!=='SI'?'<div class="badge-nuevo">NUEVO</div>':''}
     <div class="product-image-container">
       <div class="lupa-zoom-icon" onclick="abrirZoom('${p.imgFrontal}','${p.imgTrasera||p.imgFrontal}')"><i class="fas fa-eye"></i></div>
       <img src="${p.imgFrontal}" class="product-image front" alt="${p.nombre}" loading="lazy">
       <img src="${p.imgTrasera||p.imgFrontal}" class="product-image back" alt="${p.nombre}" loading="lazy">
     </div>
     <div class="product-info">
-      <a href="https://www.tiktok.com/@demats1?_r=1&_t=ZS-94JOKDWJgIx" target="_blank" class="product-proveedor" onclick="event.stopPropagation()">Math's Shop</a>
+      <a href="${p.proveedorLink||'https://wa.me/593963923399'}" target="_blank" class="product-proveedor" onclick="event.stopPropagation()"><span style="color:var(--texto-gris);font-weight:600">Proveedor: </span>${p.proveedor||'Tio Yapero'}</a>
       <h4 class="product-name">${p.nombre}</h4>
       <p class="product-desc">${p.descripcion||''}</p>
       <div class="price-row">
-        ${p.precioantes?`<span class="old-price">$${p.precioantes.toFixed(2)}</span>`:''}
+        ${p.precio_antes?`<span class="old-price">$$\{p.precio_antes.toFixed(2)}</span>`:''}
         <span class="current-price">$${p.precio.toFixed(2)}</span>
       </div>
       <div class="envio-tag"><i class="fas fa-truck"></i> Envío nacional</div>
