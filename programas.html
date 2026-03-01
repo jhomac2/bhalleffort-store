@@ -2,468 +2,793 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TIO YAPERO | Programas y Streaming</title>
+<meta name="description" content="Software, streaming, IA y cursos al mejor precio en Ecuador. DaVinci, Netflix, ChatGPT, Spotify y más.">
+<meta name="keywords" content="ropa ecuador, zapatos tabacundo, sneakers, tioyapero, moda urbana">
+<meta name="author" content="Jhomac²">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.tioyapero.com/ropa.html">
+<meta property="og:title" content="👕 TIO YAPERO - Ropa y Calzado">
+<meta property="og:description" content="Moda urbana, calzado y accesorios. Envíos 100% seguros.">
+<meta property="og:image" content="https://www.tioyapero.com/logo-ballena.webp">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
 
-  <title>BHALLEFFORT | Streaming y Licencias</title>
+:root {
+  --morado:#4c0d8c; --morado-claro:#6b1fc1; --turquesa:#00c8c8;
+  --turquesaOsc:#009e9e; --naranja:#ff6600; --verde-wa:#25d366;
+  --fondo:#0a0a0f; --card-bg:#13131f; --card-border:#2a2a3e;
+  --texto-claro:#e8e8f0; --texto-gris:#9090a8;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--fondo);color:var(--texto-claro);font-family:'Nunito',system-ui,sans-serif;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none}
+.container{width:92%;max-width:1280px;margin:auto}
 
-  <meta name="description" content="Cuentas de Netflix, Disney+, Spotify y Licencias de Office/Windows al mejor precio en Ecuador. Garantía total y soporte inmediato.">
-  <meta name="keywords" content="netflix ecuador, spotify barato, licencias windows, office 365, streaming, bhalleffort">
-  <meta name="author" content="Jhomac²">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+/* TOP BAR */
+.top-bar{background:linear-gradient(90deg,#1a0033 0%,var(--morado) 50%,#1a0033 100%);color:#fff;font-size:13px;padding:7px 0;border-bottom:1px solid rgba(0,200,200,0.2)}
+.top-bar-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px}
+.top-bar-left{display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px}
+.top-bar-left i{color:var(--turquesa)}
+.top-bar-right{display:flex;align-items:center;gap:14px}
+.top-wa-link{display:flex;align-items:center;gap:6px;color:#fff;font-weight:700;font-size:13px;background:var(--verde-wa);padding:4px 12px;border-radius:20px;transition:.2s}
+.top-wa-link:hover{background:#1da851}
+.social-icons{display:flex;gap:10px}
+.social-icons a{color:rgba(255,255,255,0.7);font-size:16px;transition:.2s}
+.social-icons a:hover{color:var(--turquesa)}
 
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.bhalleffort.com/programas.html  ">
-  <meta property="og:title" content="📺 Streaming y Licencias - Ofertas BHALLEFFORT">
-  <meta property="og:description" content="Deja de pagar de más. Netflix, Disney y Software con garantía total.">
-  <meta property="og:image" content="https://www.bhalleffort.com/logo-ballena.webp  ">
+/* HEADER */
+.main-header{background:#0f0f1a;border-bottom:2px solid var(--morado);padding:12px 0}
+.header-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.logo-section{display:flex;align-items:center;gap:14px}
+.whale-icon{width:70px;height:70px;border-radius:50%;border:3px solid var(--turquesa);padding:3px;background:#fff;box-shadow:0 0 20px rgba(0,200,200,0.3);object-fit:cover}
+.brand-text h1{font-family:'Bebas Neue',cursive;font-size:30px;letter-spacing:2px;background:linear-gradient(135deg,var(--turquesa),var(--morado-claro));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.brand-text .sub1{font-size:12px;color:rgba(255,255,255,0.85);letter-spacing:1px;text-transform:uppercase}
+.brand-text .sub2{display:inline-block;background:var(--turquesa);color:#000;font-size:10px;font-weight:800;padding:2px 8px;border-radius:3px;margin-top:3px}
+.header-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.btn-rifas{background:linear-gradient(135deg,var(--naranja),#ff9200);color:#fff;padding:9px 18px;border-radius:8px;font-weight:800;font-size:14px;box-shadow:0 4px 15px rgba(255,102,0,.4);transition:.2s}
+.btn-rifas:hover{transform:translateY(-2px)}
+.btn-wa-header{background:linear-gradient(135deg,var(--verde-wa),#1da851);color:#fff;padding:9px 18px;border-radius:8px;font-weight:800;font-size:14px;display:flex;align-items:center;gap:7px;box-shadow:0 4px 15px rgba(37,211,102,.35);transition:.2s}
+.btn-wa-header:hover{transform:translateY(-2px)}
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css  ">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{--celeste:#87ceeb;--morado:#4c0d8c;--turquesa:#00c8c8;--turquesaOsc:#009e9e;--texto:#fff;--fondo:#0f0f0f;--card-bg:#1a1a1a}
-    *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',system-ui,Arial}
-    body{background:var(--fondo);color:var(--texto)}
-    img{max-width:100%;display:block}
-    .container{width:90%;max-width:1200px;margin:auto}
-    .flex-space{display:flex;align-items:center;justify-content:space-between}
-    
-    .top-bar{background:var(--morado);color:#fff;font-size:13px;padding:4px 0}
-    .top-bar .social-icons{display:flex;gap:12px;font-size:18px}
-    .top-bar .social-icons a{color:#fff; text-decoration:none}
-    
-    .main-header{padding:15px 0;background:#1a1a1a;box-shadow:0 2px 8px rgba(0,0,0,.3)}
-    .logo-section{display:flex;align-items:center;gap:15px}
-    .whale-icon{width:85px; border:3px solid var(--morado); border-radius:50%; padding:2px; background:#fff}
-    .brand-text h1{font-size:24px;color:var(--morado);font-weight:700;line-height:1}
-    .brand-text p{font-size:13px;color:#fff;opacity:.8}
-    
-    .dual-buttons{display:flex;gap:1rem;justify-content:center;margin:1rem 0;flex-wrap:wrap}
-    .btn-rifas,.btn-wa{padding:.8rem 1.4rem;border-radius:6px;font-weight:700;text-decoration:none;color:#fff;box-shadow:0 2px 4px rgba(0,0,0,.25)}
-    .btn-rifas{background:#ff6600}
-    .btn-wa{background:#25d366}
-    
-    .main-nav{position:sticky;top:0;z-index:999;background:#1a1a1a;box-shadow:0 2px 4px rgba(0,0,0,.3)}
-    .main-nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center}
-    .main-nav a{color:#fff;padding:12px 15px;display:block;font-size:14px;text-decoration:none;font-weight:600}
-    .main-nav a.active{background:var(--morado);color:#fff;border-radius:4px}
-    .main-nav a:hover{color:var(--turquesa)}
+/* NAV */
+.main-nav{position:sticky;top:0;z-index:998;background:rgba(15,15,26,0.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--morado)}
+.main-nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center}
+.main-nav a{color:var(--texto-claro);padding:12px 13px;display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;transition:.2s;position:relative}
+.main-nav a::after{content:'';position:absolute;bottom:0;left:50%;right:50%;height:2px;background:var(--turquesa);transition:.3s}
+.main-nav a:hover::after,.main-nav a.active::after{left:0;right:0}
+.main-nav a.active{color:var(--turquesa)}
+.main-nav a:hover{color:var(--turquesa)}
 
-    .filter-container { display: flex; justify-content: center; gap: 10px; margin: 20px 0; flex-wrap: wrap; }
-    .btn-filter { padding: 10px 20px; border: 2px solid var(--morado); border-radius: 25px; background: var(--card-bg); color: #fff; font-weight: 700; cursor: pointer; transition: 0.3s; }
-    .btn-filter.active { background: var(--morado); color: #fff; }
+/* SEARCH DROPDOWN */
+#search-modal{display:none;position:fixed;top:60px;right:70px;z-index:3000;width:310px}
+@media(max-width:768px){#search-modal{width:calc(100vw - 24px);right:12px;top:56px}}
+#search-modal>div{background:#12121e;padding:13px;border-radius:12px;border:2px solid var(--morado);box-shadow:0 10px 30px rgba(76,13,140,.5)}
+#search-input{width:100%;padding:10px 12px;border:1px solid var(--morado);border-radius:8px;background:var(--fondo);color:#fff;font-size:14px;font-family:'Nunito',sans-serif}
+#search-results{margin-top:8px;max-height:210px;overflow-y:auto}
+.search-item{padding:8px;border-bottom:1px solid #2a2a3e;cursor:pointer;display:flex;align-items:center;gap:10px;border-radius:6px;transition:.2s}
+.search-item:hover{background:rgba(76,13,140,.2)}
+.search-item img{width:36px;height:36px;object-fit:cover;border-radius:6px}
 
-    .hero-banner {
-      position: relative;
-      background: url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=2069&auto=format&fit=crop') center/cover no-repeat;
-      height: 400px;
-      display: flex; align-items: center; justify-content: center; text-align: center; color: #fff;
-    }
-    .hero-banner::before {
-      content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.6); z-index: 1;
-    }
-    .hero-banner div { position: relative; z-index: 2; padding: 0 20px; }
-    .hero-banner h1 { font-size: 42px; text-transform: uppercase; font-weight: 700; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-    .hero-banner p { font-size: 18px; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); }
+/* HERO SLIDER */
+.hero-slider{position:relative;width:100%;height:460px;overflow:hidden}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity .8s ease;display:flex;align-items:center;justify-content:center}
+.slide.active{opacity:1}
+.slide-bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.05);transition:transform 6s ease}
+.slide.active .slide-bg{transform:scale(1)}
+.slide-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(76,13,140,.85) 0%,rgba(0,0,0,.5) 60%,rgba(0,0,0,.3) 100%)}
+.slide-content{position:relative;z-index:2;text-align:center;padding:0 20px;max-width:700px}
+.slide-content .label{font-size:12px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--turquesa);margin-bottom:10px}
+.slide-content h2{font-family:'Bebas Neue',cursive;font-size:clamp(34px,6vw,66px);letter-spacing:2px;line-height:1;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.6);margin-bottom:12px}
+.slide-content p{font-size:15px;color:rgba(255,255,255,.85);margin-bottom:22px}
+.slide-cta{display:inline-flex;align-items:center;gap:8px;background:var(--turquesa);color:#000;font-weight:800;font-size:14px;padding:11px 24px;border-radius:50px;box-shadow:0 4px 20px rgba(0,200,200,.5);transition:.2s}
+.slide-cta:hover{background:#fff;transform:scale(1.03)}
+.slider-dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:10}
+.dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;transition:.3s}
+.dot.active{background:var(--turquesa);width:22px;border-radius:4px}
+.slider-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(76,13,140,.7);color:#fff;border:none;width:40px;height:40px;border-radius:50%;font-size:14px;cursor:pointer;z-index:10;transition:.2s;display:flex;align-items:center;justify-content:center}
+.slider-arrow:hover{background:var(--morado)}
+.slider-arrow.prev{left:12px}
+.slider-arrow.next{right:12px}
 
-    #cart-icon { position: fixed; top: 15px; right: 15px; background: var(--morado); color: #fff; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.3); cursor: pointer; z-index: 1000; }
-    #cart-badge { background: var(--turquesa); color: #fff; border-radius: 50%; padding: 2px 6px; font-size: 11px; position: absolute; top: 0px; right: 0px; }
-    #btn-lupa { position: fixed; top: 75px; right: 15px; background: var(--turquesa); color: #fff; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 20px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.3); z-index: 1000; display: flex; align-items: center; justify-content: center; }
+/* BENEFICIOS */
+.beneficios-strip{background:linear-gradient(90deg,var(--morado) 0%,#2d0566 50%,var(--morado) 100%)}
+.beneficios-inner{display:flex;justify-content:center;flex-wrap:wrap}
+.beneficio-item{display:flex;align-items:center;gap:11px;padding:14px 20px;border-right:1px solid rgba(255,255,255,.1);flex:1;min-width:160px;transition:.2s}
+.beneficio-item:last-child{border-right:none}
+.beneficio-item:hover{background:rgba(255,255,255,.05)}
+.beneficio-icon{width:40px;height:40px;background:rgba(0,200,200,.15);border:2px solid var(--turquesa);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:17px;color:var(--turquesa);flex-shrink:0}
+.beneficio-text strong{display:block;font-size:11px;font-weight:800;text-transform:uppercase;color:#fff}
+.beneficio-text span{font-size:10px;color:rgba(255,255,255,.6)}
 
-    .featured-products{padding:40px 0}
-    .section-title{text-align:center;margin-bottom:10px;font-size:26px;color:var(--turquesa);text-transform:uppercase}
-    .ia-notice { text-align: center; background: #1a1a1a; border: 1px dashed var(--turquesa); padding: 10px; margin-bottom: 30px; border-radius: 8px; font-size: 13px; color: #ccc; }
+/* SECTION HEADER */
+.section-header{text-align:center;margin-bottom:28px}
+.section-header h2{font-family:'Bebas Neue',cursive;font-size:clamp(24px,4vw,36px);letter-spacing:3px;color:#fff;margin-bottom:4px}
+.section-header h2 span{color:var(--turquesa)}
+.section-header .sub{font-size:12px;color:var(--texto-gris);text-transform:uppercase;letter-spacing:2px}
+.section-header .cat-desc{font-size:13px;color:rgba(255,255,255,.65);margin-top:5px}
+.section-line{width:48px;height:3px;background:linear-gradient(90deg,var(--morado),var(--turquesa));margin:8px auto 0;border-radius:2px}
 
-    .products-grid-ten{display:grid;gap:15px;grid-template-columns:repeat(5,1fr);max-width:1100px;margin:auto}
-    .product-card{background:var(--card-bg);border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.3);display:flex;flex-direction:column;overflow:hidden;cursor:pointer;position:relative;border:1px solid #333}
-    .product-image-container {position: relative;width: 100%;height: 250px;overflow: hidden;background: #fff;}
-    .product-image {width: 100%;height: 100%;object-fit: cover;transition: transform 0.5s ease, opacity 0.3s ease}
-    .product-image.back {position: absolute;top: 0;left: 0;opacity: 0}
-    .product-card.flip .product-image.front { opacity: 0; }
-    .product-card.flip .product-image.back { opacity: 1; }
+/* CATS */
+.cats-section{padding:48px 0 28px}
+.cats-track{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;padding:6px 0 10px}
+.cat-card{flex:0 0 150px;background:var(--card-bg);border:1px solid var(--card-border);border-radius:13px;padding:22px 14px;text-align:center;cursor:pointer;transition:.3s;color:#fff;position:relative;overflow:hidden}
+.cat-card:hover{transform:translateY(-5px);border-color:var(--turquesa);box-shadow:0 10px 28px rgba(0,200,200,.2)}
+.cat-icon{width:50px;height:50px;background:linear-gradient(135deg,rgba(76,13,140,.4),rgba(0,200,200,.2));border:2px solid var(--morado);border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 11px;transition:.3s;position:relative}
+.cat-card:hover .cat-icon{border-color:var(--turquesa)}
+.cat-card span{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px}
+.cat-badge{position:absolute;top:-5px;right:-5px;background:var(--naranja);color:#fff;font-size:8px;font-weight:800;padding:2px 5px;border-radius:8px}
 
-    .badge-promo { position: absolute; top: 10px; left: 10px; background: #ff4444; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; z-index: 5; }
-    .lupa-zoom-icon { position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,0.9); color: var(--morado); width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; z-index: 10; box-shadow: 0 2px 5px rgba(0,0,0,0.2); transition: 0.3s; }
+/* CATEGORY ROW SECTIONS */
+.cat-row-section{padding:36px 0;border-bottom:1px solid var(--card-border)}
+.cat-row-section:last-of-type{border-bottom:none}
 
-    .product-info{padding:12px;display:flex;flex-direction:column;flex:1}
-    .product-category{font-size:11px;color:#777;font-weight:700;text-transform:uppercase}
-    .product-name{font-size:15px;margin:4px 0;line-height:1.2;font-weight:600;color:#fff}
-    .product-desc { font-size: 12px; color: #aaa; margin-bottom: 8px; line-height: 1.3; }
-    .old-price { text-decoration: line-through; color: #666; font-size: 13px; margin-right: 5px; }
-    .current-price{font-weight:700;color:var(--turquesa);font-size:18px}
-    .btn-buy{background:var(--turquesa);color:#fff;border:none;padding:10px;border-radius:4px;cursor:pointer;margin-top:auto;font-weight:600}
-    
-    @media(max-width:768px){.products-grid-ten{grid-template-columns:repeat(3,1fr)}}
-    @media(max-width:480px){.products-grid-ten{grid-template-columns:repeat(2,1fr)}}
-    
-    .guarantees{background:#1a1a1a;padding:30px 0;margin-top:20px}
-    .flex-guarantees{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;text-align:center}
-    .guarantee-item{flex:1 1 200px; padding: 10px;}
-    .guarantee-item i {font-size: 24px; color: var(--turquesa); margin-bottom: 10px;}
+/* CAROUSEL */
+.products-carousel-wrap{position:relative;padding:0 24px}
+.products-carousel{display:flex;gap:10px;overflow:hidden;padding:4px 2px 8px}
 
-    footer{background:#1a1a1a;color:#fff;font-size:13px;padding:30px 0;border-top:2px solid var(--morado)}
-    .footer-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
-    .copyright-bar {text-align: center; padding: 15px 0; background: rgba(76,13,140,0.2); margin-top: 20px; font-weight: 600;}
+/* PRODUCT CARD - white style */
+.product-card{
+  flex:0 0 calc(25% - 12px);
+  background:#fff;border-radius:16px;
+  box-shadow:0 4px 16px rgba(0,0,0,.1);
+  display:flex;flex-direction:column;
+  overflow:hidden;cursor:pointer;
+  position:relative;transition:.3s;
+}
+.product-card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,200,200,.18)}
 
-    #zoom-modal{display:none; position:fixed; inset:0; background:rgba(0,0,0,0.95); z-index:5000; align-items:center; justify-content:center; flex-direction:column;}
-    .zoom-content{position:relative; width:90%; max-width:450px; text-align:center;}
-    #img-zoom{width:100%; border-radius:10px; box-shadow:0 0 25px rgba(0,198,200,0.3); object-fit: contain; max-height: 75vh;}
-    .zoom-btns{display:flex; justify-content:center; gap:15px; margin-top:20px;}
-    .btn-z{padding:12px 25px; border-radius:25px; border:none; cursor:pointer; font-weight:700; color:white; font-size:14px;}
+/* Only show oferta badge, no NUEVO */
+.badge-nuevo{position:absolute;top:10px;left:10px;background:var(--turquesa);color:#000;padding:4px 8px;border-radius:4px;font-size:11px;font-weight:700;z-index:5}
+.badge-promo{position:absolute;top:0;left:0;background:linear-gradient(135deg,#ff6b6b,#ff4444);color:#fff;font-size:11px;font-weight:800;padding:5px 12px;border-radius:0 0 9px 0;z-index:5}
 
-    #banner-div{position:fixed;bottom:0;left:0;right:0;display:flex;background:#1a1a1a;box-shadow:0 -2px 5px rgba(0,0,0,.3);z-index:999}
-    #banner-envio{flex:1;background:#ff9800;color:#fff;text-align:center;padding:8px;font-size:14px;transition:0.3s;}
-    #banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;padding:8px;font-size:14px;transition:0.3s;}
-    
-    #search-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:3000}
-    #search-modal>div{background:#1a1a1a;width:90%;max-width:400px;margin:80px auto;padding:15px;border-radius:8px;position:relative;border:2px solid var(--morado)}
-    #search-input{width:100%;padding:10px;border:1px solid var(--morado);border-radius:4px;background:#0f0f0f;color:#fff}
-    #search-results{margin-top:10px;max-height:250px;overflow-y:auto}
-    .search-item{padding:8px;border-bottom:1px solid #333;cursor:pointer;display:flex;align-items:center;gap:10px}
-    .search-item img{width:35px;height:35px;object-fit:cover;border-radius:3px}
+.lupa-zoom-icon{position:absolute;top:8px;right:8px;background:rgba(255,255,255,.95);border:2px solid rgba(0,200,200,.4);color:var(--turquesa);width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;z-index:10;box-shadow:0 2px 8px rgba(0,0,0,.1);transition:.2s;cursor:pointer}
+.lupa-zoom-icon:hover{background:var(--turquesa);color:#fff;border-color:var(--turquesa)}
 
-    #noti-add{position:fixed;bottom:40px;left:50%;transform:translateX(-50%);background:var(--turquesa);color:#fff;padding:8px 14px;border-radius:4px;font-size:13px;z-index:9999;display:none}
+.product-image-container{position:relative;width:100%;height:190px;overflow:hidden;background:#f0f2f5}
+.product-image{width:100%;height:100%;object-fit:cover;transition:opacity .4s ease}
+.product-image.back{position:absolute;top:0;left:0;opacity:0}
+.product-card.flip .product-image.front{opacity:0}
+.product-card.flip .product-image.back{opacity:1}
+.product-card:hover .product-image.front{opacity:0}
+.product-card:hover .product-image.back{opacity:1}
 
-    #cart-modal{display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:4000;}
-    #cart-modal > div {background:#1a1a1a; width:95%; max-width:450px; margin:50px auto; padding:20px; border-radius:12px; position:relative; box-shadow:0 10px 25px rgba(0,0,0,0.5);border:2px solid var(--morado);}
-    .pago-aviso-oficial { background: #1a1a1a; border: 1px solid var(--morado); padding: 10px; border-radius: 8px; margin-bottom: 15px; text-align: center; font-size: 13px; color: #aaa; }
-  </style>
+.product-info{padding:11px 13px 13px;display:flex;flex-direction:column;flex:1;background:#fff}
+
+.product-proveedor{font-size:12px;font-weight:700;color:var(--turquesa);text-transform:none;letter-spacing:0;cursor:pointer;text-decoration:underline;margin-bottom:3px;transition:.2s;display:inline}
+.product-proveedor:hover{color:var(--turquesaOsc)}
+
+.product-name{font-size:14px;font-weight:800;color:#1a1a2e;line-height:1.3;margin-bottom:3px}
+.product-desc{font-size:12px;color:#666;line-height:1.4;margin-bottom:7px}
+.price-row{display:flex;align-items:center;gap:5px;margin-bottom:6px}
+.old-price{text-decoration:line-through;color:#bbb;font-size:12px}
+.current-price{font-size:18px;font-weight:800;color:#1a1a2e}
+.envio-tag{display:flex;align-items:center;gap:5px;font-size:11px;color:#888;margin-bottom:9px}
+.btn-buy{background:linear-gradient(135deg,var(--turquesa),var(--turquesaOsc));color:#fff;border:none;padding:9px;border-radius:8px;cursor:pointer;font-weight:800;font-size:13px;margin-top:auto;transition:.2s;box-shadow:0 3px 9px rgba(0,200,200,.3)}
+.btn-buy:hover{transform:scale(1.02);box-shadow:0 5px 14px rgba(0,200,200,.5)}
+
+/* Carousel arrows */
+.car-arrow{position:absolute;top:50%;transform:translateY(-50%);background:var(--morado);color:#fff;border:none;width:34px;height:34px;border-radius:50%;font-size:13px;cursor:pointer;z-index:20;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(76,13,140,.5);transition:.2s}
+.car-arrow:hover{background:var(--morado-claro)}
+.car-arrow.left{left:-15px}
+.car-arrow.right{right:-15px}
+
+/* GUARANTEES */
+.guarantees{background:linear-gradient(135deg,#0f0f1a 0%,#1a0033 100%);padding:46px 0;border-top:1px solid var(--card-border)}
+.guarantees-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:18px;text-align:center}
+.guarantee-item{padding:20px 12px;border:1px solid var(--card-border);border-radius:13px;background:rgba(76,13,140,.1);transition:.3s}
+.guarantee-item:hover{border-color:var(--turquesa);background:rgba(0,200,200,.06)}
+.guarantee-item i{font-size:26px;color:var(--turquesa);margin-bottom:9px;display:block}
+.guarantee-item strong{display:block;font-size:12px;font-weight:800;text-transform:uppercase;color:#fff;margin-bottom:4px}
+.guarantee-item p{font-size:11px;color:var(--texto-gris);line-height:1.4}
+
+/* RIFAS BANNER */
+.rifas-banner{margin:46px 0;background:linear-gradient(135deg,var(--naranja) 0%,#ff9200 50%,var(--naranja) 100%);border-radius:16px;padding:32px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;position:relative;overflow:hidden}
+.rifas-banner::before{content:'🎉';position:absolute;font-size:90px;right:18px;top:50%;transform:translateY(-50%);opacity:.12}
+.rifas-banner-text h3{font-family:'Bebas Neue',cursive;font-size:28px;letter-spacing:2px;color:#fff;margin-bottom:5px}
+.rifas-banner-text p{color:rgba(255,255,255,.85);font-size:13px}
+.rifas-banner-btn{background:#fff;color:var(--naranja);font-weight:800;font-size:14px;padding:12px 26px;border-radius:50px;transition:.2s}
+.rifas-banner-btn:hover{transform:scale(1.05)}
+
+/* FOOTER */
+footer{background:#080810;border-top:2px solid var(--morado);padding:44px 0 0;font-size:14px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:26px;padding-bottom:34px}
+.footer-brand img{margin-bottom:9px}
+.footer-brand .tagline{color:var(--texto-gris);font-size:13px}
+.footer-brand .location{color:var(--texto-gris);font-size:13px;margin-top:3px}
+.god-message{margin-top:11px;color:var(--turquesa);font-style:italic;font-size:13px;font-weight:700;border-left:3px solid var(--turquesa);padding-left:9px}
+.footer-col h3{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--turquesa);margin-bottom:13px;padding-bottom:7px;border-bottom:1px solid var(--card-border)}
+.footer-contact-item{display:flex;align-items:center;gap:9px;margin-bottom:8px;font-size:13px;color:var(--texto-gris)}
+.footer-contact-item i{color:var(--morado-claro);width:15px;flex-shrink:0}
+.footer-contact-item a{color:var(--turquesa)}
+.footer-links a{display:flex;align-items:center;gap:5px;color:var(--texto-gris);font-size:13px;margin-bottom:8px;transition:.2s}
+.footer-links a::before{content:'›';color:var(--turquesa)}
+.footer-links a:hover{color:var(--turquesa)}
+.copyright-bar{text-align:center;padding:12px 0;background:rgba(76,13,140,.15);border-top:1px solid var(--card-border);font-size:12px;font-weight:700;color:var(--texto-gris)}
+.jhomac-link{color:var(--turquesa);cursor:pointer;text-decoration:underline;transition:.2s}
+.jhomac-link:hover{color:#fff}
+
+/* FLOATING */
+#wa-float{position:fixed;bottom:64px;right:16px;width:54px;height:54px;background:var(--verde-wa);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:25px;color:#fff;box-shadow:0 4px 16px rgba(37,211,102,.5);z-index:9000;transition:.2s;animation:waPulse 2.5s infinite}
+#wa-float:hover{transform:scale(1.1)}
+@keyframes waPulse{0%,100%{box-shadow:0 4px 16px rgba(37,211,102,.5)}50%{box-shadow:0 4px 28px rgba(37,211,102,.9)}}
+
+#cart-icon{position:fixed;top:14px;right:14px;background:var(--morado);color:#fff;border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(76,13,140,.5);cursor:pointer;z-index:1001;transition:.2s}
+#cart-icon:hover{background:var(--morado-claro);transform:scale(1.05)}
+#cart-badge{background:var(--turquesa);color:#000;border-radius:50%;padding:2px 5px;font-size:10px;font-weight:800;position:absolute;top:-2px;right:-2px}
+#btn-lupa{position:fixed;top:66px;right:14px;background:var(--turquesa);color:#000;border:none;border-radius:50%;width:44px;height:44px;font-size:16px;cursor:pointer;box-shadow:0 2px 12px rgba(0,200,200,.4);z-index:1001;display:flex;align-items:center;justify-content:center;transition:.2s}
+#btn-lupa:hover{transform:scale(1.05)}
+
+#banner-div{position:fixed;bottom:0;left:0;right:0;display:flex;z-index:999;height:38px}
+#banner-envio{flex:1;background:#ff9800;color:#fff;text-align:center;line-height:38px;font-size:12px;font-weight:700;transition:.3s}
+#banner-sorteo{flex:1;background:var(--morado);color:#fff;text-align:center;line-height:38px;font-size:12px;font-weight:700;transition:.3s}
+
+/* MODALS */
+#zoom-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.96);z-index:5000;align-items:center;justify-content:center;flex-direction:column}
+.zoom-content{position:relative;width:90%;max-width:440px;text-align:center}
+#img-zoom{width:100%;border-radius:13px;box-shadow:0 0 40px rgba(0,200,200,.3);object-fit:contain;max-height:74vh}
+.zoom-btns{display:flex;justify-content:center;gap:11px;margin-top:15px}
+.btn-z{padding:10px 20px;border-radius:50px;border:none;cursor:pointer;font-weight:800;color:#fff;font-size:13px}
+#noti-add{position:fixed;bottom:50px;left:50%;transform:translateX(-50%);background:var(--turquesa);color:#000;padding:8px 16px;border-radius:50px;font-size:13px;font-weight:700;z-index:9999;display:none;box-shadow:0 4px 14px rgba(0,200,200,.5)}
+#cart-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:4000}
+#cart-modal>div{background:#12121e;width:95%;max-width:450px;margin:50px auto;padding:20px;border-radius:16px;position:relative;box-shadow:0 15px 40px rgba(0,0,0,.6);border:2px solid var(--morado)}
+to{transform:scale(1);opacity:1}}
+
+/* RESPONSIVE */
+@media(max-width:1200px){.product-card{flex:0 0 calc(25% - 11px)}}
+@media(max-width:860px){.product-card{flex:0 0 calc(50% - 10px)}}
+@media(max-width:640px){
+  .product-card{flex:0 0 calc(50% - 8px)}
+  .hero-slider{height:300px}
+  .slide-content h2{font-size:28px}
+  .slide-content p{font-size:13px}
+  .beneficio-item{min-width:140px;padding:11px 12px}
+  .header-inner{flex-direction:column;align-items:flex-start}
+  .header-actions{width:100%}
+  .brand-text h1{font-size:24px}
+  .whale-icon{width:58px;height:58px}
+  .top-bar-left{font-size:12px}
+  .rifas-banner{padding:22px 16px}
+  .rifas-banner-text h3{font-size:22px}
+  .main-nav a{padding:10px 9px;font-size:11px}
+  .cat-card{flex:0 0 120px;padding:18px 10px}
+}
+@media(max-width:400px){
+  .product-card{flex:0 0 calc(50% - 7px)}
+  .products-carousel-wrap{padding:0 18px}
+}
+
+/* CERT STRIP (inside sticky nav) */
+.cert-strip{text-align:center;background:rgba(0,200,200,0.08);border-top:1px solid rgba(0,200,200,0.2);color:var(--turquesa);font-size:11px;font-weight:700;padding:4px 10px;letter-spacing:0.5px}
+.cert-strip i{margin-right:5px;color:#ffd700}
+
+/* CÓMO COMPRAR */
+.como-section{padding:32px 0;background:linear-gradient(135deg,rgba(76,13,140,.08),rgba(0,200,200,.04));border-bottom:1px solid var(--card-border)}
+.como-grid{display:flex;justify-content:center;align-items:center;gap:0;flex-wrap:wrap}
+.como-step{display:flex;align-items:center;gap:13px;padding:16px 24px;flex:1;min-width:200px;max-width:280px}
+.como-num{width:44px;height:44px;background:linear-gradient(135deg,var(--morado),var(--turquesa));border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',cursive;font-size:20px;color:#fff;flex-shrink:0;box-shadow:0 4px 12px rgba(76,13,140,.4)}
+.como-text strong{display:block;font-size:13px;font-weight:800;color:#fff;margin-bottom:2px}
+.como-text span{font-size:11px;color:var(--texto-gris)}
+.como-arrow{font-size:20px;color:var(--turquesa);opacity:.5;flex-shrink:0}
+@media(max-width:640px){.como-arrow{display:none}.como-step{min-width:150px;padding:12px 14px}}
+
+/* SUBIR ARRIBA */
+#btn-top{position:fixed;bottom:112px;right:16px;width:44px;height:44px;background:var(--morado-claro);color:#fff;border:none;border-radius:50%;font-size:16px;cursor:pointer;z-index:9000;display:none;align-items:center;justify-content:center;box-shadow:0 3px 12px rgba(76,13,140,.5);transition:.3s}
+#btn-top:hover{background:var(--turquesa);color:#000;transform:scale(1.1)}
+
+/* WA MENU */
+#wa-menu{position:fixed;bottom:126px;right:16px;z-index:8999;display:none;flex-direction:column;gap:8px;align-items:flex-end}
+#wa-menu.open{display:flex}
+.wa-option{background:#fff;color:#1a1a2e;font-size:13px;font-weight:700;padding:10px 16px;border-radius:20px;box-shadow:0 4px 16px rgba(0,0,0,.25);cursor:pointer;white-space:nowrap;border:none;transition:.2s;text-align:right}
+.wa-option:hover{background:var(--verde-wa);color:#fff;transform:translateX(-4px)}
+.wa-option i{margin-right:7px;color:var(--verde-wa)}
+.wa-option:hover i{color:#fff}
+.wa-overlay{display:none;position:fixed;inset:0;z-index:8998}
+.wa-overlay.open{display:block}
+
+/* FILTRO RÁPIDO */
+.filtro-bar{background:rgba(15,15,26,0.95);padding:10px 0;border-bottom:1px solid var(--card-border);position:sticky;top:46px;z-index:990}
+.filtro-inner{display:flex;gap:8px;overflow-x:auto;padding:0 8px;scrollbar-width:none}
+.filtro-inner::-webkit-scrollbar{display:none}
+.filtro-btn{flex-shrink:0;background:transparent;border:1px solid var(--card-border);color:var(--texto-gris);padding:7px 16px;border-radius:20px;font-size:12px;font-weight:700;cursor:pointer;transition:.2s;white-space:nowrap}
+.filtro-btn:hover,.filtro-btn.active{background:var(--turquesa);color:#000;border-color:var(--turquesa)}
+
+
+/* GRID ROPA — sin carrusel, todo visible */
+.ropa-section{padding:40px 0 60px}
+.ropa-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:1280px;margin:0 auto}
+@media(max-width:1000px){.ropa-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.ropa-grid{grid-template-columns:repeat(2,1fr);gap:10px}}
+
+/* Product card grid override */
+.ropa-grid .product-card{flex:unset;width:100%}
+.ropa-grid .product-image-container{height:220px}
+
+/* FILTROS */
+.filtros-ropa{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;padding:24px 0 8px}
+.filtros-ropa button{background:var(--card-bg);border:2px solid var(--card-border);color:var(--texto-claro);padding:9px 20px;border-radius:25px;font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:.2s}
+.filtros-ropa button:hover{border-color:var(--turquesa);color:var(--turquesa)}
+.filtros-ropa button.active{background:var(--turquesa);color:#000;border-color:var(--turquesa)}
+.no-resultados{text-align:center;color:var(--texto-gris);padding:40px;font-size:14px;grid-column:1/-1}
+
+/* HERO ROPA */
+.hero-ropa{position:relative;height:340px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.hero-ropa-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=2070&auto=format&fit=crop');background-size:cover;background-position:center;transform:scale(1.05);transition:transform 8s ease}
+.hero-ropa:hover .hero-ropa-bg{transform:scale(1)}
+.hero-ropa-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(76,13,140,.85) 0%,rgba(0,0,0,.5) 60%,rgba(0,0,0,.2) 100%)}
+.hero-ropa-content{position:relative;z-index:2;text-align:center;padding:0 20px}
+.hero-ropa-content .label{font-size:12px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--turquesa);margin-bottom:10px}
+.hero-ropa-content h2{font-family:'Bebas Neue',cursive;font-size:clamp(36px,6vw,64px);letter-spacing:2px;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.6);margin-bottom:10px}
+.hero-ropa-content p{font-size:15px;color:rgba(255,255,255,.85);margin-bottom:20px}
+.hero-ropa-content a{display:inline-flex;align-items:center;gap:8px;background:var(--turquesa);color:#000;font-weight:800;font-size:14px;padding:11px 26px;border-radius:50px;box-shadow:0 4px 20px rgba(0,200,200,.5);transition:.2s;text-decoration:none}
+.hero-ropa-content a:hover{background:#fff;transform:scale(1.03)}
+
+/* SUBCATS ICONS */
+.subcats-strip{background:var(--card-bg);border-bottom:1px solid var(--card-border);padding:16px 0}
+.subcats-inner{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.subcat-btn{display:flex;flex-direction:column;align-items:center;gap:7px;background:transparent;border:1px solid var(--card-border);border-radius:12px;padding:14px 20px;cursor:pointer;transition:.3s;color:#fff;min-width:90px;font-family:'Nunito',sans-serif}
+.subcat-btn:hover,.subcat-btn.active{border-color:var(--turquesa);background:rgba(0,200,200,.08);color:var(--turquesa)}
+.subcat-btn i{font-size:22px;color:var(--turquesa)}
+.subcat-btn span{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.5px}
+
+/* CERT STRIP */
+.cert-strip{text-align:center;background:rgba(0,200,200,0.08);border-top:1px solid rgba(0,200,200,0.2);color:var(--turquesa);font-size:11px;font-weight:700;padding:4px 10px;letter-spacing:0.5px}
+.cert-strip i{margin-right:5px;color:#ffd700}
+
+/* RIFAS BANNER */
+.rifas-banner{margin:0 0 32px;background:linear-gradient(135deg,var(--naranja) 0%,#ff9200 50%,var(--naranja) 100%);border-radius:16px;padding:32px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;position:relative;overflow:hidden}
+.rifas-banner::before{content:'🎉';position:absolute;font-size:90px;right:18px;top:50%;transform:translateY(-50%);opacity:.12}
+.rifas-banner-text h3{font-family:'Bebas Neue',cursive;font-size:28px;letter-spacing:2px;color:#fff;margin-bottom:5px}
+.rifas-banner-text p{color:rgba(255,255,255,.85);font-size:13px}
+.rifas-banner-btn{background:#fff;color:var(--naranja);font-weight:800;font-size:14px;padding:12px 26px;border-radius:50px;transition:.2s;text-decoration:none}
+.rifas-banner-btn:hover{transform:scale(1.05)}
+/* CÓMO COMPRAR */
+.como-section{padding:32px 0;background:linear-gradient(135deg,rgba(76,13,140,.08),rgba(0,200,200,.04));border-bottom:1px solid var(--card-border)}
+.como-grid{display:flex;justify-content:center;align-items:center;gap:0;flex-wrap:wrap}
+.como-step{display:flex;align-items:center;gap:13px;padding:16px 24px;flex:1;min-width:200px;max-width:280px}
+.como-num{width:44px;height:44px;background:linear-gradient(135deg,var(--morado),var(--turquesa));border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',cursive;font-size:20px;color:#fff;flex-shrink:0;box-shadow:0 4px 12px rgba(76,13,140,.4)}
+.como-text strong{display:block;font-size:13px;font-weight:800;color:#fff;margin-bottom:2px}
+.como-text span{font-size:11px;color:var(--texto-gris)}
+.como-arrow{font-size:20px;color:var(--turquesa);opacity:.5;flex-shrink:0}
+@media(max-width:640px){.como-arrow{display:none}.como-step{min-width:150px;padding:12px 14px}}
+/* GARANTÍAS */
+.guarantees{background:linear-gradient(135deg,#0f0f1a 0%,#1a0033 100%);padding:46px 0;border-top:1px solid var(--card-border)}
+.guarantees-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:18px;text-align:center}
+.guarantee-item{padding:20px 12px;border:1px solid var(--card-border);border-radius:13px;background:rgba(76,13,140,.1);transition:.3s}
+.guarantee-item:hover{border-color:var(--turquesa);background:rgba(0,200,200,.06)}
+.guarantee-item i{font-size:26px;color:var(--turquesa);margin-bottom:9px;display:block}
+.guarantee-item strong{display:block;font-size:12px;font-weight:800;text-transform:uppercase;color:#fff;margin-bottom:4px}
+.guarantee-item p{font-size:11px;color:var(--texto-gris);line-height:1.4}
+</style>
 </head>
 <body>
 
-  <div id="cart-icon"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
-  <button id="btn-lupa"><i class="fas fa-search"></i></button>
-  
-  <div id="search-modal">
-    <div>
-      <button onclick="document.getElementById('search-modal').style.display='none'" style="position:absolute;top:8px;right:12px;background:none;border:none;font-size:20px;cursor:pointer;color:#fff">&times;</button>
-      <input type="text" id="search-input" placeholder="Buscar servicios o programas...">
-      <div id="search-results"></div>
+<!-- FIXED BUTTONS -->
+<button id="btn-top" title="Volver arriba" style="position:fixed;bottom:112px;right:16px;width:44px;height:44px;background:var(--morado-claro);color:#fff;border:none;border-radius:50%;font-size:16px;cursor:pointer;z-index:9000;display:none;align-items:center;justify-content:center;box-shadow:0 3px 12px rgba(76,13,140,.5);transition:.3s"><i class="fas fa-chevron-up"></i></button>
+<div id="cart-icon"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
+<button id="btn-lupa"><i class="fas fa-search"></i></button>
+
+<!-- WA MENU -->
+<div id="wa-overlay" class="wa-overlay" onclick="cerrarWaMenu()"></div>
+<div id="wa-menu">
+  <button class="wa-option" onclick="abrirWA('info')"><i class="fas fa-info-circle"></i>Quiero más información</button>
+  <button class="wa-option" onclick="abrirWA('compra')"><i class="fas fa-shopping-bag"></i>Quiero realizar una compra</button>
+  <button class="wa-option" onclick="abrirWA('vender')"><i class="fas fa-store"></i>Quiero vender mis productos</button>
+</div>
+<button id="wa-float" onclick="toggleWaMenu()" title="Escríbenos por WhatsApp" style="border:none;cursor:pointer;position:fixed;bottom:64px;right:16px;width:54px;height:54px;background:var(--verde-wa);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:25px;color:#fff;box-shadow:0 4px 16px rgba(37,211,102,.5);z-index:9000;animation:waPulse 2.5s infinite">
+  <i class="fab fa-whatsapp"></i>
+</button>
+
+<!-- SEARCH -->
+<div id="search-modal"><div>
+  <input type="text" id="search-input" placeholder="🔍 Buscar productos...">
+  <div id="search-results"></div>
+</div></div>
+<div id="noti-add"></div>
+
+<!-- BOTTOM BANNER -->
+<div id="banner-div">
+  <div id="banner-envio">🚚 Envío gratis desde $50</div>
+  <div id="banner-sorteo">🎉 ¡Participa en nuestras rifas!</div>
+</div>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="container top-bar-inner">
+    <div class="top-bar-left">
+      <i class="fas fa-map-marker-alt"></i>
+      <span>La Y de Tabacundo, Ecuador</span>
     </div>
-  </div>
-  
-  <div id="noti-add"></div>
-
-  <div id="banner-div">
-    <div id="banner-envio">🚚 Entrega inmediata digital</div>
-    <div id="banner-sorteo">🎉 ¡Participa en nuestras rifas!</div>
-  </div>
-
-  <div class="top-bar">
-    <div class="container flex-space">
-      <div class="social-icons">
-        <a href="https://www.tiktok.com/@bhalleffort" target="_blank"><i class="fab fa-tiktok"></i></a>
-        <a href="https://www.facebook.com/share/17jG7haojA/" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.instagram.com/bhalleffort" target="_blank"><i class="fab fa-instagram"></i></a>
-      </div>
-      <div><i class="fas fa-bolt"></i> SERVICIOS DIGITALES AL INSTANTE</div>
-    </div>
-  </div>
-
-  <header class="main-header">
-    <div class="container flex-space">
-      <a href="index.html" style="text-decoration:none; color:inherit;">
-        <div class="logo-section">
-          <img src="logo-ballena.webp" alt="BHALLEFFORT" class="whale-icon">
-          <div class="brand-text">
-            <h1>BHALLEFFORT</h1>
-            <p>Programas y Streaming</p>
-          </div>
-        </div>
+    <div class="top-bar-right">
+      <a href="https://wa.me/593963923399" target="_blank" class="top-wa-link">
+        <i class="fab fa-whatsapp"></i>
+        <span>+593 963 923 399</span>
       </a>
-      <div class="dual-buttons">
-        <a href="rifas.html" class="btn-rifas">🎉 Rifas</a>
-        <a href="https://wa.me/593963923399" class="btn-wa">📱 WHATSAPP </a>
+      <div class="social-icons">
+        <a href="https://www.tiktok.com/@bhalleffort.ec?_r=1&_t=ZS-94JOUwwt47e" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.facebook.com/share/1KPhCcUL4k/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/bhalleffort?igsh=MTRsd3oybnQybHo4Yw==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
       </div>
-    </div>
-  </header>
-
-  <nav class="main-nav">
-    <ul>
-      <li><a href="index.html">INICIO</a></li>
-      <li><a href="ropa.html">ROPA Y CALZADO</a></li>
-      <li><a href="programas.html" class="active">PROGRAMAS Y STREAMING</a></li>
-      <li><a href="varios.html">VARIOS</a></li>
-      <li><a href="promociones.html">PROMOCIONES</a></li>
-      <li><a href="quienes-somos.html">QUIÉNES SOMOS</a></li>
-      <li><a href="contacto.html">CONTACTO</a></li>
-    </ul>
-  </nav>
-
-  <section class="hero-banner">
-    <div>
-      <h1>SERVICIOS DIGITALES</h1>
-      <p>Cuentas premium y software al mejor precio del mercado</p>
-    </div>
-  </section>
-
-  <section class="featured-products">
-    <div class="container">
-      <h2 class="section-title">📺 CATÁLOGO DIGITAL 💻</h2>
-      
-      <div class="filter-container">
-        <button class="btn-filter active" id="btn-ver-todo" onclick="filtrar('todos', this)">Ver Todo</button>
-        <button class="btn-filter" onclick="filtrar('STREAMING', this)">Streaming</button>
-        <button class="btn-filter" onclick="filtrar('SOFTWARE', this)">Software</button>
-        <button class="btn-filter" onclick="filtrar('JUEGOS', this)">Juegos</button>
-      </div>
-
-      <div class="ia-notice">⚡ <strong>Nota:</strong> La mayoría de productos digitales se entregan vía WhatsApp o Email tras el pago.</div>
-      <div class="products-grid-ten" id="programas-grid"></div>
-    </div>
-  </section>
-
-  <section class="guarantees">
-    <div class="container flex-guarantees">
-      <div class="guarantee-item">
-        <i class="fas fa-shield-alt"></i>
-        <div><strong style="color:#fff">GARANTÍA TOTAL</strong><p style="color:#aaa">Soporte durante toda tu suscripción</p></div>
-      </div>
-      <div class="guarantee-item">
-        <i class="fas fa-clock"></i>
-        <div>
-          <strong style="color:#fff">ENTREGA RÁPIDA</strong>
-          <p style="color:#aaa">Activación en menos de 30 min. <a href="https://wa.me/593963923399" target="_blank" style="color:var(--turquesa); font-weight:700;">Pide la tuya.</a></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container footer-grid">
-      <div>
-        <img src="logo-ballena.webp" alt="Ballena" width="60">
-        <p style="color:#aaa">Diseñado por <strong style="color:#fff">Jhomac²</strong> - La Y de Tabacundo</p>
-        <div class="god-message" style="margin-top:10px; font-weight:700; color: var(--turquesa);">Dios te da más de lo que pides.</div>
-      </div>
-      <div class="footer-contact">
-        <h3 style="color:var(--turquesa)">CONTÁCTANOS</h3>
-        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/593963923399" target="_blank" style="color:var(--turquesa); text-decoration:none;">+593 963 923 399</a></p>
-        <p><i class="fas fa-envelope"></i> agromhasvida5@gmail.com</p>
-      </div>
-    </div>
-    <div style="margin-top:15px; display: flex; justify-content: center; gap: 20px;">
-      <a href="cookies.html" style="color: #aaa; text-decoration: none; font-size: 12px; opacity: 0.7;">Política de Cookies</a>
-      <a href="politicas.html" style="color: #aaa; text-decoration: none; font-size: 12px; opacity: 0.7;">Políticas de Privacidad y Envíos</a>
-    </div>
-    <div class="copyright-bar">&copy; 2026 BHALLEFFORT</div>
-  </footer>
-
-  <div id="zoom-modal">
-      <button onclick="cerrarZoom()" style="position:absolute; top:20px; right:20px; background:var(--morado); color:#fff; border:none; border-radius:50%; width:45px; height:45px; font-size:24px; cursor:pointer; font-weight:bold; z-index:5001;">&times;</button>
-      <div class="zoom-content">
-          <img id="img-zoom" src="">
-          <div class="zoom-btns">
-              <button onclick="cambiarFotoZoom('frontal')" class="btn-z" style="background:var(--turquesa);">VER INFO</button>
-              <button onclick="cambiarFotoZoom('trasera')" class="btn-z" style="background:var(--morado);">VER MÁS</button>
-          </div>
-      </div>
-  </div>
-
-  <div id="cart-modal">
-    <div>
-      <header style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #333; padding-bottom:10px; margin-bottom:15px;">
-        <h3 style="color:#fff"><i class="fas fa-shopping-cart"></i> Tu Pedido Digital</h3>
-        <button onclick="document.getElementById('cart-modal').style.display='none'" style="background:none;border:none;font-size:24px;cursor:pointer;color:#fff">&times;</button>
-      </header>
-      
-      <div class="pago-aviso-oficial">
-        Pago oficial a nombre de: <strong style="color:#fff">Katherine Pineda</strong>
-      </div>
-
-      <div id="cart-items" style="max-height:300px; overflow-y:auto;"></div>
-
-      <footer style="margin-top:20px; border-top:1px solid #333; padding-top:15px;">
-        <div style="display:flex;justify-content:space-between;font-size:14px; margin-bottom:5px;color:#aaa">
-            <span>Subtotal:</span><span id="cart-subtotal">$0.00</span>
-        </div>
-        <div style="display:flex;justify-content:space-between;font-size:14px; margin-bottom:10px;color:#aaa">
-            <span>Comisión:</span><span id="cart-envio">$0.00</span>
-        </div>
-        <div style="display:flex;justify-content:space-between;font-weight:bold; font-size:18px; color:var(--turquesa)">
-          <span>Total:</span><span id="cart-total">$0.00</span>
-        </div>
-        <div id="rifa-status" style="text-align:center; padding:8px; background:#1a4a1a; color:#4ade80; border-radius:6px; margin:10px 0; font-size:12px; display:none;">
-            ✅ ¡Este pedido participa en la RIFA!
-        </div>
-        <button onclick="finalizarCompraWA()" style="background:#25D366;color:#fff;border:none;padding:15px;border-radius:6px;cursor:pointer;width:100%; font-weight:700; font-size:16px; margin-top:10px">
-          FINALIZAR COMPRA POR WHATSAPP 🐋
-        </button>
-      </footer>
     </div>
   </div>
+</div>
 
-  <script>
-    let productosTotales = [];
-    let productosFiltrados = [];
-    let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
-    let imgActualFrontal = "";
-    let imgActualTrasera = "";
 
-    async function cargarDatos() {
-      try {
-        const res = await fetch('productos.json');
-        productosTotales = await res.json();
-        filtrar('todos', document.getElementById('btn-ver-todo'));
-        actualizarBadge();
-        
-        // Revisar si viene de una búsqueda de otra página
-        const urlParams = new URLSearchParams(window.location.search);
-        const buscarId = urlParams.get('buscar');
-        if (buscarId) {
-            const pEncontrado = productosTotales.filter(x => x.id === buscarId);
-            if(pEncontrado.length > 0) dibujarProgramas(pEncontrado);
-        }
-      } catch (e) { console.error(e); }
-    }
+<!-- HEADER -->
+<header class="main-header">
+  <div class="container header-inner">
+    <a href="index.html">
+      <div class="logo-section">
+        <img src="logo-ballena.webp" alt="TIO YAPERO" class="whale-icon">
+        <div class="brand-text">
+          <h1>TIO YAPERO</h1>
+          <p class="sub1">Tu Marketplace de confianza en Ecuador</p>
+          <span class="sub2">📍 La Y de Tabacundo</span>
+        </div>
+      </div>
+    </a>
+    <div class="header-actions">
+      <a href="rifas.html" class="btn-rifas">🎉 Rifas</a>
+      <a href="https://wa.me/593963923399" target="_blank" class="btn-wa-header">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+    </div>
+  </div>
+</header>
 
-    function dibujarProgramas(lista) {
-      const grid = document.getElementById('programas-grid');
-      grid.innerHTML = lista.map(p => `
-        <div class="product-card" onclick="this.classList.toggle('flip')">
-          ${p.oferta === 'SI' ? '<div class="badge-promo">PROMO</div>' : ''}
-          <div class="product-image-container">
-            <div class="lupa-zoom-icon" onclick="event.stopPropagation(); abrirZoom('${p.imgFrontal}', '${p.imgTrasera || p.imgFrontal}')">
-                <i class="fas fa-search-plus"></i>
-            </div>
-            <img src="${p.imgFrontal}" class="product-image front">
-            <img src="${p.imgTrasera || p.imgFrontal}" class="product-image back">
-          </div>
-          <div class="product-info">
-            <span class="product-category">${p.subcat}</span>
-            <h4 class="product-name">${p.nombre}</h4>
-            <p class="product-desc">${p.descripcion || 'Servicio digital garantizado.'}</p>
-            <div style="margin-bottom:8px">
-              ${p.precio_antes ? `<span class="old-price">$${p.precio_antes.toFixed(2)}</span>` : ''}
-              <span class="current-price">$${p.precio.toFixed(2)}</span>
-            </div>
-            <button class="btn-buy" onclick="event.stopPropagation(); addCart('${p.id}')">Añadir al carrito</button>
-          </div>
-        </div>`).join('');
-    }
 
-    function filtrar(sub, btn) {
-      document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
-      if(btn) btn.classList.add('active');
-      
-      const catsDigitales = ["PROGRAMAS", "STREAMING", "JUEGOS"];
-      
-      if(sub === 'todos') {
-        productosFiltrados = productosTotales.filter(p => catsDigitales.includes(p.cat) || catsDigitales.includes(p.subcat));
-      } else {
-        productosFiltrados = productosTotales.filter(p => p.subcat === sub);
-      }
-      dibujarProgramas(productosFiltrados);
-    }
+<!-- NAV -->
+<nav class="main-nav">
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="ropa.html" class="active">Ropa y Calzado</a></li>
+    <li><a href="programas.html">Programas y Streaming</a></li>
+    <li><a href="varios.html">Varios</a></li>
+    <li><a href="promociones.html">Promociones</a></li>
+    <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+  <div class="cert-strip"><i class="fas fa-shield-alt"></i>Todos los proveedores son certificados por <strong>Tio Yapero</strong></div>
+</nav>
 
-    function addCart(id) {
-      const p = productosTotales.find(x => x.id === id);
-      if(p) {
-        carrito.push({id: p.id, nombre: p.nombre, precio: p.precio});
-        localStorage.setItem('bh-cart', JSON.stringify(carrito));
-        actualizarBadge();
-        mostrarNoti(`✅ ${p.nombre} añadido`);
-      }
-    }
 
-    function actualizarBadge() {
-      const badge = document.getElementById('cart-badge');
-      if(badge) badge.textContent = carrito.length;
-      
-      const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
-      const bEnvio = document.getElementById('banner-envio');
-      const bSorteo = document.getElementById('banner-sorteo');
-      
-      if(bEnvio) {
-        bEnvio.style.background = subTotal > 0 ? '#25D366' : '#ff9800';
-        bEnvio.textContent = subTotal > 0 ? "⚡ Listo para entrega digital" : "🚚 Entrega inmediata digital";
-      }
-      if(bSorteo) {
-        bSorteo.style.background = subTotal >= 30 ? '#25D366' : 'var(--morado)';
-        bSorteo.textContent = subTotal >= 30 ? "🎟️ ¡Ya participas en la RIFA!" : "🎉 ¡Participa en nuestras rifas!";
-      }
-    }
 
-    function mostrarModal() {
-      if(carrito.length === 0) { mostrarNoti("El carrito está vacío"); return; }
-      const items = document.getElementById('cart-items');
-      const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
-      
-      items.innerHTML = carrito.map((p, i) => `
-        <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid #333;">
-          <div><div style="font-weight:600; font-size:14px; color:#fff">${p.nombre}</div><div style="color:var(--turquesa);">$${p.precio.toFixed(2)}</div></div>
-          <button onclick="removeItem(${i})" style="color:#ff4444; border:none; background:none; cursor:pointer;"><i class="fas fa-trash-alt"></i></button>
-        </div>`).join('');
-      
-      document.getElementById('cart-subtotal').textContent = '$' + subTotal.toFixed(2);
-      document.getElementById('cart-total').textContent = '$' + subTotal.toFixed(2);
-      document.getElementById('rifa-status').style.display = (subTotal >= 30) ? 'block' : 'none';
-      document.getElementById('cart-modal').style.display = 'block';
-    }
+<!-- HERO PROGRAMAS -->
+<div class="hero-ropa">
+  <div class="hero-ropa-bg"></div>
+  <div class="hero-ropa-overlay"></div>
+  <div class="hero-ropa-content">
+    <div class="label">💻 Software &amp; Streaming 2026</div>
+    <h2>Programas y Apps</h2>
+    <p>Software, streaming, IA y cursos al mejor precio. Entrega inmediata 🚀</p>
+    <a href="#ropa-grid-container"><i class="fas fa-laptop-code"></i> Ver Catálogo</a>
+  </div>
+</div>
 
-    function removeItem(i) {
-      carrito.splice(i, 1);
-      localStorage.setItem('bh-cart', JSON.stringify(carrito));
-      actualizarBadge();
-      carrito.length === 0 ? document.getElementById('cart-modal').style.display = 'none' : mostrarModal();
-    }
+<!-- SUBCATS ICONS -->
+<div class="subcats-strip">
+  <div class="container subcats-inner">
+    <button class="subcat-btn active" onclick="filtrarRopa('todos',this)"><i class="fas fa-th"></i><span>Todo</span></button>
+    <button class="subcat-btn" onclick="filtrarRopa('software',this)"><i class="fas fa-laptop-code"></i><span>Software</span></button>
+    <button class="subcat-btn" onclick="filtrarRopa('streaming',this)"><i class="fas fa-play-circle"></i><span>Streaming</span></button>
+    <button class="subcat-btn" onclick="filtrarRopa('ia',this)"><i class="fas fa-robot"></i><span>IA</span></button>
+    <button class="subcat-btn" onclick="filtrarRopa('cursos',this)"><i class="fas fa-graduation-cap"></i><span>Cursos</span></button>
+    <button class="subcat-btn" onclick="filtrarRopa('ofertas',this)"><i class="fas fa-percent" style="color:#ff4444"></i><span>Ofertas</span></button>
+  </div>
+</div>
 
-    function finalizarCompraWA() {
-      const subTotal = carrito.reduce((s, i) => s + i.precio, 0);
-      let msg = `🐋 *¡Hola BHALLEFFORT!* \n💻 *PEDIDO DIGITAL:*\n\n`;
-      carrito.forEach((p, idx) => { msg += `${idx + 1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`; });
-      msg += `\n💰 *TOTAL A PAGAR: $${subTotal.toFixed(2)}*\n`;
-      msg += `\n⚠️ Pago a nombre de: *Katherine Pineda*`;
-      if(subTotal >= 30) msg += `\n🎟️ *ESTE PEDIDO PARTICIPA EN LA RIFA POR COMPRA > $30*`;
-      msg += `\n\nPor favor, envíame los datos para la activación del servicio.`;
-      window.open(`https://wa.me/593963923399?text=${encodeURIComponent(msg)}`, '_blank');
-    }
+<!-- BENEFICIOS STRIP -->
+<div class="beneficios-strip">
+  <div class="beneficios-inner">
+    <div class="beneficio-item"><div class="beneficio-icon"><i class="fas fa-truck"></i></div><div class="beneficio-text"><strong>Envío Gratis</strong><span>Compras desde $50</span></div></div>
+    <div class="beneficio-item"><div class="beneficio-icon"><i class="fab fa-whatsapp"></i></div><div class="beneficio-text"><strong>Ventas WhatsApp</strong><span>+593 963 923 399</span></div></div>
+    <div class="beneficio-item"><div class="beneficio-icon"><i class="fas fa-shield-alt"></i></div><div class="beneficio-text"><strong>Compra Segura</strong><span>Tio Yapero</span></div></div>
+    <div class="beneficio-item"><div class="beneficio-icon"><i class="fas fa-store"></i></div><div class="beneficio-text"><strong>Jhomac</strong><span>Proveedor certificado</span></div></div>
+  </div>
+</div>
 
-    // LÓGICA DEL BUSCADOR
-    document.getElementById('search-input').oninput = (e) => {
-      const val = e.target.value.toLowerCase();
-      const resDiv = document.getElementById('search-results');
-      if(!val) { resDiv.innerHTML = ''; return; }
-      const f = productosTotales.filter(p => p.nombre.toLowerCase().includes(val)).slice(0, 6);
-      resDiv.innerHTML = f.map(p => `
-        <div class="search-item" onclick="irAProducto('${p.id}', '${p.cat}')">
-          <img src="${p.imgFrontal}">
-          <div>
-            <div style="font-size:13px; font-weight:600; color:#fff">${p.nombre}</div>
-            <div style="font-size:10px; color:var(--turquesa)">Sección: ${p.cat}</div>
-          </div>
-        </div>`).join('');
-    };
 
-    function irAProducto(id, cat) {
-      document.getElementById('search-modal').style.display = 'none';
-      const digitalCats = ["PROGRAMAS", "STREAMING", "JUEGOS"];
-      
-      if (digitalCats.includes(cat)) {
-        const p = productosTotales.filter(x => x.id === id);
-        dibujarProgramas(p);
-        window.scrollTo({top: 600, behavior: 'smooth'});
-      } else {
-        let pagina = "ropa.html";
-        if (cat === "VARIOS") pagina = "varios.html";
-        if (cat === "PROMOCIONES") pagina = "promociones.html";
-        window.location.href = pagina + "?buscar=" + id;
-      }
-    }
+<!-- CÓMO COMPRAR -->
+<section class="como-section">
+  <div class="container">
+    <div class="section-header" style="margin-bottom:18px">
+      <h2>¿Cómo <span>Comprar?</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="como-grid">
+      <div class="como-step">
+        <div class="como-num">1</div>
+        <div class="como-text">
+          <strong>Elige tu producto</strong>
+          <span>Explora el catálogo y agrega al carrito</span>
+        </div>
+      </div>
+      <div class="como-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="como-step">
+        <div class="como-num">2</div>
+        <div class="como-text">
+          <strong>Escríbenos</strong>
+          <span>Te contactamos por WhatsApp con tu pedido</span>
+        </div>
+      </div>
+      <div class="como-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="como-step">
+        <div class="como-num">3</div>
+        <div class="como-text">
+          <strong>¡Recibe en casa!</strong>
+          <span>Envío seguro a todo Ecuador 🇪🇨</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    function abrirZoom(imgF, imgT) {
-        imgActualFrontal = imgF; imgActualTrasera = imgT;
-        document.getElementById('img-zoom').src = imgF;
-        document.getElementById('zoom-modal').style.display = 'flex';
-    }
-    function cerrarZoom() { document.getElementById('zoom-modal').style.display = 'none'; }
-    function cambiarFotoZoom(tipo) { document.getElementById('img-zoom').src = (tipo === 'frontal') ? imgActualFrontal : imgActualTrasera; }
-    function mostrarNoti(t) { const n = document.getElementById('noti-add'); n.textContent = t; n.style.display = 'block'; setTimeout(() => n.style.display = 'none', 2000); }
 
-    document.getElementById('cart-icon').onclick = mostrarModal;
-    document.getElementById('btn-lupa').onclick = () => document.getElementById('search-modal').style.display='block';
+<!-- CATÁLOGO GRID -->
+<section class="ropa-section" id="ropa-grid-container">
+  <div class="container">
+    <div class="section-header" style="margin-bottom:6px">
+      <h2 id="grid-titulo">Todos los <span>Programas</span></h2>
+      <p class="sub" id="grid-sub">Software · Streaming · IA · Cursos</p>
+      <div class="section-line"></div>
+    </div>
+    <div class="ropa-grid" id="ropa-grid"></div>
+  </div>
+</section>
 
-    cargarDatos();
-  </script>
+
+
+
+<!-- RIFAS BANNER -->
+<div class="container" style="padding:32px 0 0">
+  <div class="rifas-banner">
+    <div class="rifas-banner-text">
+      <h3>🎉 ¡No te pierdas nuestras rifas!</h3>
+      <p>Compras mayores a $30 participan automáticamente. ¡Gana increíbles premios!</p>
+    </div>
+    <a href="rifas.html" class="rifas-banner-btn" onclick="window.location.href='rifas.html';return false;">Ver Rifas →</a>
+  </div>
+</div>
+
+
+
+<!-- GARANTÍAS -->
+<section class="guarantees">
+  <div class="container">
+    <div class="section-header" style="margin-bottom:24px">
+      <h2>¿Por qué <span>Elegirnos?</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="guarantees-grid">
+      <div class="guarantee-item"><i class="fas fa-truck"></i><strong>Envíos Seguros</strong><p>A todo Ecuador. Gratis desde $50.</p></div>
+      <div class="guarantee-item"><i class="fas fa-star"></i><strong>Calidad Garantizada</strong><p>Productos nuevos y seleccionados.</p></div>
+      <div class="guarantee-item"><i class="fab fa-whatsapp"></i><strong>Atención Directa</strong><p>Respuesta rápida por WhatsApp.</p></div>
+      <div class="guarantee-item"><i class="fas fa-store"></i><strong>Marketplace Local</strong><p>Conectamos vendedores y compradores.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <img src="logo-ballena.webp" alt="TIO YAPERO" width="62">
+      <div class="tagline">Diseñado por <a href="https://www.tiktok.com/@jhomac22?_r=1&_t=ZS-94JOSYjSU7u" target="_blank" class="jhomac-link">Jhomac</a></div>
+      <div class="location"><i class="fas fa-map-marker-alt" style="color:var(--turquesa);margin-right:4px;"></i>La Y de Tabacundo, Ecuador</div>
+      <div class="god-message">"Dios te da más de lo que pides."</div>
+    </div>
+    <div class="footer-col">
+      <h3>Contáctanos</h3>
+      <div class="footer-contact-item"><i class="fab fa-whatsapp"></i><a href="https://wa.me/593963923399" target="_blank">+593 963 923 399</a></div>
+      <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>agromhasvida5@gmail.com</span></div>
+      <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>La Y de Tabacundo, Ecuador</span></div>
+    </div>
+    <div class="footer-col">
+      <h3>Información</h3>
+      <div class="footer-links">
+        <a href="cookies.html">Política de Cookies</a>
+        <a href="politicas.html">Privacidad y Envíos</a>
+        <a href="quienes-somos.html">Quiénes Somos</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h3>Síguenos</h3>
+      <div style="display:flex;flex-direction:column;gap:9px;">
+        <a href="https://www.tiktok.com/@bhalleffort.ec?_r=1&_t=ZS-94JOUwwt47e" target="_blank" style="display:flex;align-items:center;gap:8px;color:var(--texto-gris);font-size:13px;transition:.2s" onmouseover="this.style.color='var(--turquesa)'" onmouseout="this.style.color='var(--texto-gris)'"><i class="fab fa-tiktok" style="font-size:17px;"></i> TikTok</a>
+        <a href="https://www.facebook.com/share/1KPhCcUL4k/" target="_blank" style="display:flex;align-items:center;gap:8px;color:var(--texto-gris);font-size:13px;transition:.2s" onmouseover="this.style.color='var(--turquesa)'" onmouseout="this.style.color='var(--texto-gris)'"><i class="fab fa-facebook" style="font-size:17px;"></i> Facebook</a>
+        <a href="https://www.instagram.com/bhalleffort?igsh=MTRsd3oybnQybHo4Yw==" target="_blank" style="display:flex;align-items:center;gap:8px;color:var(--texto-gris);font-size:13px;transition:.2s" onmouseover="this.style.color='var(--turquesa)'" onmouseout="this.style.color='var(--texto-gris)'"><i class="fab fa-instagram" style="font-size:17px;"></i> Instagram</a>
+      </div>
+    </div>
+  </div>
+  <div class="copyright-bar">&copy; 2026 TIO YAPERO — Todos los derechos reservados</div>
+</footer>
+
+
+<!-- ZOOM MODAL -->
+<div id="zoom-modal">
+  <button onclick="cerrarZoom()" style="position:absolute;top:14px;right:14px;background:var(--morado);color:#fff;border:none;border-radius:50%;width:40px;height:40px;font-size:19px;cursor:pointer;font-weight:bold;z-index:5001;">&times;</button>
+  <div class="zoom-content">
+    <img id="img-zoom" src="">
+    <div class="zoom-btns">
+      <button onclick="cambiarFotoZoom('frontal')" class="btn-z" style="background:var(--turquesa);color:#000;">👁 Ver Frente</button>
+      <button onclick="cambiarFotoZoom('trasera')" class="btn-z" style="background:var(--morado);">↩ Ver Espalda</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- CART MODAL -->
+<div id="cart-modal">
+  <div>
+    <header style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #2a2a3e;padding-bottom:10px;margin-bottom:13px;">
+      <h3 style="color:#fff;font-size:15px;"><i class="fas fa-shopping-cart" style="color:var(--turquesa);margin-right:7px;"></i>Tu Pedido</h3>
+      <button onclick="document.getElementById('cart-modal').style.display='none'" style="background:none;border:none;font-size:21px;cursor:pointer;color:#fff;">&times;</button>
+    </header>
+    <div id="cart-items" style="max-height:280px;overflow-y:auto;"></div>
+    <div style="background:rgba(76,13,140,.15);border:1px solid var(--morado);padding:9px;text-align:center;border-radius:8px;font-size:13px;margin:11px 0;color:var(--texto-gris);">
+      Pago oficial a nombre de: <strong style="color:#fff;">Katherine Pineda</strong>
+    </div>
+    <footer style="margin-top:13px;border-top:1px solid #2a2a3e;padding-top:12px;">
+      <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px;color:var(--texto-gris);"><span>Subtotal:</span><span id="cart-subtotal">$0.00</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:9px;color:var(--texto-gris);"><span>Envío:</span><span id="cart-envio">$3.50</span></div>
+      <div style="display:flex;justify-content:space-between;font-weight:800;font-size:19px;color:var(--turquesa);"><span>Total:</span><span id="cart-total">$0.00</span></div>
+      <div id="rifa-status" style="text-align:center;padding:7px;background:#0d3a0d;color:#4ade80;border-radius:7px;margin:9px 0;font-size:12px;display:none;">✅ ¡Este pedido participa en la RIFA!</div>
+      <button onclick="finalizarCompraWA()" style="background:var(--verde-wa);color:#fff;border:none;padding:13px;border-radius:9px;cursor:pointer;width:100%;font-weight:800;font-size:14px;margin-top:10px;box-shadow:0 4px 14px rgba(37,211,102,.4);">🦅 FINALIZAR POR WHATSAPP</button>
+    </footer>
+  </div>
+</div>
+
+
+
+<script>
+let productosTotales = [];
+let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
+let imgActualFrontal = '', imgActualTrasera = '';
+const ROPA_CATS = ["PROGRAMAS"];
+
+/* === FILTRAR Y DIBUJAR GRID === */
+function filtrarRopa(tipo, btn) {
+  // Actualizar botones activos en ambas barras
+  document.querySelectorAll('.filtros-ropa button, .subcat-btn').forEach(b => b.classList.remove('active'));
+  if(btn) {
+    btn.classList.add('active');
+    // sincronizar la otra barra
+    document.querySelectorAll(`.filtros-ropa button[onclick*="${tipo}"], .subcat-btn[onclick*="${tipo}"]`).forEach(b=>b.classList.add('active'));
+  }
+
+  let lista = productosTotales.filter(p => ROPA_CATS.includes(p.cat));
+  let titulo = 'Todos los'; let sub = 'Software · Streaming · IA · Cursos'; let span = 'Programas';
+
+  const IA_IDS = ['P065','P066','P069','P077','P079'];
+  const CURSOS_IDS = ['P059','P073','P080','P081','P082'];
+  if(tipo === 'software')  { lista = lista.filter(p => p.subcat === 'SOFTWARE' && !IA_IDS.includes(p.id) && !CURSOS_IDS.includes(p.id)); titulo='Programas'; span='Software'; sub='Edición, VPN, herramientas y más'; }
+  if(tipo === 'streaming') { lista = lista.filter(p => p.subcat === 'STREAMING'); titulo='Apps de'; span='Streaming'; sub='Netflix, Spotify, HBO, Disney y más'; }
+  if(tipo === 'ia')        { lista = lista.filter(p => IA_IDS.includes(p.id));     titulo='Inteligencia'; span='Artificial'; sub='ChatGPT, Gemini, Grok, Perplexity y más'; }
+  if(tipo === 'cursos')    { lista = lista.filter(p => CURSOS_IDS.includes(p.id)); titulo='Nuestros'; span='Cursos'; sub='Inglés, trading, seducción y más'; }
+  if(tipo === 'ofertas')   { lista = lista.filter(p => p.oferta === 'SI');         titulo='Ofertas en'; span='Programas'; sub='Descuentos por tiempo limitado'; }
+
+  document.getElementById('grid-titulo').innerHTML = titulo + ' <span>' + span + '</span>';
+  document.getElementById('grid-sub').textContent = sub;
+
+  const grid = document.getElementById('ropa-grid');
+  if(lista.length === 0) {
+    grid.innerHTML = '<div class="no-resultados"><i class="fas fa-box-open" style="font-size:32px;margin-bottom:10px;display:block"></i>No hay productos en esta categoría aún</div>';
+    return;
+  }
+  grid.innerHTML = lista.map(p => buildCard(p)).join('');
+}
+
+function buildCard(p) {
+  return `<div class="product-card">
+    ${p.oferta==='SI'?'<div class="badge-promo">OFERTA</div>':''} ${p.nuevo==='SI'&&p.oferta!=='SI'?'<div class="badge-nuevo">NUEVO</div>':''}
+    <div class="product-image-container">
+      <div class="lupa-zoom-icon" onclick="abrirZoom('${p.imgFrontal}','${p.imgTrasera||p.imgFrontal}')"><i class="fas fa-eye"></i></div>
+      <img src="${p.imgFrontal}" class="product-image front" alt="${p.nombre}" loading="lazy">
+      <img src="${p.imgTrasera||p.imgFrontal}" class="product-image back" alt="${p.nombre}" loading="lazy">
+    </div>
+    <div class="product-info">
+      <a href="${p.proveedorLink||'https://wa.me/593963923399'}" target="_blank" class="product-proveedor" onclick="event.stopPropagation()"><span style="color:var(--texto-gris);font-weight:600">Proveedor: </span>${p.proveedor||'Tio Yapero'}</a>
+      <h4 class="product-name">${p.nombre}</h4>
+      <p class="product-desc">${p.descripcion||''}</p>
+      <div class="price-row">
+        ${p.precio_antes?`<span class="old-price">$${p.precio_antes.toFixed(2)}</span>`:''}
+        <span class="current-price">$${p.precio.toFixed(2)}</span>
+      </div>
+      <div class="envio-tag"><i class="fas fa-truck"></i> Envío nacional</div>
+      <button class="btn-buy" onclick="event.stopPropagation();addCart('${p.id}')">Añadir al carrito</button>
+    </div>
+  </div>`;
+}
+
+/* === CARRITO === */
+function addCart(id) {
+  const p = productosTotales.find(x => x.id === id);
+  if(p) { carrito.push({id:p.id,nombre:p.nombre,precio:p.precio,cat:p.cat}); localStorage.setItem('bh-cart',JSON.stringify(carrito)); actualizarBadge(); mostrarNoti('✅ '+p.nombre+' añadido'); }
+}
+function actualizarBadge() {
+  const badge=document.getElementById('cart-badge'); if(badge) badge.textContent=carrito.length;
+  const sub=carrito.reduce((s,i)=>s+i.precio,0);
+  const be=document.getElementById('banner-envio'); const bs=document.getElementById('banner-sorteo');
+  if(be){be.style.background=sub>=50?'#25D366':'#ff9800';be.textContent=sub>=50?'🚚 ¡Envío GRATIS activado!':'🚚 Envío gratis desde $50';}
+  if(bs){bs.style.background=sub>=30?'#25D366':'var(--morado)';bs.textContent=sub>=30?'🎟️ ¡Ya participas en la RIFA!':'🎉 ¡Participa en nuestras rifas!';}
+}
+function mostrarModal() {
+  if(carrito.length===0){mostrarNoti('El carrito está vacío');return;}
+  const items=document.getElementById('cart-items'); const sub=carrito.reduce((s,i)=>s+i.precio,0); const env=sub>=50?0:3.50;
+  items.innerHTML=carrito.map((p,i)=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid #2a2a3e"><div><div style="font-weight:700;font-size:13px;color:#fff">${p.nombre}</div><div style="color:var(--turquesa);font-weight:700">${p.precio.toFixed(2)}</div></div><button onclick="removeItem(${i})" style="color:#ff4444;border:none;background:none;cursor:pointer;font-size:15px"><i class="fas fa-trash-alt"></i></button></div>`).join('');
+  document.getElementById('cart-subtotal').textContent='$'+sub.toFixed(2);
+  document.getElementById('cart-envio').textContent='$'+env.toFixed(2);
+  document.getElementById('cart-total').textContent='$'+(sub+env).toFixed(2);
+  document.getElementById('rifa-status').style.display=sub>=30?'block':'none';
+  document.getElementById('cart-modal').style.display='block';
+}
+function removeItem(i){carrito.splice(i,1);localStorage.setItem('bh-cart',JSON.stringify(carrito));actualizarBadge();carrito.length===0?document.getElementById('cart-modal').style.display='none':mostrarModal();}
+function finalizarCompraWA(){
+  const sub=carrito.reduce((s,i)=>s+i.precio,0);const env=sub>=50?0:3.50;
+  let msg='🦅 *¡Hola TIO YAPERO!*\n🛍️ *NUEVO PEDIDO:*\n\n';
+  carrito.forEach((p,idx)=>{msg+=`${idx+1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`;});
+  msg+=`\n💵 *Subtotal:* $${sub.toFixed(2)}\n🚚 *Envío:* $${env.toFixed(2)}\n💰 *TOTAL: $${(sub+env).toFixed(2)}*`;
+  if(sub>=30) msg+='\n\n🎟️ *¡Este pedido participa en la RIFA!*';
+  msg+='\n\n⚠️ Pago a nombre de *Katherine Pineda*.';
+  window.open('https://wa.me/593963923399?text='+encodeURIComponent(msg),'_blank');
+}
+
+/* === SEARCH === */
+document.getElementById('btn-lupa').onclick=(e)=>{e.stopPropagation();const m=document.getElementById('search-modal');m.style.display=m.style.display==='block'?'none':'block';if(m.style.display==='block')document.getElementById('search-input').focus();};
+document.addEventListener('click',(e)=>{const m=document.getElementById('search-modal');if(!m.contains(e.target)&&e.target.id!=='btn-lupa')m.style.display='none';});
+document.getElementById('search-input').oninput=(e)=>{
+  const val=e.target.value.toLowerCase().trim();const res=document.getElementById('search-results');
+  if(!val){res.innerHTML='';return;}
+  const f=productosTotales.filter(p=>p.nombre.toLowerCase().includes(val)).slice(0,6);
+  res.innerHTML=f.length===0?'<div style="color:var(--texto-gris);padding:8px;font-size:12px">Sin resultados</div>':f.map(p=>`<div class="search-item" onclick="irAProducto('${p.id}','${p.cat}')"><img src="${p.imgFrontal}" alt="${p.nombre}"><div><div style="font-size:13px;font-weight:700;color:#fff">${p.nombre}</div><div style="font-size:10px;color:var(--turquesa)">${p.precio.toFixed(2)} · ${p.cat}</div></div></div>`).join('');
+};
+function irAProducto(id,cat){
+  document.getElementById('search-modal').style.display='none';
+  if(ROPA_CATS.includes(cat)){const y=document.getElementById('ropa-grid-container').getBoundingClientRect().top+window.scrollY-90;window.scrollTo({top:y,behavior:'smooth'});return;}
+  let pg='index.html';
+  if(['PROGRAMAS','SOFTWARE','STREAMING'].includes(cat)) pg='programas.html';
+  else if(cat==='VARIOS') pg='varios.html';
+  else if(cat==='PROMOCIONES') pg='promociones.html';
+  window.location.href=pg+'?buscar='+id;
+}
+
+/* === ZOOM === */
+function abrirZoom(f,t){imgActualFrontal=f;imgActualTrasera=t;document.getElementById('img-zoom').src=f;document.getElementById('zoom-modal').style.display='flex';}
+function cerrarZoom(){document.getElementById('zoom-modal').style.display='none';}
+function cambiarFotoZoom(tipo){document.getElementById('img-zoom').src=tipo==='frontal'?imgActualFrontal:imgActualTrasera;}
+
+/* === WA MENU === */
+function toggleWaMenu(){const m=document.getElementById('wa-menu');const o=document.getElementById('wa-overlay');const open=m.classList.toggle('open');o.classList.toggle('open',open);}
+function cerrarWaMenu(){document.getElementById('wa-menu').classList.remove('open');document.getElementById('wa-overlay').classList.remove('open');}
+function abrirWA(tipo){cerrarWaMenu();const msgs={info:'Hola Tio Yapero! 👋 Quisiera obtener más información sobre sus productos.',compra:'Hola Tio Yapero! 🛍️ Estoy interesado/a en realizar una compra. ¿Me pueden ayudar?',vender:'Hola Tio Yapero! 🏪 Me gustaría vender mis productos con ustedes. ¿Cuál es el proceso?'};window.open('https://wa.me/593963923399?text='+encodeURIComponent(msgs[tipo]),'_blank');}
+
+/* === HOVER IMAGEN === */
+document.addEventListener('mouseover',e=>{const card=e.target.closest('.product-card');if(card)card.classList.add('flip');});
+document.addEventListener('mouseout',e=>{const card=e.target.closest('.product-card');if(card&&!card.matches(':hover'))card.classList.remove('flip');});
+
+/* === SCROLL TOP === */
+const btnTop=document.getElementById('btn-top');
+window.addEventListener('scroll',()=>{btnTop.style.display=window.scrollY>400?'flex':'none';});
+btnTop.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
+
+/* === CARGAR DATOS === */
+async function cargarDatos(){
+  try{
+    const res=await fetch('productos.json');
+    productosTotales=await res.json();
+    filtrarRopa('todos',document.querySelector('.filtros-ropa button.active'));
+    actualizarBadge();
+  }catch(e){console.error('Error cargando productos:',e);}
+}
+document.getElementById('cart-icon').onclick=mostrarModal;
+mostrarNoti=function(t){const n=document.getElementById('noti-add');n.textContent=t;n.style.display='block';setTimeout(()=>n.style.display='none',2000);};
+cargarDatos();
+</script>
 </body>
 </html>
