@@ -122,9 +122,6 @@ a{text-decoration:none}
 .cat-card span{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px}
 .cat-badge{position:absolute;top:-5px;right:-5px;background:var(--naranja);color:#fff;font-size:8px;font-weight:800;padding:2px 5px;border-radius:8px}
 
-/* IA NOTICE */
-.ia-notice{text-align:center;background:linear-gradient(135deg,rgba(76,13,140,.12),rgba(0,200,200,.05));border:1px dashed rgba(0,200,200,.25);padding:8px 16px;margin-bottom:24px;border-radius:9px;font-size:12px;color:var(--texto-gris)}
-
 /* CATEGORY ROW SECTIONS */
 .cat-row-section{padding:36px 0;border-bottom:1px solid var(--card-border)}
 .cat-row-section:last-of-type{border-bottom:none}
@@ -135,7 +132,7 @@ a{text-decoration:none}
 
 /* PRODUCT CARD - white style */
 .product-card{
-  flex:0 0 calc(20% - 12px);
+  flex:0 0 calc(16.666% - 12px);
   background:#fff;border-radius:16px;
   box-shadow:0 4px 16px rgba(0,0,0,.1);
   display:flex;flex-direction:column;
@@ -235,14 +232,11 @@ footer{background:#080810;border-top:2px solid var(--morado);padding:44px 0 0;fo
 #noti-add{position:fixed;bottom:50px;left:50%;transform:translateX(-50%);background:var(--turquesa);color:#000;padding:8px 16px;border-radius:50px;font-size:13px;font-weight:700;z-index:9999;display:none;box-shadow:0 4px 14px rgba(0,200,200,.5)}
 #cart-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:4000}
 #cart-modal>div{background:#12121e;width:95%;max-width:450px;margin:50px auto;padding:20px;border-radius:16px;position:relative;box-shadow:0 15px 40px rgba(0,0,0,.6);border:2px solid var(--morado)}
-#promo-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:10001;align-items:center;justify-content:center}
-.promo-content{position:relative;width:90%;max-width:450px;background:#12121e;border-radius:18px;overflow:hidden;text-align:center;animation:scaleUp .3s ease;border:2px solid var(--morado)}
-.close-btn{position:absolute;top:10px;right:10px;background:var(--morado);color:#fff;border:none;border-radius:50%;width:33px;height:33px;font-size:17px;font-weight:bold;cursor:pointer;z-index:10002}
-@keyframes scaleUp{from{transform:scale(.8);opacity:0}to{transform:scale(1);opacity:1}}
+to{transform:scale(1);opacity:1}}
 
 /* RESPONSIVE */
-@media(max-width:1100px){.product-card{flex:0 0 calc(25% - 11px)}}
-@media(max-width:860px){.product-card{flex:0 0 calc(33.333% - 10px)}}
+@media(max-width:1200px){.product-card{flex:0 0 calc(20% - 11px)}}
+@media(max-width:860px){.product-card{flex:0 0 calc(25% - 10px)}}
 @media(max-width:640px){
   .product-card{flex:0 0 calc(50% - 8px)}
   .hero-slider{height:300px}
@@ -264,32 +258,32 @@ footer{background:#080810;border-top:2px solid var(--morado);padding:44px 0 0;fo
   .products-carousel-wrap{padding:0 18px}
 }
 
-/* ESCUDO ECUADOR */
-.escudo-ec{width:46px;height:auto;filter:drop-shadow(0 0 8px rgba(255,210,0,0.5));flex-shrink:0}
-
 /* CERT STRIP (inside sticky nav) */
 .cert-strip{text-align:center;background:rgba(0,200,200,0.08);border-top:1px solid rgba(0,200,200,0.2);color:var(--turquesa);font-size:11px;font-weight:700;padding:4px 10px;letter-spacing:0.5px}
 .cert-strip i{margin-right:5px;color:#ffd700}
+
+/* CÓMO COMPRAR */
+.como-section{padding:32px 0;background:linear-gradient(135deg,rgba(76,13,140,.08),rgba(0,200,200,.04));border-bottom:1px solid var(--card-border)}
+.como-grid{display:flex;justify-content:center;align-items:center;gap:0;flex-wrap:wrap}
+.como-step{display:flex;align-items:center;gap:13px;padding:16px 24px;flex:1;min-width:200px;max-width:280px}
+.como-num{width:44px;height:44px;background:linear-gradient(135deg,var(--morado),var(--turquesa));border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',cursive;font-size:20px;color:#fff;flex-shrink:0;box-shadow:0 4px 12px rgba(76,13,140,.4)}
+.como-text strong{display:block;font-size:13px;font-weight:800;color:#fff;margin-bottom:2px}
+.como-text span{font-size:11px;color:var(--texto-gris)}
+.como-arrow{font-size:20px;color:var(--turquesa);opacity:.5;flex-shrink:0}
+@media(max-width:640px){.como-arrow{display:none}.como-step{min-width:150px;padding:12px 14px}}
+
+/* SUBIR ARRIBA */
+#btn-top{position:fixed;bottom:112px;right:16px;width:44px;height:44px;background:var(--morado-claro);color:#fff;border:none;border-radius:50%;font-size:16px;cursor:pointer;z-index:9000;display:none;align-items:center;justify-content:center;box-shadow:0 3px 12px rgba(76,13,140,.5);transition:.3s}
+#btn-top:hover{background:var(--turquesa);color:#000;transform:scale(1.1)}
 </style>
 </head>
 <body>
 
-<!-- PROMO MODAL -->
-<div id="promo-modal">
-  <div class="promo-content">
-    <button onclick="cerrarAnuncio()" class="close-btn">&times;</button>
-    <a href="https://wa.me/593963923399" target="_blank">
-      <img src="pedidos-temu.webp" alt="Pedidos Temu" style="width:100%;height:auto;display:block;">
-    </a>
-    <div style="padding:15px;">
-      <h2 style="color:var(--turquesa);font-size:18px;margin-bottom:5px;">🛍️ ¡PEDIDOS TEMU ACTIVOS!</h2>
-      <p style="font-size:13px;color:var(--texto-gris);">Traemos tus compras con tarifa fija a todo Ecuador.</p>
-      <div id="timer-bar" style="height:4px;background:var(--turquesa);width:100%;margin-top:10px;border-radius:2px;transition:width 10s linear;"></div>
-    </div>
-  </div>
 </div>
 
 <!-- FIXED BUTTONS -->
+<button id="btn-top" title="Volver arriba"><i class="fas fa-chevron-up"></i></button>
+
 <div id="cart-icon"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
 <button id="btn-lupa"><i class="fas fa-search"></i></button>
 
@@ -341,7 +335,6 @@ footer{background:#080810;border-top:2px solid var(--morado);padding:44px 0 0;fo
     <a href="index.html">
       <div class="logo-section">
         <img src="logo-ballena.webp" alt="TIO YAPERO" class="whale-icon">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Coat_of_arms_of_Ecuador.svg/80px-Coat_of_arms_of_Ecuador.svg.png" alt="Escudo de Ecuador" class="escudo-ec" title="Ecuador">
         <div class="brand-text">
           <h1>TIO YAPERO</h1>
           <p class="sub1">Tu Marketplace de confianza en Ecuador</p>
@@ -406,12 +399,42 @@ footer{background:#080810;border-top:2px solid var(--morado);padding:44px 0 0;fo
   </div>
   <div class="slide">
     <div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=2070&auto=format&fit=crop');"></div>
-    <div class="slide-overlay" style="background:linear-gradient(135deg,rgba(76,13,140,.85) 0%,rgba(0,0,0,.5) 60%,rgba(0,0,0,.3) 100%);"></div>
+    <div class="slide-overlay" style="background:linear-gradient(135deg,rgba(0,100,50,.85) 0%,rgba(255,215,0,.2) 60%,rgba(0,0,0,.3) 100%);"></div>
     <div class="slide-content">
-      <div class="label">🚀 Envíos Nacionales</div>
-      <h2>A Todo Ecuador</h2>
-      <p>Envío gratis en compras mayores a $50. Rápido y seguro</p>
+      <div class="label">🇪🇨 Envíos a Todo Ecuador</div>
+      <h2>Entrega Rápida 🚚</h2>
+      <p>Desde Tabacundo hasta donde estés. Gratis en compras mayores a $50</p>
       <a href="https://wa.me/593963923399" target="_blank" class="slide-cta"><i class="fab fa-whatsapp"></i> Pedir Ahora</a>
+    </div>
+  </div>
+  <div class="slide">
+    <div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=2070&auto=format&fit=crop');"></div>
+    <div class="slide-overlay" style="background:linear-gradient(135deg,rgba(0,50,120,.85) 0%,rgba(0,0,0,.5) 60%,rgba(0,0,0,.3) 100%);"></div>
+    <div class="slide-content">
+      <div class="label">💻 Programas & Streaming</div>
+      <h2>Software y Entretenimiento</h2>
+      <p>Licencias, Netflix, Spotify y más. Actívalo hoy mismo</p>
+      <a href="programas.html" class="slide-cta"><i class="fas fa-laptop"></i> Ver Programas</a>
+    </div>
+  </div>
+  <div class="slide">
+    <div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=2070&auto=format&fit=crop');"></div>
+    <div class="slide-overlay" style="background:linear-gradient(135deg,rgba(120,0,80,.85) 0%,rgba(0,0,0,.5) 60%,rgba(0,0,0,.3) 100%);"></div>
+    <div class="slide-content">
+      <div class="label">🌸 Perfumes & Belleza</div>
+      <h2>Fragancias Premium</h2>
+      <p>Perfumes originales Yanbal y más. Precio especial en Tio Yapero</p>
+      <a href="varios.html" class="slide-cta"><i class="fas fa-spray-can"></i> Ver Perfumes</a>
+    </div>
+  </div>
+  <div class="slide">
+    <div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1607082349566-187342175e2f?q=80&w=2070&auto=format&fit=crop');"></div>
+    <div class="slide-overlay" style="background:linear-gradient(135deg,rgba(180,60,0,.85) 0%,rgba(0,0,0,.5) 60%,rgba(0,0,0,.3) 100%);"></div>
+    <div class="slide-content">
+      <div class="label">🔥 Promociones Activas</div>
+      <h2>Precios Increíbles</h2>
+      <p>Ofertas por tiempo limitado. ¡No te las pierdas!</p>
+      <a href="promociones.html" class="slide-cta"><i class="fas fa-percent"></i> Ver Ofertas</a>
     </div>
   </div>
   <button class="slider-arrow prev" id="sliderPrev"><i class="fas fa-chevron-left"></i></button>
@@ -421,6 +444,9 @@ footer{background:#080810;border-top:2px solid var(--morado);padding:44px 0 0;fo
     <div class="dot" onclick="goToSlide(1)"></div>
     <div class="dot" onclick="goToSlide(2)"></div>
     <div class="dot" onclick="goToSlide(3)"></div>
+    <div class="dot" onclick="goToSlide(4)"></div>
+    <div class="dot" onclick="goToSlide(5)"></div>
+    <div class="dot" onclick="goToSlide(6)"></div>
   </div>
 </section>
 
@@ -446,6 +472,41 @@ footer{background:#080810;border-top:2px solid var(--morado);padding:44px 0 0;fo
   </div>
 </div>
 
+<!-- CÓMO COMPRAR -->
+<section class="como-section">
+  <div class="container">
+    <div class="section-header" style="margin-bottom:18px">
+      <h2>¿Cómo <span>Comprar?</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="como-grid">
+      <div class="como-step">
+        <div class="como-num">1</div>
+        <div class="como-text">
+          <strong>Elige tu producto</strong>
+          <span>Explora el catálogo y agrega al carrito</span>
+        </div>
+      </div>
+      <div class="como-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="como-step">
+        <div class="como-num">2</div>
+        <div class="como-text">
+          <strong>Escríbenos</strong>
+          <span>Te contactamos por WhatsApp con tu pedido</span>
+        </div>
+      </div>
+      <div class="como-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="como-step">
+        <div class="como-num">3</div>
+        <div class="como-text">
+          <strong>¡Recibe en casa!</strong>
+          <span>Envío seguro a todo Ecuador 🇪🇨</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CATEGORÍAS ICONOS -->
 <section class="cats-section">
   <div class="container">
@@ -469,10 +530,6 @@ footer{background:#080810;border-top:2px solid var(--morado);padding:44px 0 0;fo
   </div>
 </section>
 
-<!-- IA NOTICE + CATALOG SECTIONS INJECTED HERE -->
-<div class="container">
-  <div class="ia-notice">📸 <strong>Aviso:</strong> La IA solo mejora el brillo — el producto final no varía.</div>
-</div>
 <div id="catalogo-sections"></div>
 
 <!-- RIFAS BANNER -->
@@ -482,7 +539,7 @@ footer{background:#080810;border-top:2px solid var(--morado);padding:44px 0 0;fo
       <h3>🎉 ¡No te pierdas nuestras rifas!</h3>
       <p>Compras mayores a $30 participan automáticamente. ¡Gana increíbles premios!</p>
     </div>
-    <a href="rifas.html" class="rifas-banner-btn">Ver Rifas →</a>
+    <a href="rifas.html" class="rifas-banner-btn" onclick="window.location.href='rifas.html';return false;">Ver Rifas →</a>
   </div>
 </div>
 
@@ -513,7 +570,6 @@ footer{background:#080810;border-top:2px solid var(--morado);padding:44px 0 0;fo
     </div>
     <div class="footer-col">
       <h3>Contáctanos</h3>
-      <div class="footer-contact-item"><i class="fas fa-user-shield"></i><span><strong style="color:#fff">Katherine Pineda</strong></span></div>
       <div class="footer-contact-item"><i class="fab fa-whatsapp"></i><a href="https://wa.me/593963923399" target="_blank">+593 963 923 399</a></div>
       <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>agromhasvida5@gmail.com</span></div>
       <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>La Y de Tabacundo, Ecuador</span></div>
@@ -747,24 +803,12 @@ let productosTotales = [];
 let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
 let imgActualFrontal = '', imgActualTrasera = '';
 
-function iniciarAnuncio() {
-  const modal = document.getElementById('promo-modal');
-  const bar = document.getElementById('timer-bar');
-  setTimeout(() => {
-    modal.style.display = 'flex';
-    setTimeout(() => { bar.style.width = '0%'; }, 100);
-    setTimeout(() => { cerrarAnuncio(); }, 10000);
-  }, 900);
-}
-function cerrarAnuncio() { document.getElementById('promo-modal').style.display = 'none'; }
-
 async function cargarDatos() {
   try {
     const res = await fetch('productos.json');
     productosTotales = await res.json();
     actualizarBadge();
-    buildCatalog(productosTotales);
-    iniciarAnuncio();
+    buildCatalog(productosTotales);;
   } catch(e) { console.error('Error:', e); }
 }
 
@@ -861,6 +905,13 @@ function mostrarNoti(t) { const n=document.getElementById('noti-add');n.textCont
 
 document.getElementById('cart-icon').onclick=mostrarModal;
 cargarDatos();
+
+/* SUBIR ARRIBA */
+const btnTop = document.getElementById('btn-top');
+window.addEventListener('scroll', () => {
+  btnTop.style.display = window.scrollY > 400 ? 'flex' : 'none';
+});
+btnTop.onclick = () => window.scrollTo({top:0, behavior:'smooth'});
 </script>
 </body>
 </html>
