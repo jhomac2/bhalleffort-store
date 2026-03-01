@@ -127,12 +127,12 @@ a{text-decoration:none}
 .cat-row-section:last-of-type{border-bottom:none}
 
 /* CAROUSEL */
-.products-carousel-wrap{position:relative;padding:0 28px}
-.products-carousel{display:flex;gap:14px;overflow:hidden;padding:6px 2px 10px}
+.products-carousel-wrap{position:relative;padding:0 24px}
+.products-carousel{display:flex;gap:10px;overflow:hidden;padding:4px 2px 8px}
 
 /* PRODUCT CARD - white style */
 .product-card{
-  flex:0 0 calc(16.666% - 12px);
+  flex:0 0 calc(25% - 12px);
   background:#fff;border-radius:16px;
   box-shadow:0 4px 16px rgba(0,0,0,.1);
   display:flex;flex-direction:column;
@@ -152,6 +152,8 @@ a{text-decoration:none}
 .product-image.back{position:absolute;top:0;left:0;opacity:0}
 .product-card.flip .product-image.front{opacity:0}
 .product-card.flip .product-image.back{opacity:1}
+.product-card:hover .product-image.front{opacity:0}
+.product-card:hover .product-image.back{opacity:1}
 
 .product-info{padding:11px 13px 13px;display:flex;flex-direction:column;flex:1;background:#fff}
 
@@ -235,8 +237,8 @@ footer{background:#080810;border-top:2px solid var(--morado);padding:44px 0 0;fo
 to{transform:scale(1);opacity:1}}
 
 /* RESPONSIVE */
-@media(max-width:1200px){.product-card{flex:0 0 calc(20% - 11px)}}
-@media(max-width:860px){.product-card{flex:0 0 calc(25% - 10px)}}
+@media(max-width:1200px){.product-card{flex:0 0 calc(25% - 11px)}}
+@media(max-width:860px){.product-card{flex:0 0 calc(50% - 10px)}}
 @media(max-width:640px){
   .product-card{flex:0 0 calc(50% - 8px)}
   .hero-slider{height:300px}
@@ -275,6 +277,23 @@ to{transform:scale(1);opacity:1}}
 /* SUBIR ARRIBA */
 #btn-top{position:fixed;bottom:112px;right:16px;width:44px;height:44px;background:var(--morado-claro);color:#fff;border:none;border-radius:50%;font-size:16px;cursor:pointer;z-index:9000;display:none;align-items:center;justify-content:center;box-shadow:0 3px 12px rgba(76,13,140,.5);transition:.3s}
 #btn-top:hover{background:var(--turquesa);color:#000;transform:scale(1.1)}
+
+/* WA MENU */
+#wa-menu{position:fixed;bottom:126px;right:16px;z-index:8999;display:none;flex-direction:column;gap:8px;align-items:flex-end}
+#wa-menu.open{display:flex}
+.wa-option{background:#fff;color:#1a1a2e;font-size:13px;font-weight:700;padding:10px 16px;border-radius:20px;box-shadow:0 4px 16px rgba(0,0,0,.25);cursor:pointer;white-space:nowrap;border:none;transition:.2s;text-align:right}
+.wa-option:hover{background:var(--verde-wa);color:#fff;transform:translateX(-4px)}
+.wa-option i{margin-right:7px;color:var(--verde-wa)}
+.wa-option:hover i{color:#fff}
+.wa-overlay{display:none;position:fixed;inset:0;z-index:8998}
+.wa-overlay.open{display:block}
+
+/* FILTRO RÁPIDO */
+.filtro-bar{background:rgba(15,15,26,0.95);padding:10px 0;border-bottom:1px solid var(--card-border);position:sticky;top:46px;z-index:990}
+.filtro-inner{display:flex;gap:8px;overflow-x:auto;padding:0 8px;scrollbar-width:none}
+.filtro-inner::-webkit-scrollbar{display:none}
+.filtro-btn{flex-shrink:0;background:transparent;border:1px solid var(--card-border);color:var(--texto-gris);padding:7px 16px;border-radius:20px;font-size:12px;font-weight:700;cursor:pointer;transition:.2s;white-space:nowrap}
+.filtro-btn:hover,.filtro-btn.active{background:var(--turquesa);color:#000;border-color:var(--turquesa)}
 </style>
 </head>
 <body>
@@ -287,10 +306,18 @@ to{transform:scale(1);opacity:1}}
 <div id="cart-icon"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
 <button id="btn-lupa"><i class="fas fa-search"></i></button>
 
+
+<!-- WA MENU OPCIONES -->
+<div id="wa-overlay" class="wa-overlay" onclick="cerrarWaMenu()"></div>
+<div id="wa-menu">
+  <button class="wa-option" onclick="abrirWA('info')"><i class="fas fa-info-circle"></i>Quiero más información</button>
+  <button class="wa-option" onclick="abrirWA('compra')"><i class="fas fa-shopping-bag"></i>Quiero realizar una compra</button>
+  <button class="wa-option" onclick="abrirWA('vender')"><i class="fas fa-store"></i>Quiero vender mis productos</button>
+</div>
 <!-- WHATSAPP FLOTANTE PERMANENTE -->
-<a id="wa-float" href="https://wa.me/593963923399" target="_blank" title="Escríbenos por WhatsApp">
+<button id="wa-float" onclick="toggleWaMenu()" title="Escríbenos por WhatsApp" style="border:none;cursor:pointer;">
   <i class="fab fa-whatsapp"></i>
-</a>
+</button>
 
 <!-- SEARCH DROPDOWN (small, no full screen) -->
 <div id="search-modal">
@@ -528,6 +555,18 @@ to{transform:scale(1);opacity:1}}
   </div>
 </section>
 
+
+<!-- FILTRO RÁPIDO -->
+<div class="filtro-bar">
+  <div class="container filtro-inner">
+    <button class="filtro-btn active" onclick="scrollCat('top')">🏠 Todos</button>
+    <button class="filtro-btn" onclick="scrollCat('ropa')">👕 Ropa y Calzado</button>
+    <button class="filtro-btn" onclick="scrollCat('programas')">💻 Programas y Streaming</button>
+    <button class="filtro-btn" onclick="scrollCat('varios')">📦 Varios</button>
+    <button class="filtro-btn" onclick="scrollCat('promociones')">🔥 Promociones</button>
+    <button class="filtro-btn" onclick="scrollCat('rifas')">🎟️ Rifas</button>
+  </div>
+</div>
 <div id="catalogo-sections"></div>
 
 <!-- RIFAS BANNER -->
@@ -664,7 +703,7 @@ const CATS_CONFIG = [
     label: 'Ropa', labelSpan: 'y Calzado',
     desc: 'Moda urbana, sneakers, mochilas y calzado para toda ocasión. Calidad garantizada.',
     filter: p => ["ROPA","CALZADO","ZAPATOS","MOCHILAS"].includes(p.cat),
-    proveedor: "Math's shop",
+    proveedor: "Math's Shop",
     provLink: "https://www.tiktok.com/@demats1?_r=1&_t=ZS-94JOKDWJgIx"
   },
   {
@@ -707,7 +746,7 @@ const carState = {};
 function buildCard(p, proveedor, provLink) {
   const oferta = p.oferta === 'SI';
   return `
-    <div class="product-card" onclick="this.classList.toggle('flip')">
+    <div class="product-card">
       ${oferta ? '<div class="badge-promo">OFERTA</div>' : ''}
       <div class="product-image-container">
         <div class="lupa-zoom-icon" onclick="event.stopPropagation();abrirZoom('${p.imgFrontal}','${p.imgTrasera||p.imgFrontal}')">
@@ -910,6 +949,41 @@ window.addEventListener('scroll', () => {
   btnTop.style.display = window.scrollY > 400 ? 'flex' : 'none';
 });
 btnTop.onclick = () => window.scrollTo({top:0, behavior:'smooth'});
+
+/* WA MENU */
+function toggleWaMenu(){
+  const m=document.getElementById('wa-menu');
+  const o=document.getElementById('wa-overlay');
+  const open=m.classList.toggle('open');
+  o.classList.toggle('open',open);
+}
+function cerrarWaMenu(){
+  document.getElementById('wa-menu').classList.remove('open');
+  document.getElementById('wa-overlay').classList.remove('open');
+}
+function abrirWA(tipo){
+  cerrarWaMenu();
+  const msgs={
+    info:'Hola Tio Yapero! 👋 Quisiera obtener más información sobre sus productos.',
+    compra:'Hola Tio Yapero! 🛍️ Estoy interesado/a en realizar una compra. ¿Me pueden ayudar?',
+    vender:'Hola Tio Yapero! 🏪 Me gustaría vender mis productos con ustedes. ¿Cuál es el proceso?'
+  };
+  window.open('https://wa.me/593963923399?text='+encodeURIComponent(msgs[tipo]),'_blank');
+}
+
+
+/* FILTRO SCROLL */
+function scrollCat(id){
+  document.querySelectorAll('.filtro-btn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  if(id==='top'){window.scrollTo({top:0,behavior:'smooth'});return;}
+  const sec=document.getElementById('car-'+id);
+  if(sec){
+    const y=sec.closest('.cat-row-section').getBoundingClientRect().top+window.scrollY-90;
+    window.scrollTo({top:y,behavior:'smooth'});
+  }
+}
+
 </script>
 </body>
 </html>
