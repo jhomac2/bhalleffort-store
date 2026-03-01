@@ -399,12 +399,12 @@ to{transform:scale(1);opacity:1}}
 
 <!-- SIDEBAR FILTROS -->
 <div class="sidebar-filtros">
-  <button class="sf-btn" data-tipo="todos" title="Todo"><i class="fas fa-th"></i><span>Todo</span></button>
+  <button class="sf-btn" data-tipo="todos" onclick="filtrarRopa('todos',this)" title="Todo"><i class="fas fa-th"></i><span>Todo</span></button>
   <div class="sf-divider"></div>
-  <button class="sf-btn" data-tipo="mochilas" title="Mochilas"><i class="fas fa-backpack"></i><span>Mochilas</span></button>
-  <button class="sf-btn" data-tipo="hogar" title="Hogar"><i class="fas fa-home"></i><span>Hogar</span></button>
-  <button class="sf-btn" data-tipo="cosmeticos" title="Cosméticos"><i class="fas fa-spray-can"></i><span>Cosméticos</span></button>
-  <button class="sf-btn" data-tipo="ofertas" title="Ofertas"><i class="fas fa-percent" style="color:#ff4444"></i><span>Ofertas</span></button>
+  <button class="sf-btn" data-tipo="mochilas" onclick="filtrarRopa('mochilas',this)" title="Mochilas"><i class="fas fa-backpack"></i><span>Mochilas</span></button>
+  <button class="sf-btn" data-tipo="hogar" onclick="filtrarRopa('hogar',this)" title="Hogar"><i class="fas fa-home"></i><span>Hogar</span></button>
+  <button class="sf-btn" data-tipo="cosmeticos" onclick="filtrarRopa('cosmeticos',this)" title="Cosméticos"><i class="fas fa-spray-can"></i><span>Cosméticos</span></button>
+  <button class="sf-btn" data-tipo="ofertas" onclick="filtrarRopa('ofertas',this)" title="Ofertas"><i class="fas fa-percent" style="color:#ff4444"></i><span>Ofertas</span></button>
 </div>
 
 <!-- FIXED BUTTONS -->
@@ -698,7 +698,7 @@ function filtrarRopa(tipo, btn) {
   if(btn) {
     btn.classList.add('active');
     // sincronizar la otra barra
-    document.querySelectorAll(`.sf-btn[data-tipo="${tipo}"], `.filtros-ropa button[onclick*="${tipo}"], .subcat-btn[onclick*="${tipo}"]`).forEach(b=>b.classList.add('active'));
+    document.querySelectorAll(`.sf-btn[data-tipo="${tipo}"], .filtros-ropa button[onclick*="${tipo}"], .subcat-btn[onclick*="${tipo}"]`).forEach(b=>b.classList.add('active'));
   }
 
   let lista = productosTotales.filter(p => ROPA_CATS.includes(p.cat));
@@ -826,11 +826,6 @@ document.getElementById('cart-icon').onclick=mostrarModal;
 mostrarNoti=function(t){const n=document.getElementById('noti-add');n.textContent=t;n.style.display='block';setTimeout(()=>n.style.display='none',2000);};
 cargarDatos();
 
-// Sincronizar sidebar con los subcat-btn
-function syncSidebar(tipo) {
-  document.querySelectorAll('.sf-btn').forEach(b => {
-    b.classList.toggle('active', b.dataset.tipo === tipo);
-  });
 }
 const _filtrarRopaOrig = filtrarRopa;
 // Override para incluir sync sidebar
