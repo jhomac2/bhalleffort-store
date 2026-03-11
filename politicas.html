@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MATH STORE | Privacidad</title>
+<title>MATH STORE | Políticas y Privacidad</title>
 <meta name="description" content="Ropa urbana, calzado, mochilas y accesorios en Tabacundo. Envíos seguros a todo Ecuador.">
 <meta name="keywords" content="ropa ecuador, zapatos tabacundo, sneakers, tioyapero, moda urbana">
 <meta name="author" content="Jhomac²">
@@ -418,13 +418,6 @@ to{transform:scale(1);opacity:1}}
 </head>
 <body>
 
-  <button class="sf-btn" data-tipo="hombre" onclick="filtrarRopa('hombre',this)" title="Hombre"><i class="fas fa-male"></i><span>Hombre</span></button>
-  <button class="sf-btn" data-tipo="mujer" onclick="filtrarRopa('mujer',this)" title="Mujer"><i class="fas fa-female"></i><span>Mujer</span></button>
-  <button class="sf-btn" data-tipo="mochilas" onclick="filtrarRopa('mochilas',this)" title="Mochilas"><i class="fas fa-shopping-bag"></i><span>Mochilas</span></button>
-  <button class="sf-btn" data-tipo="zapatos" onclick="filtrarRopa('zapatos',this)" title="Zapatos"><i class="fas fa-shoe-prints"></i><span>Zapatos</span></button>
-  <button class="sf-btn" data-tipo="ofertas" onclick="filtrarRopa('ofertas',this)" title="Ofertas"><i class="fas fa-percent" style="color:#ff4444"></i><span>Ofertas</span></button>
-</div>
-
 <!-- FIXED BUTTONS -->
 <button id="btn-top" title="Volver arriba" style="position:fixed;bottom:112px;right:16px;width:44px;height:44px;background:var(--morado-claro);color:#fff;border:none;border-radius:50%;font-size:16px;cursor:pointer;z-index:9000;display:none;align-items:center;justify-content:center;box-shadow:0 3px 12px rgba(76,13,140,.5);transition:.3s"><i class="fas fa-chevron-up"></i></button>
 <div id="cart-icon"><i class="fas fa-shopping-cart"></i><span id="cart-badge">0</span></div>
@@ -520,17 +513,68 @@ to{transform:scale(1);opacity:1}}
   <div class="pol-hero-bg"></div>
   <div class="pol-hero-overlay"></div>
   <div class="pol-hero-content">
-    <div class="label">🔒 Tus datos están seguros</div>
-    <h2>Política de Privacidad</h2>
-    <p>Transparencia total sobre cómo tratamos tu información</p>
+    <div class="label">📄 Documentos Legales</div>
+    <h2>Políticas y Privacidad</h2>
+    <p>Transparencia total — sin letras pequeñas</p>
   </div>
 </div>
 
+<!-- TABS -->
+<div class="pol-tabs-wrap">
+  <div class="pol-tabs">
+    <button class="pol-tab active" onclick="mostrarTab('cookies',this)"><i class="fas fa-cookie-bite"></i> Cookies</button>
+    <button class="pol-tab" onclick="mostrarTab('privacidad',this)"><i class="fas fa-lock"></i> Privacidad</button>
+    <button class="pol-tab" onclick="mostrarTab('envios',this)"><i class="fas fa-truck"></i> Envíos</button>
+    <button class="pol-tab" onclick="mostrarTab('devoluciones',this)"><i class="fas fa-undo"></i> Devoluciones</button>
+  </div>
+</div>
 
-<!-- PRIVACIDAD -->
-<section style="padding:52px 0 64px">
+<!-- ═══ COOKIES ═══ -->
+<div class="pol-section active" id="tab-cookies">
   <div class="container pol-content">
-<div class="container pol-content">
+    <h3><i class="fas fa-cookie-bite" style="color:var(--naranja)"></i> Política de Cookies</h3>
+    <p>En <strong>MATH STORE</strong> usamos tecnologías de almacenamiento local para brindarte la mejor experiencia de compra. Esta política explica qué datos guardamos, cómo los usamos y cómo puedes controlarlos.</p>
+
+    <div class="pol-card turquesa">
+      <h4><i class="fas fa-shopping-cart" style="margin-right:7px"></i>Carrito de Compras</h4>
+      <p>Guardamos los productos que agregas al carrito usando <strong>localStorage</strong> de tu navegador. Esta información:</p>
+      <ul>
+        <li><i class="fas fa-check"></i><span>Se almacena <strong>solo en tu dispositivo</strong>, no en nuestros servidores</span></li>
+        <li><i class="fas fa-check"></i><span>Persiste entre sesiones para que no pierdas tu selección</span></li>
+        <li><i class="fas fa-check"></i><span>Se elimina automáticamente cuando finalizas tu pedido</span></li>
+        <li><i class="fas fa-check"></i><span>Puedes borrarlo limpiando el caché de tu navegador</span></li>
+      </ul>
+    </div>
+
+    <div class="pol-card naranja">
+      <h4><i class="fas fa-map-marker-alt" style="margin-right:7px"></i>Google Maps</h4>
+      <p>Usamos Google Maps en nuestra página de contacto para mostrar nuestra ubicación. Google puede establecer sus propias cookies según su <a href="https://policies.google.com/privacy" target="_blank" style="color:var(--turquesa)">política de privacidad</a>.</p>
+    </div>
+
+    <div class="pol-card morado">
+      <h4><i class="fas fa-font" style="margin-right:7px"></i>Google Fonts</h4>
+      <p>Cargamos tipografías desde Google Fonts para el diseño del sitio. Google puede registrar la solicitud de fuentes según su política. No contiene información personal tuya.</p>
+    </div>
+
+    <div class="pol-highlight">
+      <i class="fas fa-info-circle"></i>
+      <p><strong>No usamos cookies de rastreo, publicidad ni analíticas de terceros.</strong> No hay píxeles de Facebook, Google Analytics ni herramientas de seguimiento en este sitio.</p>
+    </div>
+
+    <h4>¿Cómo borrar las cookies y datos locales?</h4>
+    <ul>
+      <li><i class="fab fa-chrome"></i><span><strong>Chrome:</strong> Configuración → Privacidad → Borrar datos de navegación</span></li>
+      <li><i class="fab fa-firefox"></i><span><strong>Firefox:</strong> Opciones → Privacidad → Limpiar datos</span></li>
+      <li><i class="fab fa-safari"></i><span><strong>Safari:</strong> Preferencias → Privacidad → Gestionar datos</span></li>
+      <li><i class="fas fa-mobile-alt"></i><span><strong>Móvil:</strong> Ajustes del navegador → Borrar caché y datos</span></li>
+    </ul>
+    <div class="pol-update">Última actualización: Marzo 2026 · <a href="contacto.html" style="color:var(--turquesa)">¿Preguntas? Contáctanos</a></div>
+  </div>
+</div>
+
+<!-- ═══ PRIVACIDAD ═══ -->
+<div class="pol-section" id="tab-privacidad">
+  <div class="container pol-content">
     <h3><i class="fas fa-lock" style="color:var(--turquesa)"></i> Política de Privacidad</h3>
     <p>En <strong>MATH STORE</strong> respetamos tu privacidad. Esta política describe cómo tratamos la información que compartes con nosotros al realizar una compra o contactarnos.</p>
 
@@ -571,11 +615,91 @@ to{transform:scale(1);opacity:1}}
     <p>Para ejercer estos derechos escríbenos a <a href="mailto:agromhasvida5@gmail.com" style="color:var(--turquesa)">agromhasvida5@gmail.com</a> o por WhatsApp.</p>
     <div class="pol-update">Última actualización: Marzo 2026 · <a href="contacto.html" style="color:var(--turquesa)">¿Preguntas? Contáctanos</a></div>
   </div>
+</div>
 
+<!-- ═══ ENVÍOS ═══ -->
+<div class="pol-section" id="tab-envios">
+  <div class="container pol-content">
+    <h3><i class="fas fa-truck" style="color:var(--turquesa)"></i> Política de Envíos</h3>
+    <p>Hacemos envíos a <strong>todo Ecuador</strong> a través de couriers confiables. Aquí encontrarás todo lo que necesitas saber sobre tiempos, costos y cobertura.</p>
+
+    <div class="pol-card turquesa">
+      <h4>💚 Envío Gratis</h4>
+      <p>¡El envío es <strong>completamente gratis</strong> en compras mayores a <strong>$50</strong>! El sistema lo calcula automáticamente en tu carrito.</p>
+    </div>
+
+    <div class="pol-card naranja">
+      <h4>💰 Tarifa de Envío</h4>
+      <p>En compras menores a $50, se aplica una tarifa fija de <strong>$3.50</strong> independientemente de la ciudad o la cantidad de productos.</p>
+    </div>
+
+    <h4>Tiempos de entrega estimados</h4>
+    <ul>
+      <li><i class="fas fa-map-marker-alt"></i><span><strong>Tabacundo y alrededores:</strong> Mismo día o siguiente día hábil</span></li>
+      <li><i class="fas fa-city"></i><span><strong>Quito y ciudades principales:</strong> 1–3 días hábiles</span></li>
+      <li><i class="fas fa-map"></i><span><strong>Resto del Ecuador:</strong> 3–5 días hábiles</span></li>
+      <li><i class="fas fa-mountain"></i><span><strong>Zonas rurales o alejadas:</strong> 5–8 días hábiles</span></li>
+    </ul>
+
+    <h4>¿Cómo se coordina el envío?</h4>
+    <ul>
+      <li><i class="fas fa-check"></i><span>Confirmas tu pedido por <strong>WhatsApp</strong></span></li>
+      <li><i class="fas fa-check"></i><span>Realizas el <strong>pago por transferencia</strong> a nombre de Katherine Pineda</span></li>
+      <li><i class="fas fa-check"></i><span>Te enviamos el <strong>número de guía</strong> del courier</span></li>
+      <li><i class="fas fa-check"></i><span>Puedes rastrear tu paquete con ese número</span></li>
+    </ul>
+
+    <div class="pol-highlight">
+      <i class="fas fa-exclamation-triangle"></i>
+      <p>Los tiempos de entrega son estimados y pueden variar por <strong>feriados, condiciones climáticas o demanda alta</strong>. Siempre te informamos si hay algún retraso.</p>
+    </div>
+
+    <div class="pol-update">¿Tienes dudas sobre tu envío? <a href="https://wa.me/593963923399" target="_blank" style="color:var(--turquesa)">Escríbenos por WhatsApp</a></div>
   </div>
-</section>
+</div>
 
+<!-- ═══ DEVOLUCIONES ═══ -->
+<div class="pol-section" id="tab-devoluciones">
+  <div class="container pol-content">
+    <h3><i class="fas fa-undo" style="color:var(--turquesa)"></i> Política de Devoluciones</h3>
+    <p>Queremos que estés 100% satisfecho con tu compra. Si algo no está bien, estamos aquí para ayudarte.</p>
 
+    <div class="pol-card verde">
+      <h4>✅ ¿Cuándo procede una devolución o cambio?</h4>
+      <ul>
+        <li><i class="fas fa-check"></i><span>El producto llegó <strong>dañado o defectuoso</strong></span></li>
+        <li><i class="fas fa-check"></i><span>El producto <strong>no corresponde</strong> a lo que pediste (modelo, talla, color)</span></li>
+        <li><i class="fas fa-check"></i><span>El producto presenta <strong>fallas de fábrica</strong></span></li>
+        <li><i class="fas fa-check"></i><span>Solicitado dentro de las <strong>48 horas</strong> de recibido</span></li>
+      </ul>
+    </div>
+
+    <div class="pol-card naranja">
+      <h4>❌ ¿Cuándo NO aplica devolución?</h4>
+      <ul>
+        <li><i class="fas fa-times"></i><span>Han pasado más de <strong>48 horas</strong> desde la recepción</span></li>
+        <li><i class="fas fa-times"></i><span>El producto tiene <strong>señales de uso</strong> o está alterado</span></li>
+        <li><i class="fas fa-times"></i><span>Cambio de opinión sin defecto en el producto</span></li>
+        <li><i class="fas fa-times"></i><span>Productos de <strong>segunda mano</strong> — se venden en el estado indicado</span></li>
+      </ul>
+    </div>
+
+    <h4>¿Cómo hacer una devolución?</h4>
+    <ul>
+      <li><i class="fas fa-camera"></i><span>Toma <strong>fotos claras</strong> del producto con el defecto o error</span></li>
+      <li><i class="fab fa-whatsapp"></i><span>Envíalas por <strong>WhatsApp al +593 963 923 399</strong> explicando el problema</span></li>
+      <li><i class="fas fa-handshake"></i><span>Nuestro equipo te <strong>contactará en menos de 24 horas</strong> para resolver</span></li>
+      <li><i class="fas fa-box"></i><span>Coordinamos el <strong>cambio o reembolso</strong> según el caso</span></li>
+    </ul>
+
+    <div class="pol-highlight">
+      <i class="fas fa-star"></i>
+      <p><strong>Nota sobre productos de segunda mano:</strong> Los artículos usados-nuevos se describen con su estado real y están garantizados por el proveedor. Si el estado no corresponde a lo descrito, sí procede el cambio.</p>
+    </div>
+
+    <div class="pol-update">¿Necesitas iniciar una devolución? <a href="https://wa.me/593963923399?text=Hola%2C%20quiero%20hacer%20una%20devoluci%C3%B3n" target="_blank" style="color:var(--turquesa)">Escríbenos aquí →</a></div>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -596,7 +720,7 @@ to{transform:scale(1);opacity:1}}
       <h3>Información</h3>
       <div class="footer-links">
         <a href="cookies.html">Política de Cookies</a>
-        <a href="politicas.html" class="active">Privacidad y Envíos</a>
+        <a href="politicas.html">Privacidad y Envíos</a>
         <a href="quienes-somos.html">Quiénes Somos</a>
         <a href="contacto.html">Contacto</a>
       </div>
@@ -807,7 +931,12 @@ _sfBtns.forEach(btn => {
 
 
 /* ═══ TABS POLITICAS ═══ */
-
+function mostrarTab(id, btn) {
+  document.querySelectorAll('.pol-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.pol-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
 
 </script>
 </body>
