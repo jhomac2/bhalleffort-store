@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MATH STORE | Marketplace de Ropa, Calzado y más</title>
 <meta name="description" content="Marketplace de Ropa, Zapatos, Programas y más en Tabacundo. Envíos seguros a todo Ecuador.">
-<meta name="keywords" content="ropa ecuador, zapatos tabacundo, sneakers, mathstore, moda urbana, marketplace">
+<meta name="keywords" content="ropa ecuador, zapatos tabacundo, sneakers, bhalleffort, moda urbana, marketplace">
 <meta name="author" content="Jhomac²">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <meta property="og:type" content="website">
@@ -724,6 +724,22 @@ function buildCatalog(productos) {
 let productosTotales = [];
 let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
 let imgActualFrontal = '', imgActualTrasera = '';
+
+, 100);
+    setTimeout(() => { cerrarAnuncio(); }, 10000);
+  }, 900);
+}
+
+
+async function cargarDatos() {
+  try {
+    const res = await fetch('productos.json');
+    productosTotales = await res.json();
+    actualizarBadge();
+    buildCatalog(productosTotales);
+  } catch(e) { console.error('Error:', e); }
+}
+
 function addCart(id) {
   const p = productosTotales.find(x => x.id === id);
   if (p) {
