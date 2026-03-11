@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MATH’STORE | Marketplace de Ropa, Calzado y más</title>
+<title>MATH STORE | Marketplace de Ropa, Calzado y más</title>
 <meta name="description" content="Marketplace de Ropa, Zapatos, Programas y más en Tabacundo. Envíos seguros a todo Ecuador.">
 <meta name="keywords" content="ropa ecuador, zapatos tabacundo, sneakers, mathstore, moda urbana, marketplace">
 <meta name="author" content="Jhomac²">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.mathstore.com/">
-<meta property="og:title" content="👟 MATH’STORE - Marketplace Ecuador">
+<meta property="og:title" content="👟 MATH STORE - Marketplace Ecuador">
 <meta property="og:description" content="Tu marketplace de confianza en Ecuador. Envíos 100% seguros.">
 <meta property="og:image" content="https://www.mathstore.com/logo-ballena.webp">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -235,6 +235,7 @@ footer{background:#080810;border-top:2px solid var(--morado);padding:44px 0 0;fo
 #noti-add{position:fixed;bottom:50px;left:50%;transform:translateX(-50%);background:var(--turquesa);color:#000;padding:8px 16px;border-radius:50px;font-size:13px;font-weight:700;z-index:9999;display:none;box-shadow:0 4px 14px rgba(0,200,200,.5)}
 #cart-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:4000}
 #cart-modal>div{background:#12121e;width:95%;max-width:450px;margin:50px auto;padding:20px;border-radius:16px;position:relative;box-shadow:0 15px 40px rgba(0,0,0,.6);border:2px solid var(--morado)}
+.close-btn{position:absolute;top:10px;right:10px;background:var(--morado);color:#fff;border:none;border-radius:50%;width:33px;height:33px;font-size:17px;font-weight:bold;cursor:pointer;z-index:10002}
 
 /* RESPONSIVE */
 @media(max-width:1100px){.product-card{flex:0 0 calc(25% - 11px)}}
@@ -259,15 +260,6 @@ footer{background:#080810;border-top:2px solid var(--morado);padding:44px 0 0;fo
   .product-card{flex:0 0 calc(50% - 7px)}
   .products-carousel-wrap{padding:0 18px}
 }
-
-#mini-anuncio{position:fixed;bottom:80px;right:16px;width:200px;background:#12121e;border:2px solid var(--turquesa);border-radius:14px;z-index:9500;overflow:hidden;box-shadow:0 4px 20px rgba(0,200,200,.3);animation:slideInRight .4s ease;display:none}
-@keyframes slideInRight{from{transform:translateX(120%);opacity:0}to{transform:translateX(0);opacity:1}}
-#mini-anuncio img{width:100%;display:block;border-radius:12px 12px 0 0}
-.mini-body{padding:8px 10px 10px;text-align:center}
-.mini-body p{font-size:11px;color:var(--texto-gris);margin-bottom:6px}
-.mini-close{position:absolute;top:6px;right:6px;background:rgba(0,0,0,.6);color:#fff;border:none;border-radius:50%;width:22px;height:22px;font-size:12px;cursor:pointer;display:flex;align-items:center;justify-content:center}
-.mini-cta{display:block;background:var(--turquesa);color:#000;font-weight:800;font-size:12px;padding:6px;border-radius:8px;text-decoration:none;text-align:center}
-#mini-barra{height:3px;background:var(--turquesa);width:100%;transition:width 8s linear}
 </style>
 </head>
 <body>
@@ -276,20 +268,7 @@ footer{background:#080810;border-top:2px solid var(--morado);padding:44px 0 0;fo
     <a href="https://wa.me/593963923399" target="_blank">
     </a>
     <div style="padding:15px;">
-      <h2 style="color:var(--turquesa);font-size:18px;margin-bottom:5px;">🛍️ ¡PEDIDOS TEMU ACTIVOS!</h2>
-      <p style="font-size:13px;color:var(--texto-gris);">Traemos tus compras con tarifa fija a todo Ecuador.</p>
     </div>
-  </div>
-</div>
-
-<!-- MINI ANUNCIO -->
-<div id="mini-anuncio">
-  <button class="mini-close" onclick="cerrarMiniAnuncio()">&times;</button>
-  <img src="pedidos-temu.webp" alt="Pedidos Temu">
-  <div id="mini-barra"></div>
-  <div class="mini-body">
-    <p>🛍️ <strong style="color:#fff">¡Pedidos Temu!</strong><br>Tarifa fija a todo Ecuador</p>
-    <a href="https://wa.me/593963923399" target="_blank" class="mini-cta">Pedir ahora</a>
   </div>
 </div>
 
@@ -344,9 +323,9 @@ footer{background:#080810;border-top:2px solid var(--morado);padding:44px 0 0;fo
   <div class="container header-inner">
     <a href="index.html">
       <div class="logo-section">
-        <img src="logo-ballena.webp" alt="MATH’STORE" class="whale-icon">
+        <img src="logo-ballena.webp" alt="MATH STORE" class="whale-icon">
         <div class="brand-text">
-          <h1>MATH’STORE</h1>
+          <h1>MATH STORE</h1>
           <p class="sub1">Tu Marketplace de confianza en Ecuador</p>
           <span class="sub2">📍 La Y de Tabacundo</span>
         </div>
@@ -508,7 +487,7 @@ footer{background:#080810;border-top:2px solid var(--morado);padding:44px 0 0;fo
 <footer>
   <div class="container footer-grid">
     <div class="footer-brand">
-      <img src="logo-ballena.webp" alt="MATH’STORE" width="62">
+      <img src="logo-ballena.webp" alt="MATH STORE" width="62">
       <div class="tagline">Diseñado por <a href="https://www.tiktok.com/@jhomac22?_r=1&_t=ZS-94JOSYjSU7u" target="_blank" class="jhomac-link">Jhomac</a></div>
       <div class="location"><i class="fas fa-map-marker-alt" style="color:var(--turquesa);margin-right:4px;"></i>La Y de Tabacundo, Ecuador</div>
       <div class="god-message">"Dios te da más de lo que pides."</div>
@@ -538,7 +517,7 @@ footer{background:#080810;border-top:2px solid var(--morado);padding:44px 0 0;fo
       </div>
     </div>
   </div>
-  <div class="copyright-bar">&copy; 2026 MATH’STORE — Todos los derechos reservados</div>
+  <div class="copyright-bar">&copy; 2026 MATH STORE — Todos los derechos reservados</div>
 </footer>
 
 <!-- ZOOM MODAL -->
@@ -612,7 +591,7 @@ const CATS_CONFIG = [
     label: 'Ropa', labelSpan: 'y Calzado',
     desc: 'Moda urbana, sneakers, mochilas y calzado para toda ocasión. Calidad garantizada.',
     filter: p => ["ROPA","CALZADO","ZAPATOS","MOCHILAS"].includes(p.cat),
-    proveedor: "De Math’Store",
+    proveedor: "De Math Store",
     provLink: "https://www.tiktok.com/@demats1?_r=1&_t=ZS-94JOKDWJgIx"
   },
   {
@@ -628,7 +607,7 @@ const CATS_CONFIG = [
     label: 'Streaming', labelSpan: 'y Rifas',
     desc: 'Cuentas de streaming, entretenimiento digital y participación en rifas.',
     filter: p => ["STREAMING","RIFAS","RIFA"].includes(p.cat),
-    proveedor: "Math’Store",
+    proveedor: "Math Store",
     provLink: "https://www.tiktok.com/@mathstore.ec?_r=1&_t=ZS-94JOUwwt47e"
   },
   {
@@ -636,7 +615,7 @@ const CATS_CONFIG = [
     label: 'Varios', labelSpan: '& Accesorios',
     desc: 'Accesorios, artículos del hogar, tecnología y más. Todo en un solo lugar.',
     filter: p => p.cat === "VARIOS",
-    proveedor: "Math’Store",
+    proveedor: "Math Store",
     provLink: "https://www.tiktok.com/@mathstore.ec?_r=1&_t=ZS-94JOUwwt47e"
   },
   {
@@ -644,7 +623,7 @@ const CATS_CONFIG = [
     label: 'Promociones', labelSpan: '& Ofertas',
     desc: 'Los mejores precios del mercado. Ofertas por tiempo limitado.',
     filter: p => p.cat === "PROMOCIONES" || p.oferta === "SI",
-    proveedor: "Math’Store",
+    proveedor: "Math Store",
     provLink: "https://www.tiktok.com/@mathstore.ec?_r=1&_t=ZS-94JOUwwt47e"
   }
 ];
@@ -756,16 +735,6 @@ function iniciarAnuncio() {
   }, 900);
 }
 
-
-function mostrarMiniAnuncio(){
-  const m=document.getElementById('mini-anuncio');
-  const b=document.getElementById('mini-barra');
-  m.style.display='block';
-  setTimeout(()=>{b.style.width='0%';},100);
-  setTimeout(()=>{cerrarMiniAnuncio();},8000);
-}
-function cerrarMiniAnuncio(){document.getElementById('mini-anuncio').style.display='none';}
-
 async function cargarDatos() {
   try {
     const res = await fetch('productos.json');
@@ -826,7 +795,7 @@ function removeItem(i) {
 function finalizarCompraWA() {
   const sub = carrito.reduce((s,i)=>s+i.precio,0);
   const env = sub>=50?0:3.50;
-  let msg=`🐋 *¡Hola MATH’STORE!*\n🛍️ *NUEVO PEDIDO:*\n\n`;
+  let msg=`🐋 *¡Hola MATH STORE!*\n🛍️ *NUEVO PEDIDO:*\n\n`;
   carrito.forEach((p,idx)=>{msg+=`${idx+1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`;});
   msg+=`\n💵 *Subtotal:* $${sub.toFixed(2)}\n🚚 *Envío:* $${env.toFixed(2)}\n💰 *TOTAL A PAGAR: $${(sub+env).toFixed(2)}*\n`;
   if(sub>=30) msg+=`\n🎟️ *ESTE PEDIDO PARTICIPA EN LA RIFA POR COMPRA > $30*`;
@@ -854,7 +823,7 @@ document.getElementById('search-input').oninput = (e) => {
 function irAProducto(id,cat) {
   document.getElementById('search-modal').style.display='none';
   const ropas=["ROPA","CALZADO","ZAPATOS","MOCHILAS"];
-  let pg='index.html';
+  let pg='promociones.html';
   if(ropas.includes(cat)) pg='ropa.html';
   else if(["PROGRAMAS","SOFTWARE","STREAMING"].includes(cat)) pg='programas.html';
   else if(cat==="VARIOS") pg='varios.html';
