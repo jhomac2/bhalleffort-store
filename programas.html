@@ -658,7 +658,7 @@ to{transform:scale(1);opacity:1}}
 let productosTotales = [];
 let carrito = JSON.parse(localStorage.getItem('bh-cart')) || [];
 let imgActualFrontal = '', imgActualTrasera = '';
-const ROPA_CATS = ["ROPA","CALZADO","ZAPATOS","MOCHILAS"];
+const ROPA_CATS = ["PROGRAMAS"];
 
 /* === FILTRAR Y DIBUJAR GRID === */
 function filtrarRopa(tipo, btn) {
@@ -671,13 +671,15 @@ function filtrarRopa(tipo, btn) {
   }
 
   let lista = productosTotales.filter(p => ROPA_CATS.includes(p.cat));
-  let titulo = 'Toda la'; let sub = 'Ropa · Calzado · Mochilas'; let span = 'Colección';
+  let titulo = 'Todos los'; let sub = 'Software · Streaming · IA · Cursos'; let span = 'Programas';
 
-  if(tipo === 'hombre')   { lista = lista.filter(p => p.subcat === 'HOMBRE');   titulo='Ropa'; span='Hombre'; sub='Camisetas, conjuntos, pantalones'; }
-  if(tipo === 'mujer')    { lista = lista.filter(p => p.subcat === 'MUJER');    titulo='Ropa'; span='Mujer'; sub='Moda femenina y accesorios'; }
-  if(tipo === 'mochilas') { lista = lista.filter(p => p.cat === 'MOCHILAS');    titulo='Mochilas'; span='y Accesorios'; sub='Mochilas tácticas y bolsos'; }
-  if(tipo === 'zapatos')  { lista = lista.filter(p => ['CALZADO','ZAPATOS'].includes(p.cat)); titulo='Calzado'; span='y Sneakers'; sub='Zapatos, deportivos y más'; }
-  if(tipo === 'ofertas')  { lista = lista.filter(p => p.oferta === 'SI');       titulo='Promociones'; span='en Ropa'; sub='Ofertas por tiempo limitado'; }
+  const IA_IDS = ['P065','P066','P069','P077','P079'];
+  const CURSOS_IDS = ['P059','P073','P080','P081','P082'];
+  if(tipo==='software')  { lista=lista.filter(p=>p.subcat==='SOFTWARE'&&!IA_IDS.includes(p.id)&&!CURSOS_IDS.includes(p.id)); titulo='Programas'; span='Software'; sub='Edición, VPN, herramientas y más'; }
+  if(tipo==='streaming') { lista=lista.filter(p=>p.subcat==='STREAMING'); titulo='Apps de'; span='Streaming'; sub='Netflix, Spotify, HBO, Disney y más'; }
+  if(tipo==='ia')        { lista=lista.filter(p=>IA_IDS.includes(p.id));    titulo='Inteligencia'; span='Artificial'; sub='ChatGPT, Gemini, Grok y más'; }
+  if(tipo==='cursos')    { lista=lista.filter(p=>CURSOS_IDS.includes(p.id)); titulo='Nuestros'; span='Cursos'; sub='Inglés, trading, seducción y más'; }
+  if(tipo==='ofertas')   { lista=lista.filter(p=>p.oferta==='SI');          titulo='Ofertas en'; span='Programas'; sub='Descuentos por tiempo limitado'; }
 
   document.getElementById('grid-titulo').innerHTML = titulo + ' <span>' + span + '</span>';
   document.getElementById('grid-sub').textContent = sub;
