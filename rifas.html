@@ -3,16 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TIO YAPERO | Rifas y Sorteos</title>
-<meta name="description" content="Sorteos y rifas con increÃ­bles premios. Compras mayores a $30 participan automÃ¡ticamente. Tio Yapero Ecuador.">
+<title>MATH STORE | Rifas y Sorteos</title>
+<meta name="description" content="Sorteos y rifas con increíbles premios. Compras mayores a $30 participan automáticamente. MATH STORE Ecuador.">
 <meta name="keywords" content="ropa ecuador, zapatos tabacundo, sneakers, tioyapero, moda urbana">
-<meta name="author" content="JhomacÂ²">
+<meta name="author" content="Jhomac²">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.tioyapero.com/ropa.html">
-<meta property="og:title" content="ðŸ‘• TIO YAPERO - Ropa y Calzado">
-<meta property="og:description" content="Moda urbana, calzado y accesorios. EnvÃ­os 100% seguros.">
+<meta property="og:title" content="👕 MATH STORE - Ropa y Calzado">
+<meta property="og:description" content="Moda urbana, calzado y accesorios. Envíos 100% seguros.">
 <meta property="og:image" content="https://www.tioyapero.com/logo-ballena.webp">
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4c0d8c">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="MATH STORE">
+  <link rel="apple-touch-icon" href="icon-192.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -188,7 +196,7 @@ a{text-decoration:none}
 
 /* RIFAS BANNER */
 .rifas-banner{margin:46px 0;background:linear-gradient(135deg,var(--naranja) 0%,#ff9200 50%,var(--naranja) 100%);border-radius:16px;padding:32px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;position:relative;overflow:hidden}
-.rifas-banner::before{content:'ðŸŽ‰';position:absolute;font-size:90px;right:18px;top:50%;transform:translateY(-50%);opacity:.12}
+.rifas-banner::before{content:'🎉';position:absolute;font-size:90px;right:18px;top:50%;transform:translateY(-50%);opacity:.12}
 .rifas-banner-text h3{font-family:'Bebas Neue',cursive;font-size:28px;letter-spacing:2px;color:#fff;margin-bottom:5px}
 .rifas-banner-text p{color:rgba(255,255,255,.85);font-size:13px}
 .rifas-banner-btn{background:#fff;color:var(--naranja);font-weight:800;font-size:14px;padding:12px 26px;border-radius:50px;transition:.2s}
@@ -206,7 +214,7 @@ footer{background:#080810;border-top:2px solid var(--morado);padding:44px 0 0;fo
 .footer-contact-item i{color:var(--morado-claro);width:15px;flex-shrink:0}
 .footer-contact-item a{color:var(--turquesa)}
 .footer-links a{display:flex;align-items:center;gap:5px;color:var(--texto-gris);font-size:13px;margin-bottom:8px;transition:.2s}
-.footer-links a::before{content:'â€º';color:var(--turquesa)}
+.footer-links a::before{content:'›';color:var(--turquesa)}
 .footer-links a:hover{color:var(--turquesa)}
 .copyright-bar{text-align:center;padding:12px 0;background:rgba(76,13,140,.15);border-top:1px solid var(--card-border);font-size:12px;font-weight:700;color:var(--texto-gris)}
 .jhomac-link{color:var(--turquesa);cursor:pointer;text-decoration:underline;transition:.2s}
@@ -266,7 +274,7 @@ to{transform:scale(1);opacity:1}}
 .cert-strip{text-align:center;background:rgba(0,200,200,0.08);border-top:1px solid rgba(0,200,200,0.2);color:var(--turquesa);font-size:11px;font-weight:700;padding:4px 10px;letter-spacing:0.5px}
 .cert-strip i{margin-right:5px;color:#ffd700}
 
-/* CÃ“MO COMPRAR */
+/* CÓMO COMPRAR */
 .como-section{padding:32px 0;background:linear-gradient(135deg,rgba(76,13,140,.08),rgba(0,200,200,.04));border-bottom:1px solid var(--card-border)}
 .como-grid{display:flex;justify-content:center;align-items:center;gap:0;flex-wrap:wrap}
 .como-step{display:flex;align-items:center;gap:13px;padding:16px 24px;flex:1;min-width:200px;max-width:280px}
@@ -290,7 +298,7 @@ to{transform:scale(1);opacity:1}}
 .wa-overlay{display:none;position:fixed;inset:0;z-index:8998}
 .wa-overlay.open{display:block}
 
-/* FILTRO RÃPIDO */
+/* FILTRO RÁPIDO */
 .filtro-bar{background:rgba(15,15,26,0.95);padding:10px 0;border-bottom:1px solid var(--card-border);position:sticky;top:46px;z-index:990}
 .filtro-inner{display:flex;gap:8px;overflow-x:auto;padding:0 8px;scrollbar-width:none}
 .filtro-inner::-webkit-scrollbar{display:none}
@@ -298,7 +306,7 @@ to{transform:scale(1);opacity:1}}
 .filtro-btn:hover,.filtro-btn.active{background:var(--turquesa);color:#000;border-color:var(--turquesa)}
 
 
-/* GRID ROPA â€” sin carrusel, todo visible */
+/* GRID ROPA — sin carrusel, todo visible */
 .ropa-section{padding:40px 0 60px}
 .ropa-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:1280px;margin:0 auto}
 @media(max-width:1000px){.ropa-grid{grid-template-columns:repeat(3,1fr)}}
@@ -341,12 +349,12 @@ to{transform:scale(1);opacity:1}}
 
 /* RIFAS BANNER */
 .rifas-banner{margin:0 0 32px;background:linear-gradient(135deg,var(--naranja) 0%,#ff9200 50%,var(--naranja) 100%);border-radius:16px;padding:32px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;position:relative;overflow:hidden}
-.rifas-banner::before{content:'ðŸŽ‰';position:absolute;font-size:90px;right:18px;top:50%;transform:translateY(-50%);opacity:.12}
+.rifas-banner::before{content:'🎉';position:absolute;font-size:90px;right:18px;top:50%;transform:translateY(-50%);opacity:.12}
 .rifas-banner-text h3{font-family:'Bebas Neue',cursive;font-size:28px;letter-spacing:2px;color:#fff;margin-bottom:5px}
 .rifas-banner-text p{color:rgba(255,255,255,.85);font-size:13px}
 .rifas-banner-btn{background:#fff;color:var(--naranja);font-weight:800;font-size:14px;padding:12px 26px;border-radius:50px;transition:.2s;text-decoration:none}
 .rifas-banner-btn:hover{transform:scale(1.05)}
-/* CÃ“MO COMPRAR */
+/* CÓMO COMPRAR */
 .como-section{padding:32px 0;background:linear-gradient(135deg,rgba(76,13,140,.08),rgba(0,200,200,.04));border-bottom:1px solid var(--card-border)}
 .como-grid{display:flex;justify-content:center;align-items:center;gap:0;flex-wrap:wrap}
 .como-step{display:flex;align-items:center;gap:13px;padding:16px 24px;flex:1;min-width:200px;max-width:280px}
@@ -355,7 +363,7 @@ to{transform:scale(1);opacity:1}}
 .como-text span{font-size:11px;color:var(--texto-gris)}
 .como-arrow{font-size:20px;color:var(--turquesa);opacity:.5;flex-shrink:0}
 @media(max-width:640px){.como-arrow{display:none}.como-step{min-width:150px;padding:12px 14px}}
-/* GARANTÃAS */
+/* GARANTÍAS */
 .guarantees{background:linear-gradient(135deg,#0f0f1a 0%,#1a0033 100%);padding:46px 0;border-top:1px solid var(--card-border)}
 .guarantees-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:18px;text-align:center}
 .guarantee-item{padding:20px 12px;border:1px solid var(--card-border);border-radius:13px;background:rgba(76,13,140,.1);transition:.3s}
@@ -367,7 +375,7 @@ to{transform:scale(1);opacity:1}}
 
 
 
-/* â•â•â•â•â•â•â• RIFAS â•â•â•â•â•â•â• */
+/* ═══════ RIFAS ═══════ */
 .rifas-premios-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:24px}
 .rifa-card{background:var(--card-bg);border:2px solid var(--naranja);border-radius:16px;overflow:hidden;transition:.3s;position:relative}
 .rifa-card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(255,102,0,.3)}
@@ -413,25 +421,25 @@ to{transform:scale(1);opacity:1}}
 <!-- WA MENU -->
 <div id="wa-overlay" class="wa-overlay" onclick="cerrarWaMenu()"></div>
 <div id="wa-menu">
-  <button class="wa-option" onclick="abrirWA('info')"><i class="fas fa-info-circle"></i>Quiero mÃ¡s informaciÃ³n</button>
+  <button class="wa-option" onclick="abrirWA('info')"><i class="fas fa-info-circle"></i>Quiero más información</button>
   <button class="wa-option" onclick="abrirWA('compra')"><i class="fas fa-shopping-bag"></i>Quiero realizar una compra</button>
   <button class="wa-option" onclick="abrirWA('vender')"><i class="fas fa-store"></i>Quiero vender mis productos</button>
 </div>
-<button id="wa-float" onclick="toggleWaMenu()" title="EscrÃ­benos por WhatsApp" style="border:none;cursor:pointer;position:fixed;bottom:64px;right:16px;width:54px;height:54px;background:var(--verde-wa);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:25px;color:#fff;box-shadow:0 4px 16px rgba(37,211,102,.5);z-index:9000;animation:waPulse 2.5s infinite">
+<button id="wa-float" onclick="toggleWaMenu()" title="Escríbenos por WhatsApp" style="border:none;cursor:pointer;position:fixed;bottom:64px;right:16px;width:54px;height:54px;background:var(--verde-wa);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:25px;color:#fff;box-shadow:0 4px 16px rgba(37,211,102,.5);z-index:9000;animation:waPulse 2.5s infinite">
   <i class="fab fa-whatsapp"></i>
 </button>
 
 <!-- SEARCH -->
 <div id="search-modal"><div>
-  <input type="text" id="search-input" placeholder="ðŸ” Buscar productos...">
+  <input type="text" id="search-input" placeholder="🔍 Buscar productos...">
   <div id="search-results"></div>
 </div></div>
 <div id="noti-add"></div>
 
 <!-- BOTTOM BANNER -->
 <div id="banner-div">
-  <div id="banner-envio">ðŸšš EnvÃ­o gratis desde $50</div>
-  <div id="banner-sorteo">ðŸŽ‰ Â¡Participa en nuestras rifas!</div>
+  <div id="banner-envio">🚚 Envío gratis desde $50</div>
+  <div id="banner-sorteo">🎉 ¡Participa en nuestras rifas!</div>
 </div>
 
 <!-- TOP BAR -->
@@ -461,16 +469,16 @@ to{transform:scale(1);opacity:1}}
   <div class="container header-inner">
     <a href="index.html">
       <div class="logo-section">
-        <img src="logo-ballena.webp" alt="TIO YAPERO" class="whale-icon">
+        <img src="logo-ballena.webp" alt="MATH STORE" class="whale-icon">
         <div class="brand-text">
-          <h1>TIO YAPERO</h1>
+          <h1>MATH STORE</h1>
           <p class="sub1">Tu Marketplace de confianza en Ecuador</p>
-          <span class="sub2">ðŸ“ La Y de Tabacundo</span>
+          <span class="sub2">📍 La Y de Tabacundo</span>
         </div>
       </div>
     </a>
     <div class="header-actions">
-      <a href="rifas.html" class="btn-rifas">ðŸŽ‰ Rifas</a>
+      <a href="rifas.html" class="btn-rifas">🎉 Rifas</a>
       <a href="https://wa.me/593963923399" target="_blank" class="btn-wa-header">
         <i class="fab fa-whatsapp"></i> WhatsApp
       </a>
@@ -487,10 +495,10 @@ to{transform:scale(1);opacity:1}}
     <li><a href="programas.html">Programas y Streaming</a></li>
     <li><a href="varios.html">Varios</a></li>
     <li><a href="promociones.html">Promociones</a></li>
-    <li><a href="quienes-somos.html">QuiÃ©nes Somos</a></li>
+    <li><a href="quienes-somos.html">Quiénes Somos</a></li>
     <li><a href="contacto.html">Contacto</a></li>
   </ul>
-  <div class="cert-strip"><i class="fas fa-shield-alt"></i>Todos los proveedores son certificados por <strong>Tio Yapero</strong></div>
+  <div class="cert-strip"><i class="fas fa-shield-alt"></i>Todos los proveedores son certificados por <strong>MATH STORE</strong></div>
 </nav>
 
 
@@ -500,44 +508,44 @@ to{transform:scale(1);opacity:1}}
   <div class="hero-ropa-bg" style="background-image:url('https://images.unsplash.com/photo-1607344645866-009c320b63e0?q=80&w=2070&auto=format&fit=crop')"></div>
   <div class="hero-ropa-overlay" style="background:linear-gradient(135deg,rgba(255,102,0,.75) 0%,rgba(76,13,140,.85) 60%,rgba(0,0,0,.4) 100%)"></div>
   <div class="hero-ropa-content">
-    <div class="label">ðŸŽŸï¸ Sorteos &amp; Premios 2026</div>
+    <div class="label">🎟️ Sorteos &amp; Premios 2026</div>
     <h2>Rifas y Sorteos</h2>
-    <p>Compras mayores a $30 participan automÃ¡ticamente. Â¡Gana increÃ­bles premios! ðŸŽ‰</p>
-    <a href="#como-participar"><i class="fas fa-ticket-alt"></i> Â¿CÃ³mo participar?</a>
+    <p>Compras mayores a $30 participan automáticamente. ¡Gana increíbles premios! 🎉</p>
+    <a href="#como-participar"><i class="fas fa-ticket-alt"></i> ¿Cómo participar?</a>
   </div>
 </div>
 
 <!-- BENEFICIOS STRIP -->
 <div class="beneficios-strip">
   <div class="beneficios-inner">
-    <div class="beneficio-item"><div class="beneficio-icon"><i class="fas fa-shopping-cart"></i></div><div class="beneficio-text"><strong>Compra +$30</strong><span>Entrada automÃ¡tica</span></div></div>
+    <div class="beneficio-item"><div class="beneficio-icon"><i class="fas fa-shopping-cart"></i></div><div class="beneficio-text"><strong>Compra +$30</strong><span>Entrada automática</span></div></div>
     <div class="beneficio-item"><div class="beneficio-icon"><i class="fas fa-random"></i></div><div class="beneficio-text"><strong>Sorteo Justo</strong><span>Al azar entre participantes</span></div></div>
     <div class="beneficio-item"><div class="beneficio-icon"><i class="fab fa-whatsapp"></i></div><div class="beneficio-text"><strong>Resultado por WA</strong><span>Te avisamos directo</span></div></div>
-    <div class="beneficio-item"><div class="beneficio-icon"><i class="fas fa-shield-alt"></i></div><div class="beneficio-text"><strong>100% Transparente</strong><span>Tio Yapero garantiza</span></div></div>
+    <div class="beneficio-item"><div class="beneficio-icon"><i class="fas fa-shield-alt"></i></div><div class="beneficio-text"><strong>100% Transparente</strong><span>MATH STORE garantiza</span></div></div>
   </div>
 </div>
 
-<!-- CÃ“MO PARTICIPAR -->
+<!-- CÓMO PARTICIPAR -->
 <section id="como-participar" class="como-section">
   <div class="container">
     <div class="section-header" style="margin-bottom:18px">
-      <h2>Â¿CÃ³mo <span>Participar?</span></h2>
+      <h2>¿Cómo <span>Participar?</span></h2>
       <div class="section-line"></div>
     </div>
     <div class="como-grid">
       <div class="como-step">
         <div class="como-num" style="background:linear-gradient(135deg,var(--naranja),#ff9200)">1</div>
-        <div class="como-text"><strong>Realiza tu compra</strong><span>Cualquier pedido mayor a $30 te da entrada automÃ¡tica</span></div>
+        <div class="como-text"><strong>Realiza tu compra</strong><span>Cualquier pedido mayor a $30 te da entrada automática</span></div>
       </div>
       <div class="como-arrow"><i class="fas fa-chevron-right"></i></div>
       <div class="como-step">
         <div class="como-num" style="background:linear-gradient(135deg,var(--naranja),#ff9200)">2</div>
-        <div class="como-text"><strong>Recibe tu nÃºmero</strong><span>Te enviamos tu nÃºmero de participaciÃ³n por WhatsApp</span></div>
+        <div class="como-text"><strong>Recibe tu número</strong><span>Te enviamos tu número de participación por WhatsApp</span></div>
       </div>
       <div class="como-arrow"><i class="fas fa-chevron-right"></i></div>
       <div class="como-step">
         <div class="como-num" style="background:linear-gradient(135deg,var(--naranja),#ff9200)">3</div>
-        <div class="como-text"><strong>Â¡Espera el sorteo!</strong><span>El ganador se anuncia en redes sociales ðŸŽŠ</span></div>
+        <div class="como-text"><strong>¡Espera el sorteo!</strong><span>El ganador se anuncia en redes sociales 🎊</span></div>
       </div>
     </div>
   </div>
@@ -559,8 +567,8 @@ to{transform:scale(1);opacity:1}}
 <div class="container" style="padding:0 0 48px">
   <div class="rifas-cta-box">
     <div class="rifas-cta-text">
-      <h3>ðŸ›ï¸ Â¿Quieres participar en la prÃ³xima rifa?</h3>
-      <p>Visita nuestra tienda, haz tu compra y Â¡automÃ¡ticamente entras al sorteo!</p>
+      <h3>🛍️ ¿Quieres participar en la próxima rifa?</h3>
+      <p>Visita nuestra tienda, haz tu compra y ¡automáticamente entras al sorteo!</p>
     </div>
     <div class="rifas-cta-btns">
       <a href="ropa.html" class="btn-cta-rifa primary"><i class="fas fa-tshirt"></i> Ver Ropa</a>
@@ -574,29 +582,29 @@ to{transform:scale(1);opacity:1}}
 <section class="como-section" style="border-top:1px solid var(--card-border)">
   <div class="container">
     <div class="section-header" style="margin-bottom:24px">
-      <h2>ðŸ“‹ <span>Reglas</span> del Sorteo</h2>
+      <h2>📋 <span>Reglas</span> del Sorteo</h2>
       <div class="section-line"></div>
     </div>
     <div class="reglas-grid">
-      <div class="regla-item"><i class="fas fa-check-circle"></i><p>Compras mayores a <strong>$30</strong> participan automÃ¡ticamente, sin necesidad de registrarse.</p></div>
-      <div class="regla-item"><i class="fas fa-check-circle"></i><p>Cada compra vÃ¡lida equivale a <strong>1 nÃºmero</strong> de participaciÃ³n.</p></div>
+      <div class="regla-item"><i class="fas fa-check-circle"></i><p>Compras mayores a <strong>$30</strong> participan automáticamente, sin necesidad de registrarse.</p></div>
+      <div class="regla-item"><i class="fas fa-check-circle"></i><p>Cada compra válida equivale a <strong>1 número</strong> de participación.</p></div>
       <div class="regla-item"><i class="fas fa-check-circle"></i><p>El ganador es seleccionado <strong>al azar</strong> y notificado por WhatsApp.</p></div>
-      <div class="regla-item"><i class="fas fa-check-circle"></i><p>El resultado se publica en nuestras <strong>redes sociales</strong> de forma pÃºblica.</p></div>
-      <div class="regla-item"><i class="fas fa-check-circle"></i><p>El premio se entrega junto con el siguiente pedido o por <strong>envÃ­o directo</strong>.</p></div>
-      <div class="regla-item"><i class="fas fa-check-circle"></i><p>Tio Yapero se reserva el derecho de modificar las reglas con <strong>aviso previo</strong>.</p></div>
+      <div class="regla-item"><i class="fas fa-check-circle"></i><p>El resultado se publica en nuestras <strong>redes sociales</strong> de forma pública.</p></div>
+      <div class="regla-item"><i class="fas fa-check-circle"></i><p>El premio se entrega junto con el siguiente pedido o por <strong>envío directo</strong>.</p></div>
+      <div class="regla-item"><i class="fas fa-check-circle"></i><p>MATH STORE se reserva el derecho de modificar las reglas con <strong>aviso previo</strong>.</p></div>
     </div>
   </div>
 </section>
 
-<!-- GARANTÃAS -->
+<!-- GARANTÍAS -->
 <section class="guarantees">
   <div class="container">
     <div class="section-header" style="margin-bottom:24px">
-      <h2>Â¿Por quÃ© <span>Rifas?</span></h2>
+      <h2>¿Por qué <span>Rifas?</span></h2>
       <div class="section-line"></div>
     </div>
     <div class="guarantees-grid">
-      <div class="guarantee-item"><i class="fas fa-gift"></i><strong>Premios Reales</strong><p>Ropa, accesorios y mÃ¡s productos del catÃ¡logo.</p></div>
+      <div class="guarantee-item"><i class="fas fa-gift"></i><strong>Premios Reales</strong><p>Ropa, accesorios y más productos del catálogo.</p></div>
       <div class="guarantee-item"><i class="fas fa-users"></i><strong>Para Todos</strong><p>Solo necesitas hacer una compra y eres participante.</p></div>
       <div class="guarantee-item"><i class="fas fa-eye"></i><strong>100% Transparente</strong><p>Sorteo en vivo por redes sociales.</p></div>
       <div class="guarantee-item"><i class="fas fa-heart"></i><strong>Comunidad</strong><p>Nuestra forma de agradecer tu confianza.</p></div>
@@ -608,28 +616,28 @@ to{transform:scale(1);opacity:1}}
 <footer>
   <div class="container footer-grid">
     <div class="footer-brand">
-      <img src="logo-ballena.webp" alt="TIO YAPERO" width="62">
-      <div class="tagline">DiseÃ±ado por <a href="https://www.tiktok.com/@jhomac22?_r=1&_t=ZS-94JOSYjSU7u" target="_blank" class="jhomac-link">Jhomac</a></div>
+      <img src="logo-ballena.webp" alt="MATH STORE" width="62">
+      <div class="tagline">Diseñado por <a href="https://www.tiktok.com/@jhomac22?_r=1&_t=ZS-94JOSYjSU7u" target="_blank" class="jhomac-link">Jhomac</a></div>
       <div class="location"><i class="fas fa-map-marker-alt" style="color:var(--turquesa);margin-right:4px;"></i>La Y de Tabacundo, Ecuador</div>
-      <div class="god-message">"Dios te da mÃ¡s de lo que pides."</div>
+      <div class="god-message">"Dios te da más de lo que pides."</div>
     </div>
     <div class="footer-col">
-      <h3>ContÃ¡ctanos</h3>
+      <h3>Contáctanos</h3>
       <div class="footer-contact-item"><i class="fab fa-whatsapp"></i><a href="https://wa.me/593963923399" target="_blank">+593 963 923 399</a></div>
       <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>agromhasvida5@gmail.com</span></div>
       <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>La Y de Tabacundo, Ecuador</span></div>
     </div>
     <div class="footer-col">
-      <h3>InformaciÃ³n</h3>
+      <h3>Información</h3>
       <div class="footer-links">
-        <a href="cookies.html">PolÃ­tica de Cookies</a>
-        <a href="politicas.html">Privacidad y EnvÃ­os</a>
-        <a href="quienes-somos.html">QuiÃ©nes Somos</a>
+        <a href="cookies.html">Política de Cookies</a>
+        <a href="politicas.html">Privacidad y Envíos</a>
+        <a href="quienes-somos.html">Quiénes Somos</a>
         <a href="contacto.html">Contacto</a>
       </div>
     </div>
     <div class="footer-col">
-      <h3>SÃ­guenos</h3>
+      <h3>Síguenos</h3>
       <div style="display:flex;flex-direction:column;gap:9px;">
         <a href="https://www.tiktok.com/@bhalleffort.ec?_r=1&_t=ZS-94JOUwwt47e" target="_blank" style="display:flex;align-items:center;gap:8px;color:var(--texto-gris);font-size:13px;transition:.2s" onmouseover="this.style.color='var(--turquesa)'" onmouseout="this.style.color='var(--texto-gris)'"><i class="fab fa-tiktok" style="font-size:17px;"></i> TikTok</a>
         <a href="https://www.facebook.com/share/1KPhCcUL4k/" target="_blank" style="display:flex;align-items:center;gap:8px;color:var(--texto-gris);font-size:13px;transition:.2s" onmouseover="this.style.color='var(--turquesa)'" onmouseout="this.style.color='var(--texto-gris)'"><i class="fab fa-facebook" style="font-size:17px;"></i> Facebook</a>
@@ -637,7 +645,7 @@ to{transform:scale(1);opacity:1}}
       </div>
     </div>
   </div>
-  <div class="copyright-bar">&copy; 2026 TIO YAPERO â€” Todos los derechos reservados</div>
+  <div class="copyright-bar">&copy; 2026 MATH STORE — Todos los derechos reservados</div>
 </footer>
 
 
@@ -647,8 +655,8 @@ to{transform:scale(1);opacity:1}}
   <div class="zoom-content">
     <img id="img-zoom" src="">
     <div class="zoom-btns">
-      <button onclick="cambiarFotoZoom('frontal')" class="btn-z" style="background:var(--turquesa);color:#000;">ðŸ‘ Ver Frente</button>
-      <button onclick="cambiarFotoZoom('trasera')" class="btn-z" style="background:var(--morado);">â†© Ver Espalda</button>
+      <button onclick="cambiarFotoZoom('frontal')" class="btn-z" style="background:var(--turquesa);color:#000;">👁 Ver Frente</button>
+      <button onclick="cambiarFotoZoom('trasera')" class="btn-z" style="background:var(--morado);">↩ Ver Espalda</button>
     </div>
   </div>
 </div>
@@ -667,10 +675,10 @@ to{transform:scale(1);opacity:1}}
     </div>
     <footer style="margin-top:13px;border-top:1px solid #2a2a3e;padding-top:12px;">
       <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px;color:var(--texto-gris);"><span>Subtotal:</span><span id="cart-subtotal">$0.00</span></div>
-      <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:9px;color:var(--texto-gris);"><span>EnvÃ­o:</span><span id="cart-envio">$3.50</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:9px;color:var(--texto-gris);"><span>Envío:</span><span id="cart-envio">$3.50</span></div>
       <div style="display:flex;justify-content:space-between;font-weight:800;font-size:19px;color:var(--turquesa);"><span>Total:</span><span id="cart-total">$0.00</span></div>
-      <div id="rifa-status" style="text-align:center;padding:7px;background:#0d3a0d;color:#4ade80;border-radius:7px;margin:9px 0;font-size:12px;display:none;">âœ… Â¡Este pedido participa en la RIFA!</div>
-      <button onclick="finalizarCompraWA()" style="background:var(--verde-wa);color:#fff;border:none;padding:13px;border-radius:9px;cursor:pointer;width:100%;font-weight:800;font-size:14px;margin-top:10px;box-shadow:0 4px 14px rgba(37,211,102,.4);">ðŸ¦… FINALIZAR POR WHATSAPP</button>
+      <div id="rifa-status" style="text-align:center;padding:7px;background:#0d3a0d;color:#4ade80;border-radius:7px;margin:9px 0;font-size:12px;display:none;">✅ ¡Este pedido participa en la RIFA!</div>
+      <button onclick="finalizarCompraWA()" style="background:var(--verde-wa);color:#fff;border:none;padding:13px;border-radius:9px;cursor:pointer;width:100%;font-weight:800;font-size:14px;margin-top:10px;box-shadow:0 4px 14px rgba(37,211,102,.4);">🦅 FINALIZAR POR WHATSAPP</button>
     </footer>
   </div>
 </div>
@@ -694,11 +702,11 @@ function filtrarRopa(tipo, btn) {
   }
 
   let lista = productosTotales.filter(p => ROPA_CATS.includes(p.cat));
-  let titulo = 'Todos los'; let sub = 'Mochilas Â· Hogar Â· CosmÃ©ticos'; let span = 'ArtÃ­culos';
+  let titulo = 'Todos los'; let sub = 'Mochilas · Hogar · Cosméticos'; let span = 'Artículos';
 
-  if(tipo === 'mochilas')   { lista = lista.filter(p => p.cat === 'MOCHILAS');           titulo='Mochilas'; span='y Bolsos'; sub='Mochilas tÃ¡cticas de 45 litros'; }
-  if(tipo === 'hogar')      { lista = lista.filter(p => p.subcat === 'HOGAR');            titulo='ArtÃ­culos'; span='del Hogar'; sub='ElectrodomÃ©sticos y mÃ¡s'; }
-  if(tipo === 'cosmeticos') { lista = lista.filter(p => p.subcat === 'COSMETICOS');       titulo='Perfumes &'; span='CosmÃ©ticos'; sub='Perfumes Yanbal y mÃ¡s'; }
+  if(tipo === 'mochilas')   { lista = lista.filter(p => p.cat === 'MOCHILAS');           titulo='Mochilas'; span='y Bolsos'; sub='Mochilas tácticas de 45 litros'; }
+  if(tipo === 'hogar')      { lista = lista.filter(p => p.subcat === 'HOGAR');            titulo='Artículos'; span='del Hogar'; sub='Electrodomésticos y más'; }
+  if(tipo === 'cosmeticos') { lista = lista.filter(p => p.subcat === 'COSMETICOS');       titulo='Perfumes &'; span='Cosméticos'; sub='Perfumes Yanbal y más'; }
   if(tipo === 'ofertas')    { lista = lista.filter(p => p.oferta === 'SI');               titulo='Ofertas en'; span='Varios'; sub='Descuentos por tiempo limitado'; }
 
   document.getElementById('grid-titulo').innerHTML = titulo + ' <span>' + span + '</span>';
@@ -706,7 +714,7 @@ function filtrarRopa(tipo, btn) {
 
   const grid = document.getElementById('ropa-grid');
   if(lista.length === 0) {
-    grid.innerHTML = '<div class="no-resultados"><i class="fas fa-box-open" style="font-size:32px;margin-bottom:10px;display:block"></i>No hay productos en esta categorÃ­a aÃºn</div>';
+    grid.innerHTML = '<div class="no-resultados"><i class="fas fa-box-open" style="font-size:32px;margin-bottom:10px;display:block"></i>No hay productos en esta categoría aún</div>';
     return;
   }
   grid.innerHTML = lista.map(p => buildCard(p)).join('');
@@ -721,15 +729,15 @@ function buildCard(p) {
       <img src="${p.imgTrasera||p.imgFrontal}" class="product-image back" alt="${p.nombre}" loading="lazy">
     </div>
     <div class="product-info">
-      <a href="${p.proveedorLink||'https://wa.me/593963923399'}" target="_blank" class="product-proveedor" onclick="event.stopPropagation()"><span style="color:var(--texto-gris);font-weight:600">Proveedor: </span>${p.proveedor||'Tio Yapero'}</a>
+      <a href="${p.proveedorLink||'https://wa.me/593963923399'}" target="_blank" class="product-proveedor" onclick="event.stopPropagation()"><span style="color:var(--texto-gris);font-weight:600">Proveedor: </span>${p.proveedor||'MATH STORE'}</a>
       <h4 class="product-name">${p.nombre}</h4>
       <p class="product-desc">${p.descripcion||''}</p>
       <div class="price-row">
         ${p.precio_antes?`<span class="old-price">$${p.precio_antes.toFixed(2)}</span>`:''}
         <span class="current-price">$${p.precio.toFixed(2)}</span>
       </div>
-      <div class="envio-tag"><i class="fas fa-truck"></i> EnvÃ­o nacional</div>
-      <button class="btn-buy" onclick="event.stopPropagation();addCart('${p.id}')">ðŸ›’ Agregar</button>
+      <div class="envio-tag"><i class="fas fa-truck"></i> Envío nacional</div>
+      <button class="btn-buy" onclick="event.stopPropagation();addCart('${p.id}')">🛒 Agregar</button>
     </div>
   </div>`;
 }
@@ -737,17 +745,17 @@ function buildCard(p) {
 /* === CARRITO === */
 function addCart(id) {
   const p = productosTotales.find(x => x.id === id);
-  if(p) { carrito.push({id:p.id,nombre:p.nombre,precio:p.precio,cat:p.cat}); localStorage.setItem('bh-cart',JSON.stringify(carrito)); actualizarBadge(); mostrarNoti('âœ… '+p.nombre+' aÃ±adido'); }
+  if(p) { carrito.push({id:p.id,nombre:p.nombre,precio:p.precio,cat:p.cat}); localStorage.setItem('bh-cart',JSON.stringify(carrito)); actualizarBadge(); mostrarNoti('✅ '+p.nombre+' añadido'); }
 }
 function actualizarBadge() {
   const badge=document.getElementById('cart-badge'); if(badge) badge.textContent=carrito.length;
   const sub=carrito.reduce((s,i)=>s+i.precio,0);
   const be=document.getElementById('banner-envio'); const bs=document.getElementById('banner-sorteo');
-  if(be){be.style.background=sub>=50?'#25D366':'#ff9800';be.textContent=sub>=50?'ðŸšš Â¡EnvÃ­o GRATIS activado!':'ðŸšš EnvÃ­o gratis desde $50';}
-  if(bs){bs.style.background=sub>=30?'#25D366':'var(--morado)';bs.textContent=sub>=30?'ðŸŽŸï¸ Â¡Ya participas en la RIFA!':'ðŸŽ‰ Â¡Participa en nuestras rifas!';}
+  if(be){be.style.background=sub>=50?'#25D366':'#ff9800';be.textContent=sub>=50?'🚚 ¡Envío GRATIS activado!':'🚚 Envío gratis desde $50';}
+  if(bs){bs.style.background=sub>=30?'#25D366':'var(--morado)';bs.textContent=sub>=30?'🎟️ ¡Ya participas en la RIFA!':'🎉 ¡Participa en nuestras rifas!';}
 }
 function mostrarModal() {
-  if(carrito.length===0){mostrarNoti('El carrito estÃ¡ vacÃ­o');return;}
+  if(carrito.length===0){mostrarNoti('El carrito está vacío');return;}
   const items=document.getElementById('cart-items'); const sub=carrito.reduce((s,i)=>s+i.precio,0); const env=sub>=50?0:3.50;
   items.innerHTML=carrito.map((p,i)=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid #2a2a3e"><div><div style="font-weight:700;font-size:13px;color:#fff">${p.nombre}</div><div style="color:var(--turquesa);font-weight:700">${p.precio.toFixed(2)}</div></div><button onclick="removeItem(${i})" style="color:#ff4444;border:none;background:none;cursor:pointer;font-size:15px"><i class="fas fa-trash-alt"></i></button></div>`).join('');
   document.getElementById('cart-subtotal').textContent='$'+sub.toFixed(2);
@@ -759,11 +767,11 @@ function mostrarModal() {
 function removeItem(i){carrito.splice(i,1);localStorage.setItem('bh-cart',JSON.stringify(carrito));actualizarBadge();carrito.length===0?document.getElementById('cart-modal').style.display='none':mostrarModal();}
 function finalizarCompraWA(){
   const sub=carrito.reduce((s,i)=>s+i.precio,0);const env=sub>=50?0:3.50;
-  let msg='ðŸ¦… *Â¡Hola TIO YAPERO!*\nðŸ›ï¸ *NUEVO PEDIDO:*\n\n';
+  let msg='🦅 *¡Hola MATH STORE!*\n🛍️ *NUEVO PEDIDO:*\n\n';
   carrito.forEach((p,idx)=>{msg+=`${idx+1}. ${p.nombre} - *$${p.precio.toFixed(2)}*\n`;});
-  msg+=`\nðŸ’µ *Subtotal:* $${sub.toFixed(2)}\nðŸšš *EnvÃ­o:* $${env.toFixed(2)}\nðŸ’° *TOTAL: $${(sub+env).toFixed(2)}*`;
-  if(sub>=30) msg+='\n\nðŸŽŸï¸ *Â¡Este pedido participa en la RIFA!*';
-  msg+='\n\nâš ï¸ Pago a nombre de *Katherine Pineda*.';
+  msg+=`\n💵 *Subtotal:* $${sub.toFixed(2)}\n🚚 *Envío:* $${env.toFixed(2)}\n💰 *TOTAL: $${(sub+env).toFixed(2)}*`;
+  if(sub>=30) msg+='\n\n🎟️ *¡Este pedido participa en la RIFA!*';
+  msg+='\n\n⚠️ Pago a nombre de *Katherine Pineda*.';
   window.open('https://wa.me/593963923399?text='+encodeURIComponent(msg),'_blank');
 }
 
@@ -774,7 +782,7 @@ document.getElementById('search-input').oninput=(e)=>{
   const val=e.target.value.toLowerCase().trim();const res=document.getElementById('search-results');
   if(!val){res.innerHTML='';return;}
   const f=productosTotales.filter(p=>p.nombre.toLowerCase().includes(val)).slice(0,6);
-  res.innerHTML=f.length===0?'<div style="color:var(--texto-gris);padding:8px;font-size:12px">Sin resultados</div>':f.map(p=>`<div class="search-item" onclick="irAProducto('${p.id}','${p.cat}')"><img src="${p.imgFrontal}" alt="${p.nombre}"><div><div style="font-size:13px;font-weight:700;color:#fff">${p.nombre}</div><div style="font-size:10px;color:var(--turquesa)">${p.precio.toFixed(2)} Â· ${p.cat}</div></div></div>`).join('');
+  res.innerHTML=f.length===0?'<div style="color:var(--texto-gris);padding:8px;font-size:12px">Sin resultados</div>':f.map(p=>`<div class="search-item" onclick="irAProducto('${p.id}','${p.cat}')"><img src="${p.imgFrontal}" alt="${p.nombre}"><div><div style="font-size:13px;font-weight:700;color:#fff">${p.nombre}</div><div style="font-size:10px;color:var(--turquesa)">${p.precio.toFixed(2)} · ${p.cat}</div></div></div>`).join('');
 };
 function irAProducto(id,cat){
   document.getElementById('search-modal').style.display='none';
@@ -794,7 +802,7 @@ function cambiarFotoZoom(tipo){document.getElementById('img-zoom').src=tipo==='f
 /* === WA MENU === */
 function toggleWaMenu(){const m=document.getElementById('wa-menu');const o=document.getElementById('wa-overlay');const open=m.classList.toggle('open');o.classList.toggle('open',open);}
 function cerrarWaMenu(){document.getElementById('wa-menu').classList.remove('open');document.getElementById('wa-overlay').classList.remove('open');}
-function abrirWA(tipo){cerrarWaMenu();const msgs={info:'Hola Tio Yapero! ðŸ‘‹ Quisiera obtener mÃ¡s informaciÃ³n sobre sus productos.',compra:'Hola Tio Yapero! ðŸ›ï¸ Estoy interesado/a en realizar una compra. Â¿Me pueden ayudar?',vender:'Hola Tio Yapero! ðŸª Me gustarÃ­a vender mis productos con ustedes. Â¿CuÃ¡l es el proceso?'};window.open('https://wa.me/593963923399?text='+encodeURIComponent(msgs[tipo]),'_blank');}
+function abrirWA(tipo){cerrarWaMenu();const msgs={info:'Hola MATH STORE! 👋 Quisiera obtener más información sobre sus productos.',compra:'Hola MATH STORE! 🛍️ Estoy interesado/a en realizar una compra. ¿Me pueden ayudar?',vender:'Hola MATH STORE! 🏪 Me gustaría vender mis productos con ustedes. ¿Cuál es el proceso?'};window.open('https://wa.me/593963923399?text='+encodeURIComponent(msgs[tipo]),'_blank');}
 
 /* === HOVER IMAGEN === */
 document.addEventListener('mouseover',e=>{const card=e.target.closest('.product-card');if(card)card.classList.add('flip');});
@@ -821,15 +829,15 @@ function cargarRifas(productos){
   if(rifas.length===0){
     grid.innerHTML=`<div class="no-rifas">
       <i class="fas fa-ticket-alt"></i>
-      <h3>Â¡PrÃ³ximamente nuevo sorteo!</h3>
-      <p>Sigue nuestras redes para enterarte del prÃ³ximo premio.<br>Cada compra mayor a $30 te da entrada automÃ¡tica.</p>
+      <h3>¡Próximamente nuevo sorteo!</h3>
+      <p>Sigue nuestras redes para enterarte del próximo premio.<br>Cada compra mayor a $30 te da entrada automática.</p>
       <a href="ropa.html" class="btn-cta-rifa primary" style="display:inline-flex;margin-top:18px"><i class="fas fa-store"></i>&nbsp;Ver tienda</a>
     </div>`;
     return;
   }
   grid.innerHTML=rifas.map(p=>`
     <div class="rifa-card">
-      <div class="rifa-card-badge">ðŸŽŸï¸ Activo</div>
+      <div class="rifa-card-badge">🎟️ Activo</div>
       <img src="${p.imgFrontal}" alt="${p.nombre}" loading="lazy">
       <div class="rifa-card-info">
         <h3>${p.nombre}</h3>
@@ -838,7 +846,7 @@ function cargarRifas(productos){
           <span>Premio</span>
           <small>Valorado en $${p.precio.toFixed(2)}</small>
         </div>
-        <div class="rifa-estado">âœ… Sorteo activo</div>
+        <div class="rifa-estado">✅ Sorteo activo</div>
       </div>
     </div>`).join('');
 }
@@ -859,6 +867,16 @@ _sfBtns.forEach(btn => {
   });
 });
 
+</script>
+<!-- PWA Service Worker -->
+<script>
+if('serviceWorker' in navigator){
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .then(() => console.log('PWA activa ✅'))
+      .catch(e => console.log('SW error:', e));
+  });
+}
 </script>
 </body>
 </html>
