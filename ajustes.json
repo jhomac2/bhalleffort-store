@@ -1,0 +1,19 @@
+{
+  "sorteo": {
+    "activo": true,
+    "premioDelMes": "",
+    "fechaDelSorteo": "",
+    "historial": []
+  },
+  "local": {
+    "direccion": "La Y de Tabacundo, Pedro Moncayo, Pichincha",
+    "referencia": ""
+  },
+  "legal": {
+    "titular": "",
+    "ruc": "",
+    "direccion": "",
+    "ciudad": "Tabacundo",
+    "actualizado": "18 de octubre de 2026"
+  }
+}
