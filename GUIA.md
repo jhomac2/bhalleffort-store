@@ -185,3 +185,4 @@ Panel → **Ajustes del sitio**.
 - **El panel dice que el token no sirve**: venció o está mal copiado. Crea uno nuevo (sección 1).
 - **Error al publicar**: revisa que el token tenga **Contents: Read and write** y que el repositorio sea `bhalleffort-store`.
 - **Una foto se ve cortada**: edita el producto, elige **Cambiar** y ajusta el encuadre.
+
