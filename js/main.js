@@ -226,7 +226,7 @@ function avisoCookies() {
   c.dataset.s = 'in';
   c.setAttribute('role', 'region');
   c.setAttribute('aria-label', 'Aviso de cookies');
-  c.innerHTML = `<p><b>Sin rastreo.</b> Este sitio no usa cookies de publicidad ni de análisis. Solo guarda en tu dispositivo tu carrito y tus datos de envío para que no los escribas de nuevo. <a href="#/legal/cookies">Más información</a></p>
+  c.innerHTML = `<p><b>Sin rastreo.</b> Este sitio no usa cookies de publicidad ni de análisis (el mapa de Google de «Nuestro local» puede usar las suyas). Solo guarda en tu dispositivo tu carrito y tus datos de envío para que no los escribas de nuevo. <a href="#/legal/cookies">Más información</a></p>
     <div class="row"><button class="btn btn-primary btn-sm" data-cookie-ok>Entendido</button></div>`;
   document.body.append(c);
   requestAnimationFrame(() => requestAnimationFrame(() => { c.dataset.s = 'on'; }));
@@ -329,9 +329,8 @@ function enlazarGlobal() {
       el?.scrollIntoView({ behavior: reducedMotion() ? 'auto' : 'smooth', block: 'start' });
       return;
     }
-    if (t.closest('[data-map]')) { initMapa(true); return; }
     if (t.closest('[data-clear-local]')) {
-      ['bh-cart-v2', 'bh-cliente', 'bh-mapa-ok', KEY_COOKIES].forEach((k) => store.del(k));
+      ['bh-cart-v2', 'bh-cliente', KEY_COOKIES].forEach((k) => store.del(k));
       aviso('Borramos tus datos guardados en este dispositivo');
       setTimeout(() => location.reload(), 900);
       return;

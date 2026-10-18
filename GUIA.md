@@ -81,13 +81,13 @@ Panel → pestaña **Logo y fotos** → **Subir o reemplazar**.
 | Foto del local | `img/local.webp` | Horizontal 1600 × 1000 |
 | Imagen para compartir | `img/og.jpg` | 1200 × 630 |
 
-Hasta que subas el logo, la tienda muestra una "B" como monograma.
+Hasta que subas el logo, la tienda muestra una "B" como monograma. Hasta que subas la foto del local, la sección "Nuestro local" muestra un collage con fotos de tus productos (`img/local-vitrina.webp`); al subir `img/local.webp`, tu foto la reemplaza. El mapa de esa sección se carga solo, con las coordenadas de `js/config.js` → `local.lat` y `local.lon`.
 
 ---
 
 ## 5. Banners de cada sección
 
-Cada sección tiene un banner arriba. Ahora hay imágenes **de ejemplo**; reemplázalas con las tuyas.
+Cada sección tiene un banner arriba. Hoy **Ropa, Streaming y Promociones** usan fotos de tus propios productos; Recargas, Rosas, Acompañamiento estudiantil y Sorteo tienen imágenes **de ejemplo**. Reemplázalas con tus fotos reales cuando quieras.
 
 Panel → **Logo y fotos** → bloque **Banners de cada sección** → **Subir o reemplazar**. El panel recorta a **1600 × 640** y usa este nombre de archivo:
 

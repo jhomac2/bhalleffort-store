@@ -120,7 +120,7 @@ export const LEGAL = {
         <li><b>Plataformas y operadores</b> necesarios para prestar el servicio que compraste (por ejemplo, para acreditar una recarga o activar una cuenta).</li>
         <li><b>WhatsApp (Meta)</b>, donde ocurre la conversación del pedido.</li>
         <li><b>GitHub Pages</b>, donde está alojado el sitio; al visitarlo, el proveedor puede registrar tu dirección IP en sus servidores.</li>
-        <li><b>Google Maps</b>, únicamente si tú pulsas "Cargar mapa".</li>
+        <li><b>Google Maps</b>, cuando visitas la sección "Nuestro local" (se muestra el mapa de nuestra ubicación).</li>
         <li><b>Autoridades</b>, cuando la ley lo exija.</li>
       </ul>
       <p>No vendemos tus datos. Algunos de estos proveedores están fuera de Ecuador, por lo que tus datos pueden tratarse en otros países bajo sus propias políticas.</p>
@@ -160,13 +160,12 @@ export const LEGAL = {
         <tr><td><code>bh-cart-v2</code></td><td>Recuerda los productos de tu carrito.</td><td>Hasta que lo vacíes o borres los datos.</td></tr>
         <tr><td><code>bh-cliente</code></td><td>Recuerda tu nombre, provincia y dirección para no escribirlos otra vez.</td><td>Hasta que borres los datos.</td></tr>
         <tr><td><code>bh-cookies-ok</code></td><td>Recuerda que ya viste el aviso de cookies.</td><td>Hasta que borres los datos.</td></tr>
-        <tr><td><code>bh-mapa-ok</code></td><td>Recuerda que aceptaste cargar el mapa de Google.</td><td>Hasta que borres los datos.</td></tr>
       </table>
       <p>Son necesarios para el funcionamiento del sitio, por eso no piden consentimiento previo.</p>
 
       <h2>Servicios de terceros (opcionales)</h2>
       <ul>
-        <li><b>Google Maps</b>: <b>no se carga</b> hasta que pulsas "Cargar mapa". Al cargarlo, Google puede usar sus propias cookies según su <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">política de privacidad</a>.</li>
+        <li><b>Google Maps</b>: se carga solo en la sección "Nuestro local" para mostrar nuestra ubicación. Al cargarse, Google puede usar sus propias cookies según su <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">política de privacidad</a>.</li>
         <li><b>Redes sociales y WhatsApp</b>: solo son enlaces. No incrustamos sus botones ni píxeles; si los abres, se aplican sus políticas.</li>
         <li><b>Tipografías</b>: se sirven desde este mismo sitio, no desde Google.</li>
       </ul>

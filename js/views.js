@@ -6,7 +6,7 @@ import {
 } from './data.js';
 import {
   html, raw, esc, money, norm, waLink, waNumeroBonito, estadoLocal, hora12, DIAS_ES,
-  ahoraEcuador, store, reducedMotion, $, $$,
+  ahoraEcuador, reducedMotion, $, $$,
 } from './util.js';
 import { icon, brand } from './icons.js';
 import { art } from './art.js';
@@ -205,7 +205,6 @@ function inicio() {
     ['t4', 'rosas', 'Rosas', 'Por bonche. Ecuador, Perú y Colombia.'],
     ['t5', 'clases', 'Acompañamiento estudiantil', 'Apoyo escolar para EGB.'],
   ];
-  const cinta = ['Ropa', 'Recargas', 'Streaming', 'Rosas', 'Acompañamiento estudiantil', sorteo ? 'Sorteo mensual' : 'Promociones', atencion];
   const stageIcons = ['ropa', 'recargas', 'digital', 'rosas', 'clases', 'sorteo'];
   return {
     title: `${CONFIG.marca.nombre} · ${CONFIG.marca.eslogan}`,
@@ -244,10 +243,6 @@ function inicio() {
         </div>
       </div>
     </section>
-
-    <div class="ribbon" aria-hidden="true"><div class="ribbon-track">
-      ${[0, 1].map(() => html`<span>${cinta.map((t) => html`${t} <i>✦</i> `)}</span>`)}
-    </div></div>
 
     <section class="section" id="categorias" style="padding-top:clamp(28px,4vw,60px)">
       <div class="container">
@@ -396,14 +391,14 @@ function animarCarrete() {
 // ═══════════════════════════════════════════════════════════════════
 //  Local
 // ═══════════════════════════════════════════════════════════════════
-const MAPA_KEY = 'bh-mapa-ok';
 function bloqueLocal() {
   const L = CONFIG.local;
   const est = estadoLocal();
   const dias = ['lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado', 'domingo'];
   return html`<div class="local reveal">
     <div class="local-photo">
-      <div class="ph">${raw(art('local'))}<span>Nuestro local</span></div>
+      <img class="vitrina" src="img/local-vitrina.webp" alt="" loading="lazy" decoding="async" width="1000" height="1000">
+      <span class="local-tag">${raw(icon('map-pin'))} Nuestro local</span>
       <img src="${L.foto}" alt="Fachada del local BHALLEFFORT" loading="lazy" decoding="async" data-hide>
     </div>
     <div class="local-info">
@@ -417,22 +412,15 @@ function bloqueLocal() {
         <a class="btn btn-primary" href="${L.enlace}" target="_blank" rel="noopener">${raw(icon('navigation'))} Cómo llegar</a>
         <a class="btn btn-wa" href="${waLink('Hola, quiero consultar sobre sus productos.')}" target="_blank" rel="noopener">${raw(brand('whatsapp'))} WhatsApp</a>
       </div>
-      <div class="map-box" id="map-box">
-        <div><p class="muted" style="margin-bottom:12px">Mapa de Google. Al cargarlo, Google puede usar cookies.</p>
-          <button class="btn btn-ghost" data-map>${raw(icon('map-pin'))} Cargar mapa</button></div>
-      </div>
+      <div class="map-box" id="map-box"><p class="muted">Cargando el mapa…</p></div>
     </div></div>`;
 }
 
-function initMapa(forzar = false) {
+function initMapa() {
   const box = $('#map-box');
   if (!box) return;
   const L = CONFIG.local;
-  const poner = () => {
-    box.innerHTML = `<iframe title="Ubicación de ${esc(CONFIG.marca.nombre)} en Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=${L.lat},${L.lon}&z=17&output=embed"></iframe>`;
-  };
-  if (forzar) { store.set(MAPA_KEY, true); poner(); return; }
-  if (store.get(MAPA_KEY)) poner();
+  box.innerHTML = `<iframe title="Ubicación de ${esc(CONFIG.marca.nombre)} en Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=${L.lat},${L.lon}&z=17&hl=es&output=embed"></iframe>`;
 }
 
 function vistaLocal() {
