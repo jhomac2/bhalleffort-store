@@ -12,8 +12,9 @@ export const CONFIG = {
     eslogan: 'Lo mejor al mejor precio',
     atencion: 'Atención al instante', // frase que aparece en el inicio y en el botón flotante de WhatsApp
     heroTitulo: 'Todo lo encuentras', // título grande del inicio (primera parte)
-    heroResalte: 'aquí.', // segunda parte del título, sale en amarillo
+    heroResalte: 'aquí.', // segunda parte del título, sale en azul
     heroBajada: 'Ropa, recargas, streaming, rosas y acompañamiento estudiantil en un solo lugar. Arma tu carrito y confirma por WhatsApp.', // texto bajo el título
+    heroImagen: 'img/banners/inicio.webp', // imagen de la primera lámina del carrusel (1600 × 640 px)
     logo: 'img/logo.webp', // se sube con el panel /admin/ (ver GUIA.md). Si no existe, se usa un monograma.
     dominio: 'https://bhalleffort.com',
   },
@@ -111,12 +112,35 @@ export const CONFIG = {
     mensaje: 'Yo armo páginas web y tiendas online para negocios, como esta. Mira cómo trabajo en mi TikTok y conversemos de la tuya.',
   },
 
-  // ── Paleta (se aplica como variables CSS al cargar) ───────────────
+  // ── Carrusel del inicio ───────────────────────────────────────────
+  // La primera lámina usa los textos de "marca" (heroTitulo, heroResalte, heroBajada).
+  // Aquí van las demás: puedes cambiar textos, imagen (1600 × 640 px) y enlaces,
+  // borrar una lámina completa o copiar una para crear otra. "color" cambia el tono
+  // (blue, teal, violet, rose, green, coral o gold). "enlace" empieza con #/ (ej. #/ropa).
+  carrusel: [
+    { color: 'blue', imagen: 'img/banners/ropa.webp', etiqueta: 'Ropa', titulo: 'Estilo para toda la', resalte: 'familia', texto: 'Conjuntos, chompas, calzado y más para hombre, mujer y niños. Retira en el local o te lo enviamos.', boton: 'Ver ropa', enlace: '#/ropa' },
+    { color: 'violet', imagen: 'img/banners/streaming.webp', etiqueta: 'Streaming', titulo: 'Tus cuentas,', resalte: 'al instante', texto: 'Netflix, Disney+, HBO Max, inteligencia artificial y programas. Te los entregamos por WhatsApp.', boton: 'Ver streaming', enlace: '#/streaming' },
+    { color: 'coral', imagen: 'img/banners/promociones.webp', etiqueta: 'Promociones', titulo: 'Ofertas', resalte: 'del momento', texto: 'Productos con precio rebajado por tiempo limitado. Aprovecha antes de que terminen.', boton: 'Ver promociones', enlace: '#/promociones' },
+    { color: 'blue', imagen: 'img/banners/vende.webp', etiqueta: 'Vende con nosotros', titulo: '¿Tienes algo para', resalte: 'vender?', texto: 'Publica tu producto en BHALLEFFORT y llega a más clientes. Contáctanos y te explicamos cómo.', boton: 'Quiero vender', enlace: '#/vende' },
+  ],
+
+  // ── Vende con nosotros ────────────────────────────────────────────
+  // Sección para atraer a quienes quieren vender sus productos en la tienda.
+  // Aparece en el inicio, en el menú superior, en el pie de página y en la página #/vende.
+  vende: {
+    activo: true, // false = oculta toda la sección "Vende con nosotros"
+    titulo: '¿Quieres vender con nosotros?',
+    resalte: 'Contáctanos.',
+    texto: 'Si tienes ropa, accesorios, rosas, servicios o productos digitales, podemos publicarlos en BHALLEFFORT y ayudarte a llegar a más clientes.',
+    puntos: ['Llegas a más clientes en Tabacundo y todo el país', 'Te ayudamos a publicar y a promocionar tu producto', 'Hablamos directo por WhatsApp, sin trámites largos'],
+    mensajeWhatsApp: 'Hola, quiero vender mis productos con BHALLEFFORT.', // mensaje que se envía al tocar "Contáctanos"
+  },
+
+  // ── Colores de la marca (se aplican al cargar) ────────────────────
   paleta: {
-    fondo: '#140D4F', // color base de la tienda (azul noche)
-    fondo2: '#2A1182', // violeta del degradado
-    acento: '#FFD23F', // amarillo de botones y precios
-    rosa: '#FF4F9A', // rosa de detalles
+    principal: '#1352D6', // azul de botones, enlaces y detalles
+    oscuro: '#0B2A6B', // azul marino (barra superior, bloques oscuros)
+    acento: '#F5A300', // ámbar del contador del carrito y avisos
   },
 
   provincias: [

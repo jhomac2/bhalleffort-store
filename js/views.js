@@ -1,15 +1,14 @@
 import { CONFIG } from './config.js';
-import { CATS, CAT_ORDER, subNombre, catPorSlug, ruta, BANNERS_EXTRA } from './schema.js';
+import { CATS, CAT_ORDER, subNombre, catPorSlug, ruta, BANNERS_EXTRA, ICONO } from './schema.js';
 import {
   porId, porCategoria, promos, destacados, buscar, promoActiva, descuentoPct,
   precioDesde, tieneVariantes,
 } from './data.js';
 import {
   html, raw, esc, money, norm, waLink, waNumeroBonito, estadoLocal, hora12, DIAS_ES,
-  ahoraEcuador, reducedMotion, $, $$,
+  reducedMotion, resumenHorario, $, $$,
 } from './util.js';
 import { icon, brand } from './icons.js';
-import { art } from './art.js';
 import { cart, abrirCarrito } from './cart.js';
 import { aviso, volarAlCarrito, revelar } from './fx.js';
 import { LEGAL, LEGAL_ORDER } from './legal.js';
@@ -56,7 +55,7 @@ function precioEtiqueta(p) {
 
 // Color propio del producto (operadores de recarga): tiñe toda la tarjeta
 const estiloColor = (p) => (hexOk(p.color)
-  ? `--c:${p.color};--c-2:color-mix(in srgb, ${p.color} 55%, #ffffff);--c-deep:color-mix(in srgb, ${p.color} 38%, #0a0538);--c-glow:color-mix(in srgb, ${p.color} 50%, #ffffff);`
+  ? `--c:${p.color};--c-soft:color-mix(in srgb, ${p.color} 12%, #ffffff);--c-deep:color-mix(in srgb, ${p.color} 55%, #0a1230);--c-glow:color-mix(in srgb, ${p.color} 40%, #ffffff);`
   : '');
 
 export function tarjeta(p, i = 0) {
@@ -84,17 +83,17 @@ export function tarjeta(p, i = 0) {
     : tieneVariantes(p) || p.agotado
       ? html`<a class="btn btn-primary btn-sm" href="#/p/${p.id}" aria-label="${txt}: ${p.nombre}">${txt}</a>`
       : html`<button class="btn btn-primary btn-sm" data-add="${p.id}" aria-label="${txt}: ${p.nombre}">${raw(icon('plus'))} ${txt}</button>`;
-  return html`<article class="card reveal" data-tilt="5" data-color="${cat.color}" data-agotado="${p.agotado ? 'true' : 'false'}"
+  return html`<article class="card reveal" data-color="${cat.color}" data-agotado="${p.agotado ? 'true' : 'false'}"
       style="${raw(esc(estiloColor(p)))}--media:${cat.media};--i:${Math.min(i, 8)}" data-flipwrap>
     <div class="card-top">
       <div class="card-media">${media}<div class="flags">${etiquetas(p)}</div></div>
       ${dos ? html`<button class="flip-btn" data-flip aria-pressed="false" aria-label="Ver otra foto">${raw(icon('refresh-cw'))}</button>` : ''}
-      ${precioEtiqueta(p)}
     </div>
     <div class="card-body">
-      <h3 class="card-title"><a href="#/p/${p.id}">${p.nombre}</a></h3>
       ${meta.filter(Boolean).length ? html`<div class="card-meta">${meta.filter(Boolean).join(' · ')}</div>` : ''}
+      <h3 class="card-title"><a href="#/p/${p.id}">${p.nombre}</a></h3>
       ${tallas}${montos}
+      ${precioEtiqueta(p)}
       <div class="card-act">${accion}</div>
     </div></article>`;
 }
@@ -108,8 +107,6 @@ const rejilla = (lista, catKey) => {
   return html`${cats.map((c) => html`<div class="group"><h3 class="group-title">${CATS[c].nombre}</h3>${grilla(lista.filter((p) => p.cat === c), c)}</div>`)}`;
 };
 
-const ARTE_CAT = { ropa: 'ropa', recargas: 'recargas', digital: 'digital', rosas: 'rosas', clases: 'clases' };
-
 // Cabecera sencilla (Local, Cómo comprar, Búsqueda)
 function cabecera({ eyebrow, titulo, resaltado, lead, color, crumbs = [] }) {
   return html`<section class="page-hero" data-color="${color}">
@@ -122,11 +119,10 @@ function cabecera({ eyebrow, titulo, resaltado, lead, color, crumbs = [] }) {
 }
 
 // Banner grande con imagen (cada sección tiene el suyo; se cambia en img/banners/)
-function banner({ eyebrow, titulo, resaltado, lead, color, arte, img, crumbs = [], extra = '' }) {
+function banner({ eyebrow, titulo, resaltado, lead, color, img, crumbs = [], extra = '' }) {
   return html`<section class="banner" data-color="${color}">
     <div class="container"><div class="banner-box">
       ${img ? html`<img class="banner-img" src="${img}" alt="" decoding="async" fetchpriority="high" data-hide>` : ''}
-      <div class="banner-art" aria-hidden="true">${raw(arte || '')}</div>
       <div class="banner-copy">
         <nav class="crumbs" aria-label="Ruta"><a href="#/">Inicio</a>${crumbs.map(([t, h]) => html` ${raw(icon('chevron-right'))} ${h ? html`<a href="${h}">${t}</a>` : html`<span>${t}</span>`}`)}</nav>
         ${eyebrow ? html`<span class="eyebrow">${eyebrow}</span>` : ''}
@@ -159,21 +155,15 @@ function follow(catKey, etiqueta = 'Síguenos') {
 }
 
 function vacio({ cat, titulo, texto, msg }) {
-  return html`<div class="empty">${raw(art(ARTE_CAT[cat] || 'promos'))}<h2>${titulo}</h2><p>${texto}</p>
+  return html`<div class="empty" data-color="${CATS[cat]?.color || 'blue'}"><span class="empty-ic">${raw(icon(ICONO[cat] || 'tag'))}</span><h2>${titulo}</h2><p>${texto}</p>
     <a class="btn btn-wa" href="${waLink(msg)}" target="_blank" rel="noopener">${raw(brand('whatsapp'))} Preguntar por WhatsApp</a></div>`;
 }
 
 // ═══════════════════════════════════════════════════════════════════
 //  Inicio
 // ═══════════════════════════════════════════════════════════════════
-function chipHoy() {
-  const { dia } = ahoraEcuador();
-  const [a, c] = CONFIG.horario[dia];
-  return `Hoy ${a}:00 – ${c}:00`;
-}
-
 // Gama de colores de las esferas cuando el producto no trae color
-const ORBS = [['#fff0a0', '#d9801a'], ['#ffb1d8', '#b3135f'], ['#9ff3ff', '#0a7fa6'], ['#dcc4ff', '#5a2bc4'], ['#d8ff8a', '#3b8a00'], ['#a8ccff', '#1f45c4'], ['#ffc29a', '#b83a10'], ['#9ff7ee', '#0a7f88']];
+const ORBS = [['#d6e4ff', '#1352d6'], ['#d3f3ef', '#0b8f86'], ['#e6dcff', '#6d3df0'], ['#ffdce8', '#d62f6a'], ['#d9f2e1', '#1a8f45'], ['#ffe0d4', '#e2552b'], ['#ffeec2', '#b87d00'], ['#d6eef7', '#0e7490']];
 const ICONO_SUB = { celulares: 'smartphone', videojuegos: 'gamepad-2', ecuabet: 'star' };
 function coloresOrb(p, i) {
   if (hexOk(p.color)) return [`color-mix(in srgb, ${p.color} 55%, #fff)`, p.color];
@@ -186,8 +176,107 @@ function contenidoOrb(p) {
 }
 const estiloOrb = (p, i) => { const [a, b] = coloresOrb(p, i); return `--o1:${a};--o2:${b}`; };
 
-function inicio() {
+// Lámina del carrusel. La primera (i = 0) lleva el título principal de la página.
+function lamina(s, i, total) {
   const est = estadoLocal();
+  const titulo = html`${s.titulo} ${s.resalte ? html`<span>${s.resalte}</span>` : ''}`;
+  return html`<div class="slide" data-color="${s.color || 'blue'}" role="group" aria-roledescription="lámina" aria-label="${i + 1} de ${total}">
+    <div class="slide-img"><img src="${s.imagen}" alt="" width="1600" height="640" ${i === 0 ? raw('fetchpriority="high"') : raw('loading="lazy"')} decoding="async" data-hide></div>
+    <div class="slide-copy">
+      ${i === 0
+    ? html`<span class="hero-pill"><span class="dot ${est.abierto ? 'on' : ''}"></span>${est.abierto ? `Abierto ahora · cierra ${hora12(est.cierra)}` : 'Cerrado ahora · te respondemos al abrir'}</span>
+        <h1 id="h-title">${titulo}</h1>`
+    : html`<span class="eyebrow">${s.etiqueta}</span><h2>${titulo}</h2>`}
+      <p class="lead">${s.texto}</p>
+      <div class="slide-cta">
+        <a class="btn btn-primary btn-lg" href="${s.enlace}">${s.boton} ${raw(icon('arrow-right'))}</a>
+        ${!s.enlace2 ? '' : s.enlace2.startsWith('#/')
+    ? html`<a class="btn btn-white btn-lg" href="${s.enlace2}">${s.boton2}</a>`
+    : html`<button type="button" class="btn btn-white btn-lg" data-scroll="${s.enlace2.slice(1)}">${s.boton2} ${raw(icon('arrow-down'))}</button>`}
+      </div>
+    </div></div>`;
+}
+
+function carrusel() {
+  const M = CONFIG.marca;
+  const laminas = [
+    { color: 'blue', imagen: M.heroImagen, titulo: M.heroTitulo, resalte: M.heroResalte, texto: `${M.heroBajada} ${M.atencion}.`, boton: 'Ver promociones', enlace: '#/promociones', boton2: 'Explorar categorías', enlace2: '#categorias' },
+    ...(CONFIG.carrusel || []).filter((x) => x.enlace !== '#/vende' || CONFIG.vende.activo),
+  ];
+  return html`<section class="hero" aria-roledescription="carrusel" aria-label="Destacados de la tienda">
+    <div class="container hero-wrap">
+      <div class="hero-track" id="hero-track" tabindex="0" aria-label="Destacados, desliza para ver más">${laminas.map((s, i) => lamina(s, i, laminas.length))}</div>
+      <button class="hero-arrow prev" type="button" aria-label="Lámina anterior">${raw(icon('arrow-right'))}</button>
+      <button class="hero-arrow next" type="button" aria-label="Lámina siguiente">${raw(icon('arrow-right'))}</button>
+      <div class="hero-dots">${laminas.map((_, i) => html`<button type="button" aria-label="Ir a la lámina ${i + 1}" aria-current="${i === 0}"></button>`)}</div>
+    </div></section>`;
+}
+
+function enlazarCarrusel() {
+  const track = $('#hero-track');
+  if (!track) return;
+  const laminas = $$('.slide', track);
+  const dots = $$('.hero-dots button');
+  const prev = $('.hero-arrow.prev');
+  const next = $('.hero-arrow.next');
+  let actual = -1;
+  const pintar = () => {
+    const w = track.clientWidth || 1;
+    const i = Math.max(0, Math.min(laminas.length - 1, Math.round(track.scrollLeft / w)));
+    if (i === actual) return;
+    actual = i;
+    dots.forEach((d, k) => d.setAttribute('aria-current', String(k === i)));
+    laminas.forEach((l, k) => { l.inert = k !== i; });
+    prev.disabled = i === 0;
+    next.disabled = i === laminas.length - 1;
+  };
+  const ir = (i) => track.scrollTo({ left: Math.max(0, Math.min(laminas.length - 1, i)) * track.clientWidth, behavior: reducedMotion() ? 'auto' : 'smooth' });
+  track.addEventListener('scroll', pintar, { passive: true });
+  prev.addEventListener('click', () => ir(actual - 1));
+  next.addEventListener('click', () => ir(actual + 1));
+  dots.forEach((d, k) => d.addEventListener('click', () => ir(k)));
+  track.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); ir(actual + 1); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); ir(actual - 1); }
+  });
+  window.addEventListener('resize', () => { track.scrollLeft = Math.max(actual, 0) * track.clientWidth; }, { passive: true });
+  pintar();
+}
+
+function franjaConfianza() {
+  const items = [
+    ['zap', CONFIG.marca.atencion, 'Respondemos por WhatsApp'],
+    ['truck', `Envío gratis desde ${money(CONFIG.envio.gratisDesde)}`, 'En compras de ropa'],
+    ['shield-check', 'Paga seguro', `Solo a nombre de ${CONFIG.pago.titular}`],
+    ['store', 'Local físico', `Visítanos en ${CONFIG.legal.ciudad}`],
+  ];
+  return html`<div class="container"><div class="trust">${items.map(([ic, t, d]) => html`
+    <div class="trust-i"><span class="tic">${raw(icon(ic))}</span><div><b>${t}</b><small>${d}</small></div></div>`)}</div></div>`;
+}
+
+function bandaVende() {
+  const V = CONFIG.vende;
+  if (!V.activo) return '';
+  return html`<section class="section" data-color="blue">
+    <div class="container"><div class="sell reveal">
+      <div>
+        <span class="eyebrow">Vende con nosotros</span>
+        <h2>${V.titulo} <span>${V.resalte}</span></h2>
+        <p>${V.texto}</p>
+        <ul class="sell-list">${V.puntos.map((t) => html`<li>${raw(icon('check'))} ${t}</li>`)}</ul>
+        <div class="sell-cta">
+          <a class="btn btn-white btn-lg" href="${waLink(V.mensajeWhatsApp)}" target="_blank" rel="noopener">${raw(brand('whatsapp'))} Contáctanos por WhatsApp</a>
+          <a class="btn btn-ghost btn-lg" href="#/vende">Ver cómo funciona</a>
+        </div>
+      </div>
+      <div class="sell-art" aria-hidden="true">
+        <div class="mock mock-b"><div class="mock-img"></div><i></i><i class="s"></i></div>
+        <div class="mock mock-a"><div class="mock-img">${raw(icon('store'))}</div><b>Tu producto aquí</b><i class="s"></i><div class="mock-row"><span>$ 00.00</span><u>Agregar</u></div></div>
+      </div>
+    </div></div></section>`;
+}
+
+function inicio() {
   const pr = promos();
   const destRopa = destacados(8, 'ropa');
   const destRosas = destacados(4, 'rosas');
@@ -197,87 +286,51 @@ function inicio() {
   const recs = porCategoria('recargas').slice(0, 6);
   const streams = destacados(6, 'digital');
   const C = CONFIG.creditos;
-  const atencion = CONFIG.marca.atencion;
   const tiles = [
-    ['t1', 'ropa', 'Ropa', 'Hombre, mujer, niños y más. Calzado, mochilas y conjuntos.'],
-    ['t2', 'recargas', 'Recargas', 'Claro, Movistar, Tigo, CNT, videojuegos y Ecuabet.'],
-    ['t3', 'digital', 'Streaming', 'Netflix, IA y programas al instante.'],
-    ['t4', 'rosas', 'Rosas', 'Por bonche. Ecuador, Perú y Colombia.'],
-    ['t5', 'clases', 'Acompañamiento estudiantil', 'Apoyo escolar para EGB.'],
+    ['ropa', 'Ropa', 'Hombre, mujer, niños y más. Calzado, mochilas y conjuntos.'],
+    ['recargas', 'Recargas', 'Claro, Movistar, Tigo, CNT, videojuegos y Ecuabet.'],
+    ['digital', 'Streaming', 'Netflix, IA y programas al instante.'],
+    ['rosas', 'Rosas', 'Por bonche. Ecuador, Perú y Colombia.'],
+    ['clases', 'Acompañamiento estudiantil', 'Apoyo escolar para EGB.'],
   ];
-  const stageIcons = ['ropa', 'recargas', 'digital', 'rosas', 'clases', 'sorteo'];
   return {
     title: `${CONFIG.marca.nombre} · ${CONFIG.marca.eslogan}`,
     desc: 'Todo lo encuentras aquí: ropa, recargas, streaming, rosas y acompañamiento estudiantil. Atención al instante por WhatsApp. Sorteo mensual.',
     html: html`
-    <section class="hero" aria-labelledby="h-title">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <span class="hero-pill reveal"><span class="dot ${est.abierto ? 'on' : ''}"></span>${est.abierto ? `Abierto ahora · cierra ${hora12(est.cierra)}` : 'Cerrado ahora · te respondemos al abrir'}</span>
-          <h1 id="h-title" class="reveal" style="--i:1">${CONFIG.marca.heroTitulo} <span class="pop">${CONFIG.marca.heroResalte}</span></h1>
-          <p class="lead reveal" style="--i:2">${CONFIG.marca.heroBajada} <b>${atencion}.</b></p>
-          <div class="hero-cta reveal" style="--i:3">
-            <a class="btn btn-primary btn-lg" href="#/promociones">${raw(icon('badge-percent'))} Ver promociones</a>
-            <button class="btn btn-white btn-lg" data-scroll="categorias">Explorar ${raw(icon('arrow-down'))}</button>
-          </div>
-          <div class="hero-chips reveal" style="--i:4">
-            <a class="chip-info hot" href="${waLink('Hola, quiero hacer una consulta.')}" target="_blank" rel="noopener">${raw(icon('zap'))} ${atencion}</a>
-            <span class="chip-info">${raw(icon('store'))} Local físico</span>
-            <span class="chip-info">${raw(icon('clock'))} ${chipHoy()}</span>
-            <span class="chip-info">${raw(icon('truck'))} Envío gratis desde ${money(CONFIG.envio.gratisDesde)}</span>
-            ${sorteo ? html`<span class="chip-info">${raw(icon('ticket'))} Sorteo mensual desde ${money(CONFIG.sorteo.minimo)}</span>` : ''}
-          </div>
-        </div>
-        <div class="hero-stage" id="stage" aria-hidden="true">
-          <div class="hero-fallback">
-            <div class="fb-coin" id="fb-coin">B</div>
-            ${stageIcons.map((n, i) => {
-              const ang = (i / stageIcons.length) * Math.PI * 2 - Math.PI / 2;
-              const x = 50 + Math.cos(ang) * 38, y = 50 + Math.sin(ang) * 36;
-              return html`<div class="fb-item" style="left:${(x - 9.5).toFixed(1)}%;top:${(y - 9.5).toFixed(1)}%;--d:${i};--r:${(i % 2 ? -6 : 6)}deg">${raw(art(n))}</div>`;
-            })}
-          </div>
-          <canvas id="hero-canvas" aria-hidden="true"></canvas>
-          <div class="stage-tip" id="stage-tip"></div>
-          <div class="stage-hint">Toca un objeto o arrastra para girar</div>
-        </div>
-      </div>
-    </section>
+    ${carrusel()}
+    ${franjaConfianza()}
 
-    <section class="section" id="categorias" style="padding-top:clamp(28px,4vw,60px)">
+    <section class="section" id="categorias" style="padding-bottom:clamp(24px,3vw,40px)">
       <div class="container">
-        <div class="section-head reveal"><div><span class="eyebrow" style="--c-glow:var(--cyan)">Categorías</span><h2>¿Qué estás buscando?</h2></div></div>
+        <div class="section-head reveal"><div><span class="eyebrow">Categorías</span><h2>¿Qué estás buscando?</h2></div></div>
         <div class="bento">
-          ${tiles.map(([cls, cat, nombre, texto], i) => html`
-            <a class="tile ${cls} reveal" style="--i:${i}" href="${ruta(cat)}" data-tilt="8" data-color="${CATS[cat].color}">
-              ${raw(art(cat))}
+          ${tiles.map(([cat, nombre, texto], i) => html`
+            <a class="tile reveal" style="--i:${i}" href="${ruta(cat)}" data-color="${CATS[cat].color}">
+              <span class="tile-ic">${raw(icon(ICONO[cat]))}</span>
               <h3>${nombre}</h3><p>${texto}</p>
               <span class="go">Ver ${raw(icon('arrow-right'))}</span>
-              <span class="tile-glare"></span>
             </a>`)}
         </div>
       </div>
     </section>
 
-    <section class="section" style="padding-top:0">
+    <section class="section alt">
       <div class="container two">
         <article class="arcade reveal" data-color="teal">
-          <div class="arcade-bg" aria-hidden="true"><i class="glow g1"></i><i class="glow g3"></i></div>
           <div class="arc-head"><span class="eyebrow">Recargas</span><h2>Recarga en segundos</h2><p>Elige el operador o juego, el monto y listo.</p></div>
           <div class="picks">${recs.map((p, i) => html`<a class="pick" href="${ruta('recargas')}/${p.sub}" style="${raw(esc(estiloOrb(p, i)))}"><span class="pick-orb">${contenidoOrb(p)}</span><span class="pick-name">${p.operador || p.nombre}</span></a>`)}</div>
-          <div class="hero-cta" style="margin-top:20px"><a class="btn btn-cyan" href="${ruta('recargas')}">Armar mi recarga ${raw(icon('arrow-right'))}</a></div>
+          <div class="hero-cta" style="margin-top:20px"><a class="btn btn-primary" href="${ruta('recargas')}">Armar mi recarga ${raw(icon('arrow-right'))}</a></div>
         </article>
         <article class="arcade reveal" data-color="violet" style="--i:1">
-          <div class="arcade-bg" aria-hidden="true"><i class="glow g1"></i><i class="glow g2"></i></div>
           <div class="arc-head"><span class="eyebrow">Streaming</span><h2>Tus cuentas, al instante</h2><p>Netflix, IA, programas y más. Cuéntanos qué necesitas.</p></div>
           <div class="picks">${streams.map((p, i) => html`<a class="pick" href="#/p/${p.id}" style="${raw(esc(estiloOrb(p, i + 2)))}"><span class="pick-orb">${contenidoOrb(p)}</span><span class="pick-name">${p.nombre}</span></a>`)}</div>
-          <div class="hero-cta" style="margin-top:20px"><a class="btn btn-pink" href="${ruta('digital')}">Armar mi pedido ${raw(icon('arrow-right'))}</a></div>
+          <div class="hero-cta" style="margin-top:20px"><a class="btn btn-primary" href="${ruta('digital')}">Armar mi pedido ${raw(icon('arrow-right'))}</a></div>
         </article>
       </div>
     </section>
 
     ${pr.length ? html`
-    <section class="section" style="padding-top:0" data-color="coral">
+    <section class="section" data-color="coral">
       <div class="container">
         <div class="section-head reveal"><div><span class="eyebrow">Promociones</span><h2>Precios que no duran</h2></div>
           <a class="link-arrow" href="#/promociones">Ver todas ${raw(icon('arrow-right'))}</a></div>
@@ -285,7 +338,7 @@ function inicio() {
       </div>
     </section>` : ''}
 
-    ${destRopa.length ? html`<section class="section" style="padding-top:0" data-color="blue">
+    ${destRopa.length ? html`<section class="section alt" data-color="blue">
       <div class="container">
         <div class="section-head reveal"><div><span class="eyebrow">Destacados</span><h2>Lo que más buscan</h2></div>
           <a class="link-arrow" href="${ruta('ropa')}">Ver ropa ${raw(icon('arrow-right'))}</a></div>
@@ -293,7 +346,7 @@ function inicio() {
       </div>
     </section>` : ''}
 
-    ${destRosas.length ? html`<section class="section" style="padding-top:0" data-color="rose">
+    ${destRosas.length ? html`<section class="section" data-color="rose">
       <div class="container">
         <div class="section-head reveal"><div><span class="eyebrow">Rosas</span><h2>Para regalar y sorprender</h2></div>
           <a class="link-arrow" href="${ruta('rosas')}">Ver rosas ${raw(icon('arrow-right'))}</a></div>
@@ -303,6 +356,20 @@ function inicio() {
 
     ${sorteo ? bandaSorteo() : ''}
 
+    <section class="section" data-color="blue">
+      <div class="container">
+        <div class="section-head reveal"><div><span class="eyebrow">Cómo comprar</span><h2>Cuatro pasos y listo</h2></div>
+          <a class="link-arrow" href="#/como-comprar">Más detalles ${raw(icon('arrow-right'))}</a></div>
+        ${pasosCompra()}
+      </div>
+    </section>
+
+    <section class="section alt" data-color="blue">
+      <div class="container">${bloqueLocal()}</div>
+    </section>
+
+    ${bandaVende()}
+
     <section class="section" style="padding-top:0">
       <div class="container">
         <div class="dev reveal">
@@ -311,28 +378,15 @@ function inicio() {
             <div class="dev-body"><i></i><i></i><i></i><i></i><div class="dev-btns"><b></b><b></b></div></div>
           </div>
           <div class="dev-copy">
-            <span class="eyebrow" style="--c-glow:var(--cyan)">${C.titulo}</span>
+            <span class="eyebrow">${C.titulo}</span>
             <h2>¿Quieres una página web como esta?</h2>
             <p>${C.mensaje} Soy <b>${C.nombre}</b>, el diseñador de ${CONFIG.marca.nombre}.</p>
-            <a class="btn btn-pink btn-lg" href="${C.tiktok}" target="_blank" rel="noopener">${raw(brand('tiktok'))} Ver mi TikTok</a>
+            <a class="btn btn-primary btn-lg" href="${C.tiktok}" target="_blank" rel="noopener">${raw(brand('tiktok'))} Ver mi TikTok</a>
           </div>
         </div>
       </div>
-    </section>
-
-    <section class="section" style="padding-top:0" data-color="blue">
-      <div class="container">
-        <div class="section-head reveal"><div><span class="eyebrow">Cómo comprar</span><h2>Cuatro pasos y listo</h2></div>
-          <a class="link-arrow" href="#/como-comprar">Más detalles ${raw(icon('arrow-right'))}</a></div>
-        ${pasosCompra()}
-      </div>
-    </section>
-
-    <section class="section" style="padding-top:0" data-color="blue">
-      <div class="container">${bloqueLocal()}</div>
     </section>`,
-    after: () => { animarCarrete(); initMapa(); },
-    hero: true,
+    after: () => { enlazarCarrusel(); animarCarrete(); initMapa(); },
   };
 }
 
@@ -356,7 +410,7 @@ function bandaSorteo() {
         <h2>Compra desde ${money(s.minimo)} y participa</h2>
         <p>Cada compra válida te da un número del 1 al ${s.numeroMaximo}. El sorteo se hace cada mes y lo puedes seguir en nuestras redes. Al ganador lo contactamos por WhatsApp.</p>
         <div class="raffle-cta">
-          <a class="btn btn-pink btn-lg" href="#/sorteo">Cómo participar</a>
+          <a class="btn btn-primary btn-lg" href="#/sorteo">Cómo participar</a>
           <a class="btn btn-white btn-lg" href="#/legal/sorteo">Bases del sorteo</a>
         </div>
       </div>
@@ -459,7 +513,7 @@ function vistaSorteo() {
   return {
     title: `Sorteo mensual · ${CONFIG.marca.nombre}`,
     desc: `Compra desde ${money(s.minimo)} y participa en el sorteo mensual de BHALLEFFORT. Un número del 1 al ${s.numeroMaximo} por compra.`,
-    html: html`${banner({ eyebrow: 'Sorteo mensual', titulo: 'Compra y', resaltado: 'participa', lead: `Desde ${money(s.minimo)} de compra recibes un número del 1 al ${s.numeroMaximo}. Se reinicia cada mes.`, color: 'gold', arte: art('sorteo'), img: BANNERS_EXTRA.sorteo.banner, crumbs: [['Sorteo']] })}
+    html: html`${banner({ eyebrow: 'Sorteo mensual', titulo: 'Compra y', resaltado: 'participa', lead: `Desde ${money(s.minimo)} de compra recibes un número del 1 al ${s.numeroMaximo}. Se reinicia cada mes.`, color: 'gold', img: BANNERS_EXTRA.sorteo.banner, crumbs: [['Sorteo']] })}
       <section class="section" style="padding-top:12px" data-color="gold"><div class="container">
         <h2 class="sr-only">Cómo participar</h2>
         <div class="steps">
@@ -511,7 +565,6 @@ function compraGuiada(catKey, lista, subFijo) {
   const conSubs = subs.length > 1;
   const n = conSubs ? 2 : 1;
   return html`<section class="arcade reveal" id="arcade" data-color="${cat.color}" data-n0="${n}" aria-labelledby="arc-t">
-    <div class="arcade-bg" aria-hidden="true"><i class="glow g1"></i><i class="glow g2"></i><i class="glow g3"></i><i class="glow g4"></i></div>
     <div class="arc-head">
       <span class="eyebrow">Compra guiada</span>
       <h2 id="arc-t">${stream ? 'Arma tu pedido de streaming' : 'Arma tu recarga'}</h2>
@@ -644,7 +697,7 @@ function ecuabetPanel() {
   const E = CONFIG.ecuabet;
   if (!E.activo) return '';
   return html`<section class="ecu reveal" aria-labelledby="ecu-t">
-    <div><span class="eyebrow" style="--c-glow:var(--cyan)">Ecuabet · solo +18</span>
+    <div><span class="eyebrow">Ecuabet · solo +18</span>
       <h2 id="ecu-t" style="margin-top:6px">Te ayudamos con tu cuenta Ecuabet</h2></div>
     <div class="ecu-grid">
       <div class="ecu-item"><b>${money(E.recargaDesde)}</b><span>Recargas desde ${money(E.recargaDesde)}</span></div>
@@ -656,13 +709,13 @@ function ecuabetPanel() {
       <a class="btn btn-lime" href="${waLink('Hola, quiero que me ayuden a crear mi cuenta de Ecuabet.')}" target="_blank" rel="noopener">${raw(icon('user-plus'))} Quiero crear mi cuenta</a>
       <a class="btn btn-cyan" href="${waLink('Hola, quiero hacer un retiro de Ecuabet.')}" target="_blank" rel="noopener">${raw(icon('banknote'))} Quiero retirar</a>
     </div>
-    <small>${E.nota} Solo mayores de 18 años. Juega con responsabilidad: el juego puede causar adicción. <a href="#/legal/juego-responsable" style="color:var(--yellow);text-decoration:underline">Más información</a>.</small>
+    <small>${E.nota} Solo mayores de 18 años. Juega con responsabilidad: el juego puede causar adicción. <a href="#/legal/juego-responsable">Más información</a>.</small>
   </section>`;
 }
 function ecuabetFranja() {
   const E = CONFIG.ecuabet;
   if (!E.activo) return '';
-  return html`<a class="note" href="${ruta('recargas')}/ecuabet" data-color="teal" style="margin-bottom:16px;align-items:center">${raw(icon('star'))}<div><b>Ecuabet +18:</b> te ayudamos a crear tu cuenta y te regalamos ${E.bono}. Recargas desde ${money(E.recargaDesde)} · retiros desde ${money(E.retiroDesde)}. <b style="color:var(--yellow);text-decoration:underline">Ver más</b></div></a>`;
+  return html`<a class="note" href="${ruta('recargas')}/ecuabet" data-color="teal" style="margin-bottom:16px;align-items:center">${raw(icon('star'))}<div><b>Ecuabet +18:</b> te ayudamos a crear tu cuenta y te regalamos ${E.bono}. Recargas desde ${money(E.recargaDesde)} · retiros desde ${money(E.retiroDesde)}. <b>Ver más</b></div></a>`;
 }
 
 // ═══════════════════════════════════════════════════════════════════
@@ -742,7 +795,7 @@ function vistaCategoria(catKey, sub, grupo) {
   return {
     title: `${subTitulo ? subTitulo + ' · ' : ''}${cat.nombre} · ${CONFIG.marca.nombre}`,
     desc: `${cat.nombre}${subTitulo ? ' ' + subTitulo : ''} en ${CONFIG.marca.nombre}. ${cat.bajada}.`,
-    html: html`${banner({ eyebrow: cat.bajada, titulo, resaltado: subTitulo, color: cat.color, arte: art(ARTE_CAT[catKey]), img: cat.banner, extra: follow(catKey), crumbs: sub ? [[cat.nombre, base], [subTitulo]] : [[cat.nombre]] })}
+    html: html`${banner({ eyebrow: cat.bajada, titulo, resaltado: subTitulo, color: cat.color, img: cat.banner, extra: follow(catKey), crumbs: sub ? [[cat.nombre, base], [subTitulo]] : [[cat.nombre]] })}
       <section class="container" data-color="${cat.color}" style="padding-bottom:24px">
         <div class="toolbar">${tabs}
           ${lista.length > 1 ? html`<select class="sort" id="sort" aria-label="Ordenar"><option value="rel">Relevancia</option><option value="asc">Menor precio</option><option value="desc">Mayor precio</option><option value="oferta">Ofertas primero</option></select>` : ''}
@@ -779,10 +832,10 @@ function vistaPromos(catSel) {
   return {
     title: `Promociones · ${CONFIG.marca.nombre}`,
     desc: 'Promociones y ofertas de BHALLEFFORT: ropa, streaming, programas y más con precio rebajado.',
-    html: html`${banner({ eyebrow: 'Promociones', titulo: 'Ofertas', resaltado: 'del momento', lead: 'Cada producto en oferta aparece también en su categoría. Los precios cambian cuando termina la promoción.', color: 'coral', arte: art('promos'), img: BANNERS_EXTRA.promociones.banner, crumbs: [['Promociones']] })}
+    html: html`${banner({ eyebrow: 'Promociones', titulo: 'Ofertas', resaltado: 'del momento', lead: 'Cada producto en oferta aparece también en su categoría. Los precios cambian cuando termina la promoción.', color: 'coral', img: BANNERS_EXTRA.promociones.banner, crumbs: [['Promociones']] })}
       <section class="container" data-color="coral" style="padding-bottom:24px">
         <div class="toolbar">${tabs}${lista.length > 1 ? html`<select class="sort" id="sort" aria-label="Ordenar"><option value="rel">Relevancia</option><option value="asc">Menor precio</option><option value="desc">Mayor precio</option></select>` : ''}</div>
-        <div id="lista">${lista.length ? cuerpoLista(lista, null) : html`<div class="empty">${raw(art('promos'))}<h2>No hay promociones activas</h2><p>Vuelve pronto o síguenos en redes para enterarte primero.</p><a class="btn btn-primary" href="#/">Volver al inicio</a></div>`}</div>
+        <div id="lista">${lista.length ? cuerpoLista(lista, null) : html`<div class="empty" data-color="coral"><span class="empty-ic">${raw(icon('badge-percent'))}</span><h2>No hay promociones activas</h2><p>Vuelve pronto o síguenos en redes para enterarte primero.</p><a class="btn btn-primary" href="#/">Volver al inicio</a></div>`}</div>
       </section>`,
     after: () => enlazarLista(() => lista, null),
   };
@@ -803,11 +856,11 @@ function vistaClases() {
   return {
     title: `${cat.nombre} · ${CONFIG.marca.nombre}`,
     desc: 'Acompañamiento estudiantil para EGB a cargo de una Licenciada en Ciencias de la Educación Básica. Consulta horarios y cupos por WhatsApp.',
-    html: html`${banner({ eyebrow: 'Educación General Básica', titulo: 'Acompañamiento', resaltado: 'estudiantil', lead: 'Apoyo escolar para estudiantes de EGB, a cargo de una Licenciada en Ciencias de la Educación Básica.', color: 'green', arte: art('clases'), img: cat.banner, extra: follow('clases', 'Síguenos en'), crumbs: [[cat.nombre]] })}
+    html: html`${banner({ eyebrow: 'Educación General Básica', titulo: 'Acompañamiento', resaltado: 'estudiantil', lead: 'Apoyo escolar para estudiantes de EGB, a cargo de una Licenciada en Ciencias de la Educación Básica.', color: 'green', img: cat.banner, extra: follow('clases', 'Síguenos en'), crumbs: [[cat.nombre]] })}
       <section class="section" style="padding-top:12px" data-color="green"><div class="container">
         ${lista.length ? html`<h2 class="sr-only">Servicios</h2><div class="grid" data-media="16 / 10">${lista.map((p, i) => tarjeta(p, i))}</div>` : ''}
-        <div class="feature reveal" style="margin-top:${lista.length ? '40px' : '0'}">
-          ${raw(art('clases'))}
+        <div class="feature reveal" data-color="green" style="margin-top:${lista.length ? '40px' : '0'}">
+          <span class="feature-ic">${raw(icon('graduation-cap'))}</span>
           <h2>Consulta horarios y cupos</h2>
           <p>Cuéntanos el grado y lo que necesitas reforzar. Te confirmamos horarios y cupos disponibles.</p>
           <a class="btn btn-wa btn-lg" href="${waLink('Hola, quiero consultar horarios y cupos del acompañamiento estudiantil.')}" target="_blank" rel="noopener">${raw(brand('whatsapp'))} Consultar por WhatsApp</a>
@@ -980,6 +1033,87 @@ function enlazarProducto(p) {
 }
 
 // ═══════════════════════════════════════════════════════════════════
+//  Vende con nosotros
+// ═══════════════════════════════════════════════════════════════════
+const QUE_VENDE = ['Ropa o calzado', 'Accesorios', 'Rosas o regalos', 'Producto digital', 'Un servicio', 'Otro'];
+
+function vistaVende() {
+  const V = CONFIG.vende;
+  if (!V.activo) return noEncontrada();
+  const pasos = [
+    ['message-circle', 'Escríbenos', 'Cuéntanos qué vendes con el formulario o directo por WhatsApp.'],
+    ['search', 'Lo revisamos', 'Revisamos tu producto y acordamos contigo las condiciones.'],
+    ['store', 'Lo publicamos', 'Lo mostramos en la tienda y atendemos a los clientes por WhatsApp.'],
+  ];
+  return {
+    title: `Vende con nosotros · ${CONFIG.marca.nombre}`,
+    desc: `¿Quieres vender con nosotros? Publica tus productos en ${CONFIG.marca.nombre} y llega a más clientes. Contáctanos por WhatsApp.`,
+    html: html`${banner({ eyebrow: 'Vende con nosotros', titulo: 'Vende', resaltado: 'con nosotros', lead: V.texto, color: 'blue', img: BANNERS_EXTRA.vende.banner, crumbs: [['Vende con nosotros']] })}
+      <section class="section" style="padding-top:12px" data-color="blue"><div class="container">
+        <h2 class="sr-only">Cómo funciona</h2>
+        <div class="steps">${pasos.map(([ic, t, d], i) => html`<article class="step reveal" style="--i:${i}"><span class="ic-wrap">${raw(icon(ic))}</span><h3>${t}</h3><p>${d}</p></article>`)}</div>
+        <div class="sell-layout" style="margin-top:clamp(24px,4vw,44px)">
+          <form class="sell-form reveal" id="sell-form" novalidate>
+            <h2>Cuéntanos qué quieres vender</h2>
+            <p class="muted">Llena los datos y se abrirá WhatsApp con tu mensaje listo para enviar. No guardamos nada en esta página.</p>
+            <div class="grid-2">
+              <div class="field"><label for="v-nombre">Tu nombre</label><input class="input" id="v-nombre" name="nombre" autocomplete="name" placeholder="Nombre y apellido"><span class="err" data-err="nombre"></span></div>
+              <div class="field"><label for="v-tel">Tu WhatsApp (opcional)</label><input class="input" id="v-tel" name="tel" type="tel" inputmode="numeric" autocomplete="tel" placeholder="09XXXXXXXX"><span class="err" data-err="tel"></span></div>
+            </div>
+            <div class="field"><label for="v-tipo">¿Qué quieres vender?</label>
+              <select class="input" id="v-tipo" name="tipo"><option value="">Elige una opción</option>${QUE_VENDE.map((o) => html`<option>${o}</option>`)}</select><span class="err" data-err="tipo"></span></div>
+            <div class="field"><label for="v-desc">Cuéntanos más</label>
+              <textarea class="input" id="v-desc" name="desc" rows="3" maxlength="400" placeholder="Qué productos tienes, cantidad aproximada, precios, ciudad…"></textarea><span class="err" data-err="desc"></span></div>
+            <button class="btn btn-wa btn-lg" type="submit">${raw(brand('whatsapp'))} Enviar por WhatsApp</button>
+          </form>
+          <aside class="contact-card reveal" style="--i:1" aria-label="Contacto">
+            <h2 style="font-size:1.3rem">Prefieres hablar directo</h2>
+            <a class="row" href="${waLink(V.mensajeWhatsApp)}" target="_blank" rel="noopener">${raw(brand('whatsapp'))}<span>WhatsApp<small>${waNumeroBonito()}</small></span></a>
+            <a class="row" href="mailto:${CONFIG.legal.correo}?subject=${encodeURIComponent('Quiero vender con ' + CONFIG.marca.nombre)}">${raw(icon('mail'))}<span>Correo<small>${CONFIG.legal.correo}</small></span></a>
+            <a class="row" href="#/local">${raw(icon('map-pin'))}<span>Visítanos en el local<small>${resumenHorario()}</small></span></a>
+          </aside>
+        </div>
+      </div></section>`,
+    after: () => enlazarVende(),
+  };
+}
+
+function enlazarVende() {
+  const form = $('#sell-form');
+  if (!form) return;
+  form.addEventListener('input', (e) => {
+    e.target.removeAttribute('aria-invalid');
+    form.querySelector(`[data-err="${e.target.name}"]`)?.replaceChildren();
+  });
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const fd = new FormData(form);
+    const nombre = String(fd.get('nombre') || '').trim();
+    const tel = String(fd.get('tel') || '').trim();
+    const tipo = String(fd.get('tipo') || '').trim();
+    const desc = String(fd.get('desc') || '').trim();
+    const errores = {};
+    if (!nombre) errores.nombre = 'Escribe tu nombre.';
+    if (tel && !/^[0-9+\s-]{7,16}$/.test(tel)) errores.tel = 'Revisa el número.';
+    if (!tipo) errores.tipo = 'Elige una opción.';
+    form.querySelectorAll('.err').forEach((x) => (x.textContent = ''));
+    form.querySelectorAll('[aria-invalid]').forEach((x) => x.removeAttribute('aria-invalid'));
+    const claves = Object.keys(errores);
+    if (claves.length) {
+      claves.forEach((k) => {
+        form.querySelector(`[data-err="${k}"]`).textContent = errores[k];
+        form.querySelector(`[name="${k}"]`)?.setAttribute('aria-invalid', 'true');
+      });
+      form.querySelector(`[name="${claves[0]}"]`)?.focus();
+      return;
+    }
+    const msg = [`Hola, quiero vender con ${CONFIG.marca.nombre}.`, `Nombre: ${nombre}`, tel ? `Mi WhatsApp: ${tel}` : '', `Quiero vender: ${tipo}`, desc ? `Detalle: ${desc}` : ''].filter(Boolean).join('\n');
+    window.open(waLink(msg), '_blank', 'noopener');
+    aviso('Se abrió WhatsApp con tu mensaje');
+  });
+}
+
+// ═══════════════════════════════════════════════════════════════════
 //  Búsqueda
 // ═══════════════════════════════════════════════════════════════════
 function vistaBuscar(q) {
@@ -1017,7 +1151,7 @@ function noEncontrada() {
     title: `No encontrada · ${CONFIG.marca.nombre}`,
     desc: 'Página no encontrada.',
     noindex: true,
-    html: html`<div class="container" style="padding-block:clamp(40px,8vw,120px)"><div class="empty">${raw(art('promos'))}<h1 style="font-size:clamp(2rem,1.4rem+3vw,3.4rem)">No encontramos esa página</h1><p>Puede que el enlace haya cambiado.</p><a class="btn btn-primary btn-lg" href="#/">Ir al inicio</a></div></div>`,
+    html: html`<div class="container" style="padding-block:clamp(40px,8vw,120px)"><div class="empty"><span class="empty-ic">${raw(icon('search'))}</span><h1 style="font-size:clamp(2rem,1.4rem+3vw,3.4rem)">No encontramos esa página</h1><p>Puede que el enlace haya cambiado.</p><a class="btn btn-primary btn-lg" href="#/">Ir al inicio</a></div></div>`,
   };
 }
 
@@ -1051,6 +1185,7 @@ export function resolver(hash) {
   if (a === 'sorteo') return vistaSorteo();
   if (a === 'como-comprar') return vistaComoComprar();
   if (a === 'local') return vistaLocal();
+  if (a === 'vende') return vistaVende();
   if (a === 'p' && b) return vistaProducto(b);
   if (a === 'buscar') return vistaBuscar(seg.slice(1).join(' '));
   if (a === 'legal') return vistaLegal(b || 'terminos');

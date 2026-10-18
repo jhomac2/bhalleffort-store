@@ -4,6 +4,20 @@ Esta guía explica cómo manejar la tienda sin saber programar. Casi todo se hac
 
 Hay una versión en PDF con imágenes y tablas (`Guia-BHALLEFFORT.pdf`).
 
+## ¿Dónde cambio cada cosa?
+
+| Quiero… | Dónde |
+|---|---|
+| Agregar, editar u ocultar un producto (y subir sus fotos) | Panel → **Productos** (sección 3) |
+| Cambiar logo, foto del local o imagen para compartir | Panel → **Logo y fotos** (sección 4) |
+| Cambiar el banner de una sección o la imagen del carrusel | Panel → **Logo y fotos** → Banners (sección 5) |
+| Poner el **TikTok**, Instagram, YouTube o Facebook de una sección | Panel → **Ajustes del sitio** → Cuentas de cada sección (sección 6) |
+| Cambiar el TikTok / Instagram / Facebook **principales** | Archivo `js/config.js` → `redes` (sección 6) |
+| Cambiar textos del carrusel o de «Vende con nosotros» | Archivo `js/config.js` → `carrusel`, `vende` (sección 7) |
+| Cambiar Ecuabet | Panel → Ajustes del sitio → Ecuabet (sección 8) |
+| Cambiar título del inicio, nombre, eslogan, **colores** | Archivo `js/config.js` → `marca`, `paleta` (sección 9) |
+| Sorteo, datos legales | Panel → Ajustes del sitio (sección 10) |
+
 ---
 
 ## 1. Entrar al panel (token de GitHub, una sola vez)
@@ -39,6 +53,7 @@ Reglas de seguridad:
 | Acompañamiento estudiantil | Acompañamiento estudiantil (EGB) | `#/estudiantil` |
 | Promociones | Se llena sola con los productos "En promoción" | `#/promociones` |
 | Sorteo | Sorteo mensual | `#/sorteo` |
+| Vende con nosotros | ¿Quieres vender con nosotros? Contáctanos | `#/vende` |
 
 Los enlaces viejos `#/digital` y `#/clases` siguen funcionando y te llevan a las nuevas direcciones.
 
@@ -85,23 +100,25 @@ Hasta que subas el logo, la tienda muestra una "B" como monograma. Hasta que sub
 
 ---
 
-## 5. Banners de cada sección
+## 5. Banners de cada sección y del carrusel
 
-Cada sección tiene un banner arriba. Hoy **Ropa, Streaming y Promociones** usan fotos de tus propios productos; Recargas, Rosas, Acompañamiento estudiantil y Sorteo tienen imágenes **de ejemplo**. Reemplázalas con tus fotos reales cuando quieras.
+Cada sección tiene un banner arriba y el inicio tiene un carrusel con varias láminas. Hoy **Inicio, Ropa, Streaming y Promociones** usan fotos de tus propios productos; Recargas, Rosas, Acompañamiento estudiantil, Sorteo y «Vende con nosotros» tienen imágenes **de ejemplo**. Reemplázalas con tus fotos reales cuando quieras.
 
 Panel → **Logo y fotos** → bloque **Banners de cada sección** → **Subir o reemplazar**. El panel recorta a **1600 × 640** y usa este nombre de archivo:
 
-| Sección | Archivo |
+| Dónde sale | Archivo |
 |---|---|
-| Ropa | `img/banners/ropa.webp` |
+| Inicio (primera lámina del carrusel) | `img/banners/inicio.webp` |
+| Ropa (y lámina del carrusel) | `img/banners/ropa.webp` |
 | Recargas | `img/banners/recargas.webp` |
-| Streaming | `img/banners/streaming.webp` |
+| Streaming (y lámina del carrusel) | `img/banners/streaming.webp` |
 | Rosas | `img/banners/rosas.webp` |
 | Acompañamiento estudiantil | `img/banners/estudiantil.webp` |
-| Promociones | `img/banners/promociones.webp` |
+| Promociones (y lámina del carrusel) | `img/banners/promociones.webp` |
 | Sorteo mensual | `img/banners/sorteo.webp` |
+| Vende con nosotros | `img/banners/vende.webp` |
 
-Consejo: deja libre la parte izquierda de la imagen; ahí se escribe el título.
+Consejo: pon tus productos a la derecha y deja libre la parte izquierda de la imagen; ahí se escribe el título.
 
 Si prefieres subirlos directo en GitHub: abre la carpeta `img/banners`, **Add file → Upload files** y sube el archivo **con el mismo nombre** (formato WebP o convierte a `.webp`).
 
@@ -113,11 +130,57 @@ Panel → **Ajustes del sitio** → **Cuentas de cada sección**. Pega el enlace
 
 - **Ropa, Recargas, Streaming y Rosas**: si dejas un enlace vacío, se usa la cuenta principal de la tienda (`@bhalleffort3`).
 - **Acompañamiento estudiantil**: muestra botones de **TikTok, YouTube e Instagram**. Lo que esté vacío aparece como **«Próximamente»**.
-- Las cuentas principales de la tienda (pie de página y sorteo) se cambian en `js/config.js` → `redes`.
+- Las cuentas principales de la tienda (pie de página, sorteo y botones «Síguenos») se cambian en `js/config.js` → `redes`:
+
+```js
+redes: {
+  tiktok: 'https://www.tiktok.com/@bhalleffort3',
+  instagram: 'https://www.instagram.com/bhalleffort3',
+  facebook: 'https://www.facebook.com/share/…',
+},
+```
+
+Cada botón lleva a tu cuenta: ahí publicas tus videos y la gente los ve en TikTok.
+
+**Cómo copiar el enlace de una cuenta:** TikTok → tu perfil → **Compartir** → **Copiar enlace**. Instagram → perfil → **Compartir perfil** → **Copiar enlace**. YouTube y Facebook → abre tu canal o página y copia la dirección del navegador.
 
 ---
 
-## 7. Ecuabet (+18)
+## 7. Carrusel del inicio y «Vende con nosotros»
+
+Se editan en `js/config.js` (cómo abrirlo: sección 9). Cambia solo lo que está **entre comillas**.
+
+**Carrusel.** La **primera lámina** usa los textos de `marca` (`heroTitulo`, `heroResalte`, `heroBajada`) y la imagen `marca.heroImagen`. Las demás están en `carrusel`: cada línea es una lámina. Puedes cambiar textos, imagen y enlace, **borrar una línea completa** o **copiarla** para crear otra.
+
+```js
+carrusel: [
+  { color: 'blue', imagen: 'img/banners/ropa.webp', etiqueta: 'Ropa',
+    titulo: 'Estilo para toda la', resalte: 'familia',
+    texto: 'Conjuntos, chompas, calzado y más…',
+    boton: 'Ver ropa', enlace: '#/ropa' },
+],
+```
+
+`color` cambia el tono (blue, teal, violet, rose, green, coral o gold). `enlace` empieza con `#/` (por ejemplo `#/ropa`).
+
+**Vende con nosotros.** Aparece en el inicio (banda azul), en la barra superior, en el menú, en el pie de página y en su propia página `#/vende`, con un formulario que abre WhatsApp. Las solicitudes llegan a tu WhatsApp.
+
+```js
+vende: {
+  activo: true,                       // false = oculta toda la sección
+  titulo: '¿Quieres vender con nosotros?',
+  resalte: 'Contáctanos.',
+  texto: 'Si tienes ropa, accesorios, rosas…',
+  puntos: ['Llegas a más clientes…', '…', '…'],
+  mensajeWhatsApp: 'Hola, quiero vender mis productos con BHALLEFFORT.',
+},
+```
+
+La imagen de la página se cambia en `img/banners/vende.webp` (sección 5).
+
+---
+
+## 8. Ecuabet (+18)
 
 Panel → **Ajustes del sitio** → **Ecuabet (+18)**:
 
@@ -132,7 +195,7 @@ Para ocultar la recarga de Ecuabet completa: Productos → busca Ecuabet → **O
 
 ---
 
-## 8. Cambiar nombres y frases
+## 9. Cambiar nombres, frases y colores
 
 Se editan en GitHub: abre el archivo → botón del **lápiz** → cambia solo el texto entre comillas → **Commit changes**.
 
@@ -145,13 +208,14 @@ Se editan en GitHub: abre el archivo → botón del **lápiz** → cambia solo e
 | Nombre de una sección (Streaming, Acompañamiento estudiantil…) | `js/schema.js` | en cada bloque: `nombre` y `bajada` |
 | Nombre corto del menú ("Estudiantil") | `js/main.js` | `NOMBRE_CORTO` |
 | Horario, WhatsApp, redes principales, envío, pago | `js/config.js` | bloques con esos nombres |
-| Colores | `js/config.js` | `paleta` |
+| Imagen de la primera lámina del carrusel | `js/config.js` | `marca.heroImagen` |
+| **Colores** (azul de botones, azul marino, ámbar) | `js/config.js` | `paleta.principal`, `paleta.oscuro`, `paleta.acento` |
 
-Edita solo lo que está entre comillas o los números. No borres comas ni llaves.
+Cómo editar un archivo: abre `github.com/jhomac2/bhalleffort-store` → carpeta `js` → `config.js` → botón del **lápiz** → cambia solo lo que está entre comillas o los números (no borres comas, llaves ni corchetes) → **Commit changes**. El sitio se actualiza en 1 o 2 minutos. Si algo se rompe, abre el archivo → **History** → vuelve a la versión anterior (**Revert**).
 
 ---
 
-## 9. Sorteo y datos legales
+## 10. Sorteo y datos legales
 
 Panel → **Ajustes del sitio**.
 
@@ -161,17 +225,18 @@ Panel → **Ajustes del sitio**.
 
 ---
 
-## 10. Lo que debes confirmar tú
+## 11. Lo que debes confirmar tú
 
 1. Nombre legal del titular y RUC (Términos, Privacidad, Aviso legal).
-2. Dirección exacta del local.
+2. Dirección exacta del local y una **foto real de la fachada** (`img/local.webp`).
 3. Autorización y bases del sorteo con un asesor.
 4. Que la promoción de Ecuabet sea real y permitida.
 5. Los enlaces de TikTok, YouTube e Instagram de cada sección.
+6. Fotos reales para los banners de Recargas, Rosas, Estudiantil, Sorteo y «Vende con nosotros» (hoy son de ejemplo).
 
 ---
 
-## 11. Después de publicar el sitio
+## 12. Después de publicar el sitio
 
 1. **Google Search Console**: verifica `bhalleffort.com` y envía `sitemap.xml`.
 2. **Google Business Profile**: cambia el nombre de la ficha a BHALLEFFORT y revisa horario y fotos.
@@ -179,7 +244,7 @@ Panel → **Ajustes del sitio**.
 
 ---
 
-## 12. Problemas frecuentes
+## 13. Problemas frecuentes
 
 - **No veo mi cambio**: espera 2 minutos y recarga con fuerza (en celular, cierra y abre el navegador).
 - **El panel dice que el token no sirve**: venció o está mal copiado. Crea uno nuevo (sección 1).

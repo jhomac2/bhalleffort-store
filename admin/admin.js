@@ -314,7 +314,7 @@ function vistaSitio() {
   return html`<div class="a-main" style="padding:0">
     <div class="a-card"><h2>Logo y fotos del sitio</h2><p class="a-muted">Elige la imagen, ajusta el encuadre con el dedo y el panel la convierte al tamaño correcto.</p></div>
     <div class="a-site">
-      ${slotSitio('logo', 'Logo', 'Cuadrado, de preferencia con fondo transparente. Se usa en la cabecera, la moneda 3D y el ícono.', '1 / 1', 'img/logo.webp')}
+      ${slotSitio('logo', 'Logo', 'Cuadrado, de preferencia con fondo transparente. Se usa en la cabecera, el pie de página y el ícono.', '1 / 1', 'img/logo.webp')}
       ${slotSitio('local', 'Foto del local', 'Foto horizontal de la fachada. Se muestra en “Nuestro local”.', '16 / 10', 'img/local.webp')}
       ${slotSitio('og', 'Imagen para compartir', 'Aparece cuando compartes el enlace por WhatsApp o redes (1200 × 630).', '1200 / 630', 'img/og.jpg')}
     </div>

@@ -1,14 +1,13 @@
 // Arranque de BHALLEFFORT: cabecera, menú, buscador, rutas, cookies, pie y bot.
 import { CONFIG } from './config.js';
-import { CATS, CAT_ORDER, ruta } from './schema.js';
+import { CATS, CAT_ORDER, ruta, ICONO } from './schema.js';
 import { cargar, buscar, porId, precioDesde } from './data.js';
 import {
   html, raw, money, $, $$, store, waLink, waNumeroBonito, resumenHorario, reducedMotion,
 } from './util.js';
 import { icon, brand } from './icons.js';
-import { art } from './art.js';
 import { cart, initCart, abrirCarrito } from './cart.js';
-import { initTilt, revelar, voltear, volarAlCarrito, aviso } from './fx.js';
+import { revelar, voltear, volarAlCarrito, aviso } from './fx.js';
 import { resolver, initMapa, canonico } from './views.js';
 import { LEGAL, LEGAL_ORDER } from './legal.js';
 import { cargarAjustes } from './ajustes.js';
@@ -16,15 +15,15 @@ import { cargarAjustes } from './ajustes.js';
 const KEY_COOKIES = 'bh-cookies-ok';
 const root = document.documentElement;
 const main = $('#main');
-let heroCtl = null;
 let logoImg = null;
 
 // ── Paleta editable desde config.js ─────────────────────────────────
 (() => {
   const p = CONFIG.paleta;
   if (!p) return;
-  const set = (k, v) => v && root.style.setProperty(k, v);
-  set('--bg', p.fondo); set('--bg-2', p.fondo2); set('--yellow', p.acento); set('--pink', p.rosa);
+  const ok = (v) => /^#[0-9a-f]{3,8}$/i.test(v || '');
+  const set = (k, v) => ok(v) && root.style.setProperty(k, v);
+  set('--brand', p.principal); set('--c', p.principal); set('--brand-deep', p.oscuro); set('--brand-ink', p.oscuro); set('--accent', p.acento);
 })();
 
 // ── Logo: si existe img/logo.webp se usa; si no, un monograma ───────
@@ -47,11 +46,6 @@ function aplicarLogo(im) {
   const fav = $('link[rel="icon"]');
   if (fav) { fav.href = CONFIG.marca.logo; fav.type = 'image/webp'; }
 }
-function logoEnMoneda() {
-  const c = $('#fb-coin');
-  if (c && logoImg) c.innerHTML = `<img src="${CONFIG.marca.logo}" alt="">`;
-}
-
 // ── Cabecera ────────────────────────────────────────────────────────
 // Nombres cortos para la barra superior (los completos salen en cada página)
 const NOMBRE_CORTO = { clases: 'Estudiantil' };
@@ -61,21 +55,25 @@ function pintarCabecera() {
     ...NAV.map((n) => html`<a class="nav-a" href="${n.href}" data-nav="${n.key}">${n.t === 'Acompañamiento pedagógico' ? 'Clases' : n.t === 'Streaming y Digital' ? 'Digital' : n.t}</a>`),
     html`<a class="nav-a" href="#/promociones" data-nav="promociones">Promociones <span class="nav-dot"></span></a>`,
     CONFIG.sorteo.activo ? html`<a class="nav-a" href="#/sorteo" data-nav="sorteo">Sorteo <span class="nav-dot gold"></span></a>` : '',
+    CONFIG.vende.activo ? html`<a class="nav-a nav-sell" href="#/vende" data-nav="vende">Vende con nosotros</a>` : '',
   ];
-  $('#hdr').innerHTML = html`<div class="container hdr-in">
+  const barra = html`<div class="topbar"><div class="container">
+      <span>${raw(icon('zap'))} ${CONFIG.marca.atencion} por WhatsApp</span>
+      <span>${raw(icon('truck'))} Envío gratis desde ${money(CONFIG.envio.gratisDesde)}</span>
+      <span>${raw(icon('map-pin'))} Local en ${CONFIG.legal.ciudad}</span>
+      ${CONFIG.vende.activo ? html`<a href="#/vende">¿Quieres vender con nosotros? <b>Contáctanos</b></a>` : ''}
+    </div></div>`;
+  $('#hdr').innerHTML = html`${barra}<div class="container hdr-in">
     <a class="brand" href="#/"><span class="brand-mark" aria-hidden="true">B</span><span class="brand-name">${CONFIG.marca.nombre}</span><span class="sr-only">, ir al inicio</span></a>
     <nav class="nav" aria-label="Principal">${nav}</nav>
     <div class="hdr-tools">
-      <div class="search">
-        <label class="search-field">${raw(icon('search'))}<span class="sr-only">Buscar productos</span>
-          <input type="search" id="q" placeholder="Buscar productos" autocomplete="off" enterkeyhint="search" role="combobox" aria-expanded="false" aria-controls="s-pop" aria-autocomplete="list"></label>
-        <div class="search-pop" id="s-pop" role="listbox" data-open="false" aria-label="Resultados"></div>
-      </div>
       <button class="icon-btn search-toggle" id="s-toggle" aria-label="Buscar" aria-expanded="false" aria-controls="msearch">${raw(icon('search'))}</button>
       <button class="icon-btn cart-btn" aria-label="Carrito, 0 productos" aria-haspopup="dialog">${raw(icon('shopping-cart'))}<span class="cart-count" id="cart-count" data-n="0">0</span></button>
       <button class="icon-btn menu-btn" id="menu-open" aria-label="Abrir menú" aria-haspopup="dialog">${raw(icon('menu'))}</button>
     </div></div>`.toString();
-  $('#msearch').innerHTML = html`<label class="search-field">${raw(icon('search'))}<span class="sr-only">Buscar productos</span>
+  const ms = $('#msearch');
+  $('#hdr').append(ms);
+  ms.innerHTML = html`<label class="search-field">${raw(icon('search'))}<span class="sr-only">Buscar productos</span>
       <input type="search" id="mq" placeholder="Buscar productos" autocomplete="off" enterkeyhint="search" role="combobox" aria-expanded="false" aria-controls="ms-pop" aria-autocomplete="list"></label>
     <div class="search-pop" id="ms-pop" role="listbox" data-open="false" aria-label="Resultados"></div>`.toString();
 }
@@ -103,7 +101,7 @@ function enlazarBuscador(input, pop, alElegir) {
             ${p.imagenes[0] ? html`<img src="${p.imagenes[0]}" alt="" loading="lazy" width="48" height="48">` : html`<span class="s-thumb" style="background:${/^#[0-9a-f]{3,8}$/i.test(p.color || '') ? p.color : '#7a3cf0'}">${p.nombre.slice(0, 1)}</span>`}
             <span><b>${p.nombre}</b><small>${CATS[p.cat].nombre}</small></span><span class="s-price">${money(precioDesde(p))}</span></a>`)}
           ${res.length > top.length ? html`<a class="s-more" role="option" aria-selected="false" href="#/buscar/${encodeURIComponent(q)}">Ver los ${res.length} resultados ${raw(icon('arrow-right'))}</a>` : ''}`
-      : html`<div class="s-empty">No encontramos “${q}”. Prueba otra palabra o <a href="${waLink('Hola, estoy buscando: ' + q)}" target="_blank" rel="noopener" style="color:var(--yellow);font-weight:800;text-decoration:underline">pregunta por WhatsApp</a>.</div>`).toString();
+      : html`<div class="s-empty">No encontramos “${q}”. Prueba otra palabra o <a href="${waLink('Hola, estoy buscando: ' + q)}" target="_blank" rel="noopener" style="color:var(--brand);font-weight:800;text-decoration:underline">pregunta por WhatsApp</a>.</div>`).toString();
     abrir(true);
   }
   input.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(pintar, 80); });
@@ -135,9 +133,10 @@ function pintarMenu() {
     <div class="sheet-top"><a class="brand" href="#/" data-close-menu><span class="brand-mark" aria-hidden="true">B</span><span class="brand-name">${CONFIG.marca.nombre}</span></a>
       <button class="icon-btn" data-close-menu aria-label="Cerrar menú">${raw(icon('x'))}</button></div>
     <div class="menu-grid">
-      ${CAT_ORDER.map((k) => html`<a class="menu-tile" href="${ruta(k)}" data-color="${CATS[k].color}" data-close-menu>${raw(art(k))}<b>${CATS[k].nombre}</b></a>`)}
-      <a class="menu-tile" href="#/promociones" data-color="coral" data-close-menu>${raw(art('promos'))}<b>Promociones</b></a>
-      ${CONFIG.sorteo.activo ? html`<a class="menu-tile" href="#/sorteo" data-color="gold" data-close-menu>${raw(art('sorteo'))}<b>Sorteo mensual</b></a>` : ''}
+      ${CAT_ORDER.map((k) => html`<a class="menu-tile" href="${ruta(k)}" data-color="${CATS[k].color}" data-close-menu><span class="mt-ic">${raw(icon(ICONO[k]))}</span><b>${CATS[k].nombre}</b>${raw(icon('chevron-right', 'chev'))}</a>`)}
+      <a class="menu-tile" href="#/promociones" data-color="coral" data-close-menu><span class="mt-ic">${raw(icon('badge-percent'))}</span><b>Promociones</b>${raw(icon('chevron-right', 'chev'))}</a>
+      ${CONFIG.sorteo.activo ? html`<a class="menu-tile" href="#/sorteo" data-color="gold" data-close-menu><span class="mt-ic">${raw(icon('ticket'))}</span><b>Sorteo mensual</b>${raw(icon('chevron-right', 'chev'))}</a>` : ''}
+      ${CONFIG.vende.activo ? html`<a class="menu-tile" href="#/vende" data-color="blue" data-close-menu><span class="mt-ic">${raw(icon('store'))}</span><b>Vende con nosotros</b>${raw(icon('chevron-right', 'chev'))}</a>` : ''}
     </div>
     <div class="menu-links">
       <a href="#/como-comprar" data-close-menu>Cómo comprar ${raw(icon('chevron-right'))}</a>
@@ -163,7 +162,7 @@ function pintarPie() {
   $('#footer').innerHTML = html`<div class="container">
     <div class="f-grid">
       <div class="f-brand">
-        <a class="brand" href="#/" style="color:#fff"><span class="brand-mark" aria-hidden="true">B</span><span class="brand-name">${CONFIG.marca.nombre}</span></a>
+        <a class="brand" href="#/"><span class="brand-mark" aria-hidden="true">B</span><span class="brand-name">${CONFIG.marca.nombre}</span></a>
         <p>${CONFIG.marca.eslogan}. Ropa, recargas, streaming, rosas y acompañamiento estudiantil. ${CONFIG.marca.atencion}.</p>
         <div class="f-social" style="margin-top:16px">
           ${redes.map(([k, n, h]) => html`<a class="soc" href="${h}" target="_blank" rel="noopener" aria-label="${n} de ${CONFIG.marca.nombre}">${raw(brand(k))}</a>`)}
@@ -177,6 +176,7 @@ function pintarPie() {
       </div></div>
       <div><h2 class="f-h">Información</h2><div class="f-links">
         <a href="#/como-comprar">Cómo comprar</a>
+        ${CONFIG.vende.activo ? html`<a class="f-sell" href="#/vende">Vende con nosotros</a>` : ''}
         ${LEGAL_ORDER.filter((s) => s !== 'sorteo' || CONFIG.sorteo.activo).map((s) => html`<a href="#/legal/${s}">${LEGAL[s].corto}</a>`)}
       </div></div>
       <div><h2 class="f-h">Visítanos</h2><div class="f-links">
@@ -259,30 +259,8 @@ function marcarNav(hash) {
     else a.removeAttribute('aria-current');
   });
 }
-function apagarHero() { heroCtl?.dispose?.(); heroCtl = null; }
-
-async function encenderHero() {
-  const stage = $('#stage');
-  if (!stage) return;
-  const dominio = reducedMotion() || (navigator.hardwareConcurrency || 8) <= 2 || (navigator.deviceMemory || 8) <= 2;
-  if (dominio) return;
-  try {
-    const { iniciarHero } = await import('./hero3d.js');
-    if (!$('#stage')) return; // ya se navegó a otra vista
-    try { await document.fonts?.load?.('800 100px Bricolage'); } catch { /* nada */ }
-    heroCtl = iniciarHero({
-      stage, canvas: $('#hero-canvas'), tip: $('#stage-tip'), logo: logoImg, sorteo: CONFIG.sorteo.activo,
-      onGo: (h) => { location.hash = h; },
-      onFail: () => { heroCtl = null; },
-    });
-  } catch (err) {
-    console.warn('Escena 3D no disponible, se usa la imagen de respaldo.', err);
-  }
-}
-
 let primera = true;
 async function navegar() {
-  apagarHero();
   let hash = location.hash || '#/';
   const canon = canonico(hash);
   if (canon !== hash) { history.replaceState(null, '', canon); hash = canon; }
@@ -294,7 +272,6 @@ async function navegar() {
   robots(r.noindex);
   jsonLd(r.jsonld);
   marcarNav(hash);
-  logoEnMoneda();
   revelar(main);
   r.after?.();
   if (live) live.textContent = r.title;
@@ -303,7 +280,6 @@ async function navegar() {
     main.focus({ preventScroll: true });
   }
   primera = false;
-  if (r.hero) encenderHero();
 }
 
 // ── Eventos globales (delegados) ────────────────────────────────────
@@ -364,9 +340,15 @@ function enlazarGlobal() {
   // Atajo "/" para buscar
   document.addEventListener('keydown', (e) => {
     if (e.key === '/' && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName || '') && matchMedia('(min-width: 1080px)').matches) {
-      e.preventDefault(); $('#q').focus();
+      e.preventDefault();
+      $('#msearch').dataset.open = 'true'; $('#s-toggle').setAttribute('aria-expanded', 'true'); $('#mq').focus();
     }
   });
+  // En pantallas grandes la barra superior se esconde al bajar
+  const hdr = $('#hdr');
+  const marcarScroll = () => { hdr.dataset.s = window.scrollY > 40 ? '1' : '0'; };
+  window.addEventListener('scroll', marcarScroll, { passive: true });
+  marcarScroll();
   // Cierra el buscador móvil al navegar
   window.addEventListener('hashchange', () => {
     const m = $('#msearch');
@@ -387,14 +369,12 @@ async function iniciar() {
   pintarPie();
   pintarFlotantes();
   initCart();
-  initTilt();
-  const bd = enlazarBuscador($('#q'), $('#s-pop'));
   const bm = enlazarBuscador($('#mq'), $('#ms-pop'), (esc2) => {
     $('#msearch').dataset.open = 'false';
     $('#s-toggle').setAttribute('aria-expanded', 'false');
     if (esc2) $('#s-toggle').focus();
   });
-  window.addEventListener('hashchange', () => { bd.limpiar(); bm.limpiar(); });
+  window.addEventListener('hashchange', () => { bm.limpiar(); });
   enlazarGlobal();
   esqueleto();
 
@@ -405,7 +385,7 @@ async function iniciar() {
   ]);
   aplicarLogo(im);
   if (falloCatalogo) {
-    main.innerHTML = `<div class="container" style="padding-block:clamp(40px,8vw,120px)"><div class="empty">${art('promos')}<h1 style="font-size:clamp(2rem,1.4rem+3vw,3.2rem)">No pudimos cargar el catálogo</h1><p>Revisa tu conexión e inténtalo de nuevo, o escríbenos por WhatsApp.</p><div class="hero-cta"><button class="btn btn-primary btn-lg" onclick="location.reload()">Reintentar</button><a class="btn btn-wa btn-lg" href="${waLink('Hola, la página no me carga el catálogo.')}" target="_blank" rel="noopener">WhatsApp</a></div></div></div>`;
+    main.innerHTML = `<div class="container" style="padding-block:clamp(40px,8vw,120px)"><div class="empty"><span class="empty-ic">${icon('triangle-alert')}</span><h1 style="font-size:clamp(2rem,1.4rem+3vw,3.2rem)">No pudimos cargar el catálogo</h1><p>Revisa tu conexión e inténtalo de nuevo, o escríbenos por WhatsApp.</p><div class="hero-cta"><button class="btn btn-primary btn-lg" onclick="location.reload()">Reintentar</button><a class="btn btn-wa btn-lg" href="${waLink('Hola, la página no me carga el catálogo.')}" target="_blank" rel="noopener">WhatsApp</a></div></div></div>`;
     window.addEventListener('hashchange', () => location.reload());
     return;
   }

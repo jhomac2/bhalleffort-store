@@ -3,7 +3,6 @@ import { CATS } from './schema.js';
 import { porId, precioDesde } from './data.js';
 import { html, esc, money, store, waLink, $, raw } from './util.js';
 import { icon } from './icons.js';
-import { art } from './art.js';
 import { aviso } from './fx.js';
 
 const KEY = 'bh-cart-v2';
@@ -156,7 +155,7 @@ function render() {
     body.innerHTML = html`
       <div class="dr-head"><h2>Tu carrito</h2>
         <button class="icon-btn" data-act="cerrar" aria-label="Cerrar carrito">${raw(icon('x'))}</button></div>
-      <div class="dr-body"><div class="dr-empty">${raw(art('ropa'))}
+      <div class="dr-body"><div class="dr-empty"><span class="empty-ic">${raw(icon('shopping-cart'))}</span>
         <h3>Tu carrito está vacío</h3>
         <p>Agrega productos y envía tu pedido por WhatsApp.</p>
         <a class="btn btn-primary" href="#/ropa" data-act="cerrar">Ver productos</a></div></div>`.toString();

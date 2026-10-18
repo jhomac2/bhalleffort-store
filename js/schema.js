@@ -76,8 +76,10 @@ export const ruta = (k) => `#/${CATS[k]?.slug || k}`;
 
 // Banners de las páginas que no son categoría
 export const BANNERS_EXTRA = {
+  inicio: { nombre: 'Inicio (primera lámina)', banner: 'img/banners/inicio.webp' },
   promociones: { nombre: 'Promociones', banner: 'img/banners/promociones.webp' },
   sorteo: { nombre: 'Sorteo mensual', banner: 'img/banners/sorteo.webp' },
+  vende: { nombre: 'Vende con nosotros', banner: 'img/banners/vende.webp' },
 };
 // Lista completa de banners (la usa el panel para mostrar dónde cambiar cada uno)
 export const BANNERS = [
@@ -91,3 +93,9 @@ export function subNombre(cat, sub) {
   const f = c.subs.find((s) => s[0] === sub);
   return f ? f[1] : '';
 }
+
+// Icono de línea de cada sección (nombres de js/icons.js)
+export const ICONO = {
+  ropa: 'shirt', recargas: 'smartphone', digital: 'clapperboard', rosas: 'flower-2',
+  clases: 'graduation-cap', promos: 'badge-percent', sorteo: 'ticket', vende: 'store',
+};
