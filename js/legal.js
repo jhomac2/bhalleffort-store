@@ -58,7 +58,7 @@ export const LEGAL = {
       <h2>7. Rosas</h2>
       <p>Las rosas son productos perecederos. Se venden por bonche, sin envío gratis: el costo, la fecha y la forma de entrega a Ecuador, Perú o Colombia se acuerdan contigo por WhatsApp. Los trámites de importación del país de destino son responsabilidad del comprador. Más detalles en <a href="#/legal/envios">Envíos</a>.</p>
 
-      <h2>8. Acompañamiento pedagógico</h2>
+      <h2>8. Acompañamiento estudiantil</h2>
       <p>Servicio de apoyo escolar para Educación General Básica (EGB) a cargo de una Licenciada en Ciencias de la Educación Básica. Los horarios, cupos y condiciones se confirman por WhatsApp antes de iniciar. Para estudiantes menores de edad, el representante legal debe autorizar el servicio y el tratamiento de sus datos.</p>
 
       <h2>9. Recargas de Ecuabet</h2>
@@ -100,7 +100,7 @@ export const LEGAL = {
         <li><b>Datos de tu pedido:</b> nombre, provincia, ciudad y dirección de entrega (solo si compras productos físicos), país de destino (rosas) y número de WhatsApp desde el que nos escribes.</li>
         <li><b>Datos del servicio que compras:</b> por ejemplo el número a recargar, el usuario o ID de un juego, o el correo para entregar una cuenta digital.</li>
         <li><b>Conversaciones de WhatsApp</b> contigo para atender tu pedido o consulta.</li>
-        <li><b>Datos de estudiantes</b> (acompañamiento pedagógico): nombre, grado y datos de contacto del representante. Solo con autorización del representante legal.</li>
+        <li><b>Datos de estudiantes</b> (acompañamiento estudiantil): nombre, grado y datos de contacto del representante. Solo con autorización del representante legal.</li>
         <li><b>Sorteo:</b> tu nombre y el número asignado.</li>
         <li>Este sitio <b>no usa analítica ni publicidad</b> y no te rastrea. Lo que escribes en el carrito se guarda solo en tu dispositivo hasta que tú envías el pedido por WhatsApp (ver <a href="#/legal/cookies">Cookies y almacenamiento local</a>).</li>
       </ul>
@@ -247,7 +247,7 @@ export const LEGAL = {
       <h2>Rosas</h2>
       <p>Son perecederas. Si llegan dañadas, avísanos <b>el mismo día</b> de la recepción con fotos. Evaluamos el caso y reponemos o reembolsamos de forma total o parcial según el daño comprobado.</p>
 
-      <h2>Acompañamiento pedagógico</h2>
+      <h2>Acompañamiento estudiantil</h2>
       <p>Las condiciones para cambiar un horario o cancelar se acuerdan al reservar el cupo. Si no recibes el servicio acordado, te devolvemos lo que corresponda.</p>
 
       <h2>Cómo hacer una solicitud</h2>

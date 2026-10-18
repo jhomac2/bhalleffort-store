@@ -2036,7 +2036,7 @@
     "sub": "ecuabet",
     "nombre": "Recarga Ecuabet",
     "descripcion": "Recarga de saldo en tu cuenta Ecuabet. Solo mayores de 18 años. Juega con responsabilidad.",
-    "precio": 5.0,
+    "precio": 1.0,
     "precio_antes": null,
     "oferta": false,
     "promo_hasta": null,
@@ -2048,6 +2048,14 @@
     "color": "#0F2547",
     "edad": 18,
     "opciones": [
+      {
+        "nombre": "$1",
+        "precio": 1.0
+      },
+      {
+        "nombre": "$2",
+        "precio": 2.0
+      },
       {
         "nombre": "$5",
         "precio": 5.0

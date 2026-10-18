@@ -10,6 +10,10 @@ export const CONFIG = {
   marca: {
     nombre: 'BHALLEFFORT',
     eslogan: 'Lo mejor al mejor precio',
+    atencion: 'Atención al instante', // frase que aparece en el inicio y en el botón flotante de WhatsApp
+    heroTitulo: 'Todo lo encuentras', // título grande del inicio (primera parte)
+    heroResalte: 'aquí.', // segunda parte del título, sale en amarillo
+    heroBajada: 'Ropa, recargas, streaming, rosas y acompañamiento estudiantil en un solo lugar. Arma tu carrito y confirma por WhatsApp.', // texto bajo el título
     logo: 'img/logo.webp', // se sube con el panel /admin/ (ver GUIA.md). Si no existe, se usa un monograma.
     dominio: 'https://bhalleffort.com',
   },
@@ -20,6 +24,27 @@ export const CONFIG = {
     tiktok: 'https://www.tiktok.com/@bhalleffort3',
     instagram: 'https://www.instagram.com/bhalleffort3',
     facebook: 'https://www.facebook.com/share/19ebXpEdQa/',
+  },
+
+  // ── Redes de cada sección ─────────────────────────────────────────
+  // Pega aquí el enlace completo (empieza con https://) de la cuenta de cada sección.
+  // - Si lo dejas vacío en Ropa, Recargas, Streaming o Rosas, se usa la cuenta principal de la tienda.
+  // - En Acompañamiento estudiantil, lo que esté vacío se muestra como "Próximamente".
+  secciones: {
+    ropa: { tiktok: '', instagram: '', youtube: '', facebook: '' },
+    recargas: { tiktok: '', instagram: '', youtube: '', facebook: '' },
+    streaming: { tiktok: '', instagram: '', youtube: '', facebook: '' },
+    rosas: { tiktok: '', instagram: '', youtube: '', facebook: '' },
+    estudiantil: { tiktok: '', instagram: '', youtube: '', facebook: '' },
+  },
+
+  // ── Ecuabet (se muestra en Recargas · Ecuabet) ────────────────────
+  ecuabet: {
+    activo: true, // false = oculta el cuadro informativo de Ecuabet
+    retiroDesde: 5, // USD
+    recargaDesde: 1, // USD
+    bono: '200 giros gratis en casino o $15 para pronóstico', // regalo al crear tu cuenta con nuestra ayuda
+    nota: 'Promoción sujeta a condiciones. Confírmala por WhatsApp antes de crear tu cuenta.',
   },
 
   // ── Local físico ──────────────────────────────────────────────────
@@ -82,15 +107,16 @@ export const CONFIG = {
   creditos: {
     nombre: 'Jhordy Cabascango',
     tiktok: 'https://www.tiktok.com/@mr_jhordy21',
+    titulo: 'Diseña conmigo',
+    mensaje: 'Yo armo páginas web y tiendas online para negocios, como esta. Mira cómo trabajo en mi TikTok y conversemos de la tuya.',
   },
 
   // ── Paleta (se aplica como variables CSS al cargar) ───────────────
   paleta: {
-    niebla: '#EEF3F8',
-    tinta: '#0F2547',
-    azul: '#1E6FB8',
-    turquesa: '#18B6C2',
-    dorado: '#E3A82B',
+    fondo: '#140D4F', // color base de la tienda (azul noche)
+    fondo2: '#2A1182', // violeta del degradado
+    acento: '#FFD23F', // amarillo de botones y precios
+    rosa: '#FF4F9A', // rosa de detalles
   },
 
   provincias: [

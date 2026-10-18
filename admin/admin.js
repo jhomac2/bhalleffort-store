@@ -2,10 +2,10 @@
 // Funciona dentro del navegador y publica con la API de GitHub usando TU token
 // (guardado solo en este dispositivo). No hay servidor intermedio.
 import { CONFIG } from '../js/config.js';
-import { CATS, CAT_ORDER, subNombre } from '../js/schema.js';
+import { CATS, CAT_ORDER, subNombre, catPorSlug, BANNERS } from '../js/schema.js';
 import { html, raw, esc, money, norm, $, $$ } from '../js/util.js';
 import { icon } from '../js/icons.js';
-import { aplicarAjustes, AJUSTES_PERMITIDOS } from '../js/ajustes.js';
+import { aplicarAjustes, AJUSTES_PERMITIDOS, SECCIONES, REDES_SECCION, enlaceValido } from '../js/ajustes.js';
 
 const REPO = { owner: 'jhomac2', name: 'bhalleffort-store', branch: 'main' };
 const KEY = 'bh-admin-token';
@@ -251,10 +251,24 @@ function vistaProductos() {
 const hoyES = () => new Date().toLocaleDateString('es-EC', { day: 'numeric', month: 'long', year: 'numeric', timeZone: CONFIG.zonaHoraria });
 
 function vistaAjustes() {
-  const s = CONFIG.sorteo, l = CONFIG.local, g = CONFIG.legal;
+  const s = CONFIG.sorteo, l = CONFIG.local, g = CONFIG.legal, e = CONFIG.ecuabet;
+  const NOM_RED = { tiktok: 'TikTok', instagram: 'Instagram', youtube: 'YouTube', facebook: 'Facebook' };
   return html`<form class="a-card" id="f-ajustes" autocomplete="off" novalidate>
     <h2>Ajustes del sitio</h2>
     <p class="a-muted">Los cambios aparecen en la tienda después de pulsar <b>Publicar</b>.</p>
+    <h3>Cuentas de cada sección</h3>
+    <p class="a-muted">Pega el enlace completo (empieza con https://). En Ropa, Recargas, Streaming y Rosas, lo que dejes vacío usa la cuenta principal de la tienda. En Acompañamiento estudiantil, lo vacío se muestra como «Próximamente».</p>
+    ${SECCIONES.map((sec) => html`<fieldset class="a-sec"><legend>${CATS[catPorSlug(sec)].nombre}</legend>
+      <div class="a-grid two">${REDES_SECCION.map((r) => html`<div class="a-field"><label for="r-${sec}-${r}">${NOM_RED[r]}</label>
+        <input class="input" id="r-${sec}-${r}" name="secciones.${sec}.${r}" type="url" inputmode="url" value="${CONFIG.secciones[sec][r]}" placeholder="https://…"></div>`)}</div></fieldset>`)}
+    <h3>Ecuabet (+18)</h3>
+    <label class="a-check"><input type="checkbox" name="ecuabet.activo" ${e.activo ? raw('checked') : ''}> Mostrar el cuadro informativo de Ecuabet</label>
+    <div class="a-grid two">
+      <div class="a-field"><label for="e-rec">Recargas desde (USD)</label><input class="input" id="e-rec" name="ecuabet.recargaDesde" type="number" inputmode="decimal" min="0" step="0.5" value="${e.recargaDesde}"></div>
+      <div class="a-field"><label for="e-ret">Retiros desde (USD)</label><input class="input" id="e-ret" name="ecuabet.retiroDesde" type="number" inputmode="decimal" min="0" step="0.5" value="${e.retiroDesde}"></div>
+    </div>
+    <div class="a-field"><label for="e-bono">Regalo al crear cuenta con tu ayuda</label><input class="input" id="e-bono" name="ecuabet.bono" value="${e.bono}" maxlength="140"><small>Se muestra como: «Regalo al crear tu cuenta con nuestra ayuda: …».</small></div>
+    <div class="a-field"><label for="e-nota">Aviso de condiciones</label><input class="input" id="e-nota" name="ecuabet.nota" value="${e.nota}" maxlength="200"></div>
     <h3>Sorteo mensual</h3>
     <label class="a-check"><input type="checkbox" name="sorteo.activo" ${s.activo ? raw('checked') : ''}> Sorteo activo (si lo apagas, desaparece de todo el sitio)</label>
     <div class="a-grid two">
@@ -303,6 +317,10 @@ function vistaSitio() {
       ${slotSitio('logo', 'Logo', 'Cuadrado, de preferencia con fondo transparente. Se usa en la cabecera, la moneda 3D y el ícono.', '1 / 1', 'img/logo.webp')}
       ${slotSitio('local', 'Foto del local', 'Foto horizontal de la fachada. Se muestra en “Nuestro local”.', '16 / 10', 'img/local.webp')}
       ${slotSitio('og', 'Imagen para compartir', 'Aparece cuando compartes el enlace por WhatsApp o redes (1200 × 630).', '1200 / 630', 'img/og.jpg')}
+    </div>
+    <div class="a-card"><h2>Banners de cada sección</h2><p class="a-muted">Imagen horizontal que va arriba de cada sección (se recorta a 1600 × 640). Ahora hay imágenes de ejemplo: reemplázalas con las tuyas. Deja libre la parte izquierda, ahí va el texto.</p></div>
+    <div class="a-site">
+      ${BANNERS.map((b) => slotSitio('banner-' + b.k, 'Banner · ' + b.nombre, 'Archivo: ' + b.ruta, '5 / 2', b.ruta))}
     </div></div>`;
 }
 
@@ -312,7 +330,11 @@ function render() {
     <div class="a-pub" id="a-pub" ${pendCount() ? '' : raw('hidden')}><span id="a-pub-n">${pendCount()} ${pendCount() === 1 ? 'cambio' : 'cambios'} sin publicar</span>
       <button class="btn btn-ghost btn-sm" style="color:#fff" data-a="descartar">Descartar</button>
       <button class="btn btn-gold" data-a="publicar">Publicar</button></div>`.toString();
-  $$('[data-hide-err]').forEach((im) => im.addEventListener('error', () => im.remove()));
+  $$('[data-hide-err]').forEach((im) => {
+    im.addEventListener('error', () => im.remove());
+    const ocultarTexto = () => im.parentElement?.querySelector('span')?.remove();
+    if (im.complete && im.naturalWidth) ocultarTexto(); else im.addEventListener('load', ocultarTexto);
+  });
 }
 function refrescarBarra() {
   const b = $('#a-pub');
@@ -423,7 +445,7 @@ function formProducto() {
 
     <div class="a-field"><span class="lbl">Fotos</span>
       <div class="a-photos">${foto(0)}${foto(1)}</div>
-      <small>${p.cat === 'ropa' || p.cat === 'rosas' ? 'Vertical (3:4).' : 'Horizontal (16:9).'} El panel recorta y comprime la foto automáticamente.</small></div>
+      <small>${cat.media === '3 / 4' ? 'Vertical (3:4).' : 'Horizontal (' + cat.media.replace(' / ', ':') + ').'} El panel recorta y comprime la foto automáticamente.</small></div>
 
     <div class="a-grid two">
       <label class="a-check"><input type="checkbox" data-f="oferta" ${p.oferta ? raw('checked') : ''}> En promoción (aparece en Promociones)</label>
@@ -845,7 +867,25 @@ function guardarAjustes(form) {
     sorteo: Object.fromEntries(AJUSTES_PERMITIDOS.sorteo.map((k) => [k, CONFIG.sorteo[k]])),
     local: Object.fromEntries(AJUSTES_PERMITIDOS.local.map((k) => [k, CONFIG.local[k]])),
     legal: Object.fromEntries(AJUSTES_PERMITIDOS.legal.map((k) => [k, CONFIG.legal[k]])),
+    ecuabet: Object.fromEntries(AJUSTES_PERMITIDOS.ecuabet.map((k) => [k, CONFIG.ecuabet[k]])),
+    secciones: {},
   }));
+  salida.ecuabet.activo = fd.get('ecuabet.activo') === 'on';
+  for (const k of ['recargaDesde', 'retiroDesde']) {
+    const v = Number(String(fd.get('ecuabet.' + k) || '').replace(',', '.'));
+    if (!Number.isFinite(v) || v < 0) { $('#e-aj').textContent = 'Los montos de Ecuabet deben ser números válidos.'; return; }
+    salida.ecuabet[k] = v;
+  }
+  salida.ecuabet.bono = String(fd.get('ecuabet.bono') || '').trim();
+  salida.ecuabet.nota = String(fd.get('ecuabet.nota') || '').trim();
+  for (const sec of SECCIONES) {
+    salida.secciones[sec] = {};
+    for (const r of REDES_SECCION) {
+      const v = String(fd.get(`secciones.${sec}.${r}`) || '').trim();
+      if (!enlaceValido(v)) { $('#e-aj').textContent = `El enlace de ${CATS[catPorSlug(sec)].nombre} · ${r} debe empezar con https://`; return; }
+      salida.secciones[sec][r] = v;
+    }
+  }
   salida.sorteo.activo = fd.get('sorteo.activo') === 'on';
   for (const k of ['sorteo.premioDelMes', 'sorteo.fechaDelSorteo', 'local.direccion', 'local.referencia', 'legal.titular', 'legal.ruc', 'legal.ciudad', 'legal.direccion']) {
     const [a, b] = k.split('.');
@@ -899,7 +939,8 @@ app.addEventListener('click', async (e) => {
   else if (a === 'hist-del') b.closest('[data-h]').remove();
   else if (a === 'sitio') {
     const k = b.dataset.k;
-    const cfg = {
+    const ban = k.startsWith('banner-') ? BANNERS.find((x) => 'banner-' + x.k === k) : null;
+    const cfg = ban ? { ruta: ban.ruta, aspecto: [5, 2], salida: [1600, 640], maxBytes: 260 * 1024 } : {
       logo: { ruta: 'img/logo.webp', aspecto: [1, 1], salida: [1024, 1024], maxBytes: 400 * 1024, transparente: true },
       local: { ruta: 'img/local.webp', aspecto: [16, 10], salida: [1600, 1000], maxBytes: 350 * 1024 },
       og: { ruta: 'img/og.jpg', aspecto: [1200, 630], salida: [1200, 630], maxBytes: 300 * 1024, mime: 'image/jpeg' },

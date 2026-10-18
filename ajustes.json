@@ -15,5 +15,44 @@
     "direccion": "",
     "ciudad": "Tabacundo",
     "actualizado": "18 de octubre de 2026"
+  },
+  "ecuabet": {
+    "activo": true,
+    "retiroDesde": 5,
+    "recargaDesde": 1,
+    "bono": "200 giros gratis en casino o $15 para pronóstico",
+    "nota": "Promoción sujeta a condiciones. Confírmala por WhatsApp antes de crear tu cuenta."
+  },
+  "secciones": {
+    "ropa": {
+      "tiktok": "",
+      "instagram": "",
+      "youtube": "",
+      "facebook": ""
+    },
+    "recargas": {
+      "tiktok": "",
+      "instagram": "",
+      "youtube": "",
+      "facebook": ""
+    },
+    "streaming": {
+      "tiktok": "",
+      "instagram": "",
+      "youtube": "",
+      "facebook": ""
+    },
+    "rosas": {
+      "tiktok": "",
+      "instagram": "",
+      "youtube": "",
+      "facebook": ""
+    },
+    "estudiantil": {
+      "tiktok": "",
+      "instagram": "",
+      "youtube": "",
+      "facebook": ""
+    }
   }
 }

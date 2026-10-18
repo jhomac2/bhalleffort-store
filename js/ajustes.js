@@ -6,7 +6,13 @@ export const AJUSTES_PERMITIDOS = {
   sorteo: ['activo', 'premioDelMes', 'fechaDelSorteo', 'historial'],
   local: ['direccion', 'referencia'],
   legal: ['titular', 'ruc', 'direccion', 'ciudad', 'actualizado'],
+  ecuabet: ['activo', 'retiroDesde', 'recargaDesde', 'bono', 'nota'],
 };
+export const SECCIONES = ['ropa', 'recargas', 'streaming', 'rosas', 'estudiantil'];
+export const REDES_SECCION = ['tiktok', 'instagram', 'youtube', 'facebook'];
+
+// Un enlace de red social debe ser https:// (o quedar vacío)
+export const enlaceValido = (v) => v === '' || /^https:\/\/[^\s<>"']+$/i.test(v);
 
 export function aplicarAjustes(data) {
   if (!data || typeof data !== 'object') return;
@@ -18,6 +24,15 @@ export function aplicarAjustes(data) {
       const v = src[k];
       const actual = CONFIG[sec][k];
       if (Array.isArray(actual) ? Array.isArray(v) : typeof v === typeof actual) CONFIG[sec][k] = v;
+    }
+  }
+  const redes = data.secciones;
+  if (redes && typeof redes === 'object') {
+    for (const s of SECCIONES) {
+      for (const r of REDES_SECCION) {
+        const v = redes[s]?.[r];
+        if (typeof v === 'string' && enlaceValido(v.trim())) CONFIG.secciones[s][r] = v.trim();
+      }
     }
   }
 }

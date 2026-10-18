@@ -1,6 +1,6 @@
 // Arranque de BHALLEFFORT: cabecera, menú, buscador, rutas, cookies, pie y bot.
 import { CONFIG } from './config.js';
-import { CATS, CAT_ORDER } from './schema.js';
+import { CATS, CAT_ORDER, ruta } from './schema.js';
 import { cargar, buscar, porId, precioDesde } from './data.js';
 import {
   html, raw, money, $, $$, store, waLink, waNumeroBonito, resumenHorario, reducedMotion,
@@ -9,7 +9,7 @@ import { icon, brand } from './icons.js';
 import { art } from './art.js';
 import { cart, initCart, abrirCarrito } from './cart.js';
 import { initTilt, revelar, voltear, volarAlCarrito, aviso } from './fx.js';
-import { resolver, initMapa } from './views.js';
+import { resolver, initMapa, canonico } from './views.js';
 import { LEGAL, LEGAL_ORDER } from './legal.js';
 import { cargarAjustes } from './ajustes.js';
 
@@ -24,7 +24,7 @@ let logoImg = null;
   const p = CONFIG.paleta;
   if (!p) return;
   const set = (k, v) => v && root.style.setProperty(k, v);
-  set('--bg', p.niebla); set('--ink', p.tinta); set('--blue', p.azul); set('--teal', p.turquesa); set('--gold', p.dorado);
+  set('--bg', p.fondo); set('--bg-2', p.fondo2); set('--yellow', p.acento); set('--pink', p.rosa);
 })();
 
 // ── Logo: si existe img/logo.webp se usa; si no, un monograma ───────
@@ -53,9 +53,9 @@ function logoEnMoneda() {
 }
 
 // ── Cabecera ────────────────────────────────────────────────────────
-const NAV = [
-  ...CAT_ORDER.map((k) => ({ href: `#/${k}`, t: CATS[k].nombre, key: k })),
-];
+// Nombres cortos para la barra superior (los completos salen en cada página)
+const NOMBRE_CORTO = { clases: 'Estudiantil' };
+const NAV = CAT_ORDER.map((k) => ({ href: ruta(k), t: NOMBRE_CORTO[k] || CATS[k].nombre, key: CATS[k].slug }));
 function pintarCabecera() {
   const nav = [
     ...NAV.map((n) => html`<a class="nav-a" href="${n.href}" data-nav="${n.key}">${n.t === 'Acompañamiento pedagógico' ? 'Clases' : n.t === 'Streaming y Digital' ? 'Digital' : n.t}</a>`),
@@ -72,7 +72,7 @@ function pintarCabecera() {
         <div class="search-pop" id="s-pop" role="listbox" data-open="false" aria-label="Resultados"></div>
       </div>
       <button class="icon-btn search-toggle" id="s-toggle" aria-label="Buscar" aria-expanded="false" aria-controls="msearch">${raw(icon('search'))}</button>
-      <button class="icon-btn cart-btn" aria-label="Carrito, 0 productos" aria-haspopup="dialog">${raw(icon('shopping-bag'))}<span class="cart-count" id="cart-count" data-n="0">0</span></button>
+      <button class="icon-btn cart-btn" aria-label="Carrito, 0 productos" aria-haspopup="dialog">${raw(icon('shopping-cart'))}<span class="cart-count" id="cart-count" data-n="0">0</span></button>
       <button class="icon-btn menu-btn" id="menu-open" aria-label="Abrir menú" aria-haspopup="dialog">${raw(icon('menu'))}</button>
     </div></div>`.toString();
   $('#msearch').innerHTML = html`<label class="search-field">${raw(icon('search'))}<span class="sr-only">Buscar productos</span>
@@ -100,10 +100,10 @@ function enlazarBuscador(input, pop, alElegir) {
     const top = res.slice(0, 6);
     pop.innerHTML = (top.length
       ? html`${top.map((p) => html`<a class="s-item" role="option" aria-selected="false" href="#/p/${p.id}">
-            ${p.imagenes[0] ? html`<img src="${p.imagenes[0]}" alt="" loading="lazy" width="48" height="48">` : html`<span class="s-thumb" style="background:${p.color || '#1e6fb8'}">${p.nombre.slice(0, 1)}</span>`}
+            ${p.imagenes[0] ? html`<img src="${p.imagenes[0]}" alt="" loading="lazy" width="48" height="48">` : html`<span class="s-thumb" style="background:${/^#[0-9a-f]{3,8}$/i.test(p.color || '') ? p.color : '#7a3cf0'}">${p.nombre.slice(0, 1)}</span>`}
             <span><b>${p.nombre}</b><small>${CATS[p.cat].nombre}</small></span><span class="s-price">${money(precioDesde(p))}</span></a>`)}
           ${res.length > top.length ? html`<a class="s-more" role="option" aria-selected="false" href="#/buscar/${encodeURIComponent(q)}">Ver los ${res.length} resultados ${raw(icon('arrow-right'))}</a>` : ''}`
-      : html`<div class="s-empty">No encontramos “${q}”. Prueba otra palabra o <a href="${waLink('Hola, estoy buscando: ' + q)}" target="_blank" rel="noopener" style="color:var(--blue);font-weight:700">pregunta por WhatsApp</a>.</div>`).toString();
+      : html`<div class="s-empty">No encontramos “${q}”. Prueba otra palabra o <a href="${waLink('Hola, estoy buscando: ' + q)}" target="_blank" rel="noopener" style="color:var(--yellow);font-weight:800;text-decoration:underline">pregunta por WhatsApp</a>.</div>`).toString();
     abrir(true);
   }
   input.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(pintar, 80); });
@@ -135,7 +135,7 @@ function pintarMenu() {
     <div class="sheet-top"><a class="brand" href="#/" data-close-menu><span class="brand-mark" aria-hidden="true">B</span><span class="brand-name">${CONFIG.marca.nombre}</span></a>
       <button class="icon-btn" data-close-menu aria-label="Cerrar menú">${raw(icon('x'))}</button></div>
     <div class="menu-grid">
-      ${CAT_ORDER.map((k) => html`<a class="menu-tile" href="#/${k}" data-color="${CATS[k].color}" data-close-menu>${raw(art(k))}<b>${CATS[k].nombre}</b></a>`)}
+      ${CAT_ORDER.map((k) => html`<a class="menu-tile" href="${ruta(k)}" data-color="${CATS[k].color}" data-close-menu>${raw(art(k))}<b>${CATS[k].nombre}</b></a>`)}
       <a class="menu-tile" href="#/promociones" data-color="coral" data-close-menu>${raw(art('promos'))}<b>Promociones</b></a>
       ${CONFIG.sorteo.activo ? html`<a class="menu-tile" href="#/sorteo" data-color="gold" data-close-menu>${raw(art('sorteo'))}<b>Sorteo mensual</b></a>` : ''}
     </div>
@@ -164,14 +164,14 @@ function pintarPie() {
     <div class="f-grid">
       <div class="f-brand">
         <a class="brand" href="#/" style="color:#fff"><span class="brand-mark" aria-hidden="true">B</span><span class="brand-name">${CONFIG.marca.nombre}</span></a>
-        <p>${CONFIG.marca.eslogan}. Ropa, recargas, streaming, rosas y acompañamiento pedagógico.</p>
+        <p>${CONFIG.marca.eslogan}. Ropa, recargas, streaming, rosas y acompañamiento estudiantil. ${CONFIG.marca.atencion}.</p>
         <div class="f-social" style="margin-top:16px">
           ${redes.map(([k, n, h]) => html`<a class="soc" href="${h}" target="_blank" rel="noopener" aria-label="${n} de ${CONFIG.marca.nombre}">${raw(brand(k))}</a>`)}
           <a class="soc" href="${waLink('Hola, quiero hacer una consulta.')}" target="_blank" rel="noopener" aria-label="WhatsApp">${raw(brand('whatsapp'))}</a>
         </div>
       </div>
       <div><h2 class="f-h">Tienda</h2><div class="f-links">
-        ${CAT_ORDER.map((k) => html`<a href="#/${k}">${CATS[k].nombre}</a>`)}
+        ${CAT_ORDER.map((k) => html`<a href="${ruta(k)}">${CATS[k].nombre}</a>`)}
         <a href="#/promociones">Promociones</a>
         ${CONFIG.sorteo.activo ? html`<a href="#/sorteo">Sorteo mensual</a>` : ''}
       </div></div>
@@ -191,6 +191,31 @@ function pintarPie() {
       <span>© 2026 ${CONFIG.marca.nombre}. Todos los derechos reservados.</span>
       <span class="credit">Diseñado por <a href="${CONFIG.creditos.tiktok}" target="_blank" rel="noopener" aria-label="${CONFIG.creditos.nombre} en TikTok">${CONFIG.creditos.nombre} ${raw(brand('tiktok'))}</a></span>
     </div></div>`.toString();
+}
+
+// ── Botones flotantes: WhatsApp (atención al instante) y carrito ─────
+function pintarFlotantes() {
+  const f = document.createElement('div');
+  f.className = 'floaters';
+  f.id = 'floaters';
+  f.setAttribute('role', 'complementary');
+  f.setAttribute('aria-label', 'Accesos rápidos');
+  f.innerHTML = html`
+    <a class="fab-wa" href="${waLink('Hola, quiero hacer una consulta.')}" target="_blank" rel="noopener">
+      ${raw(brand('whatsapp'))}<span class="t">${CONFIG.marca.atencion}<small>Escríbenos por WhatsApp</small></span></a>
+    <button class="fab-cart" id="fab-cart" type="button" data-n="0" aria-label="Ver carrito, 0 productos" aria-hidden="true" tabindex="-1">
+      ${raw(icon('shopping-cart'))}<span class="tx">Ver carrito</span><b>0</b></button>
+    <span class="spacer" aria-hidden="true"></span>`.toString();
+  document.body.append(f);
+  f.querySelector('#fab-cart').addEventListener('click', abrirCarrito);
+  // En el celular se esconden al bajar y reaparecen al subir, para no tapar el contenido.
+  let yAnt = window.scrollY;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (matchMedia('(max-width: 720px)').matches) f.dataset.dir = y > yAnt && y > 160 ? 'down' : 'up';
+    else delete f.dataset.dir;
+    yAnt = y;
+  }, { passive: true });
 }
 
 // ── Aviso de cookies (informativo: no usamos cookies de seguimiento) ─
@@ -258,7 +283,9 @@ async function encenderHero() {
 let primera = true;
 async function navegar() {
   apagarHero();
-  const hash = location.hash || '#/';
+  let hash = location.hash || '#/';
+  const canon = canonico(hash);
+  if (canon !== hash) { history.replaceState(null, '', canon); hash = canon; }
   let r;
   try { r = resolver(hash); } catch (err) { console.error(err); r = { title: CONFIG.marca.nombre, desc: '', html: html`<div class="container" style="padding-block:80px"><div class="empty"><h2>Algo salió mal</h2><p>Recarga la página o escríbenos por WhatsApp.</p></div></div>` }; }
   main.innerHTML = `<div class="view">${r.html.toString()}</div>`;
@@ -359,6 +386,7 @@ async function iniciar() {
   pintarCabecera();
   pintarMenu();
   pintarPie();
+  pintarFlotantes();
   initCart();
   initTilt();
   const bd = enlazarBuscador($('#q'), $('#s-pop'));

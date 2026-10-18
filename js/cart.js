@@ -91,6 +91,7 @@ function mensaje(c, f) {
     if (l.talla) partes.push(`Talla ${l.talla}`);
     if (l.opcion) partes.push(l.opcion);
     for (const c2 of l.p.campos) if (l.campos[c2.id]) partes.push(`${c2.etiqueta}: ${l.campos[c2.id]}`);
+    if (l.campos.nota) partes.push(`Detalle: ${l.campos.nota}`);
     const unidad = l.p.cat === 'rosas' ? (l.qty === 1 ? 'bonche' : 'bonches') : '';
     L.push(`${i + 1}. ${partes.join(' · ')} · ${l.qty}${unidad ? ' ' + unidad : ''} × ${money(l.precio)} = ${money(l.subtotal)}`);
   });
@@ -133,6 +134,15 @@ function actualizarContador() {
   el.textContent = n > 99 ? '99+' : String(n);
   el.dataset.n = String(n);
   document.querySelector('.cart-btn')?.setAttribute('aria-label', `Carrito, ${n} ${n === 1 ? 'producto' : 'productos'}`);
+  const fl = document.getElementById('fab-cart');
+  if (fl) {
+    fl.dataset.n = String(n);
+    fl.setAttribute('aria-label', `Ver carrito, ${n} ${n === 1 ? 'producto' : 'productos'}`);
+    const b = fl.querySelector('b');
+    if (b) b.textContent = n > 99 ? '99+' : String(n);
+    fl.tabIndex = n ? 0 : -1;
+    fl.setAttribute('aria-hidden', n ? 'false' : 'true');
+  }
 }
 
 function cliente() { return store.get(KEY_CLIENTE, {}) || {}; }
@@ -174,6 +184,7 @@ function render() {
     if (l.talla) v.push(`Talla ${l.talla}`);
     if (l.opcion) v.push(l.opcion);
     for (const c of l.p.campos) if (l.campos[c.id]) v.push(`${c.etiqueta}: ${l.campos[c.id]}`);
+    if (l.campos.nota) v.push(l.campos.nota);
     const thumb = l.p.imagenes[0]
       ? html`<img src="${l.p.imagenes[0]}" alt="" loading="lazy" decoding="async">`
       : html`<b>${l.p.nombre.slice(0, 1)}</b>`;

@@ -1,5 +1,5 @@
 // Titi: asistente de la tienda. Funciona con reglas (sin servidores ni IA externa):
-// responde horario, cómo comprar, ubicación, envíos, sorteo, recargas, rosas, clases
+// responde horario, cómo comprar, ubicación, envíos, sorteo, recargas, rosas, acompañamiento estudiantil
 // y busca productos por nombre. Si no entiende, te lleva a WhatsApp.
 import { CONFIG } from './config.js';
 import { html, money, norm, waLink, waNumeroBonito, estadoLocal, hora12, DIAS_ES, resumenHorario, $ } from './util.js';
@@ -15,7 +15,8 @@ const RAPIDOS = [
   ['Sorteo', 'sorteo'],
   ['Recargas', 'recargas'],
   ['Rosas', 'rosas'],
-  ['Clases', 'clases'],
+  ['Streaming', 'streaming'],
+  ['Estudiantil', 'acompanamiento'],
   ['Ofertas', 'ofertas'],
   ['Hablar con una persona', 'whatsapp'],
 ];
@@ -69,13 +70,13 @@ const INTENCIONES = [
     return html`Con una compra desde <b>${money(s.minimo)}</b> recibes un número del 1 al ${s.numeroMaximo} para el Sorteo Mensual. Se reinicia cada mes, el sorteo se puede seguir en nuestras redes y al ganador lo contactamos por WhatsApp.<br><br>${ir('#/sorteo', 'Cómo participar')} · ${ir('#/legal/sorteo', 'Bases')}`;
   }],
   [/\b(ecuabet|apuesta|apuestas|apostar)\b/, () =>
-    html`Recargamos saldo de Ecuabet <b>solo a mayores de 18 años</b>. Elige el monto en ${ir('#/recargas/ecuabet', 'Recargas · Ecuabet')}. Juega con responsabilidad.`],
+    html`Con Ecuabet te ayudamos a <b>crear tu cuenta</b>, <b>recargar desde ${money(CONFIG.ecuabet.recargaDesde)}</b> y <b>retirar desde ${money(CONFIG.ecuabet.retiroDesde)}</b>. Al crear tu cuenta con nuestra ayuda: ${CONFIG.ecuabet.bono}. ${CONFIG.ecuabet.nota} Solo mayores de 18 años. Juega con responsabilidad.<br><br>${ir('#/recargas/ecuabet', 'Ver Ecuabet')} · ${wa('Hola, quiero que me ayuden con Ecuabet.', 'Escribir por WhatsApp')}`],
   [/\b(recarga|recargas|claro|movistar|tigo|cnt|saldo|ilimitada|ilimitado|free fire|freefire|videojuego|videojuegos|diamantes)\b/, () =>
     html`Hacemos recargas de <b>Claro, Movistar, Tigo y CNT</b> (normales e ilimitadas), de videojuegos como Free Fire y de Ecuabet (+18). Se entregan por WhatsApp.<br><br>${ir('#/recargas', 'Ver recargas')}`],
   [/\b(rosa|rosas|bonche|bonches|flor|flores|ramo|ramos|exportacion)\b/, () =>
     html`Vendemos rosas por <b>bonche</b> y enviamos a ${CONFIG.envio.paisesRosas.join(', ')}. No hay envío gratis: el costo y la entrega los acordamos contigo por WhatsApp.<br><br>${ir('#/rosas', 'Ver variedades')}`],
-  [/\b(clase|clases|refuerzo|tarea|tareas|pedagogico|pedagogica|pedagogia|escuela|colegio|egb|profesora|acompanamiento)\b/, () =>
-    html`El acompañamiento pedagógico es para estudiantes de EGB y está a cargo de una Licenciada en Ciencias de la Educación Básica. Los horarios y cupos se confirman por WhatsApp.<br><br>${wa('Hola, quiero consultar horarios y cupos del acompañamiento pedagógico.', 'Consultar horarios y cupos')}`],
+  [/\b(clase|clases|refuerzo|tarea|tareas|pedagogico|pedagogica|pedagogia|estudiantil|escuela|colegio|egb|profesora|acompanamiento)\b/, () =>
+    html`El acompañamiento estudiantil es para estudiantes de EGB y está a cargo de una Licenciada en Ciencias de la Educación Básica. Los horarios y cupos se confirman por WhatsApp.<br><br>${ir('#/estudiantil', 'Ver la sección')} · ${wa('Hola, quiero consultar horarios y cupos del acompañamiento estudiantil.', 'Consultar horarios y cupos')}`],
   [/\b(devolucion|devolver|cambio|cambios|cambiar|garantia|reclamo|reclamos|queja|talla no|no me queda|reembolso)\b/, () =>
     html`Tienes <b>15 días</b> para pedir un cambio o devolución de productos físicos, en el mismo estado en que los recibiste. Los productos digitales ya entregados tienen garantía de funcionamiento. Si algo llegó mal, escríbenos con fotos.<br><br>${ir('#/legal/devoluciones', 'Ver política')} · ${ir('#/legal/reclamos', 'Reclamos')}`],
   [/\b(oferta|ofertas|promo|promos|promocion|promociones|descuento|descuentos|barato|baratos|rebaja)\b/, () => {
@@ -106,7 +107,7 @@ function responder(texto) {
       if (fn) return fn(q);
       const r = respuestaPrecio(q);
       if (r) return r;
-      return html`Tenemos streaming, IA, programas y licencias. ${ir('#/digital', 'Ver Streaming y Digital')}`;
+      return html`Tenemos streaming, IA, programas y licencias. ${ir('#/streaming', 'Ver Streaming')}`;
     }
   }
   const r = respuestaPrecio(q);

@@ -1,6 +1,30 @@
-/* Panel de administración · usa los mismos tokens que la tienda */
+/* Panel de administración · usa los mismos componentes que la tienda,
+   pero en tema claro (la tienda es nocturna) para trabajar cómodo con fotos. */
+html:has(body.adm) { background: #eef2fb; }
+body.adm {
+  color-scheme: light;
+  --bg: #eef2fb; --ink: #1b0f4d; --ink-2: #3b3380; --muted: #5a5586; --line: rgba(27, 15, 77, 0.16);
+  --glass: rgba(27, 15, 77, 0.05); --glass-2: rgba(27, 15, 77, 0.09); --field: #ffffff; --ghost: rgba(27, 15, 77, 0.06);
+  --panel: #ffffff; --c-soft: #dfe5fa; --coral: #c8321a; --blue: #2457d6;
+  --sh-1: 0 1px 2px rgba(27, 15, 77, 0.08), 0 10px 20px -14px rgba(27, 15, 77, 0.35);
+  --sh-2: 0 14px 30px -16px rgba(27, 15, 77, 0.4);
+  --sh-3: 0 30px 60px -22px rgba(27, 15, 77, 0.5);
+  background: var(--bg); color: var(--ink);
+}
+body.adm::before, body.adm::after { display: none; }
+.adm .input { color: var(--ink); background-color: #fff; }
+.adm .input::placeholder { color: #7b76a6; }
+.adm .input:focus { background-color: #fff; box-shadow: inset 0 0 0 2px var(--blue), 0 0 0 4px rgba(36, 87, 214, 0.2); }
+.adm select.input { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%231b0f4d' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); }
+.adm .btn-ghost:hover, .adm .icon-btn:hover { background: rgba(27, 15, 77, 0.1); }
+.adm .a-pub .btn-ghost { color: #fff; }
+.adm a { color: var(--blue); }
+.adm .a-top a.btn, .adm .a-pub a.btn { color: inherit; }
+.a-sec { border: 0; margin: 0; padding: 14px; border-radius: var(--r-md); background: var(--bg); display: grid; gap: 10px; }
+.a-sec legend { font-weight: 800; padding: 0 6px; }
+.adm .toast { color: #fff; }
 .adm { background-color: var(--bg); padding-bottom: 96px; }
-.a-top { position: sticky; top: 0; z-index: 30; background: rgba(238, 243, 248, 0.82); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); box-shadow: inset 0 -1px 0 var(--line); padding-top: env(safe-area-inset-top, 0px); }
+.a-top { position: sticky; top: 0; z-index: 30; background: rgba(238, 242, 251, 0.86); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); box-shadow: inset 0 -1px 0 var(--line); padding-top: env(safe-area-inset-top, 0px); }
 .a-top-in { max-width: 1040px; margin: 0 auto; padding: 10px var(--gutter); display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 .a-brand { display: flex; align-items: center; gap: 10px; font: 800 1.1rem var(--f-display); letter-spacing: -0.02em; }
 .a-tabs { display: flex; gap: 6px; margin-left: 8px; flex: 1; overflow-x: auto; scrollbar-width: none; }
@@ -20,7 +44,7 @@ details.a-help { border-radius: var(--r-md); background: var(--bg); padding: 12p
 details.a-help summary { cursor: pointer; font-weight: 700; }
 .a-bar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
 .a-bar .input { flex: 1 1 200px; height: 46px; }
-.a-bar select.input { flex: 0 1 200px; }
+.a-bar select.input { flex: 0 1 260px; }
 .a-list { display: grid; gap: 10px; }
 .a-row { display: grid; grid-template-columns: 56px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 10px; border-radius: var(--r-md); background: #fff; box-shadow: var(--sh-1); }
 .a-row[data-oculto='true'] { opacity: 0.6; }
@@ -75,7 +99,8 @@ details.a-help summary { cursor: pointer; font-weight: 700; }
 .a-warn { background: #fff4d6; color: #6b4700; padding: 12px 14px; border-radius: 14px; font-size: 0.92rem; }
 .a-site { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 .a-site .box { aspect-ratio: var(--ar, 1 / 1); border-radius: var(--r-md); background: repeating-conic-gradient(#e7eef6 0% 25%, #f6f9fc 0% 50%) 50% / 20px 20px; overflow: hidden; display: grid; place-items: center; color: var(--muted); font-size: 0.9rem; text-align: center; position: relative; }
-.a-site .box img { width: 100%; height: 100%; object-fit: contain; }
+.a-site .box img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.a-site .box span { position: relative; z-index: 0; }
 .ed-stage { display: grid; justify-items: center; gap: 12px; }
 .ed-view { position: relative; border-radius: 16px; overflow: hidden; box-shadow: var(--sh-2); touch-action: none; cursor: grab; background: #fff; }
 .ed-view canvas { display: block; width: 100%; height: 100%; }

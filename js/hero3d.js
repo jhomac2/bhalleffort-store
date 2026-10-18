@@ -324,9 +324,9 @@ export function iniciarHero(o) {
   const defs = [
     ['Ropa', '#/ropa', camiseta],
     ['Recargas', '#/recargas', celular],
-    ['Streaming y Digital', '#/digital', tele],
+    ['Streaming', '#/streaming', tele],
     ['Rosas', '#/rosas', rosa],
-    ['Acompañamiento pedagógico', '#/clases', libro],
+    ['Acompañamiento estudiantil', '#/estudiantil', libro],
     ...(sorteo ? [['Sorteo mensual', '#/sorteo', regalo]] : []),
     ['Promociones', '#/promociones', etiqueta],
   ];

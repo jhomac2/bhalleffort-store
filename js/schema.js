@@ -5,6 +5,7 @@ export const CATS = {
   ropa: {
     slug: 'ropa',
     nombre: 'Ropa',
+    banner: 'img/banners/ropa.webp',
     bajada: 'Hombre, mujer, niños y más',
     color: 'blue',
     envio: 'fisico',
@@ -19,6 +20,7 @@ export const CATS = {
   recargas: {
     slug: 'recargas',
     nombre: 'Recargas',
+    banner: 'img/banners/recargas.webp',
     bajada: 'Celulares, videojuegos y Ecuabet',
     color: 'teal',
     envio: 'digital',
@@ -30,9 +32,10 @@ export const CATS = {
     ],
   },
   digital: {
-    slug: 'digital',
-    nombre: 'Streaming y Digital',
-    bajada: 'IA, programas y entretenimiento',
+    slug: 'streaming',
+    nombre: 'Streaming',
+    banner: 'img/banners/streaming.webp',
+    bajada: 'Cuentas, IA y programas al instante',
     color: 'violet',
     envio: 'digital',
     media: '16 / 9',
@@ -45,6 +48,7 @@ export const CATS = {
   rosas: {
     slug: 'rosas',
     nombre: 'Rosas',
+    banner: 'img/banners/rosas.webp',
     bajada: 'Por bonche, a Ecuador, Perú y Colombia',
     color: 'rose',
     envio: 'acordar',
@@ -52,8 +56,9 @@ export const CATS = {
     subs: [],
   },
   clases: {
-    slug: 'clases',
-    nombre: 'Acompañamiento pedagógico',
+    slug: 'estudiantil',
+    nombre: 'Acompañamiento estudiantil',
+    banner: 'img/banners/estudiantil.webp',
     bajada: 'Apoyo escolar para EGB',
     color: 'green',
     envio: 'digital',
@@ -63,6 +68,22 @@ export const CATS = {
 };
 
 export const CAT_ORDER = ['ropa', 'recargas', 'digital', 'rosas', 'clases'];
+
+// Las claves internas (digital, clases) no cambian para no tocar productos.json.
+// Lo que ve el cliente (nombre y dirección web) es el "slug" y el "nombre".
+export const catPorSlug = (s) => CAT_ORDER.find((k) => CATS[k].slug === s || k === s) || null;
+export const ruta = (k) => `#/${CATS[k]?.slug || k}`;
+
+// Banners de las páginas que no son categoría
+export const BANNERS_EXTRA = {
+  promociones: { nombre: 'Promociones', banner: 'img/banners/promociones.webp' },
+  sorteo: { nombre: 'Sorteo mensual', banner: 'img/banners/sorteo.webp' },
+};
+// Lista completa de banners (la usa el panel para mostrar dónde cambiar cada uno)
+export const BANNERS = [
+  ...CAT_ORDER.map((k) => ({ k: CATS[k].slug, nombre: CATS[k].nombre, ruta: CATS[k].banner })),
+  ...Object.entries(BANNERS_EXTRA).map(([k, v]) => ({ k, nombre: v.nombre, ruta: v.banner })),
+];
 
 export function subNombre(cat, sub) {
   const c = CATS[cat];
