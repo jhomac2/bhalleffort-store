@@ -940,3 +940,40 @@ select.input { -webkit-appearance: none; appearance: none; padding-right: 38px; 
 .mock-row u { text-decoration: none; padding: 5px 10px; border-radius: 8px; font-size: 0.78rem; color: var(--brand); box-shadow: inset 0 0 0 1.5px var(--brand); }
 .mock-a { right: 4%; top: 6%; border: 2px dashed var(--brand); z-index: 2; transform: rotate(2deg); }
 .mock-b { left: 4%; top: 22%; opacity: 0.92; transform: rotate(-4deg); }
+
+/* ═══ Páginas estáticas para Google y para compartir (las genera tools/build-seo.mjs) ═══
+   Se ven mientras carga el JS; después la tienda toma el control. En el inicio se ocultan. */
+.js .seo-home { display: none; }
+.seo-top { display: flex; flex-wrap: wrap; gap: 4px 18px; padding: 14px 0; font-weight: 700; }
+.seo-top a { display: inline-flex; align-items: center; min-height: 40px; color: var(--ink); text-decoration: none; }
+.seo-top a:hover { color: var(--brand); }
+.seo-page, .seo-home { padding-bottom: 56px; }
+.seo-page h1, .seo-home h1 { margin: 8px 0 8px; font-size: clamp(1.7rem, 1.2rem + 2.4vw, 2.6rem); line-height: 1.1; letter-spacing: -0.02em; }
+.seo-page h2, .seo-home h2 { margin: 28px 0 12px; font-size: 1.25rem; }
+.seo-crumbs { margin: 4px 0 12px; font-size: 0.9rem; color: var(--muted); }
+.seo-crumbs a { color: var(--brand); text-decoration: none; }
+.seo-lead { max-width: 60ch; color: var(--ink-2); }
+.seo-eyebrow { margin: 0; font-weight: 800; font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--brand); }
+.seo-prod { display: grid; gap: 24px; margin-top: 8px; }
+.seo-img { width: 100%; max-height: 560px; object-fit: cover; border-radius: 16px; background: var(--bg-2); }
+.seo-price { margin: 6px 0 12px; font-size: 1.9rem; font-weight: 800; }
+.seo-price small { font-size: 0.9rem; font-weight: 600; color: var(--muted); }
+.seo-price s { font-size: 1.1rem; font-weight: 600; color: var(--muted); }
+.seo-note { color: var(--muted); font-size: 0.92rem; }
+.seo-cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.seo-subs a { color: var(--brand); font-weight: 700; }
+.seo-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+.seo-grid a { display: grid; gap: 6px; color: var(--ink); text-decoration: none; font-weight: 600; }
+.seo-grid img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 12px; background: var(--bg-2); }
+.seo-grid b { color: var(--brand); }
+.seo-grid.cats { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.seo-grid.cats a { padding: 14px 16px; border-radius: 14px; box-shadow: inset 0 0 0 1.5px var(--line); }
+@media (min-width: 760px) { .seo-prod { grid-template-columns: minmax(0, 440px) 1fr; align-items: start; gap: 40px; } }
+
+/* Botones y enlaces un poco más grandes para el dedo */
+.flip-btn { width: 40px; height: 40px; }
+.f-links a { display: inline-flex; align-items: center; min-height: 36px; }
+.titi .quick button { min-height: 36px; }
+.gal-note { display: block; margin-top: 6px; color: var(--muted); font-size: 0.85rem; }
+.gal-note[hidden] { display: none; }
+.seo-lead { margin: 0 0 22px; }

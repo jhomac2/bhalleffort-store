@@ -17,7 +17,8 @@ import { LEGAL, LEGAL_ORDER } from './legal.js';
 //  Piezas reutilizables
 // ═══════════════════════════════════════════════════════════════════
 const PAGE = 24;
-const pend = (v, etiqueta) => (v ? esc(v) : `<span class="pend">PENDIENTE: ${esc(etiqueta)}</span>`);
+// Dato legal vacío: no se muestra nada (el panel /admin/ avisa qué falta completar).
+const pend = (v) => (v ? esc(v) : '');
 const hexOk = (c) => /^#[0-9a-f]{3,8}$/i.test(c || '');
 
 function etiquetaAccion(p) {
@@ -288,14 +289,14 @@ function inicio() {
   const C = CONFIG.creditos;
   const tiles = [
     ['ropa', 'Ropa', 'Hombre, mujer, niños y más. Calzado, mochilas y conjuntos.'],
-    ['recargas', 'Recargas', 'Claro, Movistar, Tigo, CNT, videojuegos y Ecuabet.'],
+    ['recargas', 'Recargas', 'Claro, Movistar, Tigo, CNT y Ecuabet (+18).'],
     ['digital', 'Streaming', 'Netflix, IA y programas al instante.'],
-    ['rosas', 'Rosas', 'Por bonche. Ecuador, Perú y Colombia.'],
+    ['rosas', 'Rosas', 'Consulta variedades y precio por bonche.'],
     ['clases', 'Acompañamiento estudiantil', 'Apoyo escolar para EGB.'],
   ];
   return {
     title: `${CONFIG.marca.nombre} · ${CONFIG.marca.eslogan}`,
-    desc: 'Todo lo encuentras aquí: ropa, recargas, streaming, rosas y acompañamiento estudiantil. Atención al instante por WhatsApp. Sorteo mensual.',
+    desc: 'Ropa, recargas, streaming, rosas y acompañamiento estudiantil en Tabacundo, Ecuador. Compra fácil y confirma por WhatsApp.',
     html: html`
     ${carrusel()}
     ${franjaConfianza()}
@@ -539,7 +540,7 @@ function vistaSorteo() {
           <a class="btn btn-white btn-lg" href="${redes.instagram}" target="_blank" rel="noopener">${raw(brand('instagram'))} Instagram</a>
           <a class="btn btn-white btn-lg" href="${redes.facebook}" target="_blank" rel="noopener">${raw(brand('facebook'))} Facebook</a>
         </div>
-        <p class="muted" style="margin-top:14px;font-size:.88rem">Participación gratuita ligada a tu compra. No se venden números. Solo mayores de 18 años.</p>
+        <p class="muted" style="margin-top:14px;font-size:.88rem">Participación gratuita ligada a tu compra. No se venden números. Las recargas de Ecuabet no suman para el sorteo. Solo mayores de 18 años.</p>
       </div></section>`,
   };
 }
@@ -615,10 +616,12 @@ function enlazarCompraGuiada(lista) {
           <span class="err" data-err="c_${c.id}"></span></div>`)}</div></div>`);
     }
     if (p.cat === 'digital') {
-      partes.push(html`<div class="arc-step"><div class="st"><b>${n++}</b> ¿Qué necesitas? <span class="muted" style="font:600 .85rem var(--f-body)">(opcional)</span></div>
-        <div class="amts" aria-label="Opciones rápidas">${NOTAS_RAPIDAS.map((t) => html`<button type="button" class="btn btn-ghost btn-sm" data-nota="${t}">${t}</button>`)}</div>
+      const conPrecio = p.opciones.length > 0; // si ya hay opciones con precio, la duración se elige arriba
+      partes.push(html`<div class="arc-step"><div class="st"><b>${n++}</b> ¿Algún detalle? <span class="muted" style="font:600 .85rem var(--f-body)">(opcional)</span></div>
+        ${conPrecio ? '' : html`<div class="amts" aria-label="Opciones rápidas">${NOTAS_RAPIDAS.map((t) => html`<button type="button" class="btn btn-ghost btn-sm" data-nota="${t}">${t}</button>`)}</div>`}
         <div class="field"><label class="sr-only" for="a-nota">Detalle de tu pedido</label>
-          <textarea class="input" id="a-nota" name="nota" rows="2" maxlength="160" placeholder="Ej.: 3 meses, perfil para 1 persona"></textarea></div></div>`);
+          <textarea class="input" id="a-nota" name="nota" rows="2" maxlength="160" placeholder="${conPrecio ? 'Ej.: perfil para 1 persona' : 'Ej.: 3 meses, perfil para 1 persona'}"></textarea></div>
+        ${conPrecio ? '' : html`<p class="arc-note" style="margin:6px 0 0">El precio mostrado es el del servicio base. Si pides otra duración o tipo de cuenta, te confirmamos el valor por WhatsApp antes de pagar.</p>`}</div>`);
     }
     if (p.edad >= 18) {
       partes.push(html`<div class="arc-step"><label class="age-check"><input type="checkbox" name="edad"><span>Declaro que soy <b>mayor de ${p.edad} años</b> y juego con responsabilidad.</span></label><span class="err" data-err="edad"></span></div>`);
@@ -715,7 +718,7 @@ function ecuabetPanel() {
 function ecuabetFranja() {
   const E = CONFIG.ecuabet;
   if (!E.activo) return '';
-  return html`<a class="note" href="${ruta('recargas')}/ecuabet" data-color="teal" style="margin-bottom:16px;align-items:center">${raw(icon('star'))}<div><b>Ecuabet +18:</b> te ayudamos a crear tu cuenta y te regalamos ${E.bono}. Recargas desde ${money(E.recargaDesde)} · retiros desde ${money(E.retiroDesde)}. <b>Ver más</b></div></a>`;
+  return html`<a class="note" href="${ruta('recargas')}/ecuabet" data-color="teal" style="margin-bottom:16px;align-items:center">${raw(icon('star'))}<div><b>Ecuabet +18:</b> te ayudamos con tu cuenta, recargas desde ${money(E.recargaDesde)} y retiros desde ${money(E.retiroDesde)}. <b>Ver más</b></div></a>`;
 }
 
 // ═══════════════════════════════════════════════════════════════════
@@ -774,7 +777,7 @@ function vistaCategoria(catKey, sub, grupo) {
   const tabs = subs.length
     ? html`<nav class="tabs" aria-label="Subcategorías">
         <a class="tab" href="${base}" aria-current="${!sub}">Todo <small>${totalCat}</small></a>
-        ${subs.map(([k, n]) => html`<a class="tab" href="${base}/${k}" aria-current="${sub === k}">${n} <small>${porCategoria(catKey, k).length}</small></a>`)}
+        ${subs.filter(([k]) => k === sub || porCategoria(catKey, k).length > 0).map(([k, n]) => html`<a class="tab" href="${base}/${k}" aria-current="${sub === k}">${n} <small>${porCategoria(catKey, k).length}</small></a>`)}
       </nav>` : html`<div class="tabs"></div>`;
   const chipsGrupo = grupos.length > 1
     ? html`<nav class="tabs" style="margin-bottom:14px" aria-label="Tipo">
@@ -913,8 +916,9 @@ function vistaProducto(id) {
         : html`<input class="input" id="c-${c.id}" name="c_${c.id}" type="${c.tipo === 'tel' ? 'tel' : 'text'}" ${c.tipo === 'tel' ? raw('inputmode="numeric" autocomplete="tel"') : raw('autocomplete="off"')} placeholder="${c.ayuda || ''}">`}
       <span class="err" data-err="c_${c.id}"></span></div>`);
   const nota = p.cat === 'digital'
-    ? html`<div class="field"><label for="c-nota">¿Qué necesitas? <span class="muted" style="font-weight:600">(opcional)</span></label>
-        <textarea class="input" id="c-nota" name="nota" rows="2" maxlength="160" placeholder="Ej.: 3 meses, perfil para 1 persona"></textarea></div>`
+    ? html`<div class="field"><label for="c-nota">¿Algún detalle? <span class="muted" style="font-weight:600">(opcional)</span></label>
+        <textarea class="input" id="c-nota" name="nota" rows="2" maxlength="160" placeholder="Ej.: perfil para 1 persona"></textarea>
+        ${p.opciones.length ? '' : html`<small class="muted">El precio mostrado es el del servicio base. Si pides otra duración o tipo de cuenta, te confirmamos el valor por WhatsApp antes de pagar.</small>`}</div>`
     : '';
   const jsonld = {
     '@context': 'https://schema.org', '@type': 'Product', name: p.nombre, description: p.descripcion || p.nombre,
@@ -1173,7 +1177,7 @@ export function canonico(hash) {
 
 export function resolver(hash) {
   const ruta0 = (hash || '#/').replace(/^#\/?/, '').split('?')[0];
-  const seg = ruta0.split('/').filter(Boolean).map(decodeURIComponent);
+  const seg = ruta0.split('/').filter(Boolean).map((x) => { try { return decodeURIComponent(x); } catch { return x; } });
   const [a, b, c] = seg;
   if (!a) return inicio();
   const k = catPorSlug(a);

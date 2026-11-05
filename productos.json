@@ -140,7 +140,7 @@
     "sub": "varios",
     "grupo": "Calzado",
     "para": "Mujer",
-    "nombre": "Deportivos Puma",
+    "nombre": "Deportivos Puma (dos diseños)",
     "descripcion": "Dos diseños",
     "precio": 18.0,
     "precio_antes": null,
@@ -1157,7 +1157,7 @@
     "estado": "nuevo",
     "nuevo": false,
     "agotado": false,
-    "visible": true,
+    "visible": false,
     "imagenes": [
       "img/productos/davinci-resolve-18.webp",
       "img/productos/davinci-resolve-18-espalda.webp"
@@ -1176,7 +1176,7 @@
     "estado": "nuevo",
     "nuevo": false,
     "agotado": false,
-    "visible": true,
+    "visible": false,
     "imagenes": [
       "img/productos/topaz-video-5-3-1.webp",
       "img/productos/topaz-video-5-3-1-espalda.webp"
@@ -1195,7 +1195,7 @@
     "estado": "nuevo",
     "nuevo": false,
     "agotado": false,
-    "visible": true,
+    "visible": false,
     "imagenes": [
       "img/productos/vegas-pro-v21.webp",
       "img/productos/vegas-pro-v21-espalda.webp"
@@ -1334,7 +1334,7 @@
     "sub": "varios",
     "grupo": "Calzado",
     "para": "Mujer",
-    "nombre": "Deportivos Puma",
+    "nombre": "Deportivos Puma (varios diseños)",
     "descripcion": "Varios diseños disponibles",
     "precio": 15.0,
     "precio_antes": 18.0,

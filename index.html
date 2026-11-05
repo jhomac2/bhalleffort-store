@@ -27,7 +27,24 @@
 <link rel="preload" href="fonts/jakarta-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/styles.css">
 <link rel="modulepreload" href="js/main.js">
-<script>document.documentElement.classList.add('js')</script>
+<link rel="modulepreload" href="js/config.js">
+<link rel="modulepreload" href="js/schema.js">
+<link rel="modulepreload" href="js/util.js">
+<link rel="modulepreload" href="js/data.js">
+<link rel="modulepreload" href="js/icons.js">
+<link rel="modulepreload" href="js/fx.js">
+<link rel="modulepreload" href="js/cart.js">
+<link rel="modulepreload" href="js/legal.js">
+<link rel="modulepreload" href="js/views.js">
+<link rel="modulepreload" href="js/ajustes.js">
+<script>
+document.documentElement.classList.add('js');
+// Los datos se piden mientras cargan los scripts (ahorra una espera). js/data.js y js/ajustes.js los reutilizan.
+window.__bh = { productos: fetch('/productos.json', { cache: 'no-cache' }), ajustes: fetch('/ajustes.json', { cache: 'no-cache' }) };
+window.__bh.productos.catch(function () {}); window.__bh.ajustes.catch(function () {});
+// En el inicio, la imagen principal se pide desde el principio
+if (location.pathname === '/' && (!location.hash || location.hash === '#/')) document.head.insertAdjacentHTML('beforeend', '<link rel="preload" as="image" href="img/banners/inicio.webp" fetchpriority="high">');
+</script>
 
 <script type="application/ld+json">
 {
@@ -57,7 +74,18 @@
 <a class="skip" href="#main" data-skip>Saltar al contenido</a>
 <header class="hdr" id="hdr"></header>
 <div class="msearch" id="msearch" role="search" data-open="false"></div>
-<main id="main" tabindex="-1"></main>
+<main id="main" tabindex="-1"><!--seo:inicio-->
+<div class="seo-home container" data-seo="inicio">
+<nav class="seo-top" aria-label="Principal"><a href="/"><b>BHALLEFFORT</b></a> <a href="/c/ropa/">Ropa</a> <a href="/c/recargas/">Recargas</a> <a href="/c/streaming/">Streaming</a> <a href="/c/rosas/">Rosas</a> <a href="/c/estudiantil/">Estudiantil</a></nav>
+<h1>Ropa, recargas y streaming en Tabacundo.</h1>
+<p class="seo-lead">También rosas y acompañamiento estudiantil. Arma tu carrito y confirma por WhatsApp; retira en el local o te lo enviamos.</p>
+<h2>Categorías</h2>
+<ul class="seo-grid cats"><li><a href="/c/ropa/"><span>Ropa</span><b>Hombre, mujer, niños y más</b></a></li><li><a href="/c/recargas/"><span>Recargas</span><b>Celulares, videojuegos y Ecuabet</b></a></li><li><a href="/c/streaming/"><span>Streaming</span><b>Cuentas, IA y programas al instante</b></a></li><li><a href="/c/rosas/"><span>Rosas</span><b>Por bonche, a Ecuador, Perú y Colombia</b></a></li><li><a href="/c/estudiantil/"><span>Acompañamiento estudiantil</span><b>Apoyo escolar para EGB</b></a></li></ul>
+<h2>Productos destacados</h2>
+<ul class="seo-grid"><li><a href="/p/sudadera-urbana-r001/"><img src="/img/productos/sudadera-urbana.webp" alt="Sudadera urbana" loading="lazy" decoding="async"><span>Sudadera urbana</span><b>$18.00</b></a></li><li><a href="/p/chompa-deportiva-r002/"><img src="/img/productos/chompa-deportiva.webp" alt="Chompa deportiva" loading="lazy" decoding="async"><span>Chompa deportiva</span><b>$10.00</b></a></li><li><a href="/p/buzo-columbia-r003/"><img src="/img/productos/buzo-columbia.webp" alt="Buzo Columbia" loading="lazy" decoding="async"><span>Buzo Columbia</span><b>$18.00</b></a></li><li><a href="/p/chompa-impermeable-r004/"><img src="/img/productos/chompa-impermeable.webp" alt="Chompa impermeable" loading="lazy" decoding="async"><span>Chompa impermeable</span><b>$22.00</b></a></li><li><a href="/p/hoodie-urbano-r005/"><img src="/img/productos/hoodie-urbano.webp" alt="Hoodie Urbano" loading="lazy" decoding="async"><span>Hoodie Urbano</span><b>$10.00</b></a></li><li><a href="/p/tejido-de-lana-r006/"><img src="/img/productos/tejido-de-lana.webp" alt="Tejido de lana" loading="lazy" decoding="async"><span>Tejido de lana</span><b>$13.00</b></a></li><li><a href="/p/deportivos-puma-dos-disenos-c007/"><img src="/img/productos/deportivos-pume.webp" alt="Deportivos Puma (dos diseños)" loading="lazy" decoding="async"><span>Deportivos Puma (dos diseños)</span><b>$18.00</b></a></li><li><a href="/p/deportivo-y-casual-c008/"><img src="/img/productos/deportivo-y-casual.webp" alt="Deportivo y casual" loading="lazy" decoding="async"><span>Deportivo y casual</span><b>$18.00</b></a></li><li><a href="/p/urbanos-levis-c009/"><img src="/img/productos/urbanos-levis.webp" alt="Urbanos Levis" loading="lazy" decoding="async"><span>Urbanos Levis</span><b>$18.00</b></a></li><li><a href="/p/tacos-botines-c010/"><img src="/img/productos/tacos-botines.webp" alt="Tacos botines" loading="lazy" decoding="async"><span>Tacos botines</span><b>$18.00</b></a></li><li><a href="/p/deportivos-altos-c011/"><img src="/img/productos/deportivos-altos.webp" alt="Deportivos altos" loading="lazy" decoding="async"><span>Deportivos altos</span><b>$18.00</b></a></li><li><a href="/p/deportivos-running-c012/"><img src="/img/productos/deportivos-running.webp" alt="Deportivos running" loading="lazy" decoding="async"><span>Deportivos running</span><b>$18.00</b></a></li></ul>
+<p>Escríbenos por <a href="https://wa.me/593963923399?text=Hola%2C%20quiero%20hacer%20una%20consulta." rel="noopener">WhatsApp</a>. Local en La Y de Tabacundo, Pedro Moncayo, Pichincha.</p>
+</div>
+<!--/seo:inicio--></main>
 <footer class="footer" id="footer"></footer>
 <dialog id="menu-dlg" class="sheet" aria-label="Menú"></dialog>
 <dialog id="cart-dlg" class="drawer" aria-label="Carrito de compras"><div class="drawer-in"></div></dialog>

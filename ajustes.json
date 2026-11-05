@@ -1,6 +1,6 @@
 {
   "sorteo": {
-    "activo": true,
+    "activo": false,
     "premioDelMes": "",
     "fechaDelSorteo": "",
     "historial": []
@@ -14,7 +14,7 @@
     "ruc": "",
     "direccion": "",
     "ciudad": "Tabacundo",
-    "actualizado": "18 de octubre de 2026"
+    "actualizado": "5 de noviembre de 2026"
   },
   "ecuabet": {
     "activo": true,

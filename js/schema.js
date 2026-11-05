@@ -99,3 +99,12 @@ export const ICONO = {
   ropa: 'shirt', recargas: 'smartphone', digital: 'clapperboard', rosas: 'flower-2',
   clases: 'graduation-cap', promos: 'badge-percent', sorteo: 'ticket', vende: 'store',
 };
+
+// ── Direcciones de las páginas estáticas (las genera tools/build-seo.mjs) ──
+// Sirven para Google y para compartir: /p/<nombre>-<id>/ y /c/<categoría>/<sub>/
+export const slugify = (s) =>
+  String(s ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60);
+export const slugProducto = (p) => `${slugify(p.nombre)}-${slugify(p.id)}`;
+export const urlProducto = (p) => `/p/${slugProducto(p)}/`;
+export const urlCategoria = (k, sub) => `/c/${CATS[k].slug}/${sub ? sub + '/' : ''}`;

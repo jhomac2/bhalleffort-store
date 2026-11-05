@@ -57,6 +57,8 @@ Reglas de seguridad:
 
 Los enlaces viejos `#/digital` y `#/clases` siguen funcionando y te llevan a las nuevas direcciones.
 
+Una pestaña sin productos (por ejemplo Videojuegos) no se muestra hasta que cargues el primero. El Sorteo solo aparece cuando está activo.
+
 ---
 
 ## 3. Subir un producto (en cualquier sección)
@@ -96,7 +98,7 @@ Panel → pestaña **Logo y fotos** → **Subir o reemplazar**.
 | Foto del local | `img/local.webp` | Horizontal 1600 × 1000 |
 | Imagen para compartir | `img/og.jpg` | 1200 × 630 |
 
-Hasta que subas el logo, la tienda muestra una "B" como monograma. Hasta que subas la foto del local, la sección "Nuestro local" muestra un collage con fotos de tus productos (`img/local-vitrina.webp`); al subir `img/local.webp`, tu foto la reemplaza. El mapa de esa sección se carga solo, con las coordenadas de `js/config.js` → `local.lat` y `local.lon`.
+Ya viene un logo de prueba (una "B" azul con punto ámbar). Cuando subas el tuyo, lo reemplaza. Hasta que subas la foto del local, la sección "Nuestro local" muestra un collage con fotos de tus productos (`img/local-vitrina.webp`); al subir `img/local.webp`, tu foto la reemplaza. El mapa de esa sección se carga solo, con las coordenadas de `js/config.js` → `local.lat` y `local.lon`.
 
 ---
 
@@ -219,9 +221,9 @@ Cómo editar un archivo: abre `github.com/jhomac2/bhalleffort-store` → carpeta
 
 Panel → **Ajustes del sitio**.
 
-- **Sorteo mensual**: actívalo o apágalo, escribe el premio del mes, la fecha y agrega ganadores al historial.
+- **Sorteo mensual**: **viene apagado**. Para encenderlo, primero escribe el premio y la fecha (el panel no te deja activarlo sin ellos). Las recargas de Ecuabet no suman para el sorteo.
 - **Local**: dirección y referencia.
-- **Datos legales**: nombre legal del titular, RUC (13 dígitos), ciudad y dirección legal. **Deben completarse antes de publicar el sitio.**
+- **Datos legales**: nombre legal del titular, RUC (13 dígitos), ciudad y dirección legal. Mientras estén vacíos no se muestran en las páginas legales y el panel te avisa que faltan. **Complétalos antes de vender.**
 
 ---
 
@@ -238,16 +240,31 @@ Panel → **Ajustes del sitio**.
 
 ## 12. Después de publicar el sitio
 
-1. **Google Search Console**: verifica `bhalleffort.com` y envía `sitemap.xml`.
+1. **Google Search Console**: verifica `bhalleffort.com` y envía `sitemap.xml` (ahora incluye todas las categorías y productos).
 2. **Google Business Profile**: cambia el nombre de la ficha a BHALLEFFORT y revisa horario y fotos.
 3. Prueba un pedido completo desde tu celular.
 
 ---
 
-## 13. Problemas frecuentes
+## 13. Páginas para Google y para compartir (automático)
+
+Cada producto y cada categoría tiene también una dirección propia que Google puede leer y que muestra foto y precio cuando la compartes por WhatsApp o redes:
+
+- Producto: `https://bhalleffort.com/p/<nombre>-<código>/` (ejemplo: `/p/buzo-columbia-r003/`)
+- Categoría: `https://bhalleffort.com/c/ropa/` o `https://bhalleffort.com/c/ropa/hombre/`
+
+**Comparte siempre estas direcciones** (no las que terminan en `/#/...`) en tu bio de TikTok, estados de WhatsApp y publicaciones.
+
+Se crean solas: cuando publicas cambios de productos o ajustes desde el panel, GitHub ejecuta `.github/workflows/seo.yml` y las actualiza en 1 o 2 minutos (pestaña **Actions** del repositorio). Si algún día quieres crearlas a mano: `node tools/build-seo.mjs`.
+
+---
+
+## 14. Problemas frecuentes
 
 - **No veo mi cambio**: espera 2 minutos y recarga con fuerza (en celular, cierra y abre el navegador).
 - **El panel dice que el token no sirve**: venció o está mal copiado. Crea uno nuevo (sección 1).
 - **Error al publicar**: revisa que el token tenga **Contents: Read and write** y que el repositorio sea `bhalleffort-store`.
 - **Una foto se ve cortada**: edita el producto, elige **Cambiar** y ajusta el encuadre.
+- **Un producto no aparece**: revisa que no esté oculto (los programas de edición y otros productos dudosos quedaron ocultos; puedes volver a mostrarlos desde el panel solo si tienes la licencia o autorización para venderlos).
+- **El contador del carrito mostraba un número con el carrito vacío**: ya está corregido; el carrito se limpia solo de productos que dejaron de existir.
 

@@ -1,5 +1,5 @@
 // Documentos legales de la tienda. Los datos del titular salen de js/config.js.
-// Donde falta un dato aparece "PENDIENTE" resaltado: debe completarse antes de publicar.
+// Un dato legal vacío (titular, RUC) no se muestra; el panel /admin/ avisa qué falta completar.
 import { esc } from './util.js';
 
 export const LEGAL_ORDER = ['terminos', 'privacidad', 'cookies', 'envios', 'devoluciones', 'sorteo', 'aviso', 'reclamos', 'juego-responsable'];
@@ -7,9 +7,9 @@ export const LEGAL_ORDER = ['terminos', 'privacidad', 'cookies', 'envios', 'devo
 const ident = (C, h) => `
   <table>
     <tr><th>Nombre comercial</th><td>${esc(C.marca.nombre)}</td></tr>
-    <tr><th>Titular</th><td>${h.pend(C.legal.titular, 'nombre legal del titular')}</td></tr>
-    <tr><th>RUC</th><td>${h.pend(C.legal.ruc, 'RUC')}</td></tr>
-    <tr><th>Dirección</th><td>${C.legal.direccion ? esc(C.legal.direccion) : esc([C.local.direccion, C.local.referencia].filter(Boolean).join('. ')) || h.pend('', 'dirección del establecimiento')}</td></tr>
+    ${C.legal.titular ? `<tr><th>Titular</th><td>${esc(C.legal.titular)}</td></tr>` : ''}
+    ${C.legal.ruc ? `<tr><th>RUC</th><td>${esc(C.legal.ruc)}</td></tr>` : ''}
+    <tr><th>Dirección</th><td>${C.legal.direccion ? esc(C.legal.direccion) : esc([C.local.direccion, C.local.referencia].filter(Boolean).join('. '))}</td></tr>
     <tr><th>WhatsApp</th><td>${h.waNumeroBonito()}</td></tr>
     <tr><th>Correo</th><td><a href="mailto:${esc(C.legal.correo)}">${esc(C.legal.correo)}</a></td></tr>
     <tr><th>Sitio web</th><td>${esc(C.marca.dominio.replace('https://', ''))}</td></tr>
@@ -44,7 +44,7 @@ export const LEGAL = {
 
       <h2>4. Formas de pago</h2>
       <ul>
-        <li>Transferencia bancaria, depósito y PayPhone. Los datos de pago los enviamos por WhatsApp al confirmar el pedido.</li>
+        <li>Formas de pago: ${esc(C.pago.metodos)}. Los datos de pago los enviamos por WhatsApp al confirmar el pedido.</li>
         <li><b>El pago se hace únicamente a nombre de ${esc(C.pago.titular)}.</b> Si alguien te pide pagar a otro nombre o cuenta, no lo hagas y escríbenos a nuestro WhatsApp oficial o a ${esc(C.pago.correo)}.</li>
         <li>Nunca te pediremos contraseñas, códigos de verificación ni datos de tarjetas por el sitio.</li>
       </ul>
@@ -186,7 +186,8 @@ export const LEGAL = {
       <h2>Ropa, calzado y accesorios</h2>
       <ul>
         <li><b>Cobertura:</b> todo el Ecuador, mediante empresas de transporte (courier).</li>
-        <li><b>Costo:</b> ${h.money(C.envio.costo)} de tarifa fija en pedidos menores a ${h.money(C.envio.gratisDesde)}, sin importar la ciudad. <b>Envío gratis</b> desde ${h.money(C.envio.gratisDesde)} de compra. El carrito lo calcula automáticamente.</li>
+        <li><b>Costo:</b> ${h.money(C.envio.costo)} de tarifa fija en pedidos de ropa menores a ${h.money(C.envio.gratisDesde)}, en el Ecuador continental. <b>Envío gratis</b> desde ${h.money(C.envio.gratisDesde)} de compra en ropa (los productos digitales no cuentan para el envío gratis). El carrito lo calcula automáticamente.</li>
+        <li><b>Galápagos y zonas muy alejadas:</b> el costo y el tiempo del envío se confirman contigo por WhatsApp antes de pagar.</li>
         <li><b>Tiempos estimados</b> (días hábiles, desde que confirmamos el envío):
           <ul>
             <li>Tabacundo y alrededores: el mismo día o el siguiente.</li>
@@ -277,6 +278,7 @@ export const LEGAL = {
       <h2>3. Quiénes participan</h2>
       <ul>
         <li>Personas <b>mayores de 18 años</b> con compra confirmada y pagada de <b>${h.money(C.sorteo.minimo)} o más</b> en productos (sin contar el envío).</li>
+        <li>No suman para el sorteo las recargas de Ecuabet (servicio solo para mayores de 18 años).</li>
         <li>Cada compra válida equivale a <b>un número del 1 al ${C.sorteo.numeroMaximo}</b>.</li>
         <li>Los números se reinician cada mes. Si se asignan los ${C.sorteo.numeroMaximo}, se cierra la participación de ese mes y se avisa en redes.</li>
       </ul>

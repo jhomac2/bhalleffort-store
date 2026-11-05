@@ -1,6 +1,6 @@
 import { CONFIG } from './config.js';
 import { CATS } from './schema.js';
-import { porId, precioDesde } from './data.js';
+import { porId, precioDesde, todos } from './data.js';
 import { html, esc, money, store, waLink, $, raw } from './util.js';
 import { icon } from './icons.js';
 import { aviso } from './fx.js';
@@ -8,13 +8,16 @@ import { aviso } from './fx.js';
 const KEY = 'bh-cart-v2';
 const KEY_CLIENTE = 'bh-cliente';
 
-let lineas = store.get(KEY, []);
-if (!Array.isArray(lineas)) lineas = [];
+// Líneas guardadas: se descarta lo que esté dañado y la cantidad se limita de 1 a 99.
+const limpiar = (arr) => (Array.isArray(arr) ? arr : [])
+  .filter((l) => l && typeof l === 'object' && l.id != null && typeof l.k === 'string')
+  .map((l) => ({ ...l, id: String(l.id), qty: Math.min(99, Math.max(1, Math.round(Number(l.qty)) || 1)), campos: l.campos && typeof l.campos === 'object' ? l.campos : {} }));
+let lineas = limpiar(store.get(KEY, []));
 
 const emitir = () => document.dispatchEvent(new CustomEvent('cart:change'));
 const guardar = () => { store.set(KEY, lineas); emitir(); };
 window.addEventListener('storage', (e) => {
-  if (e.key === KEY) { lineas = store.get(KEY, []) || []; emitir(); if (dlg?.open) render(); }
+  if (e.key === KEY) { lineas = limpiar(store.get(KEY, [])); emitir(); if (dlg?.open) render(); }
 });
 
 const claveLinea = (id, talla, opcion, campos) =>
@@ -30,13 +33,24 @@ export const cart = {
       let precio = p.precio;
       if (l.opcion) {
         const o = p.opciones.find((x) => x.nombre === l.opcion);
-        if (o) precio = Number(o.precio) || 0;
+        precio = o ? Number(o.precio) || 0 : precioDesde(p);
       } else if (p.opciones.length) precio = precioDesde(p);
       out.push({ ...l, p, precio, subtotal: Math.round(precio * l.qty * 100) / 100 });
     }
     return out;
   },
-  count() { return lineas.reduce((n, l) => n + l.qty, 0); },
+  // Solo cuenta productos que siguen en el catálogo (si aún no cargó, cuenta todo).
+  count() {
+    const listo = todos().length > 0;
+    return lineas.reduce((n, l) => (!listo || porId(l.id) ? n + l.qty : n), 0);
+  },
+  // Quita del carrito los productos que ya no existen o fueron ocultados.
+  depurar() {
+    if (!todos().length) return;
+    const antes = lineas.length;
+    lineas = lineas.filter((l) => porId(l.id));
+    if (lineas.length !== antes) guardar(); else emitir();
+  },
   add(p, { qty = 1, talla = '', opcion = '', campos = {} } = {}) {
     const k = claveLinea(p.id, talla, opcion, campos);
     const ya = lineas.find((l) => l.k === k);
@@ -60,26 +74,41 @@ export const cart = {
     const envios = it.map((l) => CATS[l.p.cat].envio);
     const hayFisico = envios.includes('fisico');
     const hayRosas = envios.includes('acordar');
-    const baseEnvio = it.filter((l) => CATS[l.p.cat].envio !== 'acordar').reduce((s, l) => s + l.subtotal, 0);
+    // El envío gratis solo se calcula con productos que se envían (ropa): lo digital no cuenta.
+    const baseEnvio = it.filter((l) => CATS[l.p.cat].envio === 'fisico').reduce((s, l) => s + l.subtotal, 0);
     const { costo, gratisDesde } = CONFIG.envio;
     const envio = hayFisico ? (baseEnvio >= gratisDesde ? 0 : costo) : 0;
     const sorteoOn = CONFIG.sorteo.activo;
     const min = CONFIG.sorteo.minimo;
+    // Lo que no suma para el sorteo (por ejemplo las recargas de Ecuabet, solo +18)
+    const excluye = CONFIG.sorteo.excluyeSubs || [];
+    const subSorteo = it.filter((l) => !excluye.includes(l.p.sub)).reduce((s, l) => s + l.subtotal, 0);
     return {
       items: it, subtotal, envio, total: subtotal + envio, hayFisico, hayRosas,
       gratisFalta: Math.max(0, gratisDesde - baseEnvio), gratisOk: baseEnvio >= gratisDesde,
-      sorteoOn, sorteoOk: sorteoOn && subtotal >= min, sorteoFalta: Math.max(0, min - subtotal),
+      sorteoOn, sorteoOk: sorteoOn && subSorteo >= min, sorteoFalta: Math.max(0, min - subSorteo), subSorteo,
       adultos: it.some((l) => l.p.edad >= 18),
+      conNota: it.some((l) => l.campos.nota),
       baseEnvio,
     };
   },
 };
 
+// ── Número de pedido (para que ambos podamos encontrarlo en el chat) ──
+function idPedido() {
+  const f = new Intl.DateTimeFormat('en-CA', { timeZone: CONFIG.zonaHoraria }).format(new Date()); // AAAA-MM-DD
+  const letras = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  const buf = new Uint8Array(4);
+  (globalThis.crypto || { getRandomValues: (b) => b.map(() => Math.random() * 256) }).getRandomValues(buf);
+  return `BH-${f.slice(5, 7)}${f.slice(8, 10)}-${[...buf].map((n) => letras[n % letras.length]).join('')}`;
+}
+
 // ── Mensaje de WhatsApp ─────────────────────────────────────────────
 function mensaje(c, f) {
   const t = c;
+  const gal = f.provincia === 'Galápagos';
   const L = [];
-  L.push('*Pedido BHALLEFFORT*', '');
+  L.push(`*Pedido BHALLEFFORT* · N.º ${f.id}`, '');
   L.push(`*Cliente:* ${f.nombre}`);
   if (f.provincia) L.push(`*Provincia:* ${f.provincia}`);
   if (f.direccion) L.push(`*Dirección / ciudad:* ${f.direccion}`);
@@ -95,9 +124,10 @@ function mensaje(c, f) {
     L.push(`${i + 1}. ${partes.join(' · ')} · ${l.qty}${unidad ? ' ' + unidad : ''} × ${money(l.precio)} = ${money(l.subtotal)}`);
   });
   L.push('', `Subtotal: ${money(t.subtotal)}`);
-  if (t.hayFisico) L.push(`Envío (ropa): ${t.envio === 0 ? 'Gratis' : money(t.envio)}`);
+  if (t.hayFisico) L.push(gal ? 'Envío (ropa) a Galápagos: se confirma por WhatsApp' : `Envío (ropa): ${t.envio === 0 ? 'Gratis' : money(t.envio)}`);
   if (t.hayRosas) L.push('Envío de rosas: por acordar contigo');
-  L.push(`*Total a pagar: ${money(t.total)}*`);
+  L.push(gal && t.hayFisico ? `*Total sin envío: ${money(t.subtotal)}* (más el envío por confirmar)` : `*Total a pagar: ${money(t.total)}*`);
+  if (t.conNota) L.push('Nota: entiendo que el valor final se confirma por WhatsApp según el detalle (duración, perfil o cuenta) que indiqué.');
   if (t.sorteoOk) L.push('', `Sorteo Mensual: sí quiero participar (compra desde ${money(CONFIG.sorteo.minimo)}).`);
   if (t.adultos) L.push('Declaro que soy mayor de 18 años.');
   L.push('', `Entiendo que el pago se hace únicamente a nombre de ${CONFIG.pago.titular}.`);
@@ -164,17 +194,17 @@ function render() {
   const falta = t.gratisFalta;
   const barras = [];
   if (t.sorteoOn) {
-    const p = Math.min(1, t.subtotal / CONFIG.sorteo.minimo);
+    const p = Math.min(1, t.subSorteo / CONFIG.sorteo.minimo);
     barras.push(t.sorteoOk
       ? html`<div class="bar done" role="status"><b>¡Ya estás participando en el Sorteo Mensual!</b>Tu número del 1 al ${CONFIG.sorteo.numeroMaximo} te lo enviamos por WhatsApp.</div>`
       : html`<div class="bar gold"><span>Te faltan <b>${money(t.sorteoFalta)}</b> para participar en el <b>Sorteo Mensual</b></span>
-          <div class="track" role="progressbar" aria-label="Avance hacia el número del sorteo" aria-valuemin="0" aria-valuemax="${CONFIG.sorteo.minimo}" aria-valuenow="${t.subtotal.toFixed(2)}"><i style="--p:${p}"></i></div></div>`);
+          <div class="track" role="progressbar" aria-label="Avance hacia el número del sorteo" aria-valuemin="0" aria-valuemax="${CONFIG.sorteo.minimo}" aria-valuenow="${t.subSorteo.toFixed(2)}"><i style="--p:${p}"></i></div></div>`);
   }
   if (t.hayFisico) {
     const p = Math.min(1, t.baseEnvio / CONFIG.envio.gratisDesde);
     barras.push(t.gratisOk
-      ? html`<div class="bar done" role="status"><b>¡Envío gratis!</b>Tu pedido de ropa supera ${money(CONFIG.envio.gratisDesde)}.</div>`
-      : html`<div class="bar"><span>Te faltan <b>${money(falta)}</b> para <b>envío gratis</b></span>
+      ? html`<div class="bar done" role="status"><b>¡Envío gratis!</b>Tu compra de ropa supera ${money(CONFIG.envio.gratisDesde)}.</div>`
+      : html`<div class="bar"><span>Te faltan <b>${money(falta)}</b> en ropa para <b>envío gratis</b></span>
           <div class="track" role="progressbar" aria-label="Avance hacia el envío gratis" aria-valuemin="0" aria-valuemax="${CONFIG.envio.gratisDesde}" aria-valuenow="${t.baseEnvio.toFixed(2)}"><i style="--p:${p}"></i></div></div>`);
   }
   const lineasHtml = t.items.map((l) => {
@@ -217,7 +247,8 @@ function render() {
           <input class="input" id="f-nombre" name="nombre" autocomplete="name" required value="${cli.nombre || ''}" placeholder="Nombre y apellido"><span class="err" data-err="nombre"></span></div>
         ${t.hayFisico ? html`
           <div class="field"><label for="f-prov">Provincia (envío de ropa)</label>
-            <select class="input" id="f-prov" name="provincia" required><option value="">Elige tu provincia</option>${prov}</select><span class="err" data-err="provincia"></span></div>
+            <select class="input" id="f-prov" name="provincia" required><option value="">Elige tu provincia</option>${prov}</select>
+            <small class="gal-note" id="gal-note" ${cli.provincia === 'Galápagos' ? '' : raw('hidden')}>Para Galápagos el costo del envío se confirma por WhatsApp.</small><span class="err" data-err="provincia"></span></div>
           <div class="field"><label for="f-dir">Ciudad y dirección de entrega</label>
             <textarea class="input" id="f-dir" name="direccion" rows="2" autocomplete="street-address" required placeholder="Ciudad, calle y referencia">${cli.direccion || ''}</textarea><span class="err" data-err="direccion"></span></div>` : ''}
         ${t.hayRosas ? html`
@@ -225,6 +256,7 @@ function render() {
             <select class="input" id="f-pais" name="pais" required><option value="">Elige el país</option>${pais}</select>
             <small>El envío de rosas no tiene costo fijo: se acuerda contigo por WhatsApp.</small><span class="err" data-err="pais"></span></div>` : ''}
         ${t.adultos ? html`<label class="age-check"><input type="checkbox" name="edad" required><span>Declaro que soy <b>mayor de 18 años</b> y juego con responsabilidad.</span></label><span class="err" data-err="edad"></span>` : ''}
+        <label class="age-check"><input type="checkbox" name="acepto" required><span>Acepto que usen estos datos solo para gestionar mi pedido. <a href="#/legal/privacidad" data-act="cerrar">Política de privacidad</a>.</span></label><span class="err" data-err="acepto"></span>
       </form>
     </div>
     <div class="dr-foot">
@@ -233,6 +265,7 @@ function render() {
         ${t.hayFisico ? html`<div><span>Envío (ropa)</span><span class="num">${t.envio === 0 ? 'Gratis' : money(t.envio)}</span></div>` : ''}
         ${t.hayRosas ? html`<div><span>Envío de rosas</span><span>Por acordar</span></div>` : ''}
         <div class="total"><span>Total</span><span>${money(t.total)}</span></div>
+        ${t.conNota ? html`<p class="pay-note" style="margin:6px 0 0"><span>Si pediste otra duración, perfil o cuenta en el detalle, el valor final te lo confirmamos por WhatsApp antes de pagar.</span></p>` : ''}
       </div>
       <button class="btn btn-wa btn-lg btn-block" data-act="comprar">${raw(icon('send'))} Comprar por WhatsApp</button>
       <p class="pay-note">${raw(icon('shield-check'))}<span>Paga solo a nombre de <b>${CONFIG.pago.titular}</b>. Si te piden depositar a otro nombre, no lo hagas y escríbenos.</span></p>
@@ -263,6 +296,7 @@ function onInput(e) {
   const d = Object.fromEntries(new FormData(f));
   store.set(KEY_CLIENTE, { nombre: d.nombre || '', provincia: d.provincia || '', direccion: d.direccion || '', pais: d.pais || '' });
   e.target.removeAttribute('aria-invalid');
+  if (e.target.name === 'provincia') { const gn = f.querySelector('#gal-note'); if (gn) gn.hidden = d.provincia !== 'Galápagos'; }
   const er = f.querySelector(`[data-err="${e.target.name}"]`);
   if (er) er.textContent = '';
 }
@@ -277,6 +311,7 @@ function comprar() {
   if (t.hayFisico && (!d.direccion || d.direccion.trim().length < 6)) faltas.direccion = 'Escribe tu ciudad y dirección.';
   if (t.hayRosas && !d.pais) faltas.pais = 'Elige el país de destino.';
   if (t.adultos && !d.edad) faltas.edad = 'Debes confirmar que eres mayor de 18 años.';
+  if (!d.acepto) faltas.acepto = 'Marca la casilla para poder enviar tu pedido.';
   f.querySelectorAll('.err').forEach((x) => (x.textContent = ''));
   f.querySelectorAll('[aria-invalid]').forEach((x) => x.removeAttribute('aria-invalid'));
   const claves = Object.keys(faltas);
@@ -292,6 +327,7 @@ function comprar() {
     return;
   }
   const url = waLink(mensaje(t, {
+    id: idPedido(),
     nombre: d.nombre.trim(),
     provincia: t.hayFisico ? d.provincia : '',
     direccion: t.hayFisico ? d.direccion.trim() : '',

@@ -20,7 +20,7 @@ function normalizar(p) {
 
 export function cargar() {
   if (!listo) {
-    listo = fetch('productos.json', { cache: 'no-cache' })
+    listo = (globalThis.__bh?.productos || fetch('productos.json', { cache: 'no-cache' }))
       .then((r) => {
         if (!r.ok) throw new Error('HTTP ' + r.status);
         return r.json();

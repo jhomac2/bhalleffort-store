@@ -1,0 +1,38 @@
+# Vuelve a crear las páginas para Google (/p/..., /c/... y sitemap.xml) cada vez que cambian
+# los productos o los ajustes desde el panel /admin/. No necesitas hacer nada.
+name: Páginas SEO
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - productos.json
+      - ajustes.json
+      - js/config.js
+      - js/schema.js
+      - tools/build-seo.mjs
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: seo
+  cancel-in-progress: true
+
+jobs:
+  seo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Generar páginas
+        run: node tools/build-seo.mjs
+      - name: Guardar cambios
+        run: |
+          git config user.name "BHALLEFFORT bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A p c sitemap.xml index.html
+          git diff --cached --quiet || (git commit -m "Actualiza páginas SEO" && git push)

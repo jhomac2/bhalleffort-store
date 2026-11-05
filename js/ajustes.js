@@ -39,7 +39,7 @@ export function aplicarAjustes(data) {
 
 export async function cargarAjustes(url = 'ajustes.json') {
   try {
-    const r = await fetch(url, { cache: 'no-cache' });
+    const r = await ((url === 'ajustes.json' && globalThis.__bh?.ajustes) || fetch(url, { cache: 'no-cache' }));
     if (!r.ok) return null;
     const data = await r.json();
     aplicarAjustes(data);

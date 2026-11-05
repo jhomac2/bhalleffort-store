@@ -363,6 +363,11 @@ function esqueleto() {
 
 async function iniciar() {
   root.classList.add('js');
+  // Si entraron por una página estática (/p/... o /c/...), pasamos a la tienda sin recargar.
+  if (window.__BH_RUTA && !location.hash) history.replaceState(null, '', '/' + window.__BH_RUTA);
+  // El catálogo y los ajustes se piden a la vez (antes uno esperaba al otro).
+  let falloCatalogo = false;
+  const pCatalogo = cargar().catch((err) => { console.error(err); falloCatalogo = true; return null; });
   await cargarAjustes();
   pintarCabecera();
   pintarMenu();
@@ -378,12 +383,9 @@ async function iniciar() {
   enlazarGlobal();
   esqueleto();
 
-  let falloCatalogo = false;
-  const [, im] = await Promise.all([
-    cargar().catch((err) => { console.error(err); falloCatalogo = true; return null; }),
-    cargarLogo(),
-  ]);
-  aplicarLogo(im);
+  await pCatalogo;
+  cargarLogo().then(aplicarLogo); // el logo ya no retrasa la primera pantalla
+  if (!falloCatalogo) cart.depurar(); // quita del carrito lo que ya no existe en el catálogo
   if (falloCatalogo) {
     main.innerHTML = `<div class="container" style="padding-block:clamp(40px,8vw,120px)"><div class="empty"><span class="empty-ic">${icon('triangle-alert')}</span><h1 style="font-size:clamp(2rem,1.4rem+3vw,3.2rem)">No pudimos cargar el catálogo</h1><p>Revisa tu conexión e inténtalo de nuevo, o escríbenos por WhatsApp.</p><div class="hero-cta"><button class="btn btn-primary btn-lg" onclick="location.reload()">Reintentar</button><a class="btn btn-wa btn-lg" href="${waLink('Hola, la página no me carga el catálogo.')}" target="_blank" rel="noopener">WhatsApp</a></div></div></div>`;
     window.addEventListener('hashchange', () => location.reload());

@@ -11,9 +11,9 @@ export const CONFIG = {
     nombre: 'BHALLEFFORT',
     eslogan: 'Lo mejor al mejor precio',
     atencion: 'Atención al instante', // frase que aparece en el inicio y en el botón flotante de WhatsApp
-    heroTitulo: 'Todo lo encuentras', // título grande del inicio (primera parte)
-    heroResalte: 'aquí.', // segunda parte del título, sale en azul
-    heroBajada: 'Ropa, recargas, streaming, rosas y acompañamiento estudiantil en un solo lugar. Arma tu carrito y confirma por WhatsApp.', // texto bajo el título
+    heroTitulo: 'Ropa, recargas y streaming', // título grande del inicio (primera parte)
+    heroResalte: 'en Tabacundo.', // segunda parte del título, sale en azul
+    heroBajada: 'También rosas y acompañamiento estudiantil. Arma tu carrito y confirma por WhatsApp; retira en el local o te lo enviamos.', // texto bajo el título
     heroImagen: 'img/banners/inicio.webp', // imagen de la primera lámina del carrusel (1600 × 640 px)
     logo: 'img/logo.webp', // se sube con el panel /admin/ (ver GUIA.md). Si no existe, se usa un monograma.
     dominio: 'https://bhalleffort.com',
@@ -73,6 +73,7 @@ export const CONFIG = {
 
   // ── Pagos oficiales (aviso antifraude) ────────────────────────────
   pago: {
+    metodos: 'transferencia bancaria y depósito', // si aceptas PayPhone u otro, agrégalo aquí (ej.: 'transferencia, depósito y PayPhone')
     titular: 'Katherine Pineda',
     correo: 'agromhasvida5@gmail.com',
   },
@@ -91,6 +92,7 @@ export const CONFIG = {
     numeroMaximo: 100, // se asigna un número del 1 al 100 por compra válida
     premioDelMes: '', // ejemplo: "Audífonos inalámbricos". Vacío = "se anuncia en nuestras redes"
     fechaDelSorteo: '', // ejemplo: "30 de octubre". Vacío = "se anuncia en nuestras redes"
+    excluyeSubs: ['ecuabet'], // subcategorías que NO suman para el sorteo (las recargas de Ecuabet son solo +18)
     historial: [], // ejemplo: [{ mes: 'Octubre 2026', numero: 42, premio: 'Audífonos', enlace: 'https://...' }]
   },
 

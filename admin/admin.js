@@ -253,9 +253,14 @@ const hoyES = () => new Date().toLocaleDateString('es-EC', { day: 'numeric', mon
 function vistaAjustes() {
   const s = CONFIG.sorteo, l = CONFIG.local, g = CONFIG.legal, e = CONFIG.ecuabet;
   const NOM_RED = { tiktok: 'TikTok', instagram: 'Instagram', youtube: 'YouTube', facebook: 'Facebook' };
+  const faltan = [];
+  if (!g.titular) faltan.push('nombre legal del titular');
+  if (!g.ruc) faltan.push('RUC');
+  if (s.activo && (!s.premioDelMes || !s.fechaDelSorteo)) faltan.push('premio y fecha del sorteo (o apaga el sorteo)');
   return html`<form class="a-card" id="f-ajustes" autocomplete="off" novalidate>
     <h2>Ajustes del sitio</h2>
     <p class="a-muted">Los cambios aparecen en la tienda después de pulsar <b>Publicar</b>.</p>
+    ${faltan.length ? html`<div class="a-warn" role="status"><b>Falta completar antes de vender:</b> ${faltan.join(', ')}. Mientras tanto esos datos no se muestran en las páginas legales.</div>` : ''}
     <h3>Cuentas de cada sección</h3>
     <p class="a-muted">Pega el enlace completo (empieza con https://). En Ropa, Recargas, Streaming y Rosas, lo que dejes vacío usa la cuenta principal de la tienda. En Acompañamiento estudiantil, lo vacío se muestra como «Próximamente».</p>
     ${SECCIONES.map((sec) => html`<fieldset class="a-sec"><legend>${CATS[catPorSlug(sec)].nombre}</legend>
@@ -270,7 +275,7 @@ function vistaAjustes() {
     <div class="a-field"><label for="e-bono">Regalo al crear cuenta con tu ayuda</label><input class="input" id="e-bono" name="ecuabet.bono" value="${e.bono}" maxlength="140"><small>Se muestra como: «Regalo al crear tu cuenta con nuestra ayuda: …».</small></div>
     <div class="a-field"><label for="e-nota">Aviso de condiciones</label><input class="input" id="e-nota" name="ecuabet.nota" value="${e.nota}" maxlength="200"></div>
     <h3>Sorteo mensual</h3>
-    <label class="a-check"><input type="checkbox" name="sorteo.activo" ${s.activo ? raw('checked') : ''}> Sorteo activo (si lo apagas, desaparece de todo el sitio)</label>
+    <label class="a-check"><input type="checkbox" name="sorteo.activo" ${s.activo ? raw('checked') : ''}> Sorteo activo (si lo apagas, desaparece de todo el sitio). Actívalo solo cuando hayas escrito el premio y la fecha.</label>
     <div class="a-grid two">
       <div class="a-field"><label for="s-premio">Premio de este mes</label><input class="input" id="s-premio" name="sorteo.premioDelMes" value="${s.premioDelMes}" placeholder="Ej.: Audífonos inalámbricos"></div>
       <div class="a-field"><label for="s-fecha">Fecha del sorteo</label><input class="input" id="s-fecha" name="sorteo.fechaDelSorteo" value="${s.fechaDelSorteo}" placeholder="Ej.: 30 de octubre"></div>
@@ -284,7 +289,7 @@ function vistaAjustes() {
       <div class="a-field"><label for="l-ref">Referencia (opcional)</label><input class="input" id="l-ref" name="local.referencia" value="${l.referencia}" placeholder="Frente a…, junto a…"></div>
     </div>
     <h3>Datos legales</h3>
-    <p class="a-muted">Aparecen en el Aviso Legal, Términos, Privacidad y Sorteo. Mientras estén vacíos, la tienda los muestra resaltados como PENDIENTE.</p>
+    <p class="a-muted">Aparecen en el Aviso Legal, Términos, Privacidad y Sorteo. Mientras estén vacíos no se muestran en la tienda; complétalos para identificar al responsable del negocio.</p>
     <div class="a-grid two">
       <div class="a-field"><label for="g-tit">Nombre legal del titular</label><input class="input" id="g-tit" name="legal.titular" value="${g.titular}" placeholder="Nombres y apellidos completos"></div>
       <div class="a-field"><label for="g-ruc">RUC</label><input class="input" id="g-ruc" name="legal.ruc" value="${g.ruc}" inputmode="numeric" placeholder="13 dígitos"></div>
@@ -899,6 +904,7 @@ function guardarAjustes(form) {
   salida.sorteo.historial = hist;
   const cambioLegal = ['titular', 'ruc', 'ciudad', 'direccion'].some((k) => (S.ajustes?.legal?.[k] || '') !== salida.legal[k]);
   salida.legal.actualizado = cambioLegal || !S.ajustes?.legal?.actualizado ? hoyES() : S.ajustes.legal.actualizado;
+  if (salida.sorteo.activo && (!salida.sorteo.premioDelMes || !salida.sorteo.fechaDelSorteo)) { $('#e-aj').textContent = 'Para activar el sorteo escribe el premio y la fecha.'; return; }
   const ruc = salida.legal.ruc;
   if (ruc && !/^\d{13}$/.test(ruc)) { $('#e-aj').textContent = 'El RUC debe tener 13 números.'; return; }
   $('#e-aj').textContent = '';
